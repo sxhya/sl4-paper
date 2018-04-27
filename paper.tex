@@ -1,0 +1,80 @@
+\documentclass[oneside, 10pt]{amsart}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage[hyperref=true, backend=bibtex, firstinits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
+\usepackage[capitalize]{cleveref}
+\usepackage[matrix,arrow,curve]{xy}
+\usepackage{enumitem}
+
+\addbibresource{lemma.bib}
+\renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
+\renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+\newbibmacro{string+doi}[1]{\iffieldundef{doi}{\iffieldundef{url}{#1}{\href{\thefield{url}}{#1}}}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
+\DeclareFieldFormat[article, inproceedings, inbook, book, thesis]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
+\renewcommand*{\bibfont}{\footnotesize}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\rk}{rk}
+\newcommand{\XX}[1]{\mathcal{X}_{#1}}
+\newcommand{\RR}[1]{\mathcal{R}_{#1}}
+
+
+\newtheorem{thm}{Theorem}
+\Crefname{thm}{Theorem}{Theorems}
+\numberwithin{equation}{section}
+
+\newtheorem{lem}{Lemma}
+\numberwithin{lem}{section}
+\Crefname{lemma}{Lemma}{Lemmas}
+
+\newtheorem{cor}[lem]{Corollary}
+\Crefname{cor}{Corollary}{Corollaries}
+
+\newtheorem{prop}[lem]{Proposition}
+\Crefname{prop}{Proposition}{Propositions}
+
+\newtheorem*{thm*}{Theorem}
+\newtheorem*{lemma*}{Lemma}
+
+\theoremstyle{definition}
+
+\newtheorem{def}[lem]{Definition}
+\Crefname{def}{Definition}{Definitions}
+\newtheorem{example}[lem]{Example}
+\Crefname{example}{Example}{Examples}
+
+\theoremstyle{remark}
+
+\newtheorem{rem}[lem]{Remark}
+\Crefname{rem}{Remark}{Remarks}
+
+
+\title{On $K_2$-analogue of Serre problem for $\SL_4$}
+\keywords {Steinberg group, $K_2$-functor, Serre problem
+ {\em Mathematical Subject Classification (2010):} 19C20}
+\author {Sergey Sinchuk}
+\address{Chebyshev laboratory, St. Petersburg State University, St. Petersburg, Russia}
+\email {sinchukss at gmail.com}
+\date {\today}
+
+\begin{document}   
+\maketitle
+
+\section{Introduction}
+
+\section{Preliminaries}
+
+\section{Overview of Tulenbayev's proof of $K_2$-analogue of Serre problem}
+
+\section{Proof of the main result}
+
+\subsection{Structure theorem for Steinberg groups}
+The aim of section is to formulate sufficient conditions implying the main structure result for Steinberg groups
+
+Let $\mu$ be a microweight of the root system $\Phi$. Denote by $N_\mu$
+\begin{def}
+ 
+\end{def}
+
+
+\printbibliography
+\end{document}
