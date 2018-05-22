@@ -15,12 +15,14 @@
 \DeclareMathOperator{\St}{St}
 \DeclareMathOperator{\E}{E}
 \DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SL}{SL}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\K}{K}
 \DeclareMathOperator{\rk}{rk}
 
+\newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\XX}[1]{\mathcal{X}_{#1}}
 \newcommand{\RR}[1]{\mathcal{R}_{#1}}
 
@@ -78,8 +80,38 @@
 
 \section{Proof of the main result}
 
-\subsection{General structure theorem for Steinberg groups}
-The aim of section is to formulate sufficient conditions implying the main structure result for Steinberg groups
+\subsection{$\sigma$-automorphisms}
+%Our notation and conventions follows~\cite[\S~4]{Vav09}.
+Let $\Phi$ be an irreducible root system with some fixed basis of simple roots $\Pi = \{\alpha_1, \ldots, \alpha_\ell\}$.
+We denote by $\Phi^\vee$ the \emph{dual root system of $\Phi$} consisting of vectors $\alpha^\vee = 2\alpha/(\alpha, \alpha)$, $\alpha\in \Phi$.
+As usual, $P(\Phi^\vee)$ denotes the lattice spanned by the \emph{fundamental weights $\varpi_i$}.
+Recall that $\varpi_i$ are uniquely determined by relations $\langle\varpi_i, \alpha_j^\vee \rangle = (\varpi_i, \alpha_j) = \delta_{ij}.$
+
+Notice that for $\varpi \in P(\Phi^\vee)$ and $\beta \in \ZZ \Phi$ one has $(\varpi, \beta) \in \ZZ $.
+Consequently, for $\varepsilon \in R^*$ and $\varpi \in P(\Phi^\vee)$ the formula $\chi_{\varpi, \varepsilon}(\beta) = \varepsilon ^ {(\varpi, \beta)}$
+defines a character $\chi_{\varpi, \varepsilon} \in \Hom(\ZZ \Phi, R^*)$.
+
+Consider the action of $H=\Hom(\ZZ \Phi, R^*)$ on the set of generators $\mathcal{X}_{\Phi, R}$ of the Steinberg group $\St(\Phi, R)$ given by
+\begin{equation} \chi \cdot x_\alpha(\xi) = x_\alpha(\chi(\alpha) \cdot \xi),\ \chi \in H,\ \alpha\in \Phi,\ \xi \in R. \end{equation}
+Since $\chi$ is a character, this action respects the set of Steinberg relations $\mathcal{R}_{\Phi, R}$ and therefore gives a well-defined action of $H$ on $\St(\Phi, R)$.
+
+In the sequel we will be mostly interested in the following example.
+\begin{example}
+Let $A$ be a ring, take $R$ to be the ring of Laurent polynomials $A[t, t^{-1}]$ and let $\alpha_i \in \Pi$ be a simple root.
+Define automorphisms $\beta_i^+$ and $\beta_i^-$ of $\St(\Phi, R)$ via $\beta_i^+ = \chi_{\varpi_i, t}$, $\beta_i^- = \chi_{\varpi_i, t^{-1}}$.
+It is easy to see that
+\begin{equation}\label{eq:sigma_act} \sigma_i^\pm(x_\alpha(\xi)) = x_\alpha(t^{\pm m_i(\alpha)} \cdot \xi),\end{equation}
+where $m_k(\alpha)$ denotes the coefficient in the expansion of $\alpha$ in $\Pi$, i.\,e. $\alpha = \sum m_k(\alpha) \alpha_k$.
+\end{example}
+
+One of the key steps of our proof of Suslin lemma for $K_2$ is to define an analogue of $\sigma_i$ for the group $\St(A[t])$.
+Of course, we cannot expect such map to be automorphism or even be defined on the whole group $\St(A[t])$.
+However, it turns out that for certain $i$ is still possible to define certain subgroups of $\St(A[t])$ and the maps modeling $\sigma_i$ between them.
+
+\subsection{Structure theorem for Steinberg groups}
+
+
+sufficient conditions implying the main structure result for Steinberg groups.
 
 Let $\mu$ be a microweight of the root system $\Phi$. Denote by $N_\mu$
 
@@ -171,11 +203,13 @@ More formally, \cite[Proposition 3.10]{LS17} asserts that $\St(n,\,A,\,I)$ admit
 subject to relations
 \setcounter{equation}{0}
 \renewcommand{\theequation}{R\arabic{equation}}
+
 \begin{align}
 &F(u,\,v)F(u,\,w)=F(u,\,v+w), \label{add4}\\
 &S(u,\,v)S(w,\,v)=S(u+w,\,v), \label{add5}\\
-&F(u,\,v)F(u',\,v')F(u,\,v)\inv=F(t(u,\,v)u',\,t(v,\,u)\inv v'), \label{conj3} \\
-&F(ge_1,\,g^*e_2a)=S(ge_1a,\,g^*e_2),\ \text{for all}\ a\in I,\, g\!\in \E(n, A). \label{coinc} \end{align}
+&F(u,\,v)F(u',\,v')F(u,\,v)^{-1}=F(t(u,\,v)u',\,t(v,\,u)^{-1} v'), \label{conj3} \\
+&F(ge_1,\,g^*e_2a)=S(ge_1a,\,g^*e_2),\ \text{for all}\ a\in I,\, g \in E(n, A).
+\end{align}
 Here $g^*$ denotes the contragradient matrix, i.\,e. $g^* = {g^{-1}}^t$ and $e_i$ is the standard basis vector of $A^n$.
 
 \setcounter{equation}{3}
@@ -280,7 +314,7 @@ It is not hard to verify that the condition~\eqref{eq:coherence-condition} is sa
 
 \subsection{\texorpdfstring{$A^1$}{A1}-invariance of the fundamental group}
 
-\newpage
-
+\DeclareRobustCommand{\VAN}[2]{#2}
 \printbibliography
+
 \end{document}
