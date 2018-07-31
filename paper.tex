@@ -97,42 +97,51 @@ Let $A$ be arbitrary commutative unital ring and $\mathfrak{m}$ be its ideal.
 Denote by $B$ the ring $\mathfrak{m}[t^{-1}] + A[t]$ with the obvious $\mathbb{Z}$-grading.
 Clearly, the $k$-th homogeneous component $B_k$ of $B$ equals $A\cdot t^k$ for $k \geq 0$ or $B_k = \mathfrak{m} \cdot t^k$ for $k<0$.
 
-For $n \geq 1$ consider the following collections of generators:
+For $n \geq 1$ consider the following collections of homogeneous generators:
 \[\XX{n} = \{ x_\alpha(\xi) \mid \xi \in B_k,\text{ for } k\leq n\}. \]
 It is obvious that $\XX{n} \subseteq \XX{n+1}$, denote by $\XX{\infty}$ the union of all $\XX{n}$'s.
 
 Let $\Phi$ be a simply-laced irreducible root system of rank $\geq 3$.
-Denote by $G_m$ the group presented by generators $\mathcal{X}_m$ and the set of relations $\RR{m}$ consisting of the following
+Fir $m\geq 2$ denote by $G_m$ the group presented by generators $\mathcal{X}_m$ and the set of relations $\RR{m}$ consisting of the following
  three families of relations:
 \begin{align}
  \label{eq:am} \tag{$a_m$} x_\alpha(\xi) x_\alpha(\eta) & = x_\alpha(\xi+\eta),&  \xi,\eta\in B_k,\ k\leq m;&\\
  \label{eq:bm} \tag{$b_m$} [x_\alpha(\xi), x_{\alpha'}(\eta))] &  = 1, & \text{in the case $\alpha+\alpha'\not\in\Phi\cup\{0\}$,}\\
  \nonumber                                                     &       & \xi \in B_k,\ \eta \in B_l,\ l,k\leq m;\\
  \label{eq:cm} \tag{$c_m$} [x_\alpha(\xi), x_{\alpha'}(\eta)] & = x_{\alpha+\alpha'}(N_{\alpha,\alpha'}\xi\eta), & \text{in the case $\alpha+\alpha'\in \Phi$,}\\
- \nonumber                                                    &                                                  & \xi \in B_k,\ \eta \in B_l,\ l, k, l+k \leq m.
-\end{align}
+ \nonumber                                                    &  & \xi \in B_k,\ \eta \in B_l,\ l, k, l+k \leq m.
+ \end{align}
 
-The aim of this subsection is to the following analogue of~\cite[Lemma~3.3]{Tu83}. 
+Now define the group $G_1$ presented by generators $\mathcal{X}_1$ and the set of relations $\RR{1}$ consisting of 
+ the above families of relations $(a_1)$, $(b_1)$, $(c_1)$ with one extra family of relations
+\begin{equation} \nonumber \tag{$d_1$}
+[[x_{\alpha}(\xi t), x_{\beta}(\eta)],  x_{\gamma}(\zeta t)] = [[x_{\alpha}(\xi t), x_{\beta}(\eta t)],  x_{\gamma}(\zeta)], 
+\end{equation}
+where $\alpha, \beta, \gamma \in \Phi$ are such that $\alpha+\beta+\gamma \in \Phi$ and $\xi, \eta, \zeta \in A$.
+
+The aim of this subsection is to demonstrate the following analogue of~\cite[Lemma~3.3]{Tu83}. 
 \begin{lemma}\label{lem:tul3.3}
- For all simply-laced root systems of rank $\geq 3$ the natural inclusion of generators induces an isomorphism $G_1 \to \St(\Phi, B).$
+ Let $\Phi$ be a simply-laced root systems of rank $\geq 3$. 
+ Then the natural inclusion of generators $\mathcal{X}_n \subseteq \mathcal{X}_{n+1}$ induces an isomorphism $G_n \to G_{n+1}$ for $n\geq 1$.
+ Consequently, the group $\St(\Phi, B)$ is isomorphic to $G_1$.
 \end{lemma}
 Unfortunately, the lemma cannot be proved by a slight modification of the original short argument of Tulenbayev.
  %for even in the linear case it works only for $\mathrm{rk}(\Phi)\geq 4$, and, in particular, is unsuitable in the case $\Phi=\mathsf{D}_\ell$.
-Instead, we have to employ a variant of much longer argument of U.~Rehmann and C.~Soul{\'e}, see~\cite{Re75,RS76}.
+Instead, we have to employ a varition of a much longer argument of U.~Rehmann and C.~Soul{\'e}, cf~\cite{Re75,RS76}.
 
 %Denote by $F(S)$ the free group on the generating set $S$.
 %It is clear that $\RR{n}\subseteq\RR{n+1}$, moreover $\langle \RR{n} \rangle = \langle \RR{\infty}\rangle \cap F(\XX{n})$.
 %well, not so clear, actually :)
-To prove~\cref{lem:tul3.3} it suffices to show that the natural map $\theta_m \colon G_m \to G_{m+1}$ is an isomorphism for $m\geq 1$.
+To prove~\cref{lem:tul3.3} it suffices to show that the natural map $\theta_m \colon G_m \to G_{m+1}$ is an isomorphism for $m\geq 2$.
 Indeed, this would give the required isomorphism $G_1 \cong \St(\Phi, B)$ since $\langle \XX{\infty} \mid \RR{\infty} \rangle$ is evidently isomorphic to $\St(\Phi, B)$.
 
-\begin{rem}
-There are two reasons why we can't simply refer to~\cite{Re75} or~\cite{RS76} for the proof of~\cref{lem:tul3.3}.
-The first is that Rehmann and Soul{\'e} prove that $G_m \to G_{m+1}$ is an isomorphism for $m\geq 2$, while we want to establish this fact starting from $m = 1$.
-The second is that they prove their results only in the special case $B = A[t]$, moreover, they make assumptions about the ground ring $A$
-(it is assumed that $A=k$ is a field in~\cite{Re75} and that $A=\mathbb{Z}$ in~\cite{RS76}).
+%\begin{rem}
+%There are two reasons why we can't simply refer to~\cite{Re75} or~\cite{RS76} for the proof of~\cref{lem:tul3.3}.
+%The first is that we want to prove Rehmann and Soul{\'e} prove that $G_m \to G_{m+1}$ is an isomorphism for $m\geq 2$, while we want to %establish this fact starting from $m = 1$.
+%The second is that they prove their results only in the special case $B = A[t]$, moreover, they make assumptions about the ground ring $A$
+%(it is assumed that $A=k$ is a field in~\cite{Re75} and that $A=\mathbb{Z}$ in~\cite{RS76}).
 % (this can be replaced by the weaker assumption that $A$ is additively generated by its units).
-\end{rem}
+%\end{rem}
 
 We will use the following commutator identities (cf.~\cite[H1]{Re75}):
 \begin{align}
