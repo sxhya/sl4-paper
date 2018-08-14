@@ -79,8 +79,8 @@
 
 \section{Introduction}
 
-The aim of this note is to show that $\K_2$-analogue of Horrocks theorem holds for the unstable group $K_{2}(4, R)$.
-From this theorem deduce an improved version of Tulenbayev's theorem on early stability for linear $K_2$-groups.
+The aim of this note is to show that $\K_2$-analogue of Horrocks theorem holds for the unstable group $\K_2(4, R)$.
+From this theorem we deduce an improved version of Tulenbayev's theorem on early stability for linear $\K_2$-groups.
 
 Let $R$ be a commutative ring and $\St(n, R)$ be the Steinberg group of rank $n$.
 Denote by $\K_2(n, R)$ (resp. $\K_1(n, R)$) the kernel (resp. cokernel) of the canonical map $\phi\colon \St(n, R) \to \GL(n, R)$.
@@ -91,32 +91,46 @@ Recall that in~\cite[Theorem~5.1]{Tu83} M.~Tulenbayev proves the following resul
  \[\xymatrix{ \St(n, R)    \ar[r]\ar[d] & \ar[d] \St(n, R[t^{-1}]) \\ 
               \St(\Phi, R[t]) \ar[r]       &        \St(n, R[t, t^{-1}]).}\]
 \end{thm*}
-It is not hard to see that $\mathbb{P}^1$-glueing property holds simulteneously for Steinberg group functor $\St(n, -)$ and the functor $\K_2(n, -)$. Therefore the above theorem should be considered as a ``$\K_2$-analogue'' of the classical Horrocks theorem on projective modules (see e.\,g.~\cite[Ch.~IV]{Lam10}).
-Recall that the latter result asserts that $\mathbb{P}^1$-glueing holds for the functor $\mathrm{VB}_n$ associating to each commutative ring $R$ the set of rank $n$ vector bundles over $R$ (the set $\mathrm{VB}_n$ should be thus considered as the unstable analogue of $K_0$-functor).
+In turn, our first main result is the following.
+\begin{thm} \label{thm:horrocks-sl4} The functor $\St(4, -)$ also satisfies $\mathbb{P}^1$-glueing. \end{thm}
 
-The corresponding result on $\mathbb{P}^1$-glueing for for the functor $\K_1(n, R)$,  $n\geq 3$ was first obtained by A.~Suslin as one of the two ingredients in the proof of the $\K_1$-analogue of Serre problem, see~\cite{Su77}. A lot of effort has been put afterwards into generalizing Suslin's results to other groups (see e.\,g.~\cite{Abe83}).  One of the more recent results in this direction is~\cite[Theorem~1.1]{St-poly} due to A.~Stavrova, in which $\mathbb{P}^1$-glueing property is proved for functors $\K_1^G$ modeled on a large class of isotropic reductive groups (consisting, roughly speaking, of groups having local isotropic rank at least $2$). %TODO: Better phrasing
+It is not hard to see that $\mathbb{P}^1$-glueing property holds for the Steinberg group functor $\St(n, -)$ iff it holds for the functor $\K_2(n, -)$.
+Therefore the above results should be considered as ``$\K_2$-analogues'' of the classical Horrocks theorem on projective modules (see e.\,g.~\cite[Ch.~IV]{Lam10}).
+Recall that the latter asserts that $\mathbb{P}^1$-glueing holds for the functor $\mathrm{VB}_n$ associating to each commutative ring $R$
+ the set of constant rank $n$ vector bundles over $R$ ($\mathrm{VB}_n$ thus can be considered as the unstable analogue of $K_0$-functor).
 
-Let $\mathcal{F}\colon \catname{CRings} \to \catname{Sets}_*$ be a functor from commutative rings to pointed sets. We say that an analogue of Serre problem holds for $\mathcal{F}$ if for any field $k$ there is an isomorphism $\mathcal{F}(k[t_1, \ldots, t_n]) = \mathcal{F}(k)$. The well-known counterexample of P.~Cohn shows that the $\K_1$-analogue of Serre problem fails for $\K_1(2, -)$, see~\cite[\S~I.8]{Lam10}. Similarly, it is known that an analogue of Serre problem fails for $\K_2(3, -)$, see~\cite{We14}. Thus one might ask whether an analogue of Serre problem holds for $\K_2(4, -)$, the only case not covered by Tulenbayev's theorem.
-
-Typically, the proof of an analogue of Serre problem for a functor $\mathcal{F}$ (e.\,g. $\mathrm{VB}_n$, $K_1^G$, $K_2(n, -)$) reduces the following two steps: 
+Recall that Horrocks theorem usually appears in the context of Serre problem and its analogues for other functors.
+Let $\mathcal{F}\colon \catname{CRings} \to \catname{Sets}_*$ be a functor from commutative rings to pointed sets. 
+We say that an analogue of Serre problem holds for $\mathcal{F}$ if for any field $k$ there is an isomorphism $\mathcal{F}(k[t_1, \ldots, t_n]) = \mathcal{F}(k)$. 
+Typically, the proof of an analogue of Serre problem for a functor $\mathcal{F}$ (e.\,g. $\mathrm{VB}_n$, $K_1(n, -)$, $K_2(n, -)$) 
+ breaks down into the following two steps: 
 \begin{enumerate}
  \item proving that an analogue of local-global principle holds for $\mathcal{F}$ (see ??? for the definition below);
  \item proving that $\mathcal{F}$ satisfies $\mathbb{P}^1$-glueing.
 \end{enumerate}
 
-In~\cite{LS17} A.~Lavrenov and the author showed that the local-global principle holds for $\St(4, -)$.
+The proof of the analogue of Serre problem for the functor $\K_1(n, R)$ was for the first time obtained by A.~Suslin under the assumption $n\geq 3$, see~\cite{Su77}.
+A lot of effort has been put afterwards into generalizing Suslin's results to other groups (see e.\,g.~\cite{Abe83, St-poly}).
+\begin{comment}
+One of the more recent results in this direction is~\cite[Theorem~1.1]{St-poly} due to A.~Stavrova, 
+ in which $\mathbb{P}^1$-glueing property is proved for functors $\K_1^G$ modeled on a large class of isotropic reductive groups 
+  (consisting, roughly speaking, of groups having local isotropic rank at least $2$). %TODO: Better phrasing
+\end{comment}
+ 
+The well-known counterexample of P.~Cohn shows that the $\K_1$-analogue of Serre problem fails for $\K_1(2, -)$ and thus Suslin's result cannot be improved, see~\cite[\S~I.8]{Lam10}
+Similarly, it is known that an analogue of Serre problem fails for $\K_2(3, -)$, see~\cite{We14}.
+Thus, our~\cref{thm:horrocks-sl4} completely settles the remaining case $n=4$ not already covered by the results of Wendt and Tulenbayev.
 
-
-Our first main result shows that it is indeed so.
-\begin{thm}
- The functor $\St(4, -)$ satisfies $\mathbb{P}^1$-glueing.
+Previously in~\cite{LS17} A.~Lavrenov and the author showed that the local-global principle holds for $\St(4, -)$.
+As said before, this together with~\cref{thm:horrocks-sl4} allows us to show the following.
+\begin{thm} \label{thm:Serre-problem} %TODO: Fix statement
+  For any field $k$ there is an isomorphism $\K_2(4, k[t_1, \ldots, t_n]) \cong \K_2(4, k)$.
+  In fact Tulenbayev early stability theorem can be proved starting with the bound $n=4$... 
 \end{thm}
-Consequently, there is an isomorphism $\K_2(4, k[t_1, \ldots, t_n]) \cong \K_2(4, k)$
-To deduce the local-global principle for $K_2(4, -)$ which has already been obtained in~\cite{LS17} this 
-
 
 \subsection{Acknowledgements}
-The author would like to thank Anastasia Stavrova and Andrei Lavrenov for numerous helpful discussions regarding this paper.
+The author would like to thank Anastasia Stavrova and Andrei Lavrenov for posing the problem and numerous helpful discussions regarding this paper.
+The author would also like to thank ??? for financial support.
 
 \section{Preliminaries}
 
