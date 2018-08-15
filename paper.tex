@@ -117,16 +117,18 @@ One of the more recent results in this direction is~\cite[Theorem~1.1]{St-poly} 
   (consisting, roughly speaking, of groups having local isotropic rank at least $2$). %TODO: Better phrasing
 \end{comment}
  
-The well-known counterexample of P.~Cohn shows that the $\K_1$-analogue of Serre problem fails for $\K_1(2, -)$ and thus Suslin's result cannot be improved, see~\cite[\S~I.8]{Lam10}
+The well-known counterexample of P.~Cohn shows that the $\K_1$-analogue of Serre problem fails for $\K_1(2, -)$ which shows that Suslin's result cannot be improved, see~\cite[\S~I.8]{Lam10}
 Similarly, it is known that an analogue of Serre problem fails for $\K_2(3, -)$, see~\cite{We14}.
 Thus, our~\cref{thm:horrocks-sl4} completely settles the remaining case $n=4$ not already covered by the results of Wendt and Tulenbayev.
 
 Previously in~\cite{LS17} A.~Lavrenov and the author showed that the local-global principle holds for $\St(4, -)$.
-As said before, this together with~\cref{thm:horrocks-sl4} allows us to show the following.
+As said before, this together with~\cref{thm:horrocks-sl4} allows us to show the following result, which is an improvement of Tulenbayev stability theorem.
 \begin{thm} \label{thm:Serre-problem} %TODO: Fix statement
   For any field $k$ there is an isomorphism $\K_2(4, k[t_1, \ldots, t_n]) \cong \K_2(4, k)$.
   In fact Tulenbayev early stability theorem can be proved starting with the bound $n=4$... 
 \end{thm}
+It is clear that the positive solution of Serre problem for $\K_2(n, -)$ for $n\geq 4$ is a corollary of this result.
+%TODO: Add couple of further corollaries
 
 \subsection{Acknowledgements}
 The author would like to thank Anastasia Stavrova and Andrei Lavrenov for posing the problem and numerous helpful discussions regarding this paper.
@@ -145,26 +147,36 @@ As usual, $P(\Phi^\vee)$ denotes the lattice spanned by the \emph{fundamental we
 
 \subsection{Steinberg groups and relative Steinberg groups}
 
-\subsection{Rehmann-Soul{\'e} theorem}
+\section{Rehmann--Soul{\'e} theorem}
+The aim of this section is to prove a variant of Rehmann--Soul{\'e} theorem on presentation of Steinberg groups. 
 
 Let $A$ be arbitrary commutative unital ring and $\mathfrak{m}$ be its ideal.
 Denote by $B$ the ring $\mathfrak{m}[t^{-1}] + A[t]$ with the obvious $\mathbb{Z}$-grading.
 Clearly, the $k$-th homogeneous component $B_k$ of $B$ equals $A\cdot t^k$ for $k \geq 0$ or $B_k = \mathfrak{m} \cdot t^k$ for $k<0$.
 
-For $n \geq 1$ consider the following collections of homogeneous generators:
-\[\XX{n} = \{ x_\alpha(\xi) \mid \xi \in B_k,\text{ for } k\leq n\}. \]
-It is obvious that $\XX{n} \subseteq \XX{n+1}$, denote by $\XX{\infty}$ the union of all $\XX{n}$'s.
+In what follows we will be concerned with finding a compact presentation of the Steinberg group $\St(4, B)$. This presentation is analogous to the that~\cite[Lemma~3.3]{Tu83}, which is formulated for $\St(n, B)$, $n\geq 5$.
 
-Let $\Phi$ be a simply-laced irreducible root system of rank $\geq 3$.
-For $m\geq 1$ denote by $G_m$ the group presented by generators $\mathcal{X}_m$ and the set of relations $\RR{m}$ consisting of the following
- three families of relations:
+For $m \geq 1$ consider the following set of generators:
+\[\XX{m} = \{ x_{ij}(\xi) \mid \xi \in B_k,\text{ for } k\leq m,\ 1\leq i, j\leq 4,\ i\neq j\}. \]
+It is obvious that $\XX{m} \subseteq \XX{m+1}$, denote by $\XX{\infty}$ the union of all $\XX{n}$'s.
+
+For $m\geq 1$ denote by $G_m$ the group presented by generators $\mathcal{X}_m$ and the set of relations $\RR{m}$ consisting of the following three families of relations:
 \begin{align}
- \label{eq:am} \tag{$a_m$} x_\alpha(\xi) x_\alpha(\eta) & = x_\alpha(\xi+\eta),&  \xi,\eta\in B_k,\ k\leq m;&\\
+ \label{eq:am} \tag{$a_m$} x_{ij}(\xi) x_{ij}(\eta) & = x_{ij}(\xi+\eta),&  \xi,\eta\in B_k,\ k\leq m;&\\
  \label{eq:bm} \tag{$b_m$} [x_\alpha(\xi), x_{\alpha'}(\eta))] &  = 1, & \text{in the case $\alpha+\alpha'\not\in\Phi\cup\{0\}$,}\\
  \nonumber                                                     &       & \xi \in B_k,\ \eta \in B_l,\ l,k\leq m;\\
  \label{eq:cm} \tag{$c_m$} [x_\alpha(\xi), x_{\alpha'}(\eta)] & = x_{\alpha+\alpha'}(N_{\alpha,\alpha'}\xi\eta), & \text{in the case $\alpha+\alpha'\in \Phi$,}\\
  \nonumber                                                    &  & \xi \in B_k,\ \eta \in B_l,\ l, k, l+k \leq m.
  \end{align}
+ 
+ 
+There are several reasons why we can't simply refer to the original results of U.~Rehmann and C.~Soul{\'e}~\cite{Re75} or~\cite{RS76}.
+The first is that we want to prove Rehmann and Soul{\'e} prove that $G_m \to G_{m+1}$ is an isomorphism for $m\geq 2$, while we want to %establish this fact starting from $m = 1$.
+%The second is that they prove their results only in the special case $B = A[t]$, moreover, they make assumptions about the ground ring $A$
+%(it is assumed that $A=k$ is a field in~\cite{Re75} and that $A=\mathbb{Z}$ in~\cite{RS76}).
+% (this can be replaced by the weaker assumption that $A$ is additively generated by its units).
+ 
+ 
 
  \begin{lemma} In the group $G_1$ the following two families of relations are equivalent:
 \begin{align} \nonumber \tag{$d_1$}
@@ -190,14 +202,6 @@ Instead, we have to employ a varition of a much longer argument of U.~Rehmann an
 %well, not so clear, actually :)
 To prove~\cref{lem:tul3.3} it suffices to show that the natural map $\theta_m \colon G_m \to G_{m+1}$ is an isomorphism for $m\geq 2$.
 Indeed, this would give the required isomorphism $G_1 \cong \St(\Phi, B)$ since $\langle \XX{\infty} \mid \RR{\infty} \rangle$ is evidently isomorphic to $\St(\Phi, B)$.
-
-%\begin{rem}
-%There are two reasons why we can't simply refer to~\cite{Re75} or~\cite{RS76} for the proof of~\cref{lem:tul3.3}.
-%The first is that we want to prove Rehmann and Soul{\'e} prove that $G_m \to G_{m+1}$ is an isomorphism for $m\geq 2$, while we want to %establish this fact starting from $m = 1$.
-%The second is that they prove their results only in the special case $B = A[t]$, moreover, they make assumptions about the ground ring $A$
-%(it is assumed that $A=k$ is a field in~\cite{Re75} and that $A=\mathbb{Z}$ in~\cite{RS76}).
-% (this can be replaced by the weaker assumption that $A$ is additively generated by its units).
-%\end{rem}
 
 We will use the following commutator identities (cf.~\cite[H1]{Re75}):
 \begin{align}
