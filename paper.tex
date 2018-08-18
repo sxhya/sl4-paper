@@ -128,14 +128,15 @@ As said before, this together with~\cref{thm:horrocks-sl4} allows us to show the
   In fact Tulenbayev early stability theorem can be proved starting with the bound $n=4$... 
 \end{thm}
 It is clear that the positive solution of Serre problem for $\K_2(n, -)$ for $n\geq 4$ is a corollary of this result.
-%TODO: Add couple of further corollaries
+%TODO: Add corollary: some building in simply-connected
+%TODO: if 2 is invertible and E = SL then H_2(SL_4(R)) = H_2(SL_4(R[t]))
 
 \subsection{Acknowledgements}
 The author would like to thank Anastasia Stavrova and Andrei Lavrenov for posing the problem and numerous helpful discussions regarding this paper.
 The author would also like to thank ??? for financial support.
 
 \section{Preliminaries}
-
+\begin{comment}
 Our notation and conventions follows~\cite[\S~4]{Vav09}.
 Let $\Phi$ be an irreducible root system with some fixed basis of simple roots $\Pi = \{\alpha_1, \ldots, \alpha_\ell\}$.
 For a root $\alpha\in\Phi$ we denote by $m_i(\alpha)$ the $i$-th coefficient in the expansion of $\alpha$ in $\Pi$,
@@ -144,17 +145,42 @@ For a root $\alpha\in\Phi$ we denote by $m_i(\alpha)$ the $i$-th coefficient in 
 We denote by $\Phi^\vee$ the \emph{dual root system of $\Phi$} consisting of coroots $\alpha^\vee = 2\alpha/(\alpha, \alpha)$, $\alpha\in \Phi$.
 As usual, $P(\Phi^\vee)$ denotes the lattice spanned by the \emph{fundamental weights $\varpi_i$},
  that are uniquely determined by relations $\langle\varpi_i, \alpha_j^\vee \rangle = (\varpi_i, \alpha_j) = \delta_{ij}.$ %TODO: Mistake?
+\end{comment}
 
 \subsection{Steinberg groups and relative Steinberg groups}
 
-\section{Rehmann--Soul{\'e} theorem}
-The aim of this section is to prove a variant of Rehmann--Soul{\'e} theorem on presentation of Steinberg groups. 
+\[ T_{ij}(at^{-1}) = \sigma_i T_{ij}(a) \sigma_i^{-1} = \sigma_j^{-1} T_{ij}(a) \sigma_j \]
+\[ [[x_{ij}(a t^{-1}), x_{jk}(b t^{-1})],  x_{kl}(c)] = [x_{ik}(a b t^{-1}),  x_{kl}(c t^{-1})] \]
+\[ \sigma_i [[x_{ij}(a), x_{jk}(b t^{-1})],  x_{kl}(c)] \sigma_i^{-1} =  \sigma_i [x_{ik}(a b),  x_{kl}(c t^{-1})] \sigma_i^{-1} \]
+\begin{multline}
+[[x_{ij}(at^{-1}), x_{jk}(bt^{-1})], x_{jl}(ct^{-1})] = \sigma_i [[ x_{ij}(a), x_{jk}(bt^{-1})], x_{jl}(ct^{-1})] \sigma_i^{-1} = \\
+\sigma_i \sigma_k^{-1} \sigma_l^{-1} [[ x_{ij}(a), x_{jk}(b)], x_{jl}(c)] \sigma_l \sigma_k \sigma_i^{-1} = 1
+\end{multline}
+\[ [b, c] =1,\ [a^c, b] = c^{-1} a c b c^{-1} a^{-1} c b^{-1} =  c^{-1} a b  a^{-1} b^{-1} c = [a, b]^c \]
 
+We need to prove that $\sigma_i$ commute with $x_{jk}(a)$ if $j\neq i, k \neq i$.
+
+\section{A variant of Rehmann theorem}
 Let $A$ be arbitrary commutative unital ring and $\mathfrak{m}$ be its ideal.
 Denote by $B$ the ring $\mathfrak{m}[t^{-1}] + A[t]$ with the obvious $\mathbb{Z}$-grading.
 Clearly, the $k$-th homogeneous component $B_k$ of $B$ equals $A\cdot t^k$ for $k \geq 0$ or $B_k = \mathfrak{m} \cdot t^k$ for $k<0$.
+If $a$ is a homogeneous element of $B$ we denote its homogeneous degree by $|a|$.
 
-In what follows we will be concerned with finding a compact presentation of the Steinberg group $\St(4, B)$. This presentation is analogous to the that~\cite[Lemma~3.3]{Tu83}, which is formulated for $\St(n, B)$, $n\geq 5$.
+In what follows we will be concerned with finding a presentation of the Steinberg group $\St(4, B)$ in terms of those generators $x_{ij}(\xi)$
+ for which $\xi$ is homogeneous of degree $\leq 1$ (i.\,e. $|\xi| \leq 1$).
+Our presentation should be thought of as an extension of~\cite[Lemma~3.3]{Tu83} to the case $n=4$ (with variables $t$ and $t^{-1}$ swapped).
+Alternatively, our result can be thought of as a variant of the classical theorem of Rehmann~\cite{Re75} (cf. also with Rehmann--Soul{\'e} theorem in~\cite{RS76}).
+
+There are several reasons why we can not simply refer to~\cite{Re75} or~\cite{RS76} and need to repeat arguments from these papers.
+\begin{itemize}
+ \item Rehmann and Soul{\'e} deal with usual polynomial rings rather than $\mathbb{Z}$-graded rings
+  (i.\,e. their result corresponds to the special case $\mathfrak{m}=0$ of our result);
+ \item their presentation is formulated in terms of generators $x_{ij}(\xi)$ with $|\xi| \leq 2$ while for our purposes we need a presentation in terms
+  of the smaller set of generators with $| \xi |\leq 1$;
+ \item it is assumed that $A=k$ is a field in~\cite{Re75} and that $A=\mathbb{Z}$ in~\cite{RS76}, while work with
+  arbitrary coefficient ring $A$.
+\end{itemize}
+
 
 For $m \geq 1$ consider the following set of generators:
 \[\XX{m} = \{ x_{ij}(\xi) \mid \xi \in B_k,\text{ for } k\leq m,\ 1\leq i, j\leq 4,\ i\neq j\}. \]
@@ -169,20 +195,22 @@ For $m\geq 1$ denote by $G_m$ the group presented by generators $\mathcal{X}_m$ 
  \nonumber                                                    &  & \xi \in B_k,\ \eta \in B_l,\ l, k, l+k \leq m.
  \end{align}
  
- 
-There are several reasons why we can't simply refer to the original results of U.~Rehmann and C.~Soul{\'e}~\cite{Re75} or~\cite{RS76}.
-The first is that we want to prove Rehmann and Soul{\'e} prove that $G_m \to G_{m+1}$ is an isomorphism for $m\geq 2$, while we want to %establish this fact starting from $m = 1$.
-%The second is that they prove their results only in the special case $B = A[t]$, moreover, they make assumptions about the ground ring $A$
-%(it is assumed that $A=k$ is a field in~\cite{Re75} and that $A=\mathbb{Z}$ in~\cite{RS76}).
+ %The second is that they prove their results only in the special case $B = A[t]$, moreover, they make assumptions about the ground ring $A$
+%().
 % (this can be replaced by the weaker assumption that $A$ is additively generated by its units).
- 
- 
+
 
  \begin{lemma} In the group $G_1$ the following two families of relations are equivalent:
-\begin{align} \nonumber \tag{$d_1$}
+\begin{align} 
+\nonumber \tag{$d_1$}
 [[x_{\alpha}(a t), x_{\beta}(b t)],  x_{\gamma}(c)] & = [x_{\alpha + \beta}(a b t),  x_{\gamma}(c t)], & a,b,c \in A,\ \alpha + \beta + \gamma \in \Phi\\
+\nonumber \tag{$df_1$}
+[[x_{ij}(a t), x_{jk}(b t)],  x_{kl}(c)] & = [x_{ik}(a b t),  x_{kl}(c t)]\\
 \nonumber \tag{$e_1$}
-[[x_{\alpha}(at), x_{\beta}(bt)], x_{\gamma}(ct) ]& = 1, & \alpha + \beta \in \Phi,\ \alpha+\beta \perp \gamma \end{align}
+[[x_{\alpha}(at), x_{\beta}(bt)], x_{\gamma}(ct) ]& = 1, & \alpha + \beta \in \Phi,\ \alpha+\beta \perp \gamma \\
+\nonumber \tag{$ef_1$}
+[[x_{ij}(at), x_{jk}(bt)], x_{jl}(ct) ]& = 1
+\end{align}
  \end{lemma}
 
 It is clear that the natural embedding of generators $\mathcal{X}_n \subseteq \mathcal{X}_{n+1}$ induces
