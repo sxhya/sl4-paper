@@ -237,8 +237,8 @@ The following lemma is similar to~\cite[Proposition 1.1]{Re75} and~\cite[Proposi
 \begin{lemma}
  Suppose $m \geq 1$.
  Let $\alpha, \beta, \alpha', \beta' \in \Phi$ be such that $\alpha + \beta = \alpha' + \beta'$.
- Assume, moreover, that $\xi \in B_k$, $\xi' \in B_{k'}$, $\eta \in B_l$, $\eta' \in B_{l'}$ are such that 
-  $N_{\alpha, \beta} \xi \eta = N_{\alpha', \beta'}\xi' \eta'$ for some $k,k',l,l'\leq m$ satisfying $k+l=k'+l' = m+1$.
+ Assume, moreover, that $\xi \in B_d$, $\xi' \in B_{d'}$, $\eta \in B_e$, $\eta' \in B_{e'}$ are such that 
+  $N_{\alpha, \beta} \xi \eta = N_{\alpha', \beta'}\xi' \eta'$ for some $d,d',e,e'\leq m$ satisfying $d+e=d'+e' = m+1$.
  Then the following relations holds in $G_m$:
  \begin{equation}
   \label{item:i} [x_\alpha(\xi), x_\beta(\eta)] = [x_{\alpha'}(\xi'), x_{\beta'}(\eta')].
@@ -286,107 +286,111 @@ From \eqref{eq:H1ii} and~\eqref{item:ii} it follows that $S_\alpha(\xi)$  satisf
 \end{proof}
 \end{comment}
 
-\begin{lemma} Suppose that $m\geq 1$. For every $\alpha, \alpha' \in \Phi$ such that $\alpha+\alpha' \in \Phi$ and
- $a\in A$, $\xi \in B_k$, $k \leq 0$ the following relation holds in $G_m$: 
+\begin{lemma} \label{lem:bmp1} Suppose that $m\geq 1$. For every $\alpha, \alpha' \in \Phi$ such that $\alpha+\alpha' \in \Phi$ and
+ $a\in A$, $\xi \in B_d$, $d \leq 0$ the following relation holds in $G_m$: 
 \begin{equation}
-\label{eq:verify-bmp1} [x_\alpha(\xi), S_{\alpha'}(at^{m+1})] = [x_\alpha(t\xi), x_{\alpha'}(at^m)].
+\label{eq:verify-bmp1} [x_\alpha(\xi), S_{\alpha'}(at^{m+1})] = [x_\alpha(t\xi), x_{\alpha'}(at^m)] = S_{\alpha+\alpha'}(N_{\alpha,\alpha'}a\xi t^{m+1}).
 \end{equation}
 \end{lemma}
 \begin{proof}
-By \cite[Lemma~3.1.2]{RS76} we can assume without loss of generality that $\alpha'=\beta$ for some $\rA_3$-triple $(\alpha, \beta, \gamma)$.
+By \cite[Lemma~3.1.2]{RS76} we may assume without loss of generality that $\alpha'=\beta$ for some $\rA_3$-triple $(\alpha, \beta, \gamma)$.
 \begin{align*}
    [x_\alpha(\xi), S_\beta(at^{m+1})] = [x_\alpha(\xi), [x_{\beta + \gamma}(t), x_{-\gamma}(a't^m)]]&  \text{ by~\eqref{item:i},\eqref{eq:defmpn} for $a' = N_{\beta+\gamma, -\gamma} a$} \\ 
  = [x_{\alpha+\beta+\gamma}(\epsilon t\xi), {}^{x_{\beta+\gamma}(t)}x_{-\gamma}(a't^m)]             &  \text{ by~\eqref{eq:H1iii}, for $\epsilon=N_{\alpha, \beta+\gamma}$} \\
  = {}^{x_{\beta+\gamma}(t)}[x_{\alpha+\beta+\gamma}(\epsilon t\xi), x_{-\gamma}(a't^m)]             &  \text{ by $(b_1)$}
 \end{align*} 
-There are two cases.
+Denote by $R$ the expression in the right hand side of the above formula.
 \begin{enumerate}
- \item \label{case:cm-1} Case $m=1$, $k = 0$.
+ \item \label{case:cm-1} Case $m=1$, $d = 0$.
  \begin{align*}
-   RHS  = [x_{\alpha +\beta + \gamma}(\epsilon t\xi), x_{-\gamma}(a't^m)] & \text{ by $(d_1)$.}\\
-        = [x_\alpha(t\xi), x_\beta(at^m)]                                 & \text{ by~\eqref{item:i}. }   
+   R  = [x_{\alpha +\beta + \gamma}(\epsilon t\xi), x_{-\gamma}(a't^m)] & \text{ by $(d_1)$}\\
+        = [x_\alpha(t\xi), x_\beta(at^m)]                               & \text{ by~\eqref{item:i}. }   
  \end{align*}  
  This uses $N_{\alpha, \beta+\gamma} N_{\alpha+\beta+\gamma, -\gamma} N_{\beta+\gamma, -\gamma} = N_{\alpha, \beta}$. Why is this true?
 
- \item \label{case:cm-2} Case $m\geq 2$ or $m=1$, $k < 0$.
+ \item \label{case:cm-2} Case $m\geq 2$ or $m=1$, $d < 0$.
  \begin{align*}
- RHS = {}^{x_{\beta+\gamma}(t)}[x_{\alpha+\beta+\gamma}(\epsilon t^2\xi), x_{-\gamma}(a't^{m-1})]       &  \text{ by~\eqref{item:i} if $k=0$ or~\eqref{eq:cm} if $k <0$} \\
- %TODO: There's a mistake at this moment --- k = 0, m = 1 and the needed relation is not in G_1 -- :(
+ R = {}^{x_{\beta+\gamma}(t)}[x_{\alpha+\beta+\gamma}(\epsilon t^2\xi), x_{-\gamma}(a't^{m-1})]       &  \text{ by~\eqref{item:i} if $k=0$ or~\eqref{eq:cm} if $k <0$} \\
  = [[x_\alpha(t\xi), x_{\beta+\gamma}(t)], {}^{x_{\beta+\gamma}(t)} x_{-\gamma}(a't^{m-1})]         &  \text{ by~$(b_2)$, $(c_2)$ or by~\eqref{item:ii},\eqref{eq:defmpn} if $m=1$} \\
- = [x_\alpha(t\xi), x_\beta(at^m)]                                                                  &  \text{ by~\eqref{eq:H1iii}.}
+ = [x_\alpha(t\xi), x_\beta(at^m)]                                                                  &  \text{ by~\eqref{eq:H1iii}. \qedhere}
 \end{align*} 
 
 \end{enumerate}
 \end{proof}
 
-
-Now, let us show that relations $(b_{m+1})$ hold. 
-Without loss of generality we may also assume $k \leq l=m+1$, thus $\eta = bt^{m+1}$ for some $b\in A$.
-
+It will be convenient for us to extend the definition of $S_\alpha(\xi)$ by allowing $\xi$ to take values in $B_d$ for $d\leq m$.
+In this case we simply set $S_\alpha(\xi) = x_\alpha(\xi)$.
+\begin{lemma}
+ For $\xi \in B_d$, $d\leq m+1$, $\eta \in B_{m+1}$ and $\alpha, \alpha' \in \Phi$ such that $\alpha + \alpha'\not\in\Phi\cup\{0\}$
+ the following relation holds in $G_m$:
+  \begin{equation} \label{eq:verify-bmp2} [S_\alpha(\xi), S_{\alpha'}(\eta)] = 1. \end{equation}
+\end{lemma}
+\begin{proof}
+Write $\eta = bt^{m+1}$ for some $b\in A$.
 \begin{enumerate}
-\item \label{case:1} First consider the case $k \leq 0$. There are two further subcases.
+\item \label{case:1} First consider the case $d \leq 0$. There are two further subcases.
  \begin{enumerate}
   \item \label{case:1a} Case $\alpha \not \perp \alpha'$. 
-  As before, without loss of generality we may assume that $\alpha, \alpha'$ are contained in a root system $\Psi$ of type $\mathsf{A}_3$,
-   whose simple roots are labeled as in~\eqref{eq:diagA3} and, moreover, $\alpha'=\alpha + \beta$.
-  Using~\eqref{eq:H1iii} and~\eqref{eq:bm} we get (recall that $\xi \in B_k$):
+  Without loss of generality we may assume that $\alpha' = \alpha + \beta$
+  for some $\rA_3$-triple $(\alpha, \beta, \gamma)$.
+  Using~\eqref{eq:H1iii} and~\eqref{eq:bm} we obtain
    \begin{multline} \nonumber
-   [x_\alpha(\xi), x_{\alpha+\beta}(bt^{m+1})] = [x_\alpha(\xi), [x_{\alpha+\beta+\gamma}(bt^m), x_{-\gamma}(t)]] = \\   
-  = [[x_\alpha(\xi), x_{\alpha+\beta+\gamma}(bt^m)], {}^{x_{\alpha+\beta+\gamma}(bt^m)}\!x_{-\gamma}(t)] = 1.
+   [S_\alpha(\xi), S_{\alpha+\beta}(bt^{m+1})] = [x_\alpha(\xi), [x_{\alpha+\beta+\gamma}(b't^m), x_{-\gamma}(t)]] = \\   
+  = [[x_\alpha(\xi), x_{\alpha+\beta+\gamma}(b't^m)], {}^{x_{\alpha+\beta+\gamma}(b't^m)}\!x_{-\gamma}(t)] = 1 \text{ for some $b'\in A$ }.
   \end{multline}
-  \item Case $\alpha \perp \alpha'$. As before, we set $\alpha' = \gamma$ and use~\eqref{eq:H1iii},\eqref{eq:bm} and~\eqref{eq:cm}:
+  %What this really proves: $b_{m}(\alpha, |\xi|, -\gamma, 1)$ and $b_m(\alpha, |\xi|, \alpha+\beta+\gamma, m)$ implies $b_{m+1}(\alpha, |\xi|, \alpha+\beta, m+1 )$.
+  \item Case $\alpha \perp \alpha'$. 
+  As before, we set $\alpha' = \gamma$ and use~\eqref{eq:H1iii},\eqref{eq:bm} and~\eqref{eq:cm}:
   \begin{multline} \nonumber
-   [x_\alpha(\xi), x_{\gamma}(bt^{m+1})] = [x_\alpha(\xi), [x_{\beta+\gamma}(bt^m), x_{-\beta}(t)]] = \\   
-  = [[x_\alpha(\xi), x_{\beta+\gamma}(bt^m)], {}^{x_{\beta+\gamma}(bt^m)}\!x_{-\beta}(t)] = {}^{x_{\beta+\gamma}(bt^m)}\![x_{\alpha+\beta+\gamma}(bt^m\xi), x_{-\beta}(t)] = 1.
+   [x_\alpha(\xi), S_{\gamma}(bt^{m+1})] = [x_\alpha(\xi), [x_{\beta+\gamma}(b't^m), x_{-\beta}(t)]] = \\   
+  = [[x_\alpha(\xi), x_{\beta+\gamma}(b't^m)], {}^{x_{\beta+\gamma}(b't^m)}\!x_{-\beta}(t)] = {}^{x_{\beta+\gamma}(b't^m)}\![x_{\alpha+\beta+\gamma}(b't^m\xi), x_{-\beta}(t)] = 1.
   \end{multline}
  \end{enumerate} 
   
-\item \label{case:2} Now assume $1 \leq k \leq m+1$. 
-At first we want to prove $(b_{m+1})$ only in the special case $\xi=t^k$.
-We proceed by induction on $k$ starting with $k=1$.
-Again, there are two cases.
+\item \label{case:2} Now assume $1 \leq d \leq m+1$.
+At first we want to prove~\eqref{eq:verify-bmp2} only in the special case $\xi=t^d$,
+We proceed by induction on $d$, so we can assume that \eqref{eq:verify-bmp2} holds for $\xi = t^e$, $e<d$.
+Again, there are two subcases.
 \begin{enumerate}
  \item \label{case:2a} Case $\alpha\not\perp\alpha'$ is handled similarly to the Case~\eqref{case:1a} with the only
-  difference that we have to refer to the inductive assumption rather than~\eqref{eq:bm} in the case $k=m+1$.
+  difference that we must refer to the inductive assumption instead of~\eqref{eq:bm} in the case $d=m+1$:
+  %TODO: No real induction going on here...
   \begin{multline} \nonumber
-   [x_\alpha(t^k), x_{\alpha+\beta}(bt^{m+1})] = [x_\alpha(t^k), [x_{\alpha+\beta+\gamma}(bt^m), x_{-\gamma}(t)]] = \\   
-  = [[x_\alpha(t^k), x_{\alpha+\beta+\gamma}(bt^m)], {}^{x_{\alpha+\beta+\gamma}(bt^m)}\!x_{-\gamma}(t)] = 1.
+   [S_\alpha(t^d), S_{\alpha+\beta}(bt^{m+1})] = [S_\alpha(t^d), [x_{\alpha+\beta+\gamma}(b't^m), x_{-\gamma}(t)]] = \\   
+  = [[S_\alpha(t^d), x_{\alpha+\beta+\gamma}(b't^m)], {}^{x_{\alpha+\beta+\gamma}(b't^m)}\!x_{-\gamma}(t)] = 1.
   \end{multline}
-
+  
  \item Case $\alpha\perp\alpha'$. As before, we may assume $\alpha'=\gamma$.
 \begin{align*}
-{}^{x_\gamma(t^k)}x_\alpha(bt^{m+1}) = {}^{x_\gamma(t^k)}[x_{-\beta}(b't^{m+1}), x_{\alpha+\beta}(1)] & \text{ by $(c_{m+1})$}\\
- = [x_{-\beta}(b't^{m+1}), {}^{x_\gamma(t^k)}x_{\alpha+\beta}(1)]                                     & \text{ by Case~\eqref{case:2a} since $\gamma\not\perp-\beta$}\\
- = [[x_{-\beta-\gamma}(b''t^{m+1-k}), x_\gamma(t^k)], {}^{x_\gamma(t^k)}x_{\alpha+\beta}(1)]          & \text{ by $(c_{m+1})$}\\
- = [x_{-\beta-\gamma}(b''t^{m+1-k)}), [x_\gamma(t^k), x_{\alpha+\beta}(1)]]                           & \text{ by~\eqref{eq:H1iii} and~\eqref{eq:bm} since $m+1-k \leq m$}\\
- = x_{\alpha}(b'''t^{m+1})                                                                            & \text{ by $(c_{m+1})$.} \end{align*}
+{}^{S_\gamma(t^d)}S_\alpha(bt^{m+1}) = {}^{S_\gamma(t^d)}[x_{-\beta}(b't^{m+1}), x_{\alpha+\beta}(1)] & \text{ by~\cref{lem:bmp1}}\\
+ = [S_{-\beta}(b't^{m+1}), {}^{S_\gamma(t^d)}x_{\alpha+\beta}(1)]                                     & \text{ by Case~\eqref{case:2a} since $\gamma\not\perp-\beta$}\\
+ = [[x_{-\beta-\gamma}(b''t^{m+1-d}), S_\gamma(t^d)], {}^{S_\gamma(t^d)}x_{\alpha+\beta}(1)]          & \text{ by \eqref{lem:bmp1},\eqref{eq:defmpn} or~\cref{lem:bmp1} if $d=m+1$}\\
+ = [x_{-\beta-\gamma}(b''t^{m+1-d)}), [S_\gamma(t^d), x_{\alpha+\beta}(1)]]                           & \text{ by~\eqref{eq:H1iii} and~\eqref{eq:bm} since $m+1-d \leq m$}\\
+ = S_{\alpha}(b'''t^{m+1})                                                                            & \text{ by $(c_m)$,\eqref{lem:bmp1},\eqref{eq:defmpn} or~\cref{lem:bmp1} if $d=m+1$} \end{align*}
  Usual identities for structure constants imply (cf.~\cite[p.~12]{Re75}):
  \[b'''=N_{-\beta-\gamma, \alpha+\beta+\gamma} \cdot N_{\gamma, \alpha+\beta} \cdot N_{-\beta-\gamma, \gamma} \cdot N_{-\beta, \alpha+\beta} \cdot b = b, \] 
 \end{enumerate}
-Thus we have demonstrated $(b_{m+1})$ in the special case $a=1$.
-\item Now let us prove $(b_{m+1})$ for arbitrary $\xi = at^k$, $a\in A$ and $1\leq k\leq m+1$. Again, there are two subcases.
+This finishes the proof of~\eqref{eq:verify-bmp2} in the special case $a=1$.
+\item Now we deduce~\eqref{eq:verify-bmp2} for arbitrary $\xi = at^d$, $a\in A$ and $1\leq d\leq m+1$. Again, there are two subcases.
 \begin{enumerate}
 \item \label{case:3a} Case $\alpha \not\perp \alpha'$. % not possible to induct on k here :(
- \begin{align*} [x_\alpha(at^k), x_{\alpha + \beta}(bt^{m+1})] = [x_\alpha(at^k), [x_{\alpha+\beta+\gamma}(t^{m+1}), x_{-\gamma}(b)]] & \text{ by $(c_{m+1})$} \\
-  = [[x_\alpha(at^k), x_{\alpha+\beta+\gamma}(t^{m+1})], {}^{x_{\alpha+\beta+\gamma}(t^{m+1})}\!x_{-\gamma}(b)] & \text{ by $(b_k)$ or Case~\eqref{case:1} if $k=m+1$} \\
+ \begin{align*} 
+ [S_\alpha(at^d), S_{\alpha + \beta}(bt^{m+1})] = 
+ [S_\alpha(at^d), [S_{\alpha+\beta+\gamma}(t^{m+1}), x_{-\gamma}(b')]] & \text{ by~\cref{lem:bmp1}} \\
+  = [[x_\alpha(at^d), S_{\alpha+\beta+\gamma}(t^{m+1})], {}^{S_{\alpha+\beta+\gamma}(t^{m+1})}\!x_{-\gamma}(b')] & \text{ by $(b_k)$ or Case~\eqref{case:1} if $k=m+1$} \\
   = 1 & \text{ by Case~\eqref{case:2}.} \end{align*}
 \item Case $\alpha \perp \alpha'$.
- % mu        0  1 m+1
- % vu        1  0 k
- % mu'       0  1 m+1-k
- % mu - mu'  0  0 k
- % nu + mu'  1  1 m+1
- %           a  b t
-The required identity follows from the following chain of equalities:
 \begin{align*}
- x_{\alpha+\beta+\gamma}(abt^{m+1}) = {}^{x_{-\beta}(t^k)}\!x_{\alpha+\beta+\gamma}(abt^{m+1}) & \text{ by Case~\eqref{case:2}}\\
- = {}^{x_{-\beta}(t^k)}\![x_{\alpha+\beta}(bt^{m+1-k}), x_\gamma(at^k)] & \text{ by $(c_{m+1})$} \\
- = [x_{\alpha}(bt^{m+1}) x_{\alpha+\beta}(bt^{m+1-k}), x_\gamma(at^k)] & \text{ by $(b_k)$ or Case~\eqref{case:2} if $k=m+1$ }\\
- = {}^{x_{\alpha}(bt^{m+1})}\!x_{\alpha+\beta+\gamma}(abt^{m+1}) [x_{\alpha}(bt^{m+1}), x_\gamma(at^k)] & \text{ by~\eqref{eq:H1ii} and $(c_{m+1})$} \\
- = x_{\alpha+\beta+\gamma}(abt^{m+1}) [x_{\alpha}(bt^{m+1}), x_\gamma(at^k)] & \text{ by Case~\eqref{case:3a}.}
+ S_{\alpha+\beta+\gamma}(abt^{m+1}) = {}^{S_{-\beta}(t^d)}\!S_{\alpha+\beta+\gamma}(abt^{m+1}) & \text{ by Case~\eqref{case:2}}\\
+ = {}^{S_{-\beta}(t^d)}\![x_{\alpha+\beta}(b't^{m+1-d}), S_\gamma(at^d)] & \text{ by \eqref{lem:bmp1},\eqref{eq:defmpn} or~\cref{lem:bmp1} if $d=m+1$} \\
+ = [S_{\alpha}(b't^{m+1}) x_{\alpha+\beta}(b't^{m+1-d}), S_\gamma(at^d)] & \text{ by~\cref{lem:bmp1} and $(b_d)$ if $d\leq m$ or Case~\eqref{case:2} if $d=m+1$ }\\
+ = {}^{S_{\alpha}(b't^{m+1})}\!S_{\alpha+\beta+\gamma}(abt^{m+1}) [S_{\alpha}(b't^{m+1}), S_\gamma(at^d)] & \text{ by~\eqref{eq:H1ii} and by \eqref{lem:bmp1},\eqref{eq:defmpn} or~\cref{lem:bmp1} if $d=m+1$} \\
+ = S_{\alpha+\beta+\gamma}(abt^{m+1}) [S_{\alpha}(b't^{m+1}), S_\gamma(at^d)] & \text{ by Case~\eqref{case:3a},}
 \end{align*}
+from which the required identity follows. \qedhere
 \end{enumerate}
 \end{enumerate}
+\end{proof}
 
 
 \section{Overview of Tulenbayev's proof of $K_2$-analogue of Serre problem}
