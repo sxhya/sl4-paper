@@ -288,8 +288,8 @@ From \eqref{eq:H1ii} and~\eqref{item:ii} it follows that $S_\alpha(\xi)$  satisf
 
 \begin{lemma} \label{lem:bmp1} Suppose that $m\geq 1$. For every $\alpha, \alpha' \in \Phi$ such that $\alpha+\alpha' \in \Phi$ and
  $a\in A$, $\xi \in B_d$, $d \leq 0$ the following relation holds in $G_m$: 
-\begin{equation}
-\label{eq:verify-bmp1} [x_\alpha(\xi), S_{\alpha'}(at^{m+1})] = [x_\alpha(t\xi), x_{\alpha'}(at^m)] = S_{\alpha+\alpha'}(N_{\alpha,\alpha'}a\xi t^{m+1}).
+\begin{equation} \nonumber
+[x_\alpha(\xi), S_{\alpha'}(at^{m+1})] = [x_\alpha(t\xi), x_{\alpha'}(at^m)] = S_{\alpha+\alpha'}(N_{\alpha,\alpha'}a\xi t^{m+1}).
 \end{equation}
 \end{lemma}
 \begin{proof}
@@ -320,6 +320,12 @@ Denote by $R$ the expression in the right hand side of the above formula.
 
 It will be convenient for us to extend the definition of $S_\alpha(\xi)$ by allowing $\xi$ to take values in $B_d$ for $d\leq m$.
 In this case we simply set $S_\alpha(\xi) = x_\alpha(\xi)$.
+
+Now suppose  $1 \leq d \leq m+1$. Clearly \eqref{lem:bmp1} and \eqref{eq:defmpn} (in the case $d\leq m$) or~\cref{lem:bmp1} (in the case $d=m+1$) imply that
+\begin{equation} \label{eq:verify-bmp1'} 
+[S_\alpha(\xi), x_{\alpha'}(\eta)] = S_{\alpha+\alpha'}(N_{\alpha,\alpha'}\xi \eta),\ \xi \in B_d, \eta \in B_{m+1-d}.
+\end{equation}
+
 \begin{lemma}
  For $\xi \in B_d$, $d\leq m+1$, $\eta \in B_{m+1}$ and $\alpha, \alpha' \in \Phi$ such that $\alpha + \alpha'\not\in\Phi\cup\{0\}$
  the following relation holds in $G_m$:
@@ -364,9 +370,9 @@ Again, there are two subcases.
 \begin{align*}
 {}^{S_\gamma(t^d)}S_\alpha(bt^{m+1}) = {}^{S_\gamma(t^d)}[x_{-\beta}(b't^{m+1}), x_{\alpha+\beta}(1)] & \text{ by~\cref{lem:bmp1}}\\
  = [S_{-\beta}(b't^{m+1}), {}^{S_\gamma(t^d)}x_{\alpha+\beta}(1)]                                     & \text{ by Case~\eqref{case:2a} since $\gamma\not\perp-\beta$}\\
- = [[x_{-\beta-\gamma}(b''t^{m+1-d}), S_\gamma(t^d)], {}^{S_\gamma(t^d)}x_{\alpha+\beta}(1)]          & \text{ by \eqref{lem:bmp1},\eqref{eq:defmpn} or~\cref{lem:bmp1} if $d=m+1$}\\
+ = [[x_{-\beta-\gamma}(b''t^{m+1-d}), S_\gamma(t^d)], {}^{S_\gamma(t^d)}x_{\alpha+\beta}(1)]          & \text{ by~\eqref{eq:verify-bmp1'}}\\
  = [x_{-\beta-\gamma}(b''t^{m+1-d)}), [S_\gamma(t^d), x_{\alpha+\beta}(1)]]                           & \text{ by~\eqref{eq:H1iii} and~\eqref{eq:bm} since $m+1-d \leq m$}\\
- = S_{\alpha}(b'''t^{m+1})                                                                            & \text{ by $(c_m)$,\eqref{lem:bmp1},\eqref{eq:defmpn} or~\cref{lem:bmp1} if $d=m+1$} \end{align*}
+ = S_{\alpha}(b'''t^{m+1})                                                                            & \text{ by $(c_m)$ and \eqref{eq:verify-bmp1'}} \end{align*}
  Usual identities for structure constants imply (cf.~\cite[p.~12]{Re75}):
  \[b'''=N_{-\beta-\gamma, \alpha+\beta+\gamma} \cdot N_{\gamma, \alpha+\beta} \cdot N_{-\beta-\gamma, \gamma} \cdot N_{-\beta, \alpha+\beta} \cdot b = b, \] 
 \end{enumerate}
@@ -382,9 +388,9 @@ This finishes the proof of~\eqref{eq:verify-bmp2} in the special case $a=1$.
 \item Case $\alpha \perp \alpha'$.
 \begin{align*}
  S_{\alpha+\beta+\gamma}(abt^{m+1}) = {}^{S_{-\beta}(t^d)}\!S_{\alpha+\beta+\gamma}(abt^{m+1}) & \text{ by Case~\eqref{case:2}}\\
- = {}^{S_{-\beta}(t^d)}\![x_{\alpha+\beta}(b't^{m+1-d}), S_\gamma(at^d)] & \text{ by \eqref{lem:bmp1},\eqref{eq:defmpn} or~\cref{lem:bmp1} if $d=m+1$} \\
- = [S_{\alpha}(b't^{m+1}) x_{\alpha+\beta}(b't^{m+1-d}), S_\gamma(at^d)] & \text{ by~\cref{lem:bmp1} and $(b_d)$ if $d\leq m$ or Case~\eqref{case:2} if $d=m+1$ }\\
- = {}^{S_{\alpha}(b't^{m+1})}\!S_{\alpha+\beta+\gamma}(abt^{m+1}) [S_{\alpha}(b't^{m+1}), S_\gamma(at^d)] & \text{ by~\eqref{eq:H1ii} and by \eqref{lem:bmp1},\eqref{eq:defmpn} or~\cref{lem:bmp1} if $d=m+1$} \\
+ = {}^{S_{-\beta}(t^d)}\![x_{\alpha+\beta}(b't^{m+1-d}), S_\gamma(at^d)] & \text{ by~\eqref{eq:verify-bmp1'}} \\
+ = [S_{\alpha}(b't^{m+1}) x_{\alpha+\beta}(b't^{m+1-d}), S_\gamma(at^d)] & \text{ by~\eqref{eq:verify-bmp1'} and $(b_d)$ if $d\leq m$ or Case~\eqref{case:2} if $d=m+1$ }\\
+ = {}^{S_{\alpha}(b't^{m+1})}\!S_{\alpha+\beta+\gamma}(abt^{m+1}) [S_{\alpha}(b't^{m+1}), S_\gamma(at^d)] & \text{ by~\eqref{eq:H1ii} and~\eqref{eq:verify-bmp1'}} \\
  = S_{\alpha+\beta+\gamma}(abt^{m+1}) [S_{\alpha}(b't^{m+1}), S_\gamma(at^d)] & \text{ by Case~\eqref{case:3a},}
 \end{align*}
 from which the required identity follows. \qedhere
