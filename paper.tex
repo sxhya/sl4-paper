@@ -332,7 +332,54 @@ Now suppose  $0 \leq d \leq m+1$. Clearly \eqref{lem:bmp1} and \eqref{eq:defmpn}
   \begin{equation} \label{eq:verify-bmp2} [S_\alpha(\xi), S_{\alpha'}(\eta)] = 1. \end{equation}
 \end{lemma}
 \begin{proof}
-Write $\eta = bt^{m+1}$ for some $b\in A$.
+We can assume that $\eta = bt^{m+1}$ for some $b\in A$.
+
+Claim 1: $\perp(d, 1)$ and $\angle(d, m)$ imply $\angle(d, m+1)$.
+\begin{align*}
+[S_\alpha(\xi), S_{\alpha+\beta}(bt^{m+1})] = [S_\alpha(\xi), [x_{\alpha+\beta+\gamma}(b't^m), x_{-\gamma}(t)]]
+ & \text{ by~\eqref{item:i} and~\eqref{eq:defmpn}}\\
+ = [[S_\alpha(\xi), x_{\alpha+\beta+\gamma}(b't^m)], {}^{x_{\alpha+\beta+\gamma}(b't^m)}\!x_{-\gamma}(t)]
+ & \text{ by~$\perp(d, 1)$}\\
+ = 1
+ & \text{ by~$\angle(d, m)$.} \end{align*}
+ 
+Claim 2: $\perp(d, 1)$ and $\angle(d, m)$ imply $\angle(d, m+1)$.
+ \begin{align*}
+[S_\alpha(\xi), S_{\gamma}(bt^{m+1})] = [S_\alpha(\xi), [x_{\beta+\gamma}(t), x_{-\beta}(b't^m)]]
+ & \text{ by~\eqref{item:i} and~\eqref{eq:defmpn}}\\
+ = [[S_\alpha(t^d), x_{\alpha+\beta+\gamma}(t)], {}^{x_{\alpha+\beta+\gamma}(t)}\!x_{-\gamma}(b't^m)]
+ & \text{ by~$\perp(d, 1)$}\\
+ = 1
+ & \text{ by~$\angle(d, m)$.} \end{align*}
+
+Claim 2: (first line of equalities proves nothing for $d=0$)
+\begin{align*}
+{}^{S_\gamma(t^d)}S_\alpha(bt^{m+1}) = {}^{S_\gamma(t^d)}[S_{-\beta}(b't^{m+1}), x_{\alpha+\beta}(1)] 
+& \text{ by~\cref{lem:bmp1}}\\
+ = [S_{-\beta}(b't^{m+1}), {}^{S_\gamma(t^d)}x_{\alpha+\beta}(1)]                                     
+ & \text{ by $\angle(d, m+1)$}\\
+ = [[x_{-\beta-\gamma}(b''t^{m+1-d}), S_\gamma(t^d)], {}^{S_\gamma(t^d)}x_{\alpha+\beta}(1)]          
+ & \text{ by~\eqref{eq:verify-bmp1'}}\\
+ = [x_{-\beta-\gamma}(b''t^{m+1-d)}), [S_\gamma(t^d), x_{\alpha+\beta}(1)]]                           
+ & \text{ by~\eqref{eq:H1iii} and~$\perp(m+1-d, 0)$}\\
+ = S_{\alpha}(b'''t^{m+1})                                                                            
+ & \text{ by~\eqref{eq:verify-bmp1'}} \end{align*}
+ 
+\begin{align*}
+ S_{\alpha+\beta+\gamma}(abt^{m+1}) = {}^{S_{-\beta}(t^d)}\!S_{\alpha+\beta+\gamma}(abt^{m+1}) 
+ & \text{ by previous line}\\
+ = {}^{S_{-\beta}(t^d)}\![x_{\alpha+\beta}(b't^{m+1-d}), S_\gamma(at^d)] 
+ & \text{ by~\eqref{eq:verify-bmp1'}} \\
+ = [S_{\alpha}(b't^{m+1}) x_{\alpha+\beta}(b't^{m+1-d}), S_\gamma(at^d)] 
+ & \text{ by~\eqref{eq:verify-bmp1'} and $\angle(d, m+1)$ }\\
+ = {}^{S_{\alpha}(b't^{m+1})}\!S_{\alpha+\beta+\gamma}(abt^{m+1}) [S_{\alpha}(b't^{m+1}), S_\gamma(at^d)] 
+ & \text{ by~\eqref{eq:H1ii} and~\eqref{eq:verify-bmp1'}} \\
+ = S_{\alpha+\beta+\gamma}(abt^{m+1}) [S_{\alpha}(b't^{m+1}), S_\gamma(at^d)] 
+ & \text{ by $\angle(m+1, m+1)$,}
+\end{align*}
+ 
+
+ 
 \begin{enumerate}
 \item \label{case:1} First consider the case $d \leq 0$. There are two further subcases.
  \begin{enumerate}
