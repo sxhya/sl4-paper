@@ -321,7 +321,7 @@ Denote by $R$ the expression in the right hand side of the above formula.
 It will be convenient for us to extend the definition of $S_\alpha(\xi)$ by allowing $\xi$ to take values in $B_d$ for $d\leq m$.
 In this case we simply set $S_\alpha(\xi) = x_\alpha(\xi)$.
 
-Now suppose  $1 \leq d \leq m+1$. Clearly \eqref{lem:bmp1} and \eqref{eq:defmpn} (in the case $d\leq m$) or~\cref{lem:bmp1} (in the case $d=m+1$) imply that
+Now suppose  $0 \leq d \leq m+1$. Clearly \eqref{lem:bmp1} and \eqref{eq:defmpn} (in the case $1\leq d\leq m$) or~\cref{lem:bmp1} (in the case $d=0,m+1$) imply that
 \begin{equation} \label{eq:verify-bmp1'} 
 [S_\alpha(\xi), x_{\alpha'}(\eta)] = S_{\alpha+\alpha'}(N_{\alpha,\alpha'}\xi \eta),\ \xi \in B_d, \eta \in B_{m+1-d}.
 \end{equation}
@@ -344,12 +344,12 @@ Write $\eta = bt^{m+1}$ for some $b\in A$.
    [S_\alpha(\xi), S_{\alpha+\beta}(bt^{m+1})] = [x_\alpha(\xi), [x_{\alpha+\beta+\gamma}(b't^m), x_{-\gamma}(t)]] = \\   
   = [[x_\alpha(\xi), x_{\alpha+\beta+\gamma}(b't^m)], {}^{x_{\alpha+\beta+\gamma}(b't^m)}\!x_{-\gamma}(t)] = 1 \text{ for some $b'\in A$ }.
   \end{multline}
-  %What this really proves: $b_{m}(\alpha, |\xi|, -\gamma, 1)$ and $b_m(\alpha, |\xi|, \alpha+\beta+\gamma, m)$ implies $b_{m+1}(\alpha, |\xi|, \alpha+\beta, m+1 )$.
+  What this really proves: $PERP(d, 1)$ and $NONPERP(d, m)$ imply $NONPERP(d, m+1)$.
   \item Case $\alpha \perp \alpha'$. 
   As before, we set $\alpha' = \gamma$ and use~\eqref{eq:H1iii},\eqref{eq:bm} and~\eqref{eq:cm}:
   \begin{multline} \nonumber
-   [x_\alpha(\xi), S_{\gamma}(bt^{m+1})] = [x_\alpha(\xi), [x_{\beta+\gamma}(b't^m), x_{-\beta}(t)]] = \\   
-  = [[x_\alpha(\xi), x_{\beta+\gamma}(b't^m)], {}^{x_{\beta+\gamma}(b't^m)}\!x_{-\beta}(t)] = {}^{x_{\beta+\gamma}(b't^m)}\![x_{\alpha+\beta+\gamma}(b't^m\xi), x_{-\beta}(t)] = 1.
+   [S_\alpha(\xi), S_{\gamma}(bt^{m+1})] = [S_\alpha(\xi), [x_{\beta+\gamma}(b't^m), x_{-\beta}(t)]] = \\   
+  = [[S_\alpha(\xi), x_{\beta+\gamma}(b't^m)], {}^{x_{\beta+\gamma}(b't^m)}\!x_{-\beta}(t)] = {}^{x_{\beta+\gamma}(b't^m)}\![x_{\alpha+\beta+\gamma}(b't^m\xi), x_{-\beta}(t)] = 1.
   \end{multline}
  \end{enumerate} 
   
