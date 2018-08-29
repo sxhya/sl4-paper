@@ -323,28 +323,28 @@ In this case we simply set $S_\alpha(\xi) = x_\alpha(\xi)$.
 
 Now suppose  $0 \leq d \leq m+1$. Clearly \eqref{lem:bmp1} and \eqref{eq:defmpn} (in the case $1\leq d\leq m$) or~\cref{lem:bmp1} (in the case $d=0,m+1$) imply that
 \begin{equation} \label{eq:verify-bmp1'} 
-[S_\alpha(\xi), x_{\alpha'}(\eta)] = S_{\alpha+\alpha'}(N_{\alpha,\alpha'}\xi \eta),\ \xi \in B_d, \eta \in B_{m+1-d}.
+[S_\alpha(\xi), S_{\alpha'}(\eta)] = S_{\alpha+\alpha'}(N_{\alpha,\alpha'}\xi \eta),\ \xi \in B_d, \eta \in B_{m+1-d}.
 \end{equation}
 
 We need to introduce additional notation.
-For $a,b\leq m+1$ we denote by $\bot(a, b)$ (resp. $\angle(a,b)$) the set consisting of all relations $[S_\alpha(\xi), S_{\alpha'}(\eta)] = 1$
+For $a,b\leq m+1$ we denote by $\bot(a, b)$ (resp. $\angle(a,b)$) the family of all relations $[S_\alpha(\xi), S_{\alpha'}(\eta)] = 1$
 for which $\xi \in B_a$, $\eta \in B_b$ and $\alpha$ and $\alpha'$ are orthogonal (resp. form a sharp angle). 
-We denote by $\bot_0(d, m+1)$ the subset of $\bot(d, m+1)$
-consisting of those relations for which, moreover, $\eta = t^{m+1}$.
+We denote by $\bot_0(a, b)$ the subset of $\bot(a, b)$
+consisting of those relations for which $\xi = t^{a} \in B_a$.
 
-\begin{lemma} \label{claim1} For $d\leq m+1$ relations $\bot_0(d, 1)$ and $\angle(d, m)$ imply $\angle(d, m+1)$. \end{lemma}
+\begin{lemma} \label{claim1} In $G_m$ relations $\bot_0(1, d)$ and $\angle(d, m)$ imply $\angle(d, m+1)$ for $d\leq m+1$ \end{lemma}
 \begin{proof}
 Without loss of generality we may assume that $\alpha' = \alpha + \beta$
   for some $\rA_3$-triple $(\alpha, \beta, \gamma)$.
 Write $\eta = bt^{m+1}$ for some $b\in A$.
 \begin{align*} 
 [S_\alpha(\xi), S_{\alpha+\beta}(bt^{m+1})] = [S_\alpha(\xi), [x_{\alpha+\beta+\gamma}(b't^m), x_{-\gamma}(t)]] & \text{ by~\eqref{item:i} and~\eqref{eq:defmpn}}\\
-= [[S_\alpha(\xi), x_{\alpha+\beta+\gamma}(b't^m)], {}^{x_{\alpha+\beta+\gamma}(b't^m)}\!x_{-\gamma}(t)] & \text{ by~$\bot_0(d, 1)$}\\
+= [[S_\alpha(\xi), x_{\alpha+\beta+\gamma}(b't^m)], {}^{x_{\alpha+\beta+\gamma}(b't^m)}\!x_{-\gamma}(t)] & \text{ by~$\bot_0(1, d)$}\\
 = 1
  & \text{ by~$\angle(d, m)$. \qedhere} \end{align*} 
 \end{proof}
 
-\begin{lemma} \label{claim2} For $1\leq d\leq m+1$ relations $\angle(d, m+1)$ imply $\bot_0(d, m+1)$. \end{lemma}
+\begin{lemma} \label{claim2} In $G_m$ relations $\angle(d, m+1)$ imply $\bot_0(d, m+1)$ for  $1\leq d\leq m+1$. \end{lemma}
 \begin{proof}
 As before, without loss of generality we may assume $\alpha' = \gamma$ for some $\mathsf{A}_3$-triple $(\alpha, \beta, \gamma)$.
  \begin{align*}
@@ -362,12 +362,12 @@ Usual identities for structure constants imply (cf.~\cite[p.~12]{Re75}):
 \end{proof}
 
 \begin{lemma} \label{claim3}
- For $d\leq m+1$ relations $\bot_0(d, m+1)$, $\angle(d, d)$ and $\angle(m+1, m+1)$ imply $\bot(d, m+1)$.
+ In $G_m$ relations $\bot_0(d, m+1)$, $\angle(d, d)$ and $\angle(m+1, m+1)$ imply $\bot(d, m+1)$ for $d\leq m+1$.
 \end{lemma}
 \begin{proof}
  \begin{align*} 
  S_{\alpha+\beta+\gamma}(abt^{m+1}) = {}^{S_{-\beta}(t^d)}\!S_{\alpha+\beta+\gamma}(abt^{m+1}) 
- & \text{ by $\bot_0(m+1, d)$}\\
+ & \text{ by $\bot_0(d, m+1)$}\\
  = {}^{S_{-\beta}(t^d)}\![x_{\alpha+\beta}(b't^{m+1-d}), S_\gamma(at^d)] 
  & \text{ by~\eqref{eq:verify-bmp1'}} \\
  = [S_{\alpha}(b't^{m+1}) x_{\alpha+\beta}(b't^{m+1-d}), S_\gamma(at^d)] 
@@ -383,7 +383,7 @@ Usual identities for structure constants imply (cf.~\cite[p.~12]{Re75}):
 Elements $S_\alpha(\xi)$ satisfy relations $(b_{m+1})$.
  \end{lemma}
 \begin{proof}
-We need to show that $S_\alpha(\xi)$ satisfy $\angle(d, m+1)$ and $\perp(d, m+1)$ for $d\leq m+1$.
+We need to show that $S_\alpha(\xi)$ satisfy $\angle(d, m+1)$ and $\bot(d, m+1)$ for $d\leq m+1$.
 \begin{enumerate}
  \item Relations $\angle(d, m+1)$, $d\leq m$ follow from~\cref{claim1}. 
  \item Relations $\bot(d, m+1)$ with $d\leq 0$ can verified by direct computation:
@@ -395,7 +395,7 @@ We need to show that $S_\alpha(\xi)$ satisfy $\angle(d, m+1)$ and $\perp(d, m+1)
  \text{ by $(b_m)$ and $(c_m)$} \\
  = 1 & \text{ by $(b_m)$.}
 \end{align*}
- \item Relations $\bot_0(d, m+1)$ with $1\leq d\leq m$ follows from~\cref{claim2}.
+ \item Relations $\bot_0(d, m+1)$ with $1\leq d\leq m$ follow from~\cref{claim2}.
  \item Relations $\angle(m+1, m+1)$ follow from~\cref{claim1}, consequently relations $\bot_0(m+1, m+1)$ follow from~\cref{claim2}.
  \item Relations $\bot(d, m+1)$, $0\leq d\leq m+1$ follow from~\cref{claim3} and the previous two assertions.
 \end{enumerate}
