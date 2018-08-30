@@ -162,9 +162,9 @@ We need to prove that $\sigma_i$ commute with $x_{jk}(a)$ if $j\neq i, k \neq i$
 
 \section{A variant of Rehmann theorem}
 Let $A$ be arbitrary commutative unital ring and $\mathfrak{m}$ be its ideal.
-Denote by $B$ the ring $\mathfrak{m}[t^{-1}] + A[t]$ with the obvious $\mathbb{Z}$-grading.
-In other words, as a module $B$ decomposes into a direct sum of its homogeneous components $\oplus_k B_k$,
- where each $B_k$ is either $A\cdot t^k$ for $k \geq 0$ or $\mathfrak{m} \cdot t^k$ for $k<0$.
+Denote by $B$ the subring $\mathfrak{m}[t^{-1}] + A[t]$ of the Laurent polynomial ring $A[t, t^{-1}]$ with the $\mathbb{Z}$-grading induced by the grading on $A[t, t^{-1}]$.
+As an additive group $B$ decomposes into a direct sum of its homogeneous components $\oplus_{k\in\mathbb{Z}} B_k$,
+ where each $B_k \subseteq B$ is equal either to $A\cdot t^k$ for $k \geq 0$ or to $\mathfrak{m} \cdot t^k$ for $k<0$.
   
 For $m \geq 1$ consider the following set of Steinberg generators:
 \[\XX{m} = \{ x_{\alpha}(\xi) \mid \xi \in B_d,\text{ for } d\leq m,\ \alpha\in\Phi\}. \]
@@ -176,7 +176,7 @@ Let $\Phi$ be a reduced irreducible root system of rank $\geq 3$.
 The main result of this section is~\cref{prop:tul3.3} which gives a presentation of Steinberg group $\St(\Phi, B)$ in terms of generating set $\mathcal{X}_1$.
 In the sequel we will need this presentation only in the special case $\Phi=\rA_3$. However, we preferred to prove a more general statement since the proof in the special case $\Phi=\rA_3$ has almost the same length.
 
-This presentation give by~\cref{prop:tul3.3} can be thought of as an analogue of~\cite[Lemma~3.3]{Tu83} in the case $n=4$ (with variables $t$ and $t^{-1}$ swapped).
+This presentation given by~\cref{prop:tul3.3} can be thought of as an analogue of~\cite[Lemma~3.3]{Tu83} in the case $n=4$ (with variables $t$ and $t^{-1}$ swapped).
 Notice that Tulenbaev's short proof of \cite[Lemma~3.3]{Tu83} in the case $\Phi=\rA_\ell$, $\ell\geq 4$ does not work in the case $\Phi=\rA_3$,
 %TODO: Explain why we are dealing with general \Phi rather than just the case \rA_3 -- Reason the difficulty is the same
  which forces us to recourse to a much longer argument inspired by the proof of Rehmann--Soul{\'e} theorem on
@@ -188,7 +188,7 @@ There are several reasons why we can not simply refer to~\cite{Re75} or~\cite{RS
  \item Rehmann and Soul{\'e} deal with usual polynomial rings rather than $\mathbb{Z}$-graded rings
   (i.\,e. their results correspond to the special case $\mathfrak{m}=0$ of our result);
  \item Presentations from~\cite{Re75,RS76} are given in terms of generating set $\XX{2}$ rather than $\mathcal{X}_1$ which is not precise enough for our purposes;
- \item It is assumed that $A=k$ is a field in~\cite{Re75} and that $A=\mathbb{Z}$ in~\cite{RS76}, while we must work with arbitrary coefficient ring $A$.
+ \item It is assumed that $A=k$ is a field in~\cite{Re75} and that $A=\mathbb{Z}$ in~\cite{RS76}, while we must work with general coefficient ring $A$.
 \end{itemize} 
 \end{rem}
 
@@ -294,24 +294,37 @@ From \eqref{eq:H1ii} and~\eqref{item:ii} it follows that $S_\alpha(\xi)$  satisf
 \begin{proof}
 By \cite[Lemma~3.1.2]{RS76} we may assume without loss of generality that $\alpha'=\beta$ for some $\rA_3$-triple $(\alpha, \beta, \gamma)$.
 \begin{align*}
-   [x_\alpha(\xi), S_\beta(at^{m+1})] = [x_\alpha(\xi), [x_{\beta + \gamma}(t), x_{-\gamma}(a't^m)]]&  \text{ by~\eqref{item:i},\eqref{eq:defmpn} for $a' = N_{\beta+\gamma, -\gamma} a$} \\ 
- = [x_{\alpha+\beta+\gamma}(\epsilon t\xi), {}^{x_{\beta+\gamma}(t)}x_{-\gamma}(a't^m)]             &  \text{ by~\eqref{eq:H1iii}, for $\epsilon=N_{\alpha, \beta+\gamma}$} \\
- = {}^{x_{\beta+\gamma}(t)}[x_{\alpha+\beta+\gamma}(\epsilon t\xi), x_{-\gamma}(a't^m)]             &  \text{ by $(b_1)$}
+   [x_\alpha(\xi), S_\beta(at^{m+1})] = [x_\alpha(\xi), [x_{\beta + \gamma}(t), x_{-\gamma}(a't^m)]]
+   &  \text{ by~\eqref{item:i},\eqref{eq:defmpn} for $a' = N_{\beta+\gamma, -\gamma} a$} \\ 
+ = [x_{\alpha+\beta+\gamma}(\epsilon t\xi), {}^{x_{\beta+\gamma}(t)}x_{-\gamma}(a't^m)]             
+ &  \text{ by~\eqref{eq:H1iii}, for $\epsilon=N_{\alpha, \beta+\gamma}$} \\
+ = {}^{x_{\beta+\gamma}(t)}[x_{\alpha+\beta+\gamma}(\epsilon t\xi), x_{-\gamma}(a't^m)]             
+ &  \text{ by $(b_1)$}
 \end{align*} 
 Denote by $R$ the expression in the right hand side of the above formula.
 \begin{enumerate}
  \item \label{case:cm-1} Case $m=1$, $d = 0$.
  \begin{align*}
-   R  = [x_{\alpha +\beta + \gamma}(\epsilon t\xi), x_{-\gamma}(a't^m)] & \text{ by $(d_1)$}\\
-        = [x_\alpha(t\xi), x_\beta(at^m)]                               & \text{ by~\eqref{item:i}. }   
+   R  = [x_{\alpha +\beta + \gamma}(\epsilon t\xi), x_{-\gamma}(a't)] 
+   & \text{ by $(d_1)$}\\
+      = {}^{x_{\beta+\gamma}(1)}[x_{\alpha +\beta + \gamma}(\epsilon t\xi), x_{-\gamma}(a't)] 
+   & \text{ by~\eqref{eq:H1ii}, $(b_1)$, $(c_1)$} \\
+      = [x_\alpha(\xi), [x_{\beta + \gamma}(1), x_{-\gamma}(a't^m)]] 
+   & \text{ by $(b_1)$, \eqref{eq:H1iii}}\\
+      = [x_\alpha(t\xi), x_\beta(at)]
+   & \text{ by~\eqref{item:i},\eqref{eq:defmpn}.}
  \end{align*}  
- This uses $N_{\alpha, \beta+\gamma} N_{\alpha+\beta+\gamma, -\gamma} N_{\beta+\gamma, -\gamma} = N_{\alpha, \beta}$. Why is this true?
+ %This uses $N_{\alpha, \beta+\gamma} N_{\alpha+\beta+\gamma, -\gamma} N_{\beta+\gamma, -\gamma} = N_{\alpha, \beta}$. 
+ %Why is this true?
 
  \item \label{case:cm-2} Case $m\geq 2$ or $m=1$, $d < 0$.
  \begin{align*}
- R = {}^{x_{\beta+\gamma}(t)}[x_{\alpha+\beta+\gamma}(\epsilon t^2\xi), x_{-\gamma}(a't^{m-1})]       &  \text{ by~\eqref{item:i} if $k=0$ or~\eqref{eq:cm} if $k <0$} \\
- = [[x_\alpha(t\xi), x_{\beta+\gamma}(t)], {}^{x_{\beta+\gamma}(t)} x_{-\gamma}(a't^{m-1})]         &  \text{ by~$(b_2)$, $(c_2)$ or by~\eqref{item:ii},\eqref{eq:defmpn} if $m=1$} \\
- = [x_\alpha(t\xi), x_\beta(at^m)]                                                                  &  \text{ by~\eqref{eq:H1iii}. \qedhere}
+ R = {}^{x_{\beta+\gamma}(t)}[x_{\alpha+\beta+\gamma}(\epsilon t^2\xi), x_{-\gamma}(a't^{m-1})]     
+ &  \text{ by~\eqref{item:i} if $k=0$ or~\eqref{eq:cm} if $k <0$} \\
+ = [[x_\alpha(t\xi), x_{\beta+\gamma}(t)], {}^{x_{\beta+\gamma}(t)} x_{-\gamma}(a't^{m-1})]         
+ &  \text{ by~$(b_2)$, $(c_2)$ or by~\eqref{item:ii},\eqref{eq:defmpn} if $m=1$} \\
+ = [x_\alpha(t\xi), x_\beta(at^m)]                                                                  
+ &  \text{ by~\eqref{eq:H1iii}. \qedhere}
 \end{align*} 
 
 \end{enumerate}
@@ -398,75 +411,12 @@ We need to show that $S_\alpha(\xi)$ satisfy $\angle(d, m+1)$ and $\bot(d, m+1)$
  \item Relations $\angle(m+1, m+1)$ follow from~\cref{claim1}, consequently relations $\bot_0(m+1, m+1)$ follow from~\cref{claim2}.
  \item Relations $\bot(d, m+1)$, $0\leq d\leq m+1$ follow from~\cref{claim3} and the previous two assertions.
 \end{enumerate}
-\begin{comment}
- \begin{enumerate}
-\item \label{case:1} First consider the case $d \leq 0$. There are two further subcases.
- \begin{enumerate}
-  \item \label{case:1a} Case $\alpha \not \perp \alpha'$. 
-  Without loss of generality we may assume that $\alpha' = \alpha + \beta$
-  for some $\rA_3$-triple $(\alpha, \beta, \gamma)$.
-  Using~\eqref{eq:H1iii} and~\eqref{eq:bm} we obtain
-   \begin{multline} \nonumber
-   [S_\alpha(\xi), S_{\alpha+\beta}(bt^{m+1})] = [x_\alpha(\xi), [x_{\alpha+\beta+\gamma}(b't^m), x_{-\gamma}(t)]] = \\   
-  = [[x_\alpha(\xi), x_{\alpha+\beta+\gamma}(b't^m)], {}^{x_{\alpha+\beta+\gamma}(b't^m)}\!x_{-\gamma}(t)] = 1 \text{ for some $b'\in A$ }.
-  \end{multline}
-  What this really proves: $PERP(d, 1)$ and $NONPERP(d, m)$ imply $NONPERP(d, m+1)$.
-  \item Case $\alpha \perp \alpha'$. 
-  As before, we set $\alpha' = \gamma$ and use~\eqref{eq:H1iii},\eqref{eq:bm} and~\eqref{eq:cm}:
-  \begin{multline} \nonumber
-   [S_\alpha(\xi), S_{\gamma}(bt^{m+1})] = [S_\alpha(\xi), [x_{\beta+\gamma}(b't^m), x_{-\beta}(t)]] = \\   
-  = [[S_\alpha(\xi), x_{\beta+\gamma}(b't^m)], {}^{x_{\beta+\gamma}(b't^m)}\!x_{-\beta}(t)] = {}^{x_{\beta+\gamma}(b't^m)}\![x_{\alpha+\beta+\gamma}(b't^m\xi), x_{-\beta}(t)] = 1.
-  \end{multline}
- \end{enumerate} 
-  
-\item \label{case:2} Now assume $1 \leq d \leq m+1$.
-At first we want to prove~\eqref{eq:verify-bmp2} only in the special case $\xi=t^d$,
-We proceed by induction on $d$, so we can assume that \eqref{eq:verify-bmp2} holds for $\xi = t^e$, $e<d$.
-Again, there are two subcases.
-\begin{enumerate}
- \item \label{case:2a} Case $\alpha\not\perp\alpha'$ is handled similarly to the Case~\eqref{case:1a} with the only
-  difference that we must refer to the inductive assumption instead of~\eqref{eq:bm} in the case $d=m+1$:
-  %TODO: No real induction going on here...
-  \begin{multline} \nonumber
-   [S_\alpha(t^d), S_{\alpha+\beta}(bt^{m+1})] = [S_\alpha(t^d), [x_{\alpha+\beta+\gamma}(b't^m), x_{-\gamma}(t)]] = \\   
-  = [[S_\alpha(t^d), x_{\alpha+\beta+\gamma}(b't^m)], {}^{x_{\alpha+\beta+\gamma}(b't^m)}\!x_{-\gamma}(t)] = 1.
-  \end{multline}
-  
- \item Case $\alpha\perp\alpha'$. As before, we may assume $\alpha'=\gamma$.
-\begin{align*}
-{}^{S_\gamma(t^d)}S_\alpha(bt^{m+1}) = {}^{S_\gamma(t^d)}[S_{-\beta}(b't^{m+1}), x_{\alpha+\beta}(1)] & \text{ by~\cref{lem:bmp1}}\\
- = [S_{-\beta}(b't^{m+1}), {}^{S_\gamma(t^d)}x_{\alpha+\beta}(1)]                                     & \text{ by Case~\eqref{case:2a} since $\gamma\not\perp-\beta$}\\
- = [[x_{-\beta-\gamma}(b''t^{m+1-d}), S_\gamma(t^d)], {}^{S_\gamma(t^d)}x_{\alpha+\beta}(1)]          & \text{ by~\eqref{eq:verify-bmp1'}}\\
- = [x_{-\beta-\gamma}(b''t^{m+1-d)}), [S_\gamma(t^d), x_{\alpha+\beta}(1)]]                           & \text{ by~\eqref{eq:H1iii} and~\eqref{eq:bm} since $m+1-d \leq m$}\\
- = S_{\alpha}(b'''t^{m+1})                                                                            & \text{ by~\eqref{eq:verify-bmp1'}} \end{align*}
- Usual identities for structure constants imply (cf.~\cite[p.~12]{Re75}):
- \[b'''=N_{-\beta-\gamma, \alpha+\beta+\gamma} \cdot N_{\gamma, \alpha+\beta} \cdot N_{-\beta-\gamma, \gamma} \cdot N_{-\beta, \alpha+\beta} \cdot b = b, \] 
-\end{enumerate}
-This finishes the proof of~\eqref{eq:verify-bmp2} in the special case $a=1$.
-\item Now we deduce~\eqref{eq:verify-bmp2} for arbitrary $\xi = at^d$, $a\in A$ and $1\leq d\leq m+1$. Again, there are two subcases.
-\begin{enumerate}
-\item \label{case:3a} Case $\alpha \not\perp \alpha'$. % not possible to induct on k here :(
- \begin{align*} 
- [S_\alpha(at^d), S_{\alpha + \beta}(bt^{m+1})] = 
- [S_\alpha(at^d), [S_{\alpha+\beta+\gamma}(t^{m+1}), x_{-\gamma}(b')]] & \text{ by~\cref{lem:bmp1}} \\
-  = [[x_\alpha(at^d), S_{\alpha+\beta+\gamma}(t^{m+1})], {}^{S_{\alpha+\beta+\gamma}(t^{m+1})}\!x_{-\gamma}(b')] & \text{ by $(b_k)$ or Case~\eqref{case:1} if $k=m+1$} \\
-  = 1 & \text{ by Case~\eqref{case:2}.} \end{align*}
-\item Case $\alpha \perp \alpha'$.
-\begin{align*}
- S_{\alpha+\beta+\gamma}(abt^{m+1}) = {}^{S_{-\beta}(t^d)}\!S_{\alpha+\beta+\gamma}(abt^{m+1}) & \text{ by Case~\eqref{case:2}}\\
- = {}^{S_{-\beta}(t^d)}\![x_{\alpha+\beta}(b't^{m+1-d}), S_\gamma(at^d)] & \text{ by~\eqref{eq:verify-bmp1'}} \\
- = [S_{\alpha}(b't^{m+1}) x_{\alpha+\beta}(b't^{m+1-d}), S_\gamma(at^d)] & \text{ by~\eqref{eq:verify-bmp1'} and $(b_d)$ if $d\leq m$ or Case~\eqref{case:2} if $d=m+1$ }\\
- = {}^{S_{\alpha}(b't^{m+1})}\!S_{\alpha+\beta+\gamma}(abt^{m+1}) [S_{\alpha}(b't^{m+1}), S_\gamma(at^d)] & \text{ by~\eqref{eq:H1ii} and~\eqref{eq:verify-bmp1'}} \\
- = S_{\alpha+\beta+\gamma}(abt^{m+1}) [S_{\alpha}(b't^{m+1}), S_\gamma(at^d)] & \text{ by Case~\eqref{case:3a},}
-\end{align*}
-from which the required identity follows. \qedhere
-\end{enumerate}
-\end{enumerate}
-\end{comment}
 \end{proof}
 
 \begin{proof}[Proof of~\cref{prop:tul3.3}]
- %TODO: Deduce 2nd assertion from 1st
+Define the map $g_m\colon G_{m+1} \to G_m$ by $g_m(x_\alpha(\xi)) = S_\alpha(\xi)$.
+In view of the above lemmata this map is well-defined. It is clear that $g_m$ is inverse to $f_m$, which proves the first claim.
+
 Notice that the second assertion follows from the first one.
 Indeed, this would give the required isomorphism $G_1 \cong \St(\Phi, B)$ since $\langle \XX{\infty} \mid \RR{\infty} \rangle$ is evidently isomorphic to $\St(\Phi, B)$.
 %Denote by $F(S)$ the free group on the generating set $S$.
