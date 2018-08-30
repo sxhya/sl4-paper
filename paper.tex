@@ -4,6 +4,7 @@
 \usepackage[hyperref=true, backend=bibtex, firstinits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
 \usepackage[capitalize]{cleveref}
 \usepackage[matrix,arrow,curve]{xy}
+\usepackage{tikz}
 \usepackage{enumitem}
 
 \addbibresource{paper.bib}
@@ -16,6 +17,7 @@
 \DeclareMathOperator{\E}{E}
 \DeclareMathOperator{\T}{T}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\colim}{colim}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SL}{SL}
 \DeclareMathOperator{\Aut}{Aut}
@@ -196,7 +198,13 @@ There are several reasons why we can not simply refer to~\cite{Re75} or~\cite{RS
 
 We need one additional technical definition. We call an ordered triple of roots $(\alpha, \beta, \gamma) \in \Phi^3$ an {\it $\rA_3$-triple}
  if these vectors form a basis of a root subsystem $\Psi \subseteq \Phi$ of type $\rA_3$, and moreover if the Dynkin diagram of $\Psi$ with respect to this basis has the form
- $\xymatrix{\circ_\alpha \ar@{-}[r] & \circ_\beta \ar@{-}[r] & \circ_\gamma}.$ %TODO: Draw better diagram :) 
+\begin{tikzpicture}
+\draw[fill=black] 
+(0,0) circle [radius=.1] node [below] {$\alpha$} --
+(1,0) circle [radius=.1] node [below] {$\beta$} --
+(2,0) circle [radius=.1] node [below] {$\gamma$}
+\end{tikzpicture}.
+  
 
 For $m\geq 2$ define $G_m$ as the group presented by generators $\mathcal{X}_m$ and the following three families of relations:
 \begin{align}
@@ -223,11 +231,8 @@ Our goal is to show the following result.
  The above presentation seems to be the shortest possible in the cases $\Phi=\rA_3, \rD_\ell$. On the other hand, the analogue of the above proposition for $\Phi=\rA_\ell$, $\ell\geq 4$ and $\Phi=\rE_\ell$ holds without additional relation $(d_1)$. For $\rA_\ell$ this is proved in~\cite[Lemma~3.3]{Tu83}, for $\rE_\ell$ this can be easily deduced using the amalgamation technique (see~???).
 \end{rem}
 
-
-
 We will use the following commutator identities (cf.~\cite[H1]{Re75}):
 \begin{align}
-% \label{eq:H1i}   [a, bc] = [a, b]\cdot {}^b[a, c] = [a, b] \cdot [b, [a, c]] \cdot [a, c];& \\
  \label{eq:H1ii}  [ab, c] = {}^a[b, c] \cdot [a,c];&\\ %= [a,[b,c]]\cdot [b,c] \cdot [a,c];&\\
  \label{eq:H1iii} [a,c]   = 1    \text{ implies } [a, [b,c]] = [[a,b],{}^bc].&
 \end{align}
@@ -259,32 +264,8 @@ so we can define the following element of $G_m$:
 \begin{equation} \label{eq:defmpn} S_\alpha(\xi) := [x_{\alpha-\alpha'}(N_{\alpha-\alpha',\alpha'} \xi'), x_{\alpha'}(t)].\end{equation} 
 From~\eqref{item:i} it follows that $S_\alpha(\xi)$ does not depend of the choice of $\alpha'$.
 
-%To show that $f_m$ is an isomorphism we construct a map $g_m \colon G_{m+1} \to G_m$ in the opposite direction.
-%We define it on generators $\mathcal{X}_{m+1}$ and then verify that it is well defined.
-%Clearly, $g_m$ should be defined as the identity map on the subset of generators $\mathcal{X}_m \subseteq \mathcal{X}_{m+1}$.
-%Now if $x_{\alpha}(\xi)$ is an element of $\mathcal{X}_{m+1}\setminus \mathcal{X}_m$
-%there exist $\xi' \in B_m$ and $\alpha'\in \Phi$ such that $\xi = t\xi'$ and $\alpha-\alpha'\in\Phi$, 
-% therefore we can set 
-%\[g_m(x_\alpha(\xi)) = [x_{\alpha-\alpha'}(\xi'), x_{\alpha'}(N_{\alpha-\alpha',\alpha'} t)].\]
-%It follows from~\eqref{item:i} that this definition does not depend on the choice of $\alpha'$.
-
 Let us show that elements $S_\alpha(\xi)$ satisfy the relations $(a_{m+1})$, $(b_{m+1})$ and $(c_{m+1})$.
-From \eqref{eq:H1ii} and~\eqref{item:ii} it follows that $S_\alpha(\xi)$  satisfy $(a_{m+1})$ and hence $(b_{m+1})$ in the special case $\alpha=\alpha'$.
-\begin{comment}
-\begin{lemma} For every $\rA_3$-triple $(\alpha, \beta, \gamma)$ in $\Phi$ and $a,b,c \in A$ the following relation holds in $G_1$:
-\begin{align} 
- [x_{\alpha}(a), [x_{\beta}(b t), x_{\gamma}(c t)]] & = [x_{\beta+\alpha}(N_{\beta, \alpha}a b t), x_{\gamma}(ct)].
-\end{align}
- \end{lemma}
-\begin{proof}
- \begin{align*}
-   [x_{\alpha}(a), [x_{\beta}(b t), x_{\gamma}(c t)]] = [[x_{\alpha}(a), x_{\beta}(b t)], {}^{x_{\beta}(b t)}\!x_{\gamma}(ct)] &  \text{ by~\eqref{eq:H1iii} and~$(b_1)$} \\ 
-                                                       = {}^{x_{\beta}(b t)}[x_{\alpha +\beta}(N_{\alpha,\beta}abt), x_{\gamma}(ct) ] & \text{ by $(b_1)$ and $(c_1)$}\\ 
-                                                       = [x_{\alpha +\beta}(N_{\alpha,\beta}abt), x_{\gamma}(ct)] & \text{ by $(d_1)$. \qedhere}
- \end{align*}  
-\end{proof}
-\end{comment}
-
+From \eqref{eq:H1ii} and~\eqref{item:ii} it follows that $S_\alpha(\xi)$ satisfy $(a_{m+1})$ and hence $(b_{m+1})$ in the special case $\alpha=\alpha'$.
 \begin{lemma} \label{lem:bmp1} Suppose that $m\geq 1$. For every $\alpha, \alpha' \in \Phi$ such that $\alpha+\alpha' \in \Phi$ and
  $a\in A$, $\xi \in B_d$, $d \leq 0$ the following relation holds in $G_m$: 
 \begin{equation} \nonumber
@@ -314,9 +295,6 @@ Denote by $R$ the expression in the right hand side of the above formula.
       = [x_\alpha(t\xi), x_\beta(at)]
    & \text{ by~\eqref{item:i},\eqref{eq:defmpn}.}
  \end{align*}  
- %This uses $N_{\alpha, \beta+\gamma} N_{\alpha+\beta+\gamma, -\gamma} N_{\beta+\gamma, -\gamma} = N_{\alpha, \beta}$. 
- %Why is this true?
-
  \item \label{case:cm-2} Case $m\geq 2$ or $m=1$, $d < 0$.
  \begin{align*}
  R = {}^{x_{\beta+\gamma}(t)}[x_{\alpha+\beta+\gamma}(\epsilon t^2\xi), x_{-\gamma}(a't^{m-1})]     
@@ -333,7 +311,7 @@ Denote by $R$ the expression in the right hand side of the above formula.
 It will be convenient for us to extend the definition of $S_\alpha(\xi)$ by allowing $\xi$ to take values in $B_d$ for $d\leq m$.
 In this case we simply set $S_\alpha(\xi) = x_\alpha(\xi)$.
 
-Now suppose  $0 \leq d \leq m+1$. Clearly \eqref{lem:bmp1} and \eqref{eq:defmpn} (in the case $1\leq d\leq m$) or~\cref{lem:bmp1} (in the case $d=0,m+1$) imply that
+Now suppose  $0 \leq d \leq m+1$. Clearly \eqref{item:i} and \eqref{eq:defmpn} (in the case $1\leq d\leq m$) or~\cref{lem:bmp1} (in the case $d=0,m+1$) imply that
 \begin{equation} \label{eq:verify-bmp1'} 
 [S_\alpha(\xi), S_{\alpha'}(\eta)] = S_{\alpha+\alpha'}(N_{\alpha,\alpha'}\xi \eta),\ \xi \in B_d, \eta \in B_{m+1-d}.
 \end{equation}
@@ -395,7 +373,7 @@ Usual identities for structure constants imply (cf.~\cite[p.~12]{Re75}):
 Elements $S_\alpha(\xi)$ satisfy relations $(b_{m+1})$.
  \end{lemma}
 \begin{proof}
-We need to show that $S_\alpha(\xi)$ satisfy $\angle(d, m+1)$ and $\bot(d, m+1)$ for $d\leq m+1$.
+We must show that $S_\alpha(\xi)$ satisfy $\angle(d, m+1)$ and $\bot(d, m+1)$ for $d\leq m+1$.
 \begin{enumerate}
  \item Relations $\angle(d, m+1)$, $d\leq m$ follow from~\cref{claim1}. 
  \item Relations $\bot(d, m+1)$ with $d\leq 0$ can verified by direct computation:
@@ -417,12 +395,14 @@ We need to show that $S_\alpha(\xi)$ satisfy $\angle(d, m+1)$ and $\bot(d, m+1)$
 Define the map $g_m\colon G_{m+1} \to G_m$ by $g_m(x_\alpha(\xi)) = S_\alpha(\xi)$.
 In view of the above lemmata this map is well-defined. It is clear that $g_m$ is inverse to $f_m$, which proves the first claim.
 
-Notice that the second assertion follows from the first one.
-Indeed, this would give the required isomorphism $G_1 \cong \St(\Phi, B)$ since $\langle \XX{\infty} \mid \RR{\infty} \rangle$ is evidently isomorphic to $\St(\Phi, B)$.
-%Denote by $F(S)$ the free group on the generating set $S$.
-%It is clear that $\RR{n}\subseteq\RR{n+1}$, moreover $\langle \RR{n} \rangle = \langle \RR{\infty}\rangle \cap F(\XX{n})$.
-%well, not so clear, actually :)
+Denote by $G_\infty$ the group presented by generators $\mathcal{X}_\infty$ and relations $(a_\infty)$, $(b_\infty)$, $(c_\infty)$.
+By the above argument there is an isomorphism between $G_1$ and $\colim\limits_{n\to\infty} G_n \cong G_\infty$.
 
+Denote by $i\colon G_\infty \to \St(\Phi, B)$ the map induced by the obvious embedding of $\mathcal{X}_\infty$ into the set of 
+ Steinberg generators of $\St(\Phi, B)$.  
+Using~\eqref{eq:H1ii} multiple times it is not hard to show that the map $j\colon \St(\Phi, B) \to G_\infty$ given by
+ $j(x_\alpha(b)) = \prod x_\alpha(b_i)$, where $b = \sum b_i$ is the decomposition of $b$ into a finite sum of its homogeneous components $b_i\in B_i$, is a well-defined map.
+It is clear that $i$ and $j$ are mutually inverse. 
 \end{proof}
 
 
