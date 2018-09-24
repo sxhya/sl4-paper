@@ -140,12 +140,8 @@ The author would also like to thank ??? for financial support.
 \section{Preliminaries}
 \begin{comment}
 Our notation and conventions follows~\cite[\S~4]{Vav09}.
-Let $\Phi$ be an irreducible root system with some fixed basis of simple roots $\Pi = \{\alpha_1, \ldots, \alpha_\ell\}$.
-For a root $\alpha\in\Phi$ we denote by $m_i(\alpha)$ the $i$-th coefficient in the expansion of $\alpha$ in $\Pi$,
- i.\,e. $\alpha = \sum_{i=1}^n m_i(\alpha) \alpha_i$.
+Let $\Phi$ be an irreducible root system 
 
-We denote by $\Phi^\vee$ the \emph{dual root system of $\Phi$} consisting of coroots $\alpha^\vee = 2\alpha/(\alpha, \alpha)$, $\alpha\in \Phi$.
-As usual, $P(\Phi^\vee)$ denotes the lattice spanned by the \emph{fundamental weights $\varpi_i$},
  that are uniquely determined by relations $\langle\varpi_i, \alpha_j^\vee \rangle = (\varpi_i, \alpha_j) = \delta_{ij}.$ %TODO: Mistake?
 \end{comment}
 
@@ -163,9 +159,34 @@ As usual, $P(\Phi^\vee)$ denotes the lattice spanned by the \emph{fundamental we
 We need to prove that $\sigma_i$ commute with $x_{jk}(a)$ if $j\neq i, k \neq i$.
 
 
-\section{Overview of Tulenbayev's proof of $K_2$-analogue of Serre problem}
-\subsection{$\sigma$-pairs}
-Let $\Phi$ be a root system
+\section{Tulenbaev's factorization theorem}
+Let $\Phi$ be a root system with some fixed basis of simple roots $\Pi = \{\alpha_1, \ldots, \alpha_\ell\}$.
+For a root $\alpha\in\Phi$ we denote by $m_i(\alpha)$ the $i$-th coefficient in the expansion of $\alpha$ in $\Pi$,
+ i.\,e. $\alpha = \sum_{i=1}^n m_i(\alpha) \alpha_i$.
+
+We denote by $\Phi^\vee$ the corresponding dual root system, which, by definition, consists of all coroots 
+ $\alpha^\vee = \frac{2}{(\alpha, \alpha)} \alpha$, where $\alpha \in \Phi$.
+We denote by $P(\Phi^\vee)$ the integral lattice spanned by the \emph{fundamental co-weights $\varpi^\vee_i$} (i.\,e. weights of the dual root system).
+Recall that the co-weights $\varpi^\vee_i$ are uniquely determined by the property $(\varpi_i^\vee, \alpha_j) = \delta_{ij}$.
+
+Notice that for $\varpi \in P(\Phi^\vee)$ and $\beta \in \ZZ \Phi$ one has $(\varpi, \beta) \in \ZZ $.
+Thus, for $\varepsilon \in R^*$ and $\varpi \in P(\Phi^\vee)$ we can define a character $\chi_{\varpi, \varepsilon} \in \Hom(\ZZ \Phi, R^*)$
+ via the formula $\chi_{\varpi, \varepsilon}(\beta) = \varepsilon ^ {(\varpi, \beta)}$.
+
+Every character $\chi \in \Hom(\ZZ \Phi, R^*)$ acts on the set of generators $\mathcal{X}_{\Phi, R}$ of the Steinberg group $\St(\Phi, R)$ via
+\begin{equation} \chi \cdot x_\alpha(\xi) = x_\alpha(\chi(\alpha) \cdot \xi),\ \chi \in H,\ \alpha\in \Phi,\ \xi \in R. \end{equation}
+It is not hard to check that the above formula gives a well-defined automorphism of $\St(\Phi, R)$ which we also denote by $\chi$.
+
+\begin{example}
+Let $A$ be a ring, denote by $R$ the ring $A[t, t^{-1}]$ of Laurent polynomials over $A$ and let $\alpha_i \in \Pi$ be a simple root.
+Define automorphisms $\beta_i^+$ and $\beta_i^-$ of $\St(\Phi, R)$ via $\beta_i^+ = \chi_{\varpi_i, t}$, $\beta_i^- = \chi_{\varpi_i, t^{-1}}$.
+It is easy to see that
+\begin{equation}\label{eq:sigma_act} \beta_i^\pm(x_\alpha(\xi)) = x_\alpha(t^{\pm m_i(\alpha)} \cdot \xi).\end{equation}
+\end{example}
+
+
+\subsection{$\sigma$-pairs} 
+
 \begin{lemma} \label{lem:3.1f} Let $A$ be a local ring then any element $\alpha \in \St(\Phi, A)$ can be presented as a product 
 $ $
  
@@ -174,21 +195,9 @@ $ $
 
 \section{Proof of the main result}
 
-Notice that for $\varpi \in P(\Phi^\vee)$ and $\beta \in \ZZ \Phi$ one has $(\varpi, \beta) \in \ZZ $.
-Consequently, for $\varepsilon \in R^*$ and $\varpi \in P(\Phi^\vee)$ the formula $\chi_{\varpi, \varepsilon}(\beta) = \varepsilon ^ {(\varpi, \beta)}$
-defines a character $\chi_{\varpi, \varepsilon} \in \Hom(\ZZ \Phi, R^*)$.
 
-Consider the action of $H=\Hom(\ZZ \Phi, R^*)$ on the set of generators $\mathcal{X}_{\Phi, R}$ of the Steinberg group $\St(\Phi, R)$ given by
-\begin{equation} \chi \cdot x_\alpha(\xi) = x_\alpha(\chi(\alpha) \cdot \xi),\ \chi \in H,\ \alpha\in \Phi,\ \xi \in R. \end{equation}
-Since $\chi$ is a character, this action respects the set of Steinberg relations $\mathcal{R}_{\Phi, R}$ and therefore gives a well-defined action of $H$ on $\St(\Phi, R)$.
 
-In the sequel we will be mostly interested in the following example.
-\begin{example}
-Let $A$ be a ring, denote by $R$ the ring $A[t, t^{-1}]$ of Laurent polynomials over $A$ and let $\alpha_i \in \Pi$ be a simple root.
-Define automorphisms $\beta_i^+$ and $\beta_i^-$ of $\St(\Phi, R)$ via $\beta_i^+ = \chi_{\varpi_i, t}$, $\beta_i^- = \chi_{\varpi_i, t^{-1}}$.
-It is easy to see that
-\begin{equation}\label{eq:sigma_act} \beta_i^\pm(x_\alpha(\xi)) = x_\alpha(t^{\pm m_i(\alpha)} \cdot \xi).\end{equation}
-\end{example}
+
 
 One of the key steps of in the proof of Suslin lemma for $K_2$ is to define analogue of maps $\beta_i^\pm$ on the level of the group $\St(\Phi, A[t])$.
 Of course, one cannot expect such maps to be automorphisms or even be defined on the whole group $\St(\Phi, A[t])$.
