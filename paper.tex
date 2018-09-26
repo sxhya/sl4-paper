@@ -147,9 +147,39 @@ Let $\Phi$ be an irreducible root system
  that are uniquely determined by relations $\langle\varpi_i, \alpha_j^\vee \rangle = (\varpi_i, \alpha_j) = \delta_{ij}.$ %TODO: Mistake?
 \end{comment}
 
-\subsection{Steinberg groups and relative Steinberg groups}
-\subsection{Relative Steinberg groups}
+\subsection{Steinberg groups}
+Let $\Phi$ be a reduced and irreducible root system of rank $\geq 2$ and $R$ be a commutative ring with $1$.
+Recall that the \emph{Steinberg group} $\St(\Phi, R)$ is defined by means of generators
+$\mathcal{X}_{\Phi, R} = \{x_{\alpha}(\xi) \mid \xi\in R, \alpha\in\Phi\}$ and the set of relations $\mathcal{R}_{\Phi, R}$ 
+consisting of the following two families of relations:
+\begin{align}
+& \phantom{[}
+x_\alpha(s) x_\alpha(t) = x_\alpha(s+t),\ \alpha\in\Phi,\ s,t\in R; \label{rel:add}\\
+& [x_\alpha(s), x_\beta(t)] = \prod\limits_{i,j\in\mathbb{N}}
+ x_{i\alpha + j\beta}\left(N_{\alpha\beta ij}\, s^i t^j\right),\quad \alpha,\beta\in\Phi,\ \alpha\neq\pm\beta,\ s,t\in R. \label{rel:CCF}
+\end{align}
+The indices $i$, $j$ appearing in the right-hand side of the above relation range over
+all positive natural numbers such that $i\alpha + j\beta\in\Phi$.
+%The structure constants $N_{\alpha \beta i j}=\pm 1,2,3$ appearing in \eqref{rel:CCF} depend only on $\Phi$ and can be computed precisely.
 
+It is clear the above construction is functorial in $R$ and so there is a functor $\St(\Phi, -)\colon \catname{CRings}\to \catname{Groups}$.
+\subsection{Relative Steinberg groups}
+First of all, let us recall the definition of the category of pairs. 
+As suggested by the notation, the objects of $\catname{Pairs}$ are pairs $(R, I)$ consisting of a unital commutative ring $R$ and an ideal $I \trianglelefteq R$.
+The set of morphisms between $(R, I)$ and $(S, J)$ is defined as the set of all ring-theoretic maps $f\colon R\to S$ such that $f(I)\subseteq J$.
+There is an obvious fully faithful embedding $\iota\colon \catname{CRings} \to \catname{Pairs}$ defined on objects by $\iota(R) = (R, R)$.
+Now if there is a functor $F\colon \catname{CRings}\to \catname{Grp}$ then its {\it relativization} is another functor $\widetilde{F}\colon \catname{Pairs} \to \catname{Groups}$
+such that $\widetilde{F} \iota = F$.
+ 
+Recall that there is a way to ``relativize`` the Steinberg group functor, that is define a group-valued functor $\St(\Phi, -)$ on the category of pairs
+ in a way compatible with the embedding 
+
+\begin{equation}
+ \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r] & \St(\Phi, R, I) \ar[r] & \St(\Phi, R) \ar[r] & \St(\Phi, R/I) \ar[r] & 1 }
+\end{equation}
+
+
+\subsection{Various stuff}
 \[ T_{ij}(at^{-1}) = \sigma_i T_{ij}(a) \sigma_i^{-1} = \sigma_j^{-1} T_{ij}(a) \sigma_j \]
 \[ [[x_{ij}(a t^{-1}), x_{jk}(b t^{-1})],  x_{kl}(c)] = [x_{ik}(a b t^{-1}),  x_{kl}(c t^{-1})] \]
 \[ \sigma_i [[x_{ij}(a), x_{jk}(b t^{-1})],  x_{kl}(c)] \sigma_i^{-1} =  \sigma_i [x_{ik}(a b),  x_{kl}(c t^{-1})] \sigma_i^{-1} \]
