@@ -211,7 +211,7 @@ Now, since $\mu_I\{ t, u \}'_\alpha = w_\alpha(tu) w_\alpha(-t) w_\alpha(1) w_\a
 
 \subsection{Another presentation of linear Steinberg groups} \label{sec:another-presentation}
 %TODO: Formulate why do we write what we write
-Throughout this subsection $R$ denotes a commutative ring and $I$ its splitting ideal.
+Throughout this subsection $R$ denotes a commutative ring.
 
 For $u \in R^n$ we denote by $D(u)$ the subset of $R^n$ consisting of all $v$ having at least two zero entries and satisfying $u^tv = 0$.
 Recall from 3.2 of~\cite{Ka77} that for every $u, v, w \in R[t]^n$ such that $u^t \cdot v = 0$ there
@@ -233,28 +233,32 @@ The following properties of $x(u, v)$ are standard (cf.~\cite[Lemma~1.1]{Tu83}).
 \end{lemlist}
 \end{lemma}
 
-Let $u \in E(n, R)e_1$, $v \in I^n$ be such that $u^tv = 0$.
-Recall from \S~4 of~\cite{LS17} that one can define the following elements of $\St(n, R, I)$:
+Now let $I$ be a splitting ideal of $R$.
+Let $u \in E(n, R)e_1$, $v \in I^n$ be vectors such that $u^tv = 0$.
+Recall from \S~4 of~\cite{LS17} that one can define the following elements of $\St(n, R, I) \leq \St(n, R)$:
 \begin{equation} \label{eq:sigma-definition}
  F(u, v) = \prod\limits_{i=1}^r x(u,  v_i),\ \
  S(v, u) = \prod\limits_{i=1}^r x( v_i, u).
 \end{equation}
 Here $\{v_r\}$, $r=1,\ldots,N$ is any collection of elements of $I^n \cap D(u)$ such that $\sum_{r=1}^N v_r = v$.
-Since $u$ is unimodular, such a collection always exists by~\eqref{eq:canonical}, moreover
- $F(u, v)$ and $S(u, v)$ do not depend on its choice. %TODO: Give reference
+Since $u$ is unimodular, such a collection always exists by~\eqref{eq:canonical}, moreover $F(u, v)$ and $S(u, v)$ do not depend on its choice. %TODO: Give reference
 
-Recall from~\cite{LS17} that it is possible to give a presentation of the relative Steinberg group $\St(n, R, I)$ 
-formulated in terms of elements $F(u, v)$, $S(v, u)$.
-More formally, \cite[Proposition 3.10]{LS17} asserts that $\St(n,\,R,\,I)$ admits presentation with the set of generators
-\begin{multline*} \{F(u,\,v)\mid u\in E(n,\,R)e_1,\ v\in I^n,\ u^tv=0\}\, \cup \\ \cup \{S(u,\,v)\mid u\in I^n,\ v\in E(n,\,R)e_1,\ u^tv=0\}\end{multline*}
-subject to relations
+It is possible to give a presentation of the relative Steinberg group $\St(n, R, I)$ formulated in terms of elements $F(u, v)$, $S(v, u)$.
+\begin{prop}[\text{\cite[Proposition 3.10]{LS17}}] \label{prop:rel-presentation}
+ For any $n\geq 4$ the group $\St(n,\,R,\,I)$ can be presented by means of generators $F(u,\,v)$, $S(v,\,u)$ (where $u\in E(n,\,R)e_1,$ and $v\in I^n$ are such that $u^tv=0$) subject to the following relations:
 \begin{align}
 &F(u,\,v)F(u,\,w)=F(u,\,v+w), \label{add4}\\
 &S(u,\,v)S(w,\,v)=S(u+w,\,v), \label{add5}\\
 &F(u,\,v)F(u',\,v')F(u,\,v)^{-1}=F(t(u,\,v)u',\,t(v,\,u)^{-1} v'), \label{conj3} \\
 &F(ge_1,\,g^*e_2a)=S(ge_1a,\,g^*e_2),\ \text{for all}\ a\in I,\, g \in E(n, R).
 \end{align}
-Here $g^*$ denotes the contragradient matrix, i.\,e. $g^* = {g^{-1}}^t$ and $e_i$ is the standard basis vector of $R^n$.
+\end{prop}
+In the above statement $g^*$ denotes the contragradient matrix, i.\,e. $g^* = {g^{-1}}^t$ and $e_i$ is the standard basis vector of $R^n$.
+\begin{rem}
+Using essentially the same reasoning as in~\cite[Proposition~8]{S15} it is not hard to show that the above presentation still holds for $\St(\Phi, R, I)$ without the assumption that $I$ is splitting.
+\end{rem}
+
+
 
 \subsection{Various stuff}
 \[ T_{ij}(at^{-1}) = \sigma_i T_{ij}(a) \sigma_i^{-1} = \sigma_j^{-1} T_{ij}(a) \sigma_j \]
