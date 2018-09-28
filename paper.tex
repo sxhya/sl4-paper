@@ -189,7 +189,6 @@ First of all, let us recall the definition of the category of pairs.
 As suggested by the notation, the objects of $\catname{Pairs}$ are pairs $(R, I)$ consisting of a unital commutative ring $R$ and an ideal $I \trianglelefteq R$.
 The set of morphisms between $(R, I)$ and $(S, J)$ consists, by definition, of all ring-theoretic maps $f\colon R\to S$ such that $f(I)\subseteq J$.
 There is an obvious fully faithful embedding $\iota\colon \catname{CRings} \to \catname{Pairs}$ defined on objects by $\iota(R) = (R, R)$.
-%Now if there is a functor $F\colon \catname{CRings}\to \catname{Grp}$ then its {\it relativization} is another functor $\widetilde{F}\colon \catname{Pairs} \to \catname{Groups}$ such that $\widetilde{F} \iota = F$.
 
 Recall that there is a way to ``relativize`` the Steinberg group functor, that is define a group-valued functor $\St(\Phi, -)$ on the category of pairs
  in a way compatible with the embedding 
@@ -198,7 +197,6 @@ Recall that there is a way to ``relativize`` the Steinberg group functor, that i
  \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r] & \St(\Phi, R, I) \ar[r]^{\ext{I}} & \St(\Phi, R) \ar[r]^{\pi_*} & \St(\Phi, R/I) \ar[r] & 1 }
 \end{equation}
 
-%Now suppose that $t, u \in R^*$ are invertible elements such that $u-1 \in I$. 
 In the sequel we will also need a {\it relative Steinberg symbol}, i.\,e. a map
 \begin{equation*} \{-, -\}'_\alpha \colon R^* \times (1 + I)^* \to \St(\Phi, R, I) \end{equation*}
 such that $ \ext{I} \{u, v\}'_\alpha = \{u, v\}_\alpha$. It is not hard to verify that the image under $\mu_I$ of the element
@@ -208,8 +206,55 @@ Now, since $\mu_I\{ t, u \}'_\alpha = w_\alpha(tu) w_\alpha(-t) w_\alpha(1) w_\a
  we have defined the desired symbol.
 \begin{rem}
  Our relative Steinberg symbols differs from the one defined in~\cite{Ste73} in that
-  it takes values in $\St(\Phi, R, I)$ rather than the group $\St(\Phi, R)$. %Elaborate on this...
+  it takes values in $\St(\Phi, R, I)$ rather than in $\St(\Phi, R)$. %Elaborate on this...
 \end{rem}
+
+\subsection{Another presentation of linear Steinberg groups} \label{sec:another-presentation}
+%TODO: Formulate why do we write what we write
+Throughout this subsection $R$ denotes a commutative ring and $I$ its splitting ideal.
+
+For $u \in R^n$ we denote by $D(u)$ the subset of $R^n$ consisting of all $v$ having at least two zero entries and satisfying $u^tv = 0$.
+Recall from 3.2 of~\cite{Ka77} that for every $u, v, w \in R[t]^n$ such that $u^t \cdot v = 0$ there
+ is a decomposition of $(w^t u) \cdot v$ into a sum of elements of $D(u)$, called {\it canonical decomposition}:
+
+\begin{equation} \label{eq:canonical} (w^tu) \cdot v=\sum_{i<j}u_{ij} c_{ij}(v, w),\text{ where $u_{ij}=e_iu_j-e_ju_i,$ $c_{ij}(v, w)=v_iw_j-v_jw_i.$}\end{equation}
+Let $u, v \in R^n$ be such that $u^t v = 0$ and assume, moreover, that either $u$ or $v$ has at least one zero entry.
+Recall from 3.8, 3.10 of~\cite{Ka77} that under these assumptions one can define certain element
+ $x(u, v)$ of $\St(n, R)$ such that $\phi(x(u, v)) = t(u, v) = 1 + uv^t$.
+The following properties of $x(u, v)$ are standard (cf.~\cite[Lemma~1.1]{Tu83}).
+\begin{lemma} \label{lem:xsmall-properties}
+\begin{lemlist}
+ \item \label{item:xsmall-scalar} If $v$ or $w$ has at least two zero entries, then 
+ \begin{equation}\nonumber x(v, wa) = x(va, w).\end{equation} %TODO: What is ''a``?
+ \item \label{item:xsmall-additivity} If $w_1$ and $w_2$ have at least one common zero entry then
+ \begin{equation}\nonumber x(v, w_1)x(v, w_2) = x(v, w_1+w_2).\end{equation}
+ \item \label{item:xsmall-commute} If $v$, $v'$ are simultaneously orthogonal to $w$ and $w'$ and the elements $w, w'$
+  both have at least two zero entries then $x(v, w)$ and $x(v', w')$ commute.
+\end{lemlist}
+\end{lemma}
+
+Let $u \in E(n, R)e_1$, $v \in I^n$ be such that $u^tv = 0$.
+Recall from \S~4 of~\cite{LS17} that one can define the following elements of $\St(n, R, I)$:
+\begin{equation} \label{eq:sigma-definition}
+ F(u, v) = \prod\limits_{i=1}^r x(u,  v_i),\ \
+ S(v, u) = \prod\limits_{i=1}^r x( v_i, u).
+\end{equation}
+Here $\{v_r\}$, $r=1,\ldots,N$ is any collection of elements of $I^n \cap D(u)$ such that $\sum_{r=1}^N v_r = v$.
+Since $u$ is unimodular, such a collection always exists by~\eqref{eq:canonical}, moreover
+ $F(u, v)$ and $S(u, v)$ do not depend on its choice. %TODO: Give reference
+
+Recall from~\cite{LS17} that it is possible to give a presentation of the relative Steinberg group $\St(n, R, I)$ 
+formulated in terms of elements $F(u, v)$, $S(v, u)$.
+More formally, \cite[Proposition 3.10]{LS17} asserts that $\St(n,\,R,\,I)$ admits presentation with the set of generators
+\begin{multline*} \{F(u,\,v)\mid u\in E(n,\,R)e_1,\ v\in I^n,\ u^tv=0\}\, \cup \\ \cup \{S(u,\,v)\mid u\in I^n,\ v\in E(n,\,R)e_1,\ u^tv=0\}\end{multline*}
+subject to relations
+\begin{align}
+&F(u,\,v)F(u,\,w)=F(u,\,v+w), \label{add4}\\
+&S(u,\,v)S(w,\,v)=S(u+w,\,v), \label{add5}\\
+&F(u,\,v)F(u',\,v')F(u,\,v)^{-1}=F(t(u,\,v)u',\,t(v,\,u)^{-1} v'), \label{conj3} \\
+&F(ge_1,\,g^*e_2a)=S(ge_1a,\,g^*e_2),\ \text{for all}\ a\in I,\, g \in E(n, R).
+\end{align}
+Here $g^*$ denotes the contragradient matrix, i.\,e. $g^* = {g^{-1}}^t$ and $e_i$ is the standard basis vector of $R^n$.
 
 \subsection{Various stuff}
 \[ T_{ij}(at^{-1}) = \sigma_i T_{ij}(a) \sigma_i^{-1} = \sigma_j^{-1} T_{ij}(a) \sigma_j \]
@@ -321,90 +366,42 @@ the corresponding $\sigma$-pair has been constructed by Tulenbaev in the beginni
  (where the corresponding maps and subgroups are denoted $\xymatrix{\delta_k \ar[r] \colon N_k & \ar@<-1.0ex>[l] N^k \colon \delta_k^{-1}}$).
 
 To simplify notation, throughout this section we set $N_1 = N(\varpi_1)$, $N^1 = N(-\varpi_1)$.
-We only construct one of the maps from the definition of $\sigma$-pair, namely $\sigma(\varpi_1^\vee) \colon N_1 \to N^1$,
+We only construct one of the desired maps from the definition of $\sigma$-pair, namely $\sigma(\varpi_1^\vee) \colon N_1 \to N^1$,
  for shortness we denote it by $\sigma_1$.
  
-In order to define the desired map $\sigma_1$ we will use the alternate description of the subgroup $N_1 = N(\varpi_1^\vee)$
-given in terms of ``another presentation''. We start with the following simple observation.
+In order to define $\sigma_1$ we will use the description of the subgroup $N_1 = N(\varpi_1^\vee)$ given in terms of ``another presentation''.
+We start with the following simple observation.
 \begin{lemma} \label{lem:n1-decomp} For $n\geq 4$ there is an isomorphism $N_1 \cong N_{0} \rtimes P_1^-(A)$, 
  where $N_{0}$ denotes the subgroup $\St(n, A[t], tA[t])$ and $P_1^-(A)$ is the subgroup of $\St(n, A)$ generated by $x_{ij}(\xi)$ with $i\neq 1$.
 \end{lemma}
 
-Recall that the universal property of semidirect products asserts that for any group $H$ acting on a group $N$ via $\phi \colon H \to \Aut(N)$ 
+Recall that the universal property of semidirect products gives for any group $H$ acting on a group $N$ via $\phi \colon H \to \Aut(N)$ 
 and any group homomorphisms $f_N\colon N \to G$, $f_H\colon H \to G$ satisfying 
-\begin{equation} \label{eq:coherence-condition} f_N(\phi(h)(n)) = f_H(h) f_N(n) f_H(h)^{-1},\ n\in N,\ h\in H,\end{equation} 
-there exists a unique map $f\colon N \rtimes H \to G$ extending $f_N$ and $f_H$.
+\begin{equation} \label{eq:coherence-condition} f_N(\phi(h)(n)) = f_H(h) f_N(n) f_H(h)^{-1},\ (n\in N,\ h\in H) \end{equation} 
+a unique map $f\colon N \rtimes H \to G$ extending $f_N$ and $f_H$.
 
-Thus, by the above lemma, in order to construct the map $\sigma_1$ we need to construct the maps 
+Thus, by the above lemma, in order to construct the map $\sigma_1$ we need to construct two maps 
 \[ (\sigma_1)_{P_1^-(A)} \colon P_1^-(A) \to N^1, \ \ (\sigma_1)_{N_{0}} \colon N_{0} \to N^1\]
 and then verify that they satisfy~\eqref{eq:coherence-condition}.
 
 It is easy to define the first map $(\sigma_1)_{P_1^-(A)}$, indeed, using the decomposition $P_1^-(A) \cong U^-_1 \rtimes L_1$ where 
 \[U^-_1 = \langle x_{i1}(\xi) \mid i\neq 1,\ \xi\in A \rangle \text{ and } L_1 = \langle x_{ij}(\xi) \mid i,  j \neq 1,\ \xi\in A\rangle \]
 we apply the universal property of semidirect products once again 
-and define $(\sigma_1)_{P_1^-(A)}$ by requiring that it acts identically on $L_1$ (notice that $L_1 \subseteq N^1$)
+and define $(\sigma_1)_{P_1^-(A)}$ by requiring that it acts identically on $L_1$ (notice that $L_1 \subseteq N^1$) %TODO: Language???
 and acts on elements of $U^-_1$ via the formula $(\sigma_1)_{P_1^-(A)}(x_{i1}(\xi))= x_{i1}(t\xi)$.
 
-Before we proceed with the construction of the second map $(\sigma_1)_{N_{1,0}}$ we need to recall several technical
- constructions pertaining to ``another presentation'' of the group $N_{0}$.
+%TODO: define \delta_1 & \delta_1^{-1} -- these are not matrices
 
-For $u \in R^n$ we denote by $D(u)$ the subset of $R^n$ consisting of all $v$ having at least two zero entries and satisfying $u^tv = 0$.
-Recall from 3.2 of~\cite{Ka77} that for every $u, v, w \in R[t]^n$ such that $u^t \cdot v = 0$ there
- is a decomposition of $(w^t u) \cdot v$ into a sum of elements of $D(u)$, called {\it canonical decomposition}:
-\setcounter{equation}{1}
-\renewcommand{\theequation}{\arabic{equation}}
-\begin{equation} \label{eq:canonical} (w^tu) \cdot v=\sum_{i<j}u_{ij} c_{ij}(v, w),\text{ where $u_{ij}=e_iu_j-e_ju_i,$ $c_{ij}(v, w)=v_iw_j-v_jw_i.$}\end{equation}
+To define the map $(\sigma_1)_{N_{1,0}}$ we will invoke the presentation of the relative Steinberg group given in~\cref{sec:another-presentation}
+in the special case $R=A[t]$, $I=tA[t]$.
 
-Let $A$ be a commutative ring and $I$ be a splitting ideal of $A$.
-Let $u, v \in A^n$ be such that $u^t v = 0$ and assume, moreover, that either $u$ or $v$ has at least one zero entry.
-Recall from 3.8, 3.10 of~\cite{Ka77} that under these assumptions one can define certain element
- $x(u, v)$ of $\St(n, A)$ such that $\pi(x(u, v)) = t(u, v) = 1 + uv^t$.
-The following properties of $x(u, v)$ are standard (cf.~\cite[Lemma~1.1]{Tu83}).
-\begin{lemma} \label{lem:xsmall-properties}
-\begin{lemlist}
- \item \label{item:xsmall-scalar} If $v$ or $w$ has at least two zero components, then 
- \begin{equation}\nonumber x(v, wa) = x(va, w).\end{equation}
- \item \label{item:xsmall-additivity} If $w_1$ and $w_2$ have at least one common zero coordinate then
- \begin{equation}\nonumber x(v, w_1)x(v, w_2) = x(v, w_1+w_2).\end{equation}
- \item \label{item:xsmall-commute} If $v$, $v'$ are simultaneously orthogonal to $w$ and $w'$ and the elements $w, w'$
-  both have at least two zero components then $x(v, w)$ and $x(v', w')$ commute.
-\end{lemlist}
-\end{lemma}
 
-Let $u \in E(n, A)e_1$, $v \in I^n$ be such that $u^tv = 0$.
-Recall from \S~4 of~\cite{LS17} that one can define the following elements of $\St(n, A, I)$:
-\begin{equation} \label{eq:sigma-definition}
- F(u, v) = \prod\limits_{i=1}^r x(u,  v_i),\ \
- S(v, u) = \prod\limits_{i=1}^r x( v_i, u).
-\end{equation}
-Here $\{v_r\}$, $r=1,\ldots,N$ is any collection of elements of $I^n \cap D(u)$ such that $\sum_{r=1}^N v_r = v$.
-Since $u$ is unimodular, such a collection always exists by~\eqref{eq:canonical}, moreover
- $F(u, v)$ and $S(u, v)$ do not depend on its choice. %TODO: Give reference
-
-Recall from~\cite{LS17} that it is possible to give a presentation of the relative Steinberg group $\St(n, A, I)$ formulated in terms of elements $F(u, v)$, $S(v, u)$.
-More formally, \cite[Proposition 3.10]{LS17} asserts that $\St(n,\,A,\,I)$ admits presentation with the set of generators
-\begin{multline*} \{F(u,\,v)\mid u\in E(n,\,A)e_1,\ v\in I^n,\ u^tv=0\}\, \cup \\ \cup \{S(u,\,v)\mid u\in I^n,\ v\in E(n,\,A)e_1,\ u^tv=0\}\end{multline*}
-subject to relations
-\setcounter{equation}{0}
-\renewcommand{\theequation}{R\arabic{equation}}
-
-\begin{align}
-&F(u,\,v)F(u,\,w)=F(u,\,v+w), \label{add4}\\
-&S(u,\,v)S(w,\,v)=S(u+w,\,v), \label{add5}\\
-&F(u,\,v)F(u',\,v')F(u,\,v)^{-1}=F(t(u,\,v)u',\,t(v,\,u)^{-1} v'), \label{conj3} \\
-&F(ge_1,\,g^*e_2a)=S(ge_1a,\,g^*e_2),\ \text{for all}\ a\in I,\, g \in E(n, A).
-\end{align}
-Here $g^*$ denotes the contragradient matrix, i.\,e. $g^* = {g^{-1}}^t$ and $e_i$ is the standard basis vector of $A^n$.
-
-\setcounter{equation}{3}
-\renewcommand{\theequation}{\arabic{equation}}
-
-To define the map $(\sigma_1)_{N_{1,0}}$ we will invoke the above presentation in the special case $A=R[t]$, $I=tR[t]$.
-Indeed, define $\sigma_1$ on $N_{1,0}=\St(n, R[t], tR[t])$ by the following identities: 
+Indeed, define $\sigma_1$ on $N_{0}=\St(n, A[t], tA[t])$ by the following identities: 
 \begin{equation}
  \sigma_1(F(u, v)) = \prod\limits_{i=1}^r x(\delta_1^{-1} \cdot t u, \delta_1 \cdot t^{-1} v_i),\ \
  \sigma_1(S(v, u)) = \prod\limits_{i=1}^r x(\delta_1^{-1} \cdot v_i, \delta_1 \cdot u).
 \end{equation}
+
 
 \begin{lemma} \label{lem:cor-conj}
  \begin{lemlist}
