@@ -17,6 +17,7 @@
 \DeclareMathOperator{\E}{E}
 \DeclareMathOperator{\T}{T}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Um}{Um}
 \DeclareMathOperator{\colim}{colim}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SL}{SL}
@@ -191,7 +192,7 @@ There is the following chain of obvious inclusions between the subgroups introdu
 \end{equation}
 
 \subsection{Another presentation of linear Steinberg groups} \label{sec:another-presentation}
-Throughout this subsection $R$ denotes a commutative ring.
+Throughout this subsection $R$ denotes a commutative ring and $n \geq 4$.
 
 For $u \in R^n$ we denote by $D(u)$ the subset of $R^n$ consisting of all vectors $v$ which are orthogonal to $u$ (i.\,e. $u^tv = 0$) and have at least two zero entries.
 Recall from 3.2 of~\cite{Ka77} that for every $u, v, w \in R^n$ such that $u^t v = 0$ there
@@ -221,6 +222,68 @@ Recall from \S~4 of~\cite{LS17} that one can define the following elements of $\
 Here $\{v_r\}$, $r=1,\ldots,N$ is any collection of elements of $I^n \cap D(u)$ such that $\sum_{r=1}^N v_r = v$.
 Since $u$ is unimodular, such a collection always exists by~\eqref{eq:canonical}, moreover $F(u, v)$ and $S(u, v)$ do not depend on its choice. %TODO: Give reference
 \end{comment}
+
+Now assume that $I$ is an ideal of ring $R$ embedded as a subring into a larger ring $S$. Let $d$ be an element of the subgroup $T(n, S)$ of diagonal matrices of $\GL(n, S)$ such that $d \cdot I^n \subseteq R^n$.
+Now for $u \in \Um(n, R)$, $v \in I^n$ such that $u^tv = 0$ and $d^* u = d^{-1}u \in R^n$ we want to define certain elements $X_d(u, v) \in \St(n, R)$. If $v = \sum v_i$ is a decomposition of $v$ into a sum of elements $v_i \in D(u) \cap I^n$ (e.\,g. the canonical decomposition~\eqref{eq:canonical}), we set $X_d(u, v) = \prod x(d^{-1}u, dv_i)$. 
+\begin{lemma} %\label{lem:cor-conj}
+ The element $X^g(u, v)$ is well-defined, i.\,e. it does not depend on the choice of  decomposition for $v$.
+\end{lemma}
+\begin{proof}
+ The idea is to decompose each factor $x(d^{-1}u, dv_i)$ further using the canonical decomposition of $v_i$ and then using~\eqref{item:xsmall-scalar}--\eqref{item:xsmall-commute} arrive to the canonical decomposition of $v$ by reordering and collecting factors (cf.~with Tulenbaev's argument after~\cite[Lemma~1.1]{Tu83}).
+ 
+ Let $v = \sum_r v^r$ be a decomposition as above. 
+ Since each $v^r$ is orthogonal to $u$ we can write the canonical decomposition  
+ $v^r = \sum_{i<j} u_{ij} c_{ij}(v^r, w)$, moreover, $\sum_{r} c_{ij}(v^r, w) = c_{ij}(v, w)$.
+ Using~\eqref{item:xsmall-scalar}--\eqref{item:xsmall-commute} we can rewrite $X_d(u, v)$ as follows:
+ \begin{multline*} \prod\limits_r x(d^{-1}u, dv^r) = \prod\limits_{r}\prod\limits_{i<j} x(d^{-1} u, du_{ij}c_{ij}(v^r, w)) =  \prod\limits_{i<j} x(d_1^{-1} u, d u_{ij}c_{ij}(v, w)). \qedhere \end{multline*}
+\end{proof}
+
+
+
+%TODO: Pick a decomposition  $v = \sum v_i$
+Indeed, for $u \in E(n, A[t])$ and $v \in tA[t]$ define $\sigma_1$ on $N_{0}=\St(n, A[t], tA[t])$ by the following identities: 
+\begin{equation}
+ \sigma_1(F(u, v)) = \prod\limits_{i=1}^r x(\delta_1^{-1} \cdot t u, \delta_1 \cdot t^{-1} v_i),\ \
+ \sigma_1(S(v, u)) = \prod\limits_{i=1}^r x(\delta_1^{-1} \cdot v_i, \delta_1 \cdot u).
+\end{equation}
+
+
+\begin{lemma} \label{lem:cor-conj}
+ \begin{lemlist}
+   \item \label{item:correctness} The elements $\sigma_1(F(u, v))$ and $\sigma_1(S(v, u))$ are well-defined, i.\,e. they do not depend on the choice of decomposition for $v$.
+   \item \label{item:conjugation} For any $g \in N^1$ one has 
+      \begin{equation}
+          \nonumber {}^g\left(\sigma_1(F(u, v))\right) = \sigma_1\left(F(g' \cdot u, {g'}^{*} \cdot v)\right),\ \ 
+                    {}^g\left(\sigma_1(S(u, v))\right) = \sigma_1\left(S(g' \cdot u, {g'}^{*} \cdot v)\right),                    
+      \end{equation}
+      where $g' = {}^{\delta_1}\pi(g).$
+ \end{lemlist}
+\end{lemma}
+\begin{proof}[Short proof] 
+ The second assertion can be proved similarly to~\cite[3.14]{Ka77}, (cf. also with the proof of~\cite[Lemma~4.4d]{LS17}).
+\end{proof}
+\begin{proof}[Long proof]
+ We only verify the second assertion for $F(u, v)$  and only in the special case $g = x_{hk}(\xi) \in \mathcal{X}^1$, $g' = t_{hk}(\xi') \in \pi(\mathcal{X}_1)$.
+ Choose $w\in R^n$ so that $w^t u = 1$ and write $v = \sum_{1\leq i<j\leq n} u_{ij} c_{ij}$, where $u_{ij}$ and $c_{ij} = c_{ij}(v, w)$ are as in~\eqref{eq:canonical}. 
+ We can write ${}^g\left(\sigma_1\left(F(u, v)\right)\right)$ as follows:
+ \begin{equation} \nonumber
+   \prod\limits_{1\leq i<j\leq n} x(\pi(g) \cdot \delta_1^{-1} \cdot t u, \pi(g)^* \cdot \delta_1 \cdot t^{-1} u_{ij}c_{ij})
+                                   = \prod\limits_{1\leq i<j\leq n} x(\delta_1^{-1} \cdot g'\cdot t u, \delta_1 \cdot {g'}^* \cdot t^{-1} u_{ij}c_{ij}).
+ \end{equation} 
+ Now for every factor in the right-hand side we do the following.
+ If $\{i, j\} = \{h, k\}$ or $\{i, j\} \cap \{h, k\} = \emptyset$ we leave the term unchanged.
+ Otherwise, if, $|\{i, j\} \cap \{h, k\}| = 1$,  say $j = h$, $i\neq k$, we further decompose it as follows:
+  \begin{equation} \nonumber
+    x(\delta_1^{-1} \cdot t u', \delta_1 \cdot {g'}^* \cdot u_{ij} (c_{ij} t^{-1})) = 
+     x(\delta_1^{-1} \cdot u' t, \delta_1 \cdot u'_{ij} (c_{ij} t^{-1})) \cdot 
+     x(\delta_1^{-1} \cdot u' t, \delta_1 \cdot u'_{ki} (c_{ij} t^{-1})).
+  \end{equation}
+  Here $u' = g'  u = t_{jk}(\xi') \cdot u$.
+  Notice that ${g'}^*u_{ij} = t_{kj}(-\xi') \cdot u_{ij} = e_iu_j - e_ju_i + e_k\xi'u_i =u'_{ij}+u'_{ki}\xi'$. 
+  
+  Thus, we arrive at a product $\prod_{s} x(\delta_1^{-1} \cdot u't, \delta_1 \cdot v'_s t^{-1}) $, where $v'_s \in D(u')$ and
+   $\sum v'_s = {g'}^*v$. Clearly, this product equals $\sigma_1\left(F(g' \cdot u, {g'}^{*} \cdot v)\right)$ by definition.
+\end{proof}
 
 \subsection{Relative Steinberg groups} \label{sec:relative-steinberg}
 First of all, let us recall the definition of the category of pairs. 
@@ -406,64 +469,6 @@ and acts on elements of $U^-_1$ via the formula $(\sigma_1)_{P_1^-(A)}(x_{i1}(\x
 
 To define the map $(\sigma_1)_{N_{1,0}}$ we will invoke the presentation of the relative Steinberg group given in~\cref{sec:another-presentation}
 in the special case $R=A[t]$, $I=tA[t]$.
-
-%TODO: Pick a decomposition  $v = \sum v_i$
-Indeed, for $u \in E(n, A[t])$ and $v \in tA[t]$ define $\sigma_1$ on $N_{0}=\St(n, A[t], tA[t])$ by the following identities: 
-\begin{equation}
- \sigma_1(F(u, v)) = \prod\limits_{i=1}^r x(\delta_1^{-1} \cdot t u, \delta_1 \cdot t^{-1} v_i),\ \
- \sigma_1(S(v, u)) = \prod\limits_{i=1}^r x(\delta_1^{-1} \cdot v_i, \delta_1 \cdot u).
-\end{equation}
-
-
-\begin{lemma} \label{lem:cor-conj}
- \begin{lemlist}
-   \item \label{item:correctness} The elements $\sigma_1(F(u, v))$ and $\sigma_1(S(v, u))$ are well-defined, i.\,e. they do not depend on the choice of decomposition for $v$.
-   \item \label{item:conjugation} For any $g \in N^1$ one has 
-      \begin{equation}
-          \nonumber {}^g\left(\sigma_1(F(u, v))\right) = \sigma_1\left(F(g' \cdot u, {g'}^{*} \cdot v)\right),\ \ 
-                    {}^g\left(\sigma_1(S(u, v))\right) = \sigma_1\left(S(g' \cdot u, {g'}^{*} \cdot v)\right),                    
-      \end{equation}
-      where $g' = {}^{\delta_1}\pi(g).$
- \end{lemlist}
-\end{lemma}
-\begin{proof}[Short proof]
- The first assertion can be easily verified using the canonical decomposition and~\cref{lem:xsmall-properties}
-  (compare with Tulenbaev's argument after~\cite[Lemma~1.1]{Tu83}).
-  
- The second assertion can be proved similarly to~\cite[3.14]{Ka77}, (cf. also with the proof of~\cite[Lemma~4.4d]{LS17}).
-\end{proof}
-\begin{proof}[Long proof]
- Let us verify the first assertion. Let $v = \sum_r v^r$ be a decomposition as above. 
- Since each $v^r$ is orthogonal to $u$ we can write the canonical decomposition  
- $v^r = \sum_{i<j} u_{ij} c_{ij}(v^r, w)$, moreover, $\sum_{r} c_{ij}(v^r, w) = c_{ij}(v, w)$.
- \cref{lem:xsmall-properties} allows us to rewrite the right-hand side of~\ref{eq:sigma-definition} in such a way that 
-  it does not depend on the choice of decomposition for $v$:
- \begin{multline}
-  \prod\limits_r x(\delta_1^{-1} ut, \delta_1 v^rt^{-1}) = \prod\limits_{r}\prod\limits_{i<j} x(\delta_1^{-1} ut, \delta_1 u_{ij}c_{ij}(v^r, w)t^{-1}) = \\ 
-   = \prod\limits_{i<j} x(\delta_1^{-1} ut, \delta_1 u_{ij}c_{ij}(v, w)t^{-1}). 
- \end{multline}
-
- We only verify the second assertion for $F(u, v)$  and only in the special case $g = x_{hk}(\xi) \in \mathcal{X}^1$, $g' = t_{hk}(\xi') \in \pi(\mathcal{X}_1)$.
- Choose $w\in R^n$ so that $w^t u = 1$ and write $v = \sum_{1\leq i<j\leq n} u_{ij} c_{ij}$, where $u_{ij}$ and $c_{ij} = c_{ij}(v, w)$ are as in~\eqref{eq:canonical}. 
- We can write ${}^g\left(\sigma_1\left(F(u, v)\right)\right)$ as follows:
- \begin{equation} \nonumber
-   \prod\limits_{1\leq i<j\leq n} x(\pi(g) \cdot \delta_1^{-1} \cdot t u, \pi(g)^* \cdot \delta_1 \cdot t^{-1} u_{ij}c_{ij})
-                                   = \prod\limits_{1\leq i<j\leq n} x(\delta_1^{-1} \cdot g'\cdot t u, \delta_1 \cdot {g'}^* \cdot t^{-1} u_{ij}c_{ij}).
- \end{equation} 
- Now for every factor in the right-hand side we do the following.
- If $\{i, j\} = \{h, k\}$ or $\{i, j\} \cap \{h, k\} = \emptyset$ we leave the term unchanged.
- Otherwise, if, $|\{i, j\} \cap \{h, k\}| = 1$,  say $j = h$, $i\neq k$, we further decompose it as follows:
-  \begin{equation} \nonumber
-    x(\delta_1^{-1} \cdot t u', \delta_1 \cdot {g'}^* \cdot u_{ij} (c_{ij} t^{-1})) = 
-     x(\delta_1^{-1} \cdot u' t, \delta_1 \cdot u'_{ij} (c_{ij} t^{-1})) \cdot 
-     x(\delta_1^{-1} \cdot u' t, \delta_1 \cdot u'_{ki} (c_{ij} t^{-1})).
-  \end{equation}
-  Here $u' = g'  u = t_{jk}(\xi') \cdot u$.
-  Notice that ${g'}^*u_{ij} = t_{kj}(-\xi') \cdot u_{ij} = e_iu_j - e_ju_i + e_k\xi'u_i =u'_{ij}+u'_{ki}\xi'$. 
-  
-  Thus, we arrive at a product $\prod_{s} x(\delta_1^{-1} \cdot u't, \delta_1 \cdot v'_s t^{-1}) $, where $v'_s \in D(u')$ and
-   $\sum v'_s = {g'}^*v$. Clearly, this product equals $\sigma_1\left(F(g' \cdot u, {g'}^{*} \cdot v)\right)$ by definition.
-\end{proof}
 
 \begin{cor}
  The map $\sigma_1$ preserves relations~\eqref{add4}--\eqref{conj3}.
