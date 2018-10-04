@@ -6,6 +6,7 @@
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz}
 \usepackage{enumitem}
+\usepackage[notref,notcite]{showkeys}
 
 \addbibresource{paper.bib}
 \renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
@@ -154,7 +155,7 @@ Let $\Phi$ be an irreducible root system
 
 For $g\in \GL(n, R)$ we denote by $g^*$ the contragradient matrix, i.\,e. $g^* = {g^{-1}}^t$.
 We denote by $e_i$ the standard basis vector of $R^n$. For a pair of vectors $u, v \in R^n$ such that $u^tv = 0$ we denote by
-$t(u, v)$ the rank $1$ matrix $e + uv^t$. Notice that $t(u, v)$ lies in $\E(n, R)$ provided $u$ or $v$ is unimodular. %TODO: Reference
+$t(u, v)$ the rank $1$ matrix $e + uv^t$. Notice that $t(u, v)$ lies in $\E(n, R)$ provided $u$ or $v$ is unimodular. %TODO: Reference + other case
 
 %TODO: Introduce notation for GL(n, R); E(n, R)
 
@@ -200,10 +201,12 @@ Recall from 3.2 of~\cite{Ka77} that for every $u, v, w \in R^n$ such that $u^t v
 \begin{equation} \label{eq:canonical} (w^tu) \cdot v=\sum_{i<j}u_{ij} c_{ij}(v, w),\end{equation}
 where $u_{ij} =e_iu_j-e_ju_i \in D(u)$ and $c_{ij}(v, w) =v_iw_j-v_jw_i \in R$.
 
+\begin{comment}
 Let $u, v \in R^n$ be such that $u^t v = 0$ and assume, moreover, that either $u$ or $v$ has at least one zero entry.
 Recall from 3.8, 3.10 of~\cite{Ka77} that under these assumptions one can define certain element
  $x(u, v)$ of $\St(n, R)$ such that $\phi(x(u, v)) = t(u, v) = 1 + uv^t$.
 Let us recall the standard properties of $x(u, v)$ (cf.~\cite[Lemma~1.1]{Tu83}).
+
 \begin{itemize}
  \item If $v$ or $w$ has at least two zero entries, then
   \begin{equation} \label{item:xsmall-scalar} x(v, wa) = x(va, w), \text{ for $a\in R$} \end{equation}
@@ -212,7 +215,7 @@ Let us recall the standard properties of $x(u, v)$ (cf.~\cite[Lemma~1.1]{Tu83}).
  \item If $v$, $v'$ are simultaneously orthogonal to $w$ and $w'$ and the elements $w, w'$ both have at least two zero entries then 
   \begin{equation} \label{item:xsmall-commute} [x(v, w),\ x(v', w')] = 1 \end{equation}
 \end{itemize}
-\begin{comment}
+
 Now let $I$ be a splitting ideal of $R$.
 Let $u \in E(n, R)e_1$, $v \in I^n$ be vectors such that $u^tv = 0$.
 Recall from \S~4 of~\cite{LS17} that one can define the following elements of $\St(n, R, I) \leq \St(n, R)$:
@@ -224,7 +227,25 @@ Here $\{v_r\}$, $r=1,\ldots,N$ is any collection of elements of $I^n \cap D(u)$ 
 Since $u$ is unimodular, such a collection always exists by~\eqref{eq:canonical}, moreover $F(u, v)$ and $S(u, v)$ do not depend on its choice. %TODO: Give reference
 \end{comment}
 
-Now assume that $I$ is an ideal of ring $R$ embedded as a subring into a larger ring $S$. 
+\begin{lemma} \label{lem:xsmall-properties}
+ Let $v, w \in R^n$ be such that $v^t w = 0$ and assume, moreover, that either $v$ or $w$ has at least one zero entry.
+ Under these assumptions one can define certain element $x(v, w) \in \St(n, R)$ such that $\phi(x(v, w)) = t(v, w) = 1 + vw^t$.
+ The elements $x(v, w)$ enjoy the following properties:
+ \begin{lemlist}
+  \item \label{item:xsmall-scalar} If $v$ or $w$ has at least two zero entries, then $x(v, wa) = x(va, w)$ for $a\in R$. 
+  \item \label{item:xsmall-additivity} If $w_1$ and $w_2$ have at least two zero entries of which at least one entry is common
+   then $x(v, w_1) \cdot x(v, w_2) = x(v, w_1+w_2)$ and $x(w_1, v) \cdot x(w_2, v) = x(w_1 + w_2, v)$.
+  \item \label{item:xsmall-commute} If $v$, $v'$ are simultaneously orthogonal to $w$ and $w'$ and the elements $w, w'$ both have at least two zero entries then 
+   $[x(v, w),\ x(v', w')] = 1$.
+  \item \label{item:xsmall-conj} If $g = x_{ij}(\xi)$ is a Steinberg generator and $v$ or $w$ has at least two zero entries then
+   $g \cdot x(v, w) \cdot g^{-1} = x(gv, g^*w)$.
+ \end{lemlist}
+\end{lemma}
+\begin{proof}
+ See~\cite[Lemma~1.1]{Tu83}.
+\end{proof}
+
+Now assume that $I$ is an ideal of a ring $R$ which itself is a subring of a larger ring $S$. 
 Let $d$ be an element of the subgroup $T(n, S)$ of diagonal matrices of $\GL(n, S)$, notice that $d^* = d^{-1}$.
 Let $u \in \Um(n, R)$ and $v \in I^n$ be such that $u^tv = 0$ and let $v = \sum v_i$ 
  be a decomposition of $v$ into a sum of elements $v_i \in D(u) \cap I^n$ (e.\,g. the canonical decomposition~\eqref{eq:canonical}),
@@ -234,7 +255,7 @@ Under the assumption $d^{-1}u \in R^n$, $d \cdot I^n \subseteq R^n$ set
 Under the assumption $d u\in R^n$, $d^{-1} \cdot I^n \subseteq R^n$ set 
  \begin{equation} Y_d(v, u) = \prod_i x(d^{-1} v_i, du) \in \St(n, R). \end{equation}
 
-\begin{lemma} %\label{lem:cor-conj}
+\begin{lemma} \label{lem:xy-wd}
  The elements $X_d(u, v)$, $Y_d(u, v)$ are well-defined, i.\,e. they do not depend on the choice of decomposition for $v$.
 \end{lemma}
 \begin{proof}
@@ -246,19 +267,19 @@ Under the assumption $d u\in R^n$, $d^{-1} \cdot I^n \subseteq R^n$ set
  Let $v = \sum_r v^r$ be a decomposition as above. 
  Since each $v^r$ is orthogonal to $u$ we can write the canonical decomposition  
  $v^r = \sum_{i<j} u_{ij} c_{ij}(v^r, w)$, moreover, $\sum_{r} c_{ij}(v^r, w) = c_{ij}(v, w)$.
- Now from~\eqref{item:xsmall-scalar}--\eqref{item:xsmall-commute} we obtain:
+ Now using~\cref{lem:xsmall-properties} we obtain:
  \begin{multline*} \prod\limits_r x(d^{-1}u, dv^r) = \prod\limits_{r}\prod\limits_{i<j} x(d^{-1} u, du_{ij}c_{ij}(v^r, w)) =
   \prod\limits_{i<j} x(d^{-1} u, d u_{ij}c_{ij}(v, w)). \qedhere \end{multline*}
 \end{proof}
 
-\begin{lemma} Suppose that $g = x_{hk}(\xi)$ is a generator of $\St(n, R)$ such that $m = d\phi(g)d^{-1} \in \E(n, R)$, then 
+\begin{lemma} \label{lem:xy-conj} Suppose that $g = x_{hk}(\xi)$ is a generator of $\St(n, R)$ such that $m = d\phi(g)d^{-1} \in \E(n, R)$, then 
  \begin{equation*} g \cdot X_d(u, v) \cdot g^{-1} = X_d(mu, m^*v) \text{ and } g \cdot Y_d(v, u) \cdot g^{-1} = Y_d(mv, m^*u). \end{equation*}
 \end{lemma}
 \begin{proof}
-Similar to~\cite[3.14]{Ka77}, cf. also with the proof of~\cite[Lemma~4.4d]{LS17}.
-\begin{comment} % Do not remove
+Direct computation using~\cref{lem:xsmall-properties} (cf. with~\cite[3.14]{Ka77} or~\cite[Lemma~4.4d]{LS17}).
+\begin{comment} % ***** Do not remove *****
  Choose $w\in R^n$ such that $w^t u = 1$ and write $v = \sum_{1\leq i<j\leq n} u_{ij} c_{ij}$, where $u_{ij}$ and $c_{ij} = c_{ij}(v, w)$ are as in~\eqref{eq:canonical}. 
- By~\cite[3.12]{Ka77} we can write $g \cdot X_d(u, v) \cdot g^{-1}$ as follows:
+ By~\cref{lem:xsmall-properties} we can write $g \cdot X_d(u, v) \cdot g^{-1}$ as follows:
  \begin{equation} \nonumber
    \prod\limits_{1\leq i<j\leq n} x(\phi(g) \cdot d^{-1} \cdot u, \phi(g)^* \cdot d \cdot u_{ij}c_{ij})
  = \prod\limits_{1\leq i<j\leq n} x( d^{-1} \cdot m \cdot u, d \cdot m^* \cdot u_{ij}c_{ij}).
@@ -318,7 +339,7 @@ We refer the reader to~\cite[Section~3]{LS17} for the discussion why this presen
 &F(u,\,v)F(u,\,w)=F(u,\,v+w), \label{add4}\\
 &S(u,\,v)S(w,\,v)=S(u+w,\,v), \label{add5}\\
 &F(u,\,v)F(u',\,v')F(u,\,v)^{-1}=F(t(u,\,v)u',\,t(v,\,u)^{-1} v'), \label{conj3} \\
-&F(ge_1,\,g^*e_2a)=S(ge_1a,\,g^*e_2),\ \text{for all}\ a\in I,\, g \in E(n, R).
+&F(ge_1,\,g^*e_2a)=S(ge_1a,\,g^*e_2),\ \text{for all}\ a\in I,\, g \in E(n, R). \label{coef-move}
 \end{align}
 \end{prop}
 \begin{rem}
@@ -354,11 +375,11 @@ Thus, for $\varepsilon \in R^*$ and $\omega \in P(\Phi^\vee)$ we can define a ma
  via the formula $\chi(\omega, \varepsilon)(\beta) = \varepsilon ^ {(\omega, \beta)}$.
 
 Every map of abelian groups $\chi \in \Hom(\ZZ \Phi, R^*)$ specifies an action on the set of generators $\XX_{\Phi, R}$ of the Steinberg group $\St(\Phi, R)$ via
-\begin{equation} \chi \cdot x_\alpha(\xi) = x_\alpha(\chi(\alpha) \cdot \xi),\ \alpha\in \Phi,\ \xi \in R. \end{equation}
+\begin{equation*} \chi \cdot x_\alpha(\xi) = x_\alpha(\chi(\alpha) \cdot \xi),\ \alpha\in \Phi,\ \xi \in R. \end{equation*}
 It is not hard to check that this action is compatible with Steinberg relations $\RR{\Phi, R}$ and 
  hence gives a well-defined automorphism of $\St(\Phi, R)$ which we denote by the same symbol $\chi$.
  
-\begin{example}
+\begin{example} \label{exm:chi-linear}
 For $1\leq k\leq \ell+1$ and $\varepsilon \in R^*$ denote by $d_k(\varepsilon)$ the matrix from $\GL(\ell+1, R)$ which differs from the unit matrix 
  only by having the element $\varepsilon$ on the $k$-th place of its diagonal.
 Recall from~\cite[Corollary~4]{Ka77} that for any $g \in \GL(\ell+1, R)$ there exists an automorphism $\beta_g$ of $\St(\ell+1, R)$ 
@@ -459,16 +480,22 @@ we apply the universal property of semidirect products once again
 and define $(\sigma_1)_{P_1^-(A)}$ by requiring that it acts identically on $L_1$ (notice that $L_1 \subseteq N^1$) %TODO: Language???
 and acts on elements of $U^-_1$ via the formula $(\sigma_1)_{P_1^-(A)}(x_{i1}(\xi))= x_{i1}(t\xi)$.
 
-To define the map $(\sigma_1)_{N_{1,0}}$ we will invoke the presentation of the relative Steinberg group given in~\cref{sec:another-presentation}
-in the special case $R=A[t]$, $I=tA[t]$.
+To define the map $(\sigma_1)_{N_{1,0}}$ we invoke the presentation of the relative Steinberg group $\St(n, A[t], tA[t])$ given in~\cref{prop:rel-presentation}.
+%and the elements constructed in~\cref{sec:another-presentation}. in the special case $R=A[t]$, $I=tA[t]$.
 %We only verify the second assertion for $F(u, v)$  and only in the special case $g = x_{hk}(\xi) \in \mathcal{X}^1$, $g' = t_{hk}(\xi') \in \pi(\mathcal{X}_1)$.
 
-Indeed, for $u \in E(n, A[t])$ and $v \in tA[t]$ define $\sigma_1$ on $N_{0}=\St(n, A[t], tA[t])$ by the following identities: 
+Denote by $\delta_1$ the matrix $d_1(t) \in \GL(A[t, t^{-1}])$ from~\cref{exm:chi-linear}.
+Now for $u \in E(n, A[t])$ and $v \in tA[t]$ we can define the map $\sigma_1$ on the generators of $N_{0}=\St(n, A[t], tA[t])$ 
+ using the elements defined in~\cref{sec:another-presentation}:
+\begin{equation*}
+ (\sigma_1)_{N_0} (F(u, v)) = X_{\delta_1 \cdot t^{-1}}(u, v),\ (\sigma_1)_{N_0} (S(v, u)) = Y_{\delta_1}(v, u).
+\end{equation*}
+
+\begin{comment}
 \begin{equation}
  \sigma_1(F(u, v)) = \prod\limits_{i=1}^r x(\delta_1^{-1} \cdot t u, \delta_1 \cdot t^{-1} v_i),\ \
  \sigma_1(S(v, u)) = \prod\limits_{i=1}^r x(\delta_1^{-1} \cdot v_i, \delta_1 \cdot u).
 \end{equation}
-
 
 \begin{lemma} \label{lem:cor-conj}
  \begin{lemlist}
@@ -481,12 +508,14 @@ Indeed, for $u \in E(n, A[t])$ and $v \in tA[t]$ define $\sigma_1$ on $N_{0}=\St
       where $g' = {}^{\delta_1}\pi(g).$
  \end{lemlist}
 \end{lemma}
+\end{comment}
 
-\begin{cor}
- The map $\sigma_1$ preserves relations~\eqref{add4}--\eqref{conj3}.
-\end{cor}
+\begin{prop}
+ If $A$ is a local ring them the map $(\sigma_1)_{N_0}$ preserves relations~\eqref{add4}--\eqref{coef-move}.
+ In particular, the map $(\sigma_1)_{N_0}$ is well-defined.
+\end{prop}
 \begin{proof}
- For~\eqref{add4}--\eqref{add5} this is an immediate corollary of the first assertion of the previous lemma.
+ For~\eqref{add4}--\eqref{add5} this is an immediate corollary of~\cref{item:xsmall-additivity} and~\cref{lem:xy-wd}
  For~\eqref{conj3} this follows from the second part of the lemma applied in the special case $g = \sigma_1(F(u, v)) \in N^1$.
 \end{proof}
 
