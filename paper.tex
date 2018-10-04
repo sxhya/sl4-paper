@@ -339,7 +339,7 @@ We refer the reader to~\cite[Section~3]{LS17} for the discussion why this presen
 &F(u,\,v)F(u,\,w)=F(u,\,v+w), \label{add4}\\
 &S(u,\,v)S(w,\,v)=S(u+w,\,v), \label{add5}\\
 &F(u,\,v)F(u',\,v')F(u,\,v)^{-1}=F(t(u,\,v)u',\,t(v,\,u)^{-1} v'), \label{conj3} \\
-&F(ge_1,\,g^*e_2a)=S(ge_1a,\,g^*e_2),\ \text{for all}\ a\in I,\, g \in E(n, R). \label{coef-move}
+&F(me_1,\,m^*e_2a)=S(me_1a,\,m^*e_2),\ \text{for all}\ a\in I,\, m \in \E(n, R). \label{coef-move}
 \end{align}
 \end{prop}
 \begin{rem}
@@ -455,7 +455,7 @@ Notice that for $\Phi = \rA_\ell, \ell \geq 4$ and $\omega=\varpi_k^\vee$, $k=1,
 the corresponding $\sigma$-pair has been constructed by Tulenbaev in the beginning of~\S~3 in~\cite{Tu83} 
  (where the corresponding maps and subgroups are denoted $\xymatrix{\delta_k \ar[r] \colon N_k & \ar@<-1.0ex>[l] N^k \colon \delta_k^{-1}}$).
 
-To simplify notation, throughout this section we set $N_1 = N(\varpi_1)$, $N^1 = N(-\varpi_1)$.
+To simplify notation, throughout this section we set $N_1 = N(\varpi_1^\vee)$, $N^1 = N(-\varpi_1^\vee)$.
 We only construct one of the desired maps from the definition of $\sigma$-pair, namely $\sigma(\varpi_1^\vee) \colon N_1 \to N^1$,
  for shortness we denote it by $\sigma_1$.
  
@@ -474,72 +474,57 @@ Thus, by the above lemma, in order to construct the map $\sigma_1$ we need to co
 \[ (\sigma_1)_{P_1^-(A)} \colon P_1^-(A) \to N^1, \ \ (\sigma_1)_{N_{0}} \colon N_{0} \to N^1\]
 and then verify that they satisfy~\eqref{eq:coherence-condition}.
 
-It is easy to define the first map $(\sigma_1)_{P_1^-(A)}$, indeed, using the decomposition $P_1^-(A) \cong U^-_1 \rtimes L_1$ where 
+It is easy to define the first map $(\sigma_1)_{P_1^-(A)}$, indeed, using the decomposition $P_1^-(A) \cong U^-_1 \rtimes L_1$ where %TODO: Language???
 \[U^-_1 = \langle x_{i1}(\xi) \mid i\neq 1,\ \xi\in A \rangle \text{ and } L_1 = \langle x_{ij}(\xi) \mid i,  j \neq 1,\ \xi\in A\rangle \]
 we apply the universal property of semidirect products once again 
 and define $(\sigma_1)_{P_1^-(A)}$ by requiring that it acts identically on $L_1$ (notice that $L_1 \subseteq N^1$) %TODO: Language???
 and acts on elements of $U^-_1$ via the formula $(\sigma_1)_{P_1^-(A)}(x_{i1}(\xi))= x_{i1}(t\xi)$.
 
-To define the map $(\sigma_1)_{N_{1,0}}$ we invoke the presentation of the relative Steinberg group $\St(n, A[t], tA[t])$ given in~\cref{prop:rel-presentation}.
-%and the elements constructed in~\cref{sec:another-presentation}. in the special case $R=A[t]$, $I=tA[t]$.
-%We only verify the second assertion for $F(u, v)$  and only in the special case $g = x_{hk}(\xi) \in \mathcal{X}^1$, $g' = t_{hk}(\xi') \in \pi(\mathcal{X}_1)$.
+%To define the map $(\sigma_1)_{N_{0}}$ we invoke the presentation of the relative Steinberg group $\St(n, A[t], tA[t])$ given in~\cref{prop:rel-presentation}.
 
 Denote by $\delta_1$ the matrix $d_1(t) \in \GL(A[t, t^{-1}])$ from~\cref{exm:chi-linear}.
-Now for $u \in E(n, A[t])$ and $v \in tA[t]$ we can define the map $\sigma_1$ on the generators of $N_{0}=\St(n, A[t], tA[t])$ 
+Now for $u \in \E(n, A[t])$ and $v \in (tA[t])^n$ we can define the map $(\sigma_1)_{N_0}$ on the generators of $N_{0}=\St(n, A[t], tA[t])$ 
  using the elements defined in~\cref{sec:another-presentation}:
 \begin{equation*}
  (\sigma_1)_{N_0} (F(u, v)) = X_{\delta_1 \cdot t^{-1}}(u, v),\ (\sigma_1)_{N_0} (S(v, u)) = Y_{\delta_1}(v, u).
 \end{equation*}
-
-\begin{comment}
-\begin{equation}
- \sigma_1(F(u, v)) = \prod\limits_{i=1}^r x(\delta_1^{-1} \cdot t u, \delta_1 \cdot t^{-1} v_i),\ \
- \sigma_1(S(v, u)) = \prod\limits_{i=1}^r x(\delta_1^{-1} \cdot v_i, \delta_1 \cdot u).
-\end{equation}
-
-\begin{lemma} \label{lem:cor-conj}
- \begin{lemlist}
-   \item \label{item:correctness} The elements $\sigma_1(F(u, v))$ and $\sigma_1(S(v, u))$ are well-defined, i.\,e. they do not depend on the choice of decomposition for $v$.
-   \item \label{item:conjugation} For any $g \in N^1$ one has 
-      \begin{equation}
-          \nonumber {}^g\left(\sigma_1(F(u, v))\right) = \sigma_1\left(F(g' \cdot u, {g'}^{*} \cdot v)\right),\ \ 
-                    {}^g\left(\sigma_1(S(u, v))\right) = \sigma_1\left(S(g' \cdot u, {g'}^{*} \cdot v)\right),                    
-      \end{equation}
-      where $g' = {}^{\delta_1}\pi(g).$
- \end{lemlist}
-\end{lemma}
-\end{comment}
+It is clear that the above elements belong to $N^1$.
 
 \begin{prop}
  If $A$ is a local ring them the map $(\sigma_1)_{N_0}$ preserves relations~\eqref{add4}--\eqref{coef-move}.
  In particular, the map $(\sigma_1)_{N_0}$ is well-defined.
-\end{prop}
+\end{prop} 
 \begin{proof}
- For~\eqref{add4}--\eqref{add5} this is an immediate corollary of~\cref{item:xsmall-additivity} and~\cref{lem:xy-wd}
- For~\eqref{conj3} this follows from the second part of the lemma applied in the special case $g = \sigma_1(F(u, v)) \in N^1$.
-\end{proof}
+ For~\eqref{add4}--\eqref{add5} this is an immediate corollary of~\cref{item:xsmall-additivity} and~\cref{lem:xy-wd}.
+ By~\cref{lem:xy-conj} for $g \in N^1$ one has 
+ \begin{equation} \label{eq:xy-conj-n1}
+  g \cdot X_{\delta_1 t^{-1}}(u', v') \cdot g^{-1} = X_{\delta_1 t^{-1}}(mu', m^*v'), \text{ where } m = \delta_1 \cdot \phi(g) \cdot \delta_1^{-1}.
+ \end{equation}
+ To obtain that $(\sigma_1)_{N_0}$ preserves~\eqref{conj3} it remains to put $g = X_{\delta_1 t^{-1}}(u, v)$.
+ 
+ Let us verify that $\sigma_1$ preserves~\eqref{coef-move}, i.\,e. that for $a\in tA[t]$ and $m \in \E(n, A[t])$ one has
+ $X_{\delta_1 t^{-1}}(me_1, m^*e_2 a) = Y_{\delta_1}(me_1 a, m^* e_2)$.
+ Let us do this at first in the special case when $m^* \in \E(n, A[t])$ belongs to the subset $G_0 = H_{12}(A) \cdot U^+_1(A) \cdot U^-_1(A)$.
+ Here we denote by $H_{12}(A)$ the subgroup of $T(n, A)$ generated by semisimple root elements $ h_{12}(\xi)$, $\xi \in A^*$.
 
-It remains to verify that $\sigma_1$ preserves~\eqref{coinc}.
-Let us do this at first in the special case when $g^*$ belongs to the subset $G_0 = H_{12}(R) \cdot U^+_1(R) \cdot U^-_1(R)$.
-Here we denote by $H_{12}(R)$ the subgroup of $T(n, R)$ generated by semisimple root elements $ h_{12}(\xi)$, $\xi \in R^*$.
-
-Since the only nonzero components of $u = g^* \cdot e_2$ are $u_1$ and $u_2$ we can present $v = g \cdot e_1$ as a sum $v' + v''$, where 
- $v'_i=0$, $i>2$ and $v''_1=v''_2=0$.
-Since $v', v'' \in D(u)$ and $u \in D(v)$, from the definition of $\sigma_1$ we obtain that:
-\begin{multline} \label{eq:special-case}
- \sigma_1(S(g \cdot e_1a, g^* \cdot e_2)) = x(\delta_1^{-1} \cdot v'a, \delta_1\cdot  u) \cdot x(\delta_1^{-1}\cdot v''a, \delta_1 \cdot u) = \\
-  = x(\delta_1^{-1} va, \delta_1 \cdot u) = x(\delta_1^{-1} vat^{-1}, \delta_1 \cdot ut) = \sigma_1(F(g \cdot e_1, g^* \cdot e_2a)) 
+ Since the only nonzero entries of $v = m^* e_2$ are $v_1$ and $v_2$ we can write $u = m e_1$ as a sum $u' + u''$, where 
+  $u'_i=0$, $i>2$ and $u''_1=v''_2=0$.
+ Since $u', u'' \in D(u)$ and $u \in D(v)$, from Lemmas~\ref{lem:xy-wd}--\ref{lem:xy-conj} we obtain that:
+ \begin{multline} \label{eq:special-case}
+  Y_{\delta_1}(me_1 a, m^* e_2) = x(\delta_1^{-1} \cdot u'a, \delta_1\cdot  v) \cdot x(\delta_1^{-1}\cdot u''a, \delta_1 \cdot v) = \\
+   = x(\delta_1^{-1} ua, \delta_1 \cdot v) = x(\delta_1^{-1}t \cdot u, \delta_1t^{-1} \cdot v a) = X_{\delta_1 t^{-1}}(me_1, m^*e_2 a).
 \end{multline}
 
-To obtain the assertion in the general case notice that for $R$ local the group $\E(n, R)$ admits the following decomposition:
-\[\E(n, R) = \mathrm{EP}_1(R) \cdot H_{12}(R) \cdot U^-_1(R) \cdot U^+_1(R).\]
-This can be either obtained as a corollary of Gauss decomposition or can be proved by a direct calculation. %TODO: Give reference
+ To obtain the assertion in the general case notice that for $A$ local the group $\E(n, A)$ admits the following decomposition:
+ \[\E(n, A) = \mathrm{EP}_1(A) \cdot H_{12}(A) \cdot U^-_1(A) \cdot U^+_1(A).\]
+ This can be either obtained as a corollary of Gauss decomposition or can be proved by a direct calculation. %TODO: Give reference
 
-Applying transpose-inverse automorphism $(-)^*$ to the above decomposition and invoking~\cref{lem:n1-decomp} we obtain that $\E(n, R[t]) = \pi(N_1) \cdot G_0$.
-Thus, every $g \in \E(n, R[t])$ can be factored as $\pi(n) \cdot h$ for some $n\in N_1$ and $h \in G_0$.
-Since $\pi(n) = {}^{\delta_1} \pi(n')$ for some $n' \in N^1$ it remains to apply~\cref{item:conjugation} and~\eqref{eq:special-case} to obtain the required assertion:
-\begin{multline} \nonumber \sigma_1(F(g \cdot e_1, g^* \cdot e_2a)) = {}^{n'}(\sigma_1(F(h \cdot e_1, h^* \cdot e_2a))) = \\
-                           = {}^{n'}(\sigma_1(S(h \cdot e_1a, h^* \cdot e_2))) = \sigma_1(S(g \cdot e_1a, g^* \cdot e_2)). \end{multline}
+ Applying transpose-inverse automorphism $(-)^*$ to the above decomposition and invoking~\cref{lem:n1-decomp} we obtain that $\E(n, A[t]) = \phi(N_1) \cdot G_0$.
+ Thus, every $m \in \E(n, A[t])$ can be factored as $\phi(n) \cdot h$ for some $n\in N_1$ and $h \in G_0$.
+ Since $\phi(n) = \delta_1 \phi(n') \delta_1^{-1}$ for some $n' \in N^1$ it remains to apply~\eqref{eq:xy-conj-n1} and~\eqref{eq:special-case}: 
+ \begin{multline} \nonumber X_{\delta_1 t^{-1}}(me_1, m^*e_2 a) = {}^{n'}(X_{\delta_1 t^{-1}}(he_1, h^*e_2 a)) = \\
+                            = {}^{n'}(Y_{\delta_1}(he_1 a, h^*e_2)) = Y_{\delta_1}(me_1 a, m^* e_2). \end{multline} 
+\end{proof}
 
 Thus, we have completed the construction of the map $(\sigma_1)_{N_{1,0}}$.
 It is not hard to verify that the condition~\eqref{eq:coherence-condition} is satisfied with these definitions,
