@@ -413,14 +413,72 @@ Moreover, the maps $\sigma(\omega), \sigma(-\omega)$ make the following diagram 
 This is caused by the fact there is no direct description of the set of relations which hold in $N(\pm\omega)$ between the generators $\XX(\pm\omega)$, 
  so we cannot be sure a priori that $\sigma(\pm\omega)$ preserve these relations. \end{rem}
 
+\subsection{Formalism of Tulenbaev factorization theorem}
+
+\begin{dfn} {\it Tulenbaev's cube} is a collection of abstract groups and morphisms between them which make the diagram below commute.
+\[\xymatrix{
+G_{123} \ar[rr]_{f_{23}} \ar[dd]_{f_{12}} \ar[rd]_{f_{13}} &                        & G_{23} \ar[dd]^(.3){g_2^3} \ar[rd]^{g^2_3} &           \\
+                                & G_{13} \ar[rr]^(.3){g^1_3} \ar^(.3){g^3_1}[dd] &                   & G_3 \ar[dd]_{h_3} \\
+G_{12} \ar[rr]^(.3){g_2^1} \ar[rd]_{g_1^2}          &                        & G_2 \ar[rd]_{h_2}         &           \\
+                                & G_1 \ar[rr]_{h_1}              &                   & G}\]
+In addition, we require these maps to satisfy the following list of axioms:
+\begin{enumerate}
+ \item $G_1$ acts on $G_{13}$, $G$ acts on $G_3$ %??? vertical arrows $G_{13} \to G_1$ and $G_3 \to G$ are crossed modules
+ \item for every $b \in G_{13}$ and $x \in G_1$ one has $g_1^3(b ^ x) = x^{-1} \cdot g_1^3(b) \cdot x$; (precrossed)
+ \item for every $x\in G_{13}$, $b \in G_{13}$ one has $g_3^1(b^x) = g_3^1(b)^{h_1(x)}$; ($g_3^1$ map of precrossed modules?)
+ %\item $g_3^1(b)^{h_1g_2^1(a)} = g_3^1(b^{g_1^2(a)})$
+ \item for every $z_1, z_2 \in G_3$ one has $z_1^{-1} z_2 z_1 = z_2^{h_3(z_1)}$ (Peiffer)
+\end{enumerate}
+
+\end{dfn}
+We want to define a relation on the set of triples $V = G_1 \times G_2 \times G_3$.
+By definition, two triples $v = (x, y, z)$, $v'=(x', y', z')$ are said to be congruent (denoted $v \sim v'$)
+ if there exists a triple $(a, b, c) \in G_{12}\times G_{13} \times G_{23}$ such that
+\begin{align}
+ x' =& x \cdot g_1^3(b) \cdot g_1^2(a), \\ 
+ y' =& g_2^1(a)^{-1} \cdot y \cdot g_2^3(c), \\
+ z' =& g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z.
+\end{align}
+\begin{lemma} 
+ The relation $\sim$ is transitive. 
+\end{lemma}
+\begin{proof}
+\begin{equation*} x'' = x' \cdot g_1^3(b') \cdot g_1^2(a') = 
+ x \cdot g_1^3(b) \cdot g_1^2(a) \cdot g_1^3(b') \cdot g_1^2(a') = x \cdot g_1^3(b \cdot b'^{g_1^2(a')^{-1}}) g_1^2(a \cdot a') \end{equation*}
+\begin{equation*} y'' = g_2^1(a')^{-1} \cdot g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \cdot g_2^3(c') = g_2^1(aa')^{-1} \cdot y \cdot g_2^3(cc') \end{equation*}
+
+Using (3) for every $a \in G_{12}$, $b \in G_{13}$ one has $g_3^1(b^{g_1^2(a)}) = g_3^1(b)^{h_1 g_1^2(a)} = g_3^1(b)^{h_2g_2^1(a)}$.
+Using (4) for every $c \in G_{23}$ and $z \in G_3$ one has $z ^{h_2 g_2^3(c)} = z^{ h_3 g_3^2(c)} = g_3^2(c)^{-1} \cdot z \cdot g_3^2(c)$;
+Therefore:
+\begin{multline*}
+  z'' = g_2^3(c')^{-1} \cdot g_3^1(b')^{-h_2(y')} \cdot z' = g_2^3(c')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \right)} g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z =
+  \\ = g_2^3(cc')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y \right)} \cdot g_3^1(b)^{-h_2(y)} \cdot z = 
+       g_2^3(cc')^{-1} \cdot g_3^1(b \cdot b' ^ {g_1^2(a)^{-1}})^{- h_2 \left( y \right)} \cdot z.
+\end{multline*}
+\end{proof}
+
 \subsection{Factorization theorem} 
-Throughout this section $A$ denote a commutative local ring with the maximal ideal $m$.
+Throughout this section $A$ denote a commutative local ring with the maximal ideal $M$.
 $j_+\colon A[t] \to A[t, t^{-1}]$. We write $j_+^*$ instead of $\St(\Phi, j_+)$.
- 
+
 Throughout this section we use the following notation.
 \begin{itemize}
- \item 
+ \item $G$ denotes the Steinberg group $\St(\Phi, A[t, t^{-1}])$;
+ \item $G^+$ denotes the Steinberg group $\St(\Phi, A[t])$;
+ \item $G_M$ denotes the relative Steinberg group $\St(\Phi, A[t, t^{-1}], M[t, t^{-1}]$;
+ \item $G^+_M$ denotes the relative Steinberg group $\St(\Phi, A[t], M[t])$;
+ \item $B$ denotes the subgroup $\StB(\Phi, A[t, t^{-1}]) \leq G$;
+ \item $U^+$ denotes the subgroup $\UU(\Phi^+, A[t])$;
+ \item $B_M$ denotes the subgroup $\UU(\Phi^+, M[t, t^{-1}]) \cdot \Sym(???) \leq G_M$
+ \item $U^+_M$ denotes the subgroup $\UU(\Phi^+, M[t])$.
 \end{itemize}
+
+\[\xymatrix{
+U^+_M \ar@{^{(}->}[rr] \ar@{^{(}->}[dd] \ar@{^{(}->}[rd] &                        & B_M \ar[dd]^(.3){i_2^3} \ar@{^{(}->}[rd]^{i^2_3} &           \\
+                                & G^+_M \ar[rr]^(.3){i^1_3} \ar^(.3){i^3_1}[dd] &                   & G_M \ar[dd] \\
+U^+ \ar@{^{(}->}[rr]^(.3){i_2^1} \ar@{^{(}->}[rd]_{i_1^2}          &                        & B \ar@{^{(}->}[rd]         &           \\
+                                & G^+ \ar[rr]              &                   & G}\]
+
 
 Denote by $V_0$ the set $\St(\Phi, A[t]) \times \StH(A[t, t^{-1}]) \times \St(\Phi, A[t, t^{-1}], m[t, t^{-1}])$. 
 We define an equivalence relation $\sim$ on $V_0$ as the minimal equivalence relation generated by the following 4 elementary transformations:
