@@ -429,33 +429,37 @@ In addition, we require these maps to satisfy the following list of axioms:
  %\item $g_3^1(b)^{h_1g_2^1(a)} = g_3^1(b^{g_1^2(a)})$
  \item for every $z_1, z_2 \in G_3$ one has $z_1^{-1} z_2 z_1 = z_2^{h_3(z_1)}$ (Peiffer)
 \end{enumerate}
-
 \end{dfn}
-We want to define a relation on the set of triples $V = G_1 \times G_2 \times G_3$.
-By definition, two triples $v = (x, y, z)$, $v'=(x', y', z')$ are said to be congruent (denoted $v \sim v'$)
- if there exists a triple $(a, b, c) \in G_{12}\times G_{13} \times G_{23}$ such that
-\begin{align}
- x' =& x \cdot g_1^3(b) \cdot g_1^2(a), \\ 
- y' =& g_2^1(a)^{-1} \cdot y \cdot g_2^3(c), \\
- z' =& g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z.
-\end{align}
-\begin{lemma} 
- The relation $\sim$ is transitive. 
+Now set $V = G_1 \times G_2 \times G_3$, $W = G_{12} \times G_{13} \times G_{23}$.
+We define an operation $- \star - \colon W \times V \to V$ as follows. For $v = (x, y, z) \in V$ and $(a, b, c) \in W$ we set 
+\[(a, b, c) \star (x, y, z) = (x \cdot g_1^3(b) \cdot g_1^2(a),\ g_2^1(a)^{-1} \cdot y \cdot g_2^3(c),\ g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z)\]
+
+\begin{lemma} For every $v \in V$ one has 
+ \begin{equation*}(a', b', c') \star \left( (a, b, c) \star v \right) = (a \cdot a', b \cdot {b'}^{g_1^2(a)^{-1}}, c \cdot c') \star v.\end{equation*}
 \end{lemma}
 \begin{proof}
-\begin{equation*} x'' = x' \cdot g_1^3(b') \cdot g_1^2(a') = 
- x \cdot g_1^3(b) \cdot g_1^2(a) \cdot g_1^3(b') \cdot g_1^2(a') = x \cdot g_1^3(b \cdot b'^{g_1^2(a')^{-1}}) g_1^2(a \cdot a') \end{equation*}
-\begin{equation*} y'' = g_2^1(a')^{-1} \cdot g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \cdot g_2^3(c') = g_2^1(aa')^{-1} \cdot y \cdot g_2^3(cc') \end{equation*}
+Set $v'=(x', y', z') = (a, b, c) \star v$ and $(x'', y'', z'') = (a', b', c') \star v'$, then straightforward computation shows that:
+\begin{align*} 
+ x'' =& x' \cdot g_1^3(b') \cdot g_1^2(a') = x \cdot g_1^3(b) \cdot g_1^2(a) \cdot g_1^3(b') \cdot g_1^2(a') = x \cdot g_1^3(b \cdot b'^{g_1^2(a')^{-1}}) g_1^2(a \cdot a'),\\
+ y'' =& g_2^1(a')^{-1} \cdot g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \cdot g_2^3(c') = g_2^1(aa')^{-1} \cdot y \cdot g_2^3(cc'). \end{align*}
 
 Using (3) for every $a \in G_{12}$, $b \in G_{13}$ one has $g_3^1(b^{g_1^2(a)}) = g_3^1(b)^{h_1 g_1^2(a)} = g_3^1(b)^{h_2g_2^1(a)}$.
 Using (4) for every $c \in G_{23}$ and $z \in G_3$ one has $z ^{h_2 g_2^3(c)} = z^{ h_3 g_3^2(c)} = g_3^2(c)^{-1} \cdot z \cdot g_3^2(c)$;
 Therefore:
 \begin{multline*}
-  z'' = g_2^3(c')^{-1} \cdot g_3^1(b')^{-h_2(y')} \cdot z' = g_2^3(c')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \right)} g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z =
-  \\ = g_2^3(cc')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y \right)} \cdot g_3^1(b)^{-h_2(y)} \cdot z = 
-       g_2^3(cc')^{-1} \cdot g_3^1(b \cdot b' ^ {g_1^2(a)^{-1}})^{- h_2 \left( y \right)} \cdot z.
+  z'' = g_2^3(c')^{-1} \cdot g_3^1(b')^{-h_2(y')} \cdot z' = \\ 
+  = g_2^3(c')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y \cdot g_2^3(c) \right)} g_3^2(c)^{-1} \cdot g_3^1(b)^{-h_2(y)} \cdot z = \\
+  = g_2^3(c \cdot c')^{-1} \cdot g_3^1(b')^{- h_2 \left( g_2^1(a)^{-1} \cdot y \right)} \cdot g_3^1(b)^{-h_2(y)} \cdot z = \\
+  = g_2^3(c \cdot c')^{-1} \cdot g_3^1(b \cdot {b'} ^ {g_1^2(a)^{-1}})^{- h_2 \left( y \right)} \cdot z. \qedhere
 \end{multline*}
 \end{proof}
+
+Now we define a relation on the set $V$.
+By definition, two elements $v$, $v'$ are declared congruent (denoted $v \sim v'$)
+ if $v' = w \star v$ for some triple $(a, b, c) \in W$. In view of thea above lemma this relation is an equivalence relation
+ and we denote the quotient set of $V$ modulo this relation by $V'$.
+ 
+
 
 \subsection{Factorization theorem} 
 Throughout this section $A$ denote a commutative local ring with the maximal ideal $M$.
