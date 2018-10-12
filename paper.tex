@@ -489,14 +489,13 @@ Since $h_3$ satisfies Peiffer identity, for every $c \in G_{23}$ and $z \in G_3$
 \end{proof}
 
 The above lemma allows us to define an equivalence relation on the set $V$ as follows.
-By definition, two elements $v, v' \in V$ are congruent (denoted $v \sim v'$)
- if $v' = w \star v$ for some triple $(a, b, c) \in W$.
+We declare two elements $v, v' \in V$ congruent (denoted $v \sim v'$) if $v' = w \star v$ for some triple $(a, b, c) \in W$.
  
 \begin{lemma} Suppose that the back face $(f_{12}, f_{23}, g_2^1, g_2^3)$ of~\eqref{eq:cube} is pullback.
 If for some $z\in G_3$ holds $(1, 1, 1)\sim (1, 1, z)$ then $z \in g_3^1(\Ker(g_1^3)).$ \end{lemma}
-\begin{proof} By assumption, there exists $(a, b, c)\in W$ such that
+\begin{proof} By the above definition there exists $(a, b, c)\in W$ such that
  \[ (a, b, c) \star (1, 1, 1) = ( g_1^3(b) \cdot g_1^2(a),\ g_2^1(a)^{-1} \cdot g_2^3(c),\ g_3^2(c)^{-1} \cdot g_3^1(b)^{-1}) = (1,1,z). \]
- By assumption there exists $e \in G_{123}$ such that $f_{12}(e) = a$, $f_{23}(e) = c$, hence
+ By lemma's assumption there exists $e \in G_{123}$ such that $f_{12}(e) = a$, $f_{23}(e) = c$, hence
  \[ 1 = g_1^3(b) \cdot g_1^2(f_{12}(e)) = g_1^3(b \cdot f_{13}(e)),\ z = g_3^2(f_{23}(e))^{-1} \cdot g_3^1(b) = g_3^1(b \cdot f_{13}(e))^{-1}. \qedhere\] \end{proof}
 
 \subsection{Factorization theorem} 
