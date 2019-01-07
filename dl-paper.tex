@@ -38,6 +38,23 @@
 \maketitle
 \section{Introduction}
 \section{Preliminaries}
+$\langle \alpha, \beta \rangle = (\alpha, \beta^\vee) = (\alpha, \frac{2\beta}{(\beta, \beta)})$
+Our convention for Cartan matrices is 
+$A_{ij} = \langle \alpha_i, \alpha_j \rangle = (\alpha_i, \alpha_j^\vee)$.
+
+\subsection{Steinberg groups}
+Definition of Steinberg symbol is:
+\[ \{ s, t \}_\alpha = h_\alpha(s) \cdot h_\alpha(t) \cdot h_\alpha(st)^{-1} \]
+
+Then Matsumoto's Lemmas~5.2 and 5.4 assert that:
+\[ {}^{h_\alpha(t)}\!x_\beta(u) = x_\beta(t^{\langle \beta,  \alpha \rangle}u)\]
+\[ {}^{h_\alpha(t)}\!h_\beta(u) = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}. \]
+\[[h_\alpha(s), h_\beta(t)] = \{s, t^{\langle \alpha, \beta \rangle}\}_\alpha = \{t, s^{\langle \beta, \alpha \rangle}\}_\beta^{-1}\]
+
+Suppose for a moment that $\langle \alpha, \beta \rangle = -1$ and  $\langle \beta, \alpha \rangle = -1$ then
+\[ \{s, t^{-1} \} = \{s,  t^{-1}\}_\alpha = \{t, s^{-1} \}_\beta^{-1} = \{s^{-1}, t\} \]
+In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$
+
 \subsection{Isogenous forms of the orthogonal group}
 \subsection{Grothendieck--Witt groups}
 \section{Proof of the main result}
@@ -45,30 +62,31 @@
 \subsection{First injectivity theorem}
 \subsection{Second injectivity theorem}
 
-$\langle \alpha, \beta \rangle = (\alpha, \beta^\vee) = (\alpha, \frac{2\beta}{(\beta, \beta)})$
-Our convention for Cartan matrices is 
-$A_{ij} = \langle \alpha_i, \alpha_j \rangle = (\alpha_i, \alpha_j^\vee)$.
+Recall the definition of the Dennis--Stein symbol (cf. III.5.11 within Weibel's book).
+\[ \langle r,s \rangle _ \alpha = x_{-\alpha}\left(-\frac{s}{1 - rs}\right) \cdot x_{\alpha}(-r) \cdot x_{-\alpha}(s) \cdot x_{\alpha}\left(\frac{r}{1-rs}\right) \cdot h_{\alpha}(1 - rs)^{-1}, \]
+where $r, s$ are arbitrary elements of $R$ such that $1 - rs\in R^*$ then
 
-Then Matsumoto's Lemmas~5.2 and 5.4 assert that:
-\[ {}^{h_\alpha(t)}\!x_\beta(u) = x_\beta(t^{\langle \beta,  \alpha \rangle}u)\]
-\[ {}^{h_\alpha(t)}\!h_\beta(u) = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}. \]
-\[[h_\alpha(s), h_\beta(t)] = \{s, t^{\langle \alpha, \beta \rangle}\}_\alpha = \{t, s^{\langle \beta, \alpha \rangle}\}_\beta^{-1}\]
-
-Definition of Steinberg symbol is:
-\[ \{ s, t \}_\alpha = h_\alpha(s) \cdot h_\alpha(t) \cdot h_\alpha(st)^{-1} \]
-
-Recall the definition of the Dennis--Stein symbol (cf. III.5.11 within Weibel's book)
-\[ \langle r,s \rangle _ \alpha = x_{-\alpha}\left(-\frac{s}{1 - rs}\right) \cdot x_{\alpha}(-r) \cdot x_{-\alpha}(s) \cdot x_{\alpha}\left(\frac{r}{1-rs}\right) \cdot h_{\alpha}(1 - rs)^{-1}. \]
-
-
-Statement \[x_{\alpha}(aX^{-1}) x_{-\alpha}(mX) x_{\alpha}(-a(1+am)^{-1}X^{-1}) \cdot \{X, 1+am\} \in G_+.\]
-
+\begin{comment}
+\[x_{\alpha}(aX^{-1}) x_{-\alpha}(mX) x_{\alpha}(-a(1+am)^{-1}X^{-1}) \cdot \{X, 1+am\} \in G_+.\]
 $y := x_{\alpha}(aX^{-1}) x_{-\alpha}(mX) x_{\alpha}(-a(1+am)^{-1}X^{-1})$, 
-
 $z = x_{-\alpha}(-m(1+am)^{-1}X) y h_{\alpha}((1+am)^{-1})$,
-
 Using $\pi(z) = 1$ we get 
 \begin{multline}z = z^{h_{ik}^{-1}(X)} = \\ x_{ji}(-m(1+am)^{-1}) x_{ij}(a) x_{ji}(m) \cdot x_{ij}(-a(1+am)^{-1})\{X, (1+am)^{-1}\} \cdot h_{ij}((1+am)^{-1}) \in G. \end{multline}
+\end{comment}
+
+For any $\alpha \in \Phi$ one can find $\beta$ such that $\langle \alpha, \beta \rangle = -1$
+(except for the case when $\alpha$ is a long root of a symplectic root system).
+Choose $\beta$ such that $\langle \alpha, \beta \rangle = -1$
+\begin{multline}
+ x_\alpha(aX^{-1}) \cdot x_{-\alpha}(X m) %= x_\alpha(X^{\langle \alpha, \beta \rangle}a) x_{-\alpha}(X^{-\langle \alpha, \beta \rangle}m) 
+ = {}^{h_\beta(X)}(x_\alpha(a) x_{-\alpha}(m)) = \\
+ = {}^{h_\beta(X)}\left( x_{-\alpha}\left(\frac{m}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\frac{a}{1+am}\right) \right) = \\
+ x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha(X^{-1})^{-1} x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
+ x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot \{1+am, X^{-1}\}^{-1} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
+ = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}
+\end{multline}
+
+
 
 We need to introduce notation for certain subgroups of $\St(A[X, X^{-1}])$:
 \begin{align}
