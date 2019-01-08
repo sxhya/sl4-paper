@@ -100,12 +100,13 @@ Notice that for $ g\in G_+$ the element $ev_{X=0}(g)^{-1}g$ lies in $G_+^0$.
  \begin{multline}
  x_\alpha(aX^{-1}) \cdot z_\beta(f_1(X), f_2(X)) = \\ = x_\alpha(af_1'(X)f_2(X)) \cdot x_{\alpha+\beta}(-N_{\beta, \alpha} af_1'(X)) \cdot z_\beta(f_1(X), f_2(X)) \cdot x_\alpha(aX^{-1}); 
  \end{multline}
- \item {\it Case $\beta - \alpha \in \Phi$, $f_1(X) = Xf_1'(X)$.}
+ \item {\it Case $\alpha - \beta \in \Phi$, $f_1(X) = Xf_1'(X)$.}
  \begin{multline}
   x_{\alpha}(aX^{-1}) \cdot z_\beta(f_1(X), f_2(X)) = \\ = x_{\alpha}(-af_1'(X)f_2(X))\cdot x_{\alpha-\beta}(-N_{\beta,-\alpha} af_1'(X)f_2(X)^2) \cdot z_\beta(f_1(X), f_2(X)) \cdot x_{\alpha}(aX^{-1});
  \end{multline}
- \item {\it Case $\beta = -\alpha$, $f_1(X) = mX$, $f_2(X)=0$}. %CASE 1
-For any $\alpha \in \Phi$ one can choose $\gamma$ such that $\langle \alpha, \gamma \rangle = -1$
+\item {\it Case $\beta = -\alpha$, $f_1(X) = Xf_1'(X)$}.
+Suffices to prove the assertion under the assumption $f_2(X)=0$.
+First consider the case $f_1(X) = mX$, where $m\in M$. For any $\alpha \in \Phi$ one can choose $\gamma$ such that $\langle \alpha, \gamma \rangle = -1$
 (except in the sole case when $\alpha$ is a long root of a symplectic root system).
 Now direct computation using~\eqref{eq:dennis-stein} and centrality of symbols shows that:
 \begin{multline}
@@ -116,7 +117,14 @@ Now direct computation using~\eqref{eq:dennis-stein} and centrality of symbols s
  x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot \{1+am, X^{-1}\}^{-1} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
  = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}.
 \end{multline}
- \item Essentially this allows one to cover the case $\beta = -\alpha$, $f_1(X) = Xm$ (with the same answer)
+
+Now suppose $f_1(X) = X^2f_1'(X)$. Choose $\gamma$ such that $\alpha + \gamma \in \Phi$.
+Then everything we need follows from the computation:
+\begin{multline*}
+ x_\alpha(aX^{-1}) \cdot x_{-\alpha}(X^2 mf_1'(X)) \cdot x_\alpha(-aX^{-1}) = 
+ {}^{x_\alpha(aX^{-1})}[x_{-\alpha - \gamma}(N_{-\alpha-\gamma, \gamma}Xf_1'(X)), x_{\gamma}(X)] = \\
+ = [x_{-\alpha-\gamma}(N_{-\alpha-\gamma, \gamma}Xf_1'(X)) x_{-\gamma}(N_{-\alpha-\gamma, \gamma} N_{-\alpha-\gamma, \alpha} af_1'(X)), x_\gamma(X) x_{\alpha+\gamma}(N_{\alpha,\gamma}a)].
+\end{multline*} 
 \end{enumerate}
  
 \begin{lemma} Assume that $\Phi$ is simply-laced.
