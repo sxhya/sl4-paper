@@ -18,7 +18,7 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}
 \newtheorem{lemma}{Lemma}
-\theoremstyle{remark} %\newtheorem{rem}[lemma]{Remark} \Crefname{rem}{Remark}{Remarks}
+\theoremstyle{remark} 
 
 \theoremstyle{definition}
 \newtheorem{df}[lemma]{Definition} \Crefname{df}{Definition}{Definitions}
@@ -51,9 +51,11 @@ Then Matsumoto's Lemmas~5.2 and 5.4 assert that:
 \[ {}^{h_\alpha(t)}\!h_\beta(u) = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}. \]
 \[[h_\alpha(s), h_\beta(t)] = \{s, t^{\langle \alpha, \beta \rangle}\}_\alpha = \{t, s^{\langle \beta, \alpha \rangle}\}_\beta^{-1}\]
 
+\begin{comment}
 Suppose for a moment that $\langle \alpha, \beta \rangle = -1$ and  $\langle \beta, \alpha \rangle = -1$ then
 \[ \{s, t^{-1} \} = \{s,  t^{-1}\}_\alpha = \{t, s^{-1} \}_\beta^{-1} = \{s^{-1}, t\} \]
-In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$
+In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$ 
+\end{comment}
 
 \subsection{Isogenous forms of the orthogonal group}
 \subsection{Grothendieck--Witt groups}
@@ -63,7 +65,9 @@ In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$
 \subsection{Second injectivity theorem}
 
 Recall the definition of the Dennis--Stein symbol (cf. III.5.11 within Weibel's book).
-\[ \langle r,s \rangle _ \alpha = x_{-\alpha}\left(-\frac{s}{1 - rs}\right) \cdot x_{\alpha}(-r) \cdot x_{-\alpha}(s) \cdot x_{\alpha}\left(\frac{r}{1-rs}\right) \cdot h_{\alpha}(1 - rs)^{-1}, \]
+\begin{equation} \label{eq:dennis-stein}
+ \langle r,s \rangle _ \alpha = x_{-\alpha}\left(-\frac{s}{1 - rs}\right) \cdot x_{\alpha}(-r) \cdot x_{-\alpha}(s) \cdot x_{\alpha}\left(\frac{r}{1-rs}\right) \cdot h_{\alpha}(1 - rs)^{-1},
+\end{equation} 
 where $r, s$ are arbitrary elements of $R$ such that $1 - rs\in R^*$ then
 
 \begin{comment}
@@ -74,26 +78,47 @@ Using $\pi(z) = 1$ we get
 \begin{multline}z = z^{h_{ik}^{-1}(X)} = \\ x_{ji}(-m(1+am)^{-1}) x_{ij}(a) x_{ji}(m) \cdot x_{ij}(-a(1+am)^{-1})\{X, (1+am)^{-1}\} \cdot h_{ij}((1+am)^{-1}) \in G. \end{multline}
 \end{comment}
 
-For any $\alpha \in \Phi$ one can find $\beta$ such that $\langle \alpha, \beta \rangle = -1$
-(except for the case when $\alpha$ is a long root of a symplectic root system).
-Choose $\beta$ such that $\langle \alpha, \beta \rangle = -1$
-\begin{multline}
- x_\alpha(aX^{-1}) \cdot x_{-\alpha}(X m) %= x_\alpha(X^{\langle \alpha, \beta \rangle}a) x_{-\alpha}(X^{-\langle \alpha, \beta \rangle}m) 
- = {}^{h_\beta(X)}(x_\alpha(a) x_{-\alpha}(m)) = \\
- = {}^{h_\beta(X)}\left( x_{-\alpha}\left(\frac{m}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\frac{a}{1+am}\right) \right) = \\
- x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha(X^{-1})^{-1} x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
- x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot \{1+am, X^{-1}\}^{-1} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
- = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}
-\end{multline}
-
-
-
 We need to introduce notation for certain subgroups of $\St(A[X, X^{-1}])$:
 \begin{align}
- G_+   & = \mathrm{Im}(\St(\Phi, A[X], Xm[X]) \to \St(A[X, X^{-1}]))\\
- G_+^0 & = \mathrm{Im}(\St(\Phi, A[X], m[X]) \to \St(A[X, X^{-1}]))
+ G_+^0 & = \mathrm{Im}(\St(\Phi, A[X], XM[X]) \to \St(A[X, X^{-1}]))\\
+ G_+   & = \mathrm{Im}(\St(\Phi, A[X], M[X]) \to \St(A[X, X^{-1}]))
 \end{align}
 Notice that for $ g\in G_+$ the element $ev_{X=0}(g)^{-1}g$ lies in $G_+^0$.
+
+\begin{rem} Our goal is to rewrite $x_\alpha(aX^{-1}) \cdot z_\beta(f_1(X), f_2(X))$, where $f_1(X) \in M[X]$, $f_2(X) \in A[X]$ as
+ $g \cdot x_\alpha(\frac{aX^{-1}}{1+am}) \cdot \{ 1 + am, X \}$ for some $g \in G_+$
+ and $m \in M$. At first assume that $\Phi$ is simply-laced. \end{rem}
+\begin{enumerate}
+ \item {\it Case $\alpha \pm \beta \not \in \Phi \cup \{ 0\}$.} (Is this the same thing as $\alpha \perp \beta$?)
+  Obviously, in this case $g = z_\beta(f_1(X), f_2(X))$, $m=0$.
+ \begin{comment} 
+ \item {\it Case $\alpha + \beta \in \Phi$, $f_1(X) = Xf_1'(X)$, $f_2(X) = 0$.}
+ \[ x_\alpha(aX^{-1}) \cdot x_\beta(Xf_1'(X)) = x_{\alpha+\beta}(af_1'(X))x_\beta(Xf_1'(X)) x_\alpha(aX^{-1}) \]
+ \end{comment}
+ \item {\it Case $\alpha + \beta \in \Phi$, $f_1(X) = Xf_1'(X)$.}
+ Start from this formula (centrality of $K_2$-paper):
+ \begin{multline}
+ x_\alpha(aX^{-1}) \cdot z_\beta(f_1(X), f_2(X)) = \\ = x_\alpha(af_1'(X)f_2(X)) \cdot x_{\alpha+\beta}(-N_{\beta, \alpha} af_1'(X)) \cdot z_\beta(f_1(X), f_2(X)) \cdot x_\alpha(aX^{-1}); 
+ \end{multline}
+ \item {\it Case $\beta - \alpha \in \Phi$, $f_1(X) = Xf_1'(X)$.}
+ \begin{multline}
+  x_{\alpha}(aX^{-1}) \cdot z_\beta(f_1(X), f_2(X)) = \\ = x_{\alpha}(-af_1'(X)f_2(X))\cdot x_{\alpha-\beta}(-N_{\beta,-\alpha} af_1'(X)f_2(X)^2) \cdot z_\beta(f_1(X), f_2(X)) \cdot x_{\alpha}(aX^{-1});
+ \end{multline}
+ \item {\it Case $\beta = -\alpha$, $f_1(X) = mX$, $f_2(X)=0$}. %CASE 1
+For any $\alpha \in \Phi$ one can choose $\gamma$ such that $\langle \alpha, \gamma \rangle = -1$
+(except in the sole case when $\alpha$ is a long root of a symplectic root system).
+Now direct computation using~\eqref{eq:dennis-stein} and centrality of symbols shows that:
+\begin{multline}
+ x_\alpha(aX^{-1}) \cdot x_{-\alpha}(X m) %= x_\alpha(X^{\langle \alpha, \gamma \rangle}a) x_{-\alpha}(X^{-\langle \alpha, \gamma \rangle}m) 
+ = {}^{h_\gamma(X)}(x_\alpha(a) x_{-\alpha}(m)) = \\
+ = {}^{h_\gamma(X)}\left( x_{-\alpha}\left(\frac{m}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\frac{a}{1+am}\right) \right) = \\
+ x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha(X^{-1})^{-1} \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
+ x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot \{1+am, X^{-1}\}^{-1} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
+ = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}.
+\end{multline}
+ \item Essentially this allows one to cover the case $\beta = -\alpha$, $f_1(X) = Xm$ (with the same answer)
+\end{enumerate}
+ 
 \begin{lemma} Assume that $\Phi$ is simply-laced.
  For any $a\in A$, $\alpha\in \Phi$, $g_0 \in G^0_+$ there exist $m'\in m$ and $g'\in G_+$ such that 
  \[x_{\alpha}(aX^{-1}) g_0  = g' x_\alpha(-a(1+m')X^{-1}) \cdot \{X, 1+m'\}.\]
