@@ -14,7 +14,7 @@
 \DeclareFieldFormat[article, inproceedings, inbook, book, thesis]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
 \renewcommand*{\bibfont}{\footnotesize}
 
-\newtheorem{proposition}{Proposition}
+\newtheorem{prop}{Proposition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}
 \newtheorem{lemma}{Lemma}
@@ -25,6 +25,19 @@
 \newtheorem{example}[lemma]{Example} \Crefname{example}{Example}{Examples}
 \newtheorem{rem}[lemma]{Remark}
 \DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\K}{K}
+\DeclareMathOperator{\colim}{colim}
+\newcommand{\XX}{\mathcal{X}}           % (subset of) Steinberg generators
+\newcommand{\RR}[1]{\mathcal{R}_{#1}}   % Steinberg relations
+\newcommand{\rA}{\mathsf{A}}
+\newcommand{\rB}{\mathsf{B}}
+\newcommand{\rC}{\mathsf{C}}
+\newcommand{\rD}{\mathsf{D}}
+\newcommand{\rE}{\mathsf{E}}
+\newcommand{\rF}{\mathsf{F}}
+\newcommand{\rG}{\mathsf{G}}
+
+\numberwithin{equation}{section}
 
 \title{On the presentation of orthogonal groups over polynomial rings}
 \keywords {Steinberg group, $K_2$-functor, Serre problem
@@ -37,19 +50,59 @@
 \begin{document}
 \maketitle
 \section{Introduction}
+
 \section{Preliminaries}
 $\langle \alpha, \beta \rangle = (\alpha, \beta^\vee) = (\alpha, \frac{2\beta}{(\beta, \beta)})$
 Our convention for Cartan matrices is 
 $A_{ij} = \langle \alpha_i, \alpha_j \rangle = (\alpha_i, \alpha_j^\vee)$.
 
 \subsection{Steinberg groups}
-Definition of Steinberg symbol is:
-\[ \{ s, t \}_\alpha = h_\alpha(s) \cdot h_\alpha(t) \cdot h_\alpha(st)^{-1} \]
+Let $\Phi$ be a reduced and irreducible root system of rank $\geq 2$ and $R$ be a commutative ring with $1$. Recall that in this case the \emph{Steinberg group} $\St(\Phi, R)$ can be defined by means of generators $x_{\alpha}(\xi)$ where $\xi\in R, \alpha\in\Phi$ and relations:
+\begin{align}
+& \phantom{[}
+x_\alpha(s) x_\alpha(t) = x_\alpha(s+t),\ \alpha\in\Phi,\ s,t\in R; \label{rel:add}\\
+& [x_\alpha(s), x_\beta(t)] = \prod\limits_{i,j\in\mathbb{N}}
+ x_{i\alpha + j\beta}\left(N_{\alpha\beta ij}\, s^i t^j\right),\quad \alpha,\beta\in\Phi,\ \alpha\neq\pm\beta,\ s,t\in R. \label{rel:CCF}
+\end{align}
+The indices $i$, $j$ appearing in the right-hand side of the above relation range over
+all positive natural numbers such that $i\alpha + j\beta\in\Phi$.
+The structure constants $N_{\alpha \beta i j}=\pm 1,2,3$ appearing in \eqref{rel:CCF} depend only on $\Phi$ and can be computed explicitly.
 
-Then Matsumoto's Lemmas~5.2 and 5.4 assert that:
-\[ {}^{h_\alpha(t)}\!x_\beta(u) = x_\beta(t^{\langle \beta,  \alpha \rangle}u)\]
-\[ {}^{h_\alpha(t)}\!h_\beta(u) = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}. \]
-\[[h_\alpha(s), h_\beta(t)] = \{s, t^{\langle \alpha, \beta \rangle}\}_\alpha = \{t, s^{\langle \beta, \alpha \rangle}\}_\beta^{-1}\]
+Recall that for $\alpha\in\Phi$ and $s \in R^*$ the semisimple root elements $h_\alpha(s)$ are defined as follows: \[h_\alpha(s)=w_\alpha(s) \cdot w_\alpha(-1), \text{ where } w_\alpha(s) = x_\alpha(s) \cdot x_{-\alpha}(-s^{-1}) \cdot x_\alpha(s).\]
+
+Recall from~\cite[Lemma~5.2]{Ma69} that the following identities hold for these elements:
+ \begin{align} 
+   \label{eq:conj-h-x} {}^{h_\alpha(t)}\!x_\beta(u) & = x_\beta(t^{\langle \beta,  \alpha \rangle}u) \\
+   \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}.
+ \end{align}
+
+
+In our computations we will use two explicit elements of $\K_2(\Phi, R)$. Recall that Steinberg symbols are defined for any $s, t \in R^*$ by the identity
+\[ \{ s, t \}_\alpha = h_\alpha(s) \cdot h_\alpha(t) \cdot h_\alpha(st)^{-1}. \]
+
+Recall also that Dennis--Stein symbols are defined for arbitrary $r, s\in R$ satisfying $1 - rs \in R^*$ as follows:
+\begin{equation} \label{eq:dennis-stein}
+ \langle r,s \rangle _ \alpha = x_{-\alpha}\left(-\frac{s}{1 - rs}\right) \cdot x_{\alpha}(-r) \cdot x_{-\alpha}(s) \cdot x_{\alpha}\left(\frac{r}{1-rs}\right) \cdot h_{\alpha}(1 - rs)^{-1}.
+\end{equation} 
+
+%Using~\eqref{eq:conj-h-h} it is easy to verify that \[[h_\alpha(s), h_\beta(t)] = \{s, t^{\langle \alpha, \beta \rangle}\}_\alpha = \{t, s^{\langle \beta, \alpha \rangle}\}_\beta^{-1}.\] 
+It is easy to show that the above symbols depend only on the length of $\alpha$.
+Moreover, if $\Phi$ is nonsymplectic, Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
+
+\subsection{Relative Steinberg groups}
+% Generation of relative Steinberg groups
+
+The following result was proved in \cite[Proposition~3.2]{Ste13}.
+\begin{lemma}\label{lem:Zgen} Let $\Phi$ be an irreducible root system of rank $\geq 2$. 
+Let $G$ denote the normal closure in $\St(\Phi, R)$ of the subgroup spanned by elementary root unipotents of level $I$, i.\,e. $G=\langle x_\alpha(s) \mid \alpha\in\Phi,\ s\in I\rangle^{\St(\Phi, R)}$.
+
+Let $S$ be a parabolic set of roots of $\Phi$ with special part $\Sigma_S$. Then $G$ is generated as an abstract group by the set $\mathcal{Z}(\Sigma_S, I, R)$ consisting of the following two families of elements:
+\begin{itemize}
+ \item $x_{\alpha}(s)$, where $s\in I$, $\alpha\in\Phi$;
+ \item $z_\alpha(s,\xi)$, where $s\in I$, $\xi\in R$, $\alpha\in\Sigma_S$.
+\end{itemize}        
+\end{lemma}
+
 
 \begin{comment}
 Suppose for a moment that $\langle \alpha, \beta \rangle = -1$ and  $\langle \beta, \alpha \rangle = -1$ then
@@ -63,12 +116,6 @@ In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$
 \subsection{Overview of the proof}
 \subsection{First injectivity theorem}
 \subsection{Second injectivity theorem}
-
-Recall the definition of the Dennis--Stein symbol (cf. III.5.11 within Weibel's book).
-\begin{equation} \label{eq:dennis-stein}
- \langle r,s \rangle _ \alpha = x_{-\alpha}\left(-\frac{s}{1 - rs}\right) \cdot x_{\alpha}(-r) \cdot x_{-\alpha}(s) \cdot x_{\alpha}\left(\frac{r}{1-rs}\right) \cdot h_{\alpha}(1 - rs)^{-1},
-\end{equation} 
-where $r, s$ are arbitrary elements of $R$ such that $1 - rs\in R^*$ then
 
 \begin{comment}
 \[x_{\alpha}(aX^{-1}) x_{-\alpha}(mX) x_{\alpha}(-a(1+am)^{-1}X^{-1}) \cdot \{X, 1+am\} \in G_+.\]
@@ -88,35 +135,47 @@ Notice that for $ g\in G_+$ the element $ev_{X=0}(g)^{-1}g$ lies in $G_+^0$.
 \begin{rem} Our goal is to rewrite $x_\alpha(aX^{-1}) \cdot z_\beta(f_1(X), f_2(X))$, where $f_1(X) \in M[X]$, $f_2(X) \in A[X]$ as
  $g \cdot x_\alpha(\frac{aX^{-1}}{1+am}) \cdot \{ 1 + am, X \}$ for some $g \in G_+$
  and $m \in M$. At first assume that $\Phi$ is simply-laced. \end{rem}
-\begin{enumerate}
- \item {\it Case $\alpha \pm \beta \not \in \Phi \cup \{ 0\}$.} (Is this the same thing as $\alpha \perp \beta$?)
-  Obviously, in this case $g = z_\beta(f_1(X), f_2(X))$, $m=0$.
+ 
+\begin{lemma} \label{lem:lem34} Assume that $\Phi$ is simply-laced and of rank $\geq 2$.
+ For any $a\in A$, $\alpha\in \Phi$, $g \in G^0_+$ there exists $m = m(g)\in M$ and $g'\in G_+$ such that 
+ \[x_{\alpha}(aX^{-1}) g  = g' Y_\alpha(a,m) \text{ where } Y_\alpha(a,m) = x_\alpha(-a(1+am)^{-1}X^{-1}) \cdot \{X, 1+am\}.\]
+\end{lemma}
+\begin{proof}
+ We can choose some parabolic subset $S$ of roots in $\Phi$ in such a way that its special part $\Sigma_S$ does not contain the root $\alpha$.
+ By~\cref{lem:Zgen} the subgroup $G_+^0$ is generated by images in $\St(\Phi, A[X, X^{-1}]$ of the elements of the set $\mathcal{Z}(\Sigma_S, A[X], XM[X])$.
+ Thus, we can write $g_0$ as a product of elements $z_\beta(f_1(X), f_2(X))$ such that $f_1(X) \in XM[X]$, $f_2(X) \in A[X]$ and, moreover, $f_2(X) = 0$ whenever $\beta \not \in \Sigma_S$.
+ 
+ It is easy to verify using~\eqref{eq:symbol-properties} that \[x_\alpha(aX^{-1}) \cdot g_0 \cdot g_1 = g_0' \cdot Y_\alpha(a, m(g_0)) \cdot g_1 = g_0' \cdot g_1' \cdot Y_\alpha(a, m(g_0)+m(g_1)),\] therefore it suffices demonstrate the assertion of the lemma in the special case $g = z_\beta(f_1(X), f_2(X))$.
+ 
+ We proceed by case analysis. Let us first analyze the cases when $\beta \neq -\alpha$. In all these cases $m(g) = 0$.
+ \begin{enumerate}
+ \item {\it Case $\alpha \pm \beta \not \in \Phi \cup \{ 0\}$.}  Obviously, in this case also $g' = g$.
  \begin{comment} 
  \item {\it Case $\alpha + \beta \in \Phi$, $f_1(X) = Xf_1'(X)$, $f_2(X) = 0$.}
  \[ x_\alpha(aX^{-1}) \cdot x_\beta(Xf_1'(X)) = x_{\alpha+\beta}(af_1'(X))x_\beta(Xf_1'(X)) x_\alpha(aX^{-1}) \]
  \end{comment}
+ \item {\it Case $\alpha = \beta$.} By our choice of $S$ holds $\beta \not \in \Sigma_S$, therefore $f_2(X) = 0$ and $g$ commutes with $x_\alpha(aX^{-1})$.
  \item {\it Case $\alpha + \beta \in \Phi$, $f_1(X) = Xf_1'(X)$.}
- Start from this formula (centrality of $K_2$-paper):
- \begin{multline}
+ Direct computation using formula from~\cite[Lemma~9]{S15} shows that:
+ \begin{multline*}
  x_\alpha(aX^{-1}) \cdot z_\beta(f_1(X), f_2(X)) = \\ = x_\alpha(af_1'(X)f_2(X)) \cdot x_{\alpha+\beta}(-N_{\beta, \alpha} af_1'(X)) \cdot z_\beta(f_1(X), f_2(X)) \cdot x_\alpha(aX^{-1}); 
- \end{multline}
- \item {\it Case $\alpha - \beta \in \Phi$, $f_1(X) = Xf_1'(X)$.}
- \begin{multline}
-  x_{\alpha}(aX^{-1}) \cdot z_\beta(f_1(X), f_2(X)) = \\ = x_{\alpha}(-af_1'(X)f_2(X))\cdot x_{\alpha-\beta}(-N_{\beta,-\alpha} af_1'(X)f_2(X)^2) \cdot z_\beta(f_1(X), f_2(X)) \cdot x_{\alpha}(aX^{-1});
- \end{multline}
-\item {\it Case $\beta = -\alpha$, $f_1(X) = Xf_1'(X)$}.
-Suffices to prove the assertion under the assumption $f_2(X)=0$.
-First consider the case $f_1(X) = mX$, where $m\in M$. For any $\alpha \in \Phi$ one can choose $\gamma$ such that $\langle \alpha, \gamma \rangle = -1$
-(except in the sole case when $\alpha$ is a long root of a symplectic root system).
-Now direct computation using~\eqref{eq:dennis-stein} and centrality of symbols shows that:
-\begin{multline}
+ \end{multline*}
+ \item {\it Case $\alpha - \beta \in \Phi$, $f_1(X) = Xf_1'(X)$.} Similarly to the above case:
+ \begin{multline*}
+  x_{\alpha}(aX^{-1}) \cdot z_\beta(f_1(X), f_2(X)) = \\ = x_{\alpha}(-af_1'(X)f_2(X))\cdot x_{\alpha-\beta}(-N_{\beta,-\alpha} af_1'(X)f_2(X)^2) \cdot z_\beta(f_1(X), f_2(X)) \cdot x_{\alpha}(aX^{-1}).
+ \end{multline*} \end{enumerate}
+Now we turn to the case $\beta = -\alpha$, $f_1(X) = Xf_1'(X)$.
+Since $g$ commutes with $x_\alpha(\pm f_2(X))$, it suffices to prove the assertion in the special case $f_2(X)=0$.
+First consider the case $f_1(X) = mX$, where $m\in M$. Since $\Phi$ is nonsymplectic, we can choose $\gamma$ such that $\langle \alpha, \gamma \rangle = -1$.
+Now direct computation invoking~\eqref{eq:conj-h-h}--\eqref{eq:dennis-stein} and the centrality of symbols shows that:
+\begin{multline*}
  x_\alpha(aX^{-1}) \cdot x_{-\alpha}(X m) %= x_\alpha(X^{\langle \alpha, \gamma \rangle}a) x_{-\alpha}(X^{-\langle \alpha, \gamma \rangle}m) 
  = {}^{h_\gamma(X)}(x_\alpha(a) x_{-\alpha}(m)) = \\
  = {}^{h_\gamma(X)}\left( x_{-\alpha}\left(\frac{m}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\frac{a}{1+am}\right) \right) = \\
  x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha(X^{-1})^{-1} \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
  x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot \{1+am, X^{-1}\}^{-1} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
  = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}.
-\end{multline}
+\end{multline*}
 
 Now suppose $f_1(X) = X^2f_1'(X)$. Choose $\gamma$ such that $\alpha + \gamma \in \Phi$.
 Then everything we need follows from the computation:
@@ -125,31 +184,13 @@ Then everything we need follows from the computation:
  {}^{x_\alpha(aX^{-1})}[x_{-\alpha - \gamma}(N_{-\alpha-\gamma, \gamma}Xf_1'(X)), x_{\gamma}(X)] = \\
  = [x_{-\alpha-\gamma}(N_{-\alpha-\gamma, \gamma}Xf_1'(X)) x_{-\gamma}(N_{-\alpha-\gamma, \gamma} N_{-\alpha-\gamma, \alpha} af_1'(X)), x_\gamma(X) x_{\alpha+\gamma}(N_{\alpha,\gamma}a)].
 \end{multline*} 
-\end{enumerate}
- 
-\begin{lemma} Assume that $\Phi$ is simply-laced.
- For any $a\in A$, $\alpha\in \Phi$, $g_0 \in G^0_+$ there exist $m'\in m$ and $g'\in G_+$ such that 
- \[x_{\alpha}(aX^{-1}) g_0  = g' x_\alpha(-a(1+m')X^{-1}) \cdot \{X, 1+m'\}.\]
-\end{lemma}
-\begin{proof}
- Choose some parabolic subset $S$ of roots in $\Phi$ in such a way that its special part $\Sigma(S)$ does not contain the root $\alpha$.
- In view of~\cref{lem:Zgen} the subgroup $G_+^0$ is generated by images in $\St(\Phi, A[X, X^{-1}]$ of the elements of the set $\mathcal{Z}(\Sigma(S), A[X], Xm[X])$.
- 
- Without loss of generality we may assume that $g_0$ is either $z_\beta(s, \xi)$ for some $\beta\in \Sigma(S)$ for some $s\in Xm[X]$, $\xi\in A[X]$ or $x_\gamma(s)$ for some $\gamma \in \Phi$.
- \begin{itemize}
-  \item {\it Case $\alpha \perp \beta$. } In this case the required statement is obvious (with $m'=0$, $g'=g_0$).
-  \item {\it Case $\alpha \not \perp \beta \in \Phi$.} In this case either $\alpha + \beta$ or $\alpha - \beta$ lies in $\Phi$.
-  Assume, for example, the former (the argument in the other case is similar).
-  The required assertion now follows from the following equality (cf. Sinchuk 16' paper Lemma 9):
-  %\[ x_\beta(-aX^{-1}) z_\alpha(s, \xi) x_\beta(aX^{-1}) = x_\beta(-saX^{-1}\xi) \cdot x_{\alpha+\beta}(N_{\alpha,\beta}saX^{-1})\cdot z_\alpha(s, \xi).\]
-  \[ x_\alpha(-aX^{-1}) z_\beta(s, \xi) =  \left( z_\beta(s, \xi) \cdot x_{\alpha+\beta}(N_{\beta,\alpha}saX^{-1}) \cdot x_\alpha(-s\xi aX^{-1}) \right) \cdot x_\alpha(-aX^{-1}).\]
-  \item {\it Case $\alpha = \beta$}
-  \item {\it Case $\alpha = -\beta$}
- \end{itemize}
-
 \end{proof}
 
-\section{Proof of Rehmann's presentation theorem}
+\begin{rem}
+ From the proof of the above lemma it is easy to describe the way to compute... 
+\end{rem}
+
+\include{rehmann}
 
 \printbibliography
 \end{document}
