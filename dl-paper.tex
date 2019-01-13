@@ -26,6 +26,7 @@
 \newtheorem{rem}[lemma]{Remark}
 \DeclareMathOperator{\St}{St}
 \DeclareMathOperator{\K}{K}
+\DeclareMathOperator{\GW}{GW}
 \DeclareMathOperator{\colim}{colim}
 \newcommand{\XX}{\mathcal{X}}           % (subset of) Steinberg generators
 \newcommand{\RR}[1]{\mathcal{R}_{#1}}   % Steinberg relations
@@ -115,6 +116,36 @@ In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$
 \section{Proof of the main result}
 \subsection{Overview of the proof}
 \subsection{First injectivity theorem}
+For a commutative ring $A$ with an ideal $M$ we denote by $B = B_{A, M}$ the subring $A[X^{-1}] + M[X]$ of the ring $R = A[X, X^{-1}]$.
+It is clear that $I := M[X, X^{-1}]$ can be considered as an ideal of both $B$ and $R$.
+\begin{lemma}\label{lem:lemma32} Let $\Phi$ be a simply-laced root system of rank $\geq 3$.
+Consider the following commutative square of canonical maps.
+\[ \xymatrix{
+    \St(\Phi, B, I) \ar[r] \ar[d] & \St(\Phi, B) \ar[d] \\
+    \St(\Phi, R, I) \ar[r] \ar@{-->}[ur]_\mu & \St(\Phi, R)
+   } \]
+Then there exists an arrow $\mu$ which makes the diagram commute.   
+\end{lemma} 
+\begin{proof}
+ Notice that $R$ is isomorphic to the principal localisation of $B$ at $X$
+  and that $I$ is uniquely $X$-divisible in the sense of~\cite[\S~4]{LS17}.
+ Thus, in the special case $\Phi = \rA_3$ the assertion of the lemma follows from~\cite[Theorem~3]{LS17}.
+ 
+ Now the general case can be obtained as a corollary of amalgamation theorem~\cite[Theorem~9]{S15}
+  (cf.~\cite[\S~4]{LS17} for more details).
+ %TODO: Also give reference on a similar result of Lavrenov
+ %TODO: Rethink the proof of amalgamation theorem...
+\end{proof}
+
+\begin{lemma}
+ For a field $F$ and $\ell \geq 5$ the canonical map $\K_3(\rD_\ell, F[X]) \to \K_3(\rD_\ell, F[X^{\pm 1}])$ is surjective.
+\end{lemma}
+\begin{proof}
+ We have defined $\K_3(\rD_\ell, R)$ as 
+\end{proof}
+
+
+
 \subsection{Second injectivity theorem}
 
 \begin{comment}
