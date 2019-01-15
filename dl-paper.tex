@@ -25,11 +25,16 @@
 \newtheorem{example}[lemma]{Example} \Crefname{example}{Example}{Examples}
 \newtheorem{rem}[lemma]{Remark}
 \DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\G}{G}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\HH}{H}
 \DeclareMathOperator{\K}{K}
 \DeclareMathOperator{\GW}{GW}
 \DeclareMathOperator{\colim}{colim}
 \newcommand{\XX}{\mathcal{X}}           % (subset of) Steinberg generators
 \newcommand{\RR}[1]{\mathcal{R}_{#1}}   % Steinberg relations
+
+\newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\rA}{\mathsf{A}}
 \newcommand{\rB}{\mathsf{B}}
 \newcommand{\rC}{\mathsf{C}}
@@ -92,6 +97,34 @@ Moreover, if $\Phi$ is nonsymplectic, Steinberg symbols are antisymmetric and bi
 
 \subsection{Relative Steinberg groups}
 % Generation of relative Steinberg groups
+Let us briefly remind the reader definitions and basic properties pertaining to relative Steinberg groups.
+We refer the reader to~\cite[Section~3]{S15} for a more detailed exposition.
+%TODO: Define the category of pairs (so that all constructions below become functorial wrt it).
+
+Thus, by our definition, the relative Steinberg group is a central extension of $\St(\Phi, R)$.
+\begin{equation}\label{eq:relative-St}
+ \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r] & \St(\Phi, R, I) \ar[r] & \St(\Phi, R) \ar[r]^{\pi^*} & \St(\Phi, R/I) \ar[r] & 1 }
+\end{equation}
+It is not hard to show that $C(\Phi, R, I) = 0$ in the case when $I$ is a splitting ideal of $R$, i.\,e. when the canonical map $R \to R/I$ splits, see~\cite[Lemma~8]{S15}. In order to better understand $C(\Phi, R, I)$  we would like to continue the sequence~\eqref{eq:relative-St} to the left. Thus we need to work with unstable $\K_3$-functors for which we choose the definition a la Quillen (cf.~\cite{Pa89})
+
+\begin{df} Suppose that $\St(\Phi, R)$ is perfect and super-perfect (i.\,e. the homology groups $\HH_i(\St(\Phi, R), \ZZ)$ vanish for $i=1,2$.) Denote by $X$ the result of application of Quillen's $+$-construction to the discrete classifying space $B\G(\Phi, R)$ with respect to the elementary subgroup $\E(\Phi, R)$. Now define $\K_3(\Phi, R)$ as the third homotopy group $\pi_3(X)$. \end{df}
+%TODO: Give reference on the definition of the plus-construction?
+
+\begin{prop} The group $\K_3(\Phi, R)$ is isomorphic to $\HH_3(\St(\Phi, R), \ZZ)$. In particular, it does not depend on the isogeny form of $\G(\Phi, R)$ used to define it. Moreover, for a ring epimorphism $R \to R/I$ there is a functorial exact sequence
+\[ \xymatrix{\K_3(\Phi, R) \ar[r] & \K_3(\Phi, R/I) \ar@{->>}[r] & C(\Phi, R, I).} \]
+\end{prop}
+
+\begin{lemma} \label{lem:Panin-stability}
+ Let $R$ be either a field, principal ideal domain or a Dedekind domain. 
+ Then the canonical map $\K_3(\rD_\ell, R) \to \K_3(\rD_\infty, R)$ is an epimorphism for $\ell \geq 6$ 
+ and an isomorphism for $\ell \geq 7$.
+\end{lemma}
+\begin{proof}
+ Stabilization for orthogonal and symplectic K-groups a la Quillen is given by Panin's theorem, see~\cite[Theorem~9.4]{Pa89}. More specifically the bounds for surjective (resp. injective) stability is 
+ $\ell \geq \max(6, a+2)$ (resp. $\ell \geq \max(7,a+3)$) for $a=1,2,3$ in the case when $R$ is a field, p.i.d. or a Dedekind domain, respectively.
+\end{proof}
+
+
 
 The following result was proved in \cite[Proposition~3.2]{Ste13}.
 \begin{lemma}\label{lem:Zgen} Let $\Phi$ be an irreducible root system of rank $\geq 2$. 
@@ -110,6 +143,8 @@ Suppose for a moment that $\langle \alpha, \beta \rangle = -1$ and  $\langle \be
 \[ \{s, t^{-1} \} = \{s,  t^{-1}\}_\alpha = \{t, s^{-1} \}_\beta^{-1} = \{s^{-1}, t\} \]
 In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$ 
 \end{comment}
+
+
 
 \subsection{Isogenous forms of the orthogonal group}
 \subsection{Grothendieck--Witt groups}
@@ -138,7 +173,7 @@ Then there exists an arrow $\mu$ which makes the diagram commute.
 \end{proof}
 
 \begin{lemma}
- For a field $F$ and $\ell \geq 5$ the canonical map $\K_3(\rD_\ell, F[X]) \to \K_3(\rD_\ell, F[X^{\pm 1}])$ is surjective.
+ Let $F$ be a field of characteristic $\neq 2$. Then for $\ell \geq 7$ the canonical map $\K_3(\rD_\ell, F[X]) \to \K_3(\rD_\ell, F[X^{\pm 1}])$ is surjective.
 \end{lemma}
 \begin{proof}
  We have defined $\K_3(\rD_\ell, R)$ as 
@@ -147,7 +182,6 @@ Then there exists an arrow $\mu$ which makes the diagram commute.
 
 
 \subsection{Second injectivity theorem}
-
 \begin{comment}
 \[x_{\alpha}(aX^{-1}) x_{-\alpha}(mX) x_{\alpha}(-a(1+am)^{-1}X^{-1}) \cdot \{X, 1+am\} \in G_+.\]
 $y := x_{\alpha}(aX^{-1}) x_{-\alpha}(mX) x_{\alpha}(-a(1+am)^{-1}X^{-1})$, 
