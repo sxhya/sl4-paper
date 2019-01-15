@@ -24,6 +24,7 @@
 \newtheorem{df}[lemma]{Definition} \Crefname{df}{Definition}{Definitions}
 \newtheorem{example}[lemma]{Example} \Crefname{example}{Example}{Examples}
 \newtheorem{rem}[lemma]{Remark}
+\newtheorem{cond}[lemma]{Condition}
 \DeclareMathOperator{\St}{St}
 \DeclareMathOperator{\G}{G}
 \DeclareMathOperator{\E}{E}
@@ -96,23 +97,38 @@ It is easy to show that the above symbols depend only on the length of $\alpha$.
 Moreover, if $\Phi$ is nonsymplectic, Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
 
 \subsection{Relative Steinberg groups}
-% Generation of relative Steinberg groups
-Let us briefly remind the reader definitions and basic properties pertaining to relative Steinberg groups.
-We refer the reader to~\cite[Section~3]{S15} for a more detailed exposition.
+
+The aim of this section is to briefly remind the reader definitions and basic properties pertaining to relative Steinberg groups. We refer the reader to~\cite[Section~3]{S15} for a more detailed exposition.
 %TODO: Define the category of pairs (so that all constructions below become functorial wrt it).
 
-Thus, by our definition, the relative Steinberg group is a central extension of $\St(\Phi, R)$.
+...
+
+%Thus, by our definition, the relative Steinberg group is a central extension of $\St(\Phi, R)$.
 \begin{equation}\label{eq:relative-St}
  \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r] & \St(\Phi, R, I) \ar[r] & \St(\Phi, R) \ar[r]^{\pi^*} & \St(\Phi, R/I) \ar[r] & 1 }
 \end{equation}
-It is not hard to show that $C(\Phi, R, I) = 0$ in the case when $I$ is a splitting ideal of $R$, i.\,e. when the canonical map $R \to R/I$ splits, see~\cite[Lemma~8]{S15}. In order to better understand $C(\Phi, R, I)$  we would like to continue the sequence~\eqref{eq:relative-St} to the left. Thus we need to work with unstable $\K_3$-functors for which we choose the definition a la Quillen (cf.~\cite{Pa89})
+It is not hard to show that $C(\Phi, R, I) = 0$ in the special case when $I$ is a splitting ideal of $R$, i.\,e. when the canonical map $R \to R/I$ splits, see~\cite[Lemma~8]{S15}. 
 
-\begin{df} Suppose that $\St(\Phi, R)$ is perfect and super-perfect (i.\,e. the homology groups $\HH_i(\St(\Phi, R), \ZZ)$ vanish for $i=1,2$.) Denote by $X$ the result of application of Quillen's $+$-construction to the discrete classifying space $B\G(\Phi, R)$ with respect to the elementary subgroup $\E(\Phi, R)$. Now define $\K_3(\Phi, R)$ as the third homotopy group $\pi_3(X)$. \end{df}
+Unstable relative Steinberg groups share many good properties with their stable counterparts studied in~\cite{Lo78} provided the following assumptions on $\Phi$ hold: \begin{enumerate}
+ \item $\St(\Phi, R)$ is perfect and super-perfect for all commutative $R$ (i.\,e. the homology groups $\HH_i(\St(\Phi, R), \ZZ)$ vanish for $i=1,2$).
+ \item for all commutative rings $R$ the group $\K_2(\Phi, R)$ is central in $\St(\Phi, R)$.
+\end{enumerate}
+For example, under these assumptions it can be shown that the map $\St(\Phi, R, I) \to \St(\Phi, R)$ is a universal relative central extension of a pair $(\St(\Phi, R/I), \St(\Phi, R))$ in the sense of~\cite{Lo78} (the proof is identical to~\cite[Corollary~3]{S15}).
+
+In order to better understand $C(\Phi, R, I)$  we would like to continue the sequence~\eqref{eq:relative-St} to the left. Thus we need to work with unstable $\K_3$-functors a la Quillen (cf.~\cite{Pa89}).
+\begin{df}  
+Denote by $X$ the topological space obtained from the (discrete) classifying space $B\G(\Phi, R)$ by means of Quillen's $+$-construction with respect to the elementary subgroup $\E(\Phi, R)$ (which is perfect thanks to the first assumption). Now set $\K_3(\Phi, R) = \pi_3(X)$. \end{df}
 %TODO: Give reference on the definition of the plus-construction?
 
 \begin{prop} The group $\K_3(\Phi, R)$ is isomorphic to $\HH_3(\St(\Phi, R), \ZZ)$. In particular, it does not depend on the isogeny form of $\G(\Phi, R)$ used to define it. Moreover, for a ring epimorphism $R \to R/I$ there is a functorial exact sequence
 \[ \xymatrix{\K_3(\Phi, R) \ar[r] & \K_3(\Phi, R/I) \ar@{->>}[r] & C(\Phi, R, I).} \]
 \end{prop}
+\begin{proof}
+ %TODO: First part.
+ 
+ By~\cite[Th{\'e}or{\`e}me~2]{Lo78} the relative homology group $\HH_3(\St(\Phi, R/I), \St(\Phi, R), \ZZ)$ can be identified with the kernel $C(\Phi, R, I)$ of the relative central extension $\St(\Phi, R, I) \to \St(\Phi, R)$.
+\end{proof}
+
 
 \begin{lemma} \label{lem:Panin-stability}
  Let $R$ be either a field, principal ideal domain or a Dedekind domain. 
@@ -123,8 +139,6 @@ It is not hard to show that $C(\Phi, R, I) = 0$ in the case when $I$ is a splitt
  Stabilization for orthogonal and symplectic K-groups a la Quillen is given by Panin's theorem, see~\cite[Theorem~9.4]{Pa89}. More specifically the bounds for surjective (resp. injective) stability is 
  $\ell \geq \max(6, a+2)$ (resp. $\ell \geq \max(7,a+3)$) for $a=1,2,3$ in the case when $R$ is a field, p.i.d. or a Dedekind domain, respectively.
 \end{proof}
-
-
 
 The following result was proved in \cite[Proposition~3.2]{Ste13}.
 \begin{lemma}\label{lem:Zgen} Let $\Phi$ be an irreducible root system of rank $\geq 2$. 
