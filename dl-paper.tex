@@ -6,6 +6,7 @@
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz}
 \usepackage{enumitem}
+\usepackage[notref,notcite]{showkeys}
 
 \addbibresource{paper.bib}
 \renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
@@ -25,6 +26,7 @@
 \newtheorem{example}[lemma]{Example} \Crefname{example}{Example}{Examples}
 \newtheorem{rem}[lemma]{Remark}
 \newtheorem{cond}[lemma]{Condition}
+\DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\St}{St}
 \DeclareMathOperator{\G}{G}
 \DeclareMathOperator{\E}{E}
@@ -101,7 +103,6 @@ Moreover, if $\Phi$ is nonsymplectic, Steinberg symbols are antisymmetric and bi
 
 The aim of this section is to briefly remind the reader definitions of relative Steinberg groups and their basic properties. We refer the reader to~\cite[Section~3]{S15} for a more detailed exposition.
 %TODO: Define the category of pairs (so that all constructions below become functorial wrt it).
-
 ...
 
 %Thus, by our definition, the relative Steinberg group is a central extension of $\St(\Phi, R)$.
@@ -121,7 +122,7 @@ In order to better understand $C(\Phi, R, I)$  we would like to continue the seq
 Denote by $X$ the topological space obtained from the (discrete) classifying space $B\G(\Phi, R)$ by means of Quillen's $+$-construction with respect to the elementary subgroup $\E(\Phi, R)$ (which is perfect thanks to the first assumption). Now set $\K_3(\Phi, R) = \pi_3(X)$. \end{df}
 %TODO: Give reference on the definition of the plus-construction?
 
-\begin{prop} The group $\K_3(\Phi, R)$ is isomorphic to $\HH_3(\St(\Phi, R), \ZZ)$. In particular, it does not depend on the isogeny form of $\G(\Phi, R)$ used to define it. Moreover, for a ring epimorphism $R \to R/I$ there is a functorial exact sequence
+\begin{prop}\label{characterization} The group $\K_3(\Phi, R)$ is isomorphic to $\HH_3(\St(\Phi, R), \ZZ)$. In particular, it does not depend on the isogeny form of $\G(\Phi, R)$ used to define it. Moreover, for a ring epimorphism $R \to R/I$ there is a functorial exact sequence
 \[ \xymatrix{\K_3(\Phi, R) \ar[r] & \K_3(\Phi, R/I) \ar@{->>}[r] & C(\Phi, R, I).} \]
 \end{prop}
 \begin{proof}
@@ -183,15 +184,16 @@ $\GW_2^{[3]}(F) = 0$. \end{lemma}
 \section{Proof of the main result}
 \subsection{Overview of the proof}
 \subsection{First injectivity theorem}
-For a commutative local ring $A$ with the maximal ideal $M$ we denote by $B = B_{A, M}$ the subring $A[X^{-1}] + M[X]$ of the ring $R = A[X, X^{-1}]$.
+For a commutative local ring $A$ with the maximal ideal $M$ and residue field $k$
+we denote by $B = B_{A, M}$ the subring $A[X^{-1}] + M[X]$ of the ring $R = A[X, X^{-1}]$.
 It is clear that $I := M[X, X^{-1}]$ can be considered as an ideal of both $B$ and $R$.
 \begin{lemma}\label{lem:lemma32} Let $\Phi$ be a simply-laced root system of rank $\geq 3$.
 Consider the following commutative square of canonical maps.
 \[ \xymatrix{
     \St(\Phi, B, I) \ar[r] \ar[d] & \St(\Phi, B) \ar[d] \\
-    \St(\Phi, R, I) \ar[r] \ar@{-->}[ur]_\mu & \St(\Phi, R)
+    \St(\Phi, R, I) \ar[r] \ar@{-->}[ur] & \St(\Phi, R)
    } \]
-Then there exists an arrow $\mu$ which makes the diagram commute.   
+Then there exists a diagonal arrow which makes the diagram commute.   
 \end{lemma} 
 \begin{proof}
  Notice that $R$ is isomorphic to the principal localisation of $B$ at $X$
@@ -205,25 +207,45 @@ Then there exists an arrow $\mu$ which makes the diagram commute.
 \end{proof}
 
 The following lemma summarizes facts about $\K_2(\Phi, -)$ in the field case.
-\begin{lemma}
- Let $F$ be a field of characteristic $\neq 2$. Then for $\ell \geq 7$ the canonical map $\K_3(\rD_\ell, F[X]) \to \K_3(\rD_\ell, F[X^{\pm 1}])$ is surjective.
+\begin{lemma} \label{lem:field-case}
+ Under certain assumptions the map $\St(\Phi, k[t]) \to \St(\Phi, k[t, t^{-1}])$ is injective.
 \end{lemma}
 \begin{proof}
- We have defined $\K_3(\rD_\ell, R)$ as 
+ %TODO: Add references on Rehmann and Hurrelbrink...
+\end{proof}
+
+\begin{prop}
+ Suppose that the canonical map $C(\Phi, B, I) \to C(\Phi, R, I)$ is surjective,
+  and that Tulenbaev lifting property holds for $\St(\Phi, R)$. 
+ Then the canonical map of Steinberg groups $\St(\Phi, B) \to \St(\Phi, R)$ is injective.
+\end{prop}
+\begin{proof}
+ Consider the following commutative diagram with exact rows: 
+\begin{equation*} \xymatrix{
+ C(\Phi, B, I) \ar[r]^{j_B} \ar@{->>}[d]_{f} & \St(\Phi, B, I) \ar[r]^{\mu_B} \ar[d]_{g} &
+ \St(\Phi, B) \ar[r]^{\pi_B} \ar[d]_{h} & \St(\Phi, k[X]) \ar[d]_{i} \\
+ C(\Phi, R, I) \ar[r]^{j_R}         & \St(\Phi, R, I) \ar[r]^{\mu_R} \ar@{-->}[ur]^{t}&
+ \St(\Phi, R) \ar[r]^{\pi_R}        & \St(\Phi, k[X, X^{-1}]).
+}\end{equation*}
+Let $a$ be an element of $\Ker(h)$. Since $i$ is injective by~\cref{lem:field-case}, the element $a$ also lies in $\Ker(\pi_B)$ and hence comes from some $b \in \St(\Phi, B, I)$ via $\mu_B$. Since $g(b) \in \Ker(\mu_R)$ there exists some $c \in C(\Phi, R, I)$ such that $j_R(c) = g(b)$. By our assumption, $f$ is surjective, therefore
+ $c = f(d)$ for some $d \in C(\Phi, R, I)$ and we obtain the required assertion:
+ \[ 1 = \mu_Bj_B(d) = tgj_B(d) = tj_Rf(d) =t(g(b)) = \mu_B(b) = a. \qedhere \]
+
 \end{proof}
 
 \begin{theorem} Suppose $A$ is a local ring of characteristic $\neq 2$, then for $\ell \geq 7$
   the canonical map $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective.
 \end{theorem}
 \begin{proof}
- 
+ In view of the above proposition and~\cref{lem:lemma32} we are left to verify that the map $f\colon C(\rD_\ell, B, I) \to C(\rD_\ell, R, I)$ is surjective. Consider the following commutative diagram, whose rows are given by \cref{characterization}:
+ \begin{equation*}\xymatrix{
+  \K_3(\rD_\ell, B) \ar[r] \ar[d] & \K_3(\rD_\ell, k[X]) \ar[d] \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
+  \K_3(\rD_\ell, R) \ar[r]        & \K_3(\rD_\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
+ From~\cref{lem:bass-ft,lem:summary} we obtain that $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k)$.
+ In view of~\cref{lem:Panin-stability} the central vertical map is isomorphic to the canonical map
+ $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$ and therefore is surjective. The requred surjectivity of $f$ now follows.
 \end{proof}
 
-
-\begin{equation*} \xymatrix{
- C(\Phi, B, I) \ar[r] \ar[d] & \St(\Phi, B, I) \ar[r] \ar[d] & \St(\Phi, B) \ar[r] \ar[d] & \St(\Phi, k[t]) \ar[d] \\
- C(\Phi, R, I) \ar[r]        & \St(\Phi, R, I) \ar[r] \ar@{-->}[ur]& \St(\Phi, R) \ar[r]        & \St(\Phi, k[t, t^{-1}])
-}\end{equation*}
 
 
 \subsection{Second injectivity theorem}
