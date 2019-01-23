@@ -153,7 +153,6 @@ Let $S$ be a parabolic set of roots of $\Phi$ with special part $\Sigma_S$. Then
 \end{itemize}        
 \end{lemma}
 
-
 \begin{comment}
 Suppose for a moment that $\langle \alpha, \beta \rangle = -1$ and  $\langle \beta, \alpha \rangle = -1$ then
 \[ \{s, t^{-1} \} = \{s,  t^{-1}\}_\alpha = \{t, s^{-1} \}_\beta^{-1} = \{s^{-1}, t\} \]
@@ -169,11 +168,11 @@ First of all, recall that in~\cite{Ka80} M.~Karoubi defines higher Grothendieck-
 Schlichting gave a more general definition which still agrees with the classical one in the affine case.
 In particular one has:
 \begin{equation}
- \GW_i^{[k]}(R) = \begin{array}{cl} \mathrm{KO}_i(R), & k = 0, \\ U_i(R), & k = 1, \\ \mathrm{KSp}_i(R), & k = 2, \\ {}_{-1}\!U_i(R), & k = 3. \end{array}
+ \GW_i^{[k]}(R) = \left\{\begin{array}{ll} \mathrm{KO}_i(R), & k = 0, \\ U_i(R), & k = 1, \\ \mathrm{KSp}_i(R), & k = 2, \\ {}_{-1}\!U_i(R), & k = 3. \end{array}\right.
 \end{equation}
 
 
-\begin{lemma}\label{lem:bass-ft} Suppose that $2 \in R^*$, then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ one has
+\begin{lemma}\label{bass-ft} Suppose that $2 \in R^*$, then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ one has
  \[ \GW_i^{[k]}(R[X, X^{-1}]) \cong \GW_i^{[k]}(R) \oplus \GW_{i-1}^{[k-1]}(R). \] \end{lemma}
 \begin{proof} This is a very special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. \end{proof}
 
@@ -206,13 +205,23 @@ Then there exists a diagonal arrow which makes the diagram commute.
  %TODO: Rethink the proof of amalgamation theorem...
 \end{proof}
 
-The following lemma summarizes facts about $\K_2(\Phi, -)$ in the field case.
-\begin{lemma} \label{lem:field-case}
- Under certain assumptions the map $\St(\Phi, k[t]) \to \St(\Phi, k[t, t^{-1}])$ is injective.
-\end{lemma}
-\begin{proof}
- %TODO: Add references on Rehmann and Hurrelbrink...
-\end{proof}
+\begin{lemma} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field.
+Then $\K_2(\Phi, k[X, X^{-1}]) = \K_2(\Phi, k) \oplus H(\Phi, k)$, where
+\[ H(\Phi, k) = \left\{\begin{array}{ll} k^* & \text{if $\Phi$ is nonsymplectic,} \\ \K_1^\mathrm{MW}(k)& \text{otherwise.}  \end{array}\right. \]  \end{lemma}
+\begin{proof} In the nonsymplectic case one can choose a long simple root $\alpha$ of $\Phi$ in such a way that there is a commutative diagram of abelian groups
+\[\xymatrixcolsep{5pc}\xymatrix{k^* \ar[r]^-{\{ -, X \}_{\alpha}} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
+                                                                                      &                                 & \K_2^\mathrm{M}(k(X)).} \]
+Clearly, the diagonal arrow is injective by Milnor's theorem and the vertical arrow is an isomorphism by Matsumoto's theorem~\cite[Theorem~5.10]{Ma69}.
+The required assertion now follow from~\cite[Satz~3]{Hur77} and the fact that the left horizontal arrow is injective.
+
+In the symplectic case the assertion follows from~\cite[Theorem~B]{MR91}, provided one verifies that Morita--Rehmann's group $P(F)$ is isomorphic to $\K_1^\mathrm{MW}(F)$,
+ which is an easy exercise. Alternatively, this isomorphism can be obtained as a corollary of~\cref{bass-ft} and~\cite[Lemma~4.1.1]{AF17}. \end{proof}
+ 
+\begin{corollary} \label{field-injectivity} For $\Phi\neq\rG_2$ the map $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. \end{corollary}
+\begin{proof} The result follows from consideration of the commutative diagram
+\[\xymatrix{ & \K_2(\Phi, k) \ar[dl]_{\cong} \ar@{^{(}->}[dr] & \\
+               \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}])} \]
+in which the left arrow is an isomorphism by the corollary of~\cite[Satz~1]{Re75} and the right arrow is split injective by the above lemma. \end{proof}
 
 \begin{prop}
  Suppose that the canonical map $C(\Phi, B, I) \to C(\Phi, R, I)$ is surjective,
@@ -227,7 +236,7 @@ The following lemma summarizes facts about $\K_2(\Phi, -)$ in the field case.
  C(\Phi, R, I) \ar[r]^{j_R}         & \St(\Phi, R, I) \ar[r]^{\mu_R} \ar@{-->}[ur]^{t}&
  \St(\Phi, R) \ar[r]^{\pi_R}        & \St(\Phi, k[X, X^{-1}]).
 }\end{equation*}
-Let $a$ be an element of $\Ker(h)$. Since $i$ is injective by~\cref{lem:field-case}, the element $a$ also lies in $\Ker(\pi_B)$ and hence comes from some $b \in \St(\Phi, B, I)$ via $\mu_B$. Since $g(b) \in \Ker(\mu_R)$ there exists some $c \in C(\Phi, R, I)$ such that $j_R(c) = g(b)$. By our assumption, $f$ is surjective, therefore
+Let $a$ be an element of $\Ker(h)$. Since $i$ is injective by~\cref{field-injectivity}, the element $a$ also lies in $\Ker(\pi_B)$ and hence comes from some $b \in \St(\Phi, B, I)$ via $\mu_B$. Since $g(b) \in \Ker(\mu_R)$ there exists some $c \in C(\Phi, R, I)$ such that $j_R(c) = g(b)$. By our assumption, $f$ is surjective, therefore
  $c = f(d)$ for some $d \in C(\Phi, R, I)$ and we obtain the required assertion:
  \[ 1 = \mu_Bj_B(d) = tgj_B(d) = tj_Rf(d) =t(g(b)) = \mu_B(b) = a. \qedhere \]
 
@@ -241,7 +250,7 @@ Let $a$ be an element of $\Ker(h)$. Since $i$ is injective by~\cref{lem:field-ca
  \begin{equation*}\xymatrix{
   \K_3(\rD_\ell, B) \ar[r] \ar[d] & \K_3(\rD_\ell, k[X]) \ar[d] \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
   \K_3(\rD_\ell, R) \ar[r]        & \K_3(\rD_\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
- From~\cref{lem:bass-ft,lem:summary} we obtain that $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k)$.
+ From~\cref{bass-ft,lem:summary} we obtain that $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k)$.
  In view of~\cref{lem:Panin-stability} the central vertical map is isomorphic to the canonical map
  $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$ and therefore is surjective. The requred surjectivity of $f$ now follows.
 \end{proof}
