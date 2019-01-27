@@ -172,13 +172,9 @@ In particular one has:
 \end{equation}
 
 
-\begin{lemma}\label{bass-ft} Suppose that $2 \in R^*$, then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ one has
- \[ \GW_i^{[k]}(R[X, X^{-1}]) \cong \GW_i^{[k]}(R) \oplus \GW_{i-1}^{[k-1]}(R). \] \end{lemma}
-\begin{proof} This is a very special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. \end{proof}
-
-\begin{lemma}\label{lem:summary} Suppose that $F$ is a field of characteristic $\neq 2$, then
-$\GW_2^{[3]}(F) = 0$. \end{lemma}
-\begin{proof} See~\cite[Lemma~2.2]{FRS12}. \end{proof}
+\begin{theorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $2 \in R^*$, then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a split exact sequence of abelian groups
+ \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] &  \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{theorem}
+\begin{proof} This is a special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. \end{proof}
 
 \section{Proof of the main result}
 \subsection{Overview of the proof}
@@ -206,8 +202,9 @@ Then there exists a diagonal arrow which makes the diagram commute.
 \end{proof}
 
 \begin{lemma} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field.
-Then $\K_2(\Phi, k[X, X^{-1}]) = \K_2(\Phi, k) \oplus H(\Phi, k)$, where
-\[ H(\Phi, k) = \left\{\begin{array}{ll} k^* & \text{if $\Phi$ is nonsymplectic,} \\ \K_1^\mathrm{MW}(k)& \text{otherwise.}  \end{array}\right. \]  \end{lemma}
+Then there is a split exact sequence of abelian groups
+\[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ where} \]
+\[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ k^* & \text{otherwise.}  \end{array}\right \]  \end{lemma}
 \begin{proof} In the nonsymplectic case one can choose a long simple root $\alpha$ of $\Phi$ in such a way that there is a commutative diagram of abelian groups
 \[\xymatrixcolsep{5pc}\xymatrix{k^* \ar[r]^-{\{ -, X \}_{\alpha}} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
                                                                                       &                                 & \K_2^\mathrm{M}(k(X)).} \]
@@ -250,7 +247,7 @@ Let $a$ be an element of $\Ker(h)$. Since $i$ is injective by~\cref{field-inject
  \begin{equation*}\xymatrix{
   \K_3(\rD_\ell, B) \ar[r] \ar[d] & \K_3(\rD_\ell, k[X]) \ar[d] \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
   \K_3(\rD_\ell, R) \ar[r]        & \K_3(\rD_\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
- From~\cref{bass-ft,lem:summary} we obtain that $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k)$.
+ Invoking~\cref{bass-ft} and \cite[Lemma~2.2]{FRS12} we obtain that $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k)$.
  In view of~\cref{lem:Panin-stability} the central vertical map is isomorphic to the canonical map
  $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$ and therefore is surjective. The requred surjectivity of $f$ now follows.
 \end{proof}
