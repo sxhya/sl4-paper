@@ -26,6 +26,10 @@
 \newtheorem{example}[lemma]{Example} \Crefname{example}{Example}{Examples}
 \newtheorem{rem}[lemma]{Remark}
 \newtheorem{cond}[lemma]{Condition}
+
+\newlist{proplist}{enumerate}{1} \setlist[proplist]{label=(\roman{proplisti}), ref=\thethm.(\roman{proplisti}),noitemsep} \Crefname{proplisti}{Proposition}{Propositions}
+\newlist{lemlist}{enumerate}{1} \setlist[lemlist]{label=(\roman{lemlisti}), ref=\thelem.(\roman{lemlisti}),noitemsep} \Crefname{lemlisti}{Lemma}{Lemmas}
+
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\St}{St}
 \DeclareMathOperator{\G}{G}
@@ -36,6 +40,7 @@
 \DeclareMathOperator{\colim}{colim}
 \newcommand{\XX}{\mathcal{X}}           % (subset of) Steinberg generators
 \newcommand{\RR}[1]{\mathcal{R}_{#1}}   % Steinberg relations
+\newcommand{\catname}[1]{{\normalfont\textbf{#1}}} %Category name
 
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\rA}{\mathsf{A}}
@@ -117,30 +122,41 @@ Unstable relative Steinberg groups share many good properties with their stable 
 \end{enumerate}
 For example, under these assumptions it can be shown that the map $\St(\Phi, R, I) \to \St(\Phi, R)$ is a universal relative central extension of a pair $(\St(\Phi, R/I), \St(\Phi, R))$ in the sense of~\cite{Lo78} (the proof is identical to~\cite[Corollary~3]{S15}).
 
-In order to better understand $C(\Phi, R, I)$  we would like to continue the sequence~\eqref{eq:relative-St} to the left. Thus we need to work with unstable $\K_3$-functors a la Quillen (cf.~\cite{Pa89}).
-\begin{df}  
-Denote by $X$ the topological space obtained from the (discrete) classifying space $B\G(\Phi, R)$ by means of Quillen's $+$-construction with respect to the elementary subgroup $\E(\Phi, R)$ (which is perfect thanks to the first assumption). Now set $\K_3(\Phi, R) = \pi_3(X)$. \end{df}
-%TODO: Give reference on the definition of the plus-construction?
+\subsection{Unstable Quillen K-groups}
+In order to better understand $C(\Phi, R, I)$  we would like to continue the sequence~\eqref{eq:relative-St} to the left. 
+Thus we need to work with unstable $\K_3$-functors a la Quillen (cf.~\cite{Pa89}).
 
-\begin{prop}\label{characterization} The group $\K_3(\Phi, R)$ is isomorphic to $\HH_3(\St(\Phi, R), \ZZ)$. In particular, it does not depend on the isogeny form of $\G(\Phi, R)$ used to define it. Moreover, for a ring epimorphism $R \to R/I$ there is a functorial exact sequence
-\[ \xymatrix{\K_3(\Phi, R) \ar[r] & \K_3(\Phi, R/I) \ar@{->>}[r] & C(\Phi, R, I).} \]
+Let $G \colon \catname{CRings} \to \catname{Groups}$ be a functor and $P$ its subfunctor such that for all $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$.
+
+Thanks to the functoriality of Quillen's plus-construction (see e.\,g.~\cite[Proposition~5.2.4]{Ro95}) one can define a functor 
+$X_{G, P}(R) = BG(R)^+_{P(R)} \colon \catname{CRings} \to \catname{Top}$ and then define the corresponding K-group functors via $\K_{i}(G, P, R) = \pi_i(X_{G, P}(R))$.
+
+\begin{prop}\label{characterization}
+Let $S \colon \catname{CRings} \to \catname{Groups}$ be another group functor such that
+ for all $R$ the group $S(R)$ is a universal central extension of $P(R)$. Then the following holds:
+\begin{proplist}
+ \item There is a natural isomorphism $\K_3(G, P, R) \cong \HH_3(S(R), \ZZ)$.
+ \item For a ring epimorphism $R \to R/I$ there is a natural exact sequence
+ \[ \xymatrix{\K_3(G, P, R) \ar[r] & \K_3(G, P, R/I) \ar@{->>}[r] & \HH_3(S(R), S(R/I), \ZZ).} \]
+\end{proplist}
 \end{prop}
 \begin{proof}
- %TODO: First part.
+ Follows from the solution of Exercises~1.8--1.9 of \cite[Chapter~IV]{Kbook} provided one notices that all the intermediate isomorphisms are natural in $R$.
  
  By~\cite[Th{\'e}or{\`e}me~2]{Lo78} the relative homology group $\HH_3(\St(\Phi, R/I), \St(\Phi, R), \ZZ)$ can be identified with the kernel $C(\Phi, R, I)$ of the relative central extension $\St(\Phi, R, I) \to \St(\Phi, R)$.
 \end{proof}
 
-
-\begin{lemma} \label{lem:Panin-stability}
- Let $R$ be either a field, principal ideal domain or a Dedekind domain. 
- Then the canonical map $\K_3(\rD_\ell, R) \to \K_3(\rD_\infty, R)$ is an epimorphism for $\ell \geq 6$ 
- and an isomorphism for $\ell \geq 7$.
-\end{lemma}
-\begin{proof}
- Stabilization for orthogonal and symplectic K-groups a la Quillen is given by Panin's theorem, see~\cite[Theorem~9.4]{Pa89}. More specifically the bounds for surjective (resp. injective) stability is 
+Stability for orthogonal and symplectic K-theories is given by the following theorem of Panin
+\begin{theorem}[Panin] \label{lem:Panin-stability}
+ Let $R$ be either a field, principal ideal domain or a Dedekind domain and set $a = 1,2,3$ in each of respective cases.
+ Then the canonical map $\K_k(\rD_\ell, R) \to \K_k(\rD_\infty, R)$ is an epimorphism for $\ell \geq \mathrm{max}(2k, a+k-1)$ 
+ and an isomorphism for $\ell \geq \mathrm{max}(2k+1, a+k)$, where $a=1,2,3$ in the case when $R$ is a field, p.i.d. or a Dedekind domain, respectively \end{theorem}
+\begin{proof} See~\cite[Theorem~9.4]{Pa89}. \end{proof}
+ 
+\begin{comment}
+ Stabilization for orthogonal and symplectic K-groups a la Quillen is given by Panin's theorem,  More specifically the bounds for surjective (resp. injective) stability is 
  $\ell \geq \max(6, a+2)$ (resp. $\ell \geq \max(7,a+3)$) for $a=1,2,3$ in the case when $R$ is a field, p.i.d. or a Dedekind domain, respectively.
-\end{proof}
+\end{comment}
 
 The following result was proved in \cite[Proposition~3.2]{Ste13}.
 \begin{lemma}\label{lem:Zgen} Let $\Phi$ be an irreducible root system of rank $\geq 2$. 
@@ -204,7 +220,7 @@ Then there exists a diagonal arrow which makes the diagram commute.
 \begin{lemma} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field.
 Then there is a split exact sequence of abelian groups
 \[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ where} \]
-\[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ k^* & \text{otherwise.}  \end{array}\right \]  \end{lemma}
+\[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ k^* & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
 \begin{proof} In the nonsymplectic case one can choose a long simple root $\alpha$ of $\Phi$ in such a way that there is a commutative diagram of abelian groups
 \[\xymatrixcolsep{5pc}\xymatrix{k^* \ar[r]^-{\{ -, X \}_{\alpha}} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
                                                                                       &                                 & \K_2^\mathrm{M}(k(X)).} \]
