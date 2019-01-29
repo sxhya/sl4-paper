@@ -126,24 +126,38 @@ For example, under these assumptions it can be shown that the map $\St(\Phi, R, 
 In order to better understand $C(\Phi, R, I)$  we would like to continue the sequence~\eqref{eq:relative-St} to the left. 
 Thus we need to work with unstable $\K_3$-functors a la Quillen (cf.~\cite{Pa89}).
 
-Let $G \colon \catname{CRings} \to \catname{Groups}$ be a functor and $P$ its subfunctor such that for all $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$.
+Let $G \colon \catname{CRings} \to \catname{Groups}$ be a functor preserving binary pullbacks and 
+ $P$ its subfunctor such that for all $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$.
 
 Thanks to the functoriality of Quillen's plus-construction (see e.\,g.~\cite[Proposition~5.2.4]{Ro95}) one can define a functor 
 $X_{G, P}(R) = BG(R)^+_{P(R)} \colon \catname{CRings} \to \catname{Top}$ and then define the corresponding K-group functors via $\K_{i}(G, P, R) = \pi_i(X_{G, P}(R))$.
 
 \begin{prop}\label{characterization}
-Let $S \colon \catname{CRings} \to \catname{Groups}$ be another group functor such that
- for all $R$ the group $S(R)$ is a universal central extension of $P(R)$. Then the following holds:
+Let $S \colon \catname{CRings} \to \catname{Groups}$ be another group functor equipped with a natural transformation
+ $\varphi \colon S \to P$ such that for all $R$ the group $S(R)$ is a universal central extension of $P(R)$. Then the following holds:
 \begin{proplist}
  \item There is a natural isomorphism $\K_3(G, P, R) \cong \HH_3(S(R), \ZZ)$.
- \item For a ring epimorphism $R \to R/I$ there is a natural exact sequence
+ \item There is an exact sequence natural in $(R, I)$:
  \[ \xymatrix{\K_3(G, P, R) \ar[r] & \K_3(G, P, R/I) \ar@{->>}[r] & \HH_3(S(R), S(R/I), \ZZ).} \]
 \end{proplist}
 \end{prop}
 \begin{proof}
- Follows from the solution of Exercises~1.8--1.9 of \cite[Chapter~IV]{Kbook} provided one notices that all the intermediate isomorphisms are natural in $R$.
+ The first claim follows from the solution of Exercises~1.8--1.9 of \cite[Chapter~IV]{Kbook}. %provided one verifies that all the intermediate isomorphisms are natural in $R$.
  
- By~\cite[Th{\'e}or{\`e}me~2]{Lo78} the relative homology group $\HH_3(\St(\Phi, R/I), \St(\Phi, R), \ZZ)$ can be identified with the kernel $C(\Phi, R, I)$ of the relative central extension $\St(\Phi, R, I) \to \St(\Phi, R)$.
+ Let us verify the second claim.
+ Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\xymatrix{D_{R,I} \ar@<1pt>[r] \ar@<-2.5pt>[r] & \ar@<-4pt>[l] R}$
+  and set $d_i = Sp_i$, $s = S\Delta$.
+ Obviously, $d_0s = d_1 s = id_{S(R)}$. Set $G_i = \Ker(d_i)$, $S(R, I) = G_0 / [G_0, G_1]$ and denote by $\mu$ the natural map $S(R, I) \to N$ induced by $d_1$.
+ 
+ Since $\varphi(G_i) \subseteq \Ker(G(p_i))$ and $G$ preserves pullbacks we conclude that $G_0 \cap G_1 \subseteq \Ker(\varphi) \colon S(D_{R, I}) \to G(D_{R, I}))$
+  and hence $G_0 \cap G_1$ is a central subgroup of $S(D_{R, I})$.
+ Now invoking~\cite[Proposition~6]{Lo78} we conclude that the extension $S(R, I) \to S(R)$ is a universal
+  relative central extension of the coequalizer $\mathrm{coeq}(d_0, d_1)$.
+
+ 
+ 
+ By~\cite[Th{\'e}or{\`e}me~2]{Lo78} the relative homology group $\HH_3(\St(\Phi, R/I), \St(\Phi, R), \ZZ)$ can be identified
+ with the kernel $C(\Phi, R, I)$ of the relative central extension $\St(\Phi, R, I) \to \St(\Phi, R)$.
 \end{proof}
 
 Stability for orthogonal and symplectic K-theories is given by the following theorem of Panin
