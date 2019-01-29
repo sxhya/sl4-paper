@@ -104,42 +104,30 @@ Recall also that Dennis--Stein symbols are defined for arbitrary $r, s\in R$ sat
 It is easy to show that the above symbols depend only on the length of $\alpha$.
 Moreover, if $\Phi$ is nonsymplectic, Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
 
-\subsection{Relative Steinberg groups}
-
-The aim of this section is to briefly remind the reader definitions of relative Steinberg groups and their basic properties. We refer the reader to~\cite[Section~3]{S15} for a more detailed exposition.
-%TODO: Define the category of pairs (so that all constructions below become functorial wrt it).
-...
-
-%Thus, by our definition, the relative Steinberg group is a central extension of $\St(\Phi, R)$.
-\begin{equation}\label{eq:relative-St}
- \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r] & \St(\Phi, R, I) \ar[r] & \St(\Phi, R) \ar[r]^{\pi^*} & \St(\Phi, R/I) \ar[r] & 1 }
-\end{equation}
-It is not hard to show that $C(\Phi, R, I) = 0$ in the special case when $I$ is a splitting ideal of $R$, i.\,e. when the canonical map $R \to R/I$ splits, see~\cite[Lemma~8]{S15}. 
-
-Unstable relative Steinberg groups share many good properties with their stable counterparts studied in~\cite{Lo78} provided the following assumptions on $\Phi$ hold: \begin{enumerate}
- \item $\St(\Phi, R)$ is perfect and super-perfect for all commutative $R$ (i.\,e. the homology groups $\HH_i(\St(\Phi, R), \ZZ)$ vanish for $i=1,2$).
- \item for all commutative rings $R$ the group $\K_2(\Phi, R)$ is central in $\St(\Phi, R)$.
-\end{enumerate}
-For example, under these assumptions it can be shown that the map $\St(\Phi, R, I) \to \St(\Phi, R)$ is a universal relative central extension of a pair $(\St(\Phi, R/I), \St(\Phi, R))$ in the sense of~\cite{Lo78} (the proof is identical to~\cite[Corollary~3]{S15}).
-
 \subsection{Unstable Quillen K-groups}
+\begin{comment}
 In order to better understand $C(\Phi, R, I)$  we would like to continue the sequence~\eqref{eq:relative-St} to the left. 
 Thus we need to work with unstable $\K_3$-functors a la Quillen (cf.~\cite{Pa89}).
-
-Let $G \colon \catname{CRings} \to \catname{Groups}$ be a functor preserving binary pullbacks and 
- $P$ its subfunctor such that for all $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$.
+\end{comment}
+Throughout this section $G, P, S$ denote three group-valued functors on the category of commutative rings satisfying the following assumptions:
+\begin{enumerate}
+ \item\label{req:left-exact} $G$ is left exact;
+ \item $P$ is a subfunctor of $G$ such that for all $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$;
+ \item There is a natural transformation $\varphi \colon S \to P$ such that $ \varphi \colon S(R) \to P(R)$ is a universal central extension for all $R$;
+ \item \label{req:coeq} $S$ preserves coqualizers of kernel pairs.
+\end{enumerate}
 
 Thanks to the functoriality of Quillen's plus-construction (see e.\,g.~\cite[Proposition~5.2.4]{Ro95}) one can define a functor 
-$X_{G, P}(R) = BG(R)^+_{P(R)} \colon \catname{CRings} \to \catname{Top}$ and then define the corresponding K-group functors via $\K_{i}(G, P, R) = \pi_i(X_{G, P}(R))$.
+$X_{G, P}(R) = BG(R)^+_{P(R)} \colon \catname{CRings} \to \catname{Top}$ and then define for $i \geq 1$ the corresponding K-group functors $\K_{i}(G, P, R)$ as the homotopy groups $\pi_i(X_{G, P}(R))$.
 
 \begin{prop}\label{characterization}
-Let $S \colon \catname{CRings} \to \catname{Groups}$ be another group functor equipped with a natural transformation
- $\varphi \colon S \to P$ such that for all $R$ the group $S(R)$ is a universal central extension of $P(R)$. Then the following holds:
+ Then the following holds:
 \begin{proplist}
- \item There is a natural isomorphism $\K_3(G, P, R) \cong \HH_3(S(R), \ZZ)$.
+ \item There are natural isomorphisms
+  \[ \K_2(G, P, R) \cong \Ker(S(R) \to G(R)), \ \K_3(G, P, R) \cong \HH_3(S(R), \ZZ). \]
  \item There is an exact sequence natural in $(R, I)$:
+ \end{proplist}
  \[ \xymatrix{\K_3(G, P, R) \ar[r] & \K_3(G, P, R/I) \ar@{->>}[r] & \HH_3(S(R), S(R/I), \ZZ).} \]
-\end{proplist}
 \end{prop}
 \begin{proof}
  The first claim follows from the solution of Exercises~1.8--1.9 of \cite[Chapter~IV]{Kbook}. %provided one verifies that all the intermediate isomorphisms are natural in $R$.
@@ -149,10 +137,10 @@ Let $S \colon \catname{CRings} \to \catname{Groups}$ be another group functor eq
   and set $d_i = Sp_i$, $s = S\Delta$.
  Obviously, $d_0s = d_1 s = id_{S(R)}$. Set $G_i = \Ker(d_i)$, $S(R, I) = G_0 / [G_0, G_1]$ and denote by $\mu$ the natural map $S(R, I) \to N$ induced by $d_1$.
  
- Since $\varphi(G_i) \subseteq \Ker(G(p_i))$ and $G$ preserves pullbacks we conclude that $G_0 \cap G_1 \subseteq \Ker(\varphi) \colon S(D_{R, I}) \to G(D_{R, I}))$
+ From~\eqref{req:left-exact} and $\varphi(G_i) \subseteq \Ker(G(p_i))$ we conclude that $G_0 \cap G_1 \subseteq \Ker(\varphi) \colon S(D_{R, I}) \to G(D_{R, I})$
   and hence $G_0 \cap G_1$ is a central subgroup of $S(D_{R, I})$.
- Now invoking~\cite[Proposition~6]{Lo78} we conclude that the extension $S(R, I) \to S(R)$ is a universal
-  relative central extension of the coequalizer $\mathrm{coeq}(d_0, d_1)$.
+ Now invoking~\cite[Proposition~6]{Lo78} we conclude that the extension $S(R, I) \to S(R)$ is a universal relative central extension of the coequalizer $\mathrm{coeq}(d_0, d_1)$, 
+   which coincides with $S(R) \to S(R/I)$ by~\eqref{req:coeq}.
 
  
  
@@ -188,6 +176,24 @@ Suppose for a moment that $\langle \alpha, \beta \rangle = -1$ and  $\langle \be
 \[ \{s, t^{-1} \} = \{s,  t^{-1}\}_\alpha = \{t, s^{-1} \}_\beta^{-1} = \{s^{-1}, t\} \]
 In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$ 
 \end{comment}
+
+\subsection{Relative Steinberg groups}
+
+The aim of this section is to briefly remind the reader definitions of relative Steinberg groups and their basic properties. We refer the reader to~\cite[Section~3]{S15} for a more detailed exposition.
+%TODO: Define the category of pairs (so that all constructions below become functorial wrt it).
+...
+
+%Thus, by our definition, the relative Steinberg group is a central extension of $\St(\Phi, R)$.
+\begin{equation}\label{eq:relative-St}
+ \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r] & \St(\Phi, R, I) \ar[r] & \St(\Phi, R) \ar[r]^{\pi^*} & \St(\Phi, R/I) \ar[r] & 1 }
+\end{equation}
+It is not hard to show that $C(\Phi, R, I) = 0$ in the special case when $I$ is a splitting ideal of $R$, i.\,e. when the canonical map $R \to R/I$ splits, see~\cite[Lemma~8]{S15}. 
+
+Unstable relative Steinberg groups share many good properties with their stable counterparts studied in~\cite{Lo78} provided the following assumptions on $\Phi$ hold: \begin{enumerate}
+ \item $\St(\Phi, R)$ is perfect and super-perfect for all commutative $R$ (i.\,e. the homology groups $\HH_i(\St(\Phi, R), \ZZ)$ vanish for $i=1,2$).
+ \item for all commutative rings $R$ the group $\K_2(\Phi, R)$ is central in $\St(\Phi, R)$.
+\end{enumerate}
+For example, under these assumptions it can be shown that the map $\St(\Phi, R, I) \to \St(\Phi, R)$ is a universal relative central extension of a pair $(\St(\Phi, R/I), \St(\Phi, R))$ in the sense of~\cite{Lo78} (the proof is identical to~\cite[Corollary~3]{S15}).
 
 %\subsection{Isogenous forms of the orthogonal group}
 \subsection{Hermitian K-theory and higher Grothendieck--Witt groups}
@@ -231,10 +237,10 @@ Then there exists a diagonal arrow which makes the diagram commute.
  %TODO: Rethink the proof of amalgamation theorem...
 \end{proof}
 
-\begin{lemma} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field.
+\begin{prop} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field.
 Then there is a split exact sequence of abelian groups
 \[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ where} \]
-\[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ k^* & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
+\[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ k^* & \text{otherwise.}  \end{array}\right. \]  \end{prop}
 \begin{proof} In the nonsymplectic case one can choose a long simple root $\alpha$ of $\Phi$ in such a way that there is a commutative diagram of abelian groups
 \[\xymatrixcolsep{5pc}\xymatrix{k^* \ar[r]^-{\{ -, X \}_{\alpha}} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
                                                                                       &                                 & \K_2^\mathrm{M}(k(X)).} \]
