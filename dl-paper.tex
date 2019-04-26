@@ -242,7 +242,8 @@ Invoking~\cref{bass-ft} we obtain that \[\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{
 By \cite[Lemma~2.2]{FRS12} the group $\GW_2^{[3]}(k)$ is trivial, therefore $f'$ (and hence $f$) are surjective.
 \end{proof}
 
-\subsection{Miscellanea}
+\subsection{Some elementary lemmas}
+\begin{comment}
 The following result was proved in \cite[Proposition~3.2]{Ste13}.
 \begin{lemma}\label{lem:Zgen} Let $\Phi$ be an irreducible root system of rank $\geq 2$. 
 Let $G$ denote the normal closure in $\St(\Phi, R)$ of the subgroup spanned by elementary root unipotents of level $I$, i.\,e. $G=\langle x_\alpha(s) \mid \alpha\in\Phi,\ s\in I\rangle^{\St(\Phi, R)}$.
@@ -253,6 +254,90 @@ Let $S$ be a parabolic set of roots of $\Phi$ with special part $\Sigma_S$. Then
  \item $z_\alpha(s,\xi)$, where $s\in I$, $\xi\in R$, $\alpha\in\Sigma_S$.
 \end{itemize}        
 \end{lemma}
+\end{comment}
+
+\begin{comment}
+Hall-Witt identity
+\[ [[ y^{-1}, x], z] ^ {y^{-1}}  [[ z^{-1}, y], x] ^ {z^{-1}}  [[ x^{-1}, z], y] ^ {x^{-1}} = 1 \]
+\[ [[ y^{-1}, x], z]  \cdot [[ z^{-1}, y], x] ^ {z^{-1}y} \cdot  [[ x^{-1}, z], y] ^ {x^{-1}y} = 1. \]
+\[ [[ z^{-1}, y^{-1}], x] ^ {z^{-1}y^{-1}} \cdot  [[ x^{-1}, z], y^{-1}] ^ {x^{-1}y^{-1}} = [z, [ y, x]] . \]
+\[  . \]
+\end{comment}
+Throughtout this section $A$ denotes an arbitary ring and $I, J$ two its ideals and $\Phi$ a simply laced root system.
+
+The following lemma summarizes basic properties of structure constants used in the computations below.
+\begin{lemma} Suppose $\alpha, \beta \in \Phi$ are such that $\alpha+\beta \in \Phi$.
+\begin{enumerate}\label{lem:structure-constants}
+ \item $N_{\alpha, \beta} = -N_{\beta,\alpha}$;
+ \item $N_{\alpha, \beta} = - N_{-\alpha, -\beta}$;
+ \item $N_{\alpha, \beta} = N_{\beta, -\alpha-\beta} = N_{-\alpha-\beta, \alpha}.$
+\end{enumerate}
+\end{lemma}
+\begin{proof} See~\cite[\S~14]{VP}. \end{proof}
+
+We define the following two families of elements of $\St(\Phi, A)$:
+\begin{itemize}
+ \item $z_\alpha(s, \xi) := x_\alpha(s)^{x_{-\alpha}(\xi)}$ defined for $\xi \in A$, $s \in I$;
+ \item $c_\alpha(s, t) = [x_\alpha(s), x_{-\alpha}(t)]$ defined for $s \in I$, $t \in J$.
+\end{itemize}
+
+\begin{lemma}\label{Zrels} The elements $z_\alpha(s, \xi)$ satisfy the following relations for all $\xi, \eta\in A$, $s\in I$:
+\begin{enumerate} 
+\item\label{Z1} $z_{\alpha}(s, \xi) ^ {x_{-\alpha}(\eta)} = z_{\alpha}(s, \xi + \eta)$;
+\item\label{Z2} $z_{\beta}(s, \xi) ^ {x_{-\alpha}(\eta)} = x_{-\alpha} (- s\xi \eta) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot s\eta)     \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha - \beta \in \Phi$;
+\item\label{Z3} $z_{\beta}(s, \xi) ^ {x_{-\alpha}(\eta)} = x_{-\alpha} (s\xi \eta) \cdot x_{-\alpha-\beta} (N_{\beta,\alpha}\cdot s\xi^2\eta) \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha + \beta \in \Phi$;
+\item\label{Z4} $z_{\beta}(s, \xi) ^ {x_{-\alpha}(\eta)} = z_{\beta}(s, \xi)\ \text{if}\ \alpha\perp\beta$;
+\item\label{Z5} $z_{\alpha+\beta}(st, \xi) = x_{-\beta}(-s\xi) \cdot x_\alpha(N_{\alpha,\beta}s) \cdot x_{-\alpha}(N_{\alpha,\beta}st^2\xi^2) \cdot x_{-\alpha-\beta}(-st\xi^2) \cdot z_{-\beta}(-s\xi, -t) \cdot x_{\beta}(-st^2\xi)  \cdot x_{\alpha+\beta}(-st) \cdot z_\alpha(N_{\alpha,\beta} s, -N_{\alpha, \beta}t\xi)$ for any $\alpha, \beta$ such that $\alpha+\beta\in\Phi$.
+\end{enumerate} \end{lemma}
+\begin{proof}
+The first four assertions are contained in~\cite[Lemma~9]{S15}. For the proof of the last formula set $\gamma = \alpha + \beta$.
+Now direct computation using~\cref{lem:structure-constants} shows that:
+\begin{multline} \nonumber z_{\gamma}(N_{\alpha,\beta}st, \xi) = 
+[x_\alpha(s)^{x_{-\gamma}(\xi)}, x_\beta(t)^{x_{-\gamma}(\xi)}] = [x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s),\ x_{-\alpha}(N_{\beta, -\gamma}t\xi) \cdot x_\beta(t)] = \\ = x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s) \cdot \left( x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s)\right)^{x_{-\alpha}(-N_{\beta, -\gamma}t\xi) \cdot x_\beta(-t)} = \\
+= x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s) \cdot z_{-\beta}(N_{\alpha, -\gamma} s\xi, -t)^{x_{-\alpha}(-N_{\beta, -\gamma}t\xi)} \cdot z_\alpha(s, -N_{\beta, -\gamma}t\xi)^ {x_\beta(-t)} = \\
+= x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s) \cdot x_{-\alpha}(-N_{\alpha, -\gamma}N_{\beta, -\gamma}st^2\xi^2) \cdot x_{-\gamma}(-N_{-\beta, -\alpha} N_{\alpha, -\gamma} N_{\beta, -\gamma}st\xi^2) \cdot z_{-\beta}(N_{\alpha, -\gamma} s\xi, -t) \cdot \\ \cdot x_{\beta}(-N_{\beta,-\gamma}st^2\xi)  \cdot x_{\gamma}(-N_{\alpha, \beta}st) \cdot z_\alpha(s, -N_{\beta, -\gamma}t\xi) =\\ = x_{-\beta}(-N_{\alpha, \beta} s\xi) \cdot x_\alpha(s) \cdot x_{-\alpha}(st^2\xi^2) \cdot x_{-\gamma}(-N_{\alpha, \beta} st\xi^2) \cdot z_{-\beta}(-N_{\alpha, \beta} s\xi, -t) \cdot x_{\beta}(-N_{\alpha, \beta}st^2\xi)  \cdot x_{\gamma}(-N_{\alpha, \beta}st) \cdot z_\alpha(s, -N_{\alpha, \beta}t\xi). \qedhere
+\end{multline} \end{proof}
+
+In the following lemma we will need the following variant of Hall--Witt identity:
+\begin{equation} \label{HW-variant} [x, [ y, z]] = \left([[ x^{-1}, y^{-1}], z] ^ {x^{-1}} \cdot  [[ z^{-1}, x], y^{-1}] ^ {z^{-1}}\right)^{y^{-1}}.\end{equation}
+
+\begin{lemma} \label{Crels}
+The elements $c_\alpha(s, t)$ satisfy the following relations for all $s\in I,\ t\in J,\ \xi\in A$.
+ \begin{enumerate}
+  \item \label{C1} $[c_\beta(s, t), x_{-\alpha}(\xi)] = x_{-\alpha}(- st\xi) \cdot x_{\beta-\alpha}(N_{-\alpha,\beta}s^2t\xi)$ if $\alpha-\beta \in \Phi$;
+  \item \label{C2} $[c_\beta(s, t), x_{-\alpha}(\xi)] = x_{-\alpha}(st\xi + s^2t^2\xi) \cdot x_{-\alpha-\beta}(N_{\alpha, \beta}st^2\xi)$ if $\alpha+\beta \in \Phi$;
+  \item \label{C3} $[c_\beta(s, t), x_{-\alpha}(\xi)] = 1$ if $\alpha \perp \beta$;
+  \item \label{C4} $c_{\alpha+\beta}(s, t\xi) = [x_{\beta}(-st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(N_{\alpha,\beta}t)} \cdot c_{\alpha}(N_{\alpha, \beta}s\xi, -N_{\alpha,\beta}t)^{-1} \cdot x_{-\beta}(-st\xi^2)$ if $\alpha+\beta\in\Phi$.
+ \end{enumerate}
+\end{lemma}
+\begin{proof}
+To verify~\eqref{C1} suppose $\alpha - \beta \in \Phi$ and compute
+\begin{multline} \nonumber [c_{\beta}(s, t), x_{-\alpha}(\xi)]  = [x_{\beta}(s), x_{-\beta}(t)] [x_{-\beta}(t), x_{\beta}(s)\cdot x_{\beta-\alpha}(N_{-\alpha, \beta} s\xi)] = \\
+ = {}^{x_\beta(s)}\![x_{-\beta}(t), x_{\beta-\alpha}(N_{-\alpha, \beta}s\xi)] = x_{-\alpha}(- st\xi) \cdot x_{\beta-\alpha}(N_{-\alpha,\beta}s^2t\xi). \end{multline}
+
+Now suppose $\alpha+\beta \in \Phi$. Using~\eqref{HW-variant} we obtain:
+\begin{multline} \nonumber
+[x_{-\alpha}(\xi), [x_\beta(s), x_{-\beta}(t)]] = 
+\left([[ x_{-\alpha}(-\xi), x_\beta(-s)], x_{-\beta}(t)] ^ {x_{-\alpha}(-\xi)} \cdot  [[ x_{-\beta}(-t), x_{-\alpha}(\xi)], x_\beta(-s)] ^ {x_{-\beta}(-t)}\right)^{x_\beta(-s)} =  \\ = [x_{-\beta-\alpha}(-N_{-\beta,-\alpha}t\xi), x_\beta(-s)] ^ {x_{-\beta}(-t) x_\beta(-s)} = x_{-\alpha}(-st\xi) ^ {x_{-\beta}(-t) x_\beta(-s)} = \\
+= (x_{-\alpha-\beta}(-N_{\alpha, \beta}st^2\xi) \cdot x_{-\alpha}(-st\xi))^{x_\beta(-s)} = x_{-\alpha-\beta}(-N_{\alpha, \beta}st^2\xi) \cdot x_{-\alpha}(-st\xi - s^2t^2\xi),
+\end{multline} which implies~\eqref{C2}.
+
+Finally, relation~\eqref{C4} can be verified by the following computation involving identities~\eqref{HW-variant} and $[x, yz]^y = [y^{-1}, x] \cdot [x, z]$:
+\begin{multline} \nonumber
+ [x_{\alpha+\beta}(s), x_{-\alpha-\beta}(t\xi)] = [x_{\alpha+\beta}(s), [x_{-\alpha}(N_{-\alpha,-\beta}t), x_{-\beta}(\xi)]] = \\
+  = \left([[ x_{\alpha+\beta}(-s), x_{-\alpha}(-N_{-\alpha,-\beta}t)], x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s)} \cdot  [[ x_{-\beta}(-\xi), x_{\alpha+\beta}(s)], x_{-\alpha}(N_{\alpha,\beta}t)] ^ {x_{-\beta}(-\xi)}\right)^{x_{-\alpha}(N_{\alpha,\beta}t)} = \\ =
+  [ x_{\beta}(-st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(N_{\alpha,\beta}t)} \cdot  [ x_{\alpha}(N_{\alpha,\beta}s\xi), x_{-\alpha}(N_{\alpha,\beta}t)] ^ {x_{-\beta}(-\xi)x_{-\alpha}(N_{\alpha,\beta}t)}  = \\ = [x_{\beta}(-st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(N_{\alpha,\beta}t)} \cdot  [ x_{\alpha}(N_{\alpha,\beta}s\xi), x_{-\alpha}(N_{\alpha,\beta}t) x_{-\alpha-\beta}(t\xi)] ^ {x_{-\alpha}(N_{\alpha,\beta}t)} = \\ =
+  [x_{\beta}(-st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(N_{\alpha,\beta}t)} \cdot  [x_{-\alpha}(-N_{\alpha,\beta}t), x_{\alpha}(N_{\alpha,\beta}s\xi)] \cdot [x_{\alpha}(N_{\alpha,\beta}s\xi), x_{-\alpha-\beta}(t\xi)] = \\
+  [x_{\beta}(-st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(N_{\alpha,\beta}t)} \cdot c_{\alpha}(N_{\alpha, \beta}s\xi, -N_{\alpha,\beta}t)^{-1} \cdot x_{-\beta}(-st\xi^2). \qedhere
+\end{multline}
+
+\begin{comment}
+\begin{multline} 
+ [x_\alpha(m), x_{-\alpha}(X\xi)] = [x_\alpha(m), [x_{-\alpha-\beta}(N_{-\alpha-\beta, \beta} X), x_{\beta}(\xi)]] = \\ = \left([[ x_\alpha(m), x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)], x_{\beta}(\xi)] ^ {x_\alpha(-m)} \cdot  [[ x_{\beta}(-\xi), x_\alpha(m)], x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)] ^ {x_{\beta}(-\xi)}\right)^{x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)} = \\ = \left([x_{-\beta}(-N_{-\alpha-\beta,\beta}N_{\alpha,-\alpha-\beta}mX), x_{\beta}(\xi)] ^ {x_\alpha(-m)} \cdot  [ x_{\alpha + \beta}(-N_{\beta, \alpha}m\xi), x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)] ^ {x_{\beta}(-\xi)}\right)^{x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)} =
+\end{multline}
+\end{comment}
+\end{proof}
+
 
 \section{First injectivity theorem}
 \begin{prop} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field.
@@ -394,50 +479,6 @@ Denote by $\overline{G}^{\geq 0}_M$ the image of the map $\St(\Phi, R[t], M[t]) 
 \[ \xymatrix{ \overline{\St}(\Phi, R, M) \ar[r]^{j_+i_+} \ar[d]^{i^-} & \overline{G}_M^{\geq 0} \ar@{^{(}->}[d] \\
               G^{\leq 0} \ar[r]^{j_-} & \St(\Phi, R[t, t^{-1}]), } \] 
 
-\subsection{Some elementary lemmas}
-\begin{comment}
-Hall-Witt identity
-\[ [[ y^{-1}, x], z] ^ {y^{-1}}  [[ z^{-1}, y], x] ^ {z^{-1}}  [[ x^{-1}, z], y] ^ {x^{-1}} = 1 \]
-\[ [[ y^{-1}, x], z]  \cdot [[ z^{-1}, y], x] ^ {z^{-1}y} \cdot  [[ x^{-1}, z], y] ^ {x^{-1}y} = 1. \]
-\[ [[ z^{-1}, y^{-1}], x] ^ {z^{-1}y^{-1}} \cdot  [[ x^{-1}, z], y^{-1}] ^ {x^{-1}y^{-1}} = [z, [ y, x]] . \]
-\[  . \]
-\end{comment}
-
-The following lemma summarizes basic properties of structure constants used in our computations below.
-\begin{lemma} Suppose $\Phi$ is simply laced and $\alpha, \beta \in \Phi$ are such that $\alpha+\beta = \gamma \in \Phi$.
-\begin{enumerate}
- \item $N_{\alpha, \beta} = -N_{\beta,\alpha}$;
- \item $N_{\alpha, \beta} = - N_{-\alpha, -\beta}$;
- \item $N_{\alpha, \beta} = N_{\beta, \gamma} = N_{\gamma, \alpha}.$
-\end{enumerate}
-\end{lemma}
-\begin{proof} See~\cite[\S~14]{VP}. \end{proof}
-
-Recall that $z_\alpha(s, \xi) := x_\alpha(s)^{x_{-\alpha}(\xi)}$.
-\begin{lemma}\label{Zrels} Let $\Phi$ be a simply laced root system and $\alpha,\beta\in \Phi$ be a pair of roots. The elements $z_\alpha(s, \xi)$ satisfy the following relations (everywhere below $\xi, \eta\in R$, $s\in I$):
-\begin{enumerate} 
-\item\label{Z1} $z_{\alpha}(s, \xi) ^ {x_{-\alpha}(\eta)} = z_{\alpha}(s, \xi + \eta)$;
-\item\label{Z2} $z_{\beta}(s, \xi) ^ {x_{-\alpha}(\eta)} = x_{-\alpha} (- s\xi \eta) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot s\eta)     \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha - \beta \in \Phi$;
-\item\label{Z3} $z_{\beta}(s, \xi) ^ {x_{-\alpha}(\eta)} = x_{-\alpha} (s\xi \eta) \cdot x_{-\alpha-\beta} (N_{\beta,\alpha}\cdot s\xi^2\eta) \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha + \beta \in \Phi$;
-\item\label{Z4} $z_{\gamma}(s, \xi) ^ {x_{-\alpha}(\eta)} = z_{\gamma}(s, \xi)\ \text{if}\ \gamma\perp\alpha$.
-\item\label{Z5} $z_{\alpha+\beta}(st, \xi) = x_{-\beta}(-s\xi) \cdot x_\alpha(N_{\alpha,\beta}s) \cdot x_{-\alpha}(N_{\alpha,\beta}st^2\xi^2) \cdot x_{-\alpha-\beta}(-st\xi^2) \cdot z_{-\beta}(-s\xi, -t) \cdot x_{\beta}(-st^2\xi)  \cdot x_{\alpha+\beta}(-st) \cdot z_\alpha(N_{\alpha,\beta} s, -N_{\alpha, \beta}t\xi).$
-\end{enumerate} \end{lemma}
-\begin{proof}
-The first four assertions are contained in~\cite[Lemma~9]{S15}. For the proof of the last formula set $\gamma = \alpha + \beta$ and compute:
-\begin{multline} z_{\gamma}(N_{\alpha,\beta}st, \xi) = 
-[x_\alpha(s)^{x_{-\gamma}(\xi)}, x_\beta(t)^{x_{-\gamma}(\xi)}] = [x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s),\ x_{-\alpha}(N_{\beta, -\gamma}t\xi) \cdot x_\beta(t)] = \\ = x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s) \cdot \left( x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s)\right)^{x_{-\alpha}(-N_{\beta, -\gamma}t\xi) \cdot x_\beta(-t)} = \\
-= x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s) \cdot z_{-\beta}(N_{\alpha, -\gamma} s\xi, -t)^{x_{-\alpha}(-N_{\beta, -\gamma}t\xi)} \cdot z_\alpha(s, -N_{\beta, -\gamma}t\xi)^ {x_\beta(-t)} = \\
-= x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s) \cdot x_{-\alpha}(-N_{\alpha, -\gamma}N_{\beta, -\gamma}st^2\xi^2) \cdot x_{-\gamma}(-N_{-\beta, -\alpha} N_{\alpha, -\gamma} N_{\beta, -\gamma}st\xi^2) \cdot z_{-\beta}(N_{\alpha, -\gamma} s\xi, -t) \cdot \\ \cdot x_{\beta}(-N_{\beta,-\gamma}st^2\xi)  \cdot x_{\gamma}(-N_{\alpha, \beta}st) \cdot z_\alpha(s, -N_{\beta, -\gamma}t\xi) =\\ = x_{-\beta}(-N_{\alpha, \beta} s\xi) \cdot x_\alpha(s) \cdot x_{-\alpha}(st^2\xi^2) \cdot x_{-\gamma}(-N_{\alpha, \beta} st\xi^2) \cdot z_{-\beta}(-N_{\alpha, \beta} s\xi, -t) \cdot x_{\beta}(-N_{\alpha, \beta}st^2\xi)  \cdot x_{\gamma}(-N_{\alpha, \beta}st) \cdot z_\alpha(s, -N_{\alpha, \beta}t\xi). \qedhere
-\end{multline}  
-In the last equality we invoked the standard properties of structure constants (see e.\,g. formulas in Vavilov-Plotkin \S~14 which imply in our case that $N_{\alpha, \beta} = N_{\beta,-\gamma} = N_{-\gamma, \alpha} = -N_{\alpha, -\gamma}$).
-\end{proof}
-
-Using a variant of Hall-Witt identity: $[x, [ y, z]] = [[ x^{-1}, y^{-1}], z] ^ {x^{-1}y^{-1}} \cdot  [[ z^{-1}, x], y^{-1}] ^ {z^{-1}y^{-1}}$ we compute
-\begin{multline}
- [x_\alpha(m), x_{-\alpha}(X\xi)] = [x_\alpha(m), [x_{-\alpha-\beta}(N_{-\alpha-\beta, \beta} X), x_{\beta}(\xi)]] = \\ = \left([[ x_\alpha(m), x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)], x_{\beta}(\xi)] ^ {x_\alpha(-m)} \cdot  [[ x_{\beta}(-\xi), x_\alpha(m)], x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)] ^ {x_{\beta}(-\xi)}\right)^{x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)} = \\ = \left([x_{-\beta}(-N_{-\alpha-\beta,\beta}N_{\alpha,-\alpha-\beta}mX), x_{\beta}(\xi)] ^ {x_\alpha(-m)} \cdot  [ x_{\alpha + \beta}(-N_{\beta, \alpha}m\xi), x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)] ^ {x_{\beta}(-\xi)}\right)^{x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)} =
-\end{multline}
-
-
 \subsection{Computation of the kernel of the map of evaluation at $0$.}
 \begin{lemma} Denote by $C$ the mutual commutator subgroup $\left[\St(\Phi, XA[X]), \overline{\St}(\Phi, A, M)\right]$.
 Then one has \[\overline{\St}(\Phi, A[X], M[X]) = \overline{\St}(\Phi, A, M) \cdot \overline{\St}(\Phi, A[X], XM[X]) \cdot C.\] 
@@ -479,15 +520,6 @@ It is clear that modulo $\St(\Phi, R[X], XM[X])$ the commutator subgroup $[\St(\
 To verify the assertion, therefore, it remains to show that the commutators $[[x_\alpha(m), x_{-\alpha}(X\xi)], g]$ belong to $\St(\Phi, R[X], XM[X])$.
 Moreover, since the latter subgroup is normal it suffices to prove this inclusion in the special case when $g$ is a generator of $\St(\Phi, R[X])$,
 i.\,e. $g = x_\beta(\xi)$, $\eta \in R[X]$. Without loss of generality we may assume $\alpha \neq \pm \beta$.
-
-Set $c_{\alpha,\beta}(m,\xi,\eta) = [[x_{\alpha}(m), x_{-\alpha}(X\xi)], x_\beta(\eta)]$.
-If $\alpha + \beta \not\in \Phi$, $\alpha - \beta \not \in \Phi$ then, obviously, one has $c_{\alpha,\beta}(m,\xi,\eta) = 1$.
-Now suppose $\alpha + \beta \in \Phi$, $\alpha - \beta \in \Phi$. We have:
-\begin{multline} \nonumber c_{\alpha,\beta}(m,\xi,\eta) = [x_{\alpha}(m), x_{-\alpha}(X\xi)] [x_{-\alpha}(X\xi), x_{\alpha}(m)x_{\alpha+\beta}(N_{\beta,\alpha} m\eta)] = \\
- = {}^{x_\alpha(m)}\![x_{-\alpha}(X\xi), x_{\alpha + \beta}(N_{\beta, \alpha}m\eta)] = x_{\beta}(N_{\beta,\alpha} N_{-\alpha, \alpha+\beta} mX\xi\eta) x_{\alpha+\beta}(N_{\alpha,\beta}N_{\beta,\alpha}N_{-\alpha, \alpha+\beta}m^2X\xi\eta). 
-\end{multline}
-It is clear that the expression in the right-hand side belongs to $\St(\Phi, R[X], XM[X])$. In the case $\alpha - \beta \in \Phi$, $\alpha + \beta \not \in \Phi$ the computation is similar.
-{\bf TODO:} we have to consider more cases if we want to make the result valid for nonsimply-laced root systems.
 \end{proof}
 
 \subsection{The subgroups $P_\alpha(0)$, $P_\alpha(*)$ and their properties.} Throughout this subsection $\alpha$ denotes some fixed root of $\Phi$.
