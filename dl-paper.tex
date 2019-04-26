@@ -1,4 +1,4 @@
-\documentclass[oneside, 10pt]{amsart}
+\documentclass[oneside, 8pt]{amsart}
 \usepackage{amscd, amsmath, amssymb, amsthm, amsfonts, amstext, verbatim, mathtools, xfrac, microtype, nameref, thmtools}
 \usepackage[breaklinks=true]{hyperref}
 \usepackage[hyperref=true, backend=bibtex, firstinits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
@@ -254,10 +254,7 @@ Let $S$ be a parabolic set of roots of $\Phi$ with special part $\Sigma_S$. Then
 \end{itemize}        
 \end{lemma}
 
-\section{Proof of the main result}
-\subsection{Overview of the proof}
-\subsection{First injectivity theorem}
-
+\section{First injectivity theorem}
 \begin{prop} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field.
 Then there is a split exact sequence of abelian groups
 \[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ where} \]
@@ -296,14 +293,12 @@ By~\cref{lem:prop41}, $f$ is surjective, therefore $c = f(d)$ for some $d \in C(
 
 \end{proof}
 
-\subsection{Second injectivity theorem}
 \begin{comment}
 \[x_{\alpha}(aX^{-1}) x_{-\alpha}(mX) x_{\alpha}(-a(1+am)^{-1}X^{-1}) \cdot \{X, 1+am\} \in G_+.\]
 $y := x_{\alpha}(aX^{-1}) x_{-\alpha}(mX) x_{\alpha}(-a(1+am)^{-1}X^{-1})$, 
 $z = x_{-\alpha}(-m(1+am)^{-1}X) y h_{\alpha}((1+am)^{-1})$,
 Using $\pi(z) = 1$ we get 
 \begin{multline}z = z^{h_{ik}^{-1}(X)} = \\ x_{ji}(-m(1+am)^{-1}) x_{ij}(a) x_{ji}(m) \cdot x_{ij}(-a(1+am)^{-1})\{X, (1+am)^{-1}\} \cdot h_{ij}((1+am)^{-1}) \in G. \end{multline}
-\end{comment}
 
 We need to introduce notation for certain subgroups of $\St(A[X, X^{-1}])$:
 \begin{align}
@@ -330,10 +325,8 @@ Notice that for $ g\in G_+$ the element $ev_{X=0}(g)^{-1}g$ lies in $G_+^0$.
  We proceed by case analysis. Let us first analyze the cases when $\beta \neq -\alpha$. In all these cases $m(g) = 0$.
  \begin{enumerate}
  \item {\it Case $\alpha \pm \beta \not \in \Phi \cup \{ 0\}$.}  Obviously, in this case also $g' = g$.
- \begin{comment} 
  \item {\it Case $\alpha + \beta \in \Phi$, $f_1(X) = Xf_1'(X)$, $f_2(X) = 0$.}
  \[ x_\alpha(aX^{-1}) \cdot x_\beta(Xf_1'(X)) = x_{\alpha+\beta}(af_1'(X))x_\beta(Xf_1'(X)) x_\alpha(aX^{-1}) \]
- \end{comment}
  \item {\it Case $\alpha = \beta$.} By our choice of $S$ holds $\beta \not \in \Sigma_S$, therefore $f_2(X) = 0$ and $g$ commutes with $x_\alpha(aX^{-1})$.
  \item {\it Case $\alpha + \beta \in \Phi$, $f_1(X) = Xf_1'(X)$.}
  Direct computation using formula from~\cite[Lemma~9]{S15} shows that:
@@ -369,8 +362,437 @@ Then everything we need follows from the computation:
 \begin{rem}
  From the proof of the above lemma it is easy to describe the way to compute... 
 \end{rem}
+\include{rehmann}
+\end{comment}
 
-%\include{rehmann}
+\section{Second injectivity theorem}
+\begin{comment} 
+First of all, set $\widetilde{V} = \overline{G}^{\geq 0}_M \times G^{\leq 0} \times (1 + M)^*$
+ and consider it as a pointed set, i.\,e. ignore its structure of the group but retain $\widetilde{v_0} = (1, 1, 1)$ as a choice of a basepoint.
+We let the group $\St(\Phi, R, M)$ act on $\widetilde{V}$ via the formula 
+ $h \cdot (\overline{g}^+, g^-, u) = (\overline{g}^+ \cdot j_+i_+(h), i_-(h)^{-1}\cdot g^-, u)$.
+Denote by $V$ the set of orbits of this action with the fixed basepoint $v_0 = O(\widetilde{v}_0)$.
+We will use the notation $[\overline{g}^+, g^-, u]$ as a shorthand for $O(\overline{g}^+, g^-, u)$.
+
+It is obvious that the map $\widetilde{p} \colon \widetilde{V} \to \St(\Phi, R[t, t^{-1}])$ given by 
+ \[(\overline{g}^+, g^-, u) \mapsto \overline{g}^+ \cdot j_-(g^-) \cdot \{t, u\}\]
+ is constant on the orbits of the above action
+  and therefore gives rise to a well-defined map $p \colon V \to \St(\Phi, R[t, t^{-1}])$ of pointed sets.
+
+We will construct an action of $\St(\Phi, B)$ on the set $V$ with the following additional properties:
+\begin{enumerate}
+\item for $g^- \in \St(\Phi, R[t^{-1}])$ one has $\varphi(g^-) \cdot v_0 = [1, g^-, 1]$, where $\varphi$ is the canonical map
+  $\St(\Phi, R[t^{-1}]) \to \St(\Phi, B)$ induced by the embedding $R[t^{-1}] \to B$.
+\item for $g \in \St(\Phi, B)$ the element $p(g \cdot v_0)$ coincides with the canonical image of $g$ in $\St(\Phi, R[t, t^{-1}])$; 
+\end{enumerate} \end{comment}
+
+Throughout this section $\Phi$ is a simply-laced irreducible root system and $R$ is a local ring with maximal ideal $M$.
+We denote by $B$ the ring $M[t] + R[t^{-1}]$ considered as a graded subring of $R[t, t^{-1}]$.
+Denote by $\overline{G}^{\geq 0}_M$ the image of the map $\St(\Phi, R[t], M[t]) \to \St(\Phi, R[t, t^{-1}])$ and by
+ $G^{\leq 0}$ the group $\St(\Phi, R[t^{-1}])$.
+
+\[ \xymatrix{ \overline{\St}(\Phi, R, M) \ar[r]^{j_+i_+} \ar[d]^{i^-} & \overline{G}_M^{\geq 0} \ar@{^{(}->}[d] \\
+              G^{\leq 0} \ar[r]^{j_-} & \St(\Phi, R[t, t^{-1}]), } \] 
+
+\subsection{Some elementary lemmas}
+\begin{comment}
+Hall-Witt identity
+\[ [[ y^{-1}, x], z] ^ {y^{-1}}  [[ z^{-1}, y], x] ^ {z^{-1}}  [[ x^{-1}, z], y] ^ {x^{-1}} = 1 \]
+\[ [[ y^{-1}, x], z]  \cdot [[ z^{-1}, y], x] ^ {z^{-1}y} \cdot  [[ x^{-1}, z], y] ^ {x^{-1}y} = 1. \]
+\[ [[ z^{-1}, y^{-1}], x] ^ {z^{-1}y^{-1}} \cdot  [[ x^{-1}, z], y^{-1}] ^ {x^{-1}y^{-1}} = [z, [ y, x]] . \]
+\[  . \]
+\end{comment}
+
+The following lemma summarizes basic properties of structure constants used in our computations below.
+\begin{lemma} Suppose $\Phi$ is simply laced and $\alpha, \beta \in \Phi$ are such that $\alpha+\beta = \gamma \in \Phi$.
+\begin{enumerate}
+ \item $N_{\alpha, \beta} = -N_{\beta,\alpha}$;
+ \item $N_{\alpha, \beta} = - N_{-\alpha, -\beta}$;
+ \item $N_{\alpha, \beta} = N_{\beta, \gamma} = N_{\gamma, \alpha}.$
+\end{enumerate}
+\end{lemma}
+\begin{proof} See~\cite[\S~14]{VP}. \end{proof}
+
+Recall that $z_\alpha(s, \xi) := x_\alpha(s)^{x_{-\alpha}(\xi)}$.
+\begin{lemma}\label{Zrels} Let $\Phi$ be a simply laced root system and $\alpha,\beta\in \Phi$ be a pair of roots. The elements $z_\alpha(s, \xi)$ satisfy the following relations (everywhere below $\xi, \eta\in R$, $s\in I$):
+\begin{enumerate} 
+\item\label{Z1} $z_{\alpha}(s, \xi) ^ {x_{-\alpha}(\eta)} = z_{\alpha}(s, \xi + \eta)$;
+\item\label{Z2} $z_{\beta}(s, \xi) ^ {x_{-\alpha}(\eta)} = x_{-\alpha} (- s\xi \eta) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot s\eta)     \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha - \beta \in \Phi$;
+\item\label{Z3} $z_{\beta}(s, \xi) ^ {x_{-\alpha}(\eta)} = x_{-\alpha} (s\xi \eta) \cdot x_{-\alpha-\beta} (N_{\beta,\alpha}\cdot s\xi^2\eta) \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha + \beta \in \Phi$;
+\item\label{Z4} $z_{\gamma}(s, \xi) ^ {x_{-\alpha}(\eta)} = z_{\gamma}(s, \xi)\ \text{if}\ \gamma\perp\alpha$.
+\item\label{Z5} $z_{\alpha+\beta}(st, \xi) = x_{-\beta}(-s\xi) \cdot x_\alpha(N_{\alpha,\beta}s) \cdot x_{-\alpha}(N_{\alpha,\beta}st^2\xi^2) \cdot x_{-\alpha-\beta}(-st\xi^2) \cdot z_{-\beta}(-s\xi, -t) \cdot x_{\beta}(-st^2\xi)  \cdot x_{\alpha+\beta}(-st) \cdot z_\alpha(N_{\alpha,\beta} s, -N_{\alpha, \beta}t\xi).$
+\end{enumerate} \end{lemma}
+\begin{proof}
+The first four assertions are contained in~\cite[Lemma~9]{S15}. For the proof of the last formula set $\gamma = \alpha + \beta$ and compute:
+\begin{multline} z_{\gamma}(N_{\alpha,\beta}st, \xi) = 
+[x_\alpha(s)^{x_{-\gamma}(\xi)}, x_\beta(t)^{x_{-\gamma}(\xi)}] = [x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s),\ x_{-\alpha}(N_{\beta, -\gamma}t\xi) \cdot x_\beta(t)] = \\ = x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s) \cdot \left( x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s)\right)^{x_{-\alpha}(-N_{\beta, -\gamma}t\xi) \cdot x_\beta(-t)} = \\
+= x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s) \cdot z_{-\beta}(N_{\alpha, -\gamma} s\xi, -t)^{x_{-\alpha}(-N_{\beta, -\gamma}t\xi)} \cdot z_\alpha(s, -N_{\beta, -\gamma}t\xi)^ {x_\beta(-t)} = \\
+= x_{-\beta}(N_{\alpha, -\gamma} s\xi) \cdot x_\alpha(s) \cdot x_{-\alpha}(-N_{\alpha, -\gamma}N_{\beta, -\gamma}st^2\xi^2) \cdot x_{-\gamma}(-N_{-\beta, -\alpha} N_{\alpha, -\gamma} N_{\beta, -\gamma}st\xi^2) \cdot z_{-\beta}(N_{\alpha, -\gamma} s\xi, -t) \cdot \\ \cdot x_{\beta}(-N_{\beta,-\gamma}st^2\xi)  \cdot x_{\gamma}(-N_{\alpha, \beta}st) \cdot z_\alpha(s, -N_{\beta, -\gamma}t\xi) =\\ = x_{-\beta}(-N_{\alpha, \beta} s\xi) \cdot x_\alpha(s) \cdot x_{-\alpha}(st^2\xi^2) \cdot x_{-\gamma}(-N_{\alpha, \beta} st\xi^2) \cdot z_{-\beta}(-N_{\alpha, \beta} s\xi, -t) \cdot x_{\beta}(-N_{\alpha, \beta}st^2\xi)  \cdot x_{\gamma}(-N_{\alpha, \beta}st) \cdot z_\alpha(s, -N_{\alpha, \beta}t\xi). \qedhere
+\end{multline}  
+In the last equality we invoked the standard properties of structure constants (see e.\,g. formulas in Vavilov-Plotkin \S~14 which imply in our case that $N_{\alpha, \beta} = N_{\beta,-\gamma} = N_{-\gamma, \alpha} = -N_{\alpha, -\gamma}$).
+\end{proof}
+
+Using a variant of Hall-Witt identity: $[x, [ y, z]] = [[ x^{-1}, y^{-1}], z] ^ {x^{-1}y^{-1}} \cdot  [[ z^{-1}, x], y^{-1}] ^ {z^{-1}y^{-1}}$ we compute
+\begin{multline}
+ [x_\alpha(m), x_{-\alpha}(X\xi)] = [x_\alpha(m), [x_{-\alpha-\beta}(N_{-\alpha-\beta, \beta} X), x_{\beta}(\xi)]] = \\ = \left([[ x_\alpha(m), x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)], x_{\beta}(\xi)] ^ {x_\alpha(-m)} \cdot  [[ x_{\beta}(-\xi), x_\alpha(m)], x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)] ^ {x_{\beta}(-\xi)}\right)^{x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)} = \\ = \left([x_{-\beta}(-N_{-\alpha-\beta,\beta}N_{\alpha,-\alpha-\beta}mX), x_{\beta}(\xi)] ^ {x_\alpha(-m)} \cdot  [ x_{\alpha + \beta}(-N_{\beta, \alpha}m\xi), x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)] ^ {x_{\beta}(-\xi)}\right)^{x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)} =
+\end{multline}
+
+
+\subsection{Computation of the kernel of the map of evaluation at $0$.}
+\begin{lemma} Denote by $C$ the mutual commutator subgroup $\left[\St(\Phi, XA[X]), \overline{\St}(\Phi, A, M)\right]$.
+Then one has \[\overline{\St}(\Phi, A[X], M[X]) = \overline{\St}(\Phi, A, M) \cdot \overline{\St}(\Phi, A[X], XM[X]) \cdot C.\] 
+Consequently, the composite of the two factors in the right-hand side of the above formula coincides with the subgroup $I$ defined as 
+ the intersection $\overline{\St}(\Phi, A[X], M[X]) \cap \overline{\St}(\Phi, A[X], XA[X])$ (or alternatively, as the kernel of the evaluation map $\overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, A, M)$).
+\end{lemma}
+\begin{proof}
+ Take $g \in \overline{\St}(\Phi, A[X], M[X])$ and write it as $g = \prod_i z_{\alpha_i}(f_i(X), \xi_i(X))$ for some $f_i(X) = f_i(0) + Xf_i'(X) \in M[X]$, $\xi_i(X) = \xi_i(0) + X\xi_i'(X) \in A[X]$.
+ It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the element $g$ is congruent to $g_1(X) = \prod_i z_{\alpha_i}(f_i(0), \xi_i(X)).$ 
+ 
+ Now each factor $z_{\alpha_i}(f_i(0), \xi_i(X))$ can written as $z_{\alpha_i}(f_i(0), \xi_i(0))^{x_{-\alpha_i}(X\xi'_i(X))} = [x_{-\alpha_i}(X\xi'_i(X)), z_{\alpha_i}(f_i(0), \xi_i(0))] \cdot z_{\alpha_i}(f_i(0), \xi_i(0))$.
+ Using the fact that the subgroup $\left[\St(\Phi, XA[X]), \overline{\St}(\Phi, A, M)\right]$ is normalized by $\St(\Phi, A, M)$ (this follows e.\,g. from the formula $[g, h]^{h_1} = [h_1^{-1}, g][g, h_1^{-1}h]$) we conclude that $g_1(X)$ is congruent to $g(0) = g_1(0)$ modulo $C$, which implies the first assertion.
+ 
+ Denote by $H$ the composite of $C$ and $\overline{\St}(\Phi, A[X], XM[X])$. It is clear that $H \subseteq I$. The reverse inclusion follows from the above argument and the fact that for $g \in I$ one has $g(0)=1$. \qedhere \end{proof}
+
+ \begin{lemma}
+   If $R$ is a local ring with maximal ideal $M$ then $\overline{\St}(\Phi, R, M) = U(\Phi^+, M) \cdot M(\Phi, R, M) \cdot U(\Phi^-, M)$.
+ \end{lemma}
+ \begin{proof}
+  See Theorem~2.4 of~M. Stein's paper on surjective stability in dimension 0.
+ \end{proof}
+
+\begin{corollary} For $R$, $M$ as above holds
+ $\left[\St(\Phi, XR[X]), \overline{\St}(\Phi, R, M)\right] \subseteq \St(\Phi, XM[X]) \cdot \left[\St(\Phi, XR[X]), \St(\Phi, M)\right]$.
+\end{corollary}
+\begin{proof}
+ Notice first that the generators of $M(\Phi, R, M)$ normalize both $\St(\Phi, XA[X])$ and $\St(\Phi, M)$ (see eq:conj-h-x).
+ Now for $g \in \St(\Phi, XR[X])$, $h \in M(\Phi, R, M)$, $u^+ \in U(\Phi^+, M)$, $u^- \in U(\Phi^-, M)$ holds:
+ \[ [g, h u^+ u^-] = [g, h] \cdot [{}^{h}\!g, {}^{h}\!(u^+u^-)] \in \St(\Phi, XM[X]) \cdot [\St(\Phi, XR[X]), \St(\Phi, M)]. \qedhere\]
+\end{proof}
+
+\begin{corollary} For $R$ and $M$ as above the subgroup $I$ is generated as a group by its subgroup $\St(\Phi, R[X], XM[X])$ and
+ the elements $[x_\alpha(m), x_{-\alpha}(X\xi)]$, $m \in M$, $\xi \in R[X]$, $\alpha \in \Phi$. 
+\end{corollary}
+\begin{proof}
+By the above lemmata one has $I \subseteq \St(\Phi, R[X], XM[X]) \cdot [\St(\Phi, XR[X]), \St(\Phi, M)].$
+It is clear that modulo $\St(\Phi, R[X], XM[X])$ the commutator subgroup $[\St(\Phi, XR[X]), \St(\Phi, M)]$ is generated
+ by all $[x_\alpha(m), x_{-\alpha}(X\xi)]^g$, $m \in M$, $\xi \in R[X]$, where $g \in \St(\Phi, M + XR[X])$.
+To verify the assertion, therefore, it remains to show that the commutators $[[x_\alpha(m), x_{-\alpha}(X\xi)], g]$ belong to $\St(\Phi, R[X], XM[X])$.
+Moreover, since the latter subgroup is normal it suffices to prove this inclusion in the special case when $g$ is a generator of $\St(\Phi, R[X])$,
+i.\,e. $g = x_\beta(\xi)$, $\eta \in R[X]$. Without loss of generality we may assume $\alpha \neq \pm \beta$.
+
+Set $c_{\alpha,\beta}(m,\xi,\eta) = [[x_{\alpha}(m), x_{-\alpha}(X\xi)], x_\beta(\eta)]$.
+If $\alpha + \beta \not\in \Phi$, $\alpha - \beta \not \in \Phi$ then, obviously, one has $c_{\alpha,\beta}(m,\xi,\eta) = 1$.
+Now suppose $\alpha + \beta \in \Phi$, $\alpha - \beta \in \Phi$. We have:
+\begin{multline} \nonumber c_{\alpha,\beta}(m,\xi,\eta) = [x_{\alpha}(m), x_{-\alpha}(X\xi)] [x_{-\alpha}(X\xi), x_{\alpha}(m)x_{\alpha+\beta}(N_{\beta,\alpha} m\eta)] = \\
+ = {}^{x_\alpha(m)}\![x_{-\alpha}(X\xi), x_{\alpha + \beta}(N_{\beta, \alpha}m\eta)] = x_{\beta}(N_{\beta,\alpha} N_{-\alpha, \alpha+\beta} mX\xi\eta) x_{\alpha+\beta}(N_{\alpha,\beta}N_{\beta,\alpha}N_{-\alpha, \alpha+\beta}m^2X\xi\eta). 
+\end{multline}
+It is clear that the expression in the right-hand side belongs to $\St(\Phi, R[X], XM[X])$. In the case $\alpha - \beta \in \Phi$, $\alpha + \beta \not \in \Phi$ the computation is similar.
+{\bf TODO:} we have to consider more cases if we want to make the result valid for nonsimply-laced root systems.
+\end{proof}
+
+\subsection{The subgroups $P_\alpha(0)$, $P_\alpha(*)$ and their properties.} Throughout this subsection $\alpha$ denotes some fixed root of $\Phi$.
+\begin{df} \label{defP0}
+Denote by $P_\alpha(0)$ the subgroup of $\St(\Phi, R[X, X^{-1}])$ generated by the images of the following elements of $\St(\Phi, R[X])$ under the
+ map induced by the embedding $R[X] \subseteq R[X, X^{-1}]$:
+\begin{enumerate}
+ \item $z_{\beta}(Xf, g), \beta \in \Phi \text{ such that }\alpha + \beta \in \Phi\text{ or } \alpha - \beta \in \Phi;$
+ \item $z_{\beta}(f, Xg),\ \beta \in \Phi \text{ such that }\alpha - \beta \in \Phi \cup \{0\};$
+ \item $z_{\gamma}(f, g),\ \alpha \perp \gamma;$
+ \item $x_{-\alpha}(X^2f),$
+ \item $[x_{\beta}(m), x_{-\beta}(Xg)],\ \beta \in \Phi \text{ such that }\alpha + \beta \in \Phi$.
+\end{enumerate}
+In the above formulae and below we assume that $f \in M[X]$ and $g \in R[X]$. \end{df}
+
+Denote by $P_\alpha(*)$ the subgroup of $\St(\Phi, R[X, X^{-1}])$ generated by $P_\alpha(0)$ and the elements $x_{-\alpha}(mX)$, $m \in M$. The following lemma shows that this subgroup is sufficiently large.
+\begin{lemma} The subgroup $P_\alpha(*)$ contains the image of the subgroup $\St(\Phi, R[X], XM[X])$ in $\St(\Phi, R[X, X^{-1}])$. \end{lemma}
+\begin{proof}
+Clearly $P_\alpha(*)$ contains the elements $x_\beta(Xf)$ for all $\beta \in \Phi$ and $z_\beta(Xf, g)$ for $\beta \in \Phi \setminus \{\pm \alpha\}$, $f \in M[X]$, $g\in R[X]$.
+The assertion now easily follows from Stepanov's theorem. This can also be verified in a straightforward manner without Stepanov theorem.
+
+Now let us verify the assertion for the generators $c_\beta(m, \xi) = [x_\beta(m), x_{-\beta}(X\xi)] = x_\beta(m) \cdot z_{\beta}(-m, -X\xi)$.
+It is clear that $c_\beta(m, \xi)$ are contained in $P_\alpha(*)$ in the cases $\beta \perp \alpha$, $\alpha - \beta \in \Phi \cup \{0\}$.
+There are problems: 1) for the generator $c_{-\alpha}(m, \xi)$, 2) for the generator $c_\beta(m, \xi)$, $\alpha + \beta \in \Phi$.
+
+\begin{comment}
+Let us draw the matrix for $z_\alpha(m, X\xi)$:
+\[ \left(\begin{array}{cc} 1 & 0 \\ -X\xi & 1 \end{array} \right) \cdot \left(\begin{array}{cc} 1 & m \\ 0 & 1 \end{array} \right) \cdot \left(\begin{array}{cc} 1 & 0 \\ X\xi & 1 \end{array} \right) = 
+ \left(\begin{array}{cc} 1 & m \\ -X\xi & 1 - mX\xi \end{array} \right) \cdot \left(\begin{array}{cc} 1 & 0 \\ X\xi & 1 \end{array} \right) = \left(\begin{array}{cc} 1 + mX\xi & m \\ -mX^2\xi^2 & 1 - mX\xi \end{array} \right) \]
+Now let us draw the matrix for $c_\alpha(m, \xi)$:
+\[ \left(\begin{array}{cc} 1 & m \\ 0 & 1 \end{array} \right) \left(\begin{array}{cc} 1 + mX\xi & -m \\ mX^2\xi^2 & 1 - mX\xi \end{array} \right) = 
+ \left(\begin{array}{cc} 1 + mX\xi + m^2X^2\xi^2 & -m^2X\xi \\ mX^2\xi^2 & 1 - mX\xi \end{array} \right) \] 
+\end{comment}
+\end{proof}
+
+\begin{comment}
+Useful consequence: $z_{-\alpha}(X^2f(X), g(X)) \in P_\alpha(0)$. Proof: $z_{-\alpha}(X^2f(X), g(X)) = 
+x_{-\beta}(-Xg) \cdot x_{-\alpha-\beta}(\epsilon X) \cdot x_{\alpha+\beta}(\epsilon X^3f^2g^2) \cdot x_{\alpha}(-X^2fg^2) \cdot 
+z_{-\beta}(-Xg, -Xf) \cdot x_{\beta}(-X^3f^2g)  \cdot x_{-\alpha}(-X^2f) \cdot z_{-\alpha-\beta}(\epsilon X, -\epsilon Xfg)$,
+where $\epsilon = N_{-\alpha-\beta,\beta}$. This is a product of generators of types: 1,1,2,2,1,1,4,1.
+\end{comment}
+   
+\begin{lemma}\label{P0_normal} The subgroup $P_\alpha(0)$ is normal in $P_\alpha(*)$. In particular, there is an exact sequence split by the map $m \mapsto x_{-\alpha}(mX)$:
+\[\xymatrix{1 \ar[r] & P_\alpha(0) \ar[r] & P_\alpha(*) \ar[r] & M^+ \ar@<5pt>@{-->}[l] \ar[r] & 1}.\]
+\end{lemma}
+\begin{proof} We need to verify that the conjugate by $x_{-\alpha}(mX)$ to every generator of $P_\alpha(0)$ listed in~Definition~\ref{defP0} still belongs to $P_\alpha(0)$. The assertion is obvious for the generators of types (3) and (4).
+
+Let us verify the assertion for the generators of type (1) and (2). In the case $\beta - \alpha \in \Phi$ we obtain from Lemma~\ref{Zrels}:
+\begin{align} z_{\beta}(Xf, g) ^ {x_{-\alpha}(mX)} = & x_{-\alpha} (- mX^2fg) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mX^2f)     \cdot z_{\beta}(Xf, g), \label{eq3-1} \\
+  z_{\beta}(f, Xg) ^ {x_{-\alpha}(mX)} = & x_{-\alpha} (- mX^2fg ) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mXf)     \cdot z_{\beta}(f, Xg), \label{eq3-2} \\
+  z_{\alpha}(f, Xg) ^ {x_{-\alpha}(mX)} = & z_{\alpha}(f, X(g + m)). \end{align}
+The expressions in the right hand side of~\eqref{eq3-1} and~\eqref{eq3-2} are products of generators of type 4, 1, 1 and 4, 1, 2, respectively.  
+
+Finally, in the case $\alpha + \beta \in \Phi$ (only possible for the generator of type (1)) we have:
+\[ z_{\beta}(Xf, g) ^ {x_{-\alpha}(mX)} = x_{-\alpha} (mX^2fg ) \cdot x_{-\alpha-\beta} (N_{\beta,\alpha}\cdot mX^2fg^2) \cdot z_{\beta}(Xf, g), \]
+the latter expression, clearly, is a product of generators of types $4, 1, 1$.
+\end{proof}
+
+For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
+From the above lemma it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. 
+The latter fact allows to make the following definition. 
+
+\begin{df}
+Define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, R[t, t^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
+\[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha,\ g \in P_\alpha(m).\] 
+\end{df}
+It is clear that the restriction of the map $S_\alpha(a, g)$ to the subgroup $P_\alpha(0)$ coincides with the conjugation map $g \mapsto {}^{x_\alpha(aX^{-1})}\!g$.
+
+\begin{lemma}\label{P0_conj} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a\in R$. \end{lemma}
+\begin{proof} As before, we need to verify that the conjugate of every generator of $P_\alpha(0)$ lies in $P_\alpha(0)$. First of all, consider the case $\alpha + \beta \in \Phi$ (only possible for the generator of the first type):
+\[ z_{\beta}(Xf, g) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (- afg) \cdot x_{\beta+\alpha} (N_{\beta, \alpha}\cdot af)     \cdot z_{\beta}(Xf, g). \]
+Clearly the expression in the right hand side is a product of elements of generators of type 2, 2, 1. 
+Now consider the case $\alpha - \beta \in \Phi$ (possible for generators of type (1) and (2)).
+\begin{align} z_{\beta}(Xf, g) ^ {x_{\alpha}(aX^{-1})} = &  x_{\alpha} (afg) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot afg^2) \cdot z_{\beta}(Xf, g), \\
+z_{\beta}(f, Xg) ^ {x_{\alpha}(aX^{-1})} = & x_{\alpha} (afg) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot fXg^2a) \cdot z_{\beta}(f, Xg). \end{align}
+The expressions in the right-hand side are products of generators of type 2, 2, 1 and 2, 1, 2.
+
+Let us verify the assertion for the generator of type (4). Choose $\beta\in \Phi$ such that $\alpha+\beta \in \Phi$ and invoke Lemma~\ref{Zrels}:
+\[z_{-\alpha}(X^2f, aX^{-1}) = x_{-\beta}(-a) \cdot x_{-\alpha-\beta}(\epsilon X) \cdot x_{\alpha+\beta}(\epsilon Xf^2a^2) \cdot x_{\alpha}(-a^2f) \cdot z_{-\beta}(-a, -Xf) \cdot x_{\beta}(-aX^2f^2)  \cdot x_{-\alpha}(-X^2f) \cdot z_{-\alpha-\beta}(\epsilon X, -\epsilon af), \] where $\epsilon = N_{-\alpha-\beta,\beta}$. It is clear that the latter expression is a product of generators of types: 2, 1, 1, 2, 2, 1, 1, 1, respectively.
+
+It remains to verify the assertion for the generator $z_\alpha(f, gX)$.
+\begin{comment}
+\[ z_{\alpha+\beta}(st, \xi) = x_{-\beta}(-s\xi) \cdot x_\alpha(\epsilon s) \cdot x_{-\alpha}(\epsilon st^2\xi^2) \cdot x_{-\alpha-\beta}(-st\xi^2) \cdot z_{-\beta}(-s\xi, -t) \cdot x_{\beta}(-st^2\xi)  \cdot x_{\alpha+\beta}(-st) \cdot z_\alpha(\epsilon s, -\epsilon t\xi) \]  
+
+\[ z_{\alpha+\beta}(- s t, \xi) = x_{-\beta}(-\epsilon s\xi) \cdot x_\alpha(s) \cdot x_{-\alpha}(s t^2\xi^2) \cdot x_{-\alpha-\beta}(s t\xi^2) \cdot z_{-\beta}(-\epsilon s\xi, \epsilon t)) \cdot x_{\beta}(-\epsilon st^2\xi)  \cdot x_{\alpha+\beta}(s t) \cdot z_\alpha( s, t\xi) \]  
+
+\[ z_\alpha(-s, t\xi) = z_{\alpha+\beta}(st, \xi) x_{-\beta}(-\epsilon s\xi) \cdot x_\alpha(s) \cdot x_{-\alpha}(s t^2\xi^2) \cdot x_{-\alpha-\beta}(s t\xi^2) \cdot z_{-\beta}(-\epsilon s\xi, \epsilon t)) \cdot x_{\beta}(-\epsilon st^2\xi)  \cdot x_{\alpha+\beta}(s t) \]  
+
+\[ z_\alpha(s, t\xi) = z_{\alpha+\beta}(-st, \xi) x_{-\beta}(\epsilon s\xi) \cdot x_\alpha(-s) \cdot x_{-\alpha}(-s t^2\xi^2) \cdot x_{-\alpha-\beta}(-s t\xi^2) \cdot z_{-\beta}(\epsilon s\xi, \epsilon t)) \cdot x_{\beta}(\epsilon st^2\xi)  \cdot x_{\alpha+\beta}(- s t) \]  
+\end{comment}
+Substituting $s := \epsilon f$, $t = -\epsilon g$ and $\xi = X$ in the fifth equality of Lemma~\ref{Zrels} and expressing the rightmost term through others we obtain (here $\beta$ is some other root such that $\alpha + \beta \in \Phi$): \[ z_\alpha(f, gX) = z_{\alpha+\beta}(-fg, X) x_{-\beta}(\epsilon fX) \cdot x_\alpha(-f) \cdot x_{-\alpha}(-f g^2X^2) \cdot x_{-\alpha-\beta}(-f gX^2) \cdot z_{-\beta}(\epsilon fX, \epsilon g) \cdot x_{\beta}(\epsilon fg^2X)  \cdot x_{\alpha+\beta}(- f g),\ \epsilon = N_{\alpha,\beta}. \]  
+The factors in the right hand side have types: 2, 1, 2, 4, 1, 1, 1, 2. 
+It is clear, that conjugation by $x_{\alpha}(aX^{-1})$ acts trivially on the third factor $x_\alpha(-f)$, 
+while for the other factors we have already verified that their conjugates belong to $P_{\alpha}(0)$. 
+\end{proof}
+
+\begin{lemma} \label{lem:Tulenbayev-formula}
+ $x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}$.
+\end{lemma}
+\begin{proof}
+Since $\Phi$ is nonsymplectic, we can choose some $\gamma$ such that $\langle \alpha, \gamma \rangle = -1$.
+ \begin{multline*}
+ x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) %= x_\alpha(X^{\langle \alpha, \gamma \rangle}a) x_{-\alpha}(X^{-\langle \alpha, \gamma \rangle}m) 
+ = {}^{h_\gamma(X)}(x_\alpha(a) \cdot x_{-\alpha}(m)) = \\
+ = {}^{h_\gamma(X)}\left( x_{-\alpha}\left(\frac{m}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\frac{a}{1+am}\right) \right) = \\
+ = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha(X^{-1})^{-1} \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
+ = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot \{1+am, X^{-1}\}^{-1} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
+ = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}. \qedhere
+\end{multline*}
+\end{proof}
+
+\begin{corollary} For $g \in P_\alpha(m)$ holds $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \frac{m}{1 + am})$. \end{corollary}
+\begin{proof}
+Suppose $g \in P_\alpha(m)$, then $g = g_0 \cdot x_{-\alpha}(mX)$ for some $g_0 \in P_\alpha(0)$ for which we already know that $S_\alpha(a, g_0) \in P(\alpha, 0)$.
+We need to verify that $h = S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)$ lies in $P\left(\alpha, \frac{m}{1 + am}\right)$, but from Lemmas~\ref{P0_conj}--\ref{lem:Tulenbayev-formula} and the antisymmetry of Steinberg symbols we obtain that:
+\begin{multline} h = {}^{x_\alpha(aX^{-1})}\!g_0 \cdot \left(x_{\alpha}(aX^{-1}) \cdot x_{-\alpha}(mX)\right) \cdot x_{\alpha}\left(-\frac{aX^{-1}}{1+am}\right) \cdot \{X, 1+am\} \cdot h_\alpha^{-1}(1 + am) = \\
+= S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \in P_\alpha\left(\frac{m}{1+am}\right).\qedhere \end{multline}
+\end{proof}
+
+\begin{lemma} If $\alpha - \beta \in \Phi$ then for all $g \in \St(\Phi, R[X], XM[X])$ holds $S_\alpha(a, g) \in P(\beta, 0)$. \end{lemma}
+\begin{proof}
+It suffices to verify the assertion for the generators $z_\gamma(Xf, g)$, $\gamma \in \Phi$.
+By our assumption $(\alpha, \beta) \geq 0$. 
+\end{proof}
+
+\subsection{The proof of the injectivity theorem}
+
+ \begin{comment}
+\begin{lemma} if $\alpha \perp \beta$ then $g \in P(\alpha, m) \cap P(\beta, m')$ implies $S_\alpha(a, g) \in P(\beta, m')$. \end{lemma}
+\begin{proof}
+ Lol
+\end{proof}
+\end{comment}
+
+Let $P(\alpha, m)$ be a collection of subsets of $\overline{G}^{\geq 0}_M$ with the following properties:
+\[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha,\ \ g \in P(\alpha, m)\text{ for some $m \in M$}.\]
+
+$P(\alpha, a) P(\alpha, b) \subseteq P(\alpha, a + b)$.
+In particular, $P(\alpha, 0)$ is a subgroup.
+This hints us that there is a well-defined map $map_\alpha \colon G_M^{\geq 0} \to M$
+
+Let us show that this suffices to verify Steinberg additivity relation:
+
+Consider the set $V' = \St(\Phi, R[X, X^{-1}]) \times \St(\Phi, R[X^{-1}]) \times (1 + M)^*$.
+Denote by $V'_0$ the subset of $V'$ consisting of those $(g, h, u)$ for which $\pi(g, h, u) = g \cdot j_-(h) \cdot \{ X, u \} \in \overline{G}_M^{\geq 0}$.
+The the following operator is defined for those $(g, h, u)$, for which $\pi(g, h, u) \in P(\alpha, m)$
+\[ T_\alpha(aX^{-1})(g, h, u) = \left( x_\alpha(aX^{-1})\cdot g ,\
+                                         h \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right),\ 
+                                         u(1 + am)\right).\]
+We allow multiplying the second component on the right by an element of $\mathrm{im}(\St(\Phi, A, M) \to \St(\Phi, A))$
+ (this operation is well defined for $V'_0$).
+
+\begin{multline}
+ T_\alpha(bX^{-1}) T_\alpha(aX^{-1}) \left(g,\ h,\ u\right) \sim
+T_\alpha(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am),\ u(1 + am)\right) = \\
+ = \left( x_\alpha\left((a+b)X^{-1}\right)\cdot g,\ h',\ u(1 + am + bm) \right) \sim T_\alpha((a+b)X^{-1}) \left( g,\ h,\ u\right),\text{ since} \end{multline} 
+ \begin{multline}
+h' = h \cdot x_\alpha\left(-\frac{aX^{-1}}{1+am}\right) \cdot h^{-1}_\alpha(1+am) \cdot x_\alpha\left(-\frac{bX^{-1}}{1 + \frac{bm}{1+am}}\right) = \\ = 
+ h \cdot x_\alpha\left(- \frac{aX^{-1}}{1 + am} - \frac{bX^{-1}}{(1+am)(1 + am + bm)}\right) \cdot h^{-1}_\alpha(1+am) \sim  
+  h \cdot x_\alpha\left(- \frac{(a+b)X^{-1}}{1 + am + bm}\right).
+\end{multline}
+
+If $\alpha + \beta \not \in \Phi$ but $\alpha - \beta \in \Phi$, $\pi(g, h, u) \in P(\alpha, m) \cap P(\beta, m')$ then
+$S_\alpha(a, \pi(g, h, u))\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha-\beta, \beta}m'a) \in P(\beta, \frac{m'}{1 + am})$
+%($\beta = 2r$, $\alpha = 1r$, $\gamma = 12$, $\gamma = \alpha - \beta$)
+\begin{multline}
+ T_\beta(bX^{-1}) T_\alpha(aX^{-1}) \left(g, h, u\right) = 
+ T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) ,\ u(1 + am)\right) \sim \\ 
+ \sim T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-m'a),\ u(1 + am)\right) = \\
+ = (x_\beta(bX^{-1}) x_\alpha(aX^{-1}) \cdot g, h', u(1 + am + bm')), \text{ where} \end{multline} 
+ \begin{multline}
+ h' = h \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha-\beta, \beta}m'a) \cdot x_\beta\left(-\frac{bX^{-1}(1+am)}{1 + am + bm'}\right) \sim \\
+    \sim h \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha}\left(\frac{m'abX^{-1}(1+am)}{1 + am + bm'}\right) \cdot x_\beta\left(-\frac{bX^{-1}(1+am)}{1 + am + bm'}\right) = \\
+ = h \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am} + \frac{m'abX^{-1}}{(1+am)(1 + am + bm')}\right) \cdot x_\beta\left(-\frac{bX^{-1}(1+am)^{1 -\langle \beta, \alpha \rangle}}{1 + am + bm'}\right) \cdot h^{-1}_\alpha(1 + am) \sim \\
+ \sim h \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am + bm'}\right) \cdot x_\beta\left(-\frac{bX^{-1}}{1 + am + bm'}\right).
+\end{multline}
+The latter expression is symmetric.
+
+If $\alpha + \beta \in \Phi$, $\pi(g, h, u) \in P(\beta, m) \cap P(\alpha + \beta, m')$ then
+\[x_\alpha(-a) \cdot S_\beta(-b, \pi(g, h, u)) h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm')\cdot x_{\alpha}(a(1 + abm')) \in P\left(\beta, \frac{m + am'}{1-bm}\right)\]
+
+\begin{comment}
+($\alpha = 21$, $\beta = 1r$, $\alpha + \beta = 2r$)
+($\alpha = 21$, $\beta = 13$, $\alpha + \beta = 23$)
+\begin{multline}
+\left(\begin{array}{ccc} 
+ 1 & 0 & -bX^{-1} \\
+ 0 & 1 & 0 \\
+ 0 & 0 & 1 
+ \end{array}\right)
+\left(\begin{array}{ccc} 
+ 1 & 0 & * \\
+ 0 & 1 & * \\
+ mX & m'X & 1 
+ \end{array}\right)
+ \left(\begin{array}{ccc} 
+ 1 & 0 & \frac{bX^{-1}}{1 - bm} \\
+ 0 & 1 & 0 \\
+ 0 & 0 & 1 
+ \end{array}\right) = 
+ \left(\begin{array}{ccc} 
+ 1 - bm & -bm' & * \\
+ 0 & 1 & * \\
+ mX & m'X & (1 - mb)^{-1} 
+ \end{array}\right) = S_\beta(-b, g^+).
+\end{multline}
+\begin{multline}
+\left(\begin{array}{ccc} 
+ 1 & 0 & 0 \\
+ -a & 1 & 0 \\
+ 0 & 0 & 1 
+ \end{array}\right)
+ \left(\begin{array}{ccc} 
+ 1 - bm & - bm' & * \\
+ 0 & 1 & * \\
+ mX & m'X & (1 - bm)^{-1} 
+ \end{array}\right) = 
+ \left(\begin{array}{ccc} 
+ 1 - bm & - bm' & * \\
+ - a + abm & 1 + abm' & * \\
+ mX & m'X & (1 - bm)^{-1} 
+ \end{array}\right) = x_\alpha(-a) \cdot S_\beta(-b, g^+)
+\end{multline}
+\begin{multline}
+ \left(\begin{array}{ccc} 
+ 1 - bm & - bm' & * \\
+ - a + abm & 1 + abm' & * \\
+ mX & m'X & (1 - bm)^{-1} 
+ \end{array}\right)
+ \left(\begin{array}{ccc} 
+ (1  - bm)^{-1} & 0 & 0 \\
+ 0 & 1 & 0 \\
+ 0 & 0 & 1 - bm 
+ \end{array}\right)
+\left(\begin{array}{ccc} 
+ 1 + abm' & 0 & 0 \\
+ 0 & (1 + abm')^{-1} & 0 \\
+ 0 & 0 & 1 
+ \end{array}\right)
+ \left(\begin{array}{ccc} 
+ 1 & 0 & 0 \\
+ a(1 + abm') & 1 & 0 \\
+ 0 & 0 & 1 
+ \end{array}\right) = \\
+ = 
+ \left(\begin{array}{ccc} 
+ 1 & - \frac{bm'}{1 + abm'} & * \\
+ 0 & 1 & * \\
+ \frac{(m + m'a)X}{1 - bm} & \frac{m'X}{1 + abm'} & 1 
+ \end{array}\right)
+\end{multline}
+
+There is still a mistake in the last implication :(
+\end{comment}
+Perhaps one must replace $1 + abm'$ with $1 + ab N_{\alpha, \beta} m'$.
+\begin{multline}
+[T_\alpha(a), T_\beta(bX^{-1})] \left( g, h, u \right) =
+ T_\alpha(a) T_\beta(bX^{-1}) \left( x_\alpha(-a) \cdot x_\beta (-b X^{-1}) \cdot g, h \cdot x_\beta\left(\frac{bX^{-1}}{1-bm}\right) , u (1 - bm) \right) \sim \\
+ \sim T_\alpha(a) T_\beta(bX^{-1}) \left( x_\alpha(-a) \cdot x_\beta (-b X^{-1}) g, h \cdot x_\beta\left(\frac{b X^{-1}}{1-bm}\right) \cdot h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm')\cdot x_{\alpha}(a(1 + abm')), u (1 - bm) \right) = \\
+ = \left([x_\alpha(a), x_\beta(bX^{-1})] g, h', u (1 + abm')\right) \sim T_{\alpha}(N_{\alpha, \beta}abX^{-1})(g, h, u), \text{ since}\end{multline} 
+ \begin{multline} h' = h\cdot x_\beta\left(\frac{b X^{-1}}{1-bm}\right) \cdot h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm')\cdot x_{\alpha}(a(1 + abm'))\cdot x_\beta\left(-\frac{b(1 - bm)X^{-1}}{1 + abm'}\right) \sim \\
+ \sim  h\cdot x_\beta\left(\frac{b X^{-1}}{1-bm}\right) \cdot h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm')\cdot x_{\alpha + \beta}\left(-N_{\alpha, \beta}\cdot ab(1-bm)X^{-1}\right)\cdot x_\beta\left(-\frac{b(1 - bm)X^{-1}}{1 + abm'}\right) = \\
+ = h\cdot x_\beta\left(\frac{b X^{-1}}{1-bm}\right) \cdot x_{\alpha + \beta}\left(-\frac{N_{\alpha, \beta} \cdot abX^{-1}}{1-abm'}\right)\cdot x_\beta\left(-\frac{bX^{-1}}{1 - bm}\right) \cdot h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm') \sim
+ h\cdot x_{\alpha + \beta}\left(\frac{N_{\alpha, \beta} \cdot abX^{-1}}{1+abm'}\right).
+\end{multline}
+
+Full axioms
+\begin{enumerate}
+ \item $(+)$ $P(\alpha, m)$ contains $\mathrm{K}_2(\Phi, R[t, t^{-1}])$ (or at least the subgroup generated by symbols $\{ X, - \}$ and Steinberg/Dennis--Stein symbols);
+ \item $(+)$ if $g \in P(\alpha, m)$ then $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \frac{m}{1 + am})$;
+ %\item if $\alpha \perp \beta$ then $g \in P(\alpha, m) \cap P(\beta, m')$ implies $S_\alpha(a, g) \in P(\beta, m')$;
+ \item if $\alpha + \beta \not \in \Phi$ but $\alpha - \beta \in \Phi$, $g \in P(\alpha, m) \cap P(\beta, m')$ then
+$S_\alpha(a, g)\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha-\beta, \beta}m'a) \in P(\beta, \frac{m'}{1 + am});$
+ \item If $\alpha + \beta \in \Phi$ and $g \in P(\alpha, m) \cap P(\alpha + \beta, m')$ then
+ $x_\beta(b) \cdot S_\alpha(a, g) \cdot h_{\beta}^{-1}(1+am)\cdot h_{\alpha}^{-1}(1 + N_{\alpha, \beta}abm')\cdot x_{\alpha}(-b(1 + N_{\alpha, \beta}abm')) \in P(\alpha, \frac{m - bm'}{1+am}).$
+ \item if $\alpha + \beta \not \in \Phi$ then ???;
+\end{enumerate}
+
+Restricted axioms:
+\begin{enumerate}
+ \item $P(\alpha, 0)$ contains $\mathrm{K}_2(\Phi, R[t, t^{-1}])$ (or at least the subgroup generated by symbols $\{ X, - \}$ and Steinberg/Dennis--Stein symbols);
+ \item if $g \in P(\alpha, 0)$ then $S_\alpha(a, g) \in P_\alpha(\alpha, 0)$;
+% \item if $\alpha \perp \beta$ then $g \in P(\alpha, 0) \cap P(\beta, 0)$ implies $S_\alpha(a, g) \in P(\beta, 0)$;
+ \item if $\alpha + \beta \not \in \Phi$ but $\alpha - \beta \in \Phi$, $g \in P(\alpha, 0) \cap P(\beta, 0)$ then
+$S_\alpha(a, g) \in P(\beta, 0);$
+ \item If $\alpha + \beta \in \Phi$ and $g \in P(\alpha, 0) \cap P(\alpha + \beta, 0)$ then
+ $x_\beta(b) \cdot S_\alpha(a, g) x_{\beta}(-b)\in P(\alpha, 0).$
+ \item if $\alpha + \beta \not \in \Phi$ then ???;
+\end{enumerate}
+
+Some implication: suppose $g \in P(\alpha, 0)$, then $g x_{-\alpha}(mX) \in P(\alpha, m)$ by the definition of the latter.
+\begin{multline}S(\alpha, g \cdot x_{-\alpha}(mX)) = x_\alpha(aX^{-1})\cdot g \cdot x_{-\alpha}(mX) \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha = \\
+= S(\alpha, g) \cdot x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha % = \\
+%= S(\alpha, g) \cdot x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\} \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha = \\
+= S(\alpha, g) \cdot x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am). 
+\end{multline}
+
+Let us show that F3 and F4 hold automatically.
+Suppose $\alpha \perp \beta$, $g \in P(\alpha, m) \cap P(\beta, m')$, then $g = g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$, where 
+$g_0 \in P(\alpha, 0) \cap P(\beta, 0)$ (here we use the fact that $P(\alpha, 0)$ (resp. $P(\beta, 0)$) is a subgroup containing $x_{-\beta}(mX)$ (resp. $x_{-\alpha}(m'X)$)).
+Then 
+\[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X) \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha
+  = S_\alpha(a, g_0 \cdot x_{-\alpha}(mX)) \cdot x_{-\beta}(m'X).\]
+We need to show $S_\alpha(a, g_0 \cdot x_{-\alpha}(mX)) \in P(\beta, 0)$ but this is obvious since the latter is a subgroup.
+
 
 \printbibliography
 \end{document}
