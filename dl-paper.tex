@@ -287,9 +287,9 @@ We define the following two families of elements of $\St(\Phi, A)$:
 \item\label{Z2} $z_{\beta}(s, \xi) ^ {x_{-\alpha}(\eta)} = x_{-\alpha} (- s\xi \eta) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot s\eta)     \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha - \beta \in \Phi$;
 \item\label{Z3} $z_{\beta}(s, \xi) ^ {x_{-\alpha}(\eta)} = x_{-\alpha} (s\xi \eta) \cdot x_{-\alpha-\beta} (N_{\beta,\alpha}\cdot s\xi^2\eta) \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha + \beta \in \Phi$;
 \item\label{Z4} $z_{\beta}(s, \xi) ^ {x_{-\alpha}(\eta)} = z_{\beta}(s, \xi)\ \text{if}\ \alpha\perp\beta$;
-\item\label{Z5} If $\alpha+\beta\in\Phi$, then the following relation holds (in which $\epsilon = N_{\alpha,\beta}$):
+\item\label{Z5} If $\alpha+\beta\in\Phi$, then holds:
 \begin{multline} \nonumber z_{\alpha+\beta}(s\eta, \xi) = x_\alpha(\epsilon s) x_{-\beta}(-s\xi) \cdot x_{\beta}(s\xi\eta^2) \cdot x_{\alpha+\beta}(s \eta) \cdot \\ \cdot z_\alpha(-\epsilon s, -\epsilon \xi\eta) \cdot
-  x_{-\alpha}(-\epsilon s\xi^2\eta^2) \cdot x_{-\alpha-\beta}(- s \xi^2 \eta) \cdot z_{-\beta}(s\xi, -\eta).\end{multline}
+  x_{-\alpha}(-\epsilon s\xi^2\eta^2) \cdot x_{-\alpha-\beta}(- s \xi^2 \eta) \cdot z_{-\beta}(s\xi, -\eta)\text{ where $\epsilon = N_{\alpha,\beta}$.}\end{multline}
 \end{enumerate} \end{lemma}
 \begin{proof}
 The first four assertions are contained in~\cite[Lemma~9]{S15}, so it remains to verify the last assertion.
@@ -312,7 +312,7 @@ The elements $c_\alpha(s, t)$ satisfy the following relations for all $s\in I,\ 
   \item \label{C2} $[c_\beta(s, t), x_{-\alpha}(\xi)] = x_{-\alpha}(st\xi + s^2t^2\xi) \cdot x_{-\alpha-\beta}(N_{\alpha, \beta}st^2\xi)$ if $\alpha+\beta \in \Phi$;
   \item \label{C3} $[c_\beta(s, t), x_{-\alpha}(\xi)] = 1$ if $\alpha \perp \beta$;
   \item \label{C4} If $\alpha+\beta\in\Phi$ then holds:
-  \[c_{\alpha+\beta}(s, t\xi) = [x_{\beta}(-st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2),\]
+  \[c_{\alpha+\beta}(s, t\xi) = [x_{\beta}(st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2),\]
   where $\epsilon = N_{\alpha,\beta}$.
  \end{enumerate}
 \end{lemma}
@@ -321,14 +321,19 @@ To verify~\eqref{C1} suppose $\alpha - \beta \in \Phi$ and compute
 \begin{multline} \nonumber [c_{\beta}(s, t), x_{-\alpha}(\xi)]  = [x_{\beta}(s), x_{-\beta}(t)] [x_{-\beta}(t), x_{\beta}(s)\cdot x_{\beta-\alpha}(N_{-\alpha, \beta} s\xi)] = \\
  = {}^{x_\beta(s)}\![x_{-\beta}(t), x_{\beta-\alpha}(N_{-\alpha, \beta}s\xi)] = x_{-\alpha}(- st\xi) \cdot x_{\beta-\alpha}(N_{-\alpha,\beta}s^2t\xi). \end{multline}
 
-Now suppose $\alpha+\beta \in \Phi$, from~\eqref{HW-variant} we obtain that \begin{multline} \nonumber
+Now suppose $\alpha+\beta \in \Phi$. From~\eqref{HW-variant} we obtain that \begin{multline} \nonumber
 [x_{-\alpha}(\xi), [x_\beta(s), x_{-\beta}(t)]] = \\ 
 = \left([[ x_{-\alpha}(-\xi), x_\beta(-s)], x_{-\beta}(t)] ^ {x_{-\alpha}(-\xi)} \cdot  [[ x_{-\beta}(-t), x_{-\alpha}(\xi)], x_\beta(-s)] ^ {x_{-\beta}(-t)}\right)^{x_\beta(-s)} =  \\ = [x_{-\beta-\alpha}(-N_{-\beta,-\alpha}t\xi), x_\beta(-s)] ^ {x_{-\beta}(-t) x_\beta(-s)} = x_{-\alpha}(-st\xi) ^ {x_{-\beta}(-t) x_\beta(-s)} = \\
 = (x_{-\alpha-\beta}(-N_{\alpha, \beta}st^2\xi) \cdot x_{-\alpha}(-st\xi))^{x_\beta(-s)} = x_{-\alpha-\beta}(-N_{\alpha, \beta}st^2\xi) \cdot x_{-\alpha}(-st\xi - s^2t^2\xi),
 \end{multline} which implies~\eqref{C2}.
 
-Finally, relation~\eqref{C4} can be verified by the direct computation involving identities~\eqref{HW-variant} and $[x, yz]^y = [y^{-1}, x] \cdot [x, z]$ (everywhere below $\epsilon = N_{\alpha, \beta}$):
-\begin{multline} \nonumber [x_{\alpha+\beta}(s), x_{-\alpha-\beta}(t\xi)] = [x_{\alpha+\beta}(s), [x_{-\alpha}(-\epsilon t), x_{-\beta}(\xi)]] = \\ = \left([[ x_{\alpha+\beta}(-s), x_{-\alpha}(\epsilon t)], x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s)} \cdot  [[ x_{-\beta}(-\xi), x_{\alpha+\beta}(s)], x_{-\alpha}(\epsilon t)] ^ {x_{-\beta}(-\xi)}\right)^{x_{-\alpha}(\epsilon t)} = \\ = [ x_{\beta}(-st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot  [ x_{\alpha}(\epsilon s\xi), x_{-\alpha}(\epsilon t)] ^ {x_{-\beta}(-\xi)x_{-\alpha}(\epsilon t)}  = \\ = [x_{\beta}(-st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot  [ x_{\alpha}(\epsilon s\xi), x_{-\alpha}(\epsilon t) x_{-\alpha-\beta}(t\xi)] ^ {x_{-\alpha}(\epsilon t)} = \\ = [x_{\beta}(-st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot  [x_{-\alpha}(-\epsilon t), x_{\alpha}(\epsilon s\xi)] \cdot [x_{\alpha}(\epsilon s\xi), x_{-\alpha-\beta}(t\xi)] = \\ = [x_{\beta}(-st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2). \qedhere
+Finally, relation~\eqref{C4} can be verified by the following direct computation, which involves identities~\eqref{HW-variant} and $[x, yz]^y = [y^{-1}, x] \cdot [x, z]$:
+\begin{multline} \nonumber [x_{\alpha+\beta}(s), x_{-\alpha-\beta}(t\xi)] = [x_{\alpha+\beta}(s), [x_{-\alpha}(-\epsilon t), x_{-\beta}(\xi)]] = \\ 
+= \left([[ x_{\alpha+\beta}(-s), x_{-\alpha}(\epsilon t)], x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s)} \cdot  [[ x_{-\beta}(-\xi), x_{\alpha+\beta}(s)], x_{-\alpha}(\epsilon t)] ^ {x_{-\beta}(-\xi)}\right)^{x_{-\alpha}(\epsilon t)} = \\
+= [x_{\beta}(st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot  [ x_{\alpha}(\epsilon s\xi), x_{-\alpha}(\epsilon t)] ^ {x_{-\beta}(-\xi)x_{-\alpha}(\epsilon t)}  = \\
+= [x_{\beta}(st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot  [ x_{\alpha}(\epsilon s\xi), x_{-\alpha}(\epsilon t) x_{-\alpha-\beta}(t\xi)] ^ {x_{-\alpha}(\epsilon t)} = \\
+= [x_{\beta}(st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot  [x_{-\alpha}(-\epsilon t), x_{\alpha}(\epsilon s\xi)] \cdot [x_{\alpha}(\epsilon s\xi), x_{-\alpha-\beta}(t\xi)] = \\
+= [x_{\beta}(st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2). \qedhere
 \end{multline}
 
 \begin{comment}
