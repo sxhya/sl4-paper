@@ -222,9 +222,9 @@ Then there exists a diagonal arrow which makes the diagram commute.
 %TODO: Give reference on a similar result of Lavrenov?
 
 If we denote the kernel of the natural transformation $\mu$ from the definition of $\St(\Phi, R, I)$ by $C(\Phi, R, I)$ we obtain a natural exact sequence:
-\begin{equation*}
+\begin{equation} \label{relSteinberg-def}
  \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r]^{j} & \St(\Phi, R, I) \ar[r]^{\mu} & \St(\Phi, R) \ar[r]^{\pi} & \St(\Phi, R/I) \ar[r] & 1.}
-\end{equation*}
+\end{equation}
 The group $C(\Phi, R, I)$ is trivial when $I$ is a splitting ideal of $R$, i.\,e. when the canonical map $R \to R/I$ splits.
 This immediately follows e.\,g. from the exact sequence of~\cref{characterization}, it is also possible to give a direct proof of this fact, see \cite[Lemma~8]{S15}.
 The following result plays a key role in the proof of~\cref{thm41}.
@@ -476,55 +476,65 @@ We will construct an action of $\St(\Phi, B)$ on the set $V$ with the following 
 \item for $g \in \St(\Phi, B)$ the element $p(g \cdot v_0)$ coincides with the canonical image of $g$ in $\St(\Phi, R[t, t^{-1}])$; 
 \end{enumerate} \end{comment}
 
-Throughout this section $\Phi$ is a simply-laced irreducible root system and $R$ is a local ring with maximal ideal $M$.
-We denote by $B$ the ring $M[t] + R[t^{-1}]$ considered as a graded subring of $R[t, t^{-1}]$.
-Denote by $\overline{G}^{\geq 0}_M$ the image of the map $\St(\Phi, R[t], M[t]) \to \St(\Phi, R[t, t^{-1}])$ and by
- $G^{\leq 0}$ the group $\St(\Phi, R[t^{-1}])$.
+Throughout this section $\Phi$ is a simply-laced irreducible root system and $A$ is a local ring with maximal ideal $M$.
+We denote by $B$ the ring $M[X] + A[X^{-1}]$ considered as a graded subring of $A[X, X^{-1}]$.
+Denote by $\overline{G}^{\geq 0}_M$ the image of the map $\St(\Phi, R[X], M[X]) \to \St(\Phi, A[X, X^{-1}])$ and by
+ $G^{\leq 0}$ the group $\St(\Phi, A[X^{-1}])$.
 
-\[ \xymatrix{ \overline{\St}(\Phi, R, M) \ar[r]^{j_+i_+} \ar[d]^{i^-} & \overline{G}_M^{\geq 0} \ar@{^{(}->}[d] \\
-              G^{\leq 0} \ar[r]^{j_-} & \St(\Phi, R[t, t^{-1}]), } \] 
+\[ \xymatrix{ \overline{\St}(\Phi, A, M) \ar[r]^{j_+i_+} \ar[d]^{i^-} & \overline{G}_M^{\geq 0} \ar@{^{(}->}[d] \\
+              G^{\leq 0} \ar[r]^{j_-} & \St(\Phi, A[X, X^{-1}]), } \] 
 
 \subsection{Computation of the kernel of the map of evaluation at $0$.}
-\begin{lemma} Denote by $C$ the mutual commutator subgroup $\left[\St(\Phi, XA[X]), \overline{\St}(\Phi, A, M)\right]$.
-Then one has \[\overline{\St}(\Phi, A[X], M[X]) = \overline{\St}(\Phi, A, M) \cdot \overline{\St}(\Phi, A[X], XM[X]) \cdot C.\] 
-Consequently, the composite of the two factors in the right-hand side of the above formula coincides with the subgroup $I$ defined as 
- the intersection $\overline{\St}(\Phi, A[X], M[X]) \cap \overline{\St}(\Phi, A[X], XA[X])$ (or alternatively, as the kernel of the evaluation map $\overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, A, M)$).
+%TODO: Do we need any specific conditions on \Phi? Specify them.
+For a pair $(R, I)$ we denote by $\overline{\St}(\Phi, R, I)$ the image of the map $\mu$ from~\eqref{relSteinberg-def}, in particular, it is a normal subgroup of $\St(\Phi, R)$.
+We also denote by $\St(\Phi, I)$ the subgroup of $\St(\Phi, R)$ generated as a group by root unipotents of level $I$.
+It is clear that $\overline{\St}(\Phi, R, I)$ contains $\St(\Phi, I)$ and, in fact, is its normal closure.
+
+The aim of this subsection is to describe the kernel of the map $ev_{X=0}^*\colon\overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, A, M)$
+induced by the ring homomorphism of evaluation at $0$. Clearly, this kernel, denote it by $K$, contains the subgroup $\overline{\St}(\Phi, A[X], XM[X])$, however, apriori it may be larger,
+ so our goal will be to describe the explicit extra elements sufficient to generate it.
+
+Obviously, $ev_{X=0}^*$ admits a section hence we can consider $\overline{\St}(\Phi, A, M)$ as a subgroup of $\overline{\St}(\Phi, A[X], M[X])$,
+ moreover, the following decomposition holds:
+\begin{equation} \label{relZero-decomp} \overline{\St}(\Phi, A[X], M[X]) = \overline{\St}(\Phi, A, M) \cdot K.\end{equation}
+\begin{lemma} 
+The following decomposition holds
+ \[ K = \overline{\St}(\Phi, A[X], XM[X]) \cdot \left[\St(\Phi, XA[X]),\ \overline{\St}(\Phi, A, M)\right].\] 
 \end{lemma}
 \begin{proof}
- Take $g \in \overline{\St}(\Phi, A[X], M[X])$ and write it as $g = \prod_i z_{\alpha_i}(f_i(X), \xi_i(X))$ for some $f_i(X) = f_i(0) + Xf_i'(X) \in M[X]$, $\xi_i(X) = \xi_i(0) + X\xi_i'(X) \in A[X]$.
- It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the element $g$ is congruent to $g_1(X) = \prod_i z_{\alpha_i}(f_i(0), \xi_i(X)).$ 
+ Fix $g \in K$ and write it as $g(X) = \prod_i z_{\alpha_i}(f_i(X), \xi_i(X))$ for some $f_i(X) = f_i(0) + Xf_i'(X) \in M[X]$, $\xi_i(X) = \xi_i(0) + X\xi_i'(X) \in A[X]$.
+ It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the element $g(X)$ is congruent to $g_1(X) = \prod_i z_{\alpha_i}(f_i(0), \xi_i(X)).$ 
  
- Now each factor $z_{\alpha_i}(f_i(0), \xi_i(X))$ can written as $z_{\alpha_i}(f_i(0), \xi_i(0))^{x_{-\alpha_i}(X\xi'_i(X))} = [x_{-\alpha_i}(X\xi'_i(X)), z_{\alpha_i}(f_i(0), \xi_i(0))] \cdot z_{\alpha_i}(f_i(0), \xi_i(0))$.
- Using the fact that the subgroup $\left[\St(\Phi, XA[X]), \overline{\St}(\Phi, A, M)\right]$ is normalized by $\St(\Phi, A, M)$ (this follows e.\,g. from the formula $[g, h]^{h_1} = [h_1^{-1}, g][g, h_1^{-1}h]$) we conclude that $g_1(X)$ is congruent to $g(0) = g_1(0)$ modulo $C$, which implies the first assertion.
+ Now each factor $z_{\alpha_i}(f_i(0), \xi_i(X))$ can be written as follows:
+ \[z_{\alpha_i}(f_i(0), \xi_i(0))^{x_{-\alpha_i}(X\xi'_i(X))} = [x_{-\alpha_i}(X\xi'_i(X)), z_{\alpha_i}(f_i(0), \xi_i(0))] \cdot z_{\alpha_i}(f_i(0), \xi_i(0)).\]
+ Since the subgroup $C = \left[\St(\Phi, XA[X]), \overline{\St}(\Phi, A, M)\right]$ is normalized by $\overline{\St}(\Phi, A, M)$ 
+ (this follows e.\,g. from the formula $[g, h]^{h_1} = [h_1^{-1}, g][g, h_1^{-1}h]$) we conclude that $g_1(X)$ is congruent to $\prod_i z_{\alpha_i}(f_i(0), \xi_i(0)) = g(0) = 1$ modulo $C$,
+ which implies the assertion. \qedhere
  
- Denote by $H$ the composite of $C$ and $\overline{\St}(\Phi, A[X], XM[X])$. It is clear that $H \subseteq I$. The reverse inclusion follows from the above argument and the fact that for $g \in I$ one has $g(0)=1$. \qedhere \end{proof}
+ %Denote by $H$ the composite of $C$ and $\overline{\St}(\Phi, A[X], XM[X])$. It is clear that $H \subseteq I$. The reverse inclusion follows from the above argument and the fact that for $g \in I$ one has $g(0)=1$. \qedhere 
+\end{proof}
+ \begin{lemma} If $A$ is a local ring with maximal ideal $M$ then \[\overline{\St}(\Phi, A, M) = U(\Phi^+, M) \cdot M(\Phi, A, M) \cdot U(\Phi^-, M).\] \end{lemma}
+ \begin{proof} See~\cite[Theorem~2.4]{Ste73}. \end{proof}
 
- \begin{lemma}
-   If $R$ is a local ring with maximal ideal $M$ then $\overline{\St}(\Phi, R, M) = U(\Phi^+, M) \cdot M(\Phi, R, M) \cdot U(\Phi^-, M)$.
- \end{lemma}
- \begin{proof}
-  See Theorem~2.4 of~M. Stein's paper on surjective stability in dimension 0.
- \end{proof}
-
-\begin{corollary} For $R$, $M$ as above holds
- $\left[\St(\Phi, XR[X]), \overline{\St}(\Phi, R, M)\right] \subseteq \St(\Phi, XM[X]) \cdot \left[\St(\Phi, XR[X]), \St(\Phi, M)\right]$.
+\begin{corollary} For $A$, $M$ as above holds
+ \[\left[\St(\Phi, XA[X]), \overline{\St}(\Phi, A, M)\right] \subseteq \St(\Phi, XM[X]) \cdot \left[\St(\Phi, XA[X]), \St(\Phi, M)\right].\]
 \end{corollary}
 \begin{proof}
- Notice first that the generators of $M(\Phi, R, M)$ normalize both $\St(\Phi, XA[X])$ and $\St(\Phi, M)$ (see eq:conj-h-x).
- Now for $g \in \St(\Phi, XR[X])$, $h \in M(\Phi, R, M)$, $u^+ \in U(\Phi^+, M)$, $u^- \in U(\Phi^-, M)$ holds:
- \[ [g, h u^+ u^-] = [g, h] \cdot [{}^{h}\!g, {}^{h}\!(u^+u^-)] \in \St(\Phi, XM[X]) \cdot [\St(\Phi, XR[X]), \St(\Phi, M)]. \qedhere\]
+ Notice first that the generators of $M(\Phi, A, M)$ normalize both $\St(\Phi, XA[X])$ and $\St(\Phi, M)$, see~\eqref{eq:conj-h-x}.
+ Now for $g \in \St(\Phi, XR[X])$, $h \in M(\Phi, A, M)$, $u^+ \in U(\Phi^+, M)$, $u^- \in U(\Phi^-, M)$ holds:
+ \[ [g, h u^+ u^-] = [g, h] \cdot [{}^{h}\!g, {}^{h}\!(u^+u^-)] \in \St(\Phi, XM[X]) \cdot [\St(\Phi, XA[X]), \St(\Phi, M)]. \qedhere\]
 \end{proof}
 
-\begin{corollary} For $R$ and $M$ as above the subgroup $I$ is generated as a group by its subgroup $\St(\Phi, R[X], XM[X])$ and
- the elements $[x_\alpha(m), x_{-\alpha}(X\xi)]$, $m \in M$, $\xi \in R[X]$, $\alpha \in \Phi$. 
+\begin{corollary} For $A$ and $M$ as above the subgroup $K$ is generated as a group by its subgroup $\St(\Phi, A[X], XM[X])$ and
+ the elements $[x_\alpha(m), x_{-\alpha}(X\xi)]$, $m \in M$, $\xi \in A[X]$, $\alpha \in \Phi$. 
 \end{corollary}
 \begin{proof}
-By the above lemmata one has $I \subseteq \St(\Phi, R[X], XM[X]) \cdot [\St(\Phi, XR[X]), \St(\Phi, M)].$
-It is clear that modulo $\St(\Phi, R[X], XM[X])$ the commutator subgroup $[\St(\Phi, XR[X]), \St(\Phi, M)]$ is generated
- by all $[x_\alpha(m), x_{-\alpha}(X\xi)]^g$, $m \in M$, $\xi \in R[X]$, where $g \in \St(\Phi, M + XR[X])$.
-To verify the assertion, therefore, it remains to show that the commutators $[[x_\alpha(m), x_{-\alpha}(X\xi)], g]$ belong to $\St(\Phi, R[X], XM[X])$.
-Moreover, since the latter subgroup is normal it suffices to prove this inclusion in the special case when $g$ is a generator of $\St(\Phi, R[X])$,
-i.\,e. $g = x_\beta(\xi)$, $\eta \in R[X]$. Without loss of generality we may assume $\alpha \neq \pm \beta$.
+By the above lemmata one has $K \subseteq \St(\Phi, A[X], XM[X]) \cdot [\St(\Phi, XA[X]), \St(\Phi, M)].$
+It is clear that modulo $\St(\Phi, A[X], XM[X])$ the commutator subgroup $[\St(\Phi, XA[X]), \St(\Phi, M)]$ is generated
+ by all $[x_\alpha(m), x_{-\alpha}(X\xi)]^g$, $m \in M$, $\xi \in A[X]$, where $g \in \St(\Phi, M + XA[X])$.
+To verify the assertion, therefore, it remains to show that the commutators $[[x_\alpha(m), x_{-\alpha}(X\xi)], g]$ belong to $\St(\Phi, A[X], XM[X])$.
+Moreover, since the latter subgroup is normal it suffices to prove this inclusion in the special case when $g$ is a generator of $\St(\Phi, A[X])$,
+i.\,e. $g = x_\beta(\xi)$, $\eta \in A[X]$. Without loss of generality we may assume $\alpha \neq \pm \beta$.
 \end{proof}
 
 \subsection{The subgroups $P_\alpha(0)$, $P_\alpha(*)$ and their properties.} Throughout this subsection $\alpha$ denotes some fixed root of $\Phi$.
