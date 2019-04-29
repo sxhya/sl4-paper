@@ -574,7 +574,7 @@ where $\epsilon = N_{-\alpha-\beta,\beta}$. This is a product of generators of t
 \begin{lemma}\label{P0_normal} The subgroup $P_\alpha(0)$ is normal in $P_\alpha(*)$. In particular, there is an exact sequence split by the map $m \mapsto x_{-\alpha}(mX)$:
 \[\xymatrix{1 \ar[r] & P_\alpha(0) \ar[r] & P_\alpha(*) \ar[r] & M^+ \ar@<5pt>@{-->}[l] \ar[r] & 1}.\]
 \end{lemma}
-\begin{proof} We need to verify that the conjugate by $x_{-\alpha}(mX)$ to every generator of $P_\alpha(0)$ listed in~Definition~\ref{defP0} still belongs to $P_\alpha(0)$. The assertion is obvious for the generators of types (3) and (4).
+\begin{proof} We need to verify that the conjugate by $x_{-\alpha}(mX)$ to every generator of $P_\alpha(0)$ listed in~Definition~\ref{defP0} still belongs to $P_\alpha(0)$. The assertion is obvious for the generators of type (3) and (4).
 
 Let us verify the assertion for the generators of type (1) and (2). In the case $\beta - \alpha \in \Phi$ we obtain from Lemma~\ref{Zrels}:
 \begin{align} z_{\beta}(Xf, g) ^ {x_{-\alpha}(mX)} = & x_{-\alpha} (- mX^2fg) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mX^2f)     \cdot z_{\beta}(Xf, g), \label{eq3-1} \\
@@ -584,21 +584,20 @@ The expressions in the right hand side of~\eqref{eq3-1} and~\eqref{eq3-2} are pr
 
 Finally, in the case $\alpha + \beta \in \Phi$ (only possible for the generator of type (1)) we have:
 \[ z_{\beta}(Xf, g) ^ {x_{-\alpha}(mX)} = x_{-\alpha} (mX^2fg ) \cdot x_{-\alpha-\beta} (N_{\beta,\alpha}\cdot mX^2fg^2) \cdot z_{\beta}(Xf, g), \]
-the latter expression, clearly, is a product of generators of types $4, 1, 1$.
+the latter expression, clearly, is a product of generators of type $4, 1, 1$.
 \end{proof}
 
 For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
-From the above lemma it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. 
-The latter fact allows to make the following definition. 
+From the above lemma it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. This allows us to make the following definition. 
 
 \begin{df}
-Define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, R[t, t^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
+Define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, A[X, X^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
 \[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha,\ g \in P_\alpha(m).\] 
 \end{df}
 It is clear that the restriction of the map $S_\alpha(a, g)$ to the subgroup $P_\alpha(0)$ coincides with the conjugation map $g \mapsto {}^{x_\alpha(aX^{-1})}\!g$.
 
-\begin{lemma}\label{P0_conj} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a\in R$. \end{lemma}
-\begin{proof} As before, we need to verify that the conjugate of every generator of $P_\alpha(0)$ lies in $P_\alpha(0)$. First of all, consider the case $\alpha + \beta \in \Phi$ (only possible for the generator of the first type):
+\begin{lemma}\label{P0_conj} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a\in A$. \end{lemma}
+\begin{proof} We need to verify that the conjugate by $x_\alpha(aX^{-1})$ to every generator of $P_\alpha(0)$ lies in $P_\alpha(0)$. First of all, consider the case $\alpha + \beta \in \Phi$ (only possible for the generator of the first type):
 \[ z_{\beta}(Xf, g) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (- afg) \cdot x_{\beta+\alpha} (N_{\beta, \alpha}\cdot af)     \cdot z_{\beta}(Xf, g). \]
 Clearly the expression in the right hand side is a product of elements of generators of type 2, 2, 1. 
 Now consider the case $\alpha - \beta \in \Phi$ (possible for generators of type (1) and (2)).
@@ -606,23 +605,30 @@ Now consider the case $\alpha - \beta \in \Phi$ (possible for generators of type
 z_{\beta}(f, Xg) ^ {x_{\alpha}(aX^{-1})} = & x_{\alpha} (afg) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot fXg^2a) \cdot z_{\beta}(f, Xg). \end{align}
 The expressions in the right-hand side are products of generators of type 2, 2, 1 and 2, 1, 2.
 
-Let us verify the assertion for the generator of type (4). Choose $\beta\in \Phi$ such that $\alpha+\beta \in \Phi$ and invoke Lemma~\ref{Zrels}:
-\[z_{-\alpha}(X^2f, aX^{-1}) = x_{-\beta}(-a) \cdot x_{-\alpha-\beta}(\epsilon X) \cdot x_{\alpha+\beta}(\epsilon Xf^2a^2) \cdot x_{\alpha}(-a^2f) \cdot z_{-\beta}(-a, -Xf) \cdot x_{\beta}(-aX^2f^2)  \cdot x_{-\alpha}(-X^2f) \cdot z_{-\alpha-\beta}(\epsilon X, -\epsilon af), \] where $\epsilon = N_{-\alpha-\beta,\beta}$. It is clear that the latter expression is a product of generators of types: 2, 1, 1, 2, 2, 1, 1, 1, respectively.
+Let us verify the assertion for the generator of type (4). Choose $\beta\in \Phi$ such that $\alpha+\beta \in \Phi$ and invoke~\eqref{Z5} of~\cref{Zrels} substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$:
+\begin{multline} \nonumber
+ z_{-\alpha}(X^2f, aX^{-1}) = x_{-\alpha-\beta}(\epsilon Xf) \cdot x_{-\beta}(-af) \cdot x_{\beta}(f a X^2) \cdot x_{-\alpha}(X^2f) \cdot \\ \cdot z_{-\alpha-\beta}(-\epsilon Xf, -\epsilon a) \cdot x_{\alpha+\beta}(-\epsilon Xf a^2) \cdot x_{\alpha}(- f a^2) \cdot z_{-\beta}(f a, -X),
+\end{multline}
+where $\epsilon = N_{-\alpha-\beta,\beta}$. Clearly, the expression in the right-hand side is a product of generators of type 1, 2, 1, 1, 1, 1, 2, 2.
 
-It remains to verify the assertion for the generator $z_\alpha(f, gX)$.
-\begin{comment}
-\[ z_{\alpha+\beta}(st, \xi) = x_{-\beta}(-s\xi) \cdot x_\alpha(\epsilon s) \cdot x_{-\alpha}(\epsilon st^2\xi^2) \cdot x_{-\alpha-\beta}(-st\xi^2) \cdot z_{-\beta}(-s\xi, -t) \cdot x_{\beta}(-st^2\xi)  \cdot x_{\alpha+\beta}(-st) \cdot z_\alpha(\epsilon s, -\epsilon t\xi) \]  
-
-\[ z_{\alpha+\beta}(- s t, \xi) = x_{-\beta}(-\epsilon s\xi) \cdot x_\alpha(s) \cdot x_{-\alpha}(s t^2\xi^2) \cdot x_{-\alpha-\beta}(s t\xi^2) \cdot z_{-\beta}(-\epsilon s\xi, \epsilon t)) \cdot x_{\beta}(-\epsilon st^2\xi)  \cdot x_{\alpha+\beta}(s t) \cdot z_\alpha( s, t\xi) \]  
-
-\[ z_\alpha(-s, t\xi) = z_{\alpha+\beta}(st, \xi) x_{-\beta}(-\epsilon s\xi) \cdot x_\alpha(s) \cdot x_{-\alpha}(s t^2\xi^2) \cdot x_{-\alpha-\beta}(s t\xi^2) \cdot z_{-\beta}(-\epsilon s\xi, \epsilon t)) \cdot x_{\beta}(-\epsilon st^2\xi)  \cdot x_{\alpha+\beta}(s t) \]  
-
-\[ z_\alpha(s, t\xi) = z_{\alpha+\beta}(-st, \xi) x_{-\beta}(\epsilon s\xi) \cdot x_\alpha(-s) \cdot x_{-\alpha}(-s t^2\xi^2) \cdot x_{-\alpha-\beta}(-s t\xi^2) \cdot z_{-\beta}(\epsilon s\xi, \epsilon t)) \cdot x_{\beta}(\epsilon st^2\xi)  \cdot x_{\alpha+\beta}(- s t) \]  
-\end{comment}
-Substituting $s := \epsilon f$, $t = -\epsilon g$ and $\xi = X$ in the fifth equality of Lemma~\ref{Zrels} and expressing the rightmost term through others we obtain (here $\beta$ is some other root such that $\alpha + \beta \in \Phi$): \[ z_\alpha(f, gX) = z_{\alpha+\beta}(-fg, X) x_{-\beta}(\epsilon fX) \cdot x_\alpha(-f) \cdot x_{-\alpha}(-f g^2X^2) \cdot x_{-\alpha-\beta}(-f gX^2) \cdot z_{-\beta}(\epsilon fX, \epsilon g) \cdot x_{\beta}(\epsilon fg^2X)  \cdot x_{\alpha+\beta}(- f g),\ \epsilon = N_{\alpha,\beta}. \]  
-The factors in the right hand side have types: 2, 1, 2, 4, 1, 1, 1, 2. 
-It is clear, that conjugation by $x_{\alpha}(aX^{-1})$ acts trivially on the third factor $x_\alpha(-f)$, 
-while for the other factors we have already verified that their conjugates belong to $P_{\alpha}(0)$. 
+It remains to verify the assertion for the remaining generator $z_\alpha(f, gX)$ of type 2. Substituting in~\eqref{Z5} of~\cref{Crels} $s := -\epsilon f$, $\xi = -\epsilon g$, $\eta=X$ we obtain that
+\begin{multline} \nonumber
+ z_{\alpha+\beta}(-\epsilon fX, -\epsilon g) = x_\alpha( -f) x_{-\beta}(- f g) \cdot x_{\beta}( f gX^2) \cdot x_{\alpha+\beta}(-\epsilon f X) \cdot \\ \cdot z_\alpha(f,  gX) \cdot x_{-\alpha}(fg^2X^2) \cdot x_{-\alpha-\beta}(\epsilon f g^2 X) \cdot z_{-\beta}(fg, -X), 
+\end{multline}
+where $\epsilon = N_{\alpha,\beta}$. 
+Expressing $z_{\alpha}(f, gX)$ through other terms
+\begin{multline} \nonumber
+ z_\alpha(f, gX) = 
+ x_{\alpha+\beta}(\epsilon f X) \cdot
+ x_{\beta}(-f gX^2) \cdot
+ x_{-\beta}(f g) \cdot
+ x_\alpha(f) \cdot \\ \cdot
+ z_{\alpha+\beta}(-\epsilon fX, -\epsilon g) \cdot 
+ z_{-\beta}(-fg, -X) \cdot
+ x_{-\alpha-\beta}(-\epsilon f g^2 X) \cdot
+ x_{-\alpha}(-fg^2X^2) \cdot
+\end{multline}
+we conclude that the factors in the right-hand side are generators of type 1, 1, 2, 2, 1, 2, 1, 4. It is clear, that conjugation by $x_{\alpha}(aX^{-1})$ acts trivially on the fourth factor $x_\alpha(f)$, while for the other factors we have already verified that their conjugates belong to $P_{\alpha}(0)$. 
 \end{proof}
 
 \begin{lemma} \label{lem:Tulenbayev-formula}
