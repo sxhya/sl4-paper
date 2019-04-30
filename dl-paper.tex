@@ -477,12 +477,6 @@ We will construct an action of $\St(\Phi, B)$ on the set $V$ with the following 
 \end{enumerate} \end{comment}
 
 Throughout this section $\Phi$ is a simply-laced irreducible root system and $A$ is a local ring with maximal ideal $M$.
-We denote by $B$ the ring $M[X] + A[X^{-1}]$ considered as a graded subring of $A[X, X^{-1}]$.
-Denote by $\overline{G}^{\geq 0}_M$ the image of the map $\St(\Phi, R[X], M[X]) \to \St(\Phi, A[X, X^{-1}])$ and by
- $G^{\leq 0}$ the group $\St(\Phi, A[X^{-1}])$.
-
-\[ \xymatrix{ \overline{\St}(\Phi, A, M) \ar[r]^{j_+i_+} \ar[d]^{i^-} & \overline{G}_M^{\geq 0} \ar@{^{(}->}[d] \\
-              G^{\leq 0} \ar[r]^{j_-} & \St(\Phi, A[X, X^{-1}]), } \] 
 
 \subsection{Computation of the kernel of the map of evaluation at $0$.}
 For a pair $(R, I)$ we denote by $\overline{\St}(\Phi, R, I)$ the image of the map $\mu$ from~\eqref{relSteinberg-def}, in particular, it is a normal subgroup of $\St(\Phi, R)$.
@@ -642,13 +636,17 @@ By our assumption $(\alpha, \beta) \geq 0$.
 \end{proof}
 
 \subsection{The proof of the injectivity theorem}
+We denote by $B$ the ring $M[X] + A[X^{-1}]$ considered as a graded subring of $A[X, X^{-1}]$.
+Denote by $\overline{G}^{\geq 0}_M$ the image of the map $\St(\Phi, R[X], M[X]) \to \St(\Phi, A[X, X^{-1}])$ and by
+ $G^{\leq 0}$ the group $\St(\Phi, A[X^{-1}])$.
 
- \begin{comment}
+\[ \xymatrix{ \overline{\St}(\Phi, A, M) \ar[r]^{j_+i_+} \ar[d]^{i^-} & \overline{G}_M^{\geq 0} \ar@{^{(}->}[d] \\
+              G^{\leq 0} \ar[r]^{j_-} & \St(\Phi, A[X, X^{-1}]), } \] 
+
 \begin{lemma} if $\alpha \perp \beta$ then $g \in P(\alpha, m) \cap P(\beta, m')$ implies $S_\alpha(a, g) \in P(\beta, m')$. \end{lemma}
 \begin{proof}
  Lol
 \end{proof}
-\end{comment}
 
 Let $P(\alpha, m)$ be a collection of subsets of $\overline{G}^{\geq 0}_M$ with the following properties:
 \[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha,\ \ g \in P(\alpha, m)\text{ for some $m \in M$}.\]
@@ -767,9 +765,9 @@ If $\alpha + \beta \in \Phi$, $\pi(g, h, u) \in P(\beta, m) \cap P(\alpha + \bet
  \frac{(m + m'a)X}{1 - bm} & \frac{m'X}{1 + abm'} & 1 
  \end{array}\right)
 \end{multline}
+\end{comment}
 
 There is still a mistake in the last implication :(
-\end{comment}
 Perhaps one must replace $1 + abm'$ with $1 + ab N_{\alpha, \beta} m'$.
 \begin{multline}
 [T_\alpha(a), T_\beta(bX^{-1})] \left( g, h, u \right) =
@@ -820,7 +818,6 @@ Then
 \[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X) \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha
   = S_\alpha(a, g_0 \cdot x_{-\alpha}(mX)) \cdot x_{-\beta}(m'X).\]
 We need to show $S_\alpha(a, g_0 \cdot x_{-\alpha}(mX)) \in P(\beta, 0)$ but this is obvious since the latter is a subgroup.
-
 
 \printbibliography
 \end{document}
