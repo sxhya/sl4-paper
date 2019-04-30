@@ -611,12 +611,7 @@ Let us verify the assertion for the generator of type (4). Choose $\beta\in \Phi
 \end{multline}
 where $\epsilon = N_{-\alpha-\beta,\beta}$. Clearly, the expression in the right-hand side is a product of generators of type 1, 2, 1, 1, 1, 1, 2, 2.
 
-It remains to verify the assertion for the remaining generator $z_\alpha(f, gX)$ of type 2. Substituting in~\eqref{Z5} of~\cref{Crels} $s := -\epsilon f$, $\xi = -\epsilon g$, $\eta=X$ we obtain that
-\begin{multline} \nonumber
- z_{\alpha+\beta}(-\epsilon fX, -\epsilon g) = x_\alpha( -f) x_{-\beta}(- f g) \cdot x_{\beta}( f gX^2) \cdot x_{\alpha+\beta}(-\epsilon f X) \cdot \\ \cdot z_\alpha(f,  gX) \cdot x_{-\alpha}(fg^2X^2) \cdot x_{-\alpha-\beta}(\epsilon f g^2 X) \cdot z_{-\beta}(fg, -X), 
-\end{multline}
-where $\epsilon = N_{\alpha,\beta}$. 
-Expressing $z_{\alpha}(f, gX)$ through other terms
+It remains to verify the assertion for the remaining generator $z_\alpha(f, gX)$ of type 2. Substituting in~\eqref{Z5} of~\cref{Crels} $s = -\epsilon f$, $\xi = -\epsilon g$, $\eta=X$ and expressing $z_\alpha(f, gX)$ through other terms we obtain that
 \begin{multline} \nonumber
  z_\alpha(f, gX) = 
  x_{\alpha+\beta}(\epsilon f X) \cdot
@@ -626,9 +621,10 @@ Expressing $z_{\alpha}(f, gX)$ through other terms
  z_{\alpha+\beta}(-\epsilon fX, -\epsilon g) \cdot 
  z_{-\beta}(-fg, -X) \cdot
  x_{-\alpha-\beta}(-\epsilon f g^2 X) \cdot
- x_{-\alpha}(-fg^2X^2) \cdot
+ x_{-\alpha}(-fg^2X^2),
 \end{multline}
-we conclude that the factors in the right-hand side are generators of type 1, 1, 2, 2, 1, 2, 1, 4. It is clear, that conjugation by $x_{\alpha}(aX^{-1})$ acts trivially on the fourth factor $x_\alpha(f)$, while for the other factors we have already verified that their conjugates belong to $P_{\alpha}(0)$. 
+where $\epsilon = N_{\alpha,\beta}$. 
+The factors in the right-hand side are generators of type 1, 1, 2, 2, 1, 2, 1, 4. It is clear, that conjugation by $x_{\alpha}(aX^{-1})$ acts trivially on the fourth factor $x_\alpha(f)$, while for the other factors we have already verified that their conjugates belong to $P_{\alpha}(0)$. 
 \end{proof}
 
 \begin{lemma} \label{lem:Tulenbayev-formula}
