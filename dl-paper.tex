@@ -585,7 +585,7 @@ From the above lemma it follows that $P_\alpha(*)$ coincides with the union of a
 
 \begin{df} Define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, A[X, X^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
 \[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha,\ g \in P_\alpha(m).\] \end{df}
-Right from the definition of $S_\alpha(a, -)$ it is easy to verify that for $g_1 \in P_\alpha(m)$, $g_2 \in P_\alpha(*)$ holds
+It follows immediately from the definition of $S_\alpha(a, -)$ that for $g_1 \in P_\alpha(m)$, $g_2 \in P_\alpha(*)$ holds
 \[ S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\frac{a}{1+am}, g_2\right).\]
 
 It is clear that the restriction of the map $S_\alpha(a, g)$ to the subgroup $P_\alpha(0)$ coincides with the conjugation map $g \mapsto {}^{x_\alpha(aX^{-1})}\!g$.
@@ -642,11 +642,23 @@ We need to verify that $h = S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)$ lies in 
 = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \in P_\alpha\left(\frac{m}{1+am}\right). \end{multline}
 The second assertion can be verified in a straightforward manner. \end{proof}
 
+Our next goal is to determine what happens with the generators of $K(A[X], M[X])$ under the map $S_\alpha(a, -)$.
+At first we could look at what happens with $K(A[X], M[X]) \cap P_\alpha(0)$ under $S_\alpha(a, -)$.
+We notice the following elements:
+\begin{itemize}
+ \item $x_\alpha(c)$, $c \in A$;
+ \item $x_{\alpha+\beta}(d)$, $\alpha+\beta \in \Phi$
+\end{itemize}
+
+\[ x_\alpha(c), , x_{\alpha-\beta}(d) \]
+
+\begin{comment}
 \begin{lemma} If $\alpha - \beta \in \Phi$ then for all $g \in \St(\Phi, R[X], XM[X])$ holds $S_\alpha(a, g) \in P_\beta(0)$. \end{lemma}
 \begin{proof}
 It suffices to verify the assertion for the generators $z_\gamma(Xf, g)$, $\gamma \in \Phi$.
 By our assumption $(\alpha, \beta) \geq 0$. 
 \end{proof}
+\end{comment}
 
 \subsection{The proof of the injectivity theorem}
 We denote by $B$ the ring $M[X] + A[X^{-1}]$ considered as a graded subring of $A[X, X^{-1}]$.
@@ -708,7 +720,7 @@ The latter expression is symmetric.
 If $\alpha + \beta \in \Phi$, $\pi(g, h, u) \in P(\beta, m) \cap P(\alpha + \beta, m')$ then
 \[x_\alpha(-a) \cdot S_\beta(-b, \pi(g, h, u)) h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm')\cdot x_{\alpha}(a(1 + abm')) \in P\left(\beta, \frac{m + am'}{1-bm}\right)\]
 
-\begin{comment}
+
 ($\alpha = 21$, $\beta = 1r$, $\alpha + \beta = 2r$)
 ($\alpha = 21$, $\beta = 13$, $\alpha + \beta = 23$)
 \begin{multline}
@@ -760,7 +772,7 @@ If $\alpha + \beta \in \Phi$, $\pi(g, h, u) \in P(\beta, m) \cap P(\alpha + \bet
  (1  - bm)^{-1} & 0 & 0 \\
  0 & 1 & 0 \\
  0 & 0 & 1 - bm 
- \end{array}\right)
+ \end{array}\right) \cdot \\ \cdot
 \left(\begin{array}{ccc} 
  1 + abm' & 0 & 0 \\
  0 & (1 + abm')^{-1} & 0 \\
@@ -778,7 +790,6 @@ If $\alpha + \beta \in \Phi$, $\pi(g, h, u) \in P(\beta, m) \cap P(\alpha + \bet
  \frac{(m + m'a)X}{1 - bm} & \frac{m'X}{1 + abm'} & 1 
  \end{array}\right)
 \end{multline}
-\end{comment}
 
 There is still a mistake in the last implication :(
 Perhaps one must replace $1 + abm'$ with $1 + ab N_{\alpha, \beta} m'$.
