@@ -593,6 +593,40 @@ Finally, in the case $\alpha + \beta \in \Phi$ (only possible for the generator 
 It is clear that the latter expression is a product of generators of type $4, 1, 1$.
 \end{proof}
 
+In fact, we could prove something a little bit stronger.
+\begin{lemma} \label{K-a-b}
+ Let $g$ be an element of $K(A[X], M[X])$, then for any pair of roots $\alpha, \beta \in \Phi$, $\alpha \neq \pm \beta$
+ the element $g$ can be written as a product $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $m, m' \in M$ and
+  $g_0 \in K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0)$.
+
+ The group $K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0)$ admits generating set consisting of the following elements:
+ \begin{itemize}
+  \item $z_\gamma(Xf, \xi)$, $\gamma \in \Phi \setminus\{ \pm \alpha, \pm \beta\};$
+  \item $x_{-\alpha}(X^2f)$, $x_{-\beta}(X^2f)$, $z_{\alpha}(Xf, X\xi)$, $z_\beta(Xf, X\xi)$;
+  \item $c_{\pm \delta}(f, X\xi)$ for some fixed root $\delta \in \Phi$, $\delta \not \in \{ \pm \alpha, \pm \beta \}$
+ \end{itemize}
+\end{lemma}
+\begin{proof}
+
+ Embed $\alpha$ and $\beta$ in some subsystem $\Psi$ of type $A_3$ and denote by $\Sigma$ the special part of the parabolic subset $S = \Psi \cup \Phi^+$.
+ Applying~\cref{thm:Stepanov} to $S$ we obtain that every element of $\St(\Phi, A[X], XM[X])$ can be presented as a product of 
+  $z_\gamma(Xf, \xi)$, $\gamma \in \Sigma(S) \subseteq \Phi^+\setminus \{ \pm \alpha, \pm \beta \}$ and $x_\gamma(Xf)$, $\gamma \in \{ \pm \alpha, \pm \beta \}$.
+ 
+ Now choose arbitrary $\delta \neq \pm \alpha, \pm \beta$. By~\cref{Kgen-strong} we can write $g$ as a product of elements of the above family and
+  generators of the form $c_{\pm \delta}(f, X\xi)$.
+  
+ The next step of the proof is to write each factor of the form $x_{\epsilon}(Xf)$, $\epsilon \in \{-\alpha,-\beta\}$ appearing in this product as
+ $x_{\epsilon}(X^2f') \cdot x_{\epsilon}(mX)$ and then move $x_{\epsilon}(mX)$ to the rightmost position
+  (conjugating by $x_{\epsilon}(mX)$ all factors along the way).
+ Notice that no terms of the form $x_{\epsilon}(mX)$, $\epsilon \in \{ -\alpha, -\beta \}$ may appear after the simplification of conjugates,
+  so this process is guaranteered to end.
+ Indeed, notice that the extra terms in the right-hand sides of \eqref{eq3-1} and~\eqref{eq3-2} 
+ (as well as all terms in the right-hand sides of~\eqref{C1},\eqref{C2} of~\cref{Crels} if you substitute proper values into it)
+  have terms of degree at least $2$ in $X$. As a side effect of this operation, however, terms $x_\alpha(Xf)$ and $x_\beta(Xf)$ appearing in $g$ could have turned into
+   $z_\alpha(Xf, X\xi)$, and $z_\beta(Xf, X\xi)$.
+ After collecting terms of the form $x_\epsilon(mX)$, $\epsilon \in \{ -\alpha, -\beta \}$ in the right-hand side of the resulting expression
+  we obtain the desired decomposition for $g$. \end{proof}
+
 For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
 From the above lemma it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. This allows us to make the following definition. 
 
@@ -640,41 +674,6 @@ while for the other factors we have already verified that their conjugates belon
  It remains to notice that the only factors in the right-hand sides of in~\eqref{eq:Zconj1}--\eqref{eq:Zconj3} which do not vanish after evaluation at $X=0$
   are those of the form $x_\beta(m)$ for some $\beta \in Z_+(\alpha)$.
 \end{proof}
-
-In fact, we could prove something a little bit stronger.
-\begin{lemma}
- Let $g$ be an element of $K(A[X], M[X])$, then for any pair of roots $\alpha, \beta \in \Phi$, $\alpha \neq \pm \beta$
- the element $g$ can be written as a product $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $m, m' \in M$ and
-  $g_0 \in K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0)$.
-
- The group $K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0)$ admits generating set consisting of the following elements:
- \begin{itemize}
-  \item $z_\gamma(Xf, \xi)$, $\gamma \in \Phi \setminus\{ \pm \alpha, \pm \beta\};$
-  \item $x_{-\alpha}(X^2f)$, $x_{-\beta}(X^2f)$, $z_{\alpha}(Xf, X\xi)$, $z_\beta(Xf, X\xi)$;
-  \item $c_{\pm \delta}(f, X\xi)$ for some fixed root $\delta \in \Phi$, $\delta \not \in \{ \pm \alpha, \pm \beta \}$
- \end{itemize}
-\end{lemma}
-\begin{proof}
- %Follows from~\cref{Kgen-strong}, \cref{P0_normal} and Stepanov's theorem.
- Embed $\alpha$ and $\beta$ in some subsystem $\Psi$ of type $A_3$ and denote by $\Sigma$ the special part of the parabolic subset $S = \Psi \cup \Phi^+$.
- Applying~\cref{thm:Stepanov} to $S$ we obtain that every element of $\St(\Phi, A[X], XM[X])$ can be presented as a product of 
-  $z_\gamma(Xf, \xi)$, $\gamma \in \Sigma(S) \subseteq \Phi^+\setminus \{ \pm \alpha, \pm \beta \}$ and $x_\gamma(Xf)$, $\gamma \in \{ \pm \alpha, \pm \beta \}$.
- 
- Now choose arbitrary $\delta \neq \pm \alpha, \pm \beta$. By~\cref{Kgen-strong} we can write $g$ as a product of elements of the above family and
-  generators of the form $c_{\pm \delta}(f, X\xi)$.
-  
- The next step of the proof is to write each factor of the form $x_{\epsilon}(Xf)$, $\epsilon \in \{-\alpha,-\beta\}$ appearing in this product as
- $x_{\epsilon}(X^2f') \cdot x_{\epsilon}(mX)$ and then move $x_{\epsilon}(mX)$ to the rightmost position
-  (conjugating by $x_{\epsilon}(mX)$ all factors along the way).
- Notice that no terms of the form $x_{\epsilon}(mX)$, $\epsilon \in \{ -\alpha, -\beta \}$ may appear after the simplification of conjugates.
- Indeed, notice that the extra terms in the right-hand sides of \eqref{eq3-1} and~\eqref{eq3-2} 
- (as well as all terms in the right-hand sides of~\eqref{C1},\eqref{C2} of~\cref{Crels} if you substitute proper values into it)
-  have terms of degree at least $2$ in $X$. As a side effect of this operation, however, terms $x_\alpha(Xf)$ and $x_\beta(Xf)$ appearing in $g$ could have turned into
-   $z_\alpha(Xf, X\xi)$, and $z_\beta(Xf, X\xi)$ for some $\xi \in A[X]$.
- After collecting terms of the form $x_\epsilon(mX)$, $\epsilon \in \{ -\alpha, -\beta \}$ in the right-hand side of the resulting expression
-  we obtain the desired decomposition for $g$. \end{proof}
-
-
 
 \begin{lemma} \label{lem:Tulenbayev-formula} One has
  \[x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot 
