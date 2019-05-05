@@ -632,17 +632,6 @@ The factors in the right-hand side are generators of type 1, 1, 2, 2, 1, 2, 1, 4
 It is clear, that conjugation by $x_{\alpha}(aX^{-1})$ acts trivially on the fourth factor $x_\alpha(f)$, 
 while for the other factors we have already verified that their conjugates belong to $P_{\alpha}(0)$. \end{proof}
 
-\begin{comment}
-\begin{corollary} Suppose $g$ is an element of $P_\alpha(0) \cap K(A[X], M[X])$. Then $ev^*_{X=0}(S_\alpha(a, g))$ lies in the subgroup $U(Z_+(\alpha), M)$. \end{corollary}
-\begin{proof}
- By~\cref{Kgen-strong} and~\cref{P0_normal} $g$ can be expressed as a product of elements 
- $z_\beta(Xf, \xi)$, $\beta\in\Phi\setminus\{\pm \alpha\}$, $c_\gamma(f, X\xi)$ for some $\gamma$ orthogonal to $\alpha$, $x_{-\alpha}(X^2f)$, $x_{\alpha}(f)$.
- 
- It remains to notice that the only factors in the right-hand sides of in~\eqref{eq:Zconj1}--\eqref{eq:Zconj3} which do not vanish after evaluation at $X=0$
-  are those of the form $x_\beta(m)$ for some $\beta \in Z_+(\alpha)$.
-\end{proof}
-\end{comment}
-
 \begin{lemma} \label{lem:Tulenbayev-formula} One has
  \[x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot 
  x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}.\] \end{lemma}
@@ -682,12 +671,9 @@ By our assumption $(\alpha, \beta) \geq 0$.
   \item $z_\gamma(Xf, \xi)$, $\gamma \in \Phi \setminus\{ \pm \alpha, \pm \beta\};$
   \item $x_{-\alpha}(X^2f)$, $x_{-\beta}(X^2f)$;
   \item $x_{\alpha}(Xf)$, $x_\beta(Xf)$;
-  \item $c_{\pm \delta}(f, X\xi)$ for some fixed root $\delta \in \Phi$, $\delta \not \in \{ \pm \alpha, \pm \beta \}$.
+  \item $c_{\pm \delta}(f, X\xi)$ for some fixed root $\delta \in \Phi$ forming a sharp angle with both $\alpha$ and $\beta$.
  \end{enumerate}
 \end{df}
-It is clear from the definition that $K(\alpha, \beta) \subseteq P_\alpha(0) \cap P_\beta(0) \cap K(A[X], M[X])$.
-In fact, as the proposition below shows the opposite inclusion is also true.
-
 \begin{lemma} \label{root-lemma}
  For any $\alpha, \beta$ in a system of type $A_3$ there exist $\alpha_1, \alpha_2, \beta_1, \beta_2 \in \Phi$ such that
  $\alpha = \alpha_1 - \alpha_2$, $\beta = \beta_1 - \beta_2$ and root sets $\{ \pm \alpha, \pm \beta \}$ and $\{ \alpha_1, \alpha_2, \beta_1, \beta_2 \}$ have empty intersection.
@@ -703,8 +689,8 @@ In fact, as the proposition below shows the opposite inclusion is also true.
  Applying~\cref{thm:Stepanov} to $S$ we obtain that every element of $\St(\Phi, A[X], XM[X])$ can be presented as a product of 
   $z_\gamma(Xf, \xi)$, $\gamma \in \Sigma(S) \subseteq \Phi\setminus \{ \pm \alpha, \pm \beta \}$ and $x_\gamma(Xf)$, $\gamma \in \{ \pm \alpha, \pm \beta \}$.
  
- Now choose arbitrary $\delta \neq \pm \alpha, \pm \beta$. By~\cref{Kgen-strong} we can write $g$ as a product of elements of the above family and
-  generators of the form $c_{\pm \delta}(f, X\xi)$.
+ By~\cref{Kgen-strong} we can write $g$ as a product of elements of the above family and generators of the form $c_{\pm \delta}(f, X\xi)$ for $\delta$
+  as in the above definition.
   
  The next step of the proof is to decompose each factor of the form $x_{\epsilon}(Xf)$, $\epsilon \in \{-\alpha,-\beta\}$ appearing in this product as
  $x_{\epsilon}(X^2f') \cdot x_{\epsilon}(mX)$ and then move $x_{\epsilon}(mX)$ to the rightmost position
@@ -712,32 +698,52 @@ In fact, as the proposition below shows the opposite inclusion is also true.
  Notice that no terms of the form $x_{\epsilon}(mX)$, $\epsilon \in \{ -\alpha, -\beta \}$ may appear after the simplification of conjugates,
   so this process is guaranteed to terminate.
  Indeed, notice that the extra terms in the right-hand sides of \eqref{eq3-1} and~\eqref{eq3-2} 
- (as well as all terms in the right-hand sides of~\eqref{C1},\eqref{C2} of~\cref{Crels} if one substitutes corresponding values into it)
+ (as well as all terms in the right-hand sides of~\eqref{C1},\eqref{C2} of~\cref{Crels} if one substitutes corresponding values into them)
   have terms of degree at least $2$ in $X$. 
   
- As a side effect of this transformation, however, factors $x_\alpha(Xf)$ and $x_\beta(Xf)$ appearing in $g$ could be transformed into terms of the form
+ As a side effect of this transformation, however, factors $x_\alpha(Xf)$ and $x_\beta(Xf)$ appearing in $g$ might be transformed into terms of the form
    $z_\alpha(Xf, X\xi)$, and $z_\beta(Xf, X\xi)$. Applying preceding lemma to the subsystem $\Psi$ we can write $\alpha = \alpha_1 - \alpha_2$ and 
     $\beta = \beta_1 - \beta_2$ with the additional property $\{ \pm \alpha, \pm \beta \} \cap \{ \alpha_1, \alpha_2, \beta_1, \beta_2 \} = \emptyset$.
  Invoking~\eqref{Z5} of~\cref{Zrels} with $\alpha = \alpha_1$, $\beta = -\alpha_2$, $\eta = 1$, $s = Xf$, $\xi = X\xi$ we can rewrite the term
-  $z_\alpha(Xf, X\xi)$ as a product of terms from the statement of the lemma. Similar argument also applies to $z_\beta(Xf, X\xi)$.  
+  $z_\alpha(Xf, X\xi)$ as a product of generators of type 1,2,3. Similar argument also applies to $z_\beta(Xf, X\xi)$.  
  
- Finally, after collecting terms of the form $x_\epsilon(mX)$, $\epsilon \in \{ -\alpha, -\beta \}$ in the right-hand side of the resulting expression
+ Finally, after collecting terms $x_\epsilon(mX)$, $\epsilon \in \{ -\alpha, -\beta \}$ in the right-hand side of the resulting expression
   we obtain the desired decomposition for $g$. \end{proof}
+
+It is clear from the definition that $K(\alpha, \beta) \subseteq P_\alpha(0) \cap P_\beta(0) \cap K(A[X], M[X])$.
+The above proposition shows that this inlusion is, in fact, an equality.
   
 \begin{lemma}
- Let $\alpha, \beta \in \Phi$ be such that $\langle \alpha,\beta \rangle = 0$ or $1$.
- Then the image of $K(A[X], M[X]) \cap P_\alpha(0) \cap P_\beta(0)$ under $S_{\alpha}(a, -)$ is contained in the subgroup of $\St(\Phi, A[X, X^{-1}])$
-  generated by the following elements:
-  \begin{enumerate}
-   \item $z_\gamma(Xf, \xi)$, $\gamma \in \Phi \setminus\{ \pm \alpha, \pm \beta\};$
-   \item $x_{-\alpha}(X^2f)$, $x_{-\beta}(X^2f)$, $z_{\alpha}(Xf, X\xi)$, $z_\beta(Xf, X\xi)$;
-   \item $c_{\pm \delta}(f, X\xi)$ for some fixed root $\delta \in \Phi$, $\delta \not \in \{ \pm \alpha, \pm \beta \}$.
-  \end{enumerate}
- In particular, this image is contained in $P_\beta(0)$.
+ Let $\alpha, \beta \in \Phi$ be such that $\langle \alpha, \beta \rangle = 0\text{ or }1$.
+ Then the image of $K(\alpha, \beta)$ under $S_{\alpha}(a, -)$ is contained in the subgroup of $\St(\Phi, A[X, X^{-1}])$ 
+ generated by $K(\alpha, \beta)$ and the subgroup $U$, by definition, generated by $z_\gamma(f, X\xi)$, $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$.
+ We call these elements generators of type 5.
 \end{lemma}
 \begin{proof}
-Lol
+By~\eqref{eq:Zconj1}, \eqref{eq:Zconj2} the conjugate to each generator $z_\gamma(Xf, \xi)$ of type 1 by $x_\alpha(aX^{-1})$ is a product of generators of type 5, 5, 1.
+By~\eqref{eq:Zconj3} the conjugate to the generator $x_{-\alpha}(X^2f)$ is a product of generators of type 1, 5, 1, 2, 1, 1, 5, 5.
+$S(\alpha, -)$ either fixes $x_{-\beta}(X^2f)$, the other generator of type 2, or transforms them into products of generators of type 2, 1.
+Clearly, $S(\alpha, -)$ fixes both generators of type 3. 
+As for the remaining generators type 4, \cref{Crels} shows that the corresponding conjugate can be written as a product of generators of type 5, 5, 4.
 \end{proof}  
+
+\begin{corollary} If $\alpha$ and $\beta$ form a sharp angle, then the image of $K(\alpha, \beta)$ under $S(\alpha, -)$ is contained in $P_\beta(0)$. \end{corollary}
+\begin{proof} Follows from the above lemma and the fact that the generators of $U$ are generators of the second type for $P_\beta(0)$ in the sense of~\cref{defP0}.
+ Indeed, if $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ is such that $\langle \beta, \gamma \rangle = -1$, then $ \langle \alpha - \beta, \gamma \rangle \geq 2$, hence
+  $\gamma = \alpha - \beta$, a contradiction. \end{proof}
+
+
+\begin{comment}
+\begin{corollary} Suppose $g$ is an element of $P_\alpha(0) \cap K(A[X], M[X])$. Then $ev^*_{X=0}(S_\alpha(a, g))$ lies in the subgroup $U(Z_+(\alpha), M)$. \end{corollary}
+\begin{proof}
+ By~\cref{Kgen-strong} and~\cref{P0_normal} $g$ can be expressed as a product of elements 
+ $z_\beta(Xf, \xi)$, $\beta\in\Phi\setminus\{\pm \alpha\}$, $c_\gamma(f, X\xi)$ for some $\gamma$ orthogonal to $\alpha$, $x_{-\alpha}(X^2f)$, $x_{\alpha}(f)$.
+ 
+ It remains to notice that the only factors in the right-hand sides of in~\eqref{eq:Zconj1}--\eqref{eq:Zconj3} which do not vanish after evaluation at $X=0$
+  are those of the form $x_\beta(m)$ for some $\beta \in Z_+(\alpha)$.
+\end{proof}
+\end{comment}
+
   
 \subsection{The proof of the injectivity theorem}
 We denote by $B$ the ring $M[X] + A[X^{-1}]$ considered as a graded subring of $A[X, X^{-1}]$.
