@@ -322,7 +322,6 @@ In fact, it is generated as a group by even smaller subset $\mathcal{Z}(\Sigma_S
  In other words, $d$ adjoins to $U$ all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^n(\Sigma_S) = \Phi$ for some $n$ (in fact, for $n=2$). It remains to see that relation~\eqref{Z5} immediately implies the following assertion: every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$.
 \end{rem}
 
-
 {\bf TODO:} One can write analogue of~\eqref{Z5} in the nonsimply-laced case and the above argument still applies.
 
 For the proof of the following lemma we will need the following variant of Hall--Witt identity:
@@ -692,7 +691,7 @@ Substituting in~\eqref{Z5} of~\cref{Zrels} $s = -\epsilon f$, $\xi = -\epsilon m
 and the latter expression is a product of generators of type 1, 1, 2, 5, 1, 2, 1, 4.
 \end{proof}
 
-\begin{rem} \label{rem:palpha} From the above two lemmas it follows that the value of $p_\alpha$ on an element $g\in K(A[X], M[X])$ can be computed as follows. Express $g$ as a product of elements $z_{\beta}(Xf, \xi)$ for $\beta \in \Phi$ and $c_\delta(f, X\xi)$ for some fixed $\delta \perp \alpha$. Now $p_\alpha(g)$ coincides with the sum of constant terms of the polynomials $f$ corresponding to the factors of the form $z_{-\alpha}(Xf, \xi)$ occuring in this expression. \end{rem}
+\begin{rem} \label{rem:palpha} From the two preceding lemmas it follows that the value of $p_\alpha$ on an element $g\in K(A[X], M[X])$ can be computed as follows. Express $g$ as a product of elements $z_{\beta}(Xf, \xi)$ for $\beta \in \Phi$ and $c_\delta(f, X\xi)$ for some fixed $\delta \perp \alpha$. Now $p_\alpha(g)$ coincides with the sum of constant terms of the polynomials $f$ corresponding to the factors of the form $z_{-\alpha}(Xf, \xi)$ occuring in this expression. \end{rem}
 
 
 For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
@@ -701,9 +700,9 @@ From the above lemma it follows that $P_\alpha(*)$ coincides with the union of a
 \begin{df} Define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, A[X, X^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
 \[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha,\ g \in P_\alpha(m).\] \end{df}
 It follows immediately from the definition of $S_\alpha(a, -)$ that for $g_1 \in P_\alpha(m)$, $g_2 \in P_\alpha(*)$ holds
-\[ S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\frac{a}{1+am}, g_2\right).\]
+\begin{equation} \label{eq:Smult} S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\frac{a}{1+am}, g_2\right).\end{equation}
 
-It is clear that the restriction of the map $S_\alpha(a, g)$ to the subgroup $P_\alpha(0)$ coincides with the conjugation map $g \mapsto {}^{x_\alpha(aX^{-1})}\!g$.
+It is clear that the restriction of the map $S_\alpha(a, g)$ to the subgroup $P_\alpha(0)$ coincides with the map of left conjugation by $x_\alpha(aX^{-1})$.
 
 \begin{lemma}\label{P0_conj} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a\in A$. \end{lemma}
 \begin{proof} We need to verify that the conjugate by $x_\alpha(aX^{-1})$ to every generator $g = z_\beta(f, \xi)$ from~\cref{defP0} lies in $P_\alpha(0)$. 
@@ -724,24 +723,12 @@ Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = -\alpha - \beta
 \begin{multline} \label{eq:Zconj3} z_{-\alpha}(X^2f, aX^{-1}) = x_{-\alpha-\beta}(\epsilon Xf) \cdot x_{-\beta}(-af) \cdot x_{\beta}(aX^2 f) \cdot x_{-\alpha}(X^2f) \cdot \\
  \cdot z_{-\alpha-\beta}(-\epsilon Xf, -\epsilon a) \cdot x_{\alpha+\beta}(-\epsilon a^2 Xf) \cdot x_{\alpha}(- a^2 f) \cdot z_{-\beta}(a f, -X), \end{multline}
 where $\epsilon = N_{-\alpha-\beta,\beta}$. 
-Clearly, the expression in the right-hand side is a product of generators of type 1, 2, 1, 4, 1, 1, 5, 2.
+Clearly, the expression in the right-hand side is a product of generators of type 1, 2, 1, 4, 1, 1, 5, 2. \end{proof}
 
-\begin{comment}
-It remains to verify the assertion for the remaining generator $z_\alpha(f, X\xi)$ of type 2.
-Again choose $\beta$ to be any root such that $\alpha+\beta \in \Phi$.
-Substituting in~\eqref{Z5} of~\cref{Zrels} $s = -\epsilon f$, $\xi = -\epsilon \xi$, $\eta=X$ and expressing $z_\alpha(f, X\xi)$ through other terms we obtain that
-\begin{multline} \nonumber z_\alpha(f, X\xi) = x_{\alpha+\beta}(\epsilon Xf) \cdot x_{\beta}(-X^2 f \xi) \cdot x_{-\beta}(f \xi) \cdot x_\alpha(f) \cdot \\ 
- \cdot z_{\alpha+\beta}(-\epsilon X f, -\epsilon \xi) \cdot z_{-\beta}(-f\xi, -X) \cdot x_{-\alpha-\beta}(-\epsilon X f \xi^2) \cdot x_{-\alpha}(-X^2 f\xi^2), \end{multline}
-where $\epsilon = N_{\alpha,\beta}$.  
-The factors in the right-hand side are generators of type 1, 1, 2, 2, 1, 2, 1, 4. 
-It is clear, that conjugation by $x_{\alpha}(aX^{-1})$ acts trivially on the fourth factor $x_\alpha(f)$, 
-while for the other factors we have already verified that their conjugates belong to $P_{\alpha}(0)$. 
-\end{comment}
-\end{proof}
-
-\begin{lemma} \label{lem:Tulenbayev-formula} One has
- \[x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot 
- x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}.\] \end{lemma}
+\begin{lemma} \label{lem:Tulenbayev-formula} 
+One has 
+$ S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am).$
+\end{lemma}
 \begin{proof} Since $\Phi$ is nonsymplectic, we can choose some $\gamma$ such that $\langle \alpha, \gamma \rangle = -1$.
  \begin{multline*}
  x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) %= x_\alpha(X^{\langle \alpha, \gamma \rangle}a) x_{-\alpha}(X^{-\langle \alpha, \gamma \rangle}m) 
@@ -749,26 +736,22 @@ while for the other factors we have already verified that their conjugates belon
  = {}^{h_\gamma(X)}\left( x_{-\alpha}\left(\frac{m}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\frac{a}{1+am}\right) \right) = \\
  = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha(X^{-1})^{-1} \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
  = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot \{1+am, X^{-1}\}^{-1} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) = \\
- = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}. \qedhere
+ = x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\frac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\},
 \end{multline*}
+which implies the assertion.
 \end{proof}
 
 \begin{corollary} For $g \in P_\alpha(m)$ holds $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \frac{m}{1 + am})$.
 Consequently one has \[ S_\alpha(a+b, g) = S_\alpha\left(b,\ S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)\right)\cdot h_\alpha(1+am). \]\end{corollary}
 \begin{proof}
-Suppose $g \in P_\alpha(m)$, then $g = g_0 \cdot x_{-\alpha}(mX)$ for some $g_0 \in P_\alpha(0)$ for which we already know that $S_\alpha(a, g_0) \in P(\alpha, 0)$.
-We need to verify that $h = S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)$ lies in $P\left(\alpha, \frac{m}{1 + am}\right)$, but from Lemmas~\ref{P0_conj}--\ref{lem:Tulenbayev-formula} and the antisymmetry of Steinberg symbols we obtain that:
-\begin{multline} \nonumber h = {}^{x_\alpha(aX^{-1})}\!g_0 \cdot \left(x_{\alpha}(aX^{-1}) \cdot x_{-\alpha}(mX)\right) \cdot x_{\alpha}\left(-\frac{aX^{-1}}{1+am}\right) \cdot \{X, 1+am\} \cdot h_\alpha^{-1}(1 + am) = \\
-= S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \in P_\alpha\left(\frac{m}{1+am}\right). \end{multline}
-The second assertion can be verified in a straightforward manner. \end{proof}
+Fix an element $g \in P_\alpha(m)$ and write it $g = g_0 \cdot x_{-\alpha}(mX)$ for some $g_0 \in P_\alpha(0)$.
+Now by~\eqref{eq:Smult} and~\cref{P0_conj} one has
+\begin{multline} \nonumber
+S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_{\alpha}^{-1}(1+am) = 
+\\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot\langle -a, m \rangle \in P_\alpha\left(\frac{m}{1+am}\right).
+\end{multline}
 
-\begin{comment}
-\begin{lemma} If $\alpha - \beta \in \Phi$ then for all $g \in \St(\Phi, R[X], XM[X])$ holds $S_\alpha(a, g) \in P_\beta(0)$. \end{lemma}
-\begin{proof}
-It suffices to verify the assertion for the generators $z_\gamma(Xf, g)$, $\gamma \in \Phi$.
-By our assumption $(\alpha, \beta) \geq 0$. 
-\end{proof}
-\end{comment}
+The second assertion can be verified in a straightforward manner. \end{proof}
 
 \subsection{The subgroups $K(\alpha, \beta)$ and their properties}
 Throughout this subsection $\alpha, \beta$ denote a fixed pair of roots of $\Phi$ forming a sharp angle (i.\,e. $\langle \alpha, \beta \rangle = 1$). We denote by $\Psi$ the subsystem of type $\rA_2$ generated by $\alpha$ and $\beta$.
@@ -837,13 +820,7 @@ The assertion now follows from the preceding corollary.
   
 \begin{lemma} For $a \in A$ one has $K(\alpha, \beta)^{x_{\beta - \alpha}(a)} \subseteq K(\alpha, \beta)$. \end{lemma}
 \begin{proof}
- By~\eqref{Z2}--\eqref{Z4} of~\cref{Zrels} the conjugate to the generator $g=z_\gamma(Xf, \xi)$ of type 1 by $x_{\beta-\alpha}(a)$ either coincides with $g$ or is a product of elements of type 4, 1, 1.
- 
- Now let $g$ be a generator of type 2 or 3. It is clear that conjugation by $x_{\beta-\alpha}(a)$ either fixes $g$ or transforms it into a product of two elements of type 2 or 3.
- 
- By~\eqref{C1}--\eqref{C3} of~\cref{Crels} the conjugate to a generator $g = c_\delta(f, X\xi)$ of type 5 either coincides with $g$ or is a product of generators of type 5, 4, 1.
- 
- Finally, from~\cref{rem:palpha} we obtain that $z_{\alpha-\beta}(Xf, a) \in K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0) = K(\alpha, \beta)$. \end{proof} 
+ By~\eqref{Z2}--\eqref{Z4} of~\cref{Zrels} the conjugate to the generator $g=z_\gamma(Xf, \xi)$ of type 1 by $x_{\beta-\alpha}(a)$ either coincides with $g$ or is a product of elements of type 4, 1, 1. Now if $g = x_\epsilon(Xf)$, $\epsilon \in \{\pm \alpha, \pm \beta\}$ is a generator of type 2 or 3, the conjugation by $x_{\beta-\alpha}(a)$ either fixes $g$ or transforms it into a product of either two elements of type 2 or two elements of type 3. By~\eqref{C1}--\eqref{C3} of~\cref{Crels} the conjugate of a generator $g = c_\delta(f, X\xi)$ of type 5 either coincides with $g$ or is a product of generators of type 5, 4, 1. Finally, from~\cref{rem:palpha} we obtain that $z_{\alpha-\beta}(Xf, a) \in K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0) = K(\alpha, \beta)$. \end{proof} 
   
 
 \begin{comment}
