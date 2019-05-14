@@ -824,7 +824,10 @@ The assertion now follows from the preceding corollary.
   
 \begin{lemma} \label{conj-K-a-b} For $b \in A$ one has $K(\alpha, \beta)^{x_{\beta - \alpha}(b)} \subseteq K(\alpha, \beta)$. \end{lemma}
 \begin{proof}
- By~\eqref{Z2}--\eqref{Z4} of~\cref{Zrels} the conjugate to the generator $g=z_\gamma(Xf, \xi)$ of type 1 by $x_{\beta-\alpha}(b)$ either coincides with $g$ or is a product of elements of type 4, 1, 1. Now if $g = x_\epsilon(Xf)$, $\epsilon \in \{\pm \alpha, \pm \beta\}$ is a generator of type 2 or 3, the conjugation by $x_{\beta-\alpha}(a)$ either fixes $g$ or transforms it into a product of either two elements of type 2 or two elements of type 3. By~\eqref{C1}--\eqref{C3} of~\cref{Crels} the conjugate to a generator $g = c_\delta(f, X\xi)$ of type 5 either coincides with $g$ or is a product of generators of type 5, 4, 1. Finally, from~\cref{rem:palpha} we obtain that $z_{\alpha-\beta}(Xf, b) \in K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0) = K(\alpha, \beta)$. \end{proof} 
+ By~\eqref{Z2}--\eqref{Z4} of~\cref{Zrels} the conjugate to the generator $g=z_\gamma(Xf, \xi)$ of type 1 by $x_{\beta-\alpha}(b)$ either coincides with $g$ or is a product of elements of type 4, 1, 1. 
+ Now if $g = x_\epsilon(Xf)$, $\epsilon \in \{\pm \alpha, \pm \beta\}$ is a generator of type 2 or 3, the conjugation by $x_{\beta-\alpha}(a)$ either fixes $g$ or transforms it into a product of either two elements of type 2 or two elements of type 3. 
+ By~\eqref{C1}--\eqref{C3} of~\cref{Crels} the conjugate to a generator $g = c_\delta(f, X\xi)$ of type 5 either coincides with $g$ or is a product of generators of type 5, 4, 1.
+ Finally, from~\cref{rem:palpha} we obtain that $z_{\alpha-\beta}(Xf, b) \in K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0) = K(\alpha, \beta)$. \end{proof} 
 
 \begin{lemma} 
  For $g \in K(\alpha, \beta)$ and $a, b\in A$ the conjugate to
@@ -833,18 +836,37 @@ The assertion now follows from the preceding corollary.
 \begin{proof}
  By~\cref{image-K-a-b} and~\cref{conj-K-a-b} it remains to show that the conjugate to each generator $g = z_\gamma(f, X\xi)$, $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ of $Z$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$.
  
- Throughout this proof we understand generator types according to~\cref{defP0}. It is clear that $g$ itself is a generator of type 2, therefore it remains to consider the case $\gamma\not \perp \beta - \alpha$. 
+ Throughout this proof we understand generator types according to~\cref{defP0}.
+ It is clear that $g$ itself is a generator of type 2, therefore it remains to consider the case $\gamma\not \perp \beta - \alpha$. 
  
  In the case $\alpha - \beta - \gamma \in \Phi$ we obtain from \eqref{Z2} of~\cref{Zrels} that
 \[ z_{\gamma}(f, X\xi) ^ {x_{\beta-\alpha}(b)} = x_{\beta-\alpha} (- bXf\xi) \cdot x_{\gamma + \beta -\alpha} (N_{\gamma, \beta -\alpha}\cdot bf)     \cdot z_{\gamma}(f, X\xi)\ \text{if}\ \alpha - \beta - \gamma \in \Phi. \]
-Notice that $\langle \gamma + \beta - \alpha, \alpha \rangle = 
-  \langle \gamma , \alpha \rangle + \langle \beta , \alpha \rangle - \langle \alpha, \alpha \rangle \geq 1 + 1 - 2 = 0$, therefore the expression in the right-hand side is a product of generators of type 1, 2, 2 or 1, 3, 2. {\bf TODO: } Double check that both possibilities actually occur.
+ Notice that $\langle \gamma + \beta - \alpha, \alpha \rangle = \langle \gamma , \alpha \rangle + \langle \beta, 
+ \alpha \rangle - \langle \alpha, \alpha \rangle \geq 1 + 1 - 2 = 0$, 
+ therefore the expression in the right-hand side is a product of generators of type 1, 2, 2 or 1, 3, 2. {\bf TODO: } Double check that both possibilities actually occur.
 
-Now suppose that the other alternative holds, namely that $\alpha - \beta + \gamma \in \Phi$.  Since $\langle \beta - \gamma - \alpha , \alpha \rangle = \langle \beta , \alpha \rangle - \langle \gamma , \alpha \rangle - \langle \alpha, \alpha \rangle \leq 1 - 1 - 2 = -2$ we obtain that $\beta - \gamma - \alpha = -\alpha$. Thus, by \eqref{Z3} of~\cref{Zrels}
+Now suppose that the other alternative holds, namely that $\alpha - \beta + \gamma \in \Phi$.
+Since $\langle \beta - \gamma - \alpha , \alpha \rangle = \langle \beta , \alpha \rangle - \langle \gamma , \alpha \rangle - \langle \alpha, \alpha \rangle \leq 1 - 1 - 2 = -2$
+we obtain that $\beta - \gamma - \alpha = -\alpha$. Thus, by \eqref{Z3} of~\cref{Zrels}
 \[z_{\gamma}(f, X\xi) ^ {x_{\beta-\alpha}(b)} = x_{\beta-\alpha} (bXf\xi) \cdot x_{-\alpha} (N_{\gamma,\alpha - \beta}\cdot bX^2 f\xi^2) \cdot z_{\gamma}(f, X\xi). \]
 The expression in the right-hand side is a product of generators of type 1, 4, 2. \end{proof}
 
+\begin{lemma}
+ For $g \in K(A[X], M[X]) \cap P_\alpha(m) \cap P_\beta(m')$ holds 
+ \[ x_{\beta - \alpha}(b) \cdot S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta - \alpha}((1 + N_{\alpha,-\beta} \cdot abm')^{-1})\cdot x_{\beta - \alpha}(-b(1 + N_{\alpha,-\beta} \cdot abm')) \in P\left(\alpha, \frac{m - bm'}{1+am}\right). \]
+\end{lemma}
+\begin{proof}
+Set $\epsilon = N_{\alpha, -\beta}$, $c = 1 + \epsilon a b m'$, $s_0 = \langle -a, m \rangle$, $s_1 = \langle -\epsilon am', -bc^{-1} \rangle$.
+By~\cref{K-a-b} we can write $g = g_0 \cdot $ for some $m, m' \in M$ hence by ??? we obtain that
+ \begin{multline} \nonumber 
+ S_\alpha(a, x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta-\alpha}(c^{-1})\cdot x_{\beta - \alpha}(-bc) = \\ 
+ = S_\alpha(a, x_{-\beta}(m'X)) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_\alpha^{-1} (1 + am) \cdot h_{\beta - \alpha}(c^{-1}) \cdot x_{\beta - \alpha}(-bc) = \\
+ = x_{-\beta}(m'X) \cdot x_{\alpha - \beta}(\epsilon am') \cdot x_{\beta - \alpha}(-bc^{-1}) \cdot x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot s_0 \cdot h_{\beta - \alpha}(c^{-1}) = \\
+ = x_{-\beta}(m'X) \cdot x_{\beta - \alpha}(-b) \cdot s_1 \cdot h_{\alpha-\beta}(c^{-1}) \cdot x_{\alpha-\beta}\left(\epsilon acm'\right) \cdot x_{-\alpha}\left(\frac{mX}{1+am}\right) \cdot s_0 \cdot h_{\beta - \alpha}(c^{-1}) = \\
+ =  x_{\beta - \alpha}(-b) \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(-\epsilon bm'X) \cdot s_1 \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot x_{-\alpha}\left(\frac{cmX}{1+am}\right) \cdot s_0 =
+\end{multline}
 
+\end{proof}
 
 \begin{comment}
 \begin{corollary} Suppose $g$ is an element of $P_\alpha(0) \cap K(A[X], M[X])$. Then $ev^*_{X=0}(S_\alpha(a, g))$ lies in the subgroup $U(Z_+(\alpha), M)$. \end{corollary}
