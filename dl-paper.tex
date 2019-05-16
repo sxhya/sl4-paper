@@ -693,14 +693,13 @@ and the latter expression is a product of generators of type 1, 1, 2, 5, 1, 2, 1
 
 \begin{rem} \label{rem:palpha} From the two preceding lemmas it follows that the value of $p_\alpha$ on an element $g\in K(A[X], M[X])$ can be computed as follows. Express $g$ as a product of elements $z_{\beta}(Xf, \xi)$ for $\beta \in \Phi$ and $c_\delta(f, X\xi)$ for some fixed $\delta \perp \alpha$. Now $p_\alpha(g)$ coincides with the sum of constant terms of the polynomials $f$ corresponding to the factors of the form $z_{-\alpha}(Xf, \xi)$ occuring in this expression. \end{rem}
 
-
 For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
 From the above lemma it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. This allows us to make the following definition. 
 
 \begin{df} Define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, A[X, X^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
-\[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha,\ g \in P_\alpha(m).\] \end{df}
+\[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha.\] \end{df}
 It follows immediately from the definition of $S_\alpha(a, -)$ that for $g_1 \in P_\alpha(m)$, $g_2 \in P_\alpha(*)$ holds
-\begin{equation} \label{eq:Smult} S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\frac{a}{1+am}, g_2\right).\end{equation}
+\begin{equation} \label{eq:Smult} S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right).\end{equation}
 
 It is clear that the restriction of the map $S_\alpha(a, g)$ to the subgroup $P_\alpha(0)$ coincides with the map of left conjugation by $x_\alpha(aX^{-1})$.
 
@@ -860,26 +859,13 @@ From the definition of $S_\alpha(a, -)$ we obtain that
  =  x_{\beta - \alpha}(-b) \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(-\epsilon bm'X) \cdot s_1 \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot x_{-\alpha}\left(\tfrac{cmX}{1+am}\right) \cdot s_0 = \\
  = x_{\beta-\alpha}(-b) \cdot x_{-\beta}\left(m'X(1 - \epsilon abm'c^{-1})\right) \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot s_1 \cdot s_0 \cdot x_{-\alpha}\left(-\epsilon bm' X + \tfrac{cmX}{1+am}\right).
 \end{multline}
-Denote by $h_0$ the product of all terms except the first and the last one in the above formula. Clearly, $h_0$ is a product of generators of $P_\alpha(0)$ of type 1, 2, 6, 6. Now by~\cref{K-a-b} we can write $g = g_0 x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)$ for $g_0 \in K(\alpha, \beta)$.
+Denote by $h_0$ the product of all terms except the first and the last one in the above formula. Clearly, $h_0$ is a product of generators of $P_\alpha(0)$ of type 1, 2, 6, 6. Now by~\cref{K-a-b} we can write $g = g_0 \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)$ for $g_0 \in K(\alpha, \beta)$.
 The required assertion now follows from \eqref{eq:Smult}, \eqref{eq:SRobtuse-computation} and the preceding lemma:
 \begin{multline} \nonumber
  x_{\beta - \alpha}(b) \cdot S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta - \alpha}(c^{-1})\cdot x_{\beta - \alpha}(-bc) = \\
   = x_{\beta - \alpha}(b) \cdot S_\alpha(a, g_0) \cdot x_{\beta-\alpha}(-b) \cdot h_0 \cdot x_{-\alpha}\left(\tfrac{m -\epsilon bm'}{1+am}\right) \in P_\alpha(\tfrac{m -\epsilon bm'}{1+am}). \qedhere
 \end{multline}
-
-
 \end{proof}
-
-\begin{comment}
-\begin{corollary} Suppose $g$ is an element of $P_\alpha(0) \cap K(A[X], M[X])$. Then $ev^*_{X=0}(S_\alpha(a, g))$ lies in the subgroup $U(Z_+(\alpha), M)$. \end{corollary}
-\begin{proof}
- By~\cref{Kgen-strong} and~\cref{P0_normal} $g$ can be expressed as a product of elements 
- $z_\beta(Xf, \xi)$, $\beta\in\Phi\setminus\{\pm \alpha\}$, $c_\gamma(f, X\xi)$ for some $\gamma$ orthogonal to $\alpha$, $x_{-\alpha}(X^2f)$, $x_{\alpha}(f)$.
- 
- It remains to notice that the only factors in the right-hand sides of in~\eqref{eq:Zconj1}--\eqref{eq:Zconj3} which do not vanish after evaluation at $X=0$
-  are those of the form $x_\beta(m)$ for some $\beta \in Z_+(\alpha)$.
-\end{proof}
-\end{comment}
 
   
 \subsection{The proof of the injectivity theorem}
