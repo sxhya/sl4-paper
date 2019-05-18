@@ -1002,5 +1002,17 @@ Then
   = S_\alpha(a, g_0 \cdot x_{-\alpha}(mX)) \cdot x_{-\beta}(m'X).\]
 We need to show $S_\alpha(a, g_0 \cdot x_{-\alpha}(mX)) \in P(\beta, 0)$ but this is obvious since the latter is a subgroup.
 \end{comment}
+\begin{align*} {}^{x_\gamma(X^{-1})}x_\alpha(bX^{-1}) = {}^{x_\gamma(X^{-1})}[x_{-\beta}(b'X^{-1}), x_{\alpha+\beta}(1)] & \text{ by R$2_1$}\\
+ = [x_{-\beta}(b'X^{-1}), {}^{x_\gamma(X^{-1})}x_{\alpha+\beta}(1)] & \text{ by R$3_1$ for sharp angles}\\
+ = [[x_{-\beta-\gamma}(b''), x_\gamma(X^{-1})], {}^{x_\gamma(X^{-1})}x_{\alpha+\beta}(1)] & \text{ by R$2_1$}\\
+ = [x_{-\beta-\gamma}(b''), [x_\gamma(X^{-1}), x_{\alpha+\beta}(1)]] & \text{ by R$3_0$}\\
+ = x_{\alpha}(b'''X^{-1}) & \text{ by R$2_1$.} \end{align*}
+
+\begin{align*} x_{\alpha+\beta+\gamma}(abX^{-1}) = {}^{x_{-\beta}(X^{-1})}\!x_{\alpha+\beta+\gamma}(abX^{-1}) & \text{ by the above relation}\\
+ = {}^{x_{-\beta}(X^{-1})}\![x_{\alpha+\beta}(b'), x_\gamma(aX^{-1})] & \text{ by R$2_1$} \\
+ = [x_{\alpha}(b'X^{-1}) x_{\alpha+\beta}(b'), x_\gamma(aX^{-1})] & \text{ by R$2_1$ and R$3_1$ for sharp angles }\\
+ = {}^{x_{\alpha}(b'X^{-1})}\!x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$2_1$} \\
+ = x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$3_1$ for sharp angles.} \end{align*}
+
 \printbibliography
 \end{document}
