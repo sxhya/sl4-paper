@@ -812,35 +812,24 @@ Denote by $h_0$ the product of all terms except the first and the last one in th
 \end{multline}
 \end{proof}
 
-  
 \subsection{The proof of the injectivity theorem}
 We denote by $B$ the ring $M[X] + A[X^{-1}]$ considered as a graded subring of $A[X, X^{-1}]$.
-Denote by $\overline{G}^{\geq 0}_M$ the image of the map $\St(\Phi, R[X], M[X]) \to \St(\Phi, A[X, X^{-1}])$ and by
- $G^{\leq 0}$ the group $\St(\Phi, A[X^{-1}])$.
+Denote by $\overline{G}^{\geq 0}_M$ the image of the map $\St(\Phi, A[X], M[X]) \to \St(\Phi, A[X, X^{-1}])$ and by $G^{\leq 0}$ the group $\St(\Phi, A[X^{-1}])$.
 
 \[ \xymatrix{ \overline{\St}(\Phi, A, M) \ar[r]^{j_+i_+} \ar[d]^{i^-} & \overline{G}_M^{\geq 0} \ar@{^{(}->}[d] \\
               G^{\leq 0} \ar[r]^{j_-} & \St(\Phi, A[X, X^{-1}]), } \] 
+Denote by $\overline{G}_M^0$ the image of the left arrow $i_-$ in $G^{\leq 0}$ and by $C$ the set of left cosets of $\overline{G}_M^0$ in $G^{\leq 0}$, i.\,e.
+$C = \{ g\overline{G}^0_M \mid g \in G^{\leq 0} \}.$
 
-\begin{lemma} if $\alpha \perp \beta$ then $g \in P(\alpha, m) \cap P(\beta, m')$ implies $S_\alpha(a, g) \in P(\beta, m')$. \end{lemma}
-\begin{proof}
- Lol
-\end{proof}
+Denote by $V$ the subset of $\St(\Phi, A[X, X^{-1}]) \times C \times (1 + M)^*$ consisting of those triples $(g, h \overline{G}^0_M, u)$ for which $\pi(g, h, u) = g \cdot j_-(h) \cdot \{ X, u \} \in \overline{G}_M^{\geq 0}$. The correctness of this definition is clear from the above commutative diagram.
 
-Let $P(\alpha, m)$ be a collection of subsets of $\overline{G}^{\geq 0}_M$ with the following properties:
-\[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha,\ \ g \in P(\alpha, m)\text{ for some $m \in M$}.\]
-
-$P(\alpha, a) P(\alpha, b) \subseteq P(\alpha, a + b)$.
-In particular, $P(\alpha, 0)$ is a subgroup.
-This hints us that there is a well-defined map $map_\alpha \colon G_M^{\geq 0} \to M$
-
-Let us show that this suffices to verify Steinberg additivity relation:
-
-Consider the set $V' = \St(\Phi, R[X, X^{-1}]) \times \St(\Phi, R[X^{-1}]) \times (1 + M)^*$.
-Denote by $V'_0$ the subset of $V'$ consisting of those $(g, h, u)$ for which $\pi(g, h, u) = g \cdot j_-(h) \cdot \{ X, u \} \in \overline{G}_M^{\geq 0}$.
-The the following operator is defined for those $(g, h, u)$, for which $\pi(g, h, u) \in P(\alpha, m)$
-\[ T_\alpha(aX^{-1})(g, h, u) = \left( x_\alpha(aX^{-1})\cdot g ,\
-                                         h \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right),\ 
-                                         u(1 + am)\right).\]
+The next step of the proof is to define for $\alpha \in \Phi$, $a \in A$ a  function $T_\alpha(aX^{-1}) \colon V \to V$. This function is defined for those triples $(g, h, u)$ for which $\pi(g, h, u) \in P_\alpha(*) \subseteq \overline{G}_M^{\geq 0}$. If $\pi(g, h, u) \in P_\alpha(m)$ for some $m \in M$, then $T_\alpha(aX^{-1})$ is defined via the following identity:
+\[ T_\alpha(aX^{-1}) (g, h, u) = \left( x_\alpha(aX^{-1})\cdot g ,\
+                                         h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ 
+                                         u \cdot (1 + am)\right).\]
+It is easy to verify that $\pi(T_\alpha(aX^{-1}) (g, h, u)) = S_\alpha(a, \pi(g, h, u)).$                                        
+     
+The next step of the proof is to pass from the set $V_0'$ to its quotient $V_0$ 
 We allow multiplying the second component on the right by an element of $\mathrm{im}(\St(\Phi, A, M) \to \St(\Phi, A))$
  (this operation is well defined for $V'_0$).
 
@@ -869,7 +858,7 @@ $S_\alpha(a, \pi(g, h, u))\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N
  \sim h \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am + bm'}\right) \cdot x_\beta\left(-\frac{bX^{-1}}{1 + am + bm'}\right).
 \end{multline}
 The latter expression is symmetric.
-
+\begin{comment}
 If $\alpha + \beta \in \Phi$, $\pi(g, h, u) \in P(\beta, m) \cap P(\alpha + \beta, m')$ then
 \[x_\alpha(-a) \cdot S_\beta(-b, \pi(g, h, u)) h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm')\cdot x_{\alpha}(a(1 + abm')) \in P\left(\beta, \frac{m + am'}{1-bm}\right)\]
 
@@ -946,6 +935,7 @@ If $\alpha + \beta \in \Phi$, $\pi(g, h, u) \in P(\beta, m) \cap P(\alpha + \bet
 
 There is still a mistake in the last implication :(
 Perhaps one must replace $1 + abm'$ with $1 + ab N_{\alpha, \beta} m'$.
+
 \begin{multline}
 [T_\alpha(a), T_\beta(bX^{-1})] \left( g, h, u \right) =
  T_\alpha(a) T_\beta(bX^{-1}) \left( x_\alpha(-a) \cdot x_\beta (-b X^{-1}) \cdot g, h \cdot x_\beta\left(\frac{bX^{-1}}{1-bm}\right) , u (1 - bm) \right) \sim \\
@@ -992,6 +982,6 @@ Then
 \[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X) \cdot x_\alpha\left(-\frac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha
   = S_\alpha(a, g_0 \cdot x_{-\alpha}(mX)) \cdot x_{-\beta}(m'X).\]
 We need to show $S_\alpha(a, g_0 \cdot x_{-\alpha}(mX)) \in P(\beta, 0)$ but this is obvious since the latter is a subgroup.
-
+\end{comment}
 \printbibliography
 \end{document}
