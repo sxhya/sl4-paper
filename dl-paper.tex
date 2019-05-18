@@ -645,8 +645,7 @@ The above lemma allows us to characterize $P_\alpha(*)$ as follows: it consists 
    
 \begin{lemma}\label{P0_normal} The subgroup $P_\alpha(0)$ is normal in $P_\alpha(*)$. In particular, there is an exact sequence, which is split by the map $m \mapsto x_{-\alpha}(mX)$:
 \[\xymatrix{1 \ar[r] & P_\alpha(0) \ar[r] & P_\alpha(*) \ar[r]^{p_\alpha} & M^+ \ar@<5pt>@{-->}[l] \ar[r] & 1}.\] \end{lemma}
-\begin{proof} 
-We need to verify that the conjugate by $x_{-\alpha}(mX)$ to every generator $g$ of $P_\alpha(0)$ listed in~Definition~\ref{defP0} belongs to $P_\alpha(0)$.
+\begin{proof} We need to verify that the conjugate by $x_{-\alpha}(mX)$ to every generator $g$ of $P_\alpha(0)$ listed in~Definition~\ref{defP0} belongs to $P_\alpha(0)$.
 The assertion is obvious for the generators of type 3 and 4.
 
 Suppose $g$ has type 1 or 2 and $\beta - \alpha \in \Phi$. By~\cref{Zrels} we obtain that
@@ -821,14 +820,34 @@ Denote by $\overline{G}^{\geq 0}_M$ the image of the map $\St(\Phi, A[X], M[X]) 
 Denote by $\overline{G}_M^0$ the image of the left arrow $i_-$ in $G^{\leq 0}$ and by $C$ the set of left cosets of $\overline{G}_M^0$ in $G^{\leq 0}$, i.\,e.
 $C = \{ g\overline{G}^0_M \mid g \in G^{\leq 0} \}.$
 
-Denote by $V$ the subset of $\St(\Phi, A[X, X^{-1}]) \times C \times (1 + M)^*$ consisting of those triples $(g, h \overline{G}^0_M, u)$ for which $\pi(g, h, u) = g \cdot j_-(h) \cdot \{ X, u \} \in \overline{G}_M^{\geq 0}$. The correctness of this definition is clear from the above commutative diagram.
+Denote by $V$ the subset of $\St(\Phi, A[X, X^{-1}]) \times G^{\leq 0} \times (1 + M)^*$ consisting of those triples $(g, h, u)$ for which 
+$\pi(g, h, u) = g \cdot j_-(h) \cdot \{ X, u \} \in \overline{G}_M^{\geq 0}$.
+Denote by $\overline{V}$ the image of $V$ in $\St(\Phi, A[X, X^{-1}]) \times C \times (1 + M)^*$
+under the obvious map induced by the projection $G^{\leq 0} \to C$
+ (of course, these triples still can be characterized by the property that $(g, h \overline{G}^0_M, u) \in \overline{V}$ iff $\pi(g, h, u) \in \overline{G}_M^{\geq 0}$).
 
-The next step of the proof is to define for $\alpha \in \Phi$, $a \in A$ a  function $T_\alpha(aX^{-1}) \colon V \to V$. This function is defined for those triples $(g, h, u)$ for which $\pi(g, h, u) \in P_\alpha(*) \subseteq \overline{G}_M^{\geq 0}$. If $\pi(g, h, u) \in P_\alpha(m)$ for some $m \in M$, then $T_\alpha(aX^{-1})$ is defined via the following identity:
+The next step of the proof is to define for $\alpha \in \Phi$, $a \in A$ a partial function $T_\alpha(aX^{-1}) \colon V \not\to V$.
+This function is defined for those triples $(g, h, u)$ for which $\pi(g, h, u) \in P_\alpha(*) \subseteq \overline{G}_M^{\geq 0}$.
+If $\pi(g, h, u) \in P_\alpha(m)$ for some $m \in M$, then $T_\alpha(aX^{-1})$ is given by the following identity:
 \[ T_\alpha(aX^{-1}) (g, h, u) = \left( x_\alpha(aX^{-1})\cdot g ,\
                                          h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ 
                                          u \cdot (1 + am)\right).\]
-It is easy to verify that $\pi(T_\alpha(aX^{-1}) (g, h, u)) = S_\alpha(a, \pi(g, h, u)).$                                        
-     
+It is easy to verify that $\pi(T_\alpha(aX^{-1}) (g, h, u)) = S_\alpha(a, \pi(g, h, u)).$
+
+\begin{lemma} $T_\alpha(aX^{-1})$ descends to a well-defined total function $T_\alpha(aX^{-1}) \colon \overline{V} \to \overline{V}$. \end{lemma}
+\begin{proof}
+ First of all, let us show that the resulting function is total. 
+ We need to show that for every $(g, h\overline{G}^0_M, u) \in \overline{V}$ we can find a representative $h' \in h\overline{G}^0_M$
+ such that $\pi(g, h', u) \in P_\alpha(*)$. Set $h' = h \cdot ev_{X=0}(\pi(g, h, u))^{-1}$, then
+  \[\pi(g, h', u) = g \cdot j_-(h) \cdot \{ X, u \} \cdot \left(ev_{X=0}(g \cdot j_-(h))\right)^{-1} \in Im(K(A[X], M[X]) \to \St(\Phi, A[X, X^{-1}])) \subseteq P_\alpha(*).\]
+  
+ Next, we have to show that the value of $T_\alpha(aX^{-1})$ is well-defined. Suppose $(g, h_1, u), (g, h_2, u) \in V$ are such that 
+  both $\pi(g, h_1, u)$ and $\pi(g, h_2, u)$ lie in $P_\alpha(*)$. Consequently, $j_-(h_1 h_2^{-1}) \in P_\alpha(*)$.
+ 
+\end{proof}
+
+
+
 The next step of the proof is to pass from the set $V_0'$ to its quotient $V_0$ 
 We allow multiplying the second component on the right by an element of $\mathrm{im}(\St(\Phi, A, M) \to \St(\Phi, A))$
  (this operation is well defined for $V'_0$).
