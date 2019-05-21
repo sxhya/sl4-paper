@@ -99,14 +99,18 @@ Recall from~\cite[Lemma~5.2]{Ma69} that the following identities hold for these 
    \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}.
  \end{align}
 
-
 In our computations we will use two explicit elements of $\K_2(\Phi, R)$. Recall that Steinberg symbols are defined for any $s, t \in R^*$ by the identity
 \begin{equation} \label{eq:steinberg} \{ s, t \}_\alpha = h_\alpha(s) \cdot h_\alpha(t) \cdot h_\alpha(st)^{-1}. \end{equation}
 
-Recall also that Dennis--Stein symbols are defined for arbitrary $r, s\in R$ satisfying $1 - rs \in R^*$ as follows:
+Recall also that Dennis--Stein symbols are defined for arbitrary $r, s\in R$ satisfying $1 + rs \in R^*$ as follows:
 \begin{equation} \label{eq:dennis-stein}
- \langle r,s \rangle _ \alpha = x_{-\alpha}\left(-\frac{s}{1 - rs}\right) \cdot x_{\alpha}(-r) \cdot x_{-\alpha}(s) \cdot x_{\alpha}\left(\frac{r}{1-rs}\right) \cdot h_{\alpha}(1 - rs)^{-1}.
+ \langle r,s \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- s}{1 + rs}\right) \cdot x_{\alpha}(r) \cdot x_{-\alpha}(s) \cdot x_{\alpha}\left(\tfrac{- r}{1+rs}\right) \cdot h_{\alpha}(1 + rs)^{-1}.
 \end{equation} 
+Notice that our notation follows~\cite{DS73} and {\it not}~III.5.11 of~\cite{Kbook}.
+
+Dennis--Stein symbols and Steinberg symbols are related to each other via the following identities:
+\begin{equation} \label{DS-S-relationship} \langle a, b \rangle_\alpha = \{-a, 1+ab\}_\alpha\text{ for } a, 1+ab\in R^*,\ \
+ \{ s, t \}_\alpha = \left\langle -s, \tfrac{1 - t}{s} \right\rangle_\alpha\text{ for } s, t\in R^* \end{equation}
 
 %Using~\eqref{eq:conj-h-h} it is easy to verify that \[[h_\alpha(s), h_\beta(t)] = \{s, t^{\langle \alpha, \beta \rangle}\}_\alpha = \{t, s^{\langle \beta, \alpha \rangle}\}_\beta^{-1}.\] 
 It is easy to show that the above symbols depend only on the length of $\alpha$.
@@ -210,8 +214,7 @@ by $I$ the ideal $M[X, X^{-1}]$ of $B$ (it is clear that $I$ is also an ideal of
 Consider the following commutative square of canonical maps.
 \[ \xymatrix{
     \St(\Phi, B, I) \ar[r] \ar[d] & \St(\Phi, B) \ar[d] \\
-    \St(\Phi, R, I) \ar[r] \ar@{-->}[ur] & \St(\Phi, R)
-   } \]
+    \St(\Phi, R, I) \ar[r] \ar@{-->}[ur] & \St(\Phi, R) } \]
 Then there exists a diagonal arrow which makes the diagram commute.   
 \end{lemma} 
 \begin{proof}
@@ -701,15 +704,15 @@ Clearly, the expression in the right-hand side is a product of generators of typ
 
 \begin{lemma} \label{lem:Tulenbayev-formula} 
 One has 
-$ S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am).$
+$ S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am).$
 \end{lemma}
 \begin{proof} Since $\Phi$ is nonsymplectic, we can choose $\gamma \in \Phi$ such that $\langle \alpha, \gamma \rangle = -1$. Direct computation using~\eqref{eq:conj-h-x},\eqref{eq:conj-h-h},\eqref{eq:steinberg},\eqref{eq:dennis-stein} shows that
  \begin{multline*}
  x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) = {}^{h_\gamma(X)}(x_\alpha(a) \cdot x_{-\alpha}(m)) = \\
- = {}^{h_\gamma(X)}\left( x_{-\alpha}\left(\tfrac{m}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\tfrac{a}{1+am}\right) \right) = \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha(X^{-1})^{-1} \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) = \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot \{1+am, X^{-1}\}^{-1} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) = \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle -a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\},
+ = {}^{h_\gamma(X)}\left( x_{-\alpha}\left(\tfrac{m}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\tfrac{a}{1+am}\right) \right) = \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha(X^{-1})^{-1} \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) = \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot \{1+am, X^{-1}\}^{-1} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) = \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\},
 \end{multline*}
 which implies the assertion.
 \end{proof}
@@ -721,7 +724,7 @@ Fix an element $g \in P_\alpha(m)$ and write it $g = g_0 \cdot x_{-\alpha}(mX)$ 
 Now by~\eqref{eq:Smult} and~\cref{P0_conj} one has
 \begin{multline} \nonumber
 S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_{\alpha}^{-1}(1+am) = 
-\\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot\langle -a, m \rangle \in P_\alpha\left(\tfrac{m}{1+am}\right).
+\\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot\langle a, m \rangle \in P_\alpha\left(\tfrac{m}{1+am}\right).
 \end{multline}
 
 The second assertion can be verified in a straightforward manner. \end{proof}
@@ -772,8 +775,8 @@ The conjugation by $x_\alpha(aX^{-1})$ fixes both generators of type 3 and trans
   $\gamma = \alpha - \beta$, a contradiction. \end{proof}
 
 \begin{lemma} \label{lem:SRsharp} For $g \in K(A[X], M[X]) \cap P_\alpha(m) \cap P_\beta(m')$ and $a \in A$ holds \[S_\alpha(a, g)\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot m'a) \in P_\beta\left(\tfrac{m'}{1 + am}\right). \] \end{lemma}
-\begin{proof} By~\cref{K-a-b} $g$ can be presented as $ g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $g_0\in K(\alpha, \beta)$, therefore from~\eqref{eq:Smult} and~\cref{lem:Tulenbayev-formula} we obtain that \begin{multline} \nonumber S_\alpha(a, g) = S_\alpha(a, g_0) \cdot S(a, x_{-\alpha}(mX)) \cdot S_\alpha\left(\tfrac{a}{1+am}, x_{-\beta}(m'X)\right) = \\ = S_\alpha(a, g_0) \cdot \langle -a, m \rangle \cdot h_\alpha(1+am) \cdot x_{-\beta}(m'X) \cdot x_{\alpha-\beta}\left(\tfrac{N_{\alpha, -\beta} \cdot m'a}{1+am}\right) = \\ =
-  S_\alpha(a, g_0) \cdot \langle -a, m \rangle \cdot  x_{-\beta}\left(\tfrac{m'X}{1+am}\right) \cdot x_{\alpha-\beta}\left(N_{\alpha, -\beta} \cdot m'a\right) \cdot h_\alpha(1+am). \end{multline}
+\begin{proof} By~\cref{K-a-b} $g$ can be presented as $ g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $g_0\in K(\alpha, \beta)$, therefore from~\eqref{eq:Smult} and~\cref{lem:Tulenbayev-formula} we obtain that \begin{multline} \nonumber S_\alpha(a, g) = S_\alpha(a, g_0) \cdot S(a, x_{-\alpha}(mX)) \cdot S_\alpha\left(\tfrac{a}{1+am}, x_{-\beta}(m'X)\right) = \\ = S_\alpha(a, g_0) \cdot \langle a, m \rangle \cdot h_\alpha(1+am) \cdot x_{-\beta}(m'X) \cdot x_{\alpha-\beta}\left(\tfrac{N_{\alpha, -\beta} \cdot m'a}{1+am}\right) = \\ =
+  S_\alpha(a, g_0) \cdot \langle a, m \rangle \cdot  x_{-\beta}\left(\tfrac{m'X}{1+am}\right) \cdot x_{\alpha-\beta}\left(N_{\alpha, -\beta} \cdot m'a\right) \cdot h_\alpha(1+am). \end{multline}
 The assertion now follows from the preceding corollary.
 \end{proof}
   
@@ -796,7 +799,7 @@ The expression in the right-hand side is a product of generators of type 1, 4, 2
 \begin{lemma} \label{lem:SRobtuse} For $g \in K(A[X], M[X]) \cap P_\alpha(m) \cap P_\beta(m')$ and $a, b\in A$ the element \[ x_{\beta - \alpha}(b) \cdot S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta - \alpha}((1 + \epsilon abm')^{-1})\cdot x_{\beta - \alpha}(-b(1 + \epsilon abm')) \]
  belongs to $P_\alpha\left(\tfrac{m - \epsilon bm'}{1+am}\right)$, where $\epsilon = N_{\alpha, -\beta}$.
 \end{lemma}
-\begin{proof} Set $c = 1 + \epsilon a b m'$, $s_0 = \langle -a, m \rangle$, $s_1 = \langle -\epsilon am', -bc^{-1} \rangle$.
+\begin{proof} Set $c = 1 + \epsilon a b m'$, $s_0 = \langle a, m \rangle$, $s_1 = \langle \epsilon am', -bc^{-1} \rangle$.
 From the definition of $S_\alpha(a, -)$ we obtain that
  \begin{multline} \label{eq:SRobtuse-computation}
  S_\alpha(a, x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta-\alpha}(c^{-1})\cdot x_{\beta - \alpha}(-bc) = \\ 
