@@ -549,12 +549,8 @@ This finishes the proof of R2$\!\,_{n+1}$.
 
 The proof of R1$\!\,_{n+1}$ is left to the reader. The next lemma is devoted to R3.2$\!\,_{n+1}$.
 
-\begin{lemma}
-For $a\in R_d$, $b\in R_e$, $d$, $e\leq n$, $d+e=n+1$ holds
-\[ [x_{\alpha_{l-1}}(a),\,x_{\alpha_l}(b)]=1. \]
-\end{lemma}
-\begin{proof}
-Take $x=x_{\alpha_{l}-\alpha_{l-2}}(N_{\alpha_{l}-\alpha_{l-2},\alpha_{l-2}}bt\inv)$, $y=x_{\alpha_{l-1}-\alpha_{l-2}}(N_{\alpha_{l-2},\alpha_{l-1}-\alpha_{l-2}}at\inv)$, and $z=x_{\alpha_{l-2}}(t)$. Then
+\begin{lemma} For $a\in R_d$, $b\in R_e$, $d$, $e\leq n$, $d+e=n+1$ holds \[ [x_{\alpha_{l-1}}(a),\,x_{\alpha_l}(b)]=1. \] \end{lemma}
+\begin{proof} Take $x=x_{\alpha_{l}-\alpha_{l-2}}(N_{\alpha_{l}-\alpha_{l-2},\alpha_{l-2}}bt\inv)$, $y=x_{\alpha_{l-1}-\alpha_{l-2}}(N_{\alpha_{l-2},\alpha_{l-1}-\alpha_{l-2}}at\inv)$, and $z=x_{\alpha_{l-2}}(t)$. Then
 \[ [x_{\alpha_{l-1}}(a),\,x_{\alpha_l}(b)]=[[y\inv,\,z],\,[x,\,z]]=\,^{y\inv z}[y,\,[z\inv,\,x]]\cdot[y\inv,\,[x,\,z]]. \]
 Next, by R3.2$\!\,_n$ we know that $x$ and $y$ commute, and therefore 
 \[ \,^{y\inv z}[y,\,[z\inv,\,x]]=[[y\inv,\,z],\,x]=x_{\alpha_{l-1}+\alpha_{l}-\alpha_{l-2}}(Nabt\inv) \]
@@ -577,28 +573,22 @@ induced by the ring homomorphism of evaluation at $0$. Clearly, this kernel, den
 Obviously, $ev_{X=0}^*$ admits a section hence we can consider $\overline{\St}(\Phi, A, M)$ and $\St(\Phi, M)$ as subgroups of $\overline{\St}(\Phi, A[X], M[X])$,
  moreover, the following decomposition holds:
 \begin{equation} \label{relZero-decomp} \overline{\St}(\Phi, A[X], M[X]) = \overline{\St}(\Phi, A, M) \cdot K(A[X], M[X]).\end{equation}
-\begin{lemma} 
-The following decomposition holds
- \[ K(A[X], M[X]) = \overline{\St}(\Phi, A[X], XM[X]) \cdot \left[\St(\Phi, XA[X]),\ \overline{\St}(\Phi, A, M)\right].\] 
-\end{lemma}
-\begin{proof}
- Fix $g \in K(A[X], M[X])$ and write it as $g(X) = \prod_i z_{\alpha_i}(f_i(X), \xi_i(X))$ for some $f_i(X) = f_i(0) + Xf_i'(X) \in M[X]$, $\xi_i(X) = \xi_i(0) + X\xi_i'(X) \in A[X]$.
+\begin{lemma} The following decomposition holds
+ \[ K(A[X], M[X]) = \overline{\St}(\Phi, A[X], XM[X]) \cdot \left[\St(\Phi, XA[X]),\ \overline{\St}(\Phi, A, M)\right].\] \end{lemma}
+\begin{proof} Fix $g \in K(A[X], M[X])$ and write it as $g(X) = \prod_i z_{\alpha_i}(f_i(X), \xi_i(X))$ for some $f_i(X) = f_i(0) + Xf_i'(X) \in M[X]$, $\xi_i(X) = \xi_i(0) + X\xi_i'(X) \in A[X]$.
  It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the element $g(X)$ is congruent to $g_1(X) = \prod_i z_{\alpha_i}(f_i(0), \xi_i(X)).$ 
  
  Now each factor $z_{\alpha_i}(f_i(0), \xi_i(X))$ can be written as follows:
  \[z_{\alpha_i}(f_i(0), \xi_i(0))^{x_{-\alpha_i}(X\xi'_i(X))} = [x_{-\alpha_i}(-X\xi'_i(X)), z_{\alpha_i}(f_i(0), \xi_i(0))] \cdot z_{\alpha_i}(f_i(0), \xi_i(0)).\]
  Since the subgroup $C = \left[\St(\Phi, XA[X]), \overline{\St}(\Phi, A, M)\right]$ is normalized by $\overline{\St}(\Phi, A, M)$ 
  (this follows e.\,g. from the formula $[g, h]^{h_1} = [h_1^{-1}, g][g, h_1^{-1}h]$) we conclude that $g_1(X)$ is congruent to $\prod_i z_{\alpha_i}(f_i(0), \xi_i(0)) = g(0) = 1$ modulo $C$,
- which implies the assertion. \qedhere
-\end{proof}
+ which implies the assertion. \qedhere \end{proof}
 
 \begin{theorem}[Stein] \label{thmStein} For a local ring $A$ with maximal ideal $M$ holds \[\overline{\St}(\Phi, A, M) = U(\Phi^+, M) \cdot \overline{H}(\Phi, A, M) \cdot U(\Phi^-, M).\] \end{theorem} \begin{proof} See~\cite[Theorem~2.4]{Ste73}. \end{proof}
 
-\begin{prop} \label{Kgen}
-For $A$ and $M$ as above the subgroup $K(A[X], M[X])$ is generated as a group by its subgroup $\overline{\St}(\Phi, A[X], XM[X])$ and
+\begin{prop} \label{Kgen} For $A$ and $M$ as above the subgroup $K(A[X], M[X])$ is generated as a group by its subgroup $\overline{\St}(\Phi, A[X], XM[X])$ and
  the elements $[x_\alpha(m), x_{-\alpha}(X\xi)]$, $m \in M$, $\xi \in A[X]$, $\alpha \in \Phi$. \end{prop}
-\begin{proof}
- Notice that it follows from~\eqref{eq:conj-h-x} $\overline{H}(\Phi, A, M)$ normalizes both $\St(\Phi, XA[X])$ and $\St(\Phi, M)$ and, moreover, that $[\overline{H}(\Phi, A, M),\ \St(\Phi, XA[X])] \subseteq \overline{\St}(\Phi, A[X], XM[X])$. 
+\begin{proof} Notice that it follows from~\eqref{eq:conj-h-x} $\overline{H}(\Phi, A, M)$ normalizes both $\St(\Phi, XA[X])$ and $\St(\Phi, M)$ and, moreover, that $[\overline{H}(\Phi, A, M),\ \St(\Phi, XA[X])] \subseteq \overline{\St}(\Phi, A[X], XM[X])$. 
  
 Now for $g \in \St(\Phi, XA[X])$, $h \in \overline{H}(\Phi, A, M)$, $u^+ \in U(\Phi^+, M)$, $u^- \in U(\Phi^-, M)$ holds:
 \[ [g, h u^+ u^-] = [g, h] \cdot [{}^{h}\!g, {}^{h}\!(u^+u^-)] \in \St(\Phi, A[X], XM[X]) \cdot [\St(\Phi, XA[X]), \St(\Phi, M)],\]
@@ -609,44 +599,55 @@ Thus, to verify the assertion it remains to show that the commutators $[[x_\alph
 Since the latter subgroup is normal it suffices to prove this inclusion in the special case when $g$ is a member of some generating set for $\St(\Phi, A[X])$.
 Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \alpha$ is such a generating set, but in this case the required inclusions follow from~\eqref{C1}--\eqref{C3} of~\cref{Crels}. \end{proof}
 
-\begin{corollary} \label{Kgen-strong}
- For $A$ and $M$ as in~\cref{thmStein} and arbitrary fixed root $\gamma\in \Phi$ the subgroup $K(A[X], M[X])$ is generated as a group by $\St(\Phi, A[X], XM[X])$ and the elements $c_{\pm \gamma}(f, \eta)$, $f \in M[X]$, $\eta \in XA[X]$.
-\end{corollary}
-\begin{proof}
- Choose some ordering on $\Phi$ with respect to which $\gamma$ becomes the maximal positive root. 
- Invoking~\eqref{C4} of~\cref{Crels} with $I = M[X]$, $J=XA[X]$, $\xi = 1$ we obtain that modulo 
- $\overline{\St}(\Phi, A[X], XM[X])$ the element $c_{\alpha + \beta}(f, \eta)$ is equivalent to 
- $c_{\alpha}(-\epsilon f, -\epsilon \eta)^{-1}$, $\epsilon = N_{\alpha, \beta}$. 
- Arguing by induction on the height of $\alpha$ we conclude that all $c_\alpha(f, \eta)$, $\alpha \in \Phi^+$
- belong to the subgroup generated by $\overline{\St}(\Phi, A[X], XA[X])$ and $c_\gamma(f, \eta)$.
- Similar argument also works for the negative roots, and the required assertion now follows.
-\end{proof}
+\begin{corollary} \label{Kgen-strong} For $A$ and $M$ as in~\cref{thmStein} and arbitrary fixed root $\gamma\in \Phi$ the subgroup $K(A[X], M[X])$ is generated as a group by
+ $\overline{\St}(\Phi, A[X], XM[X])$ and the elements $c_{\pm \gamma}(m, X\eta)$, where $m \in M$, $\eta \in A[X]$. \end{corollary}
+\begin{proof} Choose some ordering on $\Phi$ with respect to which $\gamma$ becomes the maximal positive root. 
+ Invoking~\eqref{C4} of~\cref{Crels} with $\xi = 1$, $s = m$, $t = X\eta$ we obtain that modulo 
+ $\overline{\St}(\Phi, A[X], XM[X])$ the element $c_{\alpha + \beta}(m, X\eta)$ is equivalent to 
+ $c_{\alpha}(-\epsilon m, -\epsilon X \eta)^{-1}$, $\epsilon = N_{\alpha, \beta}$. 
+ Arguing by induction on the height of $\alpha$ we conclude that $c_\alpha(m, X\eta)$ for all $\alpha \in \Phi^+$
+ belong to the subgroup generated by $\overline{\St}(\Phi, A[X], XA[X])$ and $c_\gamma(m, X\eta)$.
+ Similar argument also works for the negative roots, and the required assertion now follows. \end{proof}
 
-\subsection{The subgroups $P_\alpha(0)$, $P_\alpha(*)$ and their properties.} Throughout this subsection $\Phi$ is a simply-laced root system of rank $\geq 3$ and $\alpha$ denotes some fixed root of $\Phi$.
-\begin{df} \label{defP0}
-Denote by $P_\alpha(0)$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by the images of the following elements of $\St(\Phi, A[X])$ under the
+\subsection{The subgroups $P_\alpha(0)$, $P_\alpha(*)$ and their properties.} 
+Throughout this subsection $\Phi$ is a simply-laced root system of rank $\geq 3$ and $\alpha$ denotes some fixed root of $\Phi$.
+
+Consider the following root subsets of $\Phi$ (cf.~\cite[Proposition~5.7]{St71}):
+\begin{equation} \nonumber \begin{align}
+   Z_+(\alpha) & = \{ \beta \in \Phi \mid \langle \alpha, \beta \rangle > 0 \}, \\
+   Z_0(\alpha) & = \{ \beta \in \Phi \mid \langle \alpha, \beta \rangle = 0 \}, \\
+   Z(\alpha)   & = Z_0(\alpha) \sqcup Z_+(\alpha). \end{align} \end{equation}
+
+We denote by $Z_\alpha(A, M)$ the subgroup of $\overline{\St}(\Phi, A, M)$ generated by elements
+ $x_{\beta}(m),\ \beta \in Z_+(\alpha)$ and $z_{\gamma}(m, \zeta),\ \gamma \in Z_0(\alpha),$ where $m \in M$, $\zeta \in A$.
+It is not hard to see that \[Z_\alpha(A, M) = \Img\left(\overline{\St}(Z_0(\alpha), A, M) \to \overline{\St}(\Phi, A, M)\right) \rtimes \hat{U}(Z_+(\alpha), M). \]
+Notice that the subgroup $Z_\alpha(A, A)$ coincides with $Z(\hat{U}_\alpha)$ defined in~\cite[984]{St71}.
+
+\begin{rem}\label{Z-DS} Notice that our assumptions on the rank of $\Phi$ guarantee that $Z_0(\alpha)$ is nonempty, 
+hence $Z_\alpha(A, M)$ contains relative Dennis--Stein symbols $\langle a, m \rangle$ for $a\in A$, $m\in M$.
+By~\eqref{DS-S-relationship} relative Steinberg symbols $\{a, 1+m\}$ are also contained in $Z_\alpha(A, M)$ for all $a\in A^*$, $m\in M$. \end{rem}
+
+\begin{df} \label{defP0} Denote by $P_\alpha(0)$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by the images of the following elements of $\St(\Phi, A[X])$ under the
  map $j_+ \colon \overline{\St}(\Phi, A[X], M[X]) \to \St(\Phi, A[X, X^{-1}])$:
-\begin{enumerate}
- \item $z_{\beta}(Xf, \xi), \beta \in \Phi \text{ such that }\alpha + \beta \in \Phi\text{ or } \alpha - \beta \in \Phi;$
- \item $z_{\beta}(f, X\xi),\ \beta \in \Phi \text{ such that }\alpha - \beta \in \Phi;$
- \item $z_{\beta}(f, \xi),\ \beta \in Z_0(\alpha);$
+\begin{enumerate} \item $z_{\beta}(Xf, \xi), \beta \in \Phi \text{ such that }\alpha + \beta \in \Phi\text{ or } \alpha - \beta \in \Phi;$
+ \item $z_{\beta}(f, X\xi),\ \alpha - \beta \in \Phi;$
+ \item $z_{\beta}(f, \xi),\ \beta \perp \alpha;$
  \item $x_{-\alpha}(X^2f);$
- \item $x_{\alpha}(f)$.
-\end{enumerate}
+ \item $x_{\alpha}(f)$. \end{enumerate}
 In the above formulae and for the rest of this subsection $f \in M[X]$ and $\xi \in A[X]$. \end{df}
 
-\begin{rem}\label{rem:c-DS}
-From our assumptions on $\Phi$ it follows that $Z_0(\alpha)$ is nonempty, hence $P_\alpha(0)$ contains relative Dennis--Stein symbols $\langle a, m \rangle$ ($a\in A$, $m\in M$) and elements $c_{\pm \gamma}(f, X\xi)$ for $\gamma \in Z_0(\alpha)$ (both can be expressed as products of generators of type 3).
-\end{rem}
+\begin{rem}\label{rem:c-DS} It is easy to check that $P_\alpha(0)$ contains the image of $Z_\alpha(A, M)$ under the natural embedding of $\St(\Phi, A, M) \hookrightarrow \St(\Phi, A[X, X\inv])$.
+In particular, it contains the relative Dennis--Stein and Steinberg symbols.
+It is also clear that $P_\alpha(0)$ contains the elements $c_{\pm \beta}(f, X\xi)$ for all $\beta \in Z(\alpha)$
+ (they can be factored as products of two elements of type 2 or 3). \end{rem}
 
-Denote by $P_\alpha(*)$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by $P_\alpha(0)$ and the elements $x_{-\alpha}(Xm)$, $m \in M$. The following lemma shows that the resulting subgroup is sufficiently large.
+Denote by $P_\alpha(*)$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by $P_\alpha(0)$ and the elements $x_{-\alpha}(mX)$, $m \in M$.
+The following lemma shows that the resulting subgroup is sufficiently large.
 \begin{lemma} \label{Pstar-large} The subgroup $P_\alpha(*)$ contains the image of $K(A[X], M[X])$ in $\St(\Phi, A[X, X^{-1}])$. \end{lemma}
 \begin{proof} Clearly, $P_\alpha(*)$ contains the elements $x_\beta(Xf)$ for all $\beta \in \Phi$ and $z_\beta(Xf, \xi)$ for $\beta \in \Phi \setminus \{\pm \alpha\}$, $f \in M[X]$, $\xi\in A[X]$ hence by~\cref{thm:Stepanov} $P_\alpha(*)$ contains whole $j_+(\overline{\St}(\Phi, A[X], XM[X]))$. The required assertion now follows from~\cref{Kgen-strong} and the preceding remark. \end{proof}
 
-\begin{rem} \label{Pstar-char} The above lemma allows us to characterize $P_\alpha(*)$ as follows: it consists of images under $j_+$ of those elements 
- $g \in \overline{\St}(\Phi, A[X], M[X])$ for which $ev_{X=0}^*(g)$ lies in the subgroup $Z_\alpha(A, M) := \Img(\overline{\St}(Z_0(\alpha), A, M) \to \overline{\St}(\Phi, A, M)) \ltimes \hat{U}(Z_+(\alpha), M)$ 
- (i.\,e. the subgroup generated by elements $x_{\beta}(m),\ \beta \in Z_+(\alpha)$ and $z_{\gamma}(m, \zeta),\ \gamma \in Z_0(\alpha),$ where $m \in M$, $\zeta \in A$ 
- and $Z_+(\alpha)$, $Z_0(\alpha)$ are as in~\cite[Proposition~5.7]{St71}). \end{rem} 
+\begin{rem} \label{Pstar-char} The above lemma allows us to characterize $P_\alpha(*)$ as follows: it consists precisely of images under $j_+$ of all elements 
+ $g \in \overline{\St}(\Phi, A[X], M[X])$ for which $ev_{X=0}^*(g)$ lies in the subgroup $Z_\alpha(A, M)$. \end{rem} 
    
 \begin{lemma}\label{P0_normal} The subgroup $P_\alpha(0)$ is normal in $P_\alpha(*)$. In particular, there is an exact sequence, which is split by the map $m \mapsto x_{-\alpha}(mX)$:
 \[\xymatrix{1 \ar[r] & P_\alpha(0) \ar[r] & P_\alpha(*) \ar[r]^{p_\alpha} & M^+ \ar@<5pt>@{-->}[l] \ar[r] & 1}.\] \end{lemma}
@@ -655,21 +656,23 @@ The assertion is obvious for the generators of type 3 and 4.
 
 Suppose $g$ has type 1 or 2 and $\beta - \alpha \in \Phi$. By~\cref{Zrels} we obtain that
 \begin{align} z_{\beta}(Xf, \xi) ^ {x_{-\alpha}(mX)} = & x_{-\alpha} (- mX^2f\xi) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mX^2f) \cdot z_{\beta}(Xf, \xi), \label{eq3-1} \\
-  z_{\beta}(f, X\xi) ^ {x_{-\alpha}(mX)} = & x_{-\alpha} (- mX^2f\xi ) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mXf) \cdot z_{\beta}(f, X\xi), \nonumber \end{align}
+  z_{\beta}(f, X\xi) ^ {x_{-\alpha}(mX)} = & x_{-\alpha} (- mX^2f\xi ) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mXf) \cdot z_{\beta}(f, X\xi), \label{eq3-2} \end{align}
 The expressions in the right hand sides of~\eqref{eq3-1} and~\eqref{eq3-2} are products of generators of type 4, 1, 1 and 4, 1, 2, respectively.  
 
 Suppose $g$ has type 1 and  $\alpha + \beta \in \Phi$. By~\cref{Zrels} 
-\begin{equation} \label{eq3-2} z_{\beta}(Xf, \xi) ^ {x_{-\alpha}(mX)} = x_{-\alpha} (mX^2f\xi ) \cdot x_{-\alpha-\beta} (N_{\beta,\alpha}\cdot mX^2f\xi^2) \cdot z_{\beta}(Xf, \xi). \end{equation}
+\begin{equation} \label{eq3-3} z_{\beta}(Xf, \xi) ^ {x_{-\alpha}(mX)} = x_{-\alpha} (mX^2f\xi ) \cdot x_{-\alpha-\beta} (N_{\beta,\alpha}\cdot mX^2f\xi^2) \cdot z_{\beta}(Xf, \xi). \end{equation}
 and the latter expression is a product of generators of type $4, 1, 1$.
 
 Finally, suppose $g$ has type $5$.
 Substituting in~\eqref{Z5} of~\cref{Zrels} $s = -\epsilon f$, $\xi = -\epsilon m$, $\eta=X$ and expressing $z_\alpha(f, mX)$ through other terms we obtain that
 \begin{multline} \label{eq:zalpha} z_\alpha(f, mX) = x_{\alpha+\beta}(\epsilon Xf) \cdot x_{\beta}(-mX^2 f) \cdot x_{-\beta}(mf) \cdot x_\alpha(f) \cdot \\ 
  \cdot z_{\alpha+\beta}(-\epsilon X f, -\epsilon m) \cdot z_{-\beta}(-mf, -X) \cdot x_{-\alpha-\beta}(-\epsilon m^2X f) \cdot x_{-\alpha}(-m^2X^2 f), \end{multline}
-and the latter expression is a product of generators of type 1, 1, 2, 5, 1, 2, 1, 4.
-\end{proof}
+and the latter expression is a product of generators of type 1, 1, 2, 5, 1, 2, 1, 4. \end{proof}
 
-\begin{rem} \label{rem:palpha} From the two preceding lemmas it follows that the value of $p_\alpha$ on an element $g\in K(A[X], M[X])$ can be computed via the following procedure. Start with any presentation of $g$ as a product of elements $z_{\beta}(Xf, \xi)$ for $\beta \in \Phi$ and $c_\delta(f, X\xi)$ for some fixed $\delta\in Z_0(\alpha)$. Now pick among these factors those that correspond to the root $\beta = -\alpha$ (i.\,e. pick all factors $z_{-\alpha}(Xf_i, \xi_i)$). Now $p_\alpha(g)$ is precisely the sum of constant terms of the polynomials $f_i$. \end{rem}
+\begin{rem} \label{rem:palpha} From the two preceding lemmas it follows that the value of $p_\alpha$ on an element $g\in K(A[X], M[X])$ can be computed via the following procedure. 
+Start with any presentation of $g$ as a product of elements $z_{\beta}(Xf, \xi)$ for $\beta \in \Phi$ and $c_\delta(f, X\xi)$ for some fixed $\delta\in Z_0(\alpha)$. 
+Now pick among these factors those that correspond to the root $\beta = -\alpha$ (i.\,e. pick all factors $z_{-\alpha}(Xf_i, \xi_i)$). 
+Now $p_\alpha(g)$ is precisely the sum of constant terms of the polynomials $f_i$. \end{rem}
 
 For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
 From the preceding lemma it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. This allows us to make the following definition. 
@@ -703,8 +706,7 @@ where $\epsilon = N_{-\alpha-\beta,\beta}$.
 Clearly, the expression in the right-hand side is a product of generators of type 1, 2, 1, 4, 1, 1, 5, 2. \end{proof}
 
 \begin{lemma} \label{lem:Tulenbayev-formula} 
-One has 
-$ S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am).$
+One has $S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am).$
 \end{lemma}
 \begin{proof} Since $\Phi$ is nonsymplectic, we can choose $\gamma \in \Phi$ such that $\langle \alpha, \gamma \rangle = -1$. Direct computation using~\eqref{eq:conj-h-x},\eqref{eq:conj-h-h},\eqref{eq:steinberg},\eqref{eq:dennis-stein} shows that
  \begin{multline*}
@@ -712,35 +714,27 @@ $ S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot 
  = {}^{h_\gamma(X)}\left( x_{-\alpha}\left(\tfrac{m}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\tfrac{a}{1+am}\right) \right) = \\
  = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha(X^{-1})^{-1} \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) = \\
  = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot \{1+am, X^{-1}\}^{-1} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) = \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\},
-\end{multline*}
-which implies the assertion.
-\end{proof}
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}, \end{multline*}
+which implies the assertion. \end{proof}
 
 \begin{corollary} For $g \in P_\alpha(m)$ holds $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \tfrac{m}{1 + am})$.
-Consequently one has \[ S_\alpha(a+b, g) = S_\alpha\left(b,\ S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)\right)\cdot h_\alpha(1+am). \]\end{corollary}
-\begin{proof}
+Consequently one has \[ S_\alpha(a+b, g) = S_\alpha\left(b,\ S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)\right)\cdot h_\alpha(1+am). \]\end{corollary} \begin{proof}
 Fix an element $g \in P_\alpha(m)$ and write it $g = g_0 \cdot x_{-\alpha}(mX)$ for some $g_0 \in P_\alpha(0)$.
 Now by~\eqref{eq:Smult} and~\cref{P0_conj} one has
-\begin{multline} \nonumber
-S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_{\alpha}^{-1}(1+am) = 
-\\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot\langle a, m \rangle \in P_\alpha\left(\tfrac{m}{1+am}\right).
-\end{multline}
+\begin{multline} \nonumber S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_{\alpha}^{-1}(1+am) = 
+\\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot\langle a, m \rangle \in P_\alpha\left(\tfrac{m}{1+am}\right). \end{multline}
 
 The second assertion can be verified in a straightforward manner. \end{proof}
 
 \subsection{The subgroups $K(\alpha, \beta)$ and their properties}
 Throughout this subsection $\alpha, \beta$ denote a fixed pair of roots of $\Phi$ forming a sharp angle (i.\,e. $\langle \alpha, \beta \rangle = 1$). We denote by $\Psi$ the subsystem of type $\rA_2$ generated by $\alpha$ and $\beta$.
-\begin{df}
- Denote by $K(\alpha, \beta)$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by the following elements:
+\begin{df} Denote by $K(\alpha, \beta)$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by the following elements:
  \begin{enumerate}
   \item $z_\gamma(Xf, \xi)$, for all $\gamma \in \Phi \setminus \Psi$;
   \item $x_{-\alpha}(X^2f)$, $x_{-\beta}(X^2f)$;
   \item $x_{\alpha}(Xf)$, $x_\beta(Xf)$;
   \item $x_{\alpha-\beta}(Xf)$, $x_{\beta-\alpha}(Xf)$;
-  \item $c_{\pm \delta}(f, X\xi)$ for some fixed root $\delta \in \Phi \setminus \Psi$.
- \end{enumerate}
-\end{df}
+  \item $c_{\pm \delta}(f, X\xi)$ for some fixed root $\delta \in \Phi \setminus \Psi$. \end{enumerate} \end{df}
 
 \begin{prop} \label{K-a-b} Every element $g \in K(A[X], M[X])$ can be written as a product $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $m, m' \in M$ and $g_0 \in K(\alpha, \beta)$. Consequently, $K(\alpha, \beta)$ coincides with the intersection $K(A[X], M[X]) \cap P_\alpha(0) \cap P_\beta(0)$. \end{prop}
 \begin{proof} Denote by $\Sigma$ the special part of the parabolic subset $S = \Psi \cup \Phi^+$. Applying~\cref{thm:Stepanov} to $S$ we obtain that every element of $\St(\Phi, A[X], XM[X])$ can be presented as a product of $z_\gamma(Xf, \xi)$, $\gamma \in \Sigma(S) \subseteq \Phi\setminus \Psi$ and $x_\gamma(Xf)$, $\gamma \in \Psi$. By~\cref{Kgen-strong} we can write $g$ as a product of these generators and generators of type 5.
@@ -748,13 +742,12 @@ Throughout this subsection $\alpha, \beta$ denote a fixed pair of roots of $\Phi
  The next step of the proof is to decompose each factor of the form $x_{\epsilon}(Xf)$, $\epsilon \in \{-\alpha,-\beta\}$ appearing in this product as
  $x_{\epsilon}(X^2f') \cdot x_{\epsilon}(mX)$ and then move $x_{\epsilon}(mX)$ to the rightmost position conjugating by $x_{\epsilon}(mX)$ all factors along the way.
  Notice that no terms of the form $x_{\epsilon}(mX)$, $\epsilon \in \{ -\alpha, -\beta \}$ may appear after simplification of these conjugates, so this process is guaranteed to terminate.
- To see this notice that the extra terms in the right-hand sides of \eqref{eq3-1} and~\eqref{eq3-2} 
+ To see this notice that the extra terms in the right-hand sides of \eqref{eq3-1} and~\eqref{eq3-3} 
  (as well as all terms in the right-hand sides of~\eqref{C1},\eqref{C2} of~\cref{Crels} if one substitutes corresponding values into them) have terms of degree at least $2$ in $X$. 
   
  As a side effect of this transformation, however, factors $x_\alpha(Xf)$ and $x_\beta(Xf)$ appearing in $g$ might transform into factors of the form $z_\alpha(Xf, X\xi)$, and $z_\beta(Xf, X\xi)$. We can express each factor $z_\alpha(Xf, X\xi)$ through the generators of $K(\alpha, \beta)$ as follows. Pick a root $\gamma \in \Phi\setminus \Psi$ forming an obtuse angle with $\alpha$ and then invoke~\eqref{eq:zalpha}:
- \begin{multline}
-  z_\alpha(Xf, X\xi) = x_{\alpha+\gamma}(\epsilon X^2f) \cdot x_{\gamma}(-X^3 \xi f) \cdot x_{-\gamma}(Xf\xi) \cdot x_\alpha(Xf) \cdot \\ \cdot z_{\alpha+\gamma}(-\epsilon X^2 f, -\epsilon \xi) \cdot z_{-\gamma}(-Xf\xi, -X) \cdot x_{-\alpha-\gamma}(-\epsilon X^2\xi^2 f) \cdot x_{-\alpha}(-X^3 f \xi^2),\ \text{for } \epsilon = N_{\alpha, \gamma}.
- \end{multline}
+ \begin{multline} z_\alpha(Xf, X\xi) = x_{\alpha+\gamma}(\epsilon X^2f) \cdot x_{\gamma}(-X^3 \xi f) \cdot x_{-\gamma}(Xf\xi) \cdot x_\alpha(Xf) \cdot \\ 
+ \cdot z_{\alpha+\gamma}(-\epsilon X^2 f, -\epsilon \xi) \cdot z_{-\gamma}(-Xf\xi, -X) \cdot x_{-\alpha-\gamma}(-\epsilon X^2\xi^2 f) \cdot x_{-\alpha}(-X^3 f \xi^2),\ \text{for } \epsilon = N_{\alpha, \gamma}. \end{multline}
  The expression in the right-hand side is a product of generators of type 1, 1, 1, 3, 1, 1, 1, 2. Similar argument also applies to $z_\beta(Xf, X\xi)$.  
  
  After collecting terms $x_\epsilon(mX)$, $\epsilon \in \{ -\alpha, -\beta \}$ in the right-hand side of the resulting expression we obtain the desired decomposition for $g$.
@@ -762,7 +755,7 @@ Throughout this subsection $\alpha, \beta$ denote a fixed pair of roots of $\Phi
  It is clear from the definition that $K(\alpha, \beta) \subseteq P_\alpha(0) \cap P_\beta(0) \cap K(A[X], M[X])$. The reverse inclusion follows from the just proved decomposition and the fact that for $g\in K(A[X], M[X])$ one has $p_{\alpha}(g) = m$ and $p_\beta(g) = m'$ (cf.~\cref{rem:palpha}). \end{proof}
  
  We need one more technical definition.
- \begin{df} Denote by $Z_{\alpha, \beta}$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by elements $z_\gamma(f, X\xi)$, where $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$.\end{df}
+\begin{df} Denote by $Z_{\alpha, \beta}$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by elements $z_\gamma(f, X\xi)$, where $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$.\end{df}
   
 \begin{lemma} \label{image-K-a-b} The image of $K(\alpha, \beta)$ under $S_{\alpha}(a, -)$ is contained in the subgroup of $\St(\Phi, A[X, X^{-1}])$  generated by $K(\alpha, \beta)$ and $Z_{\alpha, \beta}$. \end{lemma}
 \begin{proof} To simplify notation we call the generators of the subgroup $Z_{\alpha,\beta}$ ``generators of type Z``. By~\eqref{eq:Zconj1}, \eqref{eq:Zconj2} the conjugate to each generator $z_\gamma(Xf, \xi)$ of type 1 by $x_\alpha(aX^{-1})$ is a product of generators of type Z, Z, 1.
@@ -818,16 +811,16 @@ Denote by $h_0$ the product of all terms except the first and the last one in th
 
 \subsection{The proof of the injectivity theorem}
 We denote by $B$ the ring $M[X] + A[X^{-1}]$ considered as a graded subring of $A[X, X^{-1}]$.
-Denote by $\overline{G}^{\geq 0}_M$ the image of the map $\St(\Phi, A[X], M[X]) \to \St(\Phi, A[X, X^{-1}])$ and by $G^{\leq 0}$ the group $\St(\Phi, A[X^{-1}])$.
-
-\[ \xymatrix{ \overline{\St}(\Phi, A, M) \ar[r]^{j_+i_+} \ar[d]^{i^-} & \overline{G}_M^{\geq 0} \ar@{^{(}->}[d] \\
-              G^{\leq 0} \ar[r]^{j_-} & \St(\Phi, A[X, X^{-1}]), } \] 
-Denote by $\overline{G}_M^0$ the image of the left arrow $i_-$ in $G^{\leq 0}$. 
-
-Denote by $V$ the subset of $\St(\Phi, A[X, X^{-1}]) \times G^{\leq 0} \times (1 + M)^*$ consisting of those triples $(g, h, u)$ for which 
+For shortness we also write $G_M^0$ instead of $\overline{\St}(\Phi, A, M)$.
+\[ \xymatrix{ G_M^0 \ar@{^{(}->}[r]^{i_+} \ar@{^{(}->}[d]^{i_-} & \overline{\St}(\Phi, A[X], M[X]) \ar^{j_+^M}[d] \ar@{^{(}->}[r] & \St(\Phi, A[X]) \ar[dl]^{j_+} \\
+              \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, A[X, X^{-1}]) &  } \] 
+Denote by $\overline{G}^{\geq 0}_M$ the image of the map $j_+^M$. 
+Denote by $V$ the subset of $\St(\Phi, A[X, X^{-1}]) \times \St(\Phi, A[X\inv]) \times (1 + M)^*$ consisting of those triples $(g, h, u)$ for which 
 $p(g, h, u) := g \cdot j_-(h) \cdot \{ X, u \}$ belongs to $\overline{G}_M^{\geq 0}$.
-We let $\overline{G}_M^0$ act on $V$ on the right by $(g, h, u) \cdot h_0 = (g, h \cdot h_0, u)$, $h_0 \in \overline{G}_M^0$.
-It is clear that this action is well defined. Denote by $\overline{V}$ the quotient set $V / \overline{G}_M^0$.
+We let $h_0 \in G_M^0$ act on $V$ on the right by $(g, h, u) \cdot h_0 = (g, h \cdot i_-(h_0), u)$.
+It is clear that this action is well defined.
+Denote by $\overline{V}$ the set of orbits of the action of $G_M^0$ on $V$.
+Whenever $(g, h_1, u)$ and $(g, h_2, u)$ lie in the same orbit we use the notation $(g, h_1, u) \sim (g, h_2, u)$.
 
 The next step of the proof is to define for $\alpha \in \Phi$, $a \in A$ a partial function $t_\alpha(aX^{-1}) \colon V \not\to V$.
 This function is defined for those triples $(g, h, u)$ for which $p(g, h, u) \in P_\alpha(*) \subseteq \overline{G}_M^{\geq 0}$.
@@ -840,25 +833,25 @@ It is easy to verify that $p(t_\alpha(aX^{-1}) (g, h, u)) = S_\alpha(a, p(g, h, 
   $T_\alpha(aX^{-1}) \colon \overline{V} \to \overline{V}$. \end{lemma}
 \begin{proof}
  First of all, let us show that the resulting function is total. 
- Fix $c = [g, h, u] \in \overline{V}$. Since $p(g, h, u) \in \overline{G}^{\geq 0}_M$ there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $j_+(g_1) = p(g, h, u).$
+ Fix $(g, h, u) \in V$. Since $p(g, h, u) \in \overline{G}^{\geq 0}_M$ there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $j_+(g_1) = p(g, h, u).$
  Set $h_0 = ev^*_{X=0}(g_1)^{-1}$, then, clearly, $g_1 \cdot i_+(h_0) \in K(A[X], M[X])$ and 
  $p(g, h \cdot i_-(h_0), u) = j_+(g_1) \cdot j_-(i_-(h_0)) = j_+(g_1 \cdot i_+(h_0)) \in j_+(K(A[X], M[X])) \subseteq P_\alpha(*)$,
-  which shows that $(g, h \cdot i_+(h_0), u)$ is the representative of $c$ on which $t_\alpha(aX^{-1})$ is defined.
+  which shows that $t_\alpha(aX^{-1})$ is defined on $(g, h \cdot i_+(h_0), u)$, while the latter triple also lies in the same orbit as $(g, h, u)$.
   
  Next, let us show that the value of $T_\alpha(aX^{-1})$ does not depend on the choice of a representative.
- Let $(g, h_1, u), (g, h_2, u)$ be a pair of representatives of the same $c \in \overline{V}$ for which both $p(g, h_1, u)$ and $p(g, h_2, u)$ lie in $P_\alpha(*)$.
- By definition, $h_1^{-1} h_2 = i_-(h_0)$, for some $h_0 \in \overline{\St}(\Phi, A, M)$, moreover, 
+ Let $(g, h_1, u) \sim (g, h_2, u)$ be elements of the same orbit for which both $p(g, h_1, u)$ and $p(g, h_2, u)$ belong to $P_\alpha(*)$.
+ By definition, $h_1^{-1} h_2 = i_-(h_0)$, for some $h_0 \in G^0_M$, moreover, 
   $p(g, h_1, u)^{-1} \cdot p(g, h_2, u) = j_- i_-(h_0) = j_+ i_+(h_0) \in P_\alpha(*)$.
  By~\cref{Pstar-char} there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $g_0 := ev^*_{X=0}(g_1) \in Z_\alpha(A, M)$ and $j_+(g_1) = j_+ i_+ (h_0)$.
  From the last equality and the injectivity of the map $G(\Phi, A[X]) \to G(\Phi, A[X, X^{-1}])$ we obtain that
- the projections of $g_0$, $g_1$ and $h_0$ in $G(\Phi, A[X, X^{-1}])$ are equal, therefore $g_0 \cdot h_0^{-1} \in \overline{\K_2}(\Phi, A, M)$. 
- By~\cite[Theorem~2.5]{Ste73} the latter subgroup is generated by relative Steinberg symbols $\{ a, m \}_\beta$, where $\beta$ is any fixed long root of $\Phi$.
+ the projections of $g_0$, $g_1$ and $h_0$ in $G(\Phi, A[X, X^{-1}])$ are equal, which shows that $g_0 \cdot h_0^{-1} \in \overline{\K_2}(\Phi, A, M)$. 
+ By~\cite[Theorem~2.5]{Ste73} the latter subgroup is generated by relative Steinberg symbols $\{ a, 1 + m \}_\beta$, where $\beta$ is any fixed long root of $\Phi$,
  It is not hard to check using e.\,g. the table on p.~986 of~\cite{St71} that $Z_0(\alpha)$ always contains a long root, therefore
-  $\overline{\K_2}(\Phi, A, M)$ is contained in $Z_\alpha(A, M)$ by ??? hence $h_0 \in Z_\alpha(A, M)$.
- Thus, we have shown that $i_-(h_0)$ is centralized by $X_\alpha(A[X^{-1}])$ therefore
+  $\overline{\K_2}(\Phi, A, M)$ is contained in $Z_\alpha(A, M)$ by~\cref{Z-DS} hence $h_0 \in Z_\alpha(A, M)$.
+ Thus, we have shown that $i_-(h_0)$ is centralized by $X_\alpha(A[X^{-1}])$, which allows us to conclude that
  \begin{multline} \nonumber
-  T_\alpha(aX^{-1})[g, h_1, u] = \left[ x_\alpha(aX^{-1})\cdot g ,\ h_1 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right] = \\
-  = \left[ x_\alpha(aX^{-1})\cdot g ,\ h_1 i_-(h_0) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right] = T_\alpha(aX^{-1})[g, h_2, u]. \qedhere
+  t_\alpha(aX^{-1})(g, h_1, u) = \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) \sim \\
+  \sim \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 i_-(h_0) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) = t_\alpha(aX^{-1})(g, h_2, u). \qedhere
  \end{multline} \end{proof}
 
 The next step of the proof is to pass from the set $V_0'$ to its quotient $V_0$ 
