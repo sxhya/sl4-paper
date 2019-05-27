@@ -713,7 +713,7 @@ One has $S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\tfrac{mX}{1+am}\right)
  = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}, \end{multline*}
 which implies the assertion. \end{proof}
 
-\begin{corollary} For $g \in P_\alpha(m)$ holds $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \tfrac{m}{1 + am})$.
+\begin{corollary}\label{SR:additivity} For $g \in P_\alpha(m)$ holds $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \tfrac{m}{1 + am})$.
 Consequently one has \[ S_\alpha(a+b, g) = S_\alpha\left(b,\ S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)\right)\cdot h_\alpha(1+am). \]\end{corollary} \begin{proof}
 Fix an element $g \in P_\alpha(m)$ and write it $g = g_0 \cdot x_{-\alpha}(mX)$ for some $g_0 \in P_\alpha(0)$.
 Now by~\eqref{eq:Smult} and~\cref{P0_conj} one has
@@ -821,12 +821,15 @@ Whenever $(g, h_1, u)$ and $(g, h_2, u)$ lie in the same orbit we use the notati
 
 The next step of the proof is to define for $\alpha \in \Phi$, $a \in A$ a partial function $t_\alpha(aX^{-1}) \colon V \not\to V$.
 This function is defined for those triples $(g, h, u)$ for which $p(g, h, u) \in P_\alpha(*) \subseteq \overline{G}_M^{\geq 0}$.
-If $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$, then $t_\alpha(aX^{-1})$ is given by the following identity:
+If $p(g, h, u)$ happens to belong to $P_\alpha(m)$ for some $m \in M$, then $t_\alpha(aX^{-1})$ is given by the following identity:
 \[ t_\alpha(aX^{-1}) (g, h, u) = \left( x_\alpha(aX^{-1})\cdot g ,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right).\]
-It is easy to verify that $p(t_\alpha(aX^{-1}) (g, h, u)) = S_\alpha(a, p(g, h, u)).$
 
-\begin{lemma} Let $\Phi$ be a simply-laced root system of rank $\geq 3$ and $(A, M)$ be a local pair. Then for $\alpha \in \Phi$ the partial function $t_\alpha(aX^{-1}) \colon V \not \to V$ descends to a well-defined total function 
-  $T_\alpha(aX^{-1}) \colon \overline{V} \to \overline{V}$. \end{lemma}
+From~\cref{SR:additivity} it follows that
+\[p\left(t_\alpha(aX^{-1}) (g, h, u)\right) = S_\alpha(a, p(g, h, u)) \in P_\alpha(*) \cdot h_{\alpha}^{-1}(1+am) \subseteq G_M^{\geq 0},\]
+therefore the operation $t_\alpha(aX^{-1})$ is well-defined.
+
+\begin{lemma}\label{lem:orbit-action} Let $\Phi$ be a simply-laced root system of rank $\geq 3$ and $(A, M)$ be a local pair. 
+Then for any $\alpha \in \Phi$ the partial function $t_\alpha(aX^{-1}) \colon V \not \to V$ gives rise to a well-defined total orbit function $T_\alpha(aX^{-1}) \colon \overline{V} \to \overline{V}$. \end{lemma}
 \begin{proof}
  First of all, let us show that the resulting function is total. 
  Fix $(g, h, u) \in V$. Since $p(g, h, u) \in \overline{G}^{\geq 0}_M$ there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $j_+(g_1) = p(g, h, u).$
@@ -847,20 +850,33 @@ It is easy to verify that $p(t_\alpha(aX^{-1}) (g, h, u)) = S_\alpha(a, p(g, h, 
   \sim \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 i_-(h_0) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) = t_\alpha(aX^{-1})(g, h_2, u). \qedhere
  \end{multline} \end{proof}
 
+\begin{prop}
+ The operators $T_\alpha(aX^{-1})$ satisfy relations $\text{R1}_1, $ $\text{R2}_1$.
+\end{prop}
+\begin{proof}
+Suppose $(g, h, u)$ is such that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
+Set $h' := x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot h^{-1}_\alpha(1+am) \cdot x_\alpha\left(-bX^{-1}\left(1 + \tfrac{bm}{1+am}\right)^{-1}\right) =
+  x_\alpha\left(- \tfrac{(a+b)X^{-1}}{1 + (a + b)m}\right) \cdot h^{-1}_\alpha(1+am).$
+Invoking~\cref{SR:additivity} once again we obtain that
+\begin{multline} \nonumber t_\alpha(bX^{-1}) t_\alpha(aX^{-1}) \left(g,\ h,\ u\right) \sim \\ \sim
+t_\alpha(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am),\ u(1 + am)\right) = \\
+ = \left( x_\alpha\left((a+b)X^{-1}\right)\cdot g,\ h \cdot h',\ u(1 + am + bm) \right) \sim t_\alpha((a+b)X^{-1}) \left( g,\ h,\ u\right), \end{multline} 
+which implies the assertion for $\text{R1}_1$.
 
-The next step of the proof is to pass from the set $V_0'$ to its quotient $V_0$ 
-We allow multiplying the second component on the right by an element of $\mathrm{im}(\St(\Phi, A, M) \to \St(\Phi, A))$
- (this operation is well defined for $V'_0$).
-
-\begin{multline}
- T_\alpha(bX^{-1}) T_\alpha(aX^{-1}) \left(g,\ h,\ u\right) \sim \\ \sim
-T_\alpha(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am),\ u(1 + am)\right) = \\
- = \left( x_\alpha\left((a+b)X^{-1}\right)\cdot g,\ h',\ u(1 + am + bm) \right) \sim T_\alpha((a+b)X^{-1}) \left( g,\ h,\ u\right),\text{ since} \end{multline} 
- \begin{multline}
-h' = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot h^{-1}_\alpha(1+am) \cdot x_\alpha\left(-\tfrac{bX^{-1}}{1 + \tfrac{bm}{1+am}}\right) = \\ = 
- h \cdot x_\alpha\left(- \tfrac{aX^{-1}}{1 + am} - \tfrac{bX^{-1}}{(1+am)(1 + am + bm)}\right) \cdot h^{-1}_\alpha(1+am) \sim  
-  h \cdot x_\alpha\left(- \tfrac{(a+b)X^{-1}}{1 + am + bm}\right).
+Now let us verify $\text{R2}_1$. Let $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$. 
+Notice that we could assume from the start that $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m'))$ for some $m,m' \in M$ (cf. the first part of the proof of~\cref{lem:orbit-action}). Now for $a, b \in A$ set $\epsilon = N_{?, ?}$ and $c = 1 + \epsilon abm'$.
+It is clear that $\alpha$ and $\alpha+\beta$ form a sharp angle.
+\begin{multline} \nonumber
+[T_\alpha(a), T_\beta(bX^{-1})] \left( g, h, u \right) =
+ T_\alpha(a) T_\beta(bX^{-1}) \left( x_\alpha(-a) \cdot x_\beta (-b X^{-1}) \cdot g, h \cdot x_\beta\left(\tfrac{bX^{-1}}{1-bm}\right) , u (1 - bm) \right) \sim \\
+ \sim T_\alpha(a) T_\beta(bX^{-1}) \left( x_\alpha(-a) \cdot x_\beta (-b X^{-1}) g, h \cdot x_\beta\left(\tfrac{b X^{-1}}{1-bm}\right) \cdot h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm')\cdot x_{\alpha}(a(1 + abm')), u (1 - bm) \right) = \\
+ = \left([x_\alpha(a), x_\beta(bX^{-1})] g, h', u (1 + abm')\right) \sim T_{\alpha}(N_{\alpha, \beta}abX^{-1})(g, h, u), \text{ since}\end{multline} 
+ \begin{multline} \nonumber
+ h' = h\cdot x_\beta\left(\tfrac{b X^{-1}}{1-bm}\right) \cdot h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm')\cdot x_{\alpha}(a(1 + abm'))\cdot x_\beta\left(-\tfrac{b(1 - bm)X^{-1}}{1 + abm'}\right) \sim \\ \sim  h\cdot x_\beta\left(\tfrac{b X^{-1}}{1-bm}\right) \cdot h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm')\cdot x_{\alpha + \beta}\left(-N_{\alpha, \beta}\cdot ab(1-bm)X^{-1}\right)\cdot x_\beta\left(-\tfrac{b(1 - bm)X^{-1}}{1 + abm'}\right) = \\
+ = h\cdot x_\beta\left(\tfrac{b X^{-1}}{1-bm}\right) \cdot x_{\alpha + \beta}\left(-\tfrac{N_{\alpha, \beta} \cdot abX^{-1}}{1-abm'}\right)\cdot x_\beta\left(-\tfrac{bX^{-1}}{1 - bm}\right) \cdot h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm') \sim
+ h\cdot x_{\alpha + \beta}\left(\tfrac{N_{\alpha, \beta} \cdot abX^{-1}}{1+abm'}\right).
 \end{multline}
+\end{proof}
 
 If $\alpha + \beta \not \in \Phi$ but $\alpha - \beta \in \Phi$, $\pi(g, h, u) \in P(\alpha, m) \cap P(\beta, m')$ then
 $S_\alpha(a, \pi(g, h, u))\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha-\beta, \beta}m'a) \in P(\beta, \tfrac{m'}{1 + am})$
