@@ -764,9 +764,8 @@ The conjugation by $x_\alpha(aX^{-1})$ fixes both generators of type 3 and trans
  Indeed, if $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ is such that $\langle \beta, \gamma \rangle = -1$, then $ \langle \alpha - \beta, \gamma \rangle \geq 2$, hence
   $\gamma = \alpha - \beta$, a contradiction. \end{proof}
 
-\begin{lemma} \label{lem:SRsharp} For $g \in K(A[X], M[X]) \cap P_\alpha(m) \cap P_\beta(m')$ and $a \in A$ holds \[S_\alpha(a, g)\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot m'a) \in P_\beta\left(\tfrac{m'}{1 + am}\right). \] \end{lemma}
-\begin{proof} By~\cref{K-a-b} $g$ can be presented as $ g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $g_0\in K(\alpha, \beta)$, therefore from~\eqref{eq:Smult} and~\cref{lem:Tulenbayev-formula} we obtain that \begin{multline} \nonumber S_\alpha(a, g) = S_\alpha(a, g_0) \cdot S(a, x_{-\alpha}(mX)) \cdot S_\alpha\left(\tfrac{a}{1+am}, x_{-\beta}(m'X)\right) = \\ = S_\alpha(a, g_0) \cdot \langle a, m \rangle \cdot h_\alpha(1+am) \cdot x_{-\beta}(m'X) \cdot x_{\alpha-\beta}\left(\tfrac{N_{\alpha, -\beta} \cdot m'a}{1+am}\right) = \\ =
-  S_\alpha(a, g_0) \cdot \langle a, m \rangle \cdot  x_{-\beta}\left(\tfrac{m'X}{1+am}\right) \cdot x_{\alpha-\beta}\left(N_{\alpha, -\beta} \cdot m'a\right) \cdot h_\alpha(1+am). \end{multline}
+\begin{lemma} \label{SR:sharp} For $g \in K(A[X], M[X]) \cap P_\alpha(m) \cap P_\beta(m')$ and $a \in A$ holds \[S_\alpha(a, g)\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot am') \in P_\beta\left(\tfrac{m'}{1 + am}\right). \] \end{lemma}
+\begin{proof} By~\cref{K-a-b} $g$ can be presented as $ g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $g_0\in K(\alpha, \beta)$, therefore from~\eqref{eq:Smult} and~\cref{lem:Tulenbayev-formula} we obtain that \begin{multline} \nonumber S_\alpha(a, g) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot S_\alpha\left(\tfrac{a}{1+am}, x_{-\beta}(m'X)\right) = \\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m \rangle \cdot h_\alpha(1+am) \cdot x_{-\beta}(m'X) \cdot x_{\alpha-\beta}\left(\tfrac{N_{\alpha, -\beta} \cdot am'}{1+am}\right) = \\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m \rangle \cdot  x_{-\beta}\left(\tfrac{m'X}{1+am}\right) \cdot x_{\alpha-\beta}\left(N_{\alpha, -\beta} \cdot am'\right) \cdot h_\alpha(1+am). \end{multline}
 The assertion now follows from the preceding corollary.
 \end{proof}
   
@@ -786,7 +785,7 @@ we obtain that $\alpha - \beta + \gamma = \alpha$. Thus, by \eqref{Z3} of~\cref{
 \[z_{\gamma}(f, X\xi) ^ {x_{\beta-\alpha}(b)} = x_{\beta-\alpha} (bXf\xi) \cdot x_{-\alpha} (N_{\gamma,\alpha - \beta}\cdot bX^2 f\xi^2) \cdot z_{\gamma}(f, X\xi). \]
 The expression in the right-hand side is a product of generators of type 1, 4, 2. \end{proof}
 
-\begin{lemma} \label{lem:SRobtuse} For $g \in K(A[X], M[X]) \cap P_\alpha(m) \cap P_\beta(m')$ and $a, b\in A$ the element \[ x_{\beta - \alpha}(b) \cdot S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta - \alpha}((1 + \epsilon abm')^{-1})\cdot x_{\beta - \alpha}(-b(1 + \epsilon abm')) \]
+\begin{lemma} \label{SR:obtuse} For $g \in K(A[X], M[X]) \cap P_\alpha(m) \cap P_\beta(m')$ and $a, b\in A$ the element \[ x_{\beta - \alpha}(b) \cdot S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta - \alpha}((1 + \epsilon abm')^{-1})\cdot x_{\beta - \alpha}(-b(1 + \epsilon abm')) \]
  belongs to $P_\alpha\left(\tfrac{m - \epsilon bm'}{1+am}\right)$, where $\epsilon = N_{\alpha, -\beta}$.
 \end{lemma}
 \begin{proof} Set $c = 1 + \epsilon a b m'$, $s_0 = \langle a, m \rangle$, $s_1 = \langle \epsilon am', -bc^{-1} \rangle$.
@@ -807,6 +806,7 @@ Denote by $h_0$ the product of all terms except the first and the last one in th
 \end{proof}
 
 \subsection{The proof of the injectivity theorem}
+Throughout this subsection $\Phi$ denotes arbitrary irreducible simply-laced root system of rank $\geq 3$, unless stated otherwise.
 We denote by $B$ the ring $M[X] + A[X^{-1}]$ considered as a graded subring of $A[X, X^{-1}]$.
 For shortness we also write $G_M^0$ instead of $\overline{\St}(\Phi, A, M)$.
 \[ \xymatrix{ G_M^0 \ar@{^{(}->}[r]^{i_+} \ar@{^{(}->}[d]^{i_-} & \overline{\St}(\Phi, A[X], M[X]) \ar^{j_+^M}[d] \ar@{^{(}->}[r] & \St(\Phi, A[X]) \ar[dl]^{j_+} \\
@@ -828,7 +828,7 @@ From~\cref{SR:additivity} it follows that
 \[p\left(t_\alpha(aX^{-1}) (g, h, u)\right) = S_\alpha(a, p(g, h, u)) \in P_\alpha(*) \cdot h_{\alpha}^{-1}(1+am) \subseteq G_M^{\geq 0},\]
 therefore the operation $t_\alpha(aX^{-1})$ is well-defined.
 
-\begin{lemma}\label{lem:orbit-action} Let $\Phi$ be a simply-laced root system of rank $\geq 3$ and $(A, M)$ be a local pair. 
+\begin{lemma}\label{lem:orbit-action} Let $(A, M)$ be a local pair. 
 Then for any $\alpha \in \Phi$ the partial function $t_\alpha(aX^{-1}) \colon V \not \to V$ gives rise to a well-defined total orbit function $T_\alpha(aX^{-1}) \colon \overline{V} \to \overline{V}$. \end{lemma}
 \begin{proof}
  First of all, let us show that the resulting function is total. 
@@ -837,7 +837,7 @@ Then for any $\alpha \in \Phi$ the partial function $t_\alpha(aX^{-1}) \colon V 
  $p(g, h \cdot i_-(h_0), u) = j_+(g_1) \cdot j_-(i_-(h_0)) = j_+(g_1 \cdot i_+(h_0)) \in j_+(K(A[X], M[X])) \subseteq P_\alpha(*)$,
   which shows that $t_\alpha(aX^{-1})$ is defined on $(g, h \cdot i_+(h_0), u)$, which is also a representative of the same orbit as $(g, h, u)$.
   
- Next, let us show that the value of $T_\alpha(aX^{-1})$ does not depend on the choice of a representative.
+ Next, let us show that the value of $T_\alpha(aX^{-1})$ does not depend on a choice of representative.
  Let $(g, h_1, u) \sim (g, h_2, u)$ be elements of the same orbit for which both $p(g, h_1, u)$ and $p(g, h_2, u)$ belong to $P_\alpha(*)$.
  By definition, $h_1^{-1} h_2 = i_-(h_0)$, for some $h_0 \in G^0_M$, moreover, 
   $p(g, h_1, u)^{-1} \cdot p(g, h_2, u) = j_- i_-(h_0) = j_+ i_+(h_0) \in P_\alpha(*)$.
@@ -850,49 +850,44 @@ Then for any $\alpha \in \Phi$ the partial function $t_\alpha(aX^{-1}) \colon V 
   \sim \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 i_-(h_0) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) = t_\alpha(aX^{-1})(g, h_2, u). \qedhere
  \end{multline} \end{proof}
 
-\begin{prop}
- The operators $T_\alpha(aX^{-1})$ satisfy relations $\text{R1}_1, $ $\text{R2}_1$.
+The following proposition is directly inspired by~\cite[Proposition~4.3]{Tu83}.
+\begin{prop} The operators $T_\alpha(aX^{-1})$ satisfy all relations $\text{R1}_1, $ $\text{R2}_1$ and relations $\text{R3}_{1,1}$ in the special case when $\alpha, \beta$ form a sharp angle.
 \end{prop}
 \begin{proof}
 Suppose $(g, h, u)$ is such that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
 Set $h' := x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot h^{-1}_\alpha(1+am) \cdot x_\alpha\left(-bX^{-1}\left(1 + \tfrac{bm}{1+am}\right)^{-1}\right) =
   x_\alpha\left(- \tfrac{(a+b)X^{-1}}{1 + (a + b)m}\right) \cdot h^{-1}_\alpha(1+am).$
-Invoking~\cref{SR:additivity} once again we obtain that
-\begin{multline} \nonumber t_\alpha(bX^{-1}) t_\alpha(aX^{-1}) \left(g,\ h,\ u\right) \sim \\ \sim
-t_\alpha(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am),\ u(1 + am)\right) = \\
- = \left( x_\alpha\left((a+b)X^{-1}\right)\cdot g,\ h \cdot h',\ u(1 + am + bm) \right) \sim t_\alpha((a+b)X^{-1}) \left( g,\ h,\ u\right), \end{multline} 
-which implies the assertion for $\text{R1}_1$.
+The assertion for $\text{R1}_1$ is obtained via~\cref{SR:additivity}:
+\begin{multline} \nonumber T_\alpha(bX^{-1}) T_\alpha(aX^{-1}) \left(g,\ h,\ u\right) \sim \\ \sim
+T_\alpha(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am),\ u(1 + am)\right) = \\
+ = \left( x_\alpha\left((a+b)X^{-1}\right)\cdot g,\ h \cdot h',\ u(1 + am + bm) \right) \sim T_\alpha((a+b)X^{-1}) \left( g,\ h,\ u\right), \end{multline} 
 
-Now let us verify $\text{R2}_1$. Let $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$. 
-Notice that we could assume from the start that $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m'))$ for some $m,m' \in M$ (cf. the first part of the proof of~\cref{lem:orbit-action}). Now for $a, b \in A$ set $\epsilon = N_{?, ?}$ and $c = 1 + \epsilon abm'$.
-It is clear that $\alpha$ and $\alpha+\beta$ form a sharp angle.
+Let us verify $\text{R2}_1$. Let $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$. Notice that we could assume from the start that $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m'))$ for some $m,m' \in M$ (cf. the first part of the proof of~\cref{lem:orbit-action}). Now for $a, b \in A$ set $\epsilon = N_{\alpha, \beta}$ and $c = 1 - \epsilon abm'$.
+Applying~\cref{SR:obtuse} to a pair of roots $\alpha, \alpha+\beta$ we obtain that 
 \begin{multline} \nonumber
-[T_\alpha(a), T_\beta(bX^{-1})] \left( g, h, u \right) =
- T_\alpha(a) T_\beta(bX^{-1}) \left( x_\alpha(-a) \cdot x_\beta (-b X^{-1}) \cdot g, h \cdot x_\beta\left(\tfrac{bX^{-1}}{1-bm}\right) , u (1 - bm) \right) \sim \\
- \sim T_\alpha(a) T_\beta(bX^{-1}) \left( x_\alpha(-a) \cdot x_\beta (-b X^{-1}) g, h \cdot x_\beta\left(\tfrac{b X^{-1}}{1-bm}\right) \cdot h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm')\cdot x_{\alpha}(a(1 + abm')), u (1 - bm) \right) = \\
- = \left([x_\alpha(a), x_\beta(bX^{-1})] g, h', u (1 + abm')\right) \sim T_{\alpha}(N_{\alpha, \beta}abX^{-1})(g, h, u), \text{ since}\end{multline} 
+[T_\beta(b), T_\alpha(aX^{-1})] \left(g, h, u \right) = \\
+ = T_\beta(b) T_\alpha(aX^{-1}) \left( x_\beta(-b) \cdot x_\alpha (-a X^{-1}) \cdot g, h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1-am}\right) , u (1 - am) \right) \sim \\ \sim T_\beta(b) \cdot T_\alpha(aX^{-1}) \left( x_\beta(-b) \cdot x_\alpha (-a X^{-1}) g, h \cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1})\cdot x_{\beta}(bc), u (1 - am) \right) = \\ = \left([x_\beta(b), x_\alpha(aX^{-1})] g, h', u c\right) \sim T_{\alpha+\beta}(-\epsilon abX^{-1})(g, h, u),\end{multline} 
+ where the last equivalence is obtained as follows:
  \begin{multline} \nonumber
- h' = h\cdot x_\beta\left(\tfrac{b X^{-1}}{1-bm}\right) \cdot h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm')\cdot x_{\alpha}(a(1 + abm'))\cdot x_\beta\left(-\tfrac{b(1 - bm)X^{-1}}{1 + abm'}\right) \sim \\ \sim  h\cdot x_\beta\left(\tfrac{b X^{-1}}{1-bm}\right) \cdot h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm')\cdot x_{\alpha + \beta}\left(-N_{\alpha, \beta}\cdot ab(1-bm)X^{-1}\right)\cdot x_\beta\left(-\tfrac{b(1 - bm)X^{-1}}{1 + abm'}\right) = \\
- = h\cdot x_\beta\left(\tfrac{b X^{-1}}{1-bm}\right) \cdot x_{\alpha + \beta}\left(-\tfrac{N_{\alpha, \beta} \cdot abX^{-1}}{1-abm'}\right)\cdot x_\beta\left(-\tfrac{bX^{-1}}{1 - bm}\right) \cdot h_{\beta}^{-1}(1-bm)\cdot h_{\alpha}^{-1}(1 + abm') \sim
- h\cdot x_{\alpha + \beta}\left(\tfrac{N_{\alpha, \beta} \cdot abX^{-1}}{1+abm'}\right).
+ h' = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1})\cdot x_{\beta}(bc)\cdot x_\alpha\left(-\tfrac{a(1 - am)X^{-1}}{c}\right) \sim \\ \sim  h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1})\cdot x_{\alpha + \beta}\left(\epsilon ab(1-am)X^{-1}\right)\cdot x_\alpha\left(-\tfrac{a(1 - am)X^{-1}}{c}\right) = \\ = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot x_{\alpha + \beta}\left(\tfrac{\epsilon \cdot abX^{-1}}{c}\right)\cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 - am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \sim \\ \sim h\cdot x_{\alpha + \beta}\left(\tfrac{\epsilon   abX^{-1}}{1 - \epsilon a b m'}\right).
 \end{multline}
-\end{proof}
 
-If $\alpha + \beta \not \in \Phi$ but $\alpha - \beta \in \Phi$, $\pi(g, h, u) \in P(\alpha, m) \cap P(\beta, m')$ then
-$S_\alpha(a, \pi(g, h, u))\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha-\beta, \beta}m'a) \in P(\beta, \tfrac{m'}{1 + am})$
-%($\beta = 2r$, $\alpha = 1r$, $\gamma = 12$, $\gamma = \alpha - \beta$)
-\begin{multline}
+Let us prove $\text{R3}_{1,1}$ in the special case when $\alpha$ and $\beta$ form a sharp angle. As before, we can assume $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\beta}(m'))$ for some $m, m' \in M$. Set $\epsilon = N_{\alpha,-\beta}$.
+Applying~\cref{SR:sharp} we obtain that
+\begin{multline} \label{eq:sharp-formula1}
  T_\beta(bX^{-1}) T_\alpha(aX^{-1}) \left(g, h, u\right) = 
  T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) ,\ u(1 + am)\right) \sim \\ 
- \sim T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-m'a),\ u(1 + am)\right) = \\
+ \sim T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am'),\ u(1 + am)\right) = \\
  = (x_\beta(bX^{-1}) x_\alpha(aX^{-1}) \cdot g, h', u(1 + am + bm')), \text{ where} \end{multline} 
- \begin{multline}
- h' = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha-\beta, \beta}m'a) \cdot x_\beta\left(-\tfrac{bX^{-1}(1+am)}{1 + am + bm'}\right) \sim \\
+ \begin{multline} \label{eq:sharp-formula2}
+ h' = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am') \cdot x_\beta\left(-\tfrac{bX^{-1}(1+am)}{1 + am + bm'}\right) \sim \\
     \sim h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha}\left(\tfrac{m'abX^{-1}(1+am)}{1 + am + bm'}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}(1+am)}{1 + am + bm'}\right) = \\
- = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am} + \tfrac{m'abX^{-1}}{(1+am)(1 + am + bm')}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}(1+am)^{1 -\langle \beta, \alpha \rangle}}{1 + am + bm'}\right) \cdot h^{-1}_\alpha(1 + am) \sim \\
+ = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am} + \tfrac{m'abX^{-1}}{(1+am)(1 + am + bm')}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right) \cdot h^{-1}_\alpha(1 + am) \sim \\
  \sim h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am + bm'}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right).
 \end{multline}
-The latter expression is symmetric.
+The expressions in the right-hand sides of~\eqref{eq:sharp-formula1}--\eqref{eq:sharp-formula2} are clearly symmetric under transposition $(a, \alpha) \leftrightarrow (b, \beta)$, which implies $\text{R3}_{1,1}$.
+\end{proof}
+
 
 \begin{align*} {}^{x_\gamma(X^{-1})}x_\alpha(bX^{-1}) = {}^{x_\gamma(X^{-1})}[x_{-\beta}(b'X^{-1}), x_{\alpha+\beta}(1)] & \text{ by R$2_1$}\\
  = [x_{-\beta}(b'X^{-1}), {}^{x_\gamma(X^{-1})}x_{\alpha+\beta}(1)] & \text{ by R$3_1$ for sharp angles}\\
@@ -906,7 +901,7 @@ The latter expression is symmetric.
  = {}^{x_{\alpha}(b'X^{-1})}\!x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$2_1$} \\
  = x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$3_1$ for sharp angles.} \end{align*}
 
-\include{rehmann}
+%\include{rehmann}
  
 \printbibliography
 
