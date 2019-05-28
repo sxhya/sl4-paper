@@ -6,7 +6,7 @@
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz}
 \usepackage{enumitem}
-\usepackage[notref,notcite]{showkeys}
+%\usepackage[notref,notcite]{showkeys}
 
 \addbibresource{paper.bib}
 \renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
@@ -822,10 +822,10 @@ $p(g, h, u) := g \cdot j_-(h) \cdot \{ X, u \}$ belongs to $\overline{G}_M^{\geq
 We let $h_0 \in G_M^0$ act on $V$ on the right by $(g, h, u) \cdot h_0 = (g, h \cdot i_-(h_0), u)$.
 It is clear that this action is well defined.
 Denote by $\overline{V}$ the set of orbits of the action of $G_M^0$ on $V$.
-Whenever $(g, h_1, u)$ and $(g, h_2, u)$ lie in the same orbit we use the notation $(g, h_1, u) \sim (g, h_2, u)$.
+Whenever $(g, h_1, u)$ and $(g, h_2, u)$ lie in the same orbit we use the notation $(g, h_1, u) \sim (g, h_2, u)$ and say that these triples are congruent.
 
 The next step of the proof is to define for $\alpha \in \Phi$, $a \in A$ a partial function $t_\alpha(aX^{-1}) \colon V \not\to V$.
-This function is defined for those triples $(g, h, u)$ for which $p(g, h, u) \in P_\alpha(*) \subseteq \overline{G}_M^{\geq 0}$.
+This function is defined for the triples $(g, h, u)$ satisfying $p(g, h, u) \in P_\alpha(*) \subseteq \overline{G}_M^{\geq 0}$.
 If $p(g, h, u)$ happens to belong to $P_\alpha(m)$ for some $m \in M$, then $t_\alpha(aX^{-1})$ is given by the following identity:
 \[ t_\alpha(aX^{-1}) (g, h, u) = \left( x_\alpha(aX^{-1})\cdot g ,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right).\]
 
@@ -834,7 +834,7 @@ From~\cref{SR:additivity} it follows that
 therefore the operation $t_\alpha(aX^{-1})$ is well-defined.
 
 \begin{lemma}\label{lem:orbit-action} Let $(A, M)$ be a local pair. 
-Then for any $\alpha \in \Phi$ the partial function $t_\alpha(aX^{-1}) \colon V \not \to V$ gives rise to a well-defined total orbit function $T_\alpha(aX^{-1}) \colon \overline{V} \to \overline{V}$. \end{lemma}
+Then for any $\alpha \in \Phi$ and $a \in A$ the partial function $t_\alpha(aX^{-1}) \colon V \not \to V$ gives rise to a well-defined (total) function $T_\alpha(aX^{-1}) \colon \overline{V} \to \overline{V}$. \end{lemma}
 \begin{proof}
  First of all, let us show that the resulting function is total. 
  Fix $(g, h, u) \in V$. Since $p(g, h, u) \in \overline{G}^{\geq 0}_M$ there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $j_+(g_1) = p(g, h, u).$
@@ -855,8 +855,40 @@ Then for any $\alpha \in \Phi$ the partial function $t_\alpha(aX^{-1}) \colon V 
   \sim \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 i_-(h_0) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) = t_\alpha(aX^{-1})(g, h_2, u). \qedhere
  \end{multline} \end{proof}
 
+For $a + Xf \in A + XM[X]$ we can define the operator $T_\alpha(a + Xf) \colon \overline{V} \to \overline{V}$ by the following identity:
+\[ T_\alpha(a + Xf) \cdot (g, h, u) = (x_\alpha(a + Xf) \cdot g, h\cdot x_{\alpha}(-a), u).  \]
+It is easy to see that this definition is correct.
+
+\begin{lemma}
+ The operators $T_\alpha$ satisfy $\text{R3}_{1,0}$.
+\end{lemma}
+\begin{proof}
+ We have to show that $[T_\alpha(aX^{-1}), T_\beta(b)](g, h, u) = (g, h, u)$ for $\beta\in Z(\alpha)$, $a, b\in A$.
+ \begin{multline}
+  T_\beta(b) T_\alpha(aX^{-1}) T_\beta(-b) T_\alpha(-aX^{-1})(g, h, u) = \\
+  = T_\beta(b) T_\alpha(aX^{-1}) \left(x_\beta(-b) x_\alpha(-aX^{-1}) \cdot g, h \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1-am}\right) \cdot x_\beta(b), u(1-am)\right)
+ \end{multline}
+\end{proof}
+
+
+
+\begin{lemma}
+ For $a, b\in A$, $f, g \in M[X]$, $\alpha \neq \pm \beta \in \Phi$ holds
+ \[ T_\beta(f) T_\alpha(aX^{-1})  T_\beta(g) T_\alpha(bX^{-1})(g, h, u) \]
+\end{lemma}
+\begin{proof}
+Suppose $(g, h, u)$ is such that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
+Set $h' := x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot h^{-1}_\alpha(1+am) \cdot x_\alpha\left(-bX^{-1}\left(1 + \tfrac{bm}{1+am}\right)^{-1}\right) =
+  x_\alpha\left(- \tfrac{(a+b)X^{-1}}{1 + (a + b)m}\right) \cdot h^{-1}_\alpha(1+am).$
+The assertion for $\text{R1}_1$ is obtained via~\cref{SR:additivity}:
+\begin{multline} \nonumber T_\alpha(bX^{-1}) T_\alpha(aX^{-1}) \left(g,\ h,\ u\right) \sim \\ \sim
+T_\alpha(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am),\ u(1 + am)\right) = \\
+ = \left( x_\alpha\left((a+b)X^{-1}\right)\cdot g,\ h \cdot h',\ u(1 + am + bm) \right) \sim T_\alpha((a+b)X^{-1}) \left( g,\ h,\ u\right), \end{multline} 
+ 
+\end{proof}
+
 The following proposition is a direct generalization of~\cite[Proposition~4.3]{Tu83}.
-\begin{prop} The operators $T_\alpha(aX^{-1})$ satisfy all relations $\text{R1}_1, $ $\text{R2}_1$ and relations $\text{R3}_{1,1}$ in the special case when $\alpha, \beta$ form a sharp angle.
+\begin{prop} The operators $T_\alpha(aX^{-1})$ satisfy all relations $\text{R1}_1, $ $\text{R2}_{0,1}$ and relations $\text{R3}_{1,1}$ in the special case when $\alpha, \beta$ form a sharp angle.
 \end{prop}
 \begin{proof}
 Suppose $(g, h, u)$ is such that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
@@ -871,7 +903,7 @@ Let us verify $\text{R2}_1$.
 Let $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$.
 Notice that we could assume from the start that $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m'))$ for some $m,m' \in M$ (cf. the first part of the proof of~\cref{lem:orbit-action}).
 Now for $a, b \in A$ set $\epsilon = N_{\alpha, \beta},$ $c = 1 - \epsilon abm'$.
-Applying~\cref{SR:obtuse} to a pair of roots $\alpha, \alpha+\beta$ we obtain that 
+Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain that 
 \begin{multline} \nonumber
 [T_\beta(b), T_\alpha(aX^{-1})] \left(g, h, u \right) = \\
  = T_\beta(b) T_\alpha(aX^{-1}) \left( x_\beta(-b) \cdot x_\alpha (-a X^{-1}) \cdot g, h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1-am}\right), u (1 - am) \right) \sim \\
