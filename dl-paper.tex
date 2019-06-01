@@ -880,24 +880,22 @@ We have to show that $[T_\alpha(aX^{-1}), T_\beta(b)](g, h, u) = (g, h, u)$ for 
   \sim T_\beta(b) T_\alpha(aX^{-1}) \left(x_\beta(-b) x_\alpha(-aX^{-1}) \cdot g, h \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot р x_\beta(b), u(1-am)\right) = \\ =
   \left( [x_\beta(b), x_{\alpha}(aX^{-1}] \cdot g, h \cdot h', u] \right) \sim \left( g, h, u\right), \end{multlined} \\
 \begin{multlined} \nonumber \text{ where }
- h' = x_{\alpha}\left(\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot р x_\beta(b) \cdot x_{\alpha}(-a(1-am)X^{-1}) \cdot x_{\beta}(-b) = \\ = h_\alpha^{-1}(1-am) \left[x_\alpha(\tfrac{aX^{-1}}{1-am}), x_\beta(b)\right] = h_\alpha^{-1}(1-am). \qedhere \end{multlined} \end{gather*}
-
+ h' = x_{\alpha}\left(\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot р x_\beta(b) \cdot x_{\alpha}(-a(1-am)X^{-1}) \cdot x_{\beta}(-b) = \\
+ = h_\alpha^{-1}(1-am) \left[x_\alpha(\tfrac{aX^{-1}}{1-am}), x_\beta(b)\right] = h_\alpha^{-1}(1-am). \qedhere \end{multlined} \end{gather*}
 \end{proof}
 
-
-\begin{lemma}
- For $a, b\in A$, $f, g \in M[X]$, $\alpha \neq \pm \beta \in \Phi$ holds
- \[ T_\beta(f) T_\alpha(aX^{-1})  T_\beta(g) T_\alpha(bX^{-1})(g, h, u) \]
-\end{lemma}
+\begin{lemma} For $a, b\in A$, $f_1, f_2 \in M[X]$, $\alpha \neq \pm \beta \in \Phi$ holds
+ \[ T_\beta(Xf_1) T_\alpha(bX^{-1})  T_\beta(Xf_2) T_\alpha(aX^{-1})(g, h, u) = \left(g' \cdot g, h \cdot h', u(1+(a+b)m)\right), \]
+where $h' = x_\alpha\left(\tfrac{(a+b)X^{-1}}{1+(a+b)m}\right)$, $g' = x_\beta(Xf_1) \cdot x_\alpha\left(bX^{-1}\right) \cdot x_\beta(Xf_2) \cdot x_\alpha\left( aX^{-1}\right)$.
+ \end{lemma}
 \begin{proof}
 Suppose $(g, h, u)$ is such that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
 Set $h' := x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot h^{-1}_\alpha(1+am) \cdot x_\alpha\left(-bX^{-1}\left(1 + \tfrac{bm}{1+am}\right)^{-1}\right) =
   x_\alpha\left(- \tfrac{(a+b)X^{-1}}{1 + (a + b)m}\right) \cdot h^{-1}_\alpha(1+am).$
-The assertion for $\text{R1}_1$ is obtained via~\cref{SR:additivity}:
-\begin{multline} \nonumber T_\alpha(bX^{-1}) T_\alpha(aX^{-1}) \left(g,\ h,\ u\right) \sim \\ \sim
-T_\alpha(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am),\ u(1 + am)\right) = \\
- = \left( x_\alpha\left((a+b)X^{-1}\right)\cdot g,\ h \cdot h',\ u(1 + am + bm) \right) \sim T_\alpha((a+b)X^{-1}) \left( g,\ h,\ u\right), \end{multline} 
- 
+Notice that $x_\beta(Xf)$, $x_\beta(Xg)$ belong to $P_\alpha(0)$ therefore from~\cref{SR:additivity} we obtain that:
+\begin{multline} \nonumber T_\beta(Xf_1) \cdot T_\alpha(bX^{-1}) \cdot T_\beta(Xf_2) \cdot T_\alpha(aX^{-1}) \left(g,\ h,\ u\right) \sim \\ 
+\sim T_\beta(Xf_1) \cdot T_\alpha(bX^{-1}) \left(x_{\beta}(Xf_2) \cdot x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am),\ u(1 + am)\right) \sim \\
+ \sim \left( g' \cdot g,\ h \cdot x_\alpha\left(-\tfrac{(a+b)X^{-1}}{1+(a+b)m}\right),\ u(1 + am + bm) \right). \end{multline}  
 \end{proof}
 
 The following proposition is a direct generalization of~\cite[Proposition~4.3]{Tu83}.
