@@ -844,13 +844,13 @@ From~\cref{SR:additivity} it follows that
 therefore the operation $t_\alpha(aX^{-1})$ is well-defined.
 
 \begin{lemma}\label{lem:orbit-action} Let $(A, M)$ be a local pair. 
-Then for any $\alpha \in \Phi$ and $a \in A$ the partial function $t_\alpha(aX^{-1}) \colon V \not \to V$ gives rise to a well-defined (total) function $T_\alpha(aX^{-1}) \colon \overline{V} \to \overline{V}$. \end{lemma}
+Then for any $\alpha \in \Phi$ and $a \in A$ the partial function $t_\alpha(aX^{-1}) \colon V \not \to V$ gives rise to a well-defined total function $T_\alpha(aX^{-1}) \colon \overline{V} \to \overline{V}$. \end{lemma}
 \begin{proof}
  First of all, let us show that the resulting function is total. 
  Fix $(g, h, u) \in V$. Since $p(g, h, u) \in \overline{G}^{\geq 0}_M$ there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $j_+(g_1) = p(g, h, u).$
  Set $h_0 = ev^*_{X=0}(g_1)^{-1}$, then, clearly, $g_1 \cdot i_+(h_0) \in K(A[X], M[X])$ and 
  $p(g, h \cdot i_-(h_0), u) = j_+(g_1) \cdot j_-(i_-(h_0)) = j_+(g_1 \cdot i_+(h_0)) \in j_+(K(A[X], M[X])) \subseteq P_\alpha(*)$,
-  which shows that $t_\alpha(aX^{-1})$ is defined on $(g, h \cdot i_+(h_0), u)$, which is also a representative of the same orbit as $(g, h, u)$.
+  which shows that $t_\alpha(aX^{-1})$ is defined on $(g, h \cdot i_+(h_0), u)$, which is congruent to $(g, h, u)$.
   
  Next, let us show that the value of $T_\alpha(aX^{-1})$ does not depend on a choice of representative.
  Let $(g, h_1, u) \sim (g, h_2, u)$ be elements of the same orbit for which both $p(g, h_1, u)$ and $p(g, h_2, u)$ belong to $P_\alpha(*)$.
@@ -869,39 +869,33 @@ For $a + Xf \in A + XM[X]$ we can define the operator $T_\alpha(a + Xf) \colon \
 \[ T_\alpha(a + Xf) \cdot (g, h, u) = (x_\alpha(a + Xf) \cdot g, h\cdot x_{\alpha}(-a), u).  \]
 It is easy to see that this definition is correct.
 
-\begin{lemma}
- The operators $T_\alpha$ satisfy $\text{R3}_{1,0}$.
-\end{lemma}
-\begin{proof}
-We have to show that $[T_\alpha(aX^{-1}), T_\beta(b)](g, h, u) = (g, h, u)$ for $\beta\in Z(\alpha)$, $a, b\in A$. Suppose $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$. It follows from~\cref{P0-conj-invariant} that $P_\alpha\left(\tfrac{m}{1-am}\right)$ is stable under conjugation with $x_\beta(b)$, therefore from~\cref{SR:additivity} we obtain that 
+\begin{lemma} The operators $T_\alpha$ satisfy $\text{R3}_{\leq 0, 1}$. \end{lemma}
+\begin{proof} We need to show that $[T_\alpha(aX^{-1}), T_\beta(b + Xf)](g, h, u) = (g, h, u)$ for $\beta\in Z(\alpha)$, $a\in A$, $b \in A + XM[X]$.
+Write $b = b_0 + Xf$ for some $f \in M[X]$.
+We may assume that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$  (cf. the first part of the proof of~\cref{lem:orbit-action}).
+It follows from~\cref{P0-conj-invariant} that $P_\alpha\left(\tfrac{m}{1-am}\right)$ is stable under conjugation with $x_\beta(b)$, therefore from~\cref{SR:additivity} we obtain that 
 \begin{gather*}
 \begin{multlined} \nonumber
-  T_\beta(b) T_\alpha(aX^{-1}) T_\beta(-b) T_\alpha(-aX^{-1})(g, h, u) \sim \\
-  \sim T_\beta(b) T_\alpha(aX^{-1}) \left(x_\beta(-b) x_\alpha(-aX^{-1}) \cdot g, h \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot р x_\beta(b), u(1-am)\right) = \\ =
-  \left( [x_\beta(b), x_{\alpha}(aX^{-1}] \cdot g, h \cdot h', u] \right) \sim \left( g, h, u\right), \end{multlined} \\
+  \left[T_\beta(b),\ T_\alpha(aX^{-1}) \right] (g, h, u) \sim \\
+  \sim T_\beta(b) \cdot T_\alpha(aX^{-1}) \left(x_\beta(-b) x_\alpha(-aX^{-1}) \cdot g, h \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot р x_\beta(b_0), u(1-am)\right) = \\ = \left( [x_\beta(b), x_{\alpha}(aX^{-1})] \cdot g, h \cdot h', u] \right) \sim \left(g, h, u\right), \end{multlined} \\
 \begin{multlined} \nonumber \text{ where }
- h' = x_{\alpha}\left(\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot р x_\beta(b) \cdot x_{\alpha}(-a(1-am)X^{-1}) \cdot x_{\beta}(-b) = \\
- = h_\alpha^{-1}(1-am) \left[x_\alpha(\tfrac{aX^{-1}}{1-am}), x_\beta(b)\right] = h_\alpha^{-1}(1-am). \qedhere \end{multlined} \end{gather*}
+ h' = x_{\alpha}\left(\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot р x_\beta(b_0) \cdot x_{\alpha}(-a(1-am)X^{-1}) \cdot x_{\beta}(-b_0) = \\
+ = h_\alpha^{-1}(1-am) \cdot \left[x_\alpha\left(\tfrac{aX^{-1}}{1-am}\right),\ x_\beta(b_0)\right] = h_\alpha^{-1}(1-am). \qedhere \end{multlined} \end{gather*}
 \end{proof}
 
-\begin{lemma} For $a, b\in A$, $f_1, f_2 \in M[X]$, $\alpha \neq \pm \beta \in \Phi$ holds
- \[ T_\beta(Xf_1) T_\alpha(bX^{-1})  T_\beta(Xf_2) T_\alpha(aX^{-1})(g, h, u) = \left(g' \cdot g, h \cdot h', u(1+(a+b)m)\right), \]
-where $h' = x_\alpha\left(\tfrac{(a+b)X^{-1}}{1+(a+b)m}\right)$, $g' = x_\beta(Xf_1) \cdot x_\alpha\left(bX^{-1}\right) \cdot x_\beta(Xf_2) \cdot x_\alpha\left( aX^{-1}\right)$.
- \end{lemma}
-\begin{proof}
-Suppose $(g, h, u)$ is such that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
-Set $h' := x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot h^{-1}_\alpha(1+am) \cdot x_\alpha\left(-bX^{-1}\left(1 + \tfrac{bm}{1+am}\right)^{-1}\right) =
-  x_\alpha\left(- \tfrac{(a+b)X^{-1}}{1 + (a + b)m}\right) \cdot h^{-1}_\alpha(1+am).$
-Notice that $x_\beta(Xf)$, $x_\beta(Xg)$ belong to $P_\alpha(0)$ therefore from~\cref{SR:additivity} we obtain that:
-\begin{multline} \nonumber T_\beta(Xf_1) \cdot T_\alpha(bX^{-1}) \cdot T_\beta(Xf_2) \cdot T_\alpha(aX^{-1}) \left(g,\ h,\ u\right) \sim \\ 
-\sim T_\beta(Xf_1) \cdot T_\alpha(bX^{-1}) \left(x_{\beta}(Xf_2) \cdot x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am),\ u(1 + am)\right) \sim \\
- \sim \left( g' \cdot g,\ h \cdot x_\alpha\left(-\tfrac{(a+b)X^{-1}}{1+(a+b)m}\right),\ u(1 + am + bm) \right). \end{multline}  
-\end{proof}
+\begin{lemma} The operators $T_\alpha$ satisfy $\text{R2}_{\leq -1, 1}$. \end{lemma}
+\begin{proof} We need to show that for $a\in A$, $f \in M[X]$ and $\alpha, \beta \in \Phi$ forming an obtuse angle holds
+ \[ [T_\beta(Xf),\ T_\alpha(aX^{-1})] (g, h, u) = \left(x_{\alpha+\beta}(N_{\beta,\alpha} \cdot af) \cdot g, h, u\right). \]
+
+As before, we may assume that $(g, h, u)$ is such that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
+Since $x_\beta(Xf)$ belongs to $P_\alpha(0)$ we obtain from~\cref{SR:additivity} that:
+\begin{multline} \nonumber [T_\beta(Xf),\ T_\alpha(aX^{-1})] \left(g,\ h,\ u\right) \sim \\ 
+\sim T_\beta(Xf) \cdot T_\alpha(aX^{-1}) \left(x_{\beta}(-Xf) \cdot x_\alpha(-aX^{-1})\cdot g,\ h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 - am}\right) \cdot h^{-1}_\alpha(1-am),\ u(1-am)\right) = \\ = \left( [x_\beta(Xf), x_\alpha(aX^{-1})] \cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 + \tfrac{am}{1-am}}\right),\ u \right) \sim \\ \sim (x_{\alpha+\beta}(N_{\beta,\alpha} \cdot af) \cdot g,\ h,\ u). \qedhere \end{multline} \end{proof}
 
 The following proposition is a direct generalization of~\cite[Proposition~4.3]{Tu83}.
-\begin{prop} The operators $T_\alpha(aX^{-1})$ satisfy all relations $\text{R1}_1, $ $\text{R2}_{0,1}$ and relations $\text{R3}_{1,1}$ in the special case when $\alpha, \beta$ form a sharp angle.
-\end{prop}
-\begin{proof}
+\begin{prop} The operators $T_\alpha(aX^{-1})$ satisfy all relations $\text{R2}_{0,1}$ and relations $\text{R3}_{1,1}$ in the special case when $\alpha, \beta$ form a sharp angle. \end{prop}
+\begin{proof} 
+\begin{comment}
 Suppose $(g, h, u)$ is such that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
 Set $h' := x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot h^{-1}_\alpha(1+am) \cdot x_\alpha\left(-bX^{-1}\left(1 + \tfrac{bm}{1+am}\right)^{-1}\right) =
   x_\alpha\left(- \tfrac{(a+b)X^{-1}}{1 + (a + b)m}\right) \cdot h^{-1}_\alpha(1+am).$
@@ -909,15 +903,14 @@ The assertion for $\text{R1}_1$ is obtained via~\cref{SR:additivity}:
 \begin{multline} \nonumber T_\alpha(bX^{-1}) T_\alpha(aX^{-1}) \left(g,\ h,\ u\right) \sim \\ \sim
 T_\alpha(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am),\ u(1 + am)\right) = \\
  = \left( x_\alpha\left((a+b)X^{-1}\right)\cdot g,\ h \cdot h',\ u(1 + am + bm) \right) \sim T_\alpha((a+b)X^{-1}) \left( g,\ h,\ u\right), \end{multline} 
-
-Let us verify $\text{R2}_1$. 
-Let $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$.
-Notice that we could assume from the start that $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m'))$ for some $m,m' \in M$ (cf. the first part of the proof of~\cref{lem:orbit-action}).
+\end{comment}
+Let us verify $\text{R2}_1$. Let $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$.
+Notice that we could assume from the start that $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m'))$ for some $m,m' \in M$.
 Now for $a, b \in A$ set $\epsilon = N_{\alpha, \beta},$ $c = 1 - \epsilon abm'$.
 Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain that 
 \begin{multline} \nonumber
 [T_\beta(b), T_\alpha(aX^{-1})] \left(g, h, u \right) = \\
- = T_\beta(b) T_\alpha(aX^{-1}) \left( x_\beta(-b) \cdot x_\alpha (-a X^{-1}) \cdot g, h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1-am}\right), u (1 - am) \right) \sim \\
+ = T_\beta(b) \cdot T_\alpha(aX^{-1}) \left( x_\beta(-b) \cdot x_\alpha (-a X^{-1}) \cdot g, h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1-am}\right), u (1 - am) \right) \sim \\
  \sim T_\beta(b) \cdot T_\alpha(aX^{-1}) \left( x_\beta(-b) \cdot x_\alpha (-a X^{-1}) g, h', u (1 - am) \right) = \\
  = \left([x_\beta(b), x_\alpha(aX^{-1})]\cdot g, h'', u c\right) \sim T_{\alpha+\beta}(-\epsilon abX^{-1})(g, h, u),\end{multline} 
  where $h' = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1})\cdot x_{\beta}(bc)\cdot$ 
@@ -931,21 +924,26 @@ Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain 
 Let us prove $\text{R3}_{1,1}$ in the special case when $\alpha$ and $\beta$ form a sharp angle.
 As before, we may assume $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\beta}(m'))$ for some $m, m' \in M$.
 Set $\epsilon = N_{\alpha,-\beta}$. Applying~\cref{SR:sharp} we obtain that
-\begin{multline} \label{eq:sharp-formula1}
- T_\beta(bX^{-1}) T_\alpha(aX^{-1}) \left(g, h, u\right) = 
+\begin{gather*} \begin{multlined} \nonumber
+ T_\beta(bX^{-1}) \cdot T_\alpha(aX^{-1}) \left(g, h, u\right) = 
  T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) ,\ u(1 + am)\right) \sim \\ 
  \sim T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am'),\ u(1 + am)\right) = \\
- = (x_\beta(bX^{-1}) x_\alpha(aX^{-1}) \cdot g, h', u(1 + am + bm')), \text{ where} \end{multline}
- 
-\begin{multline} \label{eq:sharp-formula2}
+ = (x_\beta(bX^{-1}) x_\alpha(aX^{-1}) \cdot g, h', u(1 + am + bm')), \text{ where} \end{multlined} \\
+\begin{multlined} \nonumber
  h' = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am') \cdot x_\beta\left(-\tfrac{bX^{-1}(1+am)}{1 + am + bm'}\right) \sim \\
     \sim h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha}\left(\tfrac{m'abX^{-1}(1+am)}{1 + am + bm'}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}(1+am)}{1 + am + bm'}\right) = \\
  = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am} + \tfrac{m'abX^{-1}}{(1+am)(1 + am + bm')}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right) \cdot h^{-1}_\alpha(1 + am) \sim \\
  \sim h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am + bm'}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right).
-\end{multline}
-Relation $\text{R3}_{1,1}$ now follows from the fact that expressions in the right-hand sides of~\eqref{eq:sharp-formula1}--\eqref{eq:sharp-formula2} are symmetric under
- the action of the transposition $(a, \alpha) \leftrightarrow (b, \beta)$.
+\end{multlined}
+\end{gather*}
+The expressions in the right-hand sides of the above formulae are clearly symmetric under the action of the transposition $(a, \alpha) \leftrightarrow (b, \beta)$,
+ which implies the relation $\text{R3}_{1,1}$.
 \end{proof}
+
+\begin{corollary}
+  $T_\alpha$ satisfy the relations $\text{R3}_{1,1}$ in the remaining case when $\alpha$ is perpendicular to $\beta$.
+\end{corollary}
+
 
 \begin{align*} {}^{x_\gamma(X^{-1})}x_\alpha(bX^{-1}) = {}^{x_\gamma(X^{-1})}[x_{-\beta}(b'X^{-1}), x_{\alpha+\beta}(1)] & \text{ by R$2_1$}\\
  = [x_{-\beta}(b'X^{-1}), {}^{x_\gamma(X^{-1})}x_{\alpha+\beta}(1)] & \text{ by R$3_1$ for sharp angles}\\
