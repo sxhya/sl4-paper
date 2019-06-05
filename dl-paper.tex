@@ -684,7 +684,7 @@ Notice that both $Z_\alpha(A, M)$ and $K(A[X], M[X])$ are stable under the speci
 To obtain the assertion for $P_{\alpha, M}(0)$ consider the following commutative diagram. \[ \xymatrix{ P_{\alpha, M}(0) \ar@{^{(}->}[r] \ar@{^{(}->}[d] & P_{\alpha, M}(*) \ar@{->>}[r]^{p_{\alpha, M}} \ar@{^{(}->}[d] & M^+ \ar@{^{(}->}[d] \\ P_{\alpha, A}(0) \ar@{^{(}->}[r] & P_{\alpha, A}(*) \ar@{->>}[r]^{p_{\alpha, A}} & A^+} \]
 Notice that $x_\beta(b) \in P_{\alpha, A}(0)$ therefore for $g \in P_{\alpha, M}(0)$ one has \[p_{\alpha, M}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(g) = 0,\] which implies the assertion.\end{proof}
 
-For the rest of this section $M$ denotes the maximal ideal of $A$, so everywhere below we abridge $P_{\alpha, M}(*)$ (resp. $P_{\alpha, M}(0)$) to just $P_{\alpha}(*)$ (resp. $P_{\alpha}(0)$). For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
+For the rest of this section $M$ denotes the maximal ideal of $A$, so everywhere below we shorten the notation for $P_{\alpha, M}(*)$ (resp. $P_{\alpha, M}(0)$) to just $P_{\alpha}(*)$ (resp. $P_{\alpha}(0)$). For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
 From~\cref{P0_normal} it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. This allows us to make the following definition. 
 
 \begin{df} Define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, A[X, X^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
@@ -893,7 +893,7 @@ Since $x_\beta(Xf)$ belongs to $P_\alpha(0)$ we obtain from~\cref{SR:additivity}
 \sim T_\beta(Xf) \cdot T_\alpha(aX^{-1}) \left(x_{\beta}(-Xf) \cdot x_\alpha(-aX^{-1})\cdot g,\ h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 - am}\right) \cdot h^{-1}_\alpha(1-am),\ u(1-am)\right) = \\ = \left( [x_\beta(Xf), x_\alpha(aX^{-1})] \cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 + \tfrac{am}{1-am}}\right),\ u \right) \sim \\ \sim (x_{\alpha+\beta}(N_{\beta,\alpha} \cdot af) \cdot g,\ h,\ u). \qedhere \end{multline} \end{proof}
 
 The following proposition is a direct generalization of~\cite[Proposition~4.3]{Tu83}.
-\begin{prop} The operators $T_\alpha(aX^{-1})$ satisfy all relations $\text{R2}_{0,1}$ and relations $\text{R3}_{1,1}$ in the special case when $\alpha, \beta$ form a sharp angle. \end{prop}
+\begin{prop} The operators $T_\alpha(aX^{-1})$ satisfy all relations $\text{R2}_{0,1}$ and relations $\text{R3}_{1,1}^{\angle}$ in the special case when $\alpha, \beta$ form a sharp angle. \end{prop}
 \begin{proof} 
 \begin{comment}
 Suppose $(g, h, u)$ is such that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
@@ -904,7 +904,7 @@ The assertion for $\text{R1}_1$ is obtained via~\cref{SR:additivity}:
 T_\alpha(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am),\ u(1 + am)\right) = \\
  = \left( x_\alpha\left((a+b)X^{-1}\right)\cdot g,\ h \cdot h',\ u(1 + am + bm) \right) \sim T_\alpha((a+b)X^{-1}) \left( g,\ h,\ u\right), \end{multline} 
 \end{comment}
-Let us verify $\text{R2}_1$. Let $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$.
+Let us verify $\text{R2}_{0,1}$. Let $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$.
 Notice that we could assume from the start that $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m'))$ for some $m,m' \in M$.
 Now for $a, b \in A$ set $\epsilon = N_{\alpha, \beta},$ $c = 1 - \epsilon abm'$.
 Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain that 
@@ -921,8 +921,7 @@ Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain 
  h\cdot x_{\alpha + \beta}\left(\tfrac{\epsilon   abX^{-1}}{1 - \epsilon a b m'}\right).
 \end{multline}
 
-Let us prove $\text{R3}_{1,1}$ in the special case when $\alpha$ and $\beta$ form a sharp angle.
-As before, we may assume $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\beta}(m'))$ for some $m, m' \in M$.
+Now let us prove $\text{R3}_{1,1}^\angle$. As before, we may assume $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\beta}(m'))$ for some $m, m' \in M$.
 Set $\epsilon = N_{\alpha,-\beta}$. Applying~\cref{SR:sharp} we obtain that
 \begin{gather*} \begin{multlined} \nonumber
  T_\beta(bX^{-1}) \cdot T_\alpha(aX^{-1}) \left(g, h, u\right) = 
@@ -936,8 +935,7 @@ Set $\epsilon = N_{\alpha,-\beta}$. Applying~\cref{SR:sharp} we obtain that
  \sim h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am + bm'}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right).
 \end{multlined}
 \end{gather*}
-The expressions in the right-hand sides of the above formulae are clearly symmetric under the action of the transposition $(a, \alpha) \leftrightarrow (b, \beta)$,
- which implies the relation $\text{R3}_{1,1}$.
+The expressions in the right-hand sides of the above formulae are clearly symmetric under the action of the transposition $(a, \alpha) \leftrightarrow (b, \beta)$, which implies the desired relation.
 \end{proof}
 
 \begin{comment}
@@ -960,11 +958,11 @@ $|a| = n-m$, $|b| = m$, $|c| = 0$
 \end{align*}
 \end{comment}
 
-\begin{lemma} For any simply laced root system $\Phi$ of rank $\geq 3$, a local ring $A$ and any $1 \leq m \leq n$ the relation $\text{R3}_{n,m}^\perp$ follows from $\text{R1}_n$, $\text{R2}_{n,0}$, $\text{R2}_{m,0}$ and $\text{R2}_{n-m,m}$ and $\text{R3}_{n-m, 0}^\perp$. \end{lemma}
+\begin{lemma} For any simply laced root system $\Phi$ of rank $\geq 3$, a local ring $A$ and any $1 \leq m \leq n$ the relation $\text{R3}_{n,m}^\bot$ follows from $\text{R1}_n$, $\text{R2}_{n,0}$, $\text{R2}_{m,0}$ and $\text{R2}_{n-m,m}$ and $\text{R3}_{n-m, 0}^\bot$. \end{lemma}
 \begin{proof}
 We need to show that $[x_{\alpha}(cX^{n}), x_{\beta}(dX^{m})] = 1$ for all $c, d\in A$, $\alpha \perp \beta$. Notice that in the special case $c = \epsilon \in A^*$ the assertion follows from a consideration of \cite[Fig.~4]{KS99} in which one substitutes $a = \epsilon^{-1} d \cdot X^{-(n-m)}$, $b = \epsilon X^{-m}$, $c = 1$.
 
-Now if $c \in M$ we can express it as a difference $c = \epsilon_1 - \epsilon_2$ of two invertible elements. The required assertion now follows from $\text{R1}_{n}$, the standard commutator identity $[ab, c] = {}^a[b, c] [a, c]$ and the special case considered above.
+Now if $c \in M$ we can express it as a difference $c = \epsilon_1 - \epsilon_2$ of two invertible elements. The required assertion now follows from $\text{R1}_{n}$, the standard commutator identity $[ab, c] = {}^a[b, c] [a, c]$ and the just considered case.
 \end{proof}
 
 \begin{comment}
@@ -985,7 +983,7 @@ Now if $c \in M$ we can express it as a difference $c = \epsilon_1 - \epsilon_2$
  = x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$3_1$ for sharp angles.} \end{align*}
  \end{comment}
 
-%\include{rehmann}
+\include{rehmann}
  
 \printbibliography
 
