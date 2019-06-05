@@ -940,10 +940,37 @@ The expressions in the right-hand sides of the above formulae are clearly symmet
  which implies the relation $\text{R3}_{1,1}$.
 \end{proof}
 
+\begin{comment}
+$n \geq m$
+$b = \epsilon  X^{-m}$
+$\epsilon \in R^*$, $d \in R$
+$abc = d X^{-n}$
+
+$|a| = n-m$, $|b| = m$, $|c| = 0$
+
+\begin{align*}
+[x_{il}(abc), x_{jk}(b)] &= 1 & \text{R3}_{n,m} \\
+[x_{ij}(a), x_{kl}(c)] &= 1 & \text{R3}_{n-m, 0}\\
+[x_{ik}(ab), x_{kl}(c)] &= x_{il}(abc), & \text{R2}_{n, 0} \\
+[x_{jk}(b), x_{kl}(c)] &= x_{jl}(bc), & \text{R2}_{m, 0}\\
+[x_{ij}(a), x_{jk}(b)] &= x_{ik}(ab), & \text{R2}_{n-m, m}\\
+[x_{ij}(a), x_{jl}(bc)] &= x_{il}(abc),& \text{R2}_{n-m, m}\\
+[x_{jk}(b), x_{kl}(c)] &= x_{jl}(bc), & \text{R2}_{m, 0}\\
+[x_{ij}(a), x_{jk}(b)] &= x_{ik}(ab) & \text{R2}_{n-m, m}
+\end{align*}
+\end{comment}
+
+\begin{lemma} For any simply laced root system $\Phi$ of rank $\geq 3$, a local ring $A$ and any $1 \leq m \leq n$ the relation $\text{R3}_{n,m}^\perp$ follows from $\text{R1}_n$, $\text{R2}_{n,0}$, $\text{R2}_{m,0}$ and $\text{R2}_{n-m,m}$ and $\text{R3}_{n-m, 0}^\perp$. \end{lemma}
+\begin{proof}
+We need to show that $[x_{\alpha}(cX^{n}), x_{\beta}(dX^{m})] = 1$ for all $c, d\in A$, $\alpha \perp \beta$. Notice that in the special case $c = \epsilon \in A^*$ the assertion follows from a consideration of \cite[Fig.~4]{KS99} in which one substitutes $a = \epsilon^{-1} d \cdot X^{-(n-m)}$, $b = \epsilon X^{-m}$, $c = 1$.
+
+Now if $c \in M$ we can express it as a difference $c = \epsilon_1 - \epsilon_2$ of two invertible elements. The required assertion now follows from $\text{R1}_{n}$, the standard commutator identity $[ab, c] = {}^a[b, c] [a, c]$ and the special case considered above.
+\end{proof}
+
+\begin{comment}
 \begin{corollary}
   $T_\alpha$ satisfy the relations $\text{R3}_{1,1}$ in the remaining case when $\alpha$ is perpendicular to $\beta$.
 \end{corollary}
-
 
 \begin{align*} {}^{x_\gamma(X^{-1})}x_\alpha(bX^{-1}) = {}^{x_\gamma(X^{-1})}[x_{-\beta}(b'X^{-1}), x_{\alpha+\beta}(1)] & \text{ by R$2_1$}\\
  = [x_{-\beta}(b'X^{-1}), {}^{x_\gamma(X^{-1})}x_{\alpha+\beta}(1)] & \text{ by R$3_1$ for sharp angles}\\
@@ -956,6 +983,7 @@ The expressions in the right-hand sides of the above formulae are clearly symmet
  = [x_{\alpha}(b'X^{-1}) x_{\alpha+\beta}(b'), x_\gamma(aX^{-1})] & \text{ by R$2_1$ and R$3_1$ for sharp angles }\\
  = {}^{x_{\alpha}(b'X^{-1})}\!x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$2_1$} \\
  = x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$3_1$ for sharp angles.} \end{align*}
+ \end{comment}
 
 %\include{rehmann}
  
