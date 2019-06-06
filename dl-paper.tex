@@ -504,13 +504,23 @@ We need to introduce notation for certain relations of $\St(\Phi, B)$.
 \end{align}
 %For such a ring $R$ one can assume in the definition of the Steinberg group that the generators $x_\alpha(a)$ and relations R1--R3 are defined only for homogeneous elements. 
 
-For $n\geq 1$ we define ``truncated'' Steinberg groups $\St^{\leq n}(\Phi, B)$ by the set of generators $x_\alpha(a)$, $\alpha\in \Phi$, $a\in B_d$, $d\leq n$, and relations 
-\begin{itemize}
- \item $\text{R}1_{d}$ for $d\leq n$;
- \item $\text{R2}_{d,e}$ for $d,e \leq n$ such that $d+e \leq n$;
- \item $\text{R3}^\angle_{d, e}$ for $d, e\leq n$;
- \item $\text{R3}^\bot_{d, 0}$ for $d \leq n$.
- \end{itemize}
+For $n\geq 1$ we define ``truncated'' Steinberg groups $\St^{\leq n}(\Phi, B)$ by the set of generators $x_\alpha(a)$, $\alpha\in \Phi$, $a\in B_d$, $d\leq n$, and relations $\text{R}1_{d}$, $\text{R3}^\angle_{d, e}$ and $\text{R3}^\bot_{d, e}$ for all $d,e \leq n$ and $\text{R2}_{d,e}$ for those $d,e \leq n$ for which $d+e \leq n$.
+
+\begin{lemma} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the map $i_\Phi\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$ induced by the natural embedding of generators, is an isomorphism. In particular, the natural map $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{lemma}
+\begin{proof}
+ The special case $\Phi=\rA_{\geq 4}$ of the assertion is due to Tulenbayev, see~\cite[Lemma~3.3]{Tu83}. Thus, it remains to deduce from it the assertion in the cases $\Phi=\rD_\ell,\rE_\ell$.
+ 
+ Denote by $A_4(\Phi)$ the set consisting of all root subsystems of $\Phi$ of type $\rA_4$ and by $G_n$ the free product of groups $\coprod\limits_{\Psi \in A_4(\Phi)} \St^{\leq n}(\Psi, B)$ amalgamated over relations $x^{\Psi_1}_\alpha(a) = x^{\Psi_2}_\alpha(a)$ for all $a \in B_d$, $d \leq n$, $\alpha \in \Psi_1\cap\Psi_2$, $\Psi_1, \Psi_2 \in A_4(\Phi)$. 
+ 
+ Let us show that the obvious map $i_n \colon G_n \to G_{n+1}$ has an inverse $j_n$. Notice first that the maps $j_\Psi$ constructed by Tulenbaev agree on the generators of $G_{n+1}$ and hence, by the universal property of colimits, give rise to the well-defined map $j\colon G_{n+1}\to G_n$, which is easily seen to be  inverse to $i$.
+  \begin{equation} \nonumber \xymatrix{
+ \St^{\leq n+1}(\Psi, B) \ar[r]^{j_\Psi} \ar[d] & \St^{\leq n}(\Psi, B) \ar[d] \\
+ G_{n+1} \ar[r]^{j_n} & G_{n} }
+ \end{equation}
+Notice that in the case $\Phi = \rE_\ell$ the natural homomorphisms $G_k \to \St^{\leq k}(\rE_\ell, B)$ are isomorphisms for $k=n,n+1$ (cf.\cite[Corollary 10]{S15}), therefore the proof is already complete in this case.
+ 
+We are left to consider the case $\Phi = \rD_\ell$. Notice that any pair of nonperpendicular roots  $\alpha, \beta$ is contained in some subsystem $\Psi \subseteq \Phi$ of type $\rA_4$, hence the only defining relations of $\St^{\leq n+1}(\Phi, B)$ which do not occur already in $G_{n+1},$ are $\text{R3}^\bot_{d, n+1}$ for $d \leq n+1$ (more precisely, the relations for which $\alpha$ and $\gamma$ are orthogonal and lie in a root subsystem of type $\rD_3$, cf.~\cite[Remark~2.1]{S15}).
+\end{proof}
 
 \begin{comment}
 \begin{rem}
