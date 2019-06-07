@@ -491,17 +491,19 @@ We will construct an action of $\St(\Phi, B)$ on the set $V$ with the following 
 \subsection{Lemma on the presentation of Steinberg groups}
 %Throughout this section $\Phi$ is a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$, $\rE_{6,7,8}$ and $A$ is a local ring with maximal ideal $M$.
 Let $I\trianglelefteq A$ be an ideal of a commutative ring $A$.
-We consider $A[X, X\inv]$ as a graded ring in which $X^{-1}$ has degree $1$.
+We consider $A[X, X\inv]$ as a $\mathbb{Z}$-graded ring in which $X^{-1}$ has degree $1$.
 We denote by $B = B(A, I)$ the subring $A[X^{-1}] + I[X] \subseteq A[X, X\inv]$ with the induced grading.
-As an $A$-module $B$ decomposes as $\oplus_{d\in\mathbb Z}B_d$ where $B_d=I \cdot X^d$ for $d<0$, and $B_d=A \cdot X^d$ for $d\geq0$.
+As an $A$-module $B$ decomposes as $\oplus_{d\in\mathbb Z}B_d$ where $B_d=I \cdot X^d$ for $d>0$, and $B_d=A \cdot X^d$ for $d\leq0$.
+Obviously, $B = A[X^{-1}]$ in the case $I=0$ and $B = A[X, X^{-1}]$ in the case $I=A$.
 
-We need to introduce notation for certain relations of $\St(\Phi, B)$.
+We need to introduce notation for certain relations of $\St(\Phi, B)$. 
 \begin{align}
-&\,\,x_{\alpha}(a)x_{\alpha}(b) =  x_{\alpha}(a+b),& a,b\in B_d, \tag{R$1_d$} \\
-&\,[x_{\alpha}(a),\,x_{\beta}(b)]= x_{\alpha+\beta}(N_{\alpha\beta} \cdot ab),& a\in B_d,\ b\in B_e, \tag{R$2_{d,e}$} \\
-&[x_{\alpha}(a),\,x_{\gamma}(b)]= 1,& \alpha \perp \beta,\ a\in B_d,\ b\in B_e, \tag{R$3^\bot_{d,e}$} \\
-&[x_{\alpha}(a),\,x_{\beta}(b)]= 1,& \alpha - \beta \in \Phi,\ a\in B_d,\ b\in B_e. \tag{R$3^\angle_{d,e}$}
+&\,\,x_{\alpha}(a)x_{\alpha}(a') =  x_{\alpha}(a+a'),& \tag{R$1_d$} \\
+&\,[x_{\alpha}(a),\,x_{\beta}(b)]= x_{\alpha+\beta}(N_{\alpha, \beta} \cdot ab),& \tag{R$2_{d,e}$} \\
+&[x_{\alpha}(a),\,x_{\gamma}(b)]= 1,& \alpha \perp \beta,\ \tag{R$3^\bot_{d,e}$} \\
+&[x_{\alpha}(a),\,x_{\beta}(b)]= 1,& \alpha - \beta \in \Phi,\ \tag{R$3^\angle_{d,e}$}
 \end{align}
+where $a, a' \in B_d$, $b\in R_e$. 
 %For such a ring $R$ one can assume in the definition of the Steinberg group that the generators $x_\alpha(a)$ and relations R1--R3 are defined only for homogeneous elements. 
 
 For $n\geq 1$ we define ``truncated'' Steinberg groups $\St^{\leq n}(\Phi, B)$ by the set of generators $x_\alpha(a)$, $\alpha\in \Phi$, $a\in B_d$, $d\leq n$, and relations $\text{R}1_{d}$, $\text{R3}^\angle_{d, e}$ and $\text{R3}^\bot_{d, e}$ for all $d,e \leq n$ and $\text{R2}_{d,e}$ for those $d,e \leq n$ for which $d+e \leq n$.
@@ -530,7 +532,6 @@ and $\rC_l=\rD_l\cup\{\pm2\chi_i\mid1\leq i\leq l\}$. Then we immediately see th
 \[ \{\sigma\alpha,\sigma\beta\}=\{\chi_{l-1}-\chi_l, \chi_{l-1}+\chi_l\}=\{\alpha_{l-1},\alpha_l\} \]
 (the horns of the Dynkin diagram $\rD_l$). Another condition on $\alpha$ and $\beta$ equivalent to $\alpha+\beta\in\rC_l\setminus\rD_l$ is that they do not lie in any subsystem of $\rD_l$ of type $\rA_m$ for $m\geq4$.
 \end{rem}
-
 Everywhere below we set $t = X^{-1}$.
 \begin{lemma} \label{claim2} In $\St^{\leq n}(\Phi, B)$ relations $\text{R3}^\angle_{d, e}$ imply $\text{R3}^{\bot,0}_{d, e}$ for $1\leq d\leq e \leq n$. \end{lemma}
 \begin{proof}
@@ -557,19 +558,26 @@ Usual identities for structure constants imply (cf.~\cite[p.~12]{Re75}):
 \end{align*}
 \end{proof}
 \end{comment}
-
 \begin{align}
  \label{eq:H1ii}  [ab, c] = {}^a[b, c] \cdot [a,c];&\\ %= [a,[b,c]]\cdot [b,c] \cdot [a,c];&\\
  \label{eq:H1iii} [a,c]   = 1    \text{ implies } [a, [b,c]] = [[a,b],{}^bc].&
 \end{align}
 
+In the case $1\leq d \leq e \leq n$ the assertion follows from the following computation:
+\begin{align*} x_{\alpha+\beta+\gamma}(abt^e) = [x_{\alpha+\beta}(at^{e-d}), [x_{-\beta}(t^d), x_{\beta+\gamma}(b)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$  } \\ 
+ = [[x_{\alpha+\beta}(at^{e-d}), x_{-\beta}(t^d)], {}^{x_{-\beta}(t^d)} x_{\beta+\gamma}(b)] & \text{ by~\eqref{eq:H1iii}, $\text{R3}^\bot_{0,e-d}$} \\ 
+ = {}^{x_{-\beta}(t^d)} [x_{\alpha}(at^e), x_{\beta+\gamma}(b)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,e}$} \\ 
+ = {}^{x_{-\beta}(t^d)} [x_{\alpha + \beta}(at^{e-d}), x_{\gamma}(bt^d)] & \text{ by $\text{R2}_{e,0}$, $\text{R2}_{e-d,d}$} \\ 
+ = [x_{\alpha}(at^e) \cdot x_{\alpha + \beta}(at^{e-d}), x_{\gamma}(bt^d)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,d}$} \\ 
+ = {}^{x_\alpha(at^e)}x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\alpha(at^e), x_\gamma(bt^d)] & \text{ by~\eqref{eq:H1ii}, $\text{R2}_{e-d,d}$} \\
+ = x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\alpha(at^e), x_\gamma(bt^d)] & \text{ by $\text{R3}^\angle_{e,e}$}. \end{align*}
 
+In the case $d < 1\leq e \leq n$
 \begin{align*} 
- [x_\alpha(\xi), x_{\gamma}(bt^{e})] = [x_\alpha(\xi), [x_{\beta+\gamma}(b't^{e-1}), x_{-\beta}(t)]] & \text{ by~$\text{R2}_{e-1,1}$} \\
- = [[x_\alpha(\xi), x_{\beta+\gamma}(b't^{e-1})], {}^{x_{\beta+\gamma}(b't^{e-1})}\!x_{-\beta}(t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{0,1}$} \\
- = {}^{x_{\beta+\gamma}(b't^{e-1})}\![x_{\alpha+\beta+\gamma}(b't^{e-1}\xi), x_{-\beta}(t)] & \text{ by $\text{R2}_{0,e-1}$ and $\text{R3}^\angle_{e-1,e-1}$} \\
- = 1 & \text{ by $\text{R3}^\bot_{e-1,1}$.}
-\end{align*}
+ [x_\alpha(\xi), x_{\gamma}(bt^{e})] = [x_\alpha(\xi), [x_{\beta+\gamma}(b't^{e-1}), x_{-\beta}(t)]] & \text{ by~$\text{R2}_{e-1,1}$ } \\
+ = [[x_\alpha(\xi), x_{\beta+\gamma}(b't^{e-1})], {}^{x_{\beta+\gamma}(b't^{e-1})}\!x_{-\beta}(t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{d,1}$ } \\
+ = {}^{x_{\beta+\gamma}(b't^{e-1})}\![x_{\alpha+\beta+\gamma}(b't^{e-1}\xi), x_{-\beta}(t)] & \text{ by $\text{R2}_{d,e-1}$ and $\text{R3}^\angle_{e-1,e-1}$  } \\
+ = 1 & \text{ by $\text{R3}^\bot_{d+e-1,1}$.} \end{align*}
 
 We claim that $G_n\cong G_{n+1}$, more precisely, we construct an inverse homomorhism to the natural map $G_n\rightarrow G_{n+1}$. With this end we define elements $s_\alpha(a)\in G_n$ for $a\in R_{n+1}$ and prove the above relations for these elements. We start with the following easy fact.
 
@@ -1014,7 +1022,6 @@ $|a| = n-m$, $|b| = m$, $|c| = 0$
 [x_{jk}(b), x_{kl}(c)] &= x_{jl}(bc), & \text{R2}_{m, 0}\\
 [x_{ij}(a), x_{jk}(b)] &= x_{ik}(ab) & \text{R2}_{n-m, m}
 \end{align*}
-\end{comment}
 
 \begin{lemma} For any simply laced root system $\Phi$ of rank $\geq 3$, a local ring $A$ and any $1 \leq m \leq n$ the relation $\text{R3}_{n,m}^\bot$ follows from $\text{R1}_n$, $\text{R2}_{n,0}$, $\text{R2}_{m,0}$ and $\text{R2}_{n-m,m}$ and $\text{R3}_{n-m, 0}^\bot$. \end{lemma}
 \begin{proof}
@@ -1023,7 +1030,6 @@ We need to show that $[x_{\alpha}(cX^{n}), x_{\beta}(dX^{m})] = 1$ for all $c, d
 Now if $c \in M$ we can express it as a difference $c = \epsilon_1 - \epsilon_2$ of two invertible elements. The required assertion now follows from $\text{R1}_{n}$, the standard commutator identity $[ab, c] = {}^a[b, c] [a, c]$ and the just considered case.
 \end{proof}
 
-\begin{comment}
 \begin{align*} {}^{x_\gamma(X^{-1})}x_\alpha(bX^{-1}) = {}^{x_\gamma(X^{-1})}[x_{-\beta}(b'X^{-1}), x_{\alpha+\beta}(1)] & \text{ by R$2_1$}\\
  = [x_{-\beta}(b'X^{-1}), {}^{x_\gamma(X^{-1})}x_{\alpha+\beta}(1)] & \text{ by R$3_1$ for sharp angles}\\
  = [[x_{-\beta-\gamma}(b''), x_\gamma(X^{-1})], {}^{x_\gamma(X^{-1})}x_{\alpha+\beta}(1)] & \text{ by R$2_1$}\\
@@ -1035,10 +1041,9 @@ Now if $c \in M$ we can express it as a difference $c = \epsilon_1 - \epsilon_2$
  = [x_{\alpha}(b'X^{-1}) x_{\alpha+\beta}(b'), x_\gamma(aX^{-1})] & \text{ by R$2_1$ and R$3_1$ for sharp angles }\\
  = {}^{x_{\alpha}(b'X^{-1})}\!x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$2_1$} \\
  = x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$3_1$ for sharp angles.} \end{align*}
-\end{comment}
- 
- 
+
 \include{rehmann}
+\end{comment}
  
 \printbibliography
 
