@@ -496,17 +496,50 @@ We denote by $B = B(A, I)$ the subring $A[X^{-1}] + I[X] \subseteq A[X, X\inv]$ 
 As an $A$-module $B$ decomposes as $\oplus_{d\in\mathbb Z}B_d$ where $B_d=I \cdot X^d$ for $d>0$, and $B_d=A \cdot X^d$ for $d\leq0$.
 Obviously, $B = A[X^{-1}]$ in the case $I=0$ and $B = A[X, X^{-1}]$ in the case $I=A$.
 
-We need to introduce notation for certain relations of $\St(\Phi, B)$. 
+Whenever the coefficient $\xi$ of a Steinberg generator $g = x_\alpha(\xi)$ of $\St(\Phi, B)$ is a homogeneous element of $B$, i.\,e. $\xi \in B_d$ for some $d \in \mathbb{Z}$,
+ we call the corresponding generator $g$ homogeneous of degree $d$.
+It is not hard to show that $\St(\Phi, B)$ can be presented by the set of all homogeneous Steinberg generators modulo the following set of Steinberg relations
+ between them (below $a, a' \in B_d$, $b\in R_e$ and $d,e \in \mathbb{Z}$): 
 \begin{align}
 &\,\,x_{\alpha}(a)x_{\alpha}(a') =  x_{\alpha}(a+a'),& \tag{R$1_d$} \\
-&\,[x_{\alpha}(a),\,x_{\beta}(b)]= x_{\alpha+\beta}(N_{\alpha, \beta} \cdot ab),& \tag{R$2_{d,e}$} \\
-&[x_{\alpha}(a),\,x_{\gamma}(b)]= 1,& \alpha \perp \beta,\ \tag{R$3^\bot_{d,e}$} \\
-&[x_{\alpha}(a),\,x_{\beta}(b)]= 1,& \alpha - \beta \in \Phi,\ \tag{R$3^\angle_{d,e}$}
+&\,[x_{\alpha}(a),\,x_{\beta}(b)]= x_{\alpha+\beta}(N_{\alpha, \beta} \cdot ab),& \alpha + \beta \in \Phi \tag{R$2_{d,e}$} \\
+&[x_{\alpha}(a),\,x_{\beta}(b)]= 1,& \alpha + \beta \not \in \Phi\cup\{0\}.\ \tag{R$3_{d,e}$}
+%&[x_{\alpha}(a),\,x_{\beta}(b)]= 1,& \alpha - \beta \in \Phi,\ \tag{R$3^\angle_{d,e}$}
 \end{align}
-where $a, a' \in B_d$, $b\in R_e$. 
 %For such a ring $R$ one can assume in the definition of the Steinberg group that the generators $x_\alpha(a)$ and relations R1--R3 are defined only for homogeneous elements. 
 
-For $n\geq 1$ we define ``truncated'' Steinberg groups $\St^{\leq n}(\Phi, B)$ by the set of generators $x_\alpha(a)$, $\alpha\in \Phi$, $a\in B_d$, $d\leq n$, and relations $\text{R}1_{d}$, $\text{R3}^\angle_{d, e}$ and $\text{R3}^\bot_{d, e}$ for all $d,e \leq n$ and $\text{R2}_{d,e}$ for those $d,e \leq n$ for which $d+e \leq n$.
+For $n\geq 1$ we define ``truncated'' Steinberg groups $\St^{\leq n}(\Phi, B)$ by the set of homogeneous Steinberg generators of degree $\leq n$
+modulo relations $\text{R}1_{d}$, $\text{R3}_{d, e}$ for all $d,e \leq n$ and $\text{R2}_{d,e}$ for those $d,e \leq n$ for which $d+e \leq n$.
+
+It will be convenient for us to distinguish between the cases when depending on whether the roots $\alpha, \beta$ appearing in $\text{R3}_{d,e}$ are orthogonal to each other or form a sharp angle.
+In the former case we denote such relator by $\text{R3}^\bot_{d,e}$, and in the latter case by $\text{R3}^\angle_{d,e}$.
+
+The following lemma is inspired by the proof of the main result in ???.
+Basically, it says that most of the relators $\text{R3}^\bot_{d,e}$ in the presentation of $\St^{\leq n}(\Phi, B)$ are superflous.
+\begin{lemma}\label{superfluous-relations}
+ 
+\end{lemma}
+\begin{proof}
+We will use the following commutator identities (cf Rehmann-Soule).
+\begin{align} \label{eq:H1ii}  [ab, c] = {}^a[b, c] \cdot [a,c];&\\ %= [a,[b,c]]\cdot [b,c] \cdot [a,c];&\\
+ \label{eq:H1iii} [a,c]   = 1    \text{ implies } [a, [b,c]] = [[a,b],{}^bc].& \end{align}
+
+In the case $0 < d \leq e \leq n$ the assertion follows from the following computation:
+\begin{align*} x_{\alpha+\beta+\gamma}(abt^e) = [x_{\alpha+\beta}(at^{e-d}), [x_{-\beta}(t^d), x_{\beta+\gamma}(b)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$  } \\ 
+ = [[x_{\alpha+\beta}(at^{e-d}), x_{-\beta}(t^d)], {}^{x_{-\beta}(t^d)} x_{\beta+\gamma}(b)] & \text{ by~\eqref{eq:H1iii}, $\text{R3}^\bot_{0,e-d}$} \\ 
+ = {}^{x_{-\beta}(t^d)} [x_{\alpha}(at^e), x_{\beta+\gamma}(b)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,e}$} \\ 
+ = {}^{x_{-\beta}(t^d)} [x_{\alpha + \beta}(at^{e-d}), x_{\gamma}(bt^d)] & \text{ by $\text{R2}_{e,0}$, $\text{R2}_{e-d,d}$} \\ 
+ = [x_{\alpha}(at^e) \cdot x_{\alpha + \beta}(at^{e-d}), x_{\gamma}(bt^d)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,d}$} \\ 
+ = {}^{x_\alpha(at^e)}x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\alpha(at^e), x_\gamma(bt^d)] & \text{ by~\eqref{eq:H1ii}, $\text{R2}_{e-d,d}$} \\
+ = x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\alpha(at^e), x_\gamma(bt^d)] & \text{ by $\text{R3}^\angle_{e,e}$}. \end{align*}
+
+In the case $d \leq 0 \leq e \leq n$
+\begin{align*} 
+ [x_\alpha(\xi), x_{\gamma}(bt^{e})] = [x_\alpha(\xi), [x_{\beta+\gamma}(b't^{e-1}), x_{-\beta}(t)]] & \text{ by~$\text{R2}_{e-1,1}$ } \\
+ = [[x_\alpha(\xi), x_{\beta+\gamma}(b't^{e-1})], {}^{x_{\beta+\gamma}(b't^{e-1})}\!x_{-\beta}(t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{d,1}$ } \\
+ = {}^{x_{\beta+\gamma}(b't^{e-1})}\![x_{\alpha+\beta+\gamma}(b't^{e-1}\xi), x_{-\beta}(t)] & \text{ by $\text{R2}_{d,e-1}$ and $\text{R3}^\angle_{e-1,e-1}$  } \\
+ = 1 & \text{ by $\text{R3}^\bot_{d+e-1,1}$. \qedhere} \end{align*}
+\end{proof}
 
 \begin{lemma} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the map $i_\Phi\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$ induced by the natural embedding of generators, is an isomorphism. In particular, the natural map $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{lemma}
 \begin{proof}
@@ -557,27 +590,6 @@ Usual identities for structure constants imply (cf.~\cite[p.~12]{Re75}):
  = {}^{x_{\alpha}(b't^{e})}\!x_{\alpha+\beta+\gamma}(abt^{e}) [x_{\alpha}(b't^{e}), x_\gamma(at^d)] & \text{ by~\eqref{eq:H1ii} and $\text{R2}_{e-d,d}$} \\ = x_{\alpha+\beta+\gamma}(abt^{e}) [x_{\alpha}(b't^{e}), x_\gamma(at^d)] & \text{ by $\text{R3}^\angle_{e, e}$. \qedhere}
 \end{align*}
 \end{proof}
-\end{comment}
-\begin{align}
- \label{eq:H1ii}  [ab, c] = {}^a[b, c] \cdot [a,c];&\\ %= [a,[b,c]]\cdot [b,c] \cdot [a,c];&\\
- \label{eq:H1iii} [a,c]   = 1    \text{ implies } [a, [b,c]] = [[a,b],{}^bc].&
-\end{align}
-
-In the case $1\leq d \leq e \leq n$ the assertion follows from the following computation:
-\begin{align*} x_{\alpha+\beta+\gamma}(abt^e) = [x_{\alpha+\beta}(at^{e-d}), [x_{-\beta}(t^d), x_{\beta+\gamma}(b)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$  } \\ 
- = [[x_{\alpha+\beta}(at^{e-d}), x_{-\beta}(t^d)], {}^{x_{-\beta}(t^d)} x_{\beta+\gamma}(b)] & \text{ by~\eqref{eq:H1iii}, $\text{R3}^\bot_{0,e-d}$} \\ 
- = {}^{x_{-\beta}(t^d)} [x_{\alpha}(at^e), x_{\beta+\gamma}(b)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,e}$} \\ 
- = {}^{x_{-\beta}(t^d)} [x_{\alpha + \beta}(at^{e-d}), x_{\gamma}(bt^d)] & \text{ by $\text{R2}_{e,0}$, $\text{R2}_{e-d,d}$} \\ 
- = [x_{\alpha}(at^e) \cdot x_{\alpha + \beta}(at^{e-d}), x_{\gamma}(bt^d)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,d}$} \\ 
- = {}^{x_\alpha(at^e)}x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\alpha(at^e), x_\gamma(bt^d)] & \text{ by~\eqref{eq:H1ii}, $\text{R2}_{e-d,d}$} \\
- = x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\alpha(at^e), x_\gamma(bt^d)] & \text{ by $\text{R3}^\angle_{e,e}$}. \end{align*}
-
-In the case $d < 1\leq e \leq n$
-\begin{align*} 
- [x_\alpha(\xi), x_{\gamma}(bt^{e})] = [x_\alpha(\xi), [x_{\beta+\gamma}(b't^{e-1}), x_{-\beta}(t)]] & \text{ by~$\text{R2}_{e-1,1}$ } \\
- = [[x_\alpha(\xi), x_{\beta+\gamma}(b't^{e-1})], {}^{x_{\beta+\gamma}(b't^{e-1})}\!x_{-\beta}(t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{d,1}$ } \\
- = {}^{x_{\beta+\gamma}(b't^{e-1})}\![x_{\alpha+\beta+\gamma}(b't^{e-1}\xi), x_{-\beta}(t)] & \text{ by $\text{R2}_{d,e-1}$ and $\text{R3}^\angle_{e-1,e-1}$  } \\
- = 1 & \text{ by $\text{R3}^\bot_{d+e-1,1}$.} \end{align*}
 
 We claim that $G_n\cong G_{n+1}$, more precisely, we construct an inverse homomorhism to the natural map $G_n\rightarrow G_{n+1}$. With this end we define elements $s_\alpha(a)\in G_n$ for $a\in R_{n+1}$ and prove the above relations for these elements. We start with the following easy fact.
 
@@ -627,7 +639,7 @@ for $N'=-N_{\alpha_{l-2},\alpha_{l-1}-\alpha_{l-2}}N_{{\alpha_{l-1}-\alpha_{l-2}
 \end{proof}
 
 Now the same argument as in Lemma~\ref{welldef} allows to prove that $[s_{\alpha_{l-1}}(a),\,x_{\alpha_l}(b)]=1$ for $b\in R_e$, $e\leq0$, what finishes the proof of R3.2$\!\,_{n+1}$.
-
+\end{comment}
 \subsection{Computation of the kernel of the map of evaluation at \texorpdfstring{$0$}{0}.}
 For a pair $(R, I)$ we denote by $\overline{\St}(\Phi, R, I)$ the image of the map $\mu$ from~\eqref{relSteinberg-def}, in particular, it is a normal subgroup of $\St(\Phi, R)$.
 We also denote by $\St(\Phi, I)$ the subgroup of $\St(\Phi, R)$ generated as a group by root unipotents of level $I$.
