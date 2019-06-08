@@ -488,7 +488,7 @@ We will construct an action of $\St(\Phi, B)$ on the set $V$ with the following 
 \item for $g \in \St(\Phi, B)$ the element $p(g \cdot v_0)$ coincides with the canonical image of $g$ in $\St(\Phi, R[t, t^{-1}])$; 
 \end{enumerate} \end{comment}
 
-\subsection{Lemma on the presentation of Steinberg groups}
+\subsection{Presentation by Homogeneous elements}
 %Throughout this section $\Phi$ is a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$, $\rE_{6,7,8}$ and $A$ is a local ring with maximal ideal $M$.
 Let $I\trianglelefteq A$ be an ideal of a commutative ring $A$.
 We consider $A[X, X\inv]$ as a $\mathbb{Z}$-graded ring in which $X^{-1}$ has degree $1$.
@@ -501,23 +501,18 @@ Whenever the coefficient $\xi$ of a Steinberg generator $g = x_\alpha(\xi)$ of $
 It is not hard to show that $\St(\Phi, B)$ can be presented by the set of all homogeneous Steinberg generators modulo the following set of Steinberg relations
  between them (below $a, a' \in B_d$, $b\in R_e$ and $d,e \in \mathbb{Z}$): 
 \begin{align}
-&\,\,x_{\alpha}(a)x_{\alpha}(a') =  x_{\alpha}(a+a'),& \tag{R$1_d$} \\
-&\,[x_{\alpha}(a),\,x_{\beta}(b)]= x_{\alpha+\beta}(N_{\alpha, \beta} \cdot ab),& \alpha + \beta \in \Phi \tag{R$2_{d,e}$} \\
-&[x_{\alpha}(a),\,x_{\beta}(b)]= 1,& \alpha + \beta \not \in \Phi\cup\{0\}.\ \tag{R$3_{d,e}$}
-%&[x_{\alpha}(a),\,x_{\beta}(b)]= 1,& \alpha - \beta \in \Phi,\ \tag{R$3^\angle_{d,e}$}
+&\,\,x_{\alpha}(a)\cdot x_{\alpha}(a') =  x_{\alpha}(a+a'),                        & \tag{R$1_d$} \\
+&\,[x_{\alpha}(a),\,x_{\beta}(b)]= x_{\alpha+\beta}(N_{\alpha, \beta} \cdot ab),   & \alpha + \beta \in \Phi,\ \tag{R$2_{d,e}$} \\
+&\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha - \beta \in \Phi,\ \tag{R$3^\angle_{d,e}$} \\
+&\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha \perp \beta \in \Phi.\ \tag{R$3^\bot_{d,e}$}
 \end{align}
 %For such a ring $R$ one can assume in the definition of the Steinberg group that the generators $x_\alpha(a)$ and relations R1--R3 are defined only for homogeneous elements. 
 
 For $n\geq 1$ we define ``truncated'' Steinberg groups $\St^{\leq n}(\Phi, B)$ by the set of homogeneous Steinberg generators of degree $\leq n$
-modulo relations $\text{R}1_{d}$, $\text{R3}_{d, e}$ for all $d,e \leq n$ and $\text{R2}_{d,e}$ for those $d,e \leq n$ for which $d+e \leq n$.
-
-It will be convenient for us to distinguish between the cases when depending on whether the roots $\alpha, \beta$ appearing in $\text{R3}_{d,e}$ are orthogonal to each other or form a sharp angle.
-In the former case we denote such relator by $\text{R3}^\bot_{d,e}$, and in the latter case by $\text{R3}^\angle_{d,e}$.
-
-The following lemma is inspired by the proof of the main result in ???.
-Basically, it says that most of the relators $\text{R3}^\bot_{d,e}$ in the presentation of $\St^{\leq n}(\Phi, B)$ are superflous.
+modulo relations $\text{R}1_{d}$, $\text{R3}^\angle_{d, e}$, $\text{R3}_{d,e}^\bot$ for all $d,e \leq n$ and $\text{R2}_{d,e}$ for $d,e,d+e \leq n$.
+The following lemma asserts that most of the relators $\text{R3}^\bot_{d,e}$ in this presentation of $\St^{\leq n}(\Phi, B)$ can be omitted.
 \begin{lemma}\label{superfluous-relations}
- 
+ One can exclude from the presentation of $\St^{\leq n}(\Phi, B)$ all the relators $\text{R3}_{d,e}^\bot$ for which $\max(0,d) + \max(0,e) > 1$.
 \end{lemma}
 \begin{proof}
 We will use the following commutator identities (cf Rehmann-Soule).
@@ -533,7 +528,7 @@ In the case $0 < d \leq e \leq n$ the assertion follows from the following compu
  = {}^{x_\alpha(at^e)}x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\alpha(at^e), x_\gamma(bt^d)] & \text{ by~\eqref{eq:H1ii}, $\text{R2}_{e-d,d}$} \\
  = x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\alpha(at^e), x_\gamma(bt^d)] & \text{ by $\text{R3}^\angle_{e,e}$}. \end{align*}
 
-In the case $d \leq 0 \leq e \leq n$
+In the case $d \leq 0 \leq e \leq n$ for $\xi \in B_d$ one has
 \begin{align*} 
  [x_\alpha(\xi), x_{\gamma}(bt^{e})] = [x_\alpha(\xi), [x_{\beta+\gamma}(b't^{e-1}), x_{-\beta}(t)]] & \text{ by~$\text{R2}_{e-1,1}$ } \\
  = [[x_\alpha(\xi), x_{\beta+\gamma}(b't^{e-1})], {}^{x_{\beta+\gamma}(b't^{e-1})}\!x_{-\beta}(t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{d,1}$ } \\
@@ -1013,7 +1008,7 @@ Set $\epsilon = N_{\alpha,-\beta}$. Applying~\cref{SR:sharp} we obtain that
  \sim h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am + bm'}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right).
 \end{multlined}
 \end{gather*}
-The expressions in the right-hand sides of the above formulae are clearly symmetric under the action of the transposition $(a, \alpha) \leftrightarrow (b, \beta)$, which implies the desired relation.
+The expressions in the right-hand sides of the above formulae are clearly symmetric under the action of the transposition $(a, \alpha) \leftrightarrow (b, \beta)$, which shows that the desired relation holds.
 \end{proof}
 
 \begin{comment}
@@ -1054,8 +1049,8 @@ Now if $c \in M$ we can express it as a difference $c = \epsilon_1 - \epsilon_2$
  = {}^{x_{\alpha}(b'X^{-1})}\!x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$2_1$} \\
  = x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$3_1$ for sharp angles.} \end{align*}
 
-\include{rehmann}
 \end{comment}
+\include{rehmann}
  
 \printbibliography
 
