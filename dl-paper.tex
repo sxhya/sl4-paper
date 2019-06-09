@@ -511,7 +511,7 @@ For example, the degree of $\text{R2}_{d,e}$ is $\max(d,e,d+e)$ while the degree
 For $n\geq 1$ we define ``truncated'' Steinberg groups $\St^{\leq n}(\Phi, B)$ by the set of homogeneous Steinberg generators of degree $\leq n$ modulo Steinberg relations of degree $\leq n$.
 The following lemma asserts that most of the relators $\text{R3}^\bot_{d,e}$ in this presentation of $\St^{\leq n}(\Phi, B)$ can be omitted.
 \begin{lemma}\label{superfluous-relations}
- For every simply-laced root system $\Phi$ of rank $\geq 3$ and every $n \geq 1$ one can exclude from the presentation of $\St^{\leq n}(\Phi, B)$ all the relators $\text{R3}_{d,e}^\bot$ for which $\max(0,d) + \max(0,e) > 1$.
+ For every simply-laced root system $\Phi$ of rank $\geq 3$ and every $n \geq 1$ one can exclude from the presentation of $\St^{\leq n}(\Phi, B)$ the relators $\text{R3}_{d,e}^\bot$ for which $\max(0,d) + \max(0,e) > 1$.
 \end{lemma}
 \begin{proof}
 For the proof we will need the following commutator identities:
@@ -536,17 +536,16 @@ We start with the following two observations inspired by the proof of the main r
  = [[x_\alpha(at^d), x_{\beta+\gamma}(b't^{e-1})], {}^{x_{\beta+\gamma}(b't^{e-1})}\!x_{-\beta}(t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{d,1}$ } \\
  = {}^{x_{\beta+\gamma}(b't^{e-1})}\![x_{\alpha+\beta+\gamma}(ab't^{e-1}t^d), x_{-\beta}(t)] & \text{ by $\text{R2}_{d,e-1}$ and $\text{R3}^\angle_{e-1,e-1}$  } \\
  = 1 & \text{ by $\text{R3}^\bot_{d+e-1,1}$.} \end{align*} \end{enumerate}                                                           
- 
-To see that $\text{R3}^\bot_{d,e}$ is superfluous one must iteratively apply one of the above observations.
-Notice that the value $\max(0,d,e)$ decreases strictly whenever $e > 1$. 
-Finally, by the first observation $\text{R3}^\bot_{1,1}$ follows from $\text{R3}^\bot_{0,0}$.
+Together the above observation show that if the degree of the relator $\text{R3}^\bot_{d,e}$ is $\geq 2$ then it is a consequence of some relator $\text{R3}^\bot_{d',e'}$ of strictly smaller degree.
+Finally, by the first observation, $\text{R3}^\bot_{1,1}$ is a consequence of $\text{R3}^\bot_{0,0}$.
 \end{proof}
 
-\begin{lemma} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the map $i_\Phi\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$ induced by the natural embedding of generators, is an isomorphism. In particular, the natural map $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{lemma}
+\begin{lemma} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the map $i_n\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$ induced by the natural embedding of generators, is an isomorphism. In particular, the natural map $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{lemma}
 \begin{proof}
- The special case $\Phi=\rA_{\geq 4}$ of the assertion is due to Tulenbayev, see~\cite[Lemma~3.3]{Tu83}. Thus, it remains to deduce from it the assertion in the cases $\Phi=\rD_\ell,\rE_\ell$.
+ The special case $\Phi=\rA_{\geq 4}$ of the assertion is due to Tulenbayev, see~\cite[Lemma~3.3]{Tu83}. 
+ Therefore it can be used to deduce our assertion in the cases $\Phi=\rD_\ell,\rE_\ell$.
  
- Denote by $A_4(\Phi)$ the set consisting of all root subsystems of $\Phi$ of type $\rA_4$ and by $G_n$ the free product of groups $\coprod\limits_{\Psi \in A_4(\Phi)} \St^{\leq n}(\Psi, B)$ amalgamated over relations $x^{\Psi_1}_\alpha(a) = x^{\Psi_2}_\alpha(a)$ for all $a \in B_d$, $d \leq n$, $\alpha \in \Psi_1\cap\Psi_2$, $\Psi_1, \Psi_2 \in A_4(\Phi)$. 
+ %Denote by $A_4(\Phi)$ the set consisting of all root subsystems of $\Phi$ of type $\rA_4$ and by $G_n$ the free product of groups $\coprod\limits_{\Psi \in A_4(\Phi)} \St^{\leq n}(\Psi, B)$ amalgamated over relations $x^{\Psi_1}_\alpha(a) = x^{\Psi_2}_\alpha(a)$ for all $a \in B_d$, $d \leq n$, $\alpha \in \Psi_1\cap\Psi_2$, $\Psi_1, \Psi_2 \in A_4(\Phi)$. 
  
  Let us show that the obvious map $i_n \colon G_n \to G_{n+1}$ has an inverse $j_n$. Notice first that the maps $j_\Psi$ constructed by Tulenbaev agree on the generators of $G_{n+1}$ and hence, by the universal property of colimits, give rise to the well-defined map $j\colon G_{n+1}\to G_n$, which is easily seen to be  inverse to $i$.
   \begin{equation} \nonumber \xymatrix{
