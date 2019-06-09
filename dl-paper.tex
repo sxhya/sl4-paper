@@ -107,18 +107,16 @@ Recall from~\cite[Lemma~5.2]{Ma69} that the following identities hold for these 
    \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}.
  \end{align}
 
-In our computations we will use two explicit elements of $\K_2(\Phi, R)$. Recall that Steinberg symbols are defined for any $s, t \in R^*$ by the identity
+For our computations we will need two explicit elements of $\K_2(\Phi, R)$. Recall that Steinberg symbols are defined for any $s, t \in R^*$ by the identity
 \begin{equation} \label{eq:steinberg} \{ s, t \}_\alpha = h_\alpha(s) \cdot h_\alpha(t) \cdot h_\alpha(st)^{-1}. \end{equation}
 
-Recall also that Dennis--Stein symbols are defined for arbitrary $r, s\in R$ satisfying $1 + rs \in R^*$ as follows:
-\begin{equation} \label{eq:dennis-stein}
- \langle r,s \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- s}{1 + rs}\right) \cdot x_{\alpha}(r) \cdot x_{-\alpha}(s) \cdot x_{\alpha}\left(\tfrac{- r}{1+rs}\right) \cdot h_{\alpha}(1 + rs)^{-1}.
-\end{equation} 
-Notice that our notation follows~\cite{DS73} and {\it not}~III.5.11 of~\cite{Kbook}.
+Our convention for Dennis--Stein symbols follows~\cite{DS73} (and {\it not} III.5.11 of ~\cite{Kbook}).
+Recall that Dennis--Stein symbols are defined for arbitrary $r, s\in R$ satisfying $1 + rs \in R^*$ as follows:
+\begin{equation} \label{eq:dennis-stein}  \langle r,s \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- s}{1 + rs}\right) \cdot x_{\alpha}(r) \cdot x_{-\alpha}(s) \cdot x_{\alpha}\left(\tfrac{- r}{1+rs}\right) \cdot h_{\alpha}(1 + rs)^{-1}. \end{equation} 
 
 Dennis--Stein symbols and Steinberg symbols are related to each other via the following identities:
 \begin{equation} \label{DS-S-relationship} \langle a, b \rangle_\alpha = \{-a, 1+ab\}_\alpha\text{ for } a, 1+ab\in R^*,\ \
- \{ s, t \}_\alpha = \left\langle -s, \tfrac{1 - t}{s} \right\rangle_\alpha\text{ for } s, t\in R^* \end{equation}
+ \{ s, t \}_\alpha = \left\langle -s, \tfrac{1 - t}{s} \right\rangle_\alpha\text{ for } s, t\in R^*. \end{equation}
 
 %Using~\eqref{eq:conj-h-h} it is easy to verify that \[[h_\alpha(s), h_\beta(t)] = \{s, t^{\langle \alpha, \beta \rangle}\}_\alpha = \{t, s^{\langle \beta, \alpha \rangle}\}_\beta^{-1}.\] 
 It is easy to show that the above symbols depend only on the length of $\alpha$.
@@ -488,16 +486,16 @@ We will construct an action of $\St(\Phi, B)$ on the set $V$ with the following 
 \item for $g \in \St(\Phi, B)$ the element $p(g \cdot v_0)$ coincides with the canonical image of $g$ in $\St(\Phi, R[t, t^{-1}])$; 
 \end{enumerate} \end{comment}
 
-\subsection{Presentation by Homogeneous elements}
+\subsection{Presentation of Steinberg groups by homogeneous generators}
 %Throughout this section $\Phi$ is a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$, $\rE_{6,7,8}$ and $A$ is a local ring with maximal ideal $M$.
 Let $I\trianglelefteq A$ be an ideal of a commutative ring $A$.
-We consider $A[X, X\inv]$ as a $\mathbb{Z}$-graded ring in which $X^{-1}$ has degree $1$.
-We denote by $B = B(A, I)$ the subring $A[X^{-1}] + I[X] \subseteq A[X, X\inv]$ with the induced grading.
-As an $A$-module $B$ decomposes as $\oplus_{d\in\mathbb Z}B_d$ where $B_d=I \cdot X^d$ for $d>0$, and $B_d=A \cdot X^d$ for $d\leq0$.
-Obviously, $B = A[X^{-1}]$ in the case $I=0$ and $B = A[X, X^{-1}]$ in the case $I=A$.
+We consider $A[t, t\inv]$ as a $\mathbb{Z}$-graded ring in which $t$ has degree $1$.
+We denote by $B = B(A, I)$ the subring $A[t^{-1}] + I[t] \subseteq A[t, t\inv]$ with the induced grading.
+As an $A$-module $B$ decomposes as $\oplus_{d\in\mathbb Z}B_d$ where $B_d=I \cdot t^d$ for $d<0$, and $B_d=A \cdot t^d$ for $d\leq0$.
+Obviously, $B = A[t]$ in the case $I=0$ and $B = A[t, t\inv]$ in the case $I=A$.
 
 Whenever the coefficient $\xi$ of a Steinberg generator $g = x_\alpha(\xi)$ of $\St(\Phi, B)$ is a homogeneous element of $B$, i.\,e. $\xi \in B_d$ for some $d \in \mathbb{Z}$,
- we call the corresponding generator $g$ homogeneous of degree $d$.
+ we call the corresponding generator $g$ {\it homogeneous of degree $d$}.
 It is not hard to show that $\St(\Phi, B)$ can be presented by the set of all homogeneous Steinberg generators modulo the following set of Steinberg relations
  between them (below $a, a' \in B_d$, $b\in R_e$ and $d,e \in \mathbb{Z}$): 
 \begin{align}
@@ -506,21 +504,26 @@ It is not hard to show that $\St(\Phi, B)$ can be presented by the set of all ho
 &\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha - \beta \in \Phi,\ \tag{R$3^\angle_{d,e}$} \\
 &\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha \perp \beta \in \Phi.\ \tag{R$3^\bot_{d,e}$}
 \end{align}
+By the degree of a relation we mean the maximum of the degrees of generators that appear in it.
+For example, the degree of $\text{R2}_{d,e}$ is $\max(d,e,d+e)$ while the degree of $\text{R3}^\bot_{d,e}$ or $\text{R3}^\angle_{d,e}$ is $\max(d,e)$.
 %For such a ring $R$ one can assume in the definition of the Steinberg group that the generators $x_\alpha(a)$ and relations R1--R3 are defined only for homogeneous elements. 
 
-For $n\geq 1$ we define ``truncated'' Steinberg groups $\St^{\leq n}(\Phi, B)$ by the set of homogeneous Steinberg generators of degree $\leq n$
-modulo relations $\text{R}1_{d}$, $\text{R3}^\angle_{d, e}$, $\text{R3}_{d,e}^\bot$ for all $d,e \leq n$ and $\text{R2}_{d,e}$ for $d,e,d+e \leq n$.
+For $n\geq 1$ we define ``truncated'' Steinberg groups $\St^{\leq n}(\Phi, B)$ by the set of homogeneous Steinberg generators of degree $\leq n$ modulo Steinberg relations of degree $\leq n$.
 The following lemma asserts that most of the relators $\text{R3}^\bot_{d,e}$ in this presentation of $\St^{\leq n}(\Phi, B)$ can be omitted.
 \begin{lemma}\label{superfluous-relations}
- One can exclude from the presentation of $\St^{\leq n}(\Phi, B)$ all the relators $\text{R3}_{d,e}^\bot$ for which $\max(0,d) + \max(0,e) > 1$.
+ For every simply-laced root system $\Phi$ of rank $\geq 3$ and every $n \geq 1$ one can exclude from the presentation of $\St^{\leq n}(\Phi, B)$ all the relators $\text{R3}_{d,e}^\bot$ for which $\max(0,d) + \max(0,e) > 1$.
 \end{lemma}
 \begin{proof}
-We will use the following commutator identities (cf Rehmann-Soule).
-\begin{align} \label{eq:H1ii}  [ab, c] = {}^a[b, c] \cdot [a,c];&\\ %= [a,[b,c]]\cdot [b,c] \cdot [a,c];&\\
- \label{eq:H1iii} [a,c]   = 1    \text{ implies } [a, [b,c]] = [[a,b],{}^bc].& \end{align}
+For the proof we will need the following commutator identities:
+\begin{align} \label{eq:H1ii} [xy, z] = {}^x[y, z] \cdot [x,z];&\\ %= [a,[b,c]]\cdot [b,c] \cdot [a,c];&\\
+ \label{eq:H1iii} [x,z] = 1 \text{ implies } [x, [y,z]] = [[x,y],{}^yz].& \end{align}
+Without loss of generality we may assume $e \geq d$ and $e > 0$. Let $\alpha$ and $\gamma$ be a pair of orthogonal roots of $\Phi$.
+We can find $\beta \in \Phi$ forming an obtuse angle with both $\alpha$ and $\gamma$ (see e.\,g.~\cite[Lemma~3.1.2]{RS76}).
 
-In the case $0 < d \leq e \leq n$ the assertion follows from the following computation:
-\begin{align*} x_{\alpha+\beta+\gamma}(abt^e) = [x_{\alpha+\beta}(at^{e-d}), [x_{-\beta}(t^d), x_{\beta+\gamma}(b)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$  } \\ 
+We start with the following two observations inspired by the proof of the main result of~\cite{RS76}.
+\begin{enumerate}
+\item In the case $0 < d \leq e \leq n$ the relation $\text{R3}^\bot_{d,e}$ is a consequence of $\text{R3}^\bot_{0,e-d}$:
+\begin{align*} x_{\alpha+\beta+\gamma}(abt^e) = [x_{\alpha+\beta}(at^{e-d}), [x_{-\beta}(t^d), x_{\beta+\gamma}(b)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$} \\ 
  = [[x_{\alpha+\beta}(at^{e-d}), x_{-\beta}(t^d)], {}^{x_{-\beta}(t^d)} x_{\beta+\gamma}(b)] & \text{ by~\eqref{eq:H1iii}, $\text{R3}^\bot_{0,e-d}$} \\ 
  = {}^{x_{-\beta}(t^d)} [x_{\alpha}(at^e), x_{\beta+\gamma}(b)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,e}$} \\ 
  = {}^{x_{-\beta}(t^d)} [x_{\alpha + \beta}(at^{e-d}), x_{\gamma}(bt^d)] & \text{ by $\text{R2}_{e,0}$, $\text{R2}_{e-d,d}$} \\ 
@@ -528,12 +531,15 @@ In the case $0 < d \leq e \leq n$ the assertion follows from the following compu
  = {}^{x_\alpha(at^e)}x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\alpha(at^e), x_\gamma(bt^d)] & \text{ by~\eqref{eq:H1ii}, $\text{R2}_{e-d,d}$} \\
  = x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\alpha(at^e), x_\gamma(bt^d)] & \text{ by $\text{R3}^\angle_{e,e}$}. \end{align*}
 
-In the case $d \leq 0 \leq e \leq n$ for $\xi \in B_d$ one has
-\begin{align*} 
- [x_\alpha(\xi), x_{\gamma}(bt^{e})] = [x_\alpha(\xi), [x_{\beta+\gamma}(b't^{e-1}), x_{-\beta}(t)]] & \text{ by~$\text{R2}_{e-1,1}$ } \\
- = [[x_\alpha(\xi), x_{\beta+\gamma}(b't^{e-1})], {}^{x_{\beta+\gamma}(b't^{e-1})}\!x_{-\beta}(t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{d,1}$ } \\
- = {}^{x_{\beta+\gamma}(b't^{e-1})}\![x_{\alpha+\beta+\gamma}(b't^{e-1}\xi), x_{-\beta}(t)] & \text{ by $\text{R2}_{d,e-1}$ and $\text{R3}^\angle_{e-1,e-1}$  } \\
- = 1 & \text{ by $\text{R3}^\bot_{d+e-1,1}$. \qedhere} \end{align*}
+\item In the case $d \leq 0 \leq e \leq n$ the relation $\text{R3}^\bot_{d,e}$ is a consequence of $\text{R3}^\bot_{1,d+e-1}$:
+\begin{align*} [x_\alpha(at^d), x_{\gamma}(bt^{e})] = [x_\alpha(at^d), [x_{\beta+\gamma}(b't^{e-1}), x_{-\beta}(t)]] & \text{ by~$\text{R2}_{e-1,1}$ } \\
+ = [[x_\alpha(at^d), x_{\beta+\gamma}(b't^{e-1})], {}^{x_{\beta+\gamma}(b't^{e-1})}\!x_{-\beta}(t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{d,1}$ } \\
+ = {}^{x_{\beta+\gamma}(b't^{e-1})}\![x_{\alpha+\beta+\gamma}(ab't^{e-1}t^d), x_{-\beta}(t)] & \text{ by $\text{R2}_{d,e-1}$ and $\text{R3}^\angle_{e-1,e-1}$  } \\
+ = 1 & \text{ by $\text{R3}^\bot_{d+e-1,1}$.} \end{align*} \end{enumerate}                                                           
+ 
+To see that $\text{R3}^\bot_{d,e}$ is superfluous one must iteratively apply one of the above observations.
+Notice that the value $\max(0,d,e)$ decreases strictly whenever $e > 1$. 
+Finally, by the first observation $\text{R3}^\bot_{1,1}$ follows from $\text{R3}^\bot_{0,0}$.
 \end{proof}
 
 \begin{lemma} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the map $i_\Phi\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$ induced by the natural embedding of generators, is an isomorphism. In particular, the natural map $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{lemma}
