@@ -504,40 +504,48 @@ It is not hard to show that $\St(\Phi, B)$ can be presented by the set of all ho
 &\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha - \beta \in \Phi,\ \tag{R$3^\angle_{d,e}$} \\
 &\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha \perp \beta \in \Phi.\ \tag{R$3^\bot_{d,e}$}
 \end{align}
-By the degree of a relation we mean the maximum of the degrees of generators that appear in it.
-For example, the degree of $\text{R2}_{d,e}$ is $\max(d,e,d+e)$ while the degree of $\text{R3}^\bot_{d,e}$ or $\text{R3}^\angle_{d,e}$ is $\max(d,e)$.
+By the degree of a Steinberg relation we mean the maximum of degrees of generators that appear in it.
+For example, the degree of every relation of type $\text{R2}_{d,e}$ is $\max(d,e,d+e)$ 
+ while the degree of a relation of type $\text{R3}^\bot_{d,e}$ or $\text{R3}^\angle_{d,e}$ is $\max(d,e)$.
 %For such a ring $R$ one can assume in the definition of the Steinberg group that the generators $x_\alpha(a)$ and relations R1--R3 are defined only for homogeneous elements. 
 
 For $n\geq 1$ we define ``truncated'' Steinberg groups $\St^{\leq n}(\Phi, B)$ by the set of homogeneous Steinberg generators of degree $\leq n$ modulo Steinberg relations of degree $\leq n$.
-The following lemma asserts that most of the relators $\text{R3}^\bot_{d,e}$ in this presentation of $\St^{\leq n}(\Phi, B)$ can be omitted.
+The following lemma asserts that most of the relations of type $\text{R3}^\bot_{d,e}$ in this presentation of $\St^{\leq n}(\Phi, B)$ 
+ are superfluous and can be omitted.
 \begin{lemma}\label{superfluous-relations}
- For every simply-laced root system $\Phi$ of rank $\geq 3$ and every $n \geq 1$ one can exclude from the presentation of $\St^{\leq n}(\Phi, B)$ the relators $\text{R3}_{d,e}^\bot$ for which $\max(0,d) + \max(0,e) > 1$.
+ For every simply-laced root system $\Phi$ of rank $\geq 3$ and every $n \geq 1$ one can exclude from
+ the presentation of $\St^{\leq n}(\Phi, B)$ all relations of type $\text{R3}_{d,e}^\bot$ for which $\max(0,d) + \max(0,e) > 1$.
 \end{lemma}
 \begin{proof}
 For the proof we will need the following commutator identities:
 \begin{align} \label{eq:H1ii} [xy, z] = {}^x[y, z] \cdot [x,z];&\\ %= [a,[b,c]]\cdot [b,c] \cdot [a,c];&\\
  \label{eq:H1iii} [x,z] = 1 \text{ implies } [x, [y,z]] = [[x,y],{}^yz].& \end{align}
-Without loss of generality we may assume $e \geq d$ and $e > 0$. Let $\alpha$ and $\gamma$ be a pair of orthogonal roots of $\Phi$.
+ 
+The proof is based on the following observation: every relation of type $\text{R3}^\bot_{d,e}$ of degree
+ $\geq 2$ is a consequence of some relation of type $\text{R3}^\bot_{d',e'}$ of strictly smaller degree.
+Let $R=[x_\alpha(at^d),\ x_\gamma(bt^e)] = 1$ be such a relation for some $\alpha\perp\gamma$.
 We can find $\beta \in \Phi$ forming an obtuse angle with both $\alpha$ and $\gamma$ (see e.\,g.~\cite[Lemma~3.1.2]{RS76}).
-
-We start with the following two observations inspired by the proof of the main result of~\cite{RS76}.
+Without loss of generality we may assume $e \geq d$ and $e > 0$. We need to consider two cases.
 \begin{enumerate}
-\item In the case $0 < d \leq e \leq n$ the relation $\text{R3}^\bot_{d,e}$ is a consequence of $\text{R3}^\bot_{0,e-d}$:
-\begin{align*} x_{\alpha+\beta+\gamma}(abt^e) = [x_{\alpha+\beta}(at^{e-d}), [x_{-\beta}(t^d), x_{\beta+\gamma}(b)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$} \\ 
- = [[x_{\alpha+\beta}(at^{e-d}), x_{-\beta}(t^d)], {}^{x_{-\beta}(t^d)} x_{\beta+\gamma}(b)] & \text{ by~\eqref{eq:H1iii}, $\text{R3}^\bot_{0,e-d}$} \\ 
- = {}^{x_{-\beta}(t^d)} [x_{\alpha}(at^e), x_{\beta+\gamma}(b)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,e}$} \\ 
- = {}^{x_{-\beta}(t^d)} [x_{\alpha + \beta}(at^{e-d}), x_{\gamma}(bt^d)] & \text{ by $\text{R2}_{e,0}$, $\text{R2}_{e-d,d}$} \\ 
- = [x_{\alpha}(at^e) \cdot x_{\alpha + \beta}(at^{e-d}), x_{\gamma}(bt^d)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,d}$} \\ 
- = {}^{x_\alpha(at^e)}x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\alpha(at^e), x_\gamma(bt^d)] & \text{ by~\eqref{eq:H1ii}, $\text{R2}_{e-d,d}$} \\
- = x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\alpha(at^e), x_\gamma(bt^d)] & \text{ by $\text{R3}^\angle_{e,e}$}. \end{align*}
+\item In the case $0 < d \leq e \leq n$ relation $R$ is a consequence of some relation of type $\text{R3}^\bot_{0,e-d}$:
+\begin{align} x_{\alpha+\beta+\gamma}(abt^e) = [x_{\beta+\gamma}(bt^{e-d}), [x_{-\beta}(t^d), x_{\alpha+\beta}(a)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$} \label{first-computation} \\ 
+ = [[x_{\beta+\gamma}(bt^{e-d}), x_{-\beta}(t^d)], {}^{x_{-\beta}(t^d)} x_{\alpha+\beta}(a)] & \text{ by~\eqref{eq:H1iii}, $\text{R3}^\bot_{0,e-d}$} \nonumber \\ 
+ = {}^{x_{-\beta}(t^d)} [x_{\gamma}(bt^e), x_{\alpha+\beta}(a)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,e}$} \nonumber \\ 
+ = {}^{x_{-\beta}(t^d)} [x_{\beta + \gamma}(bt^{e-d}), x_{\alpha}(at^d)] & \text{ by $\text{R2}_{e,0}$, $\text{R2}_{e-d,d}$} \nonumber \\ 
+ = [x_{\gamma}(bt^e) \cdot x_{\beta + \gamma}(bt^{e-d}), x_{\alpha}(at^d)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,d}$} \nonumber \\ 
+ = {}^{x_\gamma(bt^e)}x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\gamma(bt^e), x_\alpha(at^d)] & \text{ by~\eqref{eq:H1ii}, $\text{R2}_{e-d,d}$} \nonumber \\
+ = x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\gamma(bt^e), x_\alpha(at^d)] & \text{ by $\text{R3}^\angle_{e,e}$}. \nonumber \end{align}
 
-\item In the case $d \leq 0 \leq e \leq n$ the relation $\text{R3}^\bot_{d,e}$ is a consequence of $\text{R3}^\bot_{1,d+e-1}$:
-\begin{align*} [x_\alpha(at^d), x_{\gamma}(bt^{e})] = [x_\alpha(at^d), [x_{\beta+\gamma}(b't^{e-1}), x_{-\beta}(t)]] & \text{ by~$\text{R2}_{e-1,1}$ } \\
- = [[x_\alpha(at^d), x_{\beta+\gamma}(b't^{e-1})], {}^{x_{\beta+\gamma}(b't^{e-1})}\!x_{-\beta}(t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{d,1}$ } \\
- = {}^{x_{\beta+\gamma}(b't^{e-1})}\![x_{\alpha+\beta+\gamma}(ab't^{e-1}t^d), x_{-\beta}(t)] & \text{ by $\text{R2}_{d,e-1}$ and $\text{R3}^\angle_{e-1,e-1}$  } \\
- = 1 & \text{ by $\text{R3}^\bot_{d+e-1,1}$.} \end{align*} \end{enumerate}                                                           
-Together the above observation show that if the degree of the relator $\text{R3}^\bot_{d,e}$ is $\geq 2$ then it is a consequence of some relator $\text{R3}^\bot_{d',e'}$ of strictly smaller degree.
-Finally, by the first observation, $\text{R3}^\bot_{1,1}$ is a consequence of $\text{R3}^\bot_{0,0}$.
+\item In the case $d \leq 0 \leq e \leq n$ relation $R$ is a consequence of some relation of type $\text{R3}^\bot_{1,d+e-1}$:
+\begin{align*} [x_\alpha(at^d), x_{\gamma}(bt^{e})] = [x_\alpha(at^d), [x_{\beta+\gamma}(b t^{e-1}), x_{-\beta}(\epsilon_1 t)]] & \text{ by~$\text{R2}_{e-1,1}$ } \\
+ = [[x_\alpha(at^d), x_{\beta+\gamma}(bt^{e-1})], {}^{x_{\beta+\gamma}(bt^{e-1})}\!x_{-\beta}(\epsilon_1 t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{d,1}$ } \\
+ = {}^{x_{\beta+\gamma}(bt^{e-1})}\![x_{\alpha+\beta+\gamma}(\epsilon_2abt^{e+d-1}), x_{-\beta}(\epsilon_1 t)] & \text{ by $\text{R2}_{d,e-1}$ and $\text{R3}^\angle_{e-1,e-1}$  } \\
+ = 1 & \text{ by $\text{R3}^\bot_{d+e-1,1}$,} \end{align*} where $\epsilon_1 = N_{\beta+\gamma,-\beta}$, $\epsilon_2 = N_{\alpha,\beta+\gamma}$.
+ \end{enumerate}                                                           
+ 
+
+The assertion of the lemma now follows from the above observation by induction on the degree of $R$ and the fact
+ that by~\eqref{first-computation} relation $\text{R3}^\bot_{1,1}$ is a consequence of $\text{R3}^\bot_{0,0}$.
 \end{proof}
 
 \begin{lemma} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the map $i_n\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$ induced by the natural embedding of generators, is an isomorphism. In particular, the natural map $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{lemma}
