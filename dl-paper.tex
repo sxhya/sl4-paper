@@ -202,11 +202,12 @@ For our purposes it would be sufficient to restrict our attention to to the affi
 The groups ${}_{\pm 1}\!U_i(R)$ are defined in~\cite{Ka80} and we will not use their definition.
 The notation for the upper index $[k]$ suggests that Grothendieck--Witt groups are $4$-periodic in $k$.
 
-
 In the sequel we will need the following result.
 \begin{theorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $2 \in R^*$, then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups
  \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{theorem}
-\begin{proof} This is a special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. \end{proof}
+\begin{proof} See~\cite[Corollary~5.3]{Ho05}. 
+%This is a special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. 
+\end{proof}
 
 \subsection{Relative Steinberg groups}
 Let us briefly recall the definition and basic properties of relative Steinberg groups.
@@ -265,15 +266,12 @@ Hall-Witt identity
 \end{comment}
 Throughtout this section $A$ denotes an arbitary ring and $I, J$ two its ideals and $\Phi$ a simply laced root system.
 
-The following lemma summarizes basic properties of structure constants which will be used in the computations below, often without explicit reference.
-\begin{lemma} Suppose $\alpha, \beta \in \Phi$ are such that $\alpha+\beta \in \Phi$.
-\begin{enumerate}\label{lem:structure-constants}
- \item $N_{\alpha, \beta} = -N_{\beta,\alpha}$;
- \item $N_{\alpha, \beta} = - N_{-\alpha, -\beta}$;
- \item $N_{\alpha, \beta} = N_{\beta, -\alpha-\beta} = N_{-\alpha-\beta, \alpha}.$
-\end{enumerate}
-\end{lemma}
-\begin{proof} See~\cite[\S~14]{VP}. \end{proof}
+The following lemma summarizes basic properties of structure constants which will be used in our computations below, often without further reference.
+\begin{lemma} Suppose $(\alpha, \beta, \gamma)$ is a triple of roots forming a basis of root subsystem of type $\rA_3$
+ (i.\,e. such that $\alpha+\beta, \beta + \gamma \in \Phi$ and $\alpha \perp \beta$), then holds:
+\begin{equation} N_{\alpha, \beta} = -N_{\beta,\alpha} = - N_{-\alpha, -\beta} = N_{\beta, -\alpha-\beta} = N_{-\alpha-\beta, \alpha}. \end{equation}
+\begin{equation} \label{eq:cocycle} N_{\beta,\gamma} \cdot N_{\alpha, \beta+\gamma} = N_{\alpha+\beta, \gamma} \cdot N_{\alpha, \beta}. \end{equation}
+\end{lemma} \begin{proof} See~\cite[\S~14]{VP}. \end{proof}
 
 We define the following two families of elements of $\St(\Phi, A)$:
 \begin{itemize}
@@ -490,9 +488,8 @@ We will construct an action of $\St(\Phi, B)$ on the set $V$ with the following 
 %Throughout this section $\Phi$ is a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$, $\rE_{6,7,8}$ and $A$ is a local ring with maximal ideal $M$.
 Let $I\trianglelefteq A$ be an ideal of a commutative ring $A$.
 We consider $A[t, t\inv]$ as a $\mathbb{Z}$-graded ring in which $t$ has degree $1$.
-We denote by $B = B(A, I)$ the subring $A[t^{-1}] + I[t] \subseteq A[t, t\inv]$ with the induced grading.
-As an $A$-module $B$ decomposes as $\oplus_{d\in\mathbb Z}B_d$ where $B_d=I \cdot t^d$ for $d<0$, and $B_d=A \cdot t^d$ for $d\leq0$.
-Obviously, $B = A[t]$ in the case $I=0$ and $B = A[t, t\inv]$ in the case $I=A$.
+We denote by $B = B(A, I)$ the subring $A[t] + I[t\inv] \subseteq A[t, t\inv]$ with the induced grading.
+As an $A$-module $B$ decomposes as $\oplus_{d\in\mathbb Z}B_d$ where $B_d=I \cdot t^d$ for $d<0$, and $B_d=A \cdot t^d$ for $d\geq0$. Obviously, $B = A[t]$ in the case $I=0$ and $B = A[t, t\inv]$ in the case $I=A$.
 
 Whenever the coefficient $\xi$ of a Steinberg generator $g = x_\alpha(\xi)$ of $\St(\Phi, B)$ is a homogeneous element of $B$, i.\,e. $\xi \in B_d$ for some $d \in \mathbb{Z}$,
  we call the corresponding generator $g$ {\it homogeneous of degree $d$}.
@@ -528,19 +525,22 @@ We can find $\beta \in \Phi$ forming an obtuse angle with both $\alpha$ and $\ga
 Without loss of generality we may assume $e \geq d$ and $e > 0$. We need to consider two cases.
 \begin{enumerate}
 \item In the case $0 < d \leq e \leq n$ relation $R$ is a consequence of some relation of type $\text{R3}^\bot_{0,e-d}$:
-\begin{align} x_{\alpha+\beta+\gamma}(abt^e) = [x_{\beta+\gamma}(bt^{e-d}), [x_{-\beta}(t^d), x_{\alpha+\beta}(a)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$} \label{first-computation} \\ 
- = [[x_{\beta+\gamma}(bt^{e-d}), x_{-\beta}(t^d)], {}^{x_{-\beta}(t^d)} x_{\alpha+\beta}(a)] & \text{ by~\eqref{eq:H1iii}, $\text{R3}^\bot_{0,e-d}$} \nonumber \\ 
- = {}^{x_{-\beta}(t^d)} [x_{\gamma}(bt^e), x_{\alpha+\beta}(a)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,e}$} \nonumber \\ 
- = {}^{x_{-\beta}(t^d)} [x_{\beta + \gamma}(bt^{e-d}), x_{\alpha}(at^d)] & \text{ by $\text{R2}_{e,0}$, $\text{R2}_{e-d,d}$} \nonumber \\ 
- = [x_{\gamma}(bt^e) \cdot x_{\beta + \gamma}(bt^{e-d}), x_{\alpha}(at^d)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,d}$} \nonumber \\ 
- = {}^{x_\gamma(bt^e)}x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\gamma(bt^e), x_\alpha(at^d)] & \text{ by~\eqref{eq:H1ii}, $\text{R2}_{e-d,d}$} \nonumber \\
- = x_{\alpha+\beta+\gamma}(abt^e) \cdot [x_\gamma(bt^e), x_\alpha(at^d)] & \text{ by $\text{R3}^\angle_{e,e}$}. \nonumber \end{align}
-
+\begin{align} x_{\alpha+\beta+\gamma}(-\epsilon_1 \epsilon_2 \cdot abt^e) = 
+[x_{\beta+\gamma}(\epsilon_1 \cdot bt^{e-d}), [x_{-\beta}(t^d), x_{\alpha+\beta}(-\delta_2 \cdot a)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$} \label{first-computation} \\ 
+ = [[x_{\beta+\gamma}(\epsilon_1 \cdot bt^{e-d}), x_{-\beta}(t^d)], {}^{x_{-\beta}(t^d)} x_{\alpha+\beta}(- \delta_2 \cdot a)] & \text{ by~\eqref{eq:H1iii}, $\text{R3}^\bot_{0,e-d}$} \nonumber \\ 
+ = {}^{x_{-\beta}(t^d)} [x_{\gamma}(- bt^e), x_{\alpha+\beta}(-\delta_2 \cdot a)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,e}$} \nonumber \\ 
+ = {}^{x_{-\beta}(t^d)} [x_{\beta + \gamma}(\epsilon_1 \cdot bt^{e-d}), x_{\alpha}(at^d)] & \text{ by $\text{R2}_{e,0}$, $\text{R2}_{e-d,d}$} \nonumber \\ 
+ = [x_{\gamma}(bt^e) \cdot x_{\beta + \gamma}(\epsilon_1 \cdot bt^{e-d}), x_{\alpha}(at^d)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,d}$} \nonumber \\ 
+ = {}^{x_\gamma(bt^e)}x_{\alpha+\beta+\gamma}(-\epsilon_1\epsilon_2 \cdot abt^e) \cdot [x_\gamma(bt^e), x_\alpha(at^d)] & \text{ by~\eqref{eq:H1ii}, $\text{R2}_{e-d,d}$} \nonumber \\
+ = x_{\alpha+\beta+\gamma}(-\epsilon_1\epsilon_2 \cdot abt^e) \cdot [x_\gamma(bt^e), x_\alpha(at^d)] & \text{ by $\text{R3}^\angle_{e,e}$}, \nonumber \end{align}
+ where $\epsilon_1 = N_{\beta,\gamma}$, $\epsilon_2 = N_{\alpha,\beta+\gamma}$, $\delta_1 = N_{\alpha+\beta,\gamma}$, $\delta_2 = N_{\alpha,\beta}$
+ and in the fourth equality we use~\eqref{eq:cocycle}.
+  
 \item In the case $d \leq 0 \leq e \leq n$ relation $R$ is a consequence of some relation of type $\text{R3}^\bot_{1,d+e-1}$:
-\begin{align*} [x_\alpha(at^d), x_{\gamma}(bt^{e})] = [x_\alpha(at^d), [x_{\beta+\gamma}(b t^{e-1}), x_{-\beta}(\epsilon_1 t)]] & \text{ by~$\text{R2}_{e-1,1}$ } \\
- = [[x_\alpha(at^d), x_{\beta+\gamma}(bt^{e-1})], {}^{x_{\beta+\gamma}(bt^{e-1})}\!x_{-\beta}(\epsilon_1 t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{d,1}$ } \\
- = {}^{x_{\beta+\gamma}(bt^{e-1})}\![x_{\alpha+\beta+\gamma}(\epsilon_2abt^{e+d-1}), x_{-\beta}(\epsilon_1 t)] & \text{ by $\text{R2}_{d,e-1}$ and $\text{R3}^\angle_{e-1,e-1}$  } \\
- = 1 & \text{ by $\text{R3}^\bot_{d+e-1,1}$,} \end{align*} where $\epsilon_1 = N_{\beta+\gamma,-\beta}$, $\epsilon_2 = N_{\alpha,\beta+\gamma}$.
+\begin{align*} [x_\alpha(at^d), x_{\gamma}(bt^{e})] = [x_\alpha(at^d), [x_{\beta+\gamma}(b t^{e-1}), x_{-\beta}(-\epsilon_1 t)]] & \text{ by~$\text{R2}_{e-1,1}$ } \\
+ = [[x_\alpha(at^d), x_{\beta+\gamma}(bt^{e-1})], {}^{x_{\beta+\gamma}(bt^{e-1})}\!x_{-\beta}(-\epsilon_1 t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{d,1}$ } \\
+ = {}^{x_{\beta+\gamma}(bt^{e-1})}\![x_{\alpha+\beta+\gamma}(\epsilon_2abt^{e+d-1}), x_{-\beta}(-\epsilon_1 t)] & \text{ by $\text{R2}_{d,e-1}$ and $\text{R3}^\angle_{e-1,e-1}$  } \\
+ = 1 & \text{ by $\text{R3}^\bot_{d+e-1,1}$,} \end{align*} where $\epsilon_1 = N_{\beta,\gamma}$, $\epsilon_2 = N_{\alpha,\beta+\gamma}$.
  \end{enumerate}                                                           
  
 
@@ -955,7 +955,7 @@ For $a + Xf \in A + XM[X]$ we can define the operator $T_\alpha(a + Xf) \colon \
 \[ T_\alpha(a + Xf) \cdot (g, h, u) = (x_\alpha(a + Xf) \cdot g, h\cdot x_{\alpha}(-a), u).  \]
 It is easy to see that this definition is correct.
 
-\begin{lemma} The operators $T_\alpha$ satisfy $\text{R3}_{\leq 0, 1}$. \end{lemma}
+\begin{lemma} The operators $T_\alpha$ satisfy Steinberg relations of type $\text{R3}_{\leq 0, 1}$. \end{lemma}
 \begin{proof} We need to show that $[T_\alpha(aX^{-1}), T_\beta(b + Xf)](g, h, u) = (g, h, u)$ for $\beta\in Z(\alpha)$, $a\in A$, $b \in A + XM[X]$.
 Write $b = b_0 + Xf$ for some $f \in M[X]$.
 We may assume that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$  (cf. the first part of the proof of~\cref{lem:orbit-action}).
@@ -969,7 +969,7 @@ It follows from~\cref{P0-conj-invariant} that $P_\alpha\left(\tfrac{m}{1-am}\rig
  = h_\alpha^{-1}(1-am) \cdot \left[x_\alpha\left(\tfrac{aX^{-1}}{1-am}\right),\ x_\beta(b_0)\right] = h_\alpha^{-1}(1-am). \qedhere \end{multlined} \end{gather*}
 \end{proof}
 
-\begin{lemma} The operators $T_\alpha$ satisfy $\text{R2}_{\leq -1, 1}$. \end{lemma}
+\begin{lemma} The operators $T_\alpha$ satisfy Steinberg relations of type $\text{R2}_{\leq -1, 1}$. \end{lemma}
 \begin{proof} We need to show that for $a\in A$, $f \in M[X]$ and $\alpha, \beta \in \Phi$ forming an obtuse angle holds
  \[ [T_\beta(Xf),\ T_\alpha(aX^{-1})] (g, h, u) = \left(x_{\alpha+\beta}(N_{\beta,\alpha} \cdot af) \cdot g, h, u\right). \]
 
@@ -979,7 +979,7 @@ Since $x_\beta(Xf)$ belongs to $P_\alpha(0)$ we obtain from~\cref{SR:additivity}
 \sim T_\beta(Xf) \cdot T_\alpha(aX^{-1}) \left(x_{\beta}(-Xf) \cdot x_\alpha(-aX^{-1})\cdot g,\ h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 - am}\right) \cdot h^{-1}_\alpha(1-am),\ u(1-am)\right) = \\ = \left( [x_\beta(Xf), x_\alpha(aX^{-1})] \cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 + \tfrac{am}{1-am}}\right),\ u \right) \sim \\ \sim (x_{\alpha+\beta}(N_{\beta,\alpha} \cdot af) \cdot g,\ h,\ u). \qedhere \end{multline} \end{proof}
 
 The following proposition is a direct generalization of~\cite[Proposition~4.3]{Tu83}.
-\begin{prop} The operators $T_\alpha(aX^{-1})$ satisfy all relations $\text{R2}_{0,1}$ and relations $\text{R3}_{1,1}^{\angle}$ in the special case when $\alpha, \beta$ form a sharp angle. \end{prop}
+\begin{prop} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations of types $\text{R2}_{0,1}$ and $\text{R3}_{1,1}^{\angle}$. \end{prop}
 \begin{proof} 
 \begin{comment}
 Suppose $(g, h, u)$ is such that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
