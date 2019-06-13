@@ -89,7 +89,8 @@ x_\alpha(s) x_\alpha(t) = x_\alpha(s+t),\ \alpha\in\Phi,\ s,t\in R; \label{rel:a
 \end{align}
 The indices $i$, $j$ appearing in the right-hand side of the above relation range over
 all positive natural numbers such that $i\alpha + j\beta\in\Phi$.
-The structure constants $N_{\alpha \beta i j}=\pm 1,2,3$ appearing in \eqref{rel:CCF} depend only on $\Phi$ and can be computed explicitly.
+The structure constants $N_{\alpha \beta i j}=\pm 1,\pm 2,\pm 3$ appearing in \eqref{rel:CCF} depend only on $\Phi$ and {\bf TODO}:
+% в литературе описываются способы выбрать эти константы ссылка на третий взгляд.
 
 In this paper we will be mostly interested in the case when the Dynkin diagram of $\Phi$ is simply-laced, in which case the above relations further simplify to
 \begin{align}
@@ -99,24 +100,26 @@ In this paper we will be mostly interested in the case when the Dynkin diagram o
 \end{align}
 
 
-Recall that for $\alpha\in\Phi$ and $s \in R^*$ the semisimple root elements $h_\alpha(s)$ are defined as follows: \[h_\alpha(s)=w_\alpha(s) \cdot w_\alpha(-1), \text{ where } w_\alpha(s) = x_\alpha(s) \cdot x_{-\alpha}(-s^{-1}) \cdot x_\alpha(s).\]
+Recall that for $\alpha\in\Phi$ and $s \in R^\times$ the semisimple root elements $h_\alpha(s)$ are defined as follows: 
+\[h_\alpha(s)=w_\alpha(s) \cdot w_\alpha(-1), \text{ where } w_\alpha(s) = x_\alpha(s) \cdot x_{-\alpha}(-s^{-1}) \cdot x_\alpha(s).\]
 
 Recall from~\cite[Lemma~5.2]{Ma69} that the following identities hold for these elements:
  \begin{align} 
    \label{eq:conj-h-x} {}^{h_\alpha(t)}\!x_\beta(u) & = x_\beta(t^{\langle \beta,  \alpha \rangle}u) \\
    \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}.
  \end{align}
-
-For our computations we will need two explicit elements of $\K_2(\Phi, R)$. Recall that Steinberg symbols are defined for any $s, t \in R^*$ by the identity
+ 
+In our computations we use two explicit families of elements of $\K_2(\Phi, R)$: Steinberg and Dennis--Stein symbols.
+Recall that Steinberg symbols are defined for any $s, t \in R^\times$ by the identity
 \begin{equation} \label{eq:steinberg} \{ s, t \}_\alpha = h_\alpha(s) \cdot h_\alpha(t) \cdot h_\alpha(st)^{-1}. \end{equation}
 
 Our convention for Dennis--Stein symbols follows~\cite{DS73} (and {\it not} III.5.11 of ~\cite{Kbook}).
-Recall that Dennis--Stein symbols are defined for arbitrary $r, s\in R$ satisfying $1 + rs \in R^*$ as follows:
+Recall that Dennis--Stein symbols are defined for arbitrary $r, s\in R$ satisfying $1 + rs \in R^\times$ as follows:
 \begin{equation} \label{eq:dennis-stein}  \langle r,s \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- s}{1 + rs}\right) \cdot x_{\alpha}(r) \cdot x_{-\alpha}(s) \cdot x_{\alpha}\left(\tfrac{- r}{1+rs}\right) \cdot h_{\alpha}(1 + rs)^{-1}. \end{equation} 
 
 Dennis--Stein symbols and Steinberg symbols are related to each other via the following identities:
-\begin{equation} \label{DS-S-relationship} \langle a, b \rangle_\alpha = \{-a, 1+ab\}_\alpha\text{ for } a, 1+ab\in R^*,\ \
- \{ s, t \}_\alpha = \left\langle -s, \tfrac{1 - t}{s} \right\rangle_\alpha\text{ for } s, t\in R^*. \end{equation}
+\begin{equation} \label{DS-S-relationship} \langle a, b \rangle_\alpha = \{-a, 1+ab\}_\alpha\text{ for } a, 1+ab\in R^\times,\ \
+ \{ s, t \}_\alpha = \left\langle -s, \tfrac{1 - t}{s} \right\rangle_\alpha\text{ for } s, t\in R^\times. \end{equation}
 
 %Using~\eqref{eq:conj-h-h} it is easy to verify that \[[h_\alpha(s), h_\beta(t)] = \{s, t^{\langle \alpha, \beta \rangle}\}_\alpha = \{t, s^{\langle \beta, \alpha \rangle}\}_\beta^{-1}.\] 
 It is easy to show that the above symbols depend only on the length of $\alpha$.
@@ -129,7 +132,7 @@ In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$
 \end{comment}
 
 \subsection{Unstable Quillen K-groups} \label{sec:quillen}
-Throughout this section $G, P, S$ denote three group-valued functors on the category of commutative rings satisfying the following reqirements:
+Throughout this section $G, P, S$ denote three group-valued functors on the category of commutative rings satisfying the following assumptions:
 \begin{enumerate}
  \item \label{req:left-exact} $G$ is left exact;
  \item \label{req:subfunc} $P$ is a subfunctor of $G$ such that for all $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$;
@@ -152,14 +155,15 @@ Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\
 \begin{enumerate}
  \item There are natural isomorphisms
   \[ \K_2(G, P, R) \cong \Ker(S(R) \to G(R)), \ \K_3(G, P, R) \cong \HH_3(S(R), \ZZ). \]
- \item The map $\mu \colon S(R, I) \to S(R)$ is the universal relative central extension of 
-    the map $S(R) \to S(R/I)$. The kernel of $\mu$ is naturally isomorphic to the third relative homology group $\HH_3(S(R), S(R/I), \ZZ)$.
+ \item The map $\mu \colon S(R, I) \to S(R)$ is the universal relative central extension of the map $S(R) \to S(R/I)$.
+       Denote the kernel of $\mu$ by $C(R, I)$.
+       Then $C(R, I)$ is naturally isomorphic to the third relative homology group $\HH_3(S(R), S(R/I), \ZZ)$.
  \item There is a natural exact sequence:
- \[ \xymatrix{\K_3(G, P, R) \ar[r] & \K_3(G, P, R/I) \ar@{->>}[r] & \Ker(\mu).} \]
+ \[ \xymatrix{\K_3(G, P, R) \ar[r] & \K_3(G, P, R/I) \ar@{->>}[r] & C(R, I).} \]
  \end{enumerate}   
 \end{prop}
 \begin{proof}
- The first claim follows from Exercises~1.8--1.9 of \cite[Chapter~IV]{Kbook} (here we use~\eqref{req:subfunc}--\eqref{req:uce}). %provided one verifies that all the intermediate isomorphisms are natural in $R$.
+ The first claim follows from \cite[Chapter~IV]{Kbook} (cf. Exercises~1.8--1.9 ibid, here we use assumptions~\eqref{req:subfunc}--\eqref{req:uce}). %provided one verifies that all the intermediate isomorphisms are natural in $R$.
  
  Let us verify the second claim. From~\eqref{req:left-exact} and $\varphi(G_i) \subseteq \Ker(G(p_i))$ we conclude that $G_0 \cap G_1 \subseteq \Ker(\varphi \colon S(D_{R, I}) \to G(D_{R, I}))$
   therefore $G_0 \cap G_1$ is a central subgroup of $S(D_{R, I})$.
@@ -172,20 +176,15 @@ Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\
  The third claim now follows from the starting portion of the homology long exact sequence of the map $S(R) \to S(R/I)$ and the first two assertions.
 \end{proof}
 
-Let us mention the example of a triple $(G,P,S)$ satisfying the above conditions.
-\begin{example} \label{ex:orth}
- For $n \geq 5$ take the orthogonal group functor $\mathrm{O}_{2n}(-)$ and its elementary subfunctor $\mathrm{EO}_{2n}(-)$ as functors $G_n$ and $P_n$, respectively.
- Now set $S_n = \St(\rD_n, -)$.
- From [Stein's paper] and [Lemma on centrality] it follows that $S_n$ and $P_n$ satisfy~\eqref{req:uce}.
- The other requirements can be verified in a straightforward manner.
-\end{example}
+The principal example of a triple $(G,P,S)$ satisfying the above conditions is as follows.
+For $n \geq 5$ take the orthogonal group functor $\mathrm{O}_{2n}(-)$ and its elementary subfunctor $\mathrm{EO}_{2n}(-)$ as functors $G_n$ and $P_n$, respectively. Now set $S_n = \St(\rD_n, -)$. From [Stein's paper] and [Lemma on centrality] it follows that $S_n$ and $P_n$ satisfy~\eqref{req:uce}.
+ The other requirements can be verified in a straightforward manner. We write $KO_i(n, R)$ as a shorthand for $\K_i(G_n, P_n, R)$.
 
 In the above definition we could have replaced the group $\mathrm{O}_{2n}$ with a different isogeneous form of the orthogonal group, e.\,g. 
  we could have chosen $G_n = \mathrm{SO}_{2n}$ or $G_n = \mathrm{Spin}_{2n}$ and then have defined $P_n$ as its elementary subfunctor.
-Of course, this would change the functors $\K_i(G_n, P_n, -)$ for $i=1,2$ however, as the proof of~\cref{characterization} suggests %TODO: Does it really change K_2?
- it would not change $\K_i(G_n, P_n, -)$ for $i\geq 3$.
+Of course, this would change the functors $\K_i(G_n, P_n, -)$ for $i=1,2$ however, as the proof of~\cref{characterization} suggests
+ it would not change $\K_3(G_n, P_n, -)$.
 
-Now let $G_n, P_n$ be again as in~\cref{ex:orth}. We write $KO_i(n, R)$ as a shorthand for $\K_i(G_n, P_n, R)$.
 Let us formulate the stability theorem for orthogonal Quillen K-groups (see~\cite[Theorem~9.4]{Pa89}).
 \begin{theorem}[Panin] \label{lem:Panin-stability}
  Let $R$ be either a field, principal ideal domain or a Dedekind domain. Set $a = 1,2$ or $3$ in each of these respective cases.
@@ -205,9 +204,7 @@ The notation for the upper index $[k]$ suggests that Grothendieck--Witt groups a
 In the sequel we will need the following result.
 \begin{theorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $2 \in R^*$, then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups
  \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{theorem}
-\begin{proof} See~\cite[Corollary~5.3]{Ho05}. 
-%This is a special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. 
-\end{proof}
+\begin{proof} This is a special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. \end{proof}
 
 \subsection{Relative Steinberg groups}
 Let us briefly recall the definition and basic properties of relative Steinberg groups.
@@ -239,8 +236,7 @@ If we denote the kernel of the natural transformation $\mu$ from the definition 
 \begin{equation} \label{relSteinberg-def}
  \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r]^{j} & \St(\Phi, R, I) \ar[r]^{\mu} & \St(\Phi, R) \ar[r]^{\pi} & \St(\Phi, R/I) \ar[r] & 1.}
 \end{equation}
-The group $C(\Phi, R, I)$ is trivial when $I$ is a splitting ideal of $R$, i.\,e. when the canonical map $R \to R/I$ splits.
-This immediately follows e.\,g. from the exact sequence of~\cref{characterization}, it is also possible to give a direct proof of this fact, see \cite[Lemma~8]{S15}.
+The group $C(\Phi, R, I)$ is trivial when $I$ is a splitting ideal of $R$, i.\,e. when the canonical map $R \to R/I$ splits, see \cite[Lemma~8]{S15}.
 The following result plays a key role in the proof of~\cref{thm41}.
 \begin{lemma} \label{lem:prop41}
 In the notation of~\cref{lem:lemma32} assume additionally that the residue field $k$ is of characteristic $\neq 2$.
@@ -251,8 +247,8 @@ Then the canonical map $f\colon C(\rD_\ell, B, I) \to C(\rD_\ell, R, I)$ is surj
 \begin{equation*}\xymatrix{
  KO_3(2\ell, B) \ar[r] \ar[d] & KO_3(2\ell, k[X]) \ar[d]_{f'} \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
  KO_3(2\ell, R) \ar[r]        & KO_3(2\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
-In view of~\cref{lem:Panin-stability} the central vertical map $f'$ is isomorphic to the canonical map $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
-Invoking~\cref{bass-ft} we obtain that \[\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k) \oplus \GW_2^{[3]}(k).\]
+In view of~\cref{lem:Panin-stability} the central vertical map $f'$ is precisely the canonical map $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
+Invoking~\cref{bass-ft} (or~\cite[Corollary~5.3]{Ho05}) we obtain that \[\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k) \oplus \GW_2^{[3]}(k).\]
 By \cite[Lemma~2.2]{FRS12} the group $\GW_2^{[3]}(k)$ is trivial, therefore $f'$ (and hence $f$) are surjective.
 \end{proof}
 
@@ -264,14 +260,13 @@ Hall-Witt identity
 \[ [[ z^{-1}, y^{-1}], x] ^ {z^{-1}y^{-1}} \cdot  [[ x^{-1}, z], y^{-1}] ^ {x^{-1}y^{-1}} = [z, [ y, x]] . \]
 \[  . \]
 \end{comment}
-Throughtout this section $A$ denotes an arbitary ring and $I, J$ two its ideals and $\Phi$ a simply laced root system.
+Throughtout this section $A$ denotes an arbitary ring, and $I, J$ two its ideals, and $\Phi$ a simply laced root system.
 
-The following lemma summarizes basic properties of structure constants which will be used in our computations below, often without further reference.
+The following lemma summarizes basic properties of structure constants which will be used in our computations below, often without further reference (cf.~\cite[\S~14]{VP}).
 \begin{lemma} Suppose $(\alpha, \beta, \gamma)$ is a triple of roots forming a basis of root subsystem of type $\rA_3$
  (i.\,e. such that $\alpha+\beta, \beta + \gamma \in \Phi$ and $\alpha \perp \beta$), then holds:
 \begin{equation} N_{\alpha, \beta} = -N_{\beta,\alpha} = - N_{-\alpha, -\beta} = N_{\beta, -\alpha-\beta} = N_{-\alpha-\beta, \alpha}. \end{equation}
-\begin{equation} \label{eq:cocycle} N_{\beta,\gamma} \cdot N_{\alpha, \beta+\gamma} = N_{\alpha+\beta, \gamma} \cdot N_{\alpha, \beta}. \end{equation}
-\end{lemma} \begin{proof} See~\cite[\S~14]{VP}. \end{proof}
+\begin{equation} \label{eq:cocycle} N_{\beta,\gamma} \cdot N_{\alpha, \beta+\gamma} = N_{\alpha+\beta, \gamma} \cdot N_{\alpha, \beta}. \end{equation} \end{lemma}
 
 We define the following two families of elements of $\St(\Phi, A)$:
 \begin{itemize}
@@ -652,7 +647,7 @@ Now the same argument as in Lemma~\ref{welldef} allows to prove that $[s_{\alpha
 For a pair $(R, I)$ we denote by $\overline{\St}(\Phi, R, I)$ the image of the map $\mu$ from~\eqref{relSteinberg-def}, in particular, it is a normal subgroup of $\St(\Phi, R)$.
 We also denote by $\St(\Phi, I)$ the subgroup of $\St(\Phi, R)$ generated as a group by root unipotents of level $I$.
 It is clear that $\overline{\St}(\Phi, R, I)$ contains $\St(\Phi, I)$ and, in fact, is its normal closure.
-We also denote by $\overline{H}(\Phi, R, I)$ the subgroup of $\overline{\St}(\Phi, R, I)$ generated by the semisimple root elements $h_\alpha(u)$ and symbols $\{u, v\}$, $u \in (1+I)^*$, $v \in R^*$, $\alpha\in \Phi$.
+We also denote by $\overline{H}(\Phi, R, I)$ the subgroup of $\overline{\St}(\Phi, R, I)$ generated by the semisimple root elements $h_\alpha(u)$ and symbols $\{u, v\}$, $u \in (1+I)^\times$, $v \in R^\times$, $\alpha\in \Phi$.
 
 The aim of this subsection is to describe the kernel of the map $ev_{X=0}^*\colon\overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, A, M)$
 induced by the ring homomorphism of evaluation at $0$. Clearly, this kernel, denote it by $K(A[X], M[X])$, contains the subgroup $\overline{\St}(\Phi, A[X], XM[X])$, however, apriori it may be larger, so our goal will be to describe the explicit extra elements sufficient to generate it.
@@ -711,7 +706,7 @@ For the rest of this subsection $\Phi$ is a simply-laced root system of rank $\g
 (cf.~\cite[Proposition~5.7]{St71}).
 
 \begin{rem}\label{Z-DS} Notice that our assumptions on the rank of $\Phi$ guarantee that $Z_0(\alpha)$ is nonempty, hence the group $Z_\alpha(A, M)$ contains relative Dennis--Stein symbols $\langle a, m \rangle$ for $a\in A$, $m\in M$.
-By~\eqref{DS-S-relationship} relative Steinberg symbols $\{a, 1+m\}$ are also contained in $Z_\alpha(A, M)$ for all $a\in A^*$, $m\in M$. \end{rem}
+By~\eqref{DS-S-relationship} relative Steinberg symbols $\{a, 1+m\}$ are also contained in $Z_\alpha(A, M)$ for all $a\in A^\times$, $m\in M$. \end{rem}
 
 \begin{df} \label{defP0}
 Let $M$ be an ideal of a local ring $A$. We denote by $P_{\alpha, M}(0)$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by the images of the following elements of $\St(\Phi, A[X])$ under the
@@ -913,7 +908,7 @@ For shortness we also write $G_M^0$ instead of $\overline{\St}(\Phi, A, M)$.
 \[ \xymatrix{ G_M^0 \ar@{^{(}->}[r]^{i_+} \ar@{^{(}->}[d]^{i_-} & \overline{\St}(\Phi, A[X], M[X]) \ar^{j_+^M}[d] \ar@{^{(}->}[r] & \St(\Phi, A[X]) \ar[dl]^{j_+} \\
               \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, A[X, X^{-1}]) &  } \] 
 Denote by $\overline{G}^{\geq 0}_M$ the image of the map $j_+^M$. 
-Denote by $V$ the subset of $\St(\Phi, A[X, X^{-1}]) \times \St(\Phi, A[X\inv]) \times (1 + M)^*$ consisting of those triples $(g, h, u)$ for which 
+Denote by $V$ the subset of $\St(\Phi, A[X, X^{-1}]) \times \St(\Phi, A[X\inv]) \times (1 + M)^\times$ consisting of those triples $(g, h, u)$ for which 
 $p(g, h, u) := g \cdot j_-(h) \cdot \{ X, u \}$ belongs to $\overline{G}_M^{\geq 0}$.
 We let $h_0 \in G_M^0$ act on $V$ on the right by $(g, h, u) \cdot h_0 = (g, h \cdot i_-(h_0), u)$.
 It is clear that this action is well defined.
