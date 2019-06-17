@@ -107,14 +107,9 @@ For $\alpha\in\Phi$ and $s \in R^\times$ we define certain elements $w_\alpha(s)
 \begin{align*} w_\alpha(s) & =  x_\alpha(s) \cdot x_{-\alpha}(-s^{-1}) \cdot x_\alpha(s), \\ h_\alpha(s) & =  w_\alpha(s) \cdot w_\alpha(-1).  \end{align*}
 
 Recall from~\cite[Lemma~5.2]{Ma69} that the following relations hold for semisimple root elements:
- \begin{align} 
-   \label{eq:conj-h-x} {}^{h_\alpha(t)}\!x_\beta(u) & = x_\beta(t^{\langle \beta,  \alpha \rangle}u), \\
-   \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}.
- \end{align}
+\begin{align} \label{eq:conj-h-x} {}^{h_\alpha(t)}\!x_\beta(u) & = x_\beta(t^{\langle \beta,  \alpha \rangle}u), \\ \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}. \end{align}
 
-\subsection{$\K_2$-groups and symbols} 
- 
-In our computations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our treatment of symbols follows~\cite{DS73}. Recall that Steinberg symbols are defined for arbitrary $s, t \in R^\times$ as follows:
+\subsection{$\K_2$-groups and symbols} In our computations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our treatment of symbols follows~\cite{DS73}. Recall that Steinberg symbols are defined for arbitrary $s, t \in R^\times$ as follows:
 \begin{equation} \label{eq:steinberg} \{ s, t \}_\alpha = h_\alpha(st) \cdot h_\alpha^{-1}(s) \cdot h_\alpha^{-1}(t). \end{equation}
 In turn, Dennis--Stein symbols are defined for arbitrary $a, b\in R$ satisfying $1 + ab \in R^\times$:
 \begin{equation} \label{eq:dennis-stein}  \langle a,b \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- b}{1 + ab}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(b) \cdot x_{\alpha}\left(\tfrac{- a}{1+ab}\right) \cdot h_{\alpha}^{-1}(1 + ab). \end{equation} 
@@ -150,11 +145,11 @@ in which the left arrow is an isomorphism by the Korollar of~\cite[Satz~1]{Re75}
 
 \subsection{Unstable Quillen K-groups} \label{sec:quillen}
 Throughout this section $G, P, S$ denote three group-valued functors on the category of commutative rings satisfying the following assumptions:
-\begin{enumerate}
+\begin{enumerate} [label=(A\arabic*)]
  \item \label{req:left-exact} $G$ is left exact;
  \item \label{req:subfunc} $P$ is a subfunctor of $G$ such that for all $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$;
  \item \label{req:uce} There is a natural transformation $\varphi \colon S \to P$ such that $ \varphi \colon S(R) \to P(R)$ is a universal central extension for all $R$;
- \item \label{req:coeq} $S$ preserves coequalizers of kernel pairs.
+ \item \label{req:coeq} For every pair $(R, I)$ the functor $S$ has the property that \[S(R \times_{R/I} R) \cong S(R) \times_{S(R/I)} S(R).\]
 \end{enumerate}
 
 Thanks to the functoriality of Quillen's plus-construction (see e.\,g.~\cite[Proposition~5.2.4]{Ro95}) one can define a functor 
@@ -169,6 +164,7 @@ Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\
 
 %TODO: Give the definition of $D_{R, I}$ and of the category of Pairs
 \begin{prop}\label{characterization}
+For $(G, P, R)$ as above the following statements are true.
 \begin{enumerate}
  \item There are natural isomorphisms
   \[ \K_2(G, P, R) \cong \Ker(S(R) \to G(R)), \ \K_3(G, P, R) \cong \HH_3(S(R), \ZZ). \]
@@ -180,21 +176,21 @@ Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\
  \end{enumerate}   
 \end{prop}
 \begin{proof}
- The first claim follows from \cite[Chapter~IV]{Kbook} (cf. Exercises~1.8--1.9 ibid, here we use assumptions~\eqref{req:subfunc}--\eqref{req:uce}). %provided one verifies that all the intermediate isomorphisms are natural in $R$.
+ The first claim follows from~\ref{req:subfunc} and~\ref{req:uce} using the standard properties of the plus-construction, see \cite[\S~IV.1]{Kbook}   (cf. Exercises~1.8--1.9 ibid.). %provided one verifies that all the intermediate isomorphisms are natural in $R$.
  
- Let us verify the second claim. From~\eqref{req:left-exact} and $\varphi(G_i) \subseteq \Ker(G(p_i))$ we conclude that $G_0 \cap G_1 \subseteq \Ker(\varphi \colon S(D_{R, I}) \to G(D_{R, I}))$
+ Let us verify the second claim. From~\ref{req:left-exact} and $\varphi(G_i) \subseteq \Ker(G(p_i))$ we conclude that $G_0 \cap G_1 \subseteq \Ker(\varphi \colon S(D_{R, I}) \to G(D_{R, I}))$
   therefore $G_0 \cap G_1$ is a central subgroup of $S(D_{R, I})$.
- From~\eqref{req:uce} we also obtain that $H_1(S(D_{R,I})) = H_2(S(D_{R,I})) = 0$ .
+ From~\ref{req:uce} we also obtain that $\HH_1(S(D_{R,I})) = \HH_2(S(D_{R,I})) = 0$ .
  The last two assertions allow us to invoke~\cite[Proposition~6]{Lo78} and conclude that the extension $S(R, I) \to S(R)$ is a universal relative central extension of the coequalizer $\mathrm{coeq}(d_0, d_1)$
   in the sense of~\cite[\S~3]{Lo78}. 
- Notice that this coequalizer coincides with $S(R) \to S(R/I)$ by~\eqref{req:coeq}. 
+ Notice that this coequalizer coincides with $S(R) \to S(R/I)$ by~\ref{req:coeq}. 
  Finally, the kernel of $\mu$ is isomorphic to $\HH_3(S(R), S(R/I), \ZZ)$ by~\cite[Th{\'e}or{\`e}me~2]{Lo78}.
  
  The third claim now follows from the starting portion of the homology long exact sequence of the map $S(R) \to S(R/I)$ and the first two assertions.
 \end{proof}
 
 The principal example of a triple $(G,P,S)$ satisfying the above conditions is as follows.
-For $n \geq 5$ take the orthogonal group functor $\mathrm{O}_{2n}(-)$ and its elementary subfunctor $\mathrm{EO}_{2n}(-)$ as functors $G_n$ and $P_n$, respectively. Now set $S_n = \St(\rD_n, -)$. From [Stein's paper] and [Lemma on centrality] it follows that $S_n$ and $P_n$ satisfy~\eqref{req:uce}.
+For $n \geq 5$ take the orthogonal group functor $\mathrm{O}_{2n}(-)$ and its elementary subfunctor $\mathrm{EO}_{2n}(-)$ as functors $G_n$ and $P_n$, respectively. Now set $S_n = \St(\rD_n, -)$. From [Stein's paper] and [Lemma on centrality] it follows that $S_n$ and $P_n$ satisfy~\ref{req:uce}.
  The other requirements can be verified in a straightforward manner. We write $KO_i(n, R)$ as a shorthand for $\K_i(G_n, P_n, R)$.
 
 In the above definition we could have replaced the group $\mathrm{O}_{2n}$ with a different isogeneous form of the orthogonal group, e.\,g. 
@@ -338,9 +334,7 @@ Finally, the final relation can be verified by the following direct computation,
 \end{comment}
 \end{proof}
 
-
 \section{First injectivity theorem}
-
 If we denote the kernel of the natural transformation $\mu$ from the definition of $\St(\Phi, R, I)$ by $C(\Phi, R, I)$ we obtain a natural exact sequence:
 \begin{equation} \label{relSteinberg-def}
  \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r]^{j} & \St(\Phi, R, I) \ar[r]^{\mu} & \St(\Phi, R) \ar[r]^{\pi} & \St(\Phi, R/I) \ar[r] & 1.}
@@ -463,89 +457,6 @@ Notice that in the case $\Phi = \rE_\ell$ the natural homomorphisms $G_k \to \St
 We are left to consider the case $\Phi = \rD_\ell$. Notice that any pair of nonperpendicular roots  $\alpha, \beta$ is contained in some subsystem $\Psi \subseteq \Phi$ of type $\rA_4$, hence the only defining relations of $\St^{\leq n+1}(\Phi, B)$ which do not occur already in $G_{n+1},$ are $\text{R3}^\bot_{d, n+1}$ for $d \leq n+1$ (more precisely, the relations for which $\alpha$ and $\gamma$ are orthogonal and lie in a root subsystem of type $\rD_3$, cf.~\cite[Remark~2.1]{S15}).
 \end{proof}
 
-\begin{comment}
-\begin{rem}
-We can take $\mathbb R^l$ with a base $\chi_1,\ldots,\chi_l$ and visualise root systems
-\[\rD_l=\{\pm\chi_i\pm\chi_j\mid1\leq i\neq j\leq l\}\]
-and $\rC_l=\rD_l\cup\{\pm2\chi_i\mid1\leq i\leq l\}$. Then we immediately see that $\alpha+\beta\in\rC_l\setminus\rD_l$ exactly means that either $\{\alpha,\beta\}$ or $\{-\alpha,-\beta\}$ equals $\{\chi_i-\chi_j,\chi_i+\chi_j\}$. Then for some $\sigma$ from the Weyl group of $\rD_l$ we get 
-\[ \{\sigma\alpha,\sigma\beta\}=\{\chi_{l-1}-\chi_l, \chi_{l-1}+\chi_l\}=\{\alpha_{l-1},\alpha_l\} \]
-(the horns of the Dynkin diagram $\rD_l$). Another condition on $\alpha$ and $\beta$ equivalent to $\alpha+\beta\in\rC_l\setminus\rD_l$ is that they do not lie in any subsystem of $\rD_l$ of type $\rA_m$ for $m\geq4$.
-\end{rem}
-Everywhere below we set $t = X^{-1}$.
-\begin{lemma} \label{claim2} In $\St^{\leq n}(\Phi, B)$ relations $\text{R3}^\angle_{d, e}$ imply $\text{R3}^{\bot,0}_{d, e}$ for $1\leq d\leq e \leq n$. \end{lemma}
-\begin{proof}
-Without loss of generality we may assume that $\alpha, \gamma$ fit into some $\mathsf{A}_3$-triple $(\alpha, \beta, \gamma)$.
- \begin{align*}
- {}^{x_\gamma(t^d)}x_\alpha(bt^{e}) = {}^{x_\gamma(t^d)}[x_{-\beta}(b't^{e}), x_{\alpha+\beta}(1)] & \text{ by $\text{R2}_{e,0}$}\\
- = [x_{-\beta}(b't^{e}), {}^{x_\gamma(t^d)}x_{\alpha+\beta}(1)] & \text{ by $\text{R3}^\angle_{d, e}$}\\
- = [[x_{-\beta-\gamma}(b''t^{e-d}), x_\gamma(t^d)], {}^{x_\gamma(t^d)}x_{\alpha+\beta}(1)] & \text{ by $\text{R2}_{e-d,d}$}\\
- = [x_{-\beta-\gamma}(b''t^{e-d)}), [x_\gamma(t^d), x_{\alpha+\beta}(1)]] & \text{ by~\eqref{eq:H1iii} and $\text{R3}^\bot_{e-d,0}$}\\
- = x_{\alpha}(b'''t^{e}) & \text{ by $\text{R2}_{0,d}$ and $\text{R2}_{e-d,d}$.} \end{align*}
-Usual identities for structure constants imply (cf.~\cite[p.~12]{Re75}):
- $b'''=N_{-\beta-\gamma, \alpha+\beta+\gamma} \cdot N_{\gamma, \alpha+\beta} \cdot N_{-\beta-\gamma, \gamma} \cdot N_{-\beta, \alpha+\beta} \cdot b = b,$ from which the claim follows.
-\end{proof}
-
-\begin{lemma} \label{claim3}
- In $\St^{\leq n}(\Phi, B)$ relations $\bot_0(d, e)$, $\angle(d, d)$ and $\angle(e, e)$ imply $\bot(d, e)$ for $d\leq e \leq n$.
-\end{lemma}
-\begin{proof}
- \begin{align*} 
- x_{\alpha+\beta+\gamma}(abt^{e}) = {}^{x_{-\beta}(t^d)}\!x_{\alpha+\beta+\gamma}(abt^{e}) & \text{ by $\text{R3}^{\bot, 0}_{d, e}$}\\
- = {}^{x_{-\beta}(t^d)}\![x_{\alpha+\beta}(b't^{e-d}), x_\gamma(at^d)] & \text{ by $\text{R2}_{e-d,d}$} \\
- = [x_{\alpha}(b't^{e}) \cdot x_{\alpha+\beta}(b't^{e-d}), x_\gamma(at^d)] & \text{ by $\text{R2}_{e-d,d}$ and $\text{R3}^\angle_{d, d}$ }\\
- = {}^{x_{\alpha}(b't^{e})}\!x_{\alpha+\beta+\gamma}(abt^{e}) [x_{\alpha}(b't^{e}), x_\gamma(at^d)] & \text{ by~\eqref{eq:H1ii} and $\text{R2}_{e-d,d}$} \\ = x_{\alpha+\beta+\gamma}(abt^{e}) [x_{\alpha}(b't^{e}), x_\gamma(at^d)] & \text{ by $\text{R3}^\angle_{e, e}$. \qedhere}
-\end{align*}
-\end{proof}
-
-We claim that $G_n\cong G_{n+1}$, more precisely, we construct an inverse homomorhism to the natural map $G_n\rightarrow G_{n+1}$. With this end we define elements $s_\alpha(a)\in G_n$ for $a\in R_{n+1}$ and prove the above relations for these elements. We start with the following easy fact.
-
-\begin{lemma}
-\label{welldef}
-Take $d$, $e\leq n$, $d+e=n+1$, $a\in R_d$, $b\in R_e$, and consider an embedding $\iota\colon\rA_4\hookrightarrow\rD_l$. For the chosen simple roots $\alpha_k$ of $\rA_4$ denote $\beta_k=\iota(\alpha_k)$. Then holds
-\[ [x_{\beta_1}(a),\,x_{\beta_2+\beta_3}(b)]=[x_{\beta_1+\beta_2}(Nabt\inv),\,x_{\beta_3}(t)], \]
-where $N=N_{\beta_1,\beta_2}N_{\beta_2,\beta_3}$.
-\end{lemma}
-\begin{proof}
-Observe that $d$, $e\geq1$. Take $x=x_{\beta_1}(a)$, $y=x_{\beta_2}(N_{\beta_3,\beta_2}bt\inv)$, $z=x_{\beta_3}(t)$. Since $x$ and $z$ lie in the subsystem of type $\rA_4$, we get by R3.1$\!\,_n$ that they commute. Then Hall--Witt identity gives us
-\[ \,^y[x,\,[y\inv,\,z]]=\,^x[[x\inv,\,y],\,z], \]
-where $[x,\,[y\inv,z]]=[x_{\beta_1}(a),\,x_{\beta_2+\beta_3}(b)]$ and $[[x\inv,y],\,z]=[x_{\beta_1+\beta_2}(Nabt\inv),\,x_{\beta_3}(t)]$ by R2$\!\,_n$. Here $x$ commutes with $x_{\beta_1+\beta_2}(Nabt\inv)$ and $x_{\beta_3}(t)$, and $y$ commutes with $x_{\beta_2+\beta_3}(b)$ by R3.1$\!\,_n$. Finally, $[x_{\beta_1}(-a),\,y]=x_{\beta_1+\beta_2}(Nabt\inv)$ also commutes with $x_{\beta_2+\beta_3}(b)$, what finishes the proof.
-\end{proof}
-
-The above lemma allows us for $a\in R_{n+1}$ and $\alpha\in\rD_l$ chose an arbitrary decomposition $\alpha=\beta+\gamma$ and define $s_\alpha(a)=[x_\beta(N_{\beta,\gamma}\,at\inv),\,x_\gamma(t)]$. Indeed, take another decomposition $\alpha=\beta'+\gamma'$, we may assume that subsystem $\Psi$ generated by $\beta$, $\beta'$, $\gamma$, $\gamma'$ has type $\rA_3$ If it is contained in the subsystem of type $\rA_4$, we are done by Lemma~\ref{welldef}. If not, we may assume $\Psi=\langle\alpha_{l-2},\alpha_{l-1},\alpha_l\rangle$ and since $l\geq5$ take two subsystems of type $\rA_4$, say, $\Psi_1$ and $\Psi_2$, which overlap by $\rA_3$, and $\beta$, $\gamma\in\Psi_1$, $\beta'$, $\gamma'\in\Psi_2$. Therefore, there exist $\beta''$, $\gamma''\in\Psi_1\cap\Psi_2$ with $\alpha=\beta''+\gamma''$ and we can again apply Lemma~\ref{welldef} to get the claim. 
-
-Moreover, with the assumption of Lemma~\ref{welldef} on $a$ and $b$ we have
-\[ [x_{\beta}(a),\,x_{\gamma}(b)]=s_{\alpha}(N_{\beta,\gamma}\,ab). \]
-
-The following observation is obvious.
-\begin{lemma} \label{commute}
-Consider an embedding $\iota\colon\rA_4\hookrightarrow\rD_l$ and denote $\beta_k=\iota(\alpha_k)$ for simple roots $\alpha_k$ of $\rA_4$. Then for any $a\in R_d$, $b\in R_e$, $c\in R_f$ with $d$, $e$, $f\leq n$ holds
-\[ [[x_{\beta_1}(a),\,x_{\beta_2}(b)],\,x_{\beta_4}(c)]=1. \]
-\end{lemma}
-
-Consider now any two roots $\alpha$, $\beta\in\rD_l$ such that $\alpha+\beta\not\in\rC_l\cup0$. Since $l\geq5$, there exists a subsystem $\Psi$ of type $\rA_4$, containing $\alpha$ and $\beta$. Then we can take any $a\in R_{n+1}$ and $b\in R_d$ for $d\leq n$ and apply Lemma~\ref{commute} for $\Psi$ to get
-\begin{equation} \label{sx} [s_\alpha(a),\,x_\beta(b)]=1. \end{equation}
-Next, using this fact we can apply again Lemma~\ref{commute} for $\Psi$ and get
-\[ [s_\alpha(a),\,s_\beta(c)]=1 \]
-for any $c\in R_{n+1}$. Therefore, R3.1$\!\,_{n+1}$ holds for $s_\alpha$'s.
-
-Now one can take $a\in R_d$ for $d\leq0$ and $b\in R_{n+1}$, and repeat the proof of Lemma~\ref{welldef} using~(\ref{sx}) to get
-\[ [x_\beta(a),\,s_\gamma(b)]=\begin{cases}s_{\beta+\gamma}(N_{\beta\gamma}\,ab),&d=0,\\x_{\beta+\gamma}(N_{\beta\gamma}\,ab),&d<0.\end{cases} \]
-This finishes the proof of R2$\!\,_{n+1}$.
-
-The proof of R1$\!\,_{n+1}$ is left to the reader. The next lemma is devoted to R3.2$\!\,_{n+1}$.
-
-\begin{lemma} For $a\in R_d$, $b\in R_e$, $d$, $e\leq n$, $d+e=n+1$ holds \[ [x_{\alpha_{l-1}}(a),\,x_{\alpha_l}(b)]=1. \] \end{lemma}
-\begin{proof} Take $x=x_{\alpha_{l}-\alpha_{l-2}}(N_{\alpha_{l}-\alpha_{l-2},\alpha_{l-2}}bt\inv)$, $y=x_{\alpha_{l-1}-\alpha_{l-2}}(N_{\alpha_{l-2},\alpha_{l-1}-\alpha_{l-2}}at\inv)$, and $z=x_{\alpha_{l-2}}(t)$. Then
-\[ [x_{\alpha_{l-1}}(a),\,x_{\alpha_l}(b)]=[[y\inv,\,z],\,[x,\,z]]=\,^{y\inv z}[y,\,[z\inv,\,x]]\cdot[y\inv,\,[x,\,z]]. \]
-Next, by R3.2$\!\,_n$ we know that $x$ and $y$ commute, and therefore 
-\[ \,^{y\inv z}[y,\,[z\inv,\,x]]=[[y\inv,\,z],\,x]=x_{\alpha_{l-1}+\alpha_{l}-\alpha_{l-2}}(Nabt\inv) \]
-for $N=N_{\alpha_{l-1},\alpha_{l}-\alpha_{l-2}}N_{\alpha_{l}-\alpha_{l-2},\alpha_{l-2}}$. Finally,
-\[ [y\inv,\,[x,\,z]]=x_{\alpha_{l-1}-\alpha_{l-2}+\alpha_l}(N'abt\inv) \]
-for $N'=-N_{\alpha_{l-2},\alpha_{l-1}-\alpha_{l-2}}N_{{\alpha_{l-1}-\alpha_{l-2}},\alpha_l}$. Since $N_{\alpha,\beta}$ are the structure constants of the Lie algebra, it follows $N=-N'$ from the Jacobi identity.
-\end{proof}
-
-Now the same argument as in Lemma~\ref{welldef} allows to prove that $[s_{\alpha_{l-1}}(a),\,x_{\alpha_l}(b)]=1$ for $b\in R_e$, $e\leq0$, what finishes the proof of R3.2$\!\,_{n+1}$.
-\end{comment}
 \subsection{Computation of the kernel of the map of evaluation at \texorpdfstring{$0$}{0}.}
 For a pair $(R, I)$ we denote by $\overline{\St}(\Phi, R, I)$ the image of the map $\mu$ from~\eqref{relSteinberg-def}, in particular, it is a normal subgroup of $\St(\Phi, R)$.
 We also denote by $\St(\Phi, I)$ the subgroup of $\St(\Phi, R)$ generated as a group by root unipotents of level $I$.
