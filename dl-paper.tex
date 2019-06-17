@@ -79,7 +79,6 @@ Our convention for Cartan matrices is
 $A_{ij} = \langle \alpha_i, \alpha_j \rangle = (\alpha_i, \alpha_j^\vee)$.
 
 \subsection{Steinberg groups}
-%TODO: Describe what root systems are sympelctic and which are not
 Let $\Phi$ be a reduced and irreducible root system of rank $\geq 2$ and $R$ be a commutative ring with $1$. Recall that in this case the \emph{Steinberg group} $\St(\Phi, R)$ can be defined by means of generators $x_{\alpha}(\xi)$ where $\xi\in R, \alpha\in\Phi$ and relations:
 \begin{align}
 & \phantom{[}
@@ -108,28 +107,36 @@ Recall from~\cite[Lemma~5.2]{Ma69} that the following identities hold for these 
    \label{eq:conj-h-x} {}^{h_\alpha(t)}\!x_\beta(u) & = x_\beta(t^{\langle \beta,  \alpha \rangle}u) \\
    \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}.
  \end{align}
+
+\subsection{$\K_2$-groups and symbols} 
  
-In our computations we use two explicit families of elements of $\K_2(\Phi, R)$: Steinberg and Dennis--Stein symbols.
-Recall that Steinberg symbols are defined for any $s, t \in R^\times$ by the identity
-\begin{equation} \label{eq:steinberg} \{ s, t \}_\alpha = h_\alpha(s) \cdot h_\alpha(t) \cdot h_\alpha(st)^{-1}. \end{equation}
-
-Our convention for Dennis--Stein symbols follows~\cite{DS73} (and {\it not} III.5.11 of ~\cite{Kbook}).
-Recall that Dennis--Stein symbols are defined for arbitrary $r, s\in R$ satisfying $1 + rs \in R^\times$ as follows:
-\begin{equation} \label{eq:dennis-stein}  \langle r,s \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- s}{1 + rs}\right) \cdot x_{\alpha}(r) \cdot x_{-\alpha}(s) \cdot x_{\alpha}\left(\tfrac{- r}{1+rs}\right) \cdot h_{\alpha}(1 + rs)^{-1}. \end{equation} 
-
-Dennis--Stein symbols and Steinberg symbols are related to each other via the following identities:
+In our computations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our definition of these symbols follows~\cite{DS73}, rather than more modern textbooks such as~\cite{Kbook}. Recall that Steinberg symbols are defined for any $s, t \in R^\times$ by the identity
+\begin{equation} \label{eq:steinberg} \{ s, t \}_\alpha = h_\alpha(st) \cdot h_\alpha^{-1}(s) \cdot h_\alpha^{-1}(t). \end{equation}
+In turn, Dennis--Stein symbols are defined for arbitrary $a, b\in R$ satisfying $1 + ab \in R^\times$ by the following formula:
+\begin{equation} \label{eq:dennis-stein}  \langle a,b \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- b}{1 + ab}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(b) \cdot x_{\alpha}\left(\tfrac{- a}{1+ab}\right) \cdot h_{\alpha}^{-1}(1 + ab). \end{equation} 
+Dennis--Stein symbol $\langle a, b \rangle_\alpha$ can be expressed through Steinberg symbols in the special case when either $a$ or $b$ is an invertible element of $R$. More specifically, the following formulae hold (cf.~\cite[p.~250]{DS73}).
 \begin{equation} \label{DS-S-relationship} \langle a, b \rangle_\alpha = \{-a, 1+ab\}_\alpha\text{ for } a, 1+ab\in R^\times,\ \
  \{ s, t \}_\alpha = \left\langle -s, \tfrac{1 - t}{s} \right\rangle_\alpha\text{ for } s, t\in R^\times. \end{equation}
-
 %Using~\eqref{eq:conj-h-h} it is easy to verify that \[[h_\alpha(s), h_\beta(t)] = \{s, t^{\langle \alpha, \beta \rangle}\}_\alpha = \{t, s^{\langle \beta, \alpha \rangle}\}_\beta^{-1}.\] 
-It is easy to show that the above symbols depend only on the length of $\alpha$.
-Moreover, if $\Phi$ is nonsymplectic, Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
+Steinberg and Dennis--Stein symbols depend only on the length of $\alpha$, in particular they do not depend on $\alpha$ if $\Phi$ is simply-laced. If $\Phi$ happens to be {\it nonsymplectic}, i.\,e. $\Phi \neq \rA_1, \rB_2, \rC_{\geq 3}$, Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. they satisfy the following identities: \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
+For these and other properties of symbols we refer the reader to~\cite{DS73}.
 
 \begin{comment}
 Suppose for a moment that $\langle \alpha, \beta \rangle = -1$ and  $\langle \beta, \alpha \rangle = -1$ then
 \[ \{s, t^{-1} \} = \{s,  t^{-1}\}_\alpha = \{t, s^{-1} \}_\beta^{-1} = \{s^{-1}, t\} \]
 In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$ 
 \end{comment}
+The classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field. More concretely, it asserts that $\K_2(\Phi, k) \cong \K_2^\mathrm{MW}(k)$ provided $\Phi$ is symplectic and  $\K_2(\Phi, k) \cong \K_2^\mathrm{M}(k)$ otherwise. In the following lemma we compute the group $\K_2(\Phi, R)$ in yet another case when $R=k[X, X\inv]$.
+\begin{lemma}\label{K2-laurent-field} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field. Then there is a split exact sequence of abelian groups
+\[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ in which} \]
+\[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ k^* & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
+\begin{proof} If $\Phi$ is nonsymplectic one can choose a long simple root $\alpha\in \Phi$ in such a way that there is a commutative diagram of abelian groups
+\[\xymatrixcolsep{5pc}\xymatrix{k^* \ar[r]^-{\{ -, X \}_{\alpha}} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
+                                                                                      &                                 & \K_2^\mathrm{M}(k(X)).} \]
+Clearly, the diagonal arrow is injective by Milnor's theorem and the vertical arrow is an isomorphism by Matsumoto theorem. The assertion now follow from~\cite[Satz~3]{Hur77} and the fact that the left horizontal arrow is injective.
+
+If $\Phi$ is symplectic the assertion follows from~\cite[Theorem~B]{MR91}, provided one verifies that Morita--Rehmann's group $P(F)$ is isomorphic to $\K_1^\mathrm{MW}(F)$,
+ which is an easy exercise. Alternatively, this isomorphism can be obtained as a corollary of~\cref{bass-ft} and~\cite[Lemma~4.1.1]{AF17}. \end{proof}
 
 \subsection{Unstable Quillen K-groups} \label{sec:quillen}
 Throughout this section $G, P, S$ denote three group-valued functors on the category of commutative rings satisfying the following assumptions:
@@ -349,24 +356,11 @@ Finally, the final relation can be verified by the following direct computation,
 
 
 \section{First injectivity theorem}
-\begin{prop} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field.
-Then there is a split exact sequence of abelian groups
-\[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ where} \]
-\[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ k^* & \text{otherwise.}  \end{array}\right. \]  \end{prop}
-\begin{proof} In the nonsymplectic case one can choose a long simple root $\alpha$ of $\Phi$ in such a way that there is a commutative diagram of abelian groups
-\[\xymatrixcolsep{5pc}\xymatrix{k^* \ar[r]^-{\{ -, X \}_{\alpha}} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
-                                                                                      &                                 & \K_2^\mathrm{M}(k(X)).} \]
-Clearly, the diagonal arrow is injective by Milnor's theorem and the vertical arrow is an isomorphism by Matsumoto's theorem~\cite[Theorem~5.10]{Ma69}.
-The required assertion now follow from~\cite[Satz~3]{Hur77} and the fact that the left horizontal arrow is injective.
-
-In the symplectic case the assertion follows from~\cite[Theorem~B]{MR91}, provided one verifies that Morita--Rehmann's group $P(F)$ is isomorphic to $\K_1^\mathrm{MW}(F)$,
- which is an easy exercise. Alternatively, this isomorphism can be obtained as a corollary of~\cref{bass-ft} and~\cite[Lemma~4.1.1]{AF17}. \end{proof}
- 
 \begin{corollary} \label{field-injectivity} For $\Phi\neq\rG_2$ the map $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. \end{corollary}
 \begin{proof} The result follows from consideration of the commutative diagram
 \[\xymatrix{ & \K_2(\Phi, k) \ar[dl]_{\cong} \ar@{^{(}->}[dr] & \\
                \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}])} \]
-in which the left arrow is an isomorphism by the corollary of~\cite[Satz~1]{Re75} and the right arrow is split injective by the above lemma. \end{proof}
+in which the left arrow is an isomorphism by the corollary of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}. \end{proof}
 \begin{theorem} \label{thm41}
 Assume the notation of~\cref{lem:lemma32} and suppose additionally that $2$ is invertible in $A$.
 Then for $\ell \geq 7$ the canonical map $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective.
@@ -769,7 +763,7 @@ For the rest of this section $M$ denotes the maximal ideal of $A$, so everywhere
 From~\cref{P0_normal} it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. This allows us to make the following definition. 
 
 \begin{df} Define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, A[X, X^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
-\[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}_\alpha.\] \end{df}
+\[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}.\] \end{df}
 It follows immediately from the definition of $S_\alpha(a, -)$ that for $g_1 \in P_\alpha(m)$, $g_2 \in P_\alpha(*)$ holds
 \begin{equation} \label{eq:Smult} S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right).\end{equation}
 
@@ -799,12 +793,12 @@ Clearly, the expression in the right-hand side is a product of generators of typ
 \begin{lemma} \label{lem:Tulenbayev-formula} 
 One has $S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am).$
 \end{lemma}
-\begin{proof} Since $\Phi$ is nonsymplectic, we can choose $\gamma \in \Phi$ such that $\langle \alpha, \gamma \rangle = -1$. Direct computation using~\eqref{eq:conj-h-x},\eqref{eq:conj-h-h},\eqref{eq:steinberg},\eqref{eq:dennis-stein} shows that
+\begin{proof} Since $\Phi$ is nonsymplectic, we can choose $\gamma \in \Phi$ such that $\langle \alpha, \gamma \rangle = -1$. Direct computation using~\eqref{eq:conj-h-x},\eqref{eq:conj-h-h},\eqref{eq:steinberg},\eqref{eq:dennis-stein},\eqref{eq:symbol-properties} shows that
  \begin{multline*}
  x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) = {}^{h_\gamma(X)}(x_\alpha(a) \cdot x_{-\alpha}(m)) = \\
  = {}^{h_\gamma(X)}\left( x_{-\alpha}\left(\tfrac{m}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\tfrac{a}{1+am}\right) \right) = \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha(X^{-1})^{-1} \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) = \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot \{1+am, X^{-1}\}^{-1} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) = \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha^{-1}\left(X^{-1}\right) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) = \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot \{X^{-1}, 1+am\} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) = \\
  = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}, \end{multline*}
 which implies the assertion. \end{proof}
 
@@ -1057,9 +1051,9 @@ Now if $c \in M$ we can express it as a difference $c = \epsilon_1 - \epsilon_2$
  = {}^{x_{\alpha}(b'X^{-1})}\!x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$2_1$} \\
  = x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$3_1$ for sharp angles.} \end{align*}
 
-\end{comment}
 \include{rehmann}
- 
+\end{comment}
+
 \printbibliography
 
 \end{document}
