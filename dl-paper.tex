@@ -79,40 +79,44 @@ Our convention for Cartan matrices is
 $A_{ij} = \langle \alpha_i, \alpha_j \rangle = (\alpha_i, \alpha_j^\vee)$.
 
 \subsection{Steinberg groups}
-Let $\Phi$ be a reduced and irreducible root system of rank $\geq 2$ and $R$ be a commutative ring with $1$. Recall that in this case the \emph{Steinberg group} $\St(\Phi, R)$ can be defined by means of generators $x_{\alpha}(\xi)$ where $\xi\in R, \alpha\in\Phi$ and relations:
+Let $\Phi$ be a reduced and irreducible root system of rank $\geq 2$ and $R$ be a commutative ring with $1$. Recall that in this case the \emph{Steinberg group} $\St(\Phi, R)$ can be defined by means of generators $x_{\alpha}(s)$ (where $\alpha\in\Phi, s\in R$) and relations:
 \begin{align}
 & \phantom{[}
-x_\alpha(s) x_\alpha(t) = x_\alpha(s+t),\ \alpha\in\Phi,\ s,t\in R; \label{rel:add}\\
+x_\alpha(s) \cdot x_\alpha(t) = x_\alpha(s+t),\ \alpha\in\Phi,\ s,t\in R; \label{rel:add}\\
 & [x_\alpha(s), x_\beta(t)] = \prod\limits_{i,j\in\mathbb{N}}
  x_{i\alpha + j\beta}\left(N_{\alpha\beta ij}\, s^i t^j\right),\quad \alpha,\beta\in\Phi,\ \alpha\neq\pm\beta,\ s,t\in R. \label{rel:CCF}
 \end{align}
 The indices $i$, $j$ appearing in the right-hand side of the above relation range over
 all positive natural numbers such that $i\alpha + j\beta\in\Phi$.
-The structure constants $N_{\alpha \beta i j}=\pm 1,\pm 2,\pm 3$ appearing in \eqref{rel:CCF} depend only on $\Phi$ and {\bf TODO}:
-% в литературе описываются способы выбрать эти константы ссылка на третий взгляд.
+The constants $N_{\alpha \beta i j}$ appearing in the right-hand side of \eqref{rel:CCF} are integers equal to $\pm 1,\pm 2,\pm 3$, they are called the {\it structure constants} of the Chevalley group $G_{sc}(\Phi, R)$. There is a degree of freedom in the choice of these constants, for example, in the literature there are several methods of choosing signs of these constants, see e.\,g.~\cite{V00}, \cite[\S~9]{VP}.
 
-In this paper we will be mostly interested in the case when the Dynkin diagram of $\Phi$ is simply-laced, in which case the above relations further simplify to
+In this paper we will be mostly interested in the case when the Dynkin diagram of $\Phi$ is simply-laced, i.\,e. does not contain double bonds, in which case Steinberg relations further simplify to the following relations:
 \begin{align}
-&x_{\alpha}(a)x_{\alpha}(b)=x_{\alpha}(a+b), \tag{R1}\\
-&[x_{\alpha}(a),\,x_{\beta}(b)]=x_{\alpha+\beta}(N_{\alpha\beta}\,ab),\text{ for }\alpha+\beta\in\Phi, \tag{R2} \\
+&x_{\alpha}(a)\cdot x_{\alpha}(b)=x_{\alpha}(a+b), \tag{R1}\\
+&[x_{\alpha}(a),\,x_{\beta}(b)]=x_{\alpha+\beta}(N_{\alpha\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \tag{R2} \\
 &[x_{\alpha}(a),\,x_{\beta}(b)]=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \tag{R3}
 \end{align}
+In the above formulae $a, b \in R$ and the integers $N_{\alpha, \beta, 1, 1} = N_{\alpha, \beta} = \pm 1$ are the structure constants of the Lie algebra of type $\Phi$. Although there is still some degree of freedom in their choice, these constants always must satisfy certain relations, provided by the following lemma (cf.~\cite[\S~14]{VP}).
+\begin{lemma} Suppose $\Phi$ is simply laced and $\alpha, \beta$ are roots of $\Phi$ such that $\alpha+\beta\in \Phi$, then holds
+\begin{equation} \label{eq:simplest} N_{\alpha, \beta} = -N_{\beta,\alpha} = - N_{-\alpha, -\beta} = N_{\beta, -\alpha-\beta} = N_{-\alpha-\beta, \alpha}. \end{equation}
+If, moreover, $\gamma \in \Phi$ is such that $\alpha,\beta,\gamma$ form a basis of a root subsystem of type $\rA_3$ then holds
+\begin{equation} \label{eq:cocycle} N_{\beta,\gamma} \cdot N_{\alpha, \beta+\gamma} = N_{\alpha+\beta, \gamma} \cdot N_{\alpha, \beta}. \end{equation} \end{lemma}
+In the computations below we will be using identities~\eqref{eq:simplest} without explicit reference.
 
+For $\alpha\in\Phi$ and $s \in R^\times$ we define certain elements $w_\alpha(s), h_\alpha(s)$ of $\St(\Phi, R)$ (the latter ones are sometimes called {\it semisimple root elements}):
+\begin{align*} w_\alpha(s) & =  x_\alpha(s) \cdot x_{-\alpha}(-s^{-1}) \cdot x_\alpha(s), \\ h_\alpha(s) & =  w_\alpha(s) \cdot w_\alpha(-1).  \end{align*}
 
-Recall that for $\alpha\in\Phi$ and $s \in R^\times$ the semisimple root elements $h_\alpha(s)$ are defined as follows: 
-\[h_\alpha(s)=w_\alpha(s) \cdot w_\alpha(-1), \text{ where } w_\alpha(s) = x_\alpha(s) \cdot x_{-\alpha}(-s^{-1}) \cdot x_\alpha(s).\]
-
-Recall from~\cite[Lemma~5.2]{Ma69} that the following identities hold for these elements:
+Recall from~\cite[Lemma~5.2]{Ma69} that the following relations hold for semisimple root elements:
  \begin{align} 
-   \label{eq:conj-h-x} {}^{h_\alpha(t)}\!x_\beta(u) & = x_\beta(t^{\langle \beta,  \alpha \rangle}u) \\
+   \label{eq:conj-h-x} {}^{h_\alpha(t)}\!x_\beta(u) & = x_\beta(t^{\langle \beta,  \alpha \rangle}u), \\
    \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}.
  \end{align}
 
 \subsection{$\K_2$-groups and symbols} 
  
-In our computations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our definition of these symbols follows~\cite{DS73}, rather than more modern textbooks such as~\cite{Kbook}. Recall that Steinberg symbols are defined for any $s, t \in R^\times$ by the identity
+In our computations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our treatment of symbols follows~\cite{DS73}. Recall that Steinberg symbols are defined for arbitrary $s, t \in R^\times$ as follows:
 \begin{equation} \label{eq:steinberg} \{ s, t \}_\alpha = h_\alpha(st) \cdot h_\alpha^{-1}(s) \cdot h_\alpha^{-1}(t). \end{equation}
-In turn, Dennis--Stein symbols are defined for arbitrary $a, b\in R$ satisfying $1 + ab \in R^\times$ by the following formula:
+In turn, Dennis--Stein symbols are defined for arbitrary $a, b\in R$ satisfying $1 + ab \in R^\times$:
 \begin{equation} \label{eq:dennis-stein}  \langle a,b \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- b}{1 + ab}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(b) \cdot x_{\alpha}\left(\tfrac{- a}{1+ab}\right) \cdot h_{\alpha}^{-1}(1 + ab). \end{equation} 
 Dennis--Stein symbol $\langle a, b \rangle_\alpha$ can be expressed through Steinberg symbols in the special case when either $a$ or $b$ is an invertible element of $R$. More specifically, the following formulae hold (cf.~\cite[p.~250]{DS73}).
 \begin{equation} \label{DS-S-relationship} \langle a, b \rangle_\alpha = \{-a, 1+ab\}_\alpha\text{ for } a, 1+ab\in R^\times,\ \
@@ -126,7 +130,7 @@ Suppose for a moment that $\langle \alpha, \beta \rangle = -1$ and  $\langle \be
 \[ \{s, t^{-1} \} = \{s,  t^{-1}\}_\alpha = \{t, s^{-1} \}_\beta^{-1} = \{s^{-1}, t\} \]
 In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$ 
 \end{comment}
-The classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field. More concretely, it asserts that $\K_2(\Phi, k) \cong \K_2^\mathrm{MW}(k)$ provided $\Phi$ is symplectic and  $\K_2(\Phi, k) \cong \K_2^\mathrm{M}(k)$ otherwise. In the following lemma we compute the group $\K_2(\Phi, R)$ in yet another case when $R=k[X, X\inv]$.
+The classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field. More concretely, it asserts that $\K_2(\Phi, k) \cong \K_2^\mathrm{MW}(k)$ provided $\Phi$ is symplectic and  $\K_2(\Phi, k) \cong \K_2^\mathrm{M}(k)$ otherwise. In the following lemma we compute the group $\K_2(\Phi, R)$ in yet another case $R=k[X, X\inv]$.
 \begin{lemma}\label{K2-laurent-field} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field. Then there is a split exact sequence of abelian groups
 \[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ in which} \]
 \[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ k^* & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
@@ -139,10 +143,10 @@ In the symplectic case the assertion follows from~\cite[Theorem~B]{MR91}, provid
  which is an easy exercise. Alternatively, this isomorphism can be obtained as a corollary of and~\cite[Lemma~4.1.1]{AF17} and \cref{bass-ft} below. \end{proof}
  
 \begin{corollary} \label{field-injectivity} For $\Phi\neq\rG_2$ the map $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. \end{corollary}
-\begin{proof} The result follows from consideration of the commutative diagram
+\begin{proof} Follows from consideration of the following commutative diagram:
 \[\xymatrix{ & \K_2(\Phi, k) \ar[dl]_{\cong} \ar@{^{(}->}[dr] & \\
-               \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}])} \]
-in which the left arrow is an isomorphism by the corollary of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}. \end{proof}
+               \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}]),} \]
+in which the left arrow is an isomorphism by the Korollar of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}. \end{proof}
 
 \subsection{Unstable Quillen K-groups} \label{sec:quillen}
 Throughout this section $G, P, S$ denote three group-valued functors on the category of commutative rings satisfying the following assumptions:
@@ -254,12 +258,6 @@ Hall-Witt identity
 \[  . \]
 \end{comment}
 Throughtout this section $A$ denotes an arbitary ring, and $I, J$ two its ideals, and $\Phi$ a simply laced root system.
-
-The following lemma summarizes basic properties of structure constants which will be used in our computations below, often without further reference (cf.~\cite[\S~14]{VP}).
-\begin{lemma} Suppose $(\alpha, \beta, \gamma)$ is a triple of roots forming a basis of root subsystem of type $\rA_3$
- (i.\,e. such that $\alpha+\beta, \beta + \gamma \in \Phi$ and $\alpha \perp \beta$), then holds:
-\begin{equation} N_{\alpha, \beta} = -N_{\beta,\alpha} = - N_{-\alpha, -\beta} = N_{\beta, -\alpha-\beta} = N_{-\alpha-\beta, \alpha}. \end{equation}
-\begin{equation} \label{eq:cocycle} N_{\beta,\gamma} \cdot N_{\alpha, \beta+\gamma} = N_{\alpha+\beta, \gamma} \cdot N_{\alpha, \beta}. \end{equation} \end{lemma}
 
 We define the following two families of elements of $\St(\Phi, A)$:
 \begin{itemize}
