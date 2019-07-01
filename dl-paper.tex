@@ -84,19 +84,19 @@ Let $\Phi$ be a reduced and irreducible root system of rank $\geq 2$ and $R$ be 
 & \phantom{[}
 x_\alpha(s) \cdot x_\alpha(t) = x_\alpha(s+t),\ \alpha\in\Phi,\ s,t\in R; \label{rel:add}\\
 & [x_\alpha(s), x_\beta(t)] = \prod\limits_{i,j\in\mathbb{N}}
- x_{i\alpha + j\beta}\left(N_{\alpha\beta ij}\, s^i t^j\right),\quad \alpha,\beta\in\Phi,\ \alpha\neq\pm\beta,\ s,t\in R. \label{rel:CCF}
+ x_{i\alpha + j\beta}\left(N_{\alpha,\beta ij}\, s^i t^j\right),\quad \alpha,\beta\in\Phi,\ \alpha\neq\pm\beta,\ s,t\in R. \label{rel:CCF}
 \end{align}
 The indices $i$, $j$ appearing in the right-hand side of the above relation range over
 all positive natural numbers such that $i\alpha + j\beta\in\Phi$.
-The constants $N_{\alpha \beta i j}$ appearing in the right-hand side of \eqref{rel:CCF} are integers equal to $\pm 1,\pm 2,\pm 3$, they are called the {\it structure constants} of the Chevalley group $G_{sc}(\Phi, R)$. There is a degree of freedom in the choice of these constants, for example, in the literature there are several methods of choosing signs of these constants, see e.\,g.~\cite{V00}, \cite[\S~9]{VP}.
+The constants $N_{\alpha \beta i j}$ appearing in the right-hand side of \eqref{rel:CCF} are integers equal to $\pm 1,\pm 2,\pm 3$, they are called the {\it structure constants} of the Chevalley group $G_{sc}(\Phi, R)$. There is a degree of freedom in the choice of signs of the structure constants. Several different methods have been proposed for choosing signs of these constants, see e.\,g.~\cite{V00}, \cite[\S~9]{VP}.
 
-In this paper we will be mostly interested in the case when the Dynkin diagram of $\Phi$ is simply-laced, i.\,e. does not contain double bonds, in which case Steinberg relations further simplify to the following relations:
+In this paper we will be mostly interested in the case when the Dynkin diagram of $\Phi$ is {\it simply-laced}, i.\,e. does not contain double bonds. In this case the defining relations of $\St(\Phi, R)$ have the following simpler form:
 \begin{align}
 &x_{\alpha}(a)\cdot x_{\alpha}(b)=x_{\alpha}(a+b), \tag{R1}\\
 &[x_{\alpha}(a),\,x_{\beta}(b)]=x_{\alpha+\beta}(N_{\alpha\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \tag{R2} \\
 &[x_{\alpha}(a),\,x_{\beta}(b)]=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \tag{R3}
 \end{align}
-In the above formulae $a, b \in R$ and the integers $N_{\alpha, \beta, 1, 1} = N_{\alpha, \beta} = \pm 1$ are the structure constants of the Lie algebra of type $\Phi$. Although there is still some degree of freedom in their choice, these constants always must satisfy the relations, provided by the following lemma (cf.~\cite[\S~14]{VP}).
+In the above formulae $a, b \in R$ and the integers $N_{\alpha, \beta} = N_{\alpha, \beta, 1, 1} = \pm 1$ are the structure constants of the Lie algebra of type $\Phi$. Although there is still some degree of freedom in their choice, these constants always must satisfy the relations, provided by the following lemma (cf.~\cite[\S~14]{VP}).
 \begin{lemma} Suppose $\Phi$ is simply laced and $\alpha, \beta$ are roots of $\Phi$ such that $\alpha+\beta\in \Phi$, then holds
 \begin{equation} \label{eq:simplest} N_{\alpha, \beta} = -N_{\beta,\alpha} = - N_{-\alpha, -\beta} = N_{\beta, -\alpha-\beta} = N_{-\alpha-\beta, \alpha}. \end{equation}
 If, moreover, $\gamma \in \Phi$ is such that $\alpha,\beta,\gamma$ form a basis of a root subsystem of type $\rA_3$ then holds
@@ -403,7 +403,7 @@ The following lemma asserts that most of the relations of type $\text{R3}^\bot_{
  are superfluous and can be omitted.
 \begin{lemma}\label{superfluous-relations}
  For every simply-laced root system $\Phi$ of rank $\geq 3$ and every $n \geq 1$ one can exclude from
- the presentation of $\St^{\leq n}(\Phi, B)$ all relations of type $\text{R3}_{d,e}^\bot$ for which $\max(0,d) + \max(0,e) > 1$.
+ the presentation of $\St^{\leq n}(\Phi, B)$ all relations of type $\text{R3}_{d,e}^\bot$ whenever $\max(0,d) + \max(0,e) > 1$.
 \end{lemma}
 \begin{proof}
 For the proof we will need the following commutator identities:
@@ -411,8 +411,8 @@ For the proof we will need the following commutator identities:
  \label{eq:H1iii} [x,z] = 1 \text{ implies } [x, [y,z]] = [[x,y],{}^yz].& \end{align}
  
 The proof is based on the following observation: every relation of type $\text{R3}^\bot_{d,e}$ of degree
- $\geq 2$ is a consequence of some relation of type $\text{R3}^\bot_{d',e'}$ of strictly smaller degree.
-Let $R=[x_\alpha(at^d),\ x_\gamma(bt^e)] = 1$ be such a relation for some $\alpha\perp\gamma$.
+ $\geq 2$ is a consequence of some relation of type $\text{R3}^\bot$ of strictly smaller degree.
+Let $R=[x_\alpha(at^d),\ x_\gamma(bt^e)] = 1$ be a relation of type $\text{R3}^\bot_{d,e}$ for some $\alpha\perp\gamma$.
 We can find $\beta \in \Phi$ forming an obtuse angle with both $\alpha$ and $\gamma$ (see e.\,g.~\cite[Lemma~3.1.2]{RS76}).
 Without loss of generality we may assume $e \geq d$ and $e > 0$. We need to consider two cases.
 \begin{enumerate}
@@ -440,10 +440,10 @@ The assertion of the lemma now follows from the above observation by induction o
  that by~\eqref{first-computation} relation $\text{R3}^\bot_{1,1}$ is a consequence of $\text{R3}^\bot_{0,0}$.
 \end{proof}
 
-\begin{lemma} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the map $i_n\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$ induced by the natural embedding of generators, is an isomorphism. In particular, the natural map $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{lemma}
+\begin{lemma} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the map $i_n\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$ induced by the natural embedding of generators, is an isomorphism. In particular, the obvious map $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{lemma}
 \begin{proof}
- The special case $\Phi=\rA_{\geq 4}$ of the assertion is due to Tulenbayev, see~\cite[Lemma~3.3]{Tu83}. 
- Therefore it can be used to deduce our assertion in the cases $\Phi=\rD_\ell,\rE_\ell$.
+ The special case $\Phi=\rA_{\geq 4}$ of the assertion has been proved by Tulenbayev (see~\cite[Lemma~3.3]{Tu83}) 
+ and therefore can be used to deduce the assertion in the cases $\Phi=\rD_\ell,\rE_\ell$.
  
  %Denote by $A_4(\Phi)$ the set consisting of all root subsystems of $\Phi$ of type $\rA_4$ and by $G_n$ the free product of groups $\coprod\limits_{\Psi \in A_4(\Phi)} \St^{\leq n}(\Psi, B)$ amalgamated over relations $x^{\Psi_1}_\alpha(a) = x^{\Psi_2}_\alpha(a)$ for all $a \in B_d$, $d \leq n$, $\alpha \in \Psi_1\cap\Psi_2$, $\Psi_1, \Psi_2 \in A_4(\Phi)$. 
  
