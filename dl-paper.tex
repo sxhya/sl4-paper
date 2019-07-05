@@ -391,7 +391,7 @@ It is not hard to show that $\St(\Phi, B)$ can be presented by the set of all ho
 &\,\,x_{\alpha}(a)\cdot x_{\alpha}(a') =  x_{\alpha}(a+a'),                        & \tag{R$1_d$} \\
 &\,[x_{\alpha}(a),\,x_{\beta}(b)]= x_{\alpha+\beta}(N_{\alpha, \beta} \cdot ab),   & \alpha + \beta \in \Phi,\ \tag{R$2_{d,e}$} \\
 &\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha - \beta \in \Phi,\ \tag{R$3^\angle_{d,e}$} \\
-&\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha \perp \beta \in \Phi.\ \tag{R$3^\bot_{d,e}$}
+&\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha \perp \beta.\ \tag{R$3^\bot_{d,e}$}
 \end{align}
 By the degree of a Steinberg relation we mean the maximum of degrees of generators that appear in it.
 For example, the degree of every relation of type $\text{R2}_{d,e}$ is $\max(d,e,d+e)$ 
@@ -413,11 +413,12 @@ For the proof we will need the following commutator identities:
  
 The proof is based on the following observation: every relation of type $\text{R3}^\bot_{d,e}$ of degree
  $\geq 2$ is a consequence of some relation of type $\text{R3}^\bot$ of strictly smaller degree.
-Let $R=[x_\alpha(at^d),\ x_\gamma(bt^e)] = 1$ be a relation of type $\text{R3}^\bot_{d,e}$ for some $\alpha\perp\gamma$.
+Let us fix some relation $[x_\alpha(at^d),\ x_\gamma(bt^e)] = 1$ of type $\text{R3}^\bot_{d,e}$ for some $\alpha\perp\gamma$. Denote this relation by $R$.
+
 We can find $\beta \in \Phi$ forming an obtuse angle with both $\alpha$ and $\gamma$ (see e.\,g.~\cite[Lemma~3.1.2]{RS76}).
 Without loss of generality we may assume $e \geq d$ and $e > 0$. We need to consider two cases.
 \begin{enumerate}
-\item In the case $0 < d \leq e \leq n$ relation $R$ is a consequence of some relation of type $\text{R3}^\bot_{0,e-d}$:
+\item In the case $0 < d \leq e \leq n$ the relation $R$ is a consequence of some relation of type $\text{R3}^\bot_{0,e-d}$:
 \begin{align} x_{\alpha+\beta+\gamma}(-\epsilon_1 \epsilon_2 \cdot abt^e) = 
 [x_{\beta+\gamma}(\epsilon_1 \cdot bt^{e-d}), [x_{-\beta}(t^d), x_{\alpha+\beta}(-\delta_2 \cdot a)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$} \label{first-computation} \\ 
  = [[x_{\beta+\gamma}(\epsilon_1 \cdot bt^{e-d}), x_{-\beta}(t^d)], {}^{x_{-\beta}(t^d)} x_{\alpha+\beta}(- \delta_2 \cdot a)] & \text{ by~\eqref{eq:H1iii}, $\text{R3}^\bot_{0,e-d}$} \nonumber \\ 
