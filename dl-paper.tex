@@ -125,17 +125,35 @@ Suppose for a moment that $\langle \alpha, \beta \rangle = -1$ and  $\langle \be
 \[ \{s, t^{-1} \} = \{s,  t^{-1}\}_\alpha = \{t, s^{-1} \}_\beta^{-1} = \{s^{-1}, t\} \]
 In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$ 
 \end{comment}
-The classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field. More concretely, it asserts that $\K_2(\Phi, k) \cong \K_2^\mathrm{MW}(k)$ provided $\Phi$ is symplectic and  $\K_2(\Phi, k) \cong \K_2^\mathrm{M}(k)$ otherwise. In the following lemma we compute the group $\K_2(\Phi, R)$ in yet another case $R=k[X, X\inv]$.
+The classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field. More concretely, it asserts that $\K_2(\Phi, k) \cong \K_2^\mathrm{MW}(k)$ provided $\Phi$ is symplectic and  $\K_2(\Phi, k) \cong \K_2^\mathrm{M}(k)$ otherwise. In the following lemma we 
+recall the computation of the group $\K_2(\Phi, R)$ in the case $R=k[X, X\inv]$.
 \begin{lemma}\label{K2-laurent-field} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field. Then there is a split exact sequence of abelian groups
 \[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ in which} \]
 \[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ k^* & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
 \begin{proof} Let us first consider the case of nonsymplectic $\Phi$, in which one can find a long root $\alpha\in \Phi$ in such a way that there is a commutative diagram of abelian groups
-\[\xymatrixcolsep{5pc}\xymatrix{k^* \ar[r]^-{\{ -, X \}_{\alpha}} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
-                                                                                      &                                 & \K_2^\mathrm{M}(k(X)).} \]
-Clearly, the diagonal arrow is injective by Milnor's theorem and the vertical arrow is an isomorphism by Matsumoto theorem. The assertion now follow from~\cite[Satz~3]{Hur77} and the fact that the left horizontal arrow is injective.
+\[\xymatrixcolsep{5pc}\xymatrix{k^* \ar[r]^-{h} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
+                                                                                      &                                 & \K_2^\mathrm{M}(k(X)),} \]
+in which $h = \{ -, X \}_{\alpha}$ and the vertical map is an isomorphism by Matsumoto theorem.
+Notice that the diagonal map is split by the obvious residue homomorphism and therefore is injective. This, in turn, implies that $h$ is also injective.
+The assertion of the lemma now follows from~\cite[Satz~3]{Hur77} which asserts that for a nonsymplectic $\Phi$ holds $\K_2(\Phi, k[X, X\inv]) = \mathrm{Im}(h) \oplus \K_2(\Phi, k)$.
 
-In the symplectic case the assertion follows from~\cite[Theorem~B]{MR91}, provided one verifies that Morita--Rehmann's group $P(F)$ is isomorphic to $\K_1^\mathrm{MW}(F)$,
- which is an easy exercise. Alternatively, this isomorphism can be obtained as a corollary of and~\cite[Lemma~4.1.1]{AF17} and \cref{bass-ft} below. \end{proof}
+Consider now the case when $\Phi$ is symplectic. In this case the assertion of the lemma is just a reformulation of~\cite[Theorem~B]{MR91},
+which asserts that for $\ell \geq 1$ one has $\K_2(\rC_\ell, k[X, X\inv] \cong \K_2(\rC_\ell, k) \oplus P(k)$, where
+$P(k)$ is the set $k^* \times I_2(k)$ with the group structure given by
+\[ (u, y) \cdot (v, z) = (uv, y + z - \langle\langle u, v\rangle\rangle).\]
+Here $I^2(k)$ stands for the second power of the fundamental ideal $I(k)$ in the Witt ring $W(k)$ of $k$.
+Recall that $\K_1^\mathrm{MW}(k)$ is isomorphic to the pullback of the diagram:
+\[ \xymatrix{ \K_1^\mathrm{MW}(k) \ar[r] \ar[d] & I(k) \ar[d] \\ \K_1(k) \ar[r] & I(k)/I^2(k), } \]
+in other words, it consists of pairs $[u, x]$ such that $x - \langle \langle u \rangle \rangle \in I^2(k)$.
+It is not hard to verify that tha map $[u, x] \mapsto (u, x - \langle\langle u \rangle\rangle)$ defines an isomorphism of $P(k)$ and $\K_1^\mathrm{MW}(k)$.
+
+\begin{comment}
+Under additonal assumption $\mathrm{char}(k)\neq 2$ the assertion of the lemma in the symplectic case can be obtained as a chain of isomorphisms
+\[ \K_2(\rC_\ell, k[X, X\inv]) \cong \GW_2^2(\Phi, k[X, X\inv]) \cong \GW_2^2(k) \oplus \GW_1^1(k) \cong \K_2^\mathrm{MW}(k) \oplus \K_1^\mathrm{MW}(k). \]
+Here the first 
+corollary of~\cite[Lemma~4.1.1]{AF17} and \cref{bass-ft} below. 
+\end{comment}
+\end{proof}
  
 \begin{corollary} \label{field-injectivity} For $\Phi\neq\rG_2$ the map $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. \end{corollary}
 \begin{proof} Follows from consideration of the following commutative diagram:
