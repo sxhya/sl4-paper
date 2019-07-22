@@ -153,24 +153,58 @@ It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\r
                \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}]),} \]
 in which the left arrow is an isomorphism by the Korollar of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}. \end{proof}
 
-\subsection{Unstable Quillen K-groups} \label{sec:quillen}
-Throughout this section $G, P, S$ denote three group-valued functors on the category of commutative rings satisfying the following assumptions:
+\subsection{Relative Steinberg groups} \label{sec:quillen}
+In this subsection we recall the definitions and basic facts pertaining to relative Steinberg groups as defined by J.-L.~Loday in~\cite{Lo78},
+ where a theory of relative central extensions is developed and then applied to the usual (stable) Steinberg group $\St(R)$ from algebraic K-theory (see e.\,g.~\cite[Ch. III \S~5]{Kbook}).
+The main goal of this subsection is to show that Loday's result can be applied to the unstable Steinberg groups, and that
+ the resulting relative groups enjoy the same good properties as their stable counterparts.
+
+%Some of the results of this subsection have been already mentioned in~\cite{S15} (cf. e.\,g. Corollaries 3--4).
+%Nevertheless, we chose to reproduce them with greater amount of detail for the reason that~\cref{lem:prop41} depends on the unstable exact sequence of.
+
+First of all, let us recall the definition of the category of (commutative) pairs $\catname{Pairs}$.
+The objects of $\catname{Pairs}$ are pairs $(R, I)$, in which $R$ is a commutative ring and $I$ its ideal.
+By definition, a morphism $f \colon (R, I) \to (R', I')$ in the category of pairs corresponds to a ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$.
+Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ the morphism category $\catname{CRings}^\rightarrow$.
+
+There is an obvious fully faithful embedding $\catname{CRings} \to \catname{Pairs}$ sending $R$ to $(R, R)$.
+For a given functor $S \colon \catname{CRings} \to \catname{Groups}$ a {\it relativization} of $S$ is any functor $\widetilde{S} \colon \catname{Pairs} \to \catname{Groups}$
+ extending $S$ in the obvious sense. Relativization of a functor is not unique.
+
+Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definition, the pullback ring $R \times_{R/I} R$.
+In other words, it is the ring consisting of pairs of elements of $R$ congruent modulo $I$.
+Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\xymatrix{D_{R,I} \ar@<1pt>[r] \ar@<-2.5pt>[r] & \ar@<-4pt>[l] R}$.
+
+Let us describe the procedure for relativization as specified by Loday.
+Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor.
+Set $G_i = \Ker(S(p_i))$ and define Loday's relativization $S(R, I)$ as $ G_0 / [G_0, G_1]$. The map $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. 
+For the sake of shortness we denote this map by $\mu = \mu_{R,I}$. In fact, there is a natural exact sequence:
+\begin{equation}
+ \xymatrix{ 1 \ar[r] & C(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1}
+\end{equation}
+\begin{example}
+ If one applies Loday's relativization to the functor $S(R) = \St(R)$ one recovers the usual relative Steinberg group $\St(R, I)$
+  as defined in~\cite{Kbook}[Ch. III, Definition~5.7]. Notice that $\St(R, I)$ is not a subgroup of $\St(R)$ but rather its central extension.
+\end{example}
+
+For the rest of this subsection $G, P, S$ denote three group-valued functors on the category of commutative rings satisfying the following assumptions:
 \begin{enumerate} [label=(A\arabic*)]
- \item \label{req:left-exact} $G$ is left exact;
- \item \label{req:subfunc} $P$ is a subfunctor of $G$ such that for all $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$;
- \item \label{req:uce} There is a natural transformation $\varphi \colon S \to P$ such that $ \varphi \colon S(R) \to P(R)$ is a universal central extension for all $R$;
- \item \label{req:coeq} For every pair $(R, I)$ the functor $S$ has the property that \[S(R \times_{R/I} R) \cong S(R) \times_{S(R/I)} S(R).\]
+ \item \label{req:left-exact} $G$ is left exact.
+ \item \label{req:subfunc} $P$ is a subfunctor of $G$ such that for all $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$.
+ \item \label{req:uce} There is a natural transformation $\varphi \colon S \to P$ such that $ \varphi_R \colon S(R) \to P(R)$ is a universal central extension for all $R$.
+ %This means that $\varphi_R$ is a certain surjective and that its kernel is contained in the center of $S(R)$.
+ \item \label{req:coeq} For every ring $R$ and an ideal $I \trianglelefteq R$ the functor $S$ has the property that \[S(R \times_{R/I} R) \cong S(R) \times_{S(R/I)} S(R).\]
 \end{enumerate}
+\begin{example}
+ The obvious triple of functors satisfying the above assumptions is as follows.
+ Take the infinite general linear group functor $\mathrm{GL}(-)$ as $G$, its infinite elementary subfunctor $E(-)$ as $P$
+  and the infinite Steinberg group functor $\St(-)$ as $S$. %TODO: Why these 4 propeties hold? What is a relative central extension.
+\end{example}
+
 
 Thanks to the functoriality of Quillen's plus-construction (see e.\,g.~\cite[Proposition~5.2.4]{Ro95}) one can define a functor 
 %TODO: can also refer to Weibel's IV.1.5 provided Top is replaced with hTop which apparently does not change anything
 $X_{G, P}(R) = BG(R)^+_{P(R)} \colon \catname{CRings} \to \catname{Top}$ and then define for $i \geq 1$ the corresponding K-group functors $\K_{i}(G, P, R)$ as the homotopy groups $\pi_i(X_{G, P}(R))$.
-
-Let us also briefly recall Loday's procedure for relativization of $S$, that is,
- a way of extending $S$ from the category of rings to the category of pairs.
-Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\xymatrix{D_{R,I} \ar@<1pt>[r] \ar@<-2.5pt>[r] & \ar@<-4pt>[l] R}$
-  and set $d_i = Sp_i$, $s = S\Delta$.
- Obviously, $d_0s = d_1 s = id_{S(R)}$. Set $G_i = \Ker(d_i)$, and define $S(R, I)$ as $ G_0 / [G_0, G_1]$, denote by $\mu$ the natural map $S(R, I) \to S(R)$ induced by $d_1$.
 
 %TODO: Give the definition of $D_{R, I}$ and of the category of Pairs
 \begin{prop}\label{characterization}
@@ -179,8 +213,7 @@ For $(G, P, R)$ as above the following statements are true.
  \item There are natural isomorphisms
   \[ \K_2(G, P, R) \cong \Ker(S(R) \to G(R)), \ \K_3(G, P, R) \cong \HH_3(S(R), \ZZ). \]
  \item The map $\mu \colon S(R, I) \to S(R)$ is the universal relative central extension of the map $S(R) \to S(R/I)$.
-       Denote the kernel of $\mu$ by $C(R, I)$.
-       Then $C(R, I)$ is naturally isomorphic to the third relative homology group $\HH_3(S(R), S(R/I), \ZZ)$.
+       The kernel $C(R, I)$ of $\mu$ is naturally isomorphic to the third relative homology group $\HH_3(S(R), S(R/I), \ZZ)$.
  \item There is a natural exact sequence:
  \[ \xymatrix{\K_3(G, P, R) \ar[r] & \K_3(G, P, R/I) \ar@{->>}[r] & C(R, I).} \]
  \end{enumerate}   
