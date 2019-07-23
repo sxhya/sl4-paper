@@ -163,7 +163,7 @@ The main goal of this subsection is to show that Loday's result can be applied t
 %Nevertheless, we chose to reproduce them with greater amount of detail for the reason that~\cref{lem:prop41} depends on the unstable exact sequence of.
 
 First of all, let us recall the definition of the category of (commutative) pairs $\catname{Pairs}$.
-The objects of $\catname{Pairs}$ are pairs $(R, I)$, in which $R$ is a commutative ring and $I$ its ideal.
+The objects of $\catname{Pairs}$ are pairs $(R, I)$, in which $R$ is a commutative ring and $I$ is an ideal of $R$.
 By definition, a morphism $f \colon (R, I) \to (R', I')$ in the category of pairs corresponds to a ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$.
 Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ the morphism category $\catname{CRings}^\rightarrow$.
 
@@ -197,35 +197,34 @@ Recall that a {\it crossed module} is a triple $(M, N, \mu)$ consisting of a gro
  $\mu \colon M\to N$ of $N$-groups satisfying {\it Peiffer identity} $\mu(m) \cdot m' = m m' m^{-1}$. It can be shown that the image of $\mu$ is always
   a normal subgroup of $N$ and that the kernel of $\mu$, which we denote by $L$, is always contained in the center of $M$. %TODO: There's a problem with the side of the action :(
  
-Now if $\nu \colon N \twoheadrightarrow Q$ is a surjective map of groups, a {\it relative central extension of $\nu$} is, by definition,
+Let $\nu \colon N \twoheadrightarrow Q$ be a surjective group-theoretic map.
+A {\it relative central extension of $\nu$} is, by definition,
 a crossed module $(M, N, \mu)$ such that the cokernel of $\mu$ is $\nu$.
 The mentioned groups and morphisms fit into the following diagram.
 \begin{equation} \label{RelativeCentralExtension}
  \xymatrix{ 1 \ar[r] & L \ar[r]^{\ker(\mu)} & M \ar^{\mu}[r] & N \ar^{\nu}[r] & Q \ar[r] & 1} \end{equation}
 
-A morphism $(M, \mu) \to (M', \mu')$ between two relative central extensions of $\nu$ is, by definition, an $N$-group homomorphism $f\colon M \to M'$ such that $\mu' f = \mu$. Denote by $Ext(Q, N, L)$ the set of isomorphism classes of relative central extensions of $\nu$ by an abelian group $L$.
-It turns out that there is a well-defined bijection $\xi \colon Ext(Q, N, L) \to \HH^3(Q, N; L)$ which is called {\it characteristic class} (see~\cite[Th{\'e}or{\`e}me~1]{Lo78}).
+A morphism $(M, \mu) \to (M', \mu')$ of two relative central extensions of $\nu$ is, by definition, an $N$-group homomorphism $f\colon M \to M'$ such that $\mu' f = \mu$. 
+It turns out that the set  $Ext(Q, N; L)$  of isomoprhism classes of relative central extensions of $\nu$ by an abelian group $L$ can be classified by means of a certain cohomological invariant called {\it characteristic class}. More precisely, \cite[Th{\'e}or{\`e}me~1]{Lo78} asserts that there is a well-defined bijection $\xi \colon Ext(Q, N; L) \to \HH^3(Q, N; L)$.
  
- 
-For the rest of this subsection $G, P, S$ denote three group-valued functors on the category of commutative rings satisfying the following assumptions:
+For the rest of this subsection $S \xrightarrow{\varphi} P \subseteq G$ is a triple of group-valued functors on the category of commutative rings satisfying the following assumptions:
 \begin{enumerate} [label=(A\arabic*)]
- \item \label{req:left-exact} $G$ is left exact.
- \item \label{req:subfunc} $P$ is a subfunctor of $G$ such that for all $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$.
- \item \label{req:uce} There is a natural transformation $\varphi \colon S \to P$ such that $ \varphi_R \colon S(R) \to P(R)$ is a universal central extension for all $R$.
+ \item \label{req:left-exact} $G(D_{R, I}) \cong G(R) \times_{G(R/I)} G(R)$.
+ \item \label{req:subfunc} For every $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$.
+ \item \label{req:uce} For every $R$ the map $ \varphi_R \colon S(R) \to P(R)$ is a universal central extension.
  %This means that $\varphi_R$ is a certain surjective and that its kernel is contained in the center of $S(R)$.
- \item \label{req:coeq} For every pair $(R, I)$ the coequalizer of the pair of maps $S(p_0), S(p_1) \colon S(D_{R, I}) \to S(R)$ is precisely the map $S(R) \to S(R/I)$.
+ \item \label{req:coeq} For every pair $(R, I)$ the coequalizer of $S(p_0), S(p_1)$ is precisely $S(R) \to S(R/I)$.
 \end{enumerate}
+\begin{comment}
 \begin{example}
  The obvious triple of functors satisfying the above assumptions is as follows.
  Take the infinite general linear group functor $\mathrm{GL}(-)$ as $G$, its infinite elementary subfunctor $E(-)$ as $P$
   and the infinite Steinberg group functor $\St(-)$ as $S$. %TODO: Why these 4 propeties hold? What is a relative central extension.
 \end{example}
-
+\end{comment}
 \begin{lemma}
- Suppose $(G, P, S)$ is a triple satisfying properties \text{A1}--\text{A4}.
- The map $\mu \colon S(R, I) \to S(R)$ is the universal relative central extension of $\nu \colon S(R) \to S(R/I)$, i.\,e. the initial object of the category of relative central extensions.
- 
- There is a natural isomorphism between the kernel $C_S(R, I)$ of $\mu$ and the third relative homology group $\HH_3(S(R), S(R/I), \ZZ)$.
+ Suppose  for every pair $(R, I)$ the map $\mu \colon S(R, I) \to S(R)$ is the universal relative central extension of $\nu \colon S(R) \to S(R/I)$, i.\,e. the initial object of the category of relative central extensions of $\nu$. 
+ Moreover, $C_S(R, I)$ is naturally isomorphic to the relative homology group $\HH_3(S(R), S(R/I), \ZZ)$.
 \end{lemma}
 \begin{proof}
 From~\ref{req:left-exact} and $\varphi(G_i) \subseteq \Ker(G(p_i))$ we conclude that $G_0 \cap G_1 \subseteq \Ker(\varphi \colon S(D_{R, I}) \to G(D_{R, I}))$ therefore $G_0 \cap G_1$ is a central subgroup of $S(D_{R, I})$. From~\ref{req:uce} and~\cite[Ch.~III, Theorem~5.4]{Kbook} we conclude that $\HH_1(S(R), \ZZ) = \HH_2(S(R), \ZZ) = 0$ for all rings $R$.
