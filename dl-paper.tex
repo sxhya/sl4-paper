@@ -178,14 +178,29 @@ Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\
 Let us describe the procedure for relativization as specified by Loday.
 Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor.
 Set $G_i = \Ker(S(p_i))$ and define Loday's relativization $S(R, I)$ as $ G_0 / [G_0, G_1]$. The map $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. 
-For the sake of shortness we denote this map by $\mu = \mu_{R,I}$. In fact, there is a natural exact sequence:
-\begin{equation}
+For the sake of shortness we denote this map by $\mu = \mu_{R,I}$. We also introduce the notation for the kernel of $\mu$.
+\begin{equation} \label{LodayRelativization}
  \xymatrix{ 1 \ar[r] & C(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1}
 \end{equation}
 \begin{example}
  If one applies Loday's relativization to the functor $S(R) = \St(R)$ one recovers the usual relative Steinberg group $\St(R, I)$
   as defined in~\cite{Kbook}[Ch. III, Definition~5.7]. Notice that $\St(R, I)$ is not a subgroup of $\St(R)$ but rather its central extension.
 \end{example}
+
+The exact sequence in~\eqref{LodayRelativization} often is an example of a {\it relative central extension}.
+Let us briefly recall the relevant terminology. 
+First of all, recall that a {\it central extension} of a group $G$ is a surjective map $\widetilde{G} \to G$, whose kernel is contained in the center of $\widetilde{G}$. 
+A central extension is said to be {\it universal} if it is an initial object of the category of central extensions of $G$.
+
+Recall that a {\it crossed module} is a triple $(M, N, \mu)$ consisting of a group $N$ acting on itself by left conjugation, an $N$-group $M$ and a map
+ $\mu \colon M\to N$ of $N$-groups satisfying {\it Peiffer identity} $\mu(m) \cdot m' = m m' m^{-1}$. It can be shown that the image of $\mu$ is always
+  a normal subgroup of $N$ and that the kernel of $\mu$ is always contained in the center of $M$.
+ 
+Now if $\nu \colon N \twoheadrightarrow Q$ is a surjective map of groups, a {\it relative central extension of $\nu$} is, by definition,
+a crossed module $(M, N, \mu)$ such that the cokernel of $\mu$ is precisely $\nu$. Thus, we have the following diagram
+\begin{equation} \label{RelativeCentralExtension}
+ \xymatrix{ 1 \ar[r] & C \ar^{\lambda}[r] & M \ar^{\mu}[r] & N \ar^{\nu}[r] & Q \ar[r] & 1}
+\end{equation}
 
 For the rest of this subsection $G, P, S$ denote three group-valued functors on the category of commutative rings satisfying the following assumptions:
 \begin{enumerate} [label=(A\arabic*)]
