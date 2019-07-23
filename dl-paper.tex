@@ -175,46 +175,70 @@ Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definitio
 In other words, it is the ring consisting of pairs of elements of $R$ congruent modulo $I$.
 Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\xymatrix{D_{R,I} \ar@<1pt>[r] \ar@<-2.5pt>[r] & \ar@<-4pt>[l] R}$.
 
-Let us describe the procedure for relativization as specified by Loday.
 Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor.
-Set $G_i = \Ker(S(p_i))$ and define Loday's relativization $S(R, I)$ as $ G_0 / [G_0, G_1]$. The map $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. 
-For the sake of shortness we denote this map by $\mu = \mu_{R,I}$. We also introduce the notation for the kernel of $\mu$.
+Set $G_i = \Ker(S(p_i))$ and define {\it Loday's relativization} $S(R, I)$ as $ G_0 / [G_0, G_1]$. The map $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. We denote this map by $\mu = \mu_{R,I}$ and its kernel by $C_S(R, I)$.
 \begin{equation} \label{LodayRelativization}
- \xymatrix{ 1 \ar[r] & C(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1}
+ \xymatrix{ 1 \ar[r] & C_S(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1}
 \end{equation}
-\begin{example}
- If one applies Loday's relativization to the functor $S(R) = \St(R)$ one recovers the usual relative Steinberg group $\St(R, I)$
-  as defined in~\cite{Kbook}[Ch. III, Definition~5.7]. Notice that $\St(R, I)$ is not a subgroup of $\St(R)$ but rather its central extension.
-\end{example}
 
-The exact sequence in~\eqref{LodayRelativization} often is an example of a {\it relative central extension}.
-Let us briefly recall the relevant terminology. 
+\begin{df}
+By definition, the {\it relative Steinberg group} $\St(\Phi, R, I)$ is the result of application of Loday's relativization to the functor $\St(\Phi, -)$. Notice that $\St(\Phi, R, I)$ is not a subgroup of $\St(\Phi, R)$ but rather its central extension by the abelian group $C_{\St(\Phi, -)}(R, I)$.
+For shortness we rename the latter group to $C(\Phi, R, I)$.
+\end{df}
+
+Our next goal is to obtain a more concrete description of the group $C(\Phi, R, I)$.
+We need to recall some additional notation and terminology.
+
 First of all, recall that a {\it central extension} of a group $G$ is a surjective map $\widetilde{G} \to G$, whose kernel is contained in the center of $\widetilde{G}$. 
+A morphism of central extensions is a group-theoretic map $\widetilde{G} \to \widetilde{G}'$ over $G$.
 A central extension is said to be {\it universal} if it is an initial object of the category of central extensions of $G$.
 
 Recall that a {\it crossed module} is a triple $(M, N, \mu)$ consisting of a group $N$ acting on itself by left conjugation, an $N$-group $M$ and a map
  $\mu \colon M\to N$ of $N$-groups satisfying {\it Peiffer identity} $\mu(m) \cdot m' = m m' m^{-1}$. It can be shown that the image of $\mu$ is always
-  a normal subgroup of $N$ and that the kernel of $\mu$ is always contained in the center of $M$.
+  a normal subgroup of $N$ and that the kernel of $\mu$, which we denote by $L$, is always contained in the center of $M$. %TODO: There's a problem with the side of the action :(
  
 Now if $\nu \colon N \twoheadrightarrow Q$ is a surjective map of groups, a {\it relative central extension of $\nu$} is, by definition,
-a crossed module $(M, N, \mu)$ such that the cokernel of $\mu$ is precisely $\nu$. Thus, we have the following diagram
+a crossed module $(M, N, \mu)$ such that the cokernel of $\mu$ is $\nu$.
+The mentioned groups and morphisms fit into the following diagram.
 \begin{equation} \label{RelativeCentralExtension}
- \xymatrix{ 1 \ar[r] & C \ar^{\lambda}[r] & M \ar^{\mu}[r] & N \ar^{\nu}[r] & Q \ar[r] & 1}
-\end{equation}
+ \xymatrix{ 1 \ar[r] & L \ar[r]^{\ker(\mu)} & M \ar^{\mu}[r] & N \ar^{\nu}[r] & Q \ar[r] & 1} \end{equation}
 
+A morphism $(M, \mu) \to (M', \mu')$ between two relative central extensions of $\nu$ is, by definition, an $N$-group homomorphism $f\colon M \to M'$ such that $\mu' f = \mu$. Denote by $Ext(Q, N, L)$ the set of isomorphism classes of relative central extensions of $\nu$ by an abelian group $L$.
+It turns out that there is a well-defined bijection $\xi \colon Ext(Q, N, L) \to \HH^3(Q, N; L)$ which is called {\it characteristic class} (see~\cite[Th{\'e}or{\`e}me~1]{Lo78}).
+ 
+ 
 For the rest of this subsection $G, P, S$ denote three group-valued functors on the category of commutative rings satisfying the following assumptions:
 \begin{enumerate} [label=(A\arabic*)]
  \item \label{req:left-exact} $G$ is left exact.
  \item \label{req:subfunc} $P$ is a subfunctor of $G$ such that for all $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$.
  \item \label{req:uce} There is a natural transformation $\varphi \colon S \to P$ such that $ \varphi_R \colon S(R) \to P(R)$ is a universal central extension for all $R$.
  %This means that $\varphi_R$ is a certain surjective and that its kernel is contained in the center of $S(R)$.
- \item \label{req:coeq} For every ring $R$ and an ideal $I \trianglelefteq R$ the functor $S$ has the property that \[S(R \times_{R/I} R) \cong S(R) \times_{S(R/I)} S(R).\]
+ \item \label{req:coeq} For every pair $(R, I)$ the coequalizer of the pair of maps $S(p_0), S(p_1) \colon S(D_{R, I}) \to S(R)$ is precisely the map $S(R) \to S(R/I)$.
 \end{enumerate}
 \begin{example}
  The obvious triple of functors satisfying the above assumptions is as follows.
  Take the infinite general linear group functor $\mathrm{GL}(-)$ as $G$, its infinite elementary subfunctor $E(-)$ as $P$
   and the infinite Steinberg group functor $\St(-)$ as $S$. %TODO: Why these 4 propeties hold? What is a relative central extension.
 \end{example}
+
+\begin{lemma}
+ Suppose $(G, P, S)$ is a triple satisfying properties \text{A1}--\text{A4}.
+ The map $\mu \colon S(R, I) \to S(R)$ is the universal relative central extension of $\nu \colon S(R) \to S(R/I)$, i.\,e. the initial object of the category of relative central extensions.
+ 
+ There is a natural isomorphism between the kernel $C_S(R, I)$ of $\mu$ and the third relative homology group $\HH_3(S(R), S(R/I), \ZZ)$.
+\end{lemma}
+\begin{proof}
+From~\ref{req:left-exact} and $\varphi(G_i) \subseteq \Ker(G(p_i))$ we conclude that $G_0 \cap G_1 \subseteq \Ker(\varphi \colon S(D_{R, I}) \to G(D_{R, I}))$ therefore $G_0 \cap G_1$ is a central subgroup of $S(D_{R, I})$. From~\ref{req:uce} and~\cite[Ch.~III, Theorem~5.4]{Kbook} we conclude that $\HH_1(S(R), \ZZ) = \HH_2(S(R), \ZZ) = 0$ for all rings $R$.
+
+Using~\cite[Proposition~6]{Lo78} we obtain that the extension $S(R, I) \to S(R)$ is a universal relative central extension of the coequalizer $\mathrm{coeq}(d_0, d_1)$, which coincides with $S(R) \to S(R/I)$ by~\ref{req:coeq}. 
+
+Now set $C = \HH_3(S(R/I), S(R), \ZZ)$, $L = C_S(R, I)$.
+Since 
+Recall from the proof of \cite[Th{\'e}or{\`e}me~2]{Lo78} that there is a map $\alpha \colon C \to L.$
+Under t
+
+of~. To see that this isomorphism is natural in $(R, I)$ notice that the map $ $
+\end{proof}
 
 
 Thanks to the functoriality of Quillen's plus-construction (see e.\,g.~\cite[Proposition~5.2.4]{Ro95}) one can define a functor 
@@ -227,22 +251,13 @@ For $(G, P, R)$ as above the following statements are true.
 \begin{enumerate}
  \item There are natural isomorphisms
   \[ \K_2(G, P, R) \cong \Ker(S(R) \to G(R)), \ \K_3(G, P, R) \cong \HH_3(S(R), \ZZ). \]
- \item The map $\mu \colon S(R, I) \to S(R)$ is the universal relative central extension of the map $S(R) \to S(R/I)$.
-       The kernel $C(R, I)$ of $\mu$ is naturally isomorphic to the third relative homology group $\HH_3(S(R), S(R/I), \ZZ)$.
+ \item 
  \item There is a natural exact sequence:
  \[ \xymatrix{\K_3(G, P, R) \ar[r] & \K_3(G, P, R/I) \ar@{->>}[r] & C(R, I).} \]
  \end{enumerate}   
 \end{prop}
 \begin{proof}
  The first claim follows from~\ref{req:subfunc} and~\ref{req:uce} using the standard properties of the plus-construction, see \cite[\S~IV.1]{Kbook}   (cf. Exercises~1.8--1.9 ibid.). %provided one verifies that all the intermediate isomorphisms are natural in $R$.
- 
- Let us verify the second claim. From~\ref{req:left-exact} and $\varphi(G_i) \subseteq \Ker(G(p_i))$ we conclude that $G_0 \cap G_1 \subseteq \Ker(\varphi \colon S(D_{R, I}) \to G(D_{R, I}))$
-  therefore $G_0 \cap G_1$ is a central subgroup of $S(D_{R, I})$.
- From~\ref{req:uce} we also obtain that $\HH_1(S(D_{R,I})) = \HH_2(S(D_{R,I})) = 0$ .
- The last two assertions allow us to invoke~\cite[Proposition~6]{Lo78} and conclude that the extension $S(R, I) \to S(R)$ is a universal relative central extension of the coequalizer $\mathrm{coeq}(d_0, d_1)$
-  in the sense of~\cite[\S~3]{Lo78}. 
- Notice that this coequalizer coincides with $S(R) \to S(R/I)$ by~\ref{req:coeq}. 
- Finally, the kernel of $\mu$ is isomorphic to $\HH_3(S(R), S(R/I), \ZZ)$ by~\cite[Th{\'e}or{\`e}me~2]{Lo78}.
  
  The third claim now follows from the starting portion of the homology long exact sequence of the map $S(R) \to S(R/I)$ and the first two assertions.
 \end{proof}
