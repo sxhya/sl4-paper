@@ -210,14 +210,14 @@ Set $N = S(R)$, $Q = S(R/I)$, $C = \HH_3(Q, N; \ZZ)$. Recall from the proof of~\
 
 In the special case $M = S(R, I)$ this construction produces a map $C \to C_{S}(R, I)$ which is natural in $(R, I)$ by~\cite[Proposition~3]{Lo78}. This map is an isomorphism by~\cite[Th{\'e}or{\`e}me~2]{Lo78}. \end{proof}
 
-For a triple $(S, P, G)$ we could define the unstable Quillen K-groups functors as $\K_{i}^{G, P}(R) = \pi_i(BG(R)^+_{P(R)})$. The functors with lower numbers admit the following description.
+Define the unstable Quillen K-groups functors as $\K_{i}^{G, P}(R) = \pi_i(BG(R)^+_{P(R)})$, $i\geq 1$. The functors with lower numbers admit the following description.
 \begin{lemma}\label{lem:lowerKgroups} There are natural isomorphisms \begin{enumerate}
  \item $\K_1^{G,P}(R) \cong G(R) / P(R)$;
  \item $\K_2^{G,P}(R) \cong \Ker(S(R) \to G(R))$;
  \item $\K_3^{G,P}(R) \cong \HH_3(S(R), \ZZ).$ \end{enumerate} \end{lemma}
 \begin{proof} The first claim is obvious, the second and the third claim follow from~\ref{req:subfunc} and~\ref{req:uce} using the standard properties of the plus-construction, see \cite[\S~IV.1]{Kbook}   (cf. Exercises~1.8--1.9 ibid.) \end{proof}
 
-\subsection{Some elementary lemmas}
+\subsection{Elementary calculations in relative Steinberg groups}
 \begin{comment}
 Hall-Witt identity
 \[ [[ y^{-1}, x], z] ^ {y^{-1}}  [[ z^{-1}, y], x] ^ {z^{-1}}  [[ x^{-1}, z], y] ^ {x^{-1}} = 1 \]
@@ -225,14 +225,16 @@ Hall-Witt identity
 \[ [[ z^{-1}, y^{-1}], x] ^ {z^{-1}y^{-1}} \cdot  [[ x^{-1}, z], y^{-1}] ^ {x^{-1}y^{-1}} = [z, [ y, x]] . \]
 \[  . \]
 \end{comment}
-Throughtout this section $\Phi$ is a simply laced root system, $A$ denotes a commutative ring, and $I, J$ are two arbitrary ideals of $A$. 
+Throughtout this section $\Phi$ is a simply laced root system, $A$ is a commutative ring, and $I, J$ are two its ideals. 
 
-We define the following two families of elements of $\St(\Phi, A)$:
+We denote by $\overline{\St}(\Phi, A, I)$ the kernel of the map $\St(\Phi, A) \to \St(\Phi, A/I)$.
+This group coincides with the image in $\St(\Phi, A)$ of the relative group $\St(\Phi, A, I)$ defined in the previous subsection.
+
+We define the following two families of elements of $\overline{\St}(\Phi, A, I)$:
 \begin{itemize}
  \item $z_\alpha(s, \xi) := x_\alpha(s)^{x_{-\alpha}(\xi)}$ defined for $\xi \in A$, $s \in I$;
  \item $c_\alpha(s, t) = [x_\alpha(s), x_{-\alpha}(t)]$ defined for $s \in I$, $t \in J$.
 \end{itemize}
-
 
 \begin{lemma}\label{Zrels} The elements $z_\alpha(s, \xi)$ satisfy the following relations for all $\xi, \eta\in A$, $s\in I$:
 \begin{enumerate} 
@@ -263,7 +265,7 @@ For a subset of roots $U \subseteq \Phi$ we denote by $\mathcal{Z}(U, R, I)$ the
 In fact, it is generated as a group by even smaller subset $\mathcal{Z}(\Sigma_S, R, I)$. Here $\Sigma_S$ denotes the special part of arbitrary parabolic subset of roots $S \subseteq \Phi$.
 \end{theorem} \begin{proof} See~\cite[Lemma~4]{S15}. \end{proof}
 
-\begin{rem} For a simply-laced $\Phi$ the second assertion of~\cref{thm:Stepanov} can be deduced from the first one by means of~\cref{Zrels}. Indeed, for a root subset $U\subseteq \Phi$ consider the following operation: \[dU := U \cup (U - U)\cap \Phi.\] In other words, $d$ adjoins to $U$ all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^n(\Sigma_S) = \Phi$ for some $n$ (in fact, for $n=2$). It remains to see that relation~\eqref{Z5} immediately implies the following assertion: every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
+\begin{rem} For a simply-laced $\Phi$ the second assertion of~\cref{thm:Stepanov} can be deduced from the first one by means of~\cref{Zrels}. Indeed, consider the operator $d \colon 2^\Phi \to 2^\Phi$ of root subsets given by $d(U) = U \cup (U - U)\cap \Phi$, $U \subseteq \Phi$. In other words, $d$ adjoins to $U$ all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^2(\Sigma_S) = \Phi$. It remains to see that relation~\eqref{Z5} immediately implies that every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
 
 For the proof of the following lemma we will need the following variant of Hall--Witt identity:
 \begin{equation} \label{HW-variant} [[x, y], z] = \left([x^{-1}, [ y^{-1}, z]] ^ {y^{-1}} \cdot [y, [ z^{-1}, x^{-1}]] ^ {z^{-1}} \right)^{x^{-1}}.\end{equation}
