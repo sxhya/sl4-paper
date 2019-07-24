@@ -153,41 +153,23 @@ It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\r
                \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}]),} \]
 in which the left arrow is an isomorphism by the Korollar of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}. \end{proof}
 
-\subsection{Relative Steinberg groups} \label{sec:quillen}
-In this subsection we recall the definitions and basic facts pertaining to relative Steinberg groups as defined by J.-L.~Loday in~\cite{Lo78},
- where a theory of relative central extensions is developed and then applied to the usual (stable) Steinberg group $\St(R)$ from algebraic K-theory (see e.\,g.~\cite[Ch. III \S~5]{Kbook}).
-The main goal of this subsection is to show that Loday's result can be applied to the unstable Steinberg groups, and that
- the resulting relative groups enjoy the same good properties as their stable counterparts.
+\subsection{Relative Steinberg groups and unstable K-groups} \label{sec:quillen}
+In this subsection we recall the definitions and basic facts pertaining to relative Steinberg groups as defined by J.-L.~Loday in~\cite{Lo78}, where a theory of relative central extensions was developed and then applied to the stable Steinberg group $\St(R)$ from algebraic K-theory. The main goal of this subsection is to show that Loday's results can be applied to unstable Steinberg groups, and that the resulting relative groups enjoy many good properties of their stable counterparts.
+Some of the results of this subsection have been briefly mentioned in~\cite{S15} (cf. e.\,g. Corollaries 3--4).
 
-%Some of the results of this subsection have been already mentioned in~\cite{S15} (cf. e.\,g. Corollaries 3--4).
-%Nevertheless, we chose to reproduce them with greater amount of detail for the reason that~\cref{lem:prop41} depends on the unstable exact sequence of.
+Recall that the category of (commutative) pairs $\catname{Pairs}$ is defined as follows.
+Its objects are pairs $(R, I)$, in which $R$ is a commutative ring and $I$ is an ideal of $R$. A morphism of pairs $f \colon (R, I) \to (R', I')$ is, by definition, a ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$. Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ the morphism category $\catname{CRings}^\rightarrow$.
 
-First of all, let us recall the definition of the category of (commutative) pairs $\catname{Pairs}$.
-The objects of $\catname{Pairs}$ are pairs $(R, I)$, in which $R$ is a commutative ring and $I$ is an ideal of $R$.
-By definition, a morphism $f \colon (R, I) \to (R', I')$ in the category of pairs corresponds to a ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$.
-Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ the morphism category $\catname{CRings}^\rightarrow$.
+There is an obvious fully faithful embedding $\catname{CRings} \to \catname{Pairs}$ sending $R$ to $(R, R)$. For a given functor $S \colon \catname{CRings} \to \catname{Groups}$ a {\it relativization} of $S$ is any functor $\widetilde{S} \colon \catname{Pairs} \to \catname{Groups}$ extending $S$ in the obvious sense. Relativization of a functor is not unique.
 
-There is an obvious fully faithful embedding $\catname{CRings} \to \catname{Pairs}$ sending $R$ to $(R, R)$.
-For a given functor $S \colon \catname{CRings} \to \catname{Groups}$ a {\it relativization} of $S$ is any functor $\widetilde{S} \colon \catname{Pairs} \to \catname{Groups}$
- extending $S$ in the obvious sense. Relativization of a functor is not unique.
+Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definition, the pullback ring $R \times_{R/I} R$. In other words, it is the ring consisting of pairs of elements of $R$ congruent modulo $I$. Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\xymatrix{D_{R,I} \ar@<1pt>[r] \ar@<-2.5pt>[r] & \ar@<-4pt>[l] R}$. It is clear that $p_0 \Delta = p_1 \Delta = id_{R}$.
 
-Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definition, the pullback ring $R \times_{R/I} R$.
-In other words, it is the ring consisting of pairs of elements of $R$ congruent modulo $I$.
-Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\xymatrix{D_{R,I} \ar@<1pt>[r] \ar@<-2.5pt>[r] & \ar@<-4pt>[l] R}$.
+Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor. Set $G_i = \Ker(S(p_i))$ and define {\it Loday's relativization} $S(R, I)$ as $ G_0 / [G_0, G_1]$. The map $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. We denote this map by $\mu = \mu_{R,I}$ and its kernel by $C_S(R, I)$: \begin{equation} \label{LodayRelativization} \xymatrix{ 1 \ar[r] & C_S(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1.} \end{equation}
 
-Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor.
-Set $G_i = \Ker(S(p_i))$ and define {\it Loday's relativization} $S(R, I)$ as $ G_0 / [G_0, G_1]$. The map $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. We denote this map by $\mu = \mu_{R,I}$ and its kernel by $C_S(R, I)$.
-\begin{equation} \label{LodayRelativization}
- \xymatrix{ 1 \ar[r] & C_S(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1}
-\end{equation}
+\begin{df} By definition, the {\it relative Steinberg group} $\St(\Phi, R, I)$ is the result of application of Loday's relativization to the functor $\St(\Phi, -)$. Notice that $\St(\Phi, R, I)$ is not a subgroup of $\St(\Phi, R)$ but rather its central extension by the abelian group $C_{\St(\Phi, -)}(R, I)$. For shortness we rename the latter group to $C(\Phi, R, I)$. \end{df}
 
-\begin{df}
-By definition, the {\it relative Steinberg group} $\St(\Phi, R, I)$ is the result of application of Loday's relativization to the functor $\St(\Phi, -)$. Notice that $\St(\Phi, R, I)$ is not a subgroup of $\St(\Phi, R)$ but rather its central extension by the abelian group $C_{\St(\Phi, -)}(R, I)$.
-For shortness we rename the latter group to $C(\Phi, R, I)$.
-\end{df}
-
-Our next goal is to obtain a more concrete description of the group $C(\Phi, R, I)$.
-We need to recall some additional notation and terminology.
+Our next goal is to obtain a homological interpretation of the group $C(\Phi, R, I)$.
+For doing this we need to recall some additional notation and terminology.
 
 First of all, recall that a {\it central extension} of a group $G$ is a surjective map $\widetilde{G} \to G$, whose kernel is contained in the center of $\widetilde{G}$. 
 A morphism of central extensions is a group-theoretic map $\widetilde{G} \to \widetilde{G}'$ over $G$.
@@ -199,123 +181,41 @@ Recall that a {\it crossed module} is a triple $(M, N, \mu)$ consisting of a gro
  
 Let $\nu \colon N \twoheadrightarrow Q$ be a surjective group-theoretic map.
 A {\it relative central extension of $\nu$} is, by definition,
-a crossed module $(M, N, \mu)$ such that the cokernel of $\mu$ is $\nu$.
-The mentioned groups and morphisms fit into the following diagram.
+a crossed module $(M, N, \mu)$ such that the cokernel of $\mu$ is $\nu$:
 \begin{equation} \label{RelativeCentralExtension}
- \xymatrix{ 1 \ar[r] & L \ar[r]^{\ker(\mu)} & M \ar^{\mu}[r] & N \ar^{\nu}[r] & Q \ar[r] & 1} \end{equation}
+ \xymatrix{ 1 \ar[r] & L \ar[r] & M \ar^{\mu}[r] & N \ar^{\nu}[r] & Q \ar[r] & 1} \end{equation}
 
 A morphism $(M, \mu) \to (M', \mu')$ of two relative central extensions of $\nu$ is, by definition, an $N$-group homomorphism $f\colon M \to M'$ such that $\mu' f = \mu$. 
-It turns out that the set  $Ext(Q, N; L)$  of isomoprhism classes of relative central extensions of $\nu$ by an abelian group $L$ can be classified by means of a certain cohomological invariant called {\it characteristic class}. More precisely, \cite[Th{\'e}or{\`e}me~1]{Lo78} asserts that there is a well-defined bijection $\xi \colon Ext(Q, N; L) \to \HH^3(Q, N; L)$.
+A relative central extension is said to be {\it universal} if it is an initial object of the category of relative central extensions of $\nu$. 
+
+It turns out that the set  $Ext(Q, N; L)$  of isomorphism classes of relative central extensions of $\nu$ by an abelian group $L$ can be classified by means of a certain cohomological invariant called {\it characteristic class}. More precisely, \cite[Th{\'e}or{\`e}me~1]{Lo78} asserts that there is a well-defined bijection $\xi \colon Ext(Q, N; L) \to \HH^3(Q, N; L)$.
  
-For the rest of this subsection $S \xrightarrow{\varphi} P \subseteq G$ is a triple of group-valued functors on the category of commutative rings satisfying the following assumptions:
+For the rest of this subsection $S \xrightarrow{\pi} P \subseteq G$ is a triple of group-valued functors on the category of commutative rings satisfying the following assumptions:
 \begin{enumerate} [label=(A\arabic*)]
  \item \label{req:left-exact} $G(D_{R, I}) \cong G(R) \times_{G(R/I)} G(R)$.
- \item \label{req:subfunc} For every $R$ the group $P(R)$ is a perfect normal subgroup of $G(R)$.
- \item \label{req:uce} For every $R$ the map $ \varphi_R \colon S(R) \to P(R)$ is a universal central extension.
- %This means that $\varphi_R$ is a certain surjective and that its kernel is contained in the center of $S(R)$.
+ \item \label{req:subfunc} $P(R)$ is a perfect normal subgroup of $G(R)$.
  \item \label{req:coeq} For every pair $(R, I)$ the coequalizer of $S(p_0), S(p_1)$ is precisely $S(R) \to S(R/I)$.
+ \item \label{req:uce} The map $ \pi_R \colon S(R) \to P(R)$ is a universal central extension for all $R$. In particular, $\HH_1(S(R), \ZZ) = \HH_2(S(R), \ZZ) = 0$.
 \end{enumerate}
-\begin{comment}
-\begin{example}
- The obvious triple of functors satisfying the above assumptions is as follows.
- Take the infinite general linear group functor $\mathrm{GL}(-)$ as $G$, its infinite elementary subfunctor $E(-)$ as $P$
-  and the infinite Steinberg group functor $\St(-)$ as $S$. %TODO: Why these 4 propeties hold? What is a relative central extension.
-\end{example}
-\end{comment}
-\begin{lemma}
- Suppose  for every pair $(R, I)$ the map $\mu \colon S(R, I) \to S(R)$ is the universal relative central extension of $\nu \colon S(R) \to S(R/I)$, i.\,e. the initial object of the category of relative central extensions of $\nu$. 
- Moreover, $C_S(R, I)$ is naturally isomorphic to the relative homology group $\HH_3(S(R), S(R/I), \ZZ)$.
+
+\begin{lemma}\label{lem:relativeH3}
+ For every pair $(R, I)$ the map $\mu \colon S(R, I) \to S(R)$ is a universal relative central extension of $\nu \colon S(R) \to S(R/I)$. The group $C_S(R, I)$ is naturally isomorphic to the relative homology group $\HH_3(S(R), S(R/I), \ZZ)$.
 \end{lemma}
 \begin{proof}
-From~\ref{req:left-exact} and $\varphi(G_i) \subseteq \Ker(G(p_i))$ we conclude that $G_0 \cap G_1 \subseteq \Ker(\varphi \colon S(D_{R, I}) \to G(D_{R, I}))$ therefore $G_0 \cap G_1$ is a central subgroup of $S(D_{R, I})$. From~\ref{req:uce} and~\cite[Ch.~III, Theorem~5.4]{Kbook} we conclude that $\HH_1(S(R), \ZZ) = \HH_2(S(R), \ZZ) = 0$ for all rings $R$.
+The action of $S(R)$ on $S(D_{R, I})$ given by ${}^g h = S(\Delta)(g) \cdot h \cdot S(\Delta)(g)^{-1}$ induces an action of $S(R)$ on $S(R, I)$. With respect to this action the map $\mu \colon S(R, I) \to S(R)$ from~\eqref{LodayRelativization} is an $S(R)$-map.
+From~\ref{req:left-exact} and $\varphi(G_i) \subseteq \Ker(G(p_i))$ we obtain that 
+$G_0 \cap G_1 \subseteq \Ker(\pi_{D_{R, I}})$ and therefore is a central subgroup of $S(D_{R,I})$ by~\ref{req:uce}. Thus, we have verified the assumptions of~\cite[Proposition~6]{Lo78} which asserts that the map $\mu$ is a universal relative central extension of the coequalizer $\nu = \mathrm{coeq}(d_0, d_1)$. Since $\nu$ coincides with $S(R) \to S(R/I)$ by~\ref{req:coeq}, we have completed the proof of the first assertion of the lemma.
 
-Using~\cite[Proposition~6]{Lo78} we obtain that the extension $S(R, I) \to S(R)$ is a universal relative central extension of the coequalizer $\mathrm{coeq}(d_0, d_1)$, which coincides with $S(R) \to S(R/I)$ by~\ref{req:coeq}. 
+Set $N = S(R)$, $Q = S(R/I)$, $C = \HH_3(Q, N; \ZZ)$. Recall from the proof of~\cite[Th{\'e}or{\`e}me~2]{Lo78} that to every relative central extension $(M, \mu)$ of $\nu$ with kernel $L$ one can associate a map of abelian groups $C \to L$. This map is obtained from the characteristic class $\xi(M, \mu)$ via the isomorphism $\HH^3(Q, N; L) \cong \mathrm{Hom}(C, L)$ of the universal coefficients theorem.
 
-Now set $C = \HH_3(S(R/I), S(R), \ZZ)$, $L = C_S(R, I)$.
-Since 
-Recall from the proof of \cite[Th{\'e}or{\`e}me~2]{Lo78} that there is a map $\alpha \colon C \to L.$
-Under t
+In the special case $M = S(R, I)$ this construction produces a map $C \to C_{S}(R, I)$ which is natural in $(R, I)$ by~\cite[Proposition~3]{Lo78}. This map is an isomorphism by~\cite[Th{\'e}or{\`e}me~2]{Lo78}. \end{proof}
 
-of~. To see that this isomorphism is natural in $(R, I)$ notice that the map $ $
-\end{proof}
-
-
-Thanks to the functoriality of Quillen's plus-construction (see e.\,g.~\cite[Proposition~5.2.4]{Ro95}) one can define a functor 
-%TODO: can also refer to Weibel's IV.1.5 provided Top is replaced with hTop which apparently does not change anything
-$X_{G, P}(R) = BG(R)^+_{P(R)} \colon \catname{CRings} \to \catname{Top}$ and then define for $i \geq 1$ the corresponding K-group functors $\K_{i}(G, P, R)$ as the homotopy groups $\pi_i(X_{G, P}(R))$.
-
-%TODO: Give the definition of $D_{R, I}$ and of the category of Pairs
-\begin{prop}\label{characterization}
-For $(G, P, R)$ as above the following statements are true.
-\begin{enumerate}
- \item There are natural isomorphisms
-  \[ \K_2(G, P, R) \cong \Ker(S(R) \to G(R)), \ \K_3(G, P, R) \cong \HH_3(S(R), \ZZ). \]
- \item 
- \item There is a natural exact sequence:
- \[ \xymatrix{\K_3(G, P, R) \ar[r] & \K_3(G, P, R/I) \ar@{->>}[r] & C(R, I).} \]
- \end{enumerate}   
-\end{prop}
-\begin{proof}
- The first claim follows from~\ref{req:subfunc} and~\ref{req:uce} using the standard properties of the plus-construction, see \cite[\S~IV.1]{Kbook}   (cf. Exercises~1.8--1.9 ibid.). %provided one verifies that all the intermediate isomorphisms are natural in $R$.
- 
- The third claim now follows from the starting portion of the homology long exact sequence of the map $S(R) \to S(R/I)$ and the first two assertions.
-\end{proof}
-
-The principal example of a triple $(G,P,S)$ satisfying the above conditions is as follows.
-For $n \geq 5$ take the orthogonal group functor $\mathrm{O}_{2n}(-)$ and its elementary subfunctor $\mathrm{EO}_{2n}(-)$ as functors $G_n$ and $P_n$, respectively. Now set $S_n = \St(\rD_n, -)$. From [Stein's paper] and [Lemma on centrality] it follows that $S_n$ and $P_n$ satisfy~\ref{req:uce}.
- The other requirements can be verified in a straightforward manner. We write $KO_i(n, R)$ as a shorthand for $\K_i(G_n, P_n, R)$.
-
-In the above definition we could have replaced the group $\mathrm{O}_{2n}$ with a different isogeneous form of the orthogonal group, e.\,g. 
- we could have chosen $G_n = \mathrm{SO}_{2n}$ or $G_n = \mathrm{Spin}_{2n}$ and then have defined $P_n$ as its elementary subfunctor.
-Of course, this would change the functors $\K_i(G_n, P_n, -)$ for $i=1,2$ however, as the proof of~\cref{characterization} suggests
- it would not change $\K_3(G_n, P_n, -)$.
-
-Let us formulate the stability theorem for orthogonal Quillen K-groups (see~\cite[Theorem~9.4]{Pa89}).
-\begin{theorem}[Panin] \label{lem:Panin-stability}
- Let $R$ be either a field, principal ideal domain or a Dedekind domain. Set $a = 1,2$ or $3$ in each of these respective cases.
- Then the canonical map $KO_i(2n, R) \to KO_i(2(n+1), R)$ is an epimorphism for $n \geq b$ 
- and an isomorphism for $\ell \geq b + 1$, where $b = \mathrm{max}(2i, a+i-1)$. \end{theorem}
- 
-Of course, the limit groups $\K_i(\mathrm{O}_\infty, \mathrm{EO}_\infty, R) = KO_i(R)$ are exactly hermitian K-groups ${}_{-1}\!L_i(R)$ defined in~\cite{Ka80}.
-There is a modern version of hermitian K-theory, namely the theory of higher Grothendieck--Witt groups of schemes.
-We refer the reader to~\cite[\S~2]{AF17} or~\cite[\S~2]{FRS12} for an introduction to this theory.
-For our purposes it would be sufficient to restrict our attention to to the affine case and to think of $\GW_i^{[k]}(R)$ as a shorthand for
-\begin{equation}
- \GW_i^{[k]}(R) = \left\{\begin{array}{ll} KO_i(R), & k = 0, \\ U_i(R), & k = 1, \\ KSp_i(R), & k = 2, \\ {}_{-1}\!U_i(R), & k = 3. \end{array}\right.
-\end{equation} %TODO: Reference?
-The groups ${}_{\pm 1}\!U_i(R)$ are defined in~\cite{Ka80} and we will not use their definition.
-The notation for the upper index $[k]$ suggests that Grothendieck--Witt groups are $4$-periodic in $k$.
-
-In the sequel we will need the following result.
-\begin{theorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $2 \in R^*$, then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups
- \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{theorem}
-\begin{proof} This is a special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. \end{proof}
-
-\subsection{Relative Steinberg groups}
-Let us briefly recall the definition and basic properties of relative Steinberg groups.
-We refer the reader to~\cite[Section~3]{S15} for a more detailed exposition.
-By definition, the relative Steinberg group functor $\St(\Phi, R, I)$ is obtained from the functor $\St(\Phi, R)$
- via the relativization procedure described in~\cref{sec:quillen}.
-
-\begin{lemma}\label{lem:lemma32} Let $\Phi$ be a simply-laced root system of rank $\geq 3$,
-$A$ be arbitrary commutative local ring with maximal ideal $M$ and residue field $k$.
-Denote by $B = B_{A, M}$ the subring $A[X^{-1}] + M[X]$ of the ring $R = A[X, X^{-1}]$ and
-by $I$ the ideal $M[X, X^{-1}]$ of $B$ (it is clear that $I$ is also an ideal of $R$).
-Consider the following commutative square of canonical maps.
-\[ \xymatrix{
-    \St(\Phi, B, I) \ar[r] \ar[d] & \St(\Phi, B) \ar[d] \\
-    \St(\Phi, R, I) \ar[r] \ar@{-->}[ur] & \St(\Phi, R) } \]
-Then there exists a diagonal arrow which makes the diagram commute.   
-\end{lemma} 
-\begin{proof}
- Notice that $R$ is isomorphic to the principal localisation of $B$ at $X$
-  and that $I$ is uniquely $X$-divisible in the sense of~\cite[\S~4]{LS17}.
- Thus, in the special case $\Phi = \rA_3$ the assertion of the lemma follows from~\cite[Theorem~3]{LS17}.
- 
- Now the general case can be obtained as a corollary of amalgamation theorem~\cite[Theorem~9]{S15}
-  (cf.~\cite[\S~4]{LS17} for more details).
-\end{proof}
-%TODO: Give reference on a similar result of Lavrenov?
+For a triple $(S, P, G)$ we could define the unstable Quillen K-groups functors as $\K_{i}^{G, P}(R) = \pi_i(BG(R)^+_{P(R)})$. The functors with lower numbers admit the following description.
+\begin{lemma}\label{lem:lowerKgroups} There are natural isomorphisms \begin{enumerate}
+ \item $\K_1^{G,P}(R) \cong G(R) / P(R)$;
+ \item $\K_2^{G,P}(R) \cong \Ker(S(R) \to G(R))$;
+ \item $\K_3^{G,P}(R) \cong \HH_3(S(R), \ZZ).$ \end{enumerate} \end{lemma}
+\begin{proof} The first claim is obvious, the second and the third claim follow from~\ref{req:subfunc} and~\ref{req:uce} using the standard properties of the plus-construction, see \cite[\S~IV.1]{Kbook}   (cf. Exercises~1.8--1.9 ibid.) \end{proof}
 
 \subsection{Some elementary lemmas}
 \begin{comment}
@@ -325,13 +225,14 @@ Hall-Witt identity
 \[ [[ z^{-1}, y^{-1}], x] ^ {z^{-1}y^{-1}} \cdot  [[ x^{-1}, z], y^{-1}] ^ {x^{-1}y^{-1}} = [z, [ y, x]] . \]
 \[  . \]
 \end{comment}
-Throughtout this section $A$ denotes an arbitary ring, and $I, J$ two its ideals, and $\Phi$ a simply laced root system.
+Throughtout this section $\Phi$ is a simply laced root system, $A$ denotes a commutative ring, and $I, J$ are two arbitrary ideals of $A$. 
 
 We define the following two families of elements of $\St(\Phi, A)$:
 \begin{itemize}
  \item $z_\alpha(s, \xi) := x_\alpha(s)^{x_{-\alpha}(\xi)}$ defined for $\xi \in A$, $s \in I$;
  \item $c_\alpha(s, t) = [x_\alpha(s), x_{-\alpha}(t)]$ defined for $s \in I$, $t \in J$.
 \end{itemize}
+
 
 \begin{lemma}\label{Zrels} The elements $z_\alpha(s, \xi)$ satisfy the following relations for all $\xi, \eta\in A$, $s\in I$:
 \begin{enumerate} 
@@ -407,6 +308,57 @@ Finally, the final relation can be verified by the following direct computation,
 \end{proof}
 
 \section{First injectivity theorem}
+
+The principal example of a triple $(G,P,S)$ satisfying the above conditions is as follows.
+For $n \geq 5$ take the orthogonal group functor $\mathrm{O}_{2n}(-)$ and its elementary subfunctor $\mathrm{EO}_{2n}(-)$ as functors $G_n$ and $P_n$, respectively. Now set $S_n = \St(\rD_n, -)$. From [Stein's paper] and [Lemma on centrality] it follows that $S_n$ and $P_n$ satisfy~\ref{req:uce}.
+ The other requirements can be verified in a straightforward manner. We write $KO_i(n, R)$ as a shorthand for $\K_i(G_n, P_n, R)$.
+
+In the above definition we could have replaced the group $\mathrm{O}_{2n}$ with a different isogeneous form of the orthogonal group, e.\,g. 
+ we could have chosen $G_n = \mathrm{SO}_{2n}$ or $G_n = \mathrm{Spin}_{2n}$ and then have defined $P_n$ as its elementary subfunctor.
+Of course, this would change the functors $\K_i(G_n, P_n, -)$ for $i=1,2$ however, as the proof of~\cref{characterization} suggests
+ it would not change $\K_3(G_n, P_n, -)$.
+
+Let us formulate the stability theorem for orthogonal Quillen K-groups (see~\cite[Theorem~9.4]{Pa89}).
+\begin{theorem}[Panin] \label{lem:Panin-stability}
+ Let $R$ be either a field, principal ideal domain or a Dedekind domain. Set $a = 1,2$ or $3$ in each of these respective cases.
+ Then the canonical map $KO_i(2n, R) \to KO_i(2(n+1), R)$ is an epimorphism for $n \geq b$ 
+ and an isomorphism for $\ell \geq b + 1$, where $b = \mathrm{max}(2i, a+i-1)$. \end{theorem}
+ 
+Of course, the limit groups $\K_i(\mathrm{O}_\infty, \mathrm{EO}_\infty, R) = KO_i(R)$ are exactly hermitian K-groups ${}_{-1}\!L_i(R)$ defined in~\cite{Ka80}.
+There is a modern version of hermitian K-theory, namely the theory of higher Grothendieck--Witt groups of schemes.
+We refer the reader to~\cite[\S~2]{AF17} or~\cite[\S~2]{FRS12} for an introduction to this theory.
+For our purposes it would be sufficient to restrict our attention to to the affine case and to think of $\GW_i^{[k]}(R)$ as a shorthand for
+\begin{equation}
+ \GW_i^{[k]}(R) = \left\{\begin{array}{ll} KO_i(R), & k = 0, \\ U_i(R), & k = 1, \\ KSp_i(R), & k = 2, \\ {}_{-1}\!U_i(R), & k = 3. \end{array}\right.
+\end{equation} %TODO: Reference?
+The groups ${}_{\pm 1}\!U_i(R)$ are defined in~\cite{Ka80} and we will not use their definition.
+The notation for the upper index $[k]$ suggests that Grothendieck--Witt groups are $4$-periodic in $k$.
+
+In the sequel we will need the following result.
+\begin{theorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $2 \in R^*$, then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups
+ \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{theorem}
+\begin{proof} This is a special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. \end{proof}
+
+\begin{lemma}\label{lem:lemma32} Let $\Phi$ be a simply-laced root system of rank $\geq 3$,
+$A$ be arbitrary commutative local ring with maximal ideal $M$ and residue field $k$.
+Denote by $B = B_{A, M}$ the subring $A[X^{-1}] + M[X]$ of the ring $R = A[X, X^{-1}]$ and
+by $I$ the ideal $M[X, X^{-1}]$ of $B$ (it is clear that $I$ is also an ideal of $R$).
+Consider the following commutative square of canonical maps.
+\[ \xymatrix{
+    \St(\Phi, B, I) \ar[r] \ar[d] & \St(\Phi, B) \ar[d] \\
+    \St(\Phi, R, I) \ar[r] \ar@{-->}[ur] & \St(\Phi, R) } \]
+Then there exists a diagonal arrow which makes the diagram commute.   
+\end{lemma} 
+\begin{proof}
+ Notice that $R$ is isomorphic to the principal localisation of $B$ at $X$
+  and that $I$ is uniquely $X$-divisible in the sense of~\cite[\S~4]{LS17}.
+ Thus, in the special case $\Phi = \rA_3$ the assertion of the lemma follows from~\cite[Theorem~3]{LS17}.
+ 
+ Now the general case can be obtained as a corollary of amalgamation theorem~\cite[Theorem~9]{S15}
+  (cf.~\cite[\S~4]{LS17} for more details).
+\end{proof}
+%TODO: Give reference on a similar result of Lavrenov?
+
 If we denote the kernel of the natural transformation $\mu$ from the definition of $\St(\Phi, R, I)$ by $C(\Phi, R, I)$ we obtain a natural exact sequence:
 \begin{equation} \label{relSteinberg-def}
  \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r]^{j} & \St(\Phi, R, I) \ar[r]^{\mu} & \St(\Phi, R) \ar[r]^{\pi} & \St(\Phi, R/I) \ar[r] & 1.}
@@ -415,14 +367,17 @@ The group $C(\Phi, R, I)$ is trivial when $I$ is a splitting ideal of $R$, i.\,e
 The following result plays a key role in the proof of~\cref{thm41}.
 \begin{lemma} \label{lem:prop41}
 In the notation of~\cref{lem:lemma32} assume additionally that the residue field $k$ is of characteristic $\neq 2$.
-Then the canonical map $f\colon C(\rD_\ell, B, I) \to C(\rD_\ell, R, I)$ is surjective for $\ell \geq 7$.
-\end{lemma}
+Then the canonical map $f\colon C(\rD_\ell, B, I) \to C(\rD_\ell, R, I)$ is surjective for $\ell \geq 7$. \end{lemma}
 \begin{proof}
-  Consider the following commutative diagram with rows obtained from~\cref{characterization}:
+
+There is a natural exact sequence:
+ \[ \xymatrix{\K_3(G, P, R) \ar[r] & \K_3(G, P, R/I) \ar@{->>}[r] & C_S(R, I).} \]
+Writing the starting portion of the homology long exact sequence for the map $S(R) \to S(R/I)$ 
+and using the isomorphisms of~\cref{lem:relativeH3} and~\cref{lem:lowerKgroups} we obtain a commutative diagram
 \begin{equation*}\xymatrix{
  KO_3(2\ell, B) \ar[r] \ar[d] & KO_3(2\ell, k[X]) \ar[d]_{f'} \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
  KO_3(2\ell, R) \ar[r]        & KO_3(2\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
-In view of~\cref{lem:Panin-stability} the central vertical map $f'$ is precisely the canonical map $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
+In view of~\cref{lem:Panin-stability} the map $f'$ is precisely the canonical map $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
 Invoking~\cref{bass-ft} (or~\cite[Corollary~5.3]{Ho05}) we obtain that \[\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k) \oplus \GW_2^{[3]}(k).\]
 By \cite[Lemma~2.2]{FRS12} the group $\GW_2^{[3]}(k)$ is trivial, therefore $f'$ (and hence $f$) are surjective.
 \end{proof}
