@@ -1,7 +1,7 @@
 \documentclass[oneside, 8pt]{amsart}
 \usepackage{amscd, amsmath, amssymb, amsthm, amsfonts, amstext, verbatim, mathtools, xfrac, microtype, nameref, thmtools}
 \usepackage[breaklinks=true,unicode]{hyperref}
-\usepackage[hyperref=true, backend=biber, bibencoding=utf8, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
+\usepackage[hyperref=true, backend=biber, bibencoding=utf8, giveninits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
 \usepackage[capitalize]{cleveref}
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz}
@@ -17,6 +17,7 @@
 
 \newtheorem{prop}{Proposition}
 \newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
 \newtheorem{corollary}{Corollary}
 \newtheorem{lemma}{Lemma}
 \theoremstyle{remark} 
@@ -37,6 +38,7 @@
 \DeclareMathOperator{\E}{E}
 \DeclareMathOperator{\HH}{H}
 \DeclareMathOperator{\K}{K}
+\DeclareMathOperator{\KO}{KO}
 \DeclareMathOperator{\GW}{GW}
 \DeclareMathOperator{\colim}{colim}
 \newcommand{\inv}{^{-1}}
@@ -90,6 +92,9 @@ The indices $i$, $j$ appearing in the right-hand side of the above relation rang
 all positive natural numbers such that $i\alpha + j\beta\in\Phi$.
 The constants $N_{\alpha \beta i j}$ appearing in the right-hand side of \eqref{rel:CCF} are integers equal to $\pm 1,\pm 2,\pm 3$, they are called the {\it structure constants} of the Chevalley group $G_{sc}(\Phi, R)$. Several different methods have been proposed for choosing signs of these constants, see e.\,g.~\cite{V00}, \cite[\S~9]{VP}.
 
+Whenever we speak of the Steinberg group $\St(\Psi, R)$ parametrized by a root subsystem $\Psi \subset \Phi$ we imply that the choice of structure constants 
+ for $\St(\Psi, R)$ is compatible with that for $\St(\Phi, R)$ (i.\,e. the obvious map between these groups induced $\Psi\subseteq \Phi$ is well-defined).
+
 In this paper we will be mostly interested in the case when the Dynkin diagram of $\Phi$ is {\it simply-laced}, i.\,e. does not contain double bonds. In this case the defining relations of $\St(\Phi, R)$ have the following simpler form:
 \begin{align}
 &x_{\alpha}(a)\cdot x_{\alpha}(b)=x_{\alpha}(a+b), \tag{R1}\\
@@ -101,7 +106,7 @@ In the above formulae $a, b \in R$ and the integers $N_{\alpha, \beta} = N_{\alp
 \begin{equation} \label{eq:simplest} N_{\alpha, \beta} = -N_{\beta,\alpha} = - N_{-\alpha, -\beta} = N_{\beta, -\alpha-\beta} = N_{-\alpha-\beta, \alpha}. \end{equation}
 If, moreover, $\gamma \in \Phi$ is such that $\alpha,\beta,\gamma$ form a basis of a root subsystem of type $\rA_3$ then holds
 \begin{equation} \label{eq:cocycle} N_{\beta,\gamma} \cdot N_{\alpha, \beta+\gamma} = N_{\alpha+\beta, \gamma} \cdot N_{\alpha, \beta}. \end{equation} \end{lemma}
-In the computations below we will be using identities~\eqref{eq:simplest} without explicit reference.
+In the computations below we use identities~\eqref{eq:simplest} without explicit reference.
 
 For $\alpha\in\Phi$ and $s \in R^\times$ we define certain elements $w_\alpha(s), h_\alpha(s)$ of $\St(\Phi, R)$ (the latter ones are sometimes called {\it semisimple root elements}):
 \begin{align*} w_\alpha(s) & =  x_\alpha(s) \cdot x_{-\alpha}(-s^{-1}) \cdot x_\alpha(s), \\ h_\alpha(s) & =  w_\alpha(s) \cdot w_\alpha(-1).  \end{align*}
@@ -159,6 +164,7 @@ Some of the results of this subsection have been briefly mentioned in~\cite{S15}
 
 Recall that the category of (commutative) pairs $\catname{Pairs}$ is defined as follows.
 Its objects are pairs $(R, I)$, in which $R$ is a commutative ring and $I$ is an ideal of $R$. A morphism of pairs $f \colon (R, I) \to (R', I')$ is, by definition, a ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$. Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ the morphism category $\catname{CRings}^\rightarrow$.
+If a pair $(R, I)$ is such that $R$ is a local ring with maximal ideal $I$, we call such a pair a {\it local pair}.
 
 There is an obvious fully faithful embedding $\catname{CRings} \to \catname{Pairs}$ sending $R$ to $(R, R)$. For a given functor $S \colon \catname{CRings} \to \catname{Groups}$ a {\it relativization} of $S$ is any functor $\widetilde{S} \colon \catname{Pairs} \to \catname{Groups}$ extending $S$ in the obvious sense. Relativization of a functor is not unique.
 
@@ -193,8 +199,8 @@ It turns out that the set  $Ext(Q, N; L)$  of isomorphism classes of relative ce
 For the rest of this subsection $S \xrightarrow{\pi} P \subseteq G$ is a triple of group-valued functors on the category of commutative rings satisfying the following assumptions:
 \begin{enumerate} [label=(A\arabic*)]
  \item \label{req:left-exact} $G(D_{R, I}) \cong G(R) \times_{G(R/I)} G(R)$.
- \item \label{req:subfunc} $P(R)$ is a perfect normal subgroup of $G(R)$.
  \item \label{req:coeq} For every pair $(R, I)$ the coequalizer of $S(p_0), S(p_1)$ is precisely $S(R) \to S(R/I)$.
+ \item \label{req:subfunc} $P(R)$ is a perfect normal subgroup of $G(R)$.
  \item \label{req:uce} The map $ \pi_R \colon S(R) \to P(R)$ is a universal central extension for all $R$. In particular, $\HH_1(S(R), \ZZ) = \HH_2(S(R), \ZZ) = 0$.
 \end{enumerate}
 
@@ -202,22 +208,127 @@ For the rest of this subsection $S \xrightarrow{\pi} P \subseteq G$ is a triple 
  For every pair $(R, I)$ the map $\mu \colon S(R, I) \to S(R)$ is a universal relative central extension of $\nu \colon S(R) \to S(R/I)$. The group $C_S(R, I)$ is naturally isomorphic to the relative homology group $\HH_3(S(R), S(R/I), \ZZ)$.
 \end{lemma}
 \begin{proof}
-The action of $S(R)$ on $S(D_{R, I})$ given by ${}^g h = S(\Delta)(g) \cdot h \cdot S(\Delta)(g)^{-1}$ induces an action of $S(R)$ on $S(R, I)$. With respect to this action the map $\mu \colon S(R, I) \to S(R)$ from~\eqref{LodayRelativization} is an $S(R)$-map.
+The action of $S(R)$ on $S(D_{R, I})$ given by ${}^g h = S(\Delta)(g) \cdot h \cdot S(\Delta)(g)^{-1}$ induces an action of $S(R)$ on $S(R, I)$.
+The map $\mu \colon S(R, I) \to S(R)$ from~\eqref{LodayRelativization} is an $S(R)$-map with respect to this action.
 From~\ref{req:left-exact} and $\varphi(G_i) \subseteq \Ker(G(p_i))$ we obtain that 
 $G_0 \cap G_1 \subseteq \Ker(\pi_{D_{R, I}})$ and therefore is a central subgroup of $S(D_{R,I})$ by~\ref{req:uce}. Thus, we have verified the assumptions of~\cite[Proposition~6]{Lo78} which asserts that the map $\mu$ is a universal relative central extension of the coequalizer $\nu = \mathrm{coeq}(d_0, d_1)$. Since $\nu$ coincides with $S(R) \to S(R/I)$ by~\ref{req:coeq}, we have completed the proof of the first assertion of the lemma.
 
 Set $N = S(R)$, $Q = S(R/I)$, $C = \HH_3(Q, N; \ZZ)$. Recall from the proof of~\cite[Th{\'e}or{\`e}me~2]{Lo78} that to every relative central extension $(M, \mu)$ of $\nu$ with kernel $L$ one can associate a map of abelian groups $C \to L$. This map is obtained from the characteristic class $\xi(M, \mu)$ via the isomorphism $\HH^3(Q, N; L) \cong \mathrm{Hom}(C, L)$ of the universal coefficients theorem.
 
-In the special case $M = S(R, I)$ this construction produces a map $C \to C_{S}(R, I)$ which is natural in $(R, I)$ by~\cite[Proposition~3]{Lo78}. This map is an isomorphism by~\cite[Th{\'e}or{\`e}me~2]{Lo78}. \end{proof}
+In the special case $M = S(R, I)$ this construction produces a map $C \to C_{S}(R, I)$ whose naturality in $(R, I)$ follows from~\cite[Proposition~3]{Lo78}. 
+This map is an isomorphism by~\cite[Th{\'e}or{\`e}me~2]{Lo78}. \end{proof}
 
-Define the unstable Quillen K-groups functors as $\K_{i}^{G, P}(R) = \pi_i(BG(R)^+_{P(R)})$, $i\geq 1$. The functors with lower numbers admit the following description.
+We retain our notation for the functors $S, P$ and $G$.
+For $i\geq 1$ we define the unstable Quillen K-functors $\K_{i}^{G, P}$ via
+\[ \K_i^{G,P}(R) = \pi_i(BG(R)^+_{P(R)}). \]
+It is not hard to obtain the following concrete description of these functors in the cases $i=1,2,3$.
 \begin{lemma}\label{lem:lowerKgroups} There are natural isomorphisms \begin{enumerate}
  \item $\K_1^{G,P}(R) \cong G(R) / P(R)$;
  \item $\K_2^{G,P}(R) \cong \Ker(S(R) \to G(R))$;
  \item $\K_3^{G,P}(R) \cong \HH_3(S(R), \ZZ).$ \end{enumerate} \end{lemma}
 \begin{proof} The first claim is obvious, the second and the third claim follow from~\ref{req:subfunc} and~\ref{req:uce} using the standard properties of the plus-construction, see \cite[\S~IV.1]{Kbook}   (cf. Exercises~1.8--1.9 ibid.) \end{proof}
 
-\subsection{Elementary calculations in relative Steinberg groups}
+Now let us give the example of a triple $(G, P, S)$ playing a key role in the present paper.
+We denote by $\mathrm{O}_{2n}(R)$ and $\mathrm{EO}_{2n}(R)$ the orthogonal group of rank $n$ over a ring $R$ and its elementary subgroup, respectively
+ (see e.\,g.~\cite{Su82} for the definition of these groups).
+Now set $G_n = \mathrm{O}_{2n}(-)$, $P_n = \mathrm{EO}_{2n}(R)$, $S_n = \St(\rD_n, -)$ and let $\pi$ be the obvious projection $S_n \to P_n$.
+
+It is easy to see that functors $G_n$, $P_n$ and $S_n$ satisfy \ref{req:left-exact} and \ref{req:coeq}.
+By~\cite{Su82} the requirement~\ref{req:subfunc} is also satisfied for $n \geq 3$.
+Finally, from~\cite[Corollary~5.4]{St71} and~\cite[Theorem~1]{LS17} it follows that $S_n$ and $P_n$ satisfy~\ref{req:uce} for $n \geq 5$.
+We write $\KO_i(2n, R)$ as a shorthand for $\K_i^{G_n, P_n}(R)$.
+%Notice that $\K_2(\rD_n, R) \subset \mathrm{KO}_2(n, R)$.
+
+\begin{comment}
+In the above definition we could have replaced the group $\mathrm{O}_{2n}$ with a different isogeneous form of the orthogonal group, e.\,g. 
+ we could have chosen $G_n = \mathrm{SO}_{2n}$ or $G_n = \mathrm{Spin}_{2n}$ and then have defined $P_n$ as its elementary subfunctor.
+Of course, this would change the functors $\K_i(G_n, P_n, -)$ for $i=1,2$ however, as the proof of~\cref{characterization} suggests
+ it would not change $\K_3(G_n, P_n, -)$.
+\end{comment}
+
+We conclude this subsection with the following stability result (see~\cite[Theorem~9.4]{Pa89}).
+\begin{theorem*}[Panin] \label{lem:Panin-stability}
+ Let $R$ be either a field, principal ideal domain or a Dedekind domain. Set $a = 1,2$ or $3$ in each of these three cases, respectively.
+ Then the stability map $\KO_i(2n, R) \to \KO_i(2(n+1), R)$ is an epimorphism for $n \geq b$ 
+ and an isomorphism for $n \geq b + 1$, where $b = \mathrm{max}(2i, a+i-1)$. \end{theorem*}
+
+\section{Proof of the first part of the injectivity theorem}
+We start this section by recalling basic notation and facts pertaining to hermitian K-theory.
+First of all, recall that the stable orthogonal K-groups $\KO_i(R) = \KO_i(\infty, R)$ are precisely the hermitian K-groups ${}_{-1}\!L_i(R)$ introduced by Karoubi in~\cite{Ka80}. We will need yet another redesignation for these groups $\KO_i(R)$, which comes from the theory of {\it higher Grothendieck--Witt groups of schemes}.
+Recall that this theory, developed by M.~Schlichting, is a modern broad generalization of the classical hermitian K-theory of rings developed in~\cite{Ka80}.
+We refer the reader to~\cite[\S~2]{FRS12} and~\cite[\S~2]{AF17} for the introduction to it.
+
+For our purposes it suffices to restrict attention to the affine case, in which we can consider Grothendieck--Witt groups $\GW_i^{[k]}(R)$ for $i \geq 1,\ [k] \in \ZZ/4\ZZ$
+ simply as a shorthand for the following groups
+\begin{equation*} \GW_i^{[k]}(R) = \left\{\begin{array}{ll} \KO_i(R), & k = 0 \\ U_i(R), & k = 1 \\ \mathrm{KSp}_i(R), & k = 2 \\ {}_{-1}\!U_i(R), & k = 3. \end{array}\right. \end{equation*}
+The groups ${}_{\pm 1}\!U_i(R)$, $\mathrm{KSp}_i(R)$ are defined in~\cite{Ka80} and we will not use their definition. 
+What we need from Grothendieck--Witt groups is the following result due to M.~Schlichting.
+\begin{theorem*}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $R$ is a regular ring such that $2 \in R^*$, 
+then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{theorem*}
+\begin{proof} This is a very special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. \end{proof}
+We will use the above theorem only in the special case $i=0$, in which it boils down to an earlier result of Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
+
+%If we denote the kernel of the natural transformation $\mu$ from the definition of $\St(\Phi, R, I)$ by $C(\Phi, R, I)$ we obtain a natural exact sequence:
+%\begin{equation} \label{relSteinberg-def}  \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r]^{j} & \St(\Phi, R, I) \ar[r]^{\mu} & \St(\Phi, R) \ar[r]^{\pi} & \St(\Phi, R/I) \ar[r] & 1.} \end{equation}
+%The group $C(\Phi, R, I)$ is trivial when $I$ is a splitting ideal of $R$, i.\,e. when the canonical map $R \to R/I$ splits, see \cite[Lemma~8]{S15}.
+
+For the rest of this section let us fix the following notation.
+Let $A$ be arbitrary commutative local ring with maximal ideal $M$ and residue field $k$.
+Denote by $B = B_{A, M}$ the subring $A[X^{-1}] + M[X]$ of the ring $R = A[X, X^{-1}]$ and
+by $I$ the ideal $M[X, X^{-1}]$ of $B$ (it is clear that $I$ is also an ideal of $R$).
+
+\begin{lemma} \label{lem:prop41}
+Assume additionally that the residue field $k$ is of characteristic $\neq 2$.
+Then the canonical map $f\colon C(\rD_\ell, B, I) \to C(\rD_\ell, R, I)$ is surjective for $\ell \geq 7$. \end{lemma}
+\begin{proof}
+%There is a natural exact sequence:
+% \[ \xymatrix{\K_3(G, P, R) \ar[r] & \K_3(G, P, R/I) \ar@{->>}[r] & C_S(R, I).} \]
+Writing the starting portion of the homology long exact sequence for the map $\St(\rD_\ell, R) \to \St(\rD_\ell, R/I)$ 
+and using the isomorphisms of~\cref{lem:relativeH3} and~\cref{lem:lowerKgroups} we obtain the following commutative diagram:
+\begin{equation*}\xymatrix{
+ \KO_3(2\ell, B) \ar[r] \ar[d] & \KO_3(2\ell, k[X]) \ar[d]_{f'} \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
+ \KO_3(2\ell, R) \ar[r]        & \KO_3(2\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
+In view of Panin stability theorem the map $f'$ is precisely the canonical map $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
+By Bass fundamental theorem $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k) \oplus \GW_2^{[3]}(k),$
+but since the group $\GW_2^{[3]}(k)$ is trivial by~\cite[Lemma~2.2]{FRS12}, the map $f'$ (and hence $f$) is surjective.
+\end{proof} 
+ 
+We will also need the following property of relative Steinberg groups which is a special case of {\it ``Tulenbayev lifting property''} discussed in~\cite{LS17}.
+\begin{lemma}\label{lem:lemma32} Let $\Phi$ be a simply-laced root system of rank $\geq 3$,
+Consider the following commutative square of canonical maps.
+\[ \xymatrix{
+    \St(\Phi, B, I) \ar[r] \ar[d] & \St(\Phi, B) \ar[d] \\
+    \St(\Phi, R, I) \ar[r] \ar@{-->}[ur] & \St(\Phi, R) } \]
+Then there exists a diagonal arrow which makes the diagram commute.   
+\end{lemma} 
+\begin{proof}
+ Notice that $R$ is isomorphic to the principal localisation of $B$ at $X$
+  and that $I$ is uniquely $X$-divisible in the sense of~\cite[\S~4]{LS17}.
+ Thus, in the special case $\Phi = \rA_3$ the assertion of the lemma follows from~\cite[Theorem~3]{LS17}.
+ In the general case the assertion of the lemma is a corollary of amalgamation theorem~\cite[Theorem~9]{S15} 
+  (see~\cite[\S~2]{LS17} for more details).
+\end{proof}
+
+\begin{theorem} \label{thm41}
+Suppose that $2 \in A^*$. Then for $\ell \geq 7$ the canonical map $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective.
+\end{theorem}
+\begin{proof}
+ Consider the following commutative diagram with exact rows, in which the lifting $t$ is obtained from~\cref{lem:lemma32}:
+\begin{equation*} \xymatrix{
+ C(\rD_\ell, B, I) \ar[r]^{\lambda_B} \ar@{->>}[d]_{f} & \St(\rD_\ell, B, I) \ar[r]^{\mu_B} \ar[d]_{g} &
+ \St(\rD_\ell, B) \ar[r]^{\nu_B} \ar[d]_{h} & \St(\rD_\ell, k[X]) \ar[d]_{i} \\
+ C(\rD_\ell, R, I) \ar[r]^{\lambda_R}         & \St(\rD_\ell, R, I) \ar[r]^{\mu_R} \ar@{-->}[ur]^{t}&
+ \St(\rD_\ell, R) \ar[r]^-{\nu_R}        & \St(\rD_\ell, k[X, X^{-1}]).
+}\end{equation*}
+Let $a$ be an element of $\Ker(h)$. Since $i$ is injective by~\cref{field-injectivity}, the element $a$
+ also lies in $\Ker(\nu_B)$ and hence comes from some $b \in \St(\rD_\ell, B, I)$ via $\mu_B$.
+Since $g(b) \in \Ker(\mu_R)$ there exists some $c \in C(\rD_\ell, R, I)$ such that $\lambda_R(c) = g(b)$. 
+By~\cref{lem:prop41}, $f$ is surjective, therefore $c = f(d)$ for some $d \in C(\rD_\ell, R, I)$.
+The required assertion now follows from the following computation:
+ \[ 1 = \mu_B\lambda_B(d) = tg\lambda_B(d) = t\lambda_Rf(d) =t(g(b)) = \mu_B(b) = a. \qedhere \]
+\end{proof}
+
+\section{Elementary calculations in relative Steinberg groups}
 \begin{comment}
 Hall-Witt identity
 \[ [[ y^{-1}, x], z] ^ {y^{-1}}  [[ z^{-1}, y], x] ^ {z^{-1}}  [[ x^{-1}, z], y] ^ {x^{-1}} = 1 \]
@@ -225,18 +336,21 @@ Hall-Witt identity
 \[ [[ z^{-1}, y^{-1}], x] ^ {z^{-1}y^{-1}} \cdot  [[ x^{-1}, z], y^{-1}] ^ {x^{-1}y^{-1}} = [z, [ y, x]] . \]
 \[  . \]
 \end{comment}
-Throughtout this section $\Phi$ is a simply laced root system, $A$ is a commutative ring, and $I, J$ are two its ideals. 
+Throughtout this let $\Phi$ is a simply laced root system, $R$ is a commutative ring, and $I, J$ are two its ideals. 
+We denote by $\overline{\St}(\Phi, R, I)$ the kernel of the map $\St(\Phi, R) \to \St(\Phi, R/I)$.
+This group coincides with the image in $\St(\Phi, R)$ of the relative group $\St(\Phi, R, I)$ defined in~\cref{sec:quillen}.
 
-We denote by $\overline{\St}(\Phi, A, I)$ the kernel of the map $\St(\Phi, A) \to \St(\Phi, A/I)$.
-This group coincides with the image in $\St(\Phi, A)$ of the relative group $\St(\Phi, A, I)$ defined in the previous subsection.
+Denote by $\St(\Phi, I)$ the subgroup of $\St(\Phi, R)$ generated as a group by root unipotents of level $I$.
+It is clear that $\overline{\St}(\Phi, R, I)$ contains $\St(\Phi, I)$ and, in fact, is its normal closure.
+We also denote by $\overline{H}(\Phi, R, I)$ the subgroup of $\overline{\St}(\Phi, R, I)$ generated by the semisimple root elements $h_\alpha(u)$ and symbols $\{u, v\}$, $u \in (1+I)^\times$, $v \in R^\times$, $\alpha\in \Phi$.
 
-We define the following two families of elements of $\overline{\St}(\Phi, A, I)$:
+We define the following two families of elements of $\overline{\St}(\Phi, R, I)$:
 \begin{itemize}
- \item $z_\alpha(s, \xi) := x_\alpha(s)^{x_{-\alpha}(\xi)}$ defined for $\xi \in A$, $s \in I$;
+ \item $z_\alpha(s, \xi) := x_\alpha(s)^{x_{-\alpha}(\xi)}$ defined for $\xi \in R$, $s \in I$;
  \item $c_\alpha(s, t) = [x_\alpha(s), x_{-\alpha}(t)]$ defined for $s \in I$, $t \in J$.
 \end{itemize}
 
-\begin{lemma}\label{Zrels} The elements $z_\alpha(s, \xi)$ satisfy the following relations for all $\xi, \eta\in A$, $s\in I$:
+\begin{lemma}\label{Zrels} The elements $z_\alpha(s, \xi)$ satisfy the following relations for all $\xi, \eta\in R$, $s\in I$:
 \begin{enumerate} 
 \item\label{Z1} $z_{\alpha}(s, \xi) ^ {x_{-\alpha}(\eta)} = z_{\alpha}(s, \xi + \eta)$;
 \item\label{Z2} $z_{\beta}(s, \xi) ^ {x_{\alpha}(\eta)} = x_{\alpha} (- s\xi \eta) \cdot x_{\alpha+\beta} (N_{\beta, \alpha}\cdot s\eta)     \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha + \beta \in \Phi$;
@@ -258,20 +372,24 @@ Direct computation shows that
 and the required assertion follows from~\eqref{Z2}.
 \end{proof}
 
+Let us mention an immediate application of the just proved lemma. 
+First of all, recall the following two results in which two generating sets for the group $\overline{\St}(\Phi, R, I)$ are described.
+\begin{theorem*}[Stein--Tits--Vaserstein]
+ For arbitrary $\Phi$ of rank $\geq 2$ the group $\overline{\St}(\Phi, R, I)$ is generated by elements $z_\alpha(s, \xi)$, $\alpha \in \Phi$, $s \in I$, $\xi \in R$.
+\end{theorem*} \begin{proof} See e.\,g.~\cite[Theorem 2]{Va86}. \end{proof}
+
 For a subset of roots $U \subseteq \Phi$ we denote by $\mathcal{Z}(U, R, I)$ the subset of roots consisting of elements $x_\alpha(s)$, $s \in I$, $\alpha \in \Phi$ and $z_\alpha(s, \xi)$, $\alpha \in U$, $s\in I$, $\xi \in R$.
 
-\begin{theorem}[Stepanov] \label{thm:Stepanov} For arbitrary $\Phi$ of rank $\geq 2$ the group $\overline{\St}(\Phi, R, I)$ is generated by elements $z_\alpha(s, \xi)$, $\alpha \in \Phi$, $s \in I$, $\xi \in R$.
+\begin{theorem*}[Stepanov] For arbitrary $\Phi$ of rank $\geq 2$ the group $\overline{\St}(\Phi, R, I)$ is generated as a group subset $\mathcal{Z}(\Sigma_S, R, I)$.
+ Here $\Sigma_S$ denotes the special part of arbitrary parabolic subset of roots $S \subseteq \Phi$.
+\end{theorem*} \begin{proof} See~\cite[Lemma~4]{S15}. \end{proof}
 
-In fact, it is generated as a group by even smaller subset $\mathcal{Z}(\Sigma_S, R, I)$. Here $\Sigma_S$ denotes the special part of arbitrary parabolic subset of roots $S \subseteq \Phi$.
-\end{theorem} \begin{proof} See~\cite[Lemma~4]{S15}. \end{proof}
+\begin{rem} For a simply-laced $\Phi$ Stepanov's theorem can be deduced from Stein--Tits-Vaserstein theorem by means of~\cref{Zrels}. Indeed, consider the operator $d \colon 2^\Phi \to 2^\Phi$ of root subsets given by $d(U) = U \cup (U - U)\cap \Phi$, $U \subseteq \Phi$. In other words, $d$ adjoins to $U$ all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^n(\Sigma_S) = \Phi$ (in fact, $n=2$). It remains to see that relation~\eqref{Z5} immediately implies that every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
 
-\begin{rem} For a simply-laced $\Phi$ the second assertion of~\cref{thm:Stepanov} can be deduced from the first one by means of~\cref{Zrels}. Indeed, consider the operator $d \colon 2^\Phi \to 2^\Phi$ of root subsets given by $d(U) = U \cup (U - U)\cap \Phi$, $U \subseteq \Phi$. In other words, $d$ adjoins to $U$ all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^2(\Sigma_S) = \Phi$. It remains to see that relation~\eqref{Z5} immediately implies that every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
-
-For the proof of the following lemma we will need the following variant of Hall--Witt identity:
+We will need the following variant of Hall--Witt identity:
 \begin{equation} \label{HW-variant} [[x, y], z] = \left([x^{-1}, [ y^{-1}, z]] ^ {y^{-1}} \cdot [y, [ z^{-1}, x^{-1}]] ^ {z^{-1}} \right)^{x^{-1}}.\end{equation}
-
 \begin{lemma} \label{Crels}
-The elements $c_\alpha(s, t)$ satisfy the following relations for all $s\in I,\ t\in J,\ \xi\in A$.
+The elements $c_\alpha(s, t)$ satisfy the following relations for all $s\in I,\ t\in J,\ \xi\in R$.
  \begin{enumerate}
  \item \label{C1} $[c_\beta(s, t), x_{\alpha}(\xi)] = x_{\alpha}(- st\xi) \cdot x_{\beta+\alpha}(N_{\alpha,\beta}s^2t\xi)$ if $\alpha+\beta \in \Phi$;
  \item \label{C2} $[c_\beta(s, t), x_{\alpha}(\xi)] = x_{\alpha}(st\xi + s^2t^2\xi) \cdot x_{\alpha-\beta}(N_{-\alpha, \beta}st^2\xi)$ if $\alpha-\beta \in \Phi$;  
@@ -309,101 +427,53 @@ Finally, the final relation can be verified by the following direct computation,
 \end{comment}
 \end{proof}
 
-\section{First injectivity theorem}
+\subsection{Computation of the kernel of the map of evaluation at \texorpdfstring{$0$}{0}.}
+For the rest of this subsection $A$ denotes a local ring with maximal ideal $M$.
+The aim of this subsection is to describe a generating set for the kernel of the map $ev_{X=0}^*\colon\overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, A, M)$
+induced by the ring homomorphism of evaluation at $0$. Denote this kernel by $K(A[X], M[X])$.
 
-The principal example of a triple $(G,P,S)$ satisfying the above conditions is as follows.
-For $n \geq 5$ take the orthogonal group functor $\mathrm{O}_{2n}(-)$ and its elementary subfunctor $\mathrm{EO}_{2n}(-)$ as functors $G_n$ and $P_n$, respectively. Now set $S_n = \St(\rD_n, -)$. From [Stein's paper] and [Lemma on centrality] it follows that $S_n$ and $P_n$ satisfy~\ref{req:uce}.
- The other requirements can be verified in a straightforward manner. We write $KO_i(n, R)$ as a shorthand for $\K_i(G_n, P_n, R)$.
+It is obvious that $K(A[X], M[X])$ contains the subgroup $\overline{\St}(\Phi, A[X], XM[X])$.
+It turns out that although being larger than this subgroup, $K(A[X], M[X])$ contains very few extra generators, which can all be explicitly described.
 
-In the above definition we could have replaced the group $\mathrm{O}_{2n}$ with a different isogeneous form of the orthogonal group, e.\,g. 
- we could have chosen $G_n = \mathrm{SO}_{2n}$ or $G_n = \mathrm{Spin}_{2n}$ and then have defined $P_n$ as its elementary subfunctor.
-Of course, this would change the functors $\K_i(G_n, P_n, -)$ for $i=1,2$ however, as the proof of~\cref{characterization} suggests
- it would not change $\K_3(G_n, P_n, -)$.
-
-Let us formulate the stability theorem for orthogonal Quillen K-groups (see~\cite[Theorem~9.4]{Pa89}).
-\begin{theorem}[Panin] \label{lem:Panin-stability}
- Let $R$ be either a field, principal ideal domain or a Dedekind domain. Set $a = 1,2$ or $3$ in each of these respective cases.
- Then the canonical map $KO_i(2n, R) \to KO_i(2(n+1), R)$ is an epimorphism for $n \geq b$ 
- and an isomorphism for $\ell \geq b + 1$, where $b = \mathrm{max}(2i, a+i-1)$. \end{theorem}
+Since $ev_{X=0}^*$ admits a section, we can consider $\overline{\St}(\Phi, A, M)$ and $\St(\Phi, M)$ as subgroups of $\overline{\St}(\Phi, A[X], M[X])$,
+ moreover, one has $\overline{\St}(\Phi, A[X], M[X]) = \overline{\St}(\Phi, A, M) \cdot K(A[X], M[X]).$
+\begin{lemma} The following decomposition holds
+ \[ K(A[X], M[X]) = \overline{\St}(\Phi, A[X], XM[X]) \cdot \left[\St(\Phi, XA[X]),\ \overline{\St}(\Phi, A, M)\right].\] \end{lemma}
+\begin{proof} Fix $g \in K(A[X], M[X])$ and write it as $g(X) = \prod_i z_{\alpha_i}(f_i(X), \xi_i(X))$ for some $f_i(X) = f_i(0) + Xf_i'(X) \in M[X]$, $\xi_i(X) = \xi_i(0) + X\xi_i'(X) \in A[X]$.
+ It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the element $g(X)$ is congruent to $g_1(X) = \prod_i z_{\alpha_i}(f_i(0), \xi_i(X)).$ 
  
-Of course, the limit groups $\K_i(\mathrm{O}_\infty, \mathrm{EO}_\infty, R) = KO_i(R)$ are exactly hermitian K-groups ${}_{-1}\!L_i(R)$ defined in~\cite{Ka80}.
-There is a modern version of hermitian K-theory, namely the theory of higher Grothendieck--Witt groups of schemes.
-We refer the reader to~\cite[\S~2]{AF17} or~\cite[\S~2]{FRS12} for an introduction to this theory.
-For our purposes it would be sufficient to restrict our attention to to the affine case and to think of $\GW_i^{[k]}(R)$ as a shorthand for
-\begin{equation}
- \GW_i^{[k]}(R) = \left\{\begin{array}{ll} KO_i(R), & k = 0, \\ U_i(R), & k = 1, \\ KSp_i(R), & k = 2, \\ {}_{-1}\!U_i(R), & k = 3. \end{array}\right.
-\end{equation} %TODO: Reference?
-The groups ${}_{\pm 1}\!U_i(R)$ are defined in~\cite{Ka80} and we will not use their definition.
-The notation for the upper index $[k]$ suggests that Grothendieck--Witt groups are $4$-periodic in $k$.
+ Now each factor $z_{\alpha_i}(f_i(0), \xi_i(X))$ can be written as follows:
+ \[z_{\alpha_i}(f_i(0), \xi_i(0))^{x_{-\alpha_i}(X\xi'_i(X))} = [x_{-\alpha_i}(-X\xi'_i(X)), z_{\alpha_i}(f_i(0), \xi_i(0))] \cdot z_{\alpha_i}(f_i(0), \xi_i(0)).\]
+ Since the subgroup $C_0 = \left[\St(\Phi, XA[X]), \overline{\St}(\Phi, A, M)\right]$ is normalized by $\overline{\St}(\Phi, A, M)$ 
+ (this follows e.\,g. from the formula $[g, h]^{h_1} = [h_1^{-1}, g][g, h_1^{-1}h]$) we conclude that $g_1(X)$ is congruent to $\prod_i z_{\alpha_i}(f_i(0), \xi_i(0)) = g(0) = 1$ modulo $C_0$,
+ which implies the assertion. \qedhere \end{proof}
 
-In the sequel we will need the following result.
-\begin{theorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $2 \in R^*$, then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups
- \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{theorem}
-\begin{proof} This is a special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. \end{proof}
+\begin{theorem}[Stein] \label{thmStein} One has $\overline{\St}(\Phi, A, M) = U(\Phi^+, M) \cdot \overline{H}(\Phi, A, M) \cdot U(\Phi^-, M).$ \end{theorem} \begin{proof} See~\cite[Theorem~2.4]{Ste73}. \end{proof}
 
-\begin{lemma}\label{lem:lemma32} Let $\Phi$ be a simply-laced root system of rank $\geq 3$,
-$A$ be arbitrary commutative local ring with maximal ideal $M$ and residue field $k$.
-Denote by $B = B_{A, M}$ the subring $A[X^{-1}] + M[X]$ of the ring $R = A[X, X^{-1}]$ and
-by $I$ the ideal $M[X, X^{-1}]$ of $B$ (it is clear that $I$ is also an ideal of $R$).
-Consider the following commutative square of canonical maps.
-\[ \xymatrix{
-    \St(\Phi, B, I) \ar[r] \ar[d] & \St(\Phi, B) \ar[d] \\
-    \St(\Phi, R, I) \ar[r] \ar@{-->}[ur] & \St(\Phi, R) } \]
-Then there exists a diagonal arrow which makes the diagram commute.   
-\end{lemma} 
-\begin{proof}
- Notice that $R$ is isomorphic to the principal localisation of $B$ at $X$
-  and that $I$ is uniquely $X$-divisible in the sense of~\cite[\S~4]{LS17}.
- Thus, in the special case $\Phi = \rA_3$ the assertion of the lemma follows from~\cite[Theorem~3]{LS17}.
+\begin{prop} \label{Kgen} The subgroup $K(A[X], M[X])$ is generated as an abstract group by the subgroup $\overline{\St}(\Phi, A[X], XM[X])$ and
+ the elements $[x_\alpha(m), x_{-\alpha}(X\xi)]$, $m \in M$, $\xi \in A[X]$, $\alpha \in \Phi$. \end{prop}
+\begin{proof} Notice that it follows from~\eqref{eq:conj-h-x} $\overline{H}(\Phi, A, M)$ normalizes both $\St(\Phi, XA[X])$ and $\St(\Phi, M)$ and, moreover, that $[\overline{H}(\Phi, A, M),\ \St(\Phi, XA[X])] \subseteq \overline{\St}(\Phi, A[X], XM[X])$. 
+
+Denote by $C_1$ the commutator subgroup $[\St(\Phi, XA[X]), \St(\Phi, M)]$.
+It is clear that for $g \in \St(\Phi, XA[X])$, $h \in \overline{H}(\Phi, A, M)$, $u^+ \in U(\Phi^+, M)$, $u^- \in U(\Phi^-, M)$ holds:
+\[ [g, h u^+ u^-] = [g, h] \cdot [{}^{h}\!g, {}^{h}\!(u^+u^-)] \in \St(\Phi, A[X], XM[X]) \cdot C_1.\]
+Since $C_0$ is generated by the above commutators and $\overline{\St}(\Phi, A[X], XM[X])$ is a normal subgroup of $\St(\Phi, A[X])$
+we obtain that $C_0 \subseteq \overline{\St}(\Phi, A[X], XM[X]) \cdot C_1$ and consequently that
+$K(A[X], M[X]) = \overline{\St}(\Phi, A[X], XM[X]) \cdot C_1.$
  
- Now the general case can be obtained as a corollary of amalgamation theorem~\cite[Theorem~9]{S15}
-  (cf.~\cite[\S~4]{LS17} for more details).
-\end{proof}
-%TODO: Give reference on a similar result of Lavrenov?
+It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the commutator subgroup $C_1$ is generated by elements of the form $[x_\alpha(m), x_{-\alpha}(X\xi)]^g$, where $m \in M$, $\xi \in A[X]$, $g \in \St(\Phi, A[X])$.
+Thus, it remains to show that commutators $[[x_\alpha(m), x_{-\alpha}(X\xi)], g]$ belong to $\overline{\St}(\Phi, A[X], XM[X])$.
+Since the latter subgroup is normal it suffices to prove this inclusion in the special case when $g$ is a member of some generating set for $\St(\Phi, A[X])$.
+Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \alpha$ is such a generating set, 
+ and in this case the required inclusions follow from~\eqref{C1}--\eqref{C3} of~\cref{Crels}. \end{proof}
 
-If we denote the kernel of the natural transformation $\mu$ from the definition of $\St(\Phi, R, I)$ by $C(\Phi, R, I)$ we obtain a natural exact sequence:
-\begin{equation} \label{relSteinberg-def}
- \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r]^{j} & \St(\Phi, R, I) \ar[r]^{\mu} & \St(\Phi, R) \ar[r]^{\pi} & \St(\Phi, R/I) \ar[r] & 1.}
-\end{equation}
-The group $C(\Phi, R, I)$ is trivial when $I$ is a splitting ideal of $R$, i.\,e. when the canonical map $R \to R/I$ splits, see \cite[Lemma~8]{S15}.
-The following result plays a key role in the proof of~\cref{thm41}.
-\begin{lemma} \label{lem:prop41}
-In the notation of~\cref{lem:lemma32} assume additionally that the residue field $k$ is of characteristic $\neq 2$.
-Then the canonical map $f\colon C(\rD_\ell, B, I) \to C(\rD_\ell, R, I)$ is surjective for $\ell \geq 7$. \end{lemma}
-\begin{proof}
-
-There is a natural exact sequence:
- \[ \xymatrix{\K_3(G, P, R) \ar[r] & \K_3(G, P, R/I) \ar@{->>}[r] & C_S(R, I).} \]
-Writing the starting portion of the homology long exact sequence for the map $S(R) \to S(R/I)$ 
-and using the isomorphisms of~\cref{lem:relativeH3} and~\cref{lem:lowerKgroups} we obtain a commutative diagram
-\begin{equation*}\xymatrix{
- KO_3(2\ell, B) \ar[r] \ar[d] & KO_3(2\ell, k[X]) \ar[d]_{f'} \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
- KO_3(2\ell, R) \ar[r]        & KO_3(2\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
-In view of~\cref{lem:Panin-stability} the map $f'$ is precisely the canonical map $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
-Invoking~\cref{bass-ft} (or~\cite[Corollary~5.3]{Ho05}) we obtain that \[\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k) \oplus \GW_2^{[3]}(k).\]
-By \cite[Lemma~2.2]{FRS12} the group $\GW_2^{[3]}(k)$ is trivial, therefore $f'$ (and hence $f$) are surjective.
+\begin{corollary} \label{Kgen-strong} For a local pair $(A, M)$ and arbitrary fixed root $\gamma$ of an irreducible simply-laced root system $\Phi$ the subgroup $K(A[X], M[X])$ is generated as a group by $\overline{\St}(\Phi, A[X], XM[X])$ and the elements $c_{\gamma}(m, X\eta)$, where $m \in M$, $\eta \in A[X]$. \end{corollary}
+\begin{proof} Substituting $\xi = 1$, $s = m$, $t = X\eta$ into relation~\eqref{C4} of~\cref{Crels} we obtain that modulo 
+ $\overline{\St}(\Phi, A[X], XM[X])$ the element $c_{\alpha + \beta}(m, X\eta)$ is equivalent to $c_{\alpha}(-\epsilon m, -\epsilon X \eta)^{-1}$, $\epsilon = N_{\alpha, \beta}$. The assertion of the corollary now easily follows from the irreducibility of $\Phi$.
 \end{proof}
 
-\begin{theorem} \label{thm41}
-Assume the notation of~\cref{lem:lemma32} and suppose additionally that $2$ is invertible in $A$.
-Then for $\ell \geq 7$ the canonical map $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective.
-\end{theorem}
-\begin{proof}
- Consider the following commutative diagram with exact rows, in which the lifting $t$ is obtained from~\cref{lem:lemma32}:
-\begin{equation*} \xymatrix{
- C(\rD_\ell, B, I) \ar[r]^{j_B} \ar@{->>}[d]_{f} & \St(\rD_\ell, B, I) \ar[r]^{\mu_B} \ar[d]_{g} &
- \St(\rD_\ell, B) \ar[r]^{\pi_B} \ar[d]_{h} & \St(\rD_\ell, k[X]) \ar[d]_{i} \\
- C(\rD_\ell, R, I) \ar[r]^{j_R}         & \St(\rD_\ell, R, I) \ar[r]^{\mu_R} \ar@{-->}[ur]^{t}&
- \St(\rD_\ell, R) \ar[r]^-{\pi_R}        & \St(\rD_\ell, k[X, X^{-1}]).
-}\end{equation*}
-Let $a$ be an element of $\Ker(h)$. Since $i$ is injective by~\cref{field-injectivity}, the element $a$
- also lies in $\Ker(\pi_B)$ and hence comes from some $b \in \St(\rD_\ell, B, I)$ via $\mu_B$.
-Since $g(b) \in \Ker(\mu_R)$ there exists some $c \in C(\rD_\ell, R, I)$ such that $j_R(c) = g(b)$. 
-By~\cref{lem:prop41}, $f$ is surjective, therefore $c = f(d)$ for some $d \in C(\rD_\ell, R, I)$ and we obtain the required assertion:
- \[ 1 = \mu_Bj_B(d) = tgj_B(d) = tj_Rf(d) =t(g(b)) = \mu_B(b) = a. \qedhere \]
-\end{proof}
 
-\section{Second injectivity theorem}
+\section{Proof of the second part of the injectivity theorem}
 
 \subsection{Presentation of Steinberg groups by homogeneous generators}
 %Throughout this section $\Phi$ is a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$, $\rE_{6,7,8}$ and $A$ is a local ring with maximal ideal $M$.
@@ -499,53 +569,6 @@ The relation $R$ lies in the image of the left arrow, therefore it comes from so
 \end{rem}
 
 
-\subsection{Computation of the kernel of the map of evaluation at \texorpdfstring{$0$}{0}.}
-For a pair $(R, I)$ we denote by $\overline{\St}(\Phi, R, I)$ the image of the map $\mu$ from~\eqref{relSteinberg-def}, in particular, it is a normal subgroup of $\St(\Phi, R)$.
-We also denote by $\St(\Phi, I)$ the subgroup of $\St(\Phi, R)$ generated as a group by root unipotents of level $I$.
-It is clear that $\overline{\St}(\Phi, R, I)$ contains $\St(\Phi, I)$ and, in fact, is its normal closure.
-We also denote by $\overline{H}(\Phi, R, I)$ the subgroup of $\overline{\St}(\Phi, R, I)$ generated by the semisimple root elements $h_\alpha(u)$ and symbols $\{u, v\}$, $u \in (1+I)^\times$, $v \in R^\times$, $\alpha\in \Phi$.
-
-The aim of this subsection is to describe the kernel of the map $ev_{X=0}^*\colon\overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, A, M)$
-induced by the ring homomorphism of evaluation at $0$. Clearly, this kernel, denote it by $K(A[X], M[X])$, contains the subgroup $\overline{\St}(\Phi, A[X], XM[X])$, however, apriori it may be larger, so our goal will be to describe the explicit extra elements sufficient to generate it.
-
-Obviously, $ev_{X=0}^*$ admits a section hence we can consider $\overline{\St}(\Phi, A, M)$ and $\St(\Phi, M)$ as subgroups of $\overline{\St}(\Phi, A[X], M[X])$,
- moreover, the following decomposition holds:
-\begin{equation} \label{relZero-decomp} \overline{\St}(\Phi, A[X], M[X]) = \overline{\St}(\Phi, A, M) \cdot K(A[X], M[X]).\end{equation}
-\begin{lemma} The following decomposition holds
- \[ K(A[X], M[X]) = \overline{\St}(\Phi, A[X], XM[X]) \cdot \left[\St(\Phi, XA[X]),\ \overline{\St}(\Phi, A, M)\right].\] \end{lemma}
-\begin{proof} Fix $g \in K(A[X], M[X])$ and write it as $g(X) = \prod_i z_{\alpha_i}(f_i(X), \xi_i(X))$ for some $f_i(X) = f_i(0) + Xf_i'(X) \in M[X]$, $\xi_i(X) = \xi_i(0) + X\xi_i'(X) \in A[X]$.
- It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the element $g(X)$ is congruent to $g_1(X) = \prod_i z_{\alpha_i}(f_i(0), \xi_i(X)).$ 
- 
- Now each factor $z_{\alpha_i}(f_i(0), \xi_i(X))$ can be written as follows:
- \[z_{\alpha_i}(f_i(0), \xi_i(0))^{x_{-\alpha_i}(X\xi'_i(X))} = [x_{-\alpha_i}(-X\xi'_i(X)), z_{\alpha_i}(f_i(0), \xi_i(0))] \cdot z_{\alpha_i}(f_i(0), \xi_i(0)).\]
- Since the subgroup $C_0 = \left[\St(\Phi, XA[X]), \overline{\St}(\Phi, A, M)\right]$ is normalized by $\overline{\St}(\Phi, A, M)$ 
- (this follows e.\,g. from the formula $[g, h]^{h_1} = [h_1^{-1}, g][g, h_1^{-1}h]$) we conclude that $g_1(X)$ is congruent to $\prod_i z_{\alpha_i}(f_i(0), \xi_i(0)) = g(0) = 1$ modulo $C_0$,
- which implies the assertion. \qedhere \end{proof}
-
-\begin{theorem}[Stein] \label{thmStein} For a local ring $A$ with maximal ideal $M$ holds \[\overline{\St}(\Phi, A, M) = U(\Phi^+, M) \cdot \overline{H}(\Phi, A, M) \cdot U(\Phi^-, M).\] \end{theorem} \begin{proof} See~\cite[Theorem~2.4]{Ste73}. \end{proof}
-
-\begin{prop} \label{Kgen} For $A$ and $M$ as above the subgroup $K(A[X], M[X])$ is generated as a group by its subgroup $\overline{\St}(\Phi, A[X], XM[X])$ and
- the elements $[x_\alpha(m), x_{-\alpha}(X\xi)]$, $m \in M$, $\xi \in A[X]$, $\alpha \in \Phi$. \end{prop}
-\begin{proof} Notice that it follows from~\eqref{eq:conj-h-x} $\overline{H}(\Phi, A, M)$ normalizes both $\St(\Phi, XA[X])$ and $\St(\Phi, M)$ and, moreover, that $[\overline{H}(\Phi, A, M),\ \St(\Phi, XA[X])] \subseteq \overline{\St}(\Phi, A[X], XM[X])$. 
-
-Denote by $C_1$ the commutator subgroup $[\St(\Phi, XA[X]), \St(\Phi, M)]$.
-It is clear that for $g \in \St(\Phi, XA[X])$, $h \in \overline{H}(\Phi, A, M)$, $u^+ \in U(\Phi^+, M)$, $u^- \in U(\Phi^-, M)$ holds:
-\[ [g, h u^+ u^-] = [g, h] \cdot [{}^{h}\!g, {}^{h}\!(u^+u^-)] \in \St(\Phi, A[X], XM[X]) \cdot C_1.\]
-Since $C_0$ is generated by the above commutators and $\overline{\St}(\Phi, A[X], XM[X])$ is a normal subgroup of $\St(\Phi, A[X])$
-we obtain that $C_0 \subseteq \overline{\St}(\Phi, A[X], XM[X]) \cdot C_1$ and consequently that
-$K(A[X], M[X]) = \overline{\St}(\Phi, A[X], XM[X]) \cdot C_1.$
- 
-It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the commutator subgroup $C_1$ is generated by elements of the form $[x_\alpha(m), x_{-\alpha}(X\xi)]^g$, where $m \in M$, $\xi \in A[X]$, $g \in \St(\Phi, A[X])$.
-Thus, it remains to show that commutators $[[x_\alpha(m), x_{-\alpha}(X\xi)], g]$ belong to $\overline{\St}(\Phi, A[X], XM[X])$.
-Since the latter subgroup is normal it suffices to prove this inclusion in the special case when $g$ is a member of some generating set for $\St(\Phi, A[X])$.
-Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \alpha$ is such a generating set, 
- and in this case the required inclusions follow from~\eqref{C1}--\eqref{C3} of~\cref{Crels}. \end{proof}
-
-\begin{corollary} \label{Kgen-strong} For a local pair $(A, M)$ and arbitrary fixed root $\gamma$ of an irreducible simply-laced root system $\Phi$ the subgroup $K(A[X], M[X])$ is generated as a group by $\overline{\St}(\Phi, A[X], XM[X])$ and the elements $c_{\gamma}(m, X\eta)$, where $m \in M$, $\eta \in A[X]$. \end{corollary}
-\begin{proof} Substituting $\xi = 1$, $s = m$, $t = X\eta$ into relation~\eqref{C4} of~\cref{Crels} we obtain that modulo 
- $\overline{\St}(\Phi, A[X], XM[X])$ the element $c_{\alpha + \beta}(m, X\eta)$ is equivalent to $c_{\alpha}(-\epsilon m, -\epsilon X \eta)^{-1}$, $\epsilon = N_{\alpha, \beta}$. The assertion of the corollary now easily follows from the irreducibility of $\Phi$.
-\end{proof}
-
 \subsection{The subgroups \texorpdfstring{$P_\alpha(0)$}{Pa(0)}, \texorpdfstring{$P_\alpha(*)$}{Pa(*)} and their properties.} 
 For a root system $\Phi$ consider the following subsets of $\Phi$:
 \begin{align} Z_+(\alpha) & = \{ \beta \in \Phi \mid \langle \alpha, \beta \rangle > 0 \}, \\
@@ -605,7 +628,7 @@ Notice that $P_\alpha(0)$ also contains the elements $c_{\beta}(f, X\xi)$ for al
 
 The following lemma shows that $P_{\alpha, M}(*)$ is sufficiently large.
 \begin{lemma} \label{Pstar-large} Suppose that $(A, M)$ is a local pair. Then the subgroup $P_\alpha(*)$ contains the image of $K(A[X], M[X])$ in $\St(\Phi, A[X, X^{-1}])$. \end{lemma}
-\begin{proof} Clearly, $P_\alpha(*)$ contains the elements $x_\beta(Xf)$ for all $\beta \in \Phi$ and $z_\beta(Xf, \xi)$ for $\beta \in \Phi \setminus \{\pm \alpha\}$, $f \in M[X]$, $\xi\in A[X]$ hence by~\cref{thm:Stepanov} $P_\alpha(*)$ contains whole $j_+(\overline{\St}(\Phi, A[X], XM[X]))$. The required assertion now follows from~\cref{Kgen-strong} and the preceding remark. \end{proof}
+\begin{proof} Clearly, $P_\alpha(*)$ contains the elements $x_\beta(Xf)$ for all $\beta \in \Phi$ and $z_\beta(Xf, \xi)$ for $\beta \in \Phi \setminus \{\pm \alpha\}$, $f \in M[X]$, $\xi\in A[X]$ hence by Stepanov theorem $P_\alpha(*)$ contains whole $j_+(\overline{\St}(\Phi, A[X], XM[X]))$. The required assertion now follows from~\cref{Kgen-strong} and the preceding remark. \end{proof}
 
 \begin{rem} \label{Pstar-char} The above lemma allows us to characterize $P_{\alpha, M}(*)$ as follows: it consists precisely of images under $j_+$ of the elements 
  $g \in \overline{\St}(\Phi, A[X], M[X])$ for which $ev_{X=0}^*(g)$ lies in the subgroup $Z_\alpha(A, M)$. \end{rem} 
@@ -686,7 +709,8 @@ Throughout this subsection $\alpha, \beta$ denote a fixed pair of roots of $\Phi
 \begin{prop} \label{K-a-b} Every element $g \in K(A[X], M[X])$ can be written as a product $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $m, m' \in M$ and $g_0 \in K(\alpha, \beta)$. 
 Consequently, $K(\alpha, \beta)$ coincides with the intersection $K(A[X], M[X]) \cap P_\alpha(0) \cap P_\beta(0)$. 
 In particular, $K(\alpha, \beta)$ does not depend on a choice of the root $\delta$. \end{prop}
-\begin{proof} Denote by $\Sigma$ the special part of the parabolic subset $S = \Psi \cup \Phi^+$. Applying~\cref{thm:Stepanov} to $S$ we obtain that every element of $\St(\Phi, A[X], XM[X])$ can be presented as a product of $z_\gamma(Xf, \xi)$, $\gamma \in \Sigma(S) \subseteq \Phi\setminus \Psi$ and $x_\gamma(Xf)$, $\gamma \in \Psi$. By~\cref{Kgen-strong} we can write $g$ as a product of these generators and generators of type 5.
+\begin{proof} Denote by $\Sigma$ the special part of the parabolic subset $S = \Psi \cup \Phi^+$. 
+Applying Stepanov theorem to $S$ we obtain that every element of $\St(\Phi, A[X], XM[X])$ can be presented as a product of $z_\gamma(Xf, \xi)$, $\gamma \in \Sigma(S) \subseteq \Phi\setminus \Psi$ and $x_\gamma(Xf)$, $\gamma \in \Psi$. By~\cref{Kgen-strong} we can write $g$ as a product of these generators and generators of type 5.
   
  The next step of the proof is to decompose each factor of the form $x_{\epsilon}(Xf)$, $\epsilon \in \{-\alpha,-\beta\}$ appearing in this product as
  $x_{\epsilon}(X^2f') \cdot x_{\epsilon}(mX)$ and then move $x_{\epsilon}(mX)$ to the rightmost position conjugating by $x_{\epsilon}(mX)$ all factors along the way.
@@ -711,7 +735,7 @@ We need one more technical definition.
 By~\eqref{eq:Zconj3} the conjugate to the generator $x_{-\alpha}(X^2f)$ is a product of generators of type 1, Z, 1, 2, 1, 1, Z, Z.
 The conjugation by $x_\alpha(aX^{-1})$ fixes both generators of type 3 and transforms $x_{-\beta}(X^2f)$ into a product of generators of type 2, 1. As for the remaining generators of type 5, \cref{Crels} shows that the corresponding conjugate can be written as a product of generators of type Z, Z, 5. \end{proof}  
 
-\begin{corollary} The image of $K(\alpha, \beta)$ under $S_\alpha(a, -)$ is contained in $P_\beta(0)$. \end{corollary}
+% \begin{corollary} The image of $K(\alpha, \beta)$ under $S_\alpha(a, -)$ is contained in $P_\beta(0)$. \end{corollary}
 \begin{proof} Follows from the above lemma and the fact that the generators of $Z_{\alpha,\beta}$ are generators of type 2 for $P_\beta(0)$ in the sense of~\cref{defP0}.
  Indeed, if $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ is such that $\langle \beta, \gamma \rangle = -1$, then $ \langle \alpha - \beta, \gamma \rangle \geq 2$, hence
   $\gamma = \alpha - \beta$, a contradiction. \end{proof}
