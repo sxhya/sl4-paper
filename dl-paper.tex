@@ -15,18 +15,22 @@
 \DeclareFieldFormat[article, inproceedings, inbook, book, thesis]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
 \renewcommand*{\bibfont}{\footnotesize}
 
-\newtheorem{prop}{Proposition}
 \newtheorem{theorem}{Theorem}
 \newtheorem*{theorem*}{Theorem}
-\newtheorem{corollary}{Corollary}
 \newtheorem{lemma}{Lemma}
+\newtheorem{prop}[lemma]{Proposition}
+\newtheorem{corollary}[lemma]{Corollary}
 \theoremstyle{remark} 
 
 \theoremstyle{definition}
+\numberwithin{lemma}{section}
+\numberwithin{prop}{section}
+\numberwithin{corollary}{section}
 \newtheorem{df}[lemma]{Definition} \Crefname{df}{Definition}{Definitions}
 \newtheorem{example}[lemma]{Example} \Crefname{example}{Example}{Examples}
 \newtheorem{rem}[lemma]{Remark}
 \newtheorem{cond}[lemma]{Condition}
+
 
 \newlist{proplist}{enumerate}{1} \setlist[proplist]{label=(\roman{proplisti}), ref=\thethm.(\roman{proplisti}),noitemsep} \Crefname{proplisti}{Proposition}{Propositions}
 \newlist{lemlist}{enumerate}{1} \setlist[lemlist]{label=(\roman{lemlisti}), ref=\thelem.(\roman{lemlisti}),noitemsep} \Crefname{lemlisti}{Lemma}{Lemmas}
@@ -476,6 +480,7 @@ Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \
 \section{Proof of the second part of the injectivity theorem}
 
 \subsection{Presentation of Steinberg groups by homogeneous generators}
+\label{sec:presentation}
 %Throughout this section $\Phi$ is a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$, $\rE_{6,7,8}$ and $A$ is a local ring with maximal ideal $M$.
 Let $I\trianglelefteq A$ be an ideal of a commutative ring $A$.
 We consider $A[t, t\inv]$ as a $\mathbb{Z}$-graded ring in which $t$ has degree $1$.
@@ -541,7 +546,7 @@ The assertion of the lemma now follows from the above observation by induction o
  that by~\eqref{first-computation} relation $\text{R3}^\bot_{1,1}$ is a consequence of $\text{R3}^\bot_{0,0}$.
 \end{proof}
 
-\begin{prop} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the map $i_n\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$ induced by the natural embedding of generators, is an isomorphism. In particular, the obvious map $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{prop}
+\begin{prop} \label{lemma33} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the map $i_n\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$ induced by the natural embedding of generators, is an isomorphism. In particular, the obvious map $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{prop}
 \begin{proof}
  We need to construct a map $j_n$ which would be the inverse of $i_n$. 
  We start with a word map $\widetilde{j}_n^\Phi \colon F\langle \mathcal{X}^\Phi_{\leq n+1} \rangle \to \St^{\leq n}(\Phi, B)$ defined via
@@ -782,24 +787,28 @@ Denote by $h_0$ the product of all terms except the first and the last one in th
 \end{multline}
 \end{proof}
 
-\subsection{The proof of the injectivity theorem}
+\subsection{Construction of a model for $\St(\Phi, M[X] + A[X^{-1}])$}
 Throughout this subsection $\Phi$ denotes arbitrary irreducible simply-laced root system of rank $\geq 3$, unless stated otherwise.
-We denote by $B$ the ring $M[X] + A[X^{-1}]$ considered as a graded subring of $A[X, X^{-1}]$.
-For shortness we also write $G_M^0$ instead of $\overline{\St}(\Phi, A, M)$.
+Let $A$ be a local ring with maximal ideal $M$.
+We denote by $B$ the ring $M[X] + A[X^{-1}]$ considered as a graded subring of $A[X, X^{-1}]$. If we set $t = X^{-1}$, the notation of the present subsection becomes consistent with that of~\cref{sec:presentation}.
+
+For shortness we denote the subgroup $\overline{\St}(\Phi, A, M)$ by $G_M^0$.
 \[ \xymatrix{ G_M^0 \ar@{^{(}->}[r]^{i_+} \ar@{^{(}->}[d]^{i_-} & \overline{\St}(\Phi, A[X], M[X]) \ar^{j_+^M}[d] \ar@{^{(}->}[r] & \St(\Phi, A[X]) \ar[dl]^{j_+} \\
               \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, A[X, X^{-1}]) &  } \] 
 Denote by $\overline{G}^{\geq 0}_M$ the image of the map $j_+^M$. 
-Denote by $V$ the subset of $\St(\Phi, A[X, X^{-1}]) \times \St(\Phi, A[X\inv]) \times (1 + M)^\times$ consisting of those triples $(g, h, u)$ for which 
-$p(g, h, u) := g \cdot j_-(h) \cdot \{ X, u \}$ belongs to $\overline{G}_M^{\geq 0}$.
+Denote by $V$ the subset of \[\St(\Phi, A[X, X^{-1}]) \times \St(\Phi, A[X\inv]) \times (1 + M)^\times\] consisting of those triples $(g, h, u)$ for which
+\[p(g, h, u) := g \cdot j_-(h) \cdot \{ X, u \}\] belongs to $\overline{G}_M^{\geq 0}$.
 We let $h_0 \in G_M^0$ act on $V$ on the right by $(g, h, u) \cdot h_0 = (g, h \cdot i_-(h_0), u)$.
 It is clear that this action is well defined.
-Denote by $\overline{V}$ the set of orbits of the action of $G_M^0$ on $V$.
-Whenever $(g, h_1, u)$ and $(g, h_2, u)$ lie in the same orbit we use the notation $(g, h_1, u) \sim (g, h_2, u)$ and say that these triples are congruent.
+Denote by $\overline{V}$ the set of orbits of this action.
+Whenever two triples $(g, h_1, u)$ and $(g, h_2, u)$ lie in the same orbit we use the notation $(g, h_1, u) \sim (g, h_2, u)$ and say that these triples are congruent.
+We also use the notation $(g, [h], u)$ for the elements of $\overline{V}$.
+We denote by $\overline{p}$ the function $\overline{V} \to \St(\Phi, A[X, X\inv])/G_M^0$ mapping each orbit $(x, [h], u)$ to the coset $p(x, h, u)G_M^0$.
 
 The next step of the proof is to define for $\alpha \in \Phi$, $a \in A$ a partial function $t_\alpha(aX^{-1}) \colon V \not\to V$.
 This function is defined for the triples $(g, h, u)$ satisfying $p(g, h, u) \in P_\alpha(*) \subseteq \overline{G}_M^{\geq 0}$.
 If $p(g, h, u)$ happens to belong to $P_\alpha(m)$ for some $m \in M$, then $t_\alpha(aX^{-1})$ is given by the following identity:
-\[ t_\alpha(aX^{-1}) (g, h, u) = \left( x_\alpha(aX^{-1})\cdot g ,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right).\]
+\begin{equation} \label{T_1} t_\alpha(aX^{-1}) (g, h, u) = \left( x_\alpha(aX^{-1})\cdot g ,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right).\end{equation}
 
 From~\cref{SR:additivity} it follows that
 \[p\left(t_\alpha(aX^{-1}) (g, h, u)\right) = S_\alpha(a, p(g, h, u)) \in P_\alpha(*) \cdot h_{\alpha}^{-1}(1+am) \subseteq G_M^{\geq 0},\]
@@ -812,26 +821,28 @@ Then for any $\alpha \in \Phi$ and $a \in A$ the partial function $t_\alpha(aX^{
  Fix $(g, h, u) \in V$. Since $p(g, h, u) \in \overline{G}^{\geq 0}_M$ there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $j_+(g_1) = p(g, h, u).$
  Set $h_0 = ev^*_{X=0}(g_1)^{-1}$, then, clearly, $g_1 \cdot i_+(h_0) \in K(A[X], M[X])$ and 
  $p(g, h \cdot i_-(h_0), u) = j_+(g_1) \cdot j_-(i_-(h_0)) = j_+(g_1 \cdot i_+(h_0)) \in j_+(K(A[X], M[X])) \subseteq P_\alpha(*)$,
-  which shows that $t_\alpha(aX^{-1})$ is defined on $(g, h \cdot i_+(h_0), u)$, which is congruent to $(g, h, u)$.
+  which shows that $t_\alpha(aX^{-1})$ is defined on the representative $(g, h \cdot i_+(h_0), u)$ congruent to $(g, h, u)$.
   
- Next, let us show that the value of $T_\alpha(aX^{-1})$ does not depend on a choice of representative.
+ Next, let us show that the value of $T_\alpha(aX^{-1})$ does not depend on a choice of the representative.
  Let $(g, h_1, u) \sim (g, h_2, u)$ be elements of the same orbit for which both $p(g, h_1, u)$ and $p(g, h_2, u)$ belong to $P_\alpha(*)$.
  By definition, $h_1^{-1} h_2 = i_-(h_0)$, for some $h_0 \in G^0_M$, moreover, 
   $p(g, h_1, u)^{-1} \cdot p(g, h_2, u) = j_- i_-(h_0) = j_+ i_+(h_0) \in P_\alpha(*)$.
  By~\cref{Pstar-char} there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $g_0 := ev^*_{X=0}(g_1) \in Z_\alpha(A, M)$ and $j_+(g_1) = j_+ i_+ (h_0)$.
  From the last equality and the injectivity of the map $G(\Phi, A[X]) \to G(\Phi, A[X, X^{-1}])$ we obtain that
  the projections of $g_0$, $g_1$ and $h_0$ in $G(\Phi, A[X, X^{-1}])$ are equal, which shows that $g_0 \cdot h_0^{-1} \in \overline{\K_2}(\Phi, A, M)$. 
- By~\cref{thmStein} the latter subgroup is generated by relative Steinberg symbols $\{ a, 1 + m \}$ and therefore is contained in $Z_\alpha(A, M)$ by~\cref{Z-DS}. Thus, we have obtained that $h_0 \in Z_\alpha(A, M)$ and hence that $i_-(h_0)$ is centralized by $X_\alpha(A[X^{-1}])$, which allows us to conclude that
+ It follows from Stein's theorem that the latter subgroup is generated by relative Steinberg symbols $\{ a, 1 + m \}$ and therefore is contained in $Z_\alpha(A, M)$ by~\cref{Z-DS}. Thus, we have obtained that $h_0 \in Z_\alpha(A, M)$ and hence that $i_-(h_0)$ is centralized by $X_\alpha(A[X^{-1}])$, which allows us to conclude that
  \begin{multline} \nonumber
   t_\alpha(aX^{-1})(g, h_1, u) = \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) \sim \\
   \sim \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 i_-(h_0) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) = t_\alpha(aX^{-1})(g, h_2, u). \qedhere
  \end{multline} \end{proof}
 
 For $a + Xf \in A + XM[X]$ we can define the operator $T_\alpha(a + Xf) \colon \overline{V} \to \overline{V}$ by the following identity:
-\[ T_\alpha(a + Xf) \cdot (g, h, u) = (x_\alpha(a + Xf) \cdot g, h\cdot x_{\alpha}(-a), u).  \]
+\begin{equation} \label{T_leq0} T_\alpha(a + Xf) \cdot (g, h, u) = (x_\alpha(a + Xf) \cdot g, h\cdot x_{\alpha}(-a), u).  \end{equation}
 It is easy to see that this definition is correct.
 
-\begin{lemma} The operators $T_\alpha$ satisfy Steinberg relations of type $\mathrm{R3}_{d, 1}$ for $d\leq 0$. \end{lemma}
+Thus far we have specified the action of the generators of the "truncated'' Steinberg group $\St^{\leq 1}(\Phi, B)$ from~\cref{sec:presentation} on $\overline{V}$ using formulae~\eqref{T_1} and~\eqref{T_leq0}. We need to verify that this action respects the defining relations of the group $\St^{\leq 1}(\Phi, B)$ (notice that $\leq 1$ here stands for the degree of relations with respect to $t = X^{-1}$). This is accomplished in the series of lemmas below.
+
+\begin{lemma} \label{R3_leq0_1} The operators $T_\alpha$ satisfy Steinberg relations of type $\mathrm{R3}_{d, 1}$ for $d\leq 0$. \end{lemma}
 \begin{proof} We need to show that $[T_\alpha(aX^{-1}), T_\beta(b + Xf)](g, h, u) = (g, h, u)$ for $\beta\in Z(\alpha)$, $a\in A$, $b \in A + XM[X]$.
 Write $b = b_0 + Xf$ for some $f \in M[X]$.
 We may assume that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$  (cf. the first part of the proof of~\cref{lem:orbit-action}).
@@ -845,7 +856,7 @@ It follows from~\cref{P0-conj-invariant} that $P_\alpha\left(\tfrac{m}{1-am}\rig
  = h_\alpha^{-1}(1-am) \cdot \left[x_\alpha\left(\tfrac{aX^{-1}}{1-am}\right),\ x_\beta(b_0)\right] = h_\alpha^{-1}(1-am). \qedhere \end{multlined} \end{gather*}
 \end{proof}
 
-\begin{lemma} The operators $T_\alpha$ satisfy Steinberg relations of type $\mathrm{R2}_{d, 1}$ for $d \leq -1$ . \end{lemma}
+\begin{lemma} \label{R3_leqm1_1} The operators $T_\alpha$ satisfy Steinberg relations of type $\mathrm{R2}_{d, 1}$ for $d \leq -1$ . \end{lemma}
 \begin{proof} We need to show that for $a\in A$, $f \in M[X]$ and $\alpha, \beta \in \Phi$ forming an obtuse angle holds
  \[ [T_\beta(Xf),\ T_\alpha(aX^{-1})] (g, h, u) = \left(x_{\alpha+\beta}(N_{\beta,\alpha} \cdot af) \cdot g, h, u\right). \]
 
@@ -856,7 +867,7 @@ Since $x_\beta(Xf)$ belongs to $P_\alpha(0)$ we obtain from~\cref{SR:additivity}
 
 %The following proposition is a direct generalization of~\cite[Proposition~4.3]{Tu83}.
 
-\begin{lemma} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations $\mathrm{R3}_{1,1}^{\angle}$. \end{lemma}
+\begin{lemma} \label{R3_1_1} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations $\mathrm{R3}_{1,1}^{\angle}$. \end{lemma}
 \begin{proof}
 Let $\alpha, \beta$ be a pair of roots such that $\alpha$ and $\beta$ form a sharp angle.
 We can assume that $p(g, h, u) \in j_+\left(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\beta}(m')\right)$ for some $m,m' \in M$.
@@ -873,10 +884,10 @@ where
  = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am} + \tfrac{m'abX^{-1}}{(1+am)(1 + am + bm')}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right) \cdot h^{-1}_\alpha(1 + am) \sim \\
  \sim h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am + bm'}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right).
 \end{multline}
-The expressions in the right-hand sides of the above formulae are clearly symmetric under the action of the transposition $(a, \alpha) \leftrightarrow (b, \beta)$, which shows that the desired relation holds. 
+The expressions in the right-hand sides of the above formulae are clearly symmetric under the action of the transposition $(a, \alpha) \leftrightarrow (b, \beta)$, which implies that the desired relation holds. 
 \end{proof}
 
-\begin{lemma} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations $\mathrm{R2}_{0,1}$. \end{lemma}
+\begin{lemma} \label{R2_0_1} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations $\mathrm{R2}_{0,1}$. \end{lemma}
 \begin{proof} 
 \begin{comment}
 Suppose $(g, h, u)$ is such that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
@@ -904,6 +915,23 @@ Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain 
  h\cdot x_{\alpha + \beta}\left(\tfrac{\epsilon   abX^{-1}}{1 - \epsilon a b m'}\right). \qedhere
 \end{multline}
 \end{proof}
+
+We are ready to formulate the main result of this subsection.
+
+\begin{prop} 
+For $\Phi$ as in the statement of~\cref{lemma33}.
+the operators $T_\alpha$ defined above specify a well-defined action of $\St(\Phi, B)$ on $\overline{V}$. 
+
+This action satisfies the following additional property. If $v = (g, [h], u) \in \overline{V}$ is such that $\overline{p}(v) = \overline{1} = G_M^0$ then for any $g_1 \in \St(\Phi, A[X\inv])$ holds $\overline{p}(j_-(g_1) \cdot v) = \overline{1}$.
+\end{prop}
+\begin{proof}
+  By~\cref{superfluous-relations} and Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1} the action of $\St^{\leq 1}(\Phi, B)$ on $\overline{V}$ given by~\eqref{T_1} and~\eqref{T_leq0} is well-defined. On the other hand, the group $\St^{\leq 1}(\Phi, B)$ is isomorphic to $\St(\Phi, B)$ by~\cref{lemma33} which implies the first assertion.
+  
+  Let us verify the second assertion...
+\end{proof}
+
+
+\subsection{Proof of the $\mathbb{P}^1$-glueing theorem.}
 
 \begin{comment}
 $n \geq m$
