@@ -935,36 +935,20 @@ This action satisfies the following additional property. If $v = (g, [h], u) \in
 \begin{lemma}
 For $g_1 \in \overline{G}_M^{\geq 0}$ and $v\in \overline{V}$ one has $\overline{p}(t(g_1) \cdot v) = g_1 \cdot \overline{p}(v)$, where $t$ is the map from~\cref{lem:lemma32}.
 \end{lemma}
-\begin{proof}
- It suffices to verify this property for the generators $g = z_\alpha(f, \xi)$ of the subgroup $\overline{G}^{\geq 0}_M$ for all $f \in M[X]$, $\xi\in A[X]$.
- Set $I = M[X, X\inv]$. It is not hard to verify the assertion for the element $g_1 = z_\alpha(X^2f, aX^{-1}) \in \St(\Phi, B, I)$.
- Indeed, using the fact that $x_{\alpha}(X^2f) \in P_{-\alpha}(0)$ we obtain that
- \begin{multline}
-  g_1 \cdot (g, [h], u) = x_{-\alpha}(-aX^{-1}) (x_\alpha(X^2f)x_{-\alpha}(aX^{-1})g, [h \cdot x_{-\alpha}(\tfrac{-aX^{-1}}{1+am})] )
-\end{multline}
+\begin{proof} 
+It suffices to verify the assertion for the generators $g = z_\alpha(f, \xi)$ of the subgroup $\overline{G}^{\geq 0}_M$ for all $f \in M[X]$, $\xi\in A[X]$. We accomplished this by induction on the degree of $\xi$ in $X$.
+It is obvious, that the assertion holds in the case $\xi = a \in A$. 
 
- 
-   \[ g_1 \cdot (g,\ [h],\ u) = () \]
- Consider the case $\xi = aX^{-1}$, $f = X^2f'$
- 
- 
- 
- We verify the assertion by induction on the degree of $\xi$ in $X$ starting from $-1$. 
- 
- First of all, consider the case $\xi = aX$, $a\in A$. Notice that
- \[t(z_\alpha(f, aX)) = [x_{\beta}(X^{-1}) \cdot x_{\beta-\alpha}(a),\ x_{\alpha-\beta}(-fX) \cdot x_{-\beta}(afX^2)].\]
- \[ [x_\beta(X^{-1})^{x_{-\alpha}(aX)},\ x_{\alpha-\beta}(Xf)^{x_{-\alpha}(aX)}] \]
+Suppose that the assertion is true for all $g_1 = z_\alpha(f, \xi)$ with $\xi$ of degree $\leq n$.
+Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ in~\eqref{Z5} we obtain the following equality in $\St(\Phi, A[X, X\inv], M[X, X\inv])$:
+\begin{multline}
+ z_{\alpha+\beta}(f, X\xi) = x_\alpha(\epsilon Xf) \cdot x_{-\beta}(-faX^2) \cdot x_{\beta}(af) \cdot x_{\alpha+\beta}(f) \cdot \\ \cdot z_\alpha(-\epsilon Xf, -\epsilon \xi) \cdot x_{-\alpha}(-\epsilon \xi^2fX) \cdot x_{-\alpha-\beta}(- f \xi^2X^2) \cdot z_{-\beta}(X^2f\xi, -X^{-1})
+\end{multline}
+It is not hard to verify the assertion for all the factors in the right hand side of the above expression
+ (except for the fifth factor, for which it is precisely the inductive assumption). It remains to see that
+  $t(z_\alpha(f, X\xi + a)) = x_\alpha(-a) \cdot t(z_\alpha(f, X\xi)) \cdot x_\alpha(a)$.
 \end{proof}
 
-
-\begin{multline}z_{\alpha+\beta}(f\xi, X) = x_\alpha(\epsilon f) \cdot x_{-\beta}(-fX) \cdot x_{\beta}(fX\xi^2) \cdot x_{\alpha+\beta}(f \xi) \cdot \\ \cdot z_\alpha(-\epsilon f, -\epsilon X\xi) \cdot
-  x_{-\alpha}(-\epsilon fX^2\xi^2) \cdot x_{-\alpha-\beta}(- f X^2 \xi) \cdot z_{-\beta}(fX, -\xi)\end{multline}
-
-\begin{multline}
- z_{\alpha+\beta}(f, aX) = x_\alpha(\epsilon Xf) x_{-\beta}(-faX^2) \cdot x_{\beta}(af) \cdot x_{\alpha+\beta}(f) \cdot \\ \cdot z_\alpha(-\epsilon Xf, -\epsilon a) \cdot x_{-\alpha}(-\epsilon a^2fX) \cdot x_{-\alpha-\beta}(- f a^2X^2) \cdot z_{-\beta}(afX^2, -X^{-1})
-\end{multline}
-
-$s := fX$, $\eta := X^{-1}$, $\xi = aX$
   
   
 \subsection{Proof of the $\mathbb{P}^1$-glueing theorem.}
