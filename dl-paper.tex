@@ -272,10 +272,6 @@ then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence 
 \begin{proof} This is a very special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. \end{proof}
 We will use the above theorem only in the special case $i=0$, in which it boils down to an earlier result of Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
 
-%If we denote the kernel of the natural transformation $\mu$ from the definition of $\St(\Phi, R, I)$ by $C(\Phi, R, I)$ we obtain a natural exact sequence:
-%\begin{equation} \label{relSteinberg-def}  \xymatrix{ 1 \ar[r] & C(\Phi, R, I) \ar[r]^{j} & \St(\Phi, R, I) \ar[r]^{\mu} & \St(\Phi, R) \ar[r]^{\pi} & \St(\Phi, R/I) \ar[r] & 1.} \end{equation}
-%The group $C(\Phi, R, I)$ is trivial when $I$ is a splitting ideal of $R$, i.\,e. when the canonical map $R \to R/I$ splits, see \cite[Lemma~8]{S15}.
-
 For the rest of this section let us fix the following notation.
 Let $A$ be arbitrary commutative local ring with maximal ideal $M$ and residue field $k$.
 Denote by $B = B_{A, M}$ the subring $A[X^{-1}] + M[X]$ of the ring $R = A[X, X^{-1}]$ and
@@ -361,8 +357,8 @@ We define the following two families of elements of $\overline{\St}(\Phi, R, I)$
 \item\label{Z3} $z_{\beta}(s, \xi) ^ {x_{\alpha}(\eta)} = x_{\alpha} (s\xi \eta) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot s\xi^2\eta) \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha - \beta \in \Phi$;
 
 \item\label{Z4} $z_{\beta}(s, \xi) ^ {x_{\alpha}(\eta)} = z_{\beta}(s, \xi)\ \text{if}\ \alpha\perp\beta$;
-\item\label{Z5} If $\alpha+\beta\in\Phi$, then holds:
-\begin{multline} \nonumber z_{\alpha+\beta}(s\eta, \xi) = x_\alpha(\epsilon s)\cdot x_{-\beta}(-s\xi) \cdot x_{\beta}(s\xi\eta^2) \cdot x_{\alpha+\beta}(s \eta) \cdot \\ \cdot z_\alpha(-\epsilon s, -\epsilon \xi\eta) \cdot
+\item If $\alpha+\beta\in\Phi$, then holds:
+\begin{multline} \label{Z5} z_{\alpha+\beta}(s\eta, \xi) = x_\alpha(\epsilon s)\cdot x_{-\beta}(-s\xi) \cdot x_{\beta}(s\xi\eta^2) \cdot x_{\alpha+\beta}(s \eta) \cdot \\ \cdot z_\alpha(-\epsilon s, -\epsilon \xi\eta) \cdot
   x_{-\alpha}(-\epsilon s\xi^2\eta^2) \cdot x_{-\alpha-\beta}(- s \xi^2 \eta) \cdot z_{-\beta}(s\xi, -\eta)\text{ where $\epsilon = N_{\alpha,\beta}$.}\end{multline}
 \end{enumerate} \end{lemma}
 \begin{proof}
@@ -423,12 +419,6 @@ Finally, the final relation can be verified by the following direct computation,
 = [x_{\beta}(st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot  [x_{-\alpha}(-\epsilon t), x_{\alpha}(\epsilon s\xi)] \cdot [x_{\alpha}(\epsilon s\xi), x_{-\alpha-\beta}(t\xi)] = \\
 = [x_{\beta}(st), x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2). \qedhere
 \end{multline}
-
-\begin{comment}
-\begin{multline} 
- [x_\alpha(m), x_{-\alpha}(X\xi)] = [x_\alpha(m), [x_{-\alpha-\beta}(N_{-\alpha-\beta, \beta} X), x_{\beta}(\xi)]] = \\ = \left([[ x_\alpha(m), x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)], x_{\beta}(\xi)] ^ {x_\alpha(-m)} \cdot  [[ x_{\beta}(-\xi), x_\alpha(m)], x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)] ^ {x_{\beta}(-\xi)}\right)^{x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)} = \\ = \left([x_{-\beta}(-N_{-\alpha-\beta,\beta}N_{\alpha,-\alpha-\beta}mX), x_{\beta}(\xi)] ^ {x_\alpha(-m)} \cdot  [ x_{\alpha + \beta}(-N_{\beta, \alpha}m\xi), x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)] ^ {x_{\beta}(-\xi)}\right)^{x_{-\alpha-\beta}(-N_{-\alpha-\beta, \beta}X)} =
-\end{multline}
-\end{comment}
 \end{proof}
 
 \subsection{Computation of the kernel of the map of evaluation at \texorpdfstring{$0$}{0}.}
@@ -478,14 +468,12 @@ Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \
 
 
 \section{Proof of the second part of the injectivity theorem}
-
 \subsection{Presentation of Steinberg groups by homogeneous generators}
 \label{sec:presentation}
-%Throughout this section $\Phi$ is a root system of type $\rA_{\geq 4}$, $\rD_{\geq 5}$, $\rE_{6,7,8}$ and $A$ is a local ring with maximal ideal $M$.
-Let $I\trianglelefteq A$ be an ideal of a commutative ring $A$.
+Let $M\trianglelefteq A$ be an ideal of a commutative ring $A$.
 We consider $A[t, t\inv]$ as a $\mathbb{Z}$-graded ring in which $t$ has degree $1$.
-We denote by $B = B(A, I)$ the subring $A[t] + I[t\inv] \subseteq A[t, t\inv]$ with the induced grading.
-As an $A$-module $B$ decomposes as $\oplus_{d\in\mathbb Z}B_d$ where $B_d=I \cdot t^d$ for $d<0$, and $B_d=A \cdot t^d$ for $d\geq0$. Obviously, $B = A[t]$ in the case $I=0$ and $B = A[t, t\inv]$ in the case $I=A$.
+We denote by $B = B(A, M)$ the subring $A[t] + M[t\inv] \subseteq A[t, t\inv]$ with the induced grading.
+As an $A$-module $B$ decomposes as $\oplus_{d\in\mathbb Z}B_d$ where $B_d=M \cdot t^d$ for $d<0$, and $B_d=A \cdot t^d$ for $d\geq0$. Obviously, $B = A[t]$ in the case $M=0$ and $B = A[t, t\inv]$ in the case $M=A$.
 
 Whenever the coefficient $\xi$ of a Steinberg generator $g = x_\alpha(\xi)$ of $\St(\Phi, B)$ is a homogeneous element of $B$, i.\,e. $\xi \in B_d$ for some $d \in \mathbb{Z}$,
  we call the corresponding generator $g$ {\it homogeneous of degree $d$}.
@@ -622,7 +610,7 @@ Suppose $g$ has type 1 and  $\alpha + \beta \in \Phi$. By~\cref{Zrels}
 and the latter expression is a product of generators of type $4, 1, 1$.
 
 Finally, suppose $g$ has type $5$.
-Substituting in~\eqref{Z5} of~\cref{Zrels} $s = -\epsilon f$, $\xi = -\epsilon m$, $\eta=X$ and expressing $z_\alpha(f, mX)$ through other terms we obtain that
+Substituting in~\eqref{Z5} $s = -\epsilon f$, $\xi = -\epsilon m$, $\eta=X$ and expressing $z_\alpha(f, mX)$ through other terms we obtain that
 \begin{multline} \label{eq:zalpha} z_\alpha(f, mX) = x_{\alpha+\beta}(\epsilon Xf) \cdot x_{\beta}(-mX^2 f) \cdot x_{-\beta}(mf) \cdot x_\alpha(f) \cdot \\ 
  \cdot z_{\alpha+\beta}(-\epsilon X f, -\epsilon m) \cdot z_{-\beta}(-mf, -X) \cdot x_{-\alpha-\beta}(-\epsilon m^2X f) \cdot x_{-\alpha}(-m^2X^2 f), \end{multline}
 and the latter expression is a product of generators of type 1, 1, 2, 5, 1, 2, 1, 4. \end{proof}
@@ -674,7 +662,7 @@ The expressions in the right-hand side are products of generators of type 5, 2, 
 
 Let us verify the assertion for the generator of type 4.
 Choose $\beta\in \Phi$ such that $\alpha+\beta \in \Phi$. 
-Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = -\alpha - \beta$ into~\eqref{Z5} of~\cref{Zrels} we obtain that
+Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = -\alpha - \beta$ into~\eqref{Z5} we obtain that
 \begin{multline} \label{eq:Zconj3} z_{-\alpha}(X^2f, aX^{-1}) = x_{-\alpha-\beta}(\epsilon Xf) \cdot x_{-\beta}(-af) \cdot x_{\beta}(aX^2 f) \cdot x_{-\alpha}(X^2f) \cdot \\
  \cdot z_{-\alpha-\beta}(-\epsilon Xf, -\epsilon a) \cdot x_{\alpha+\beta}(-\epsilon a^2 Xf) \cdot x_{\alpha}(- a^2 f) \cdot z_{-\beta}(a f, -X), \end{multline}
 where $\epsilon = N_{-\alpha-\beta,\beta}$. 
@@ -788,16 +776,14 @@ Denote by $h_0$ the product of all terms except the first and the last one in th
 \end{proof}
 
 \subsection{Construction of a model for $\St(\Phi, A[X\inv] + M[X])$}
-Throughout this subsection $\Phi$ denotes arbitrary irreducible simply-laced root system of rank $\geq 3$, unless stated otherwise.
-Let $A$ be a local ring with maximal ideal $M$.
-As in~\cref{firstPart} we denote by $B$ the ring $A[X\inv] + M[X]$ considered as a graded subring of $A[X, X\inv]$. The notation of the present subsection is consistent with~\cref{sec:presentation} if we set $t = X\inv$, $I = M$.
+Throughout this subsection $\Phi$ denotes arbitrary irreducible simply-laced root system of rank $\geq 3$, unless stated otherwise. Let $A$ be a local ring with maximal ideal $M$. As in~\cref{firstPart} we denote by $B$ the ring $A[X\inv] + M[X]$ considered as a graded subring of the ring of Laurent polynomials $R = A[X, X\inv]$.
 
 For shortness we denote the subgroup $\overline{\St}(\Phi, A, M)$ by $G_M^0$.
-Notice that $G_M^0$ can be considered as a subgroup of $\St(\Phi, A[X, X\inv])$.
+Notice that $G_M^0$ can be considered as a subgroup of $\St(\Phi, R)$.
 \[ \xymatrix{ G_M^0 \ar@{^{(}->}[r]^{i_+} \ar@{^{(}->}[d]^{i_-} & \overline{\St}(\Phi, A[X], M[X]) \ar^{j_+^M}[d] \ar@{^{(}->}[r] & \St(\Phi, A[X]) \ar[dl]^{j_+} \\
-              \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, A[X, X\inv]) &  } \] 
+              \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, R) &  } \] 
 We denote by $\overline{G}^{\geq 0}_M$ the image of the map $j_+^M$. 
-Denote by $V$ the subset of \[\St(\Phi, A[X, X\inv]) \times \St(\Phi, A[X\inv]) \times (1 + M)^\times\] consisting of those triples $(g, h, u)$ for which
+Denote by $V$ the subset of \[\St(\Phi, R) \times \St(\Phi, A[X\inv]) \times (1 + M)^\times\] consisting of those triples $(g, h, u)$ for which
 \[p(g, h, u) := g \cdot j_-(h) \cdot \{ X, u \}\] belongs to $\overline{G}_M^{\geq 0}$.
 
 We let $h_0 \in G_M^0$ act on $V$ on the right by $(g, h, u) \cdot h_0 = (g, h \cdot i_-(h_0), u)$. This action is well defined since $G^0_M \subset \overline{G}^{\geq 0}_M$. Whenever two triples $v_1, v_2 \in V$ lie in the same orbit we use the notation $v_1 \sim v_2$ and say that they are {\it congruent}. The same notation $h_1 \sim h_2$ is also used for the elements of $\St(\Phi, A[X\inv])$ lying in the same left $G^0_M$-coset.
@@ -821,17 +807,14 @@ Then for any $\alpha \in \Phi$ and $a \in A$ the partial function $t_\alpha(aX^{
  First of all, let us show that the resulting function is total. 
  Fix $(g, h, u) \in V$. Since $p(g, h, u) \in \overline{G}^{\geq 0}_M$ there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $j_+(g_1) = p(g, h, u).$
  Set $h_0 = ev^*_{X=0}(g_1)^{-1}$, then, clearly, $g_1 \cdot i_+(h_0) \in K(A[X], M[X])$ and 
- $p(g, h \cdot i_-(h_0), u) = j_+(g_1) \cdot j_-(i_-(h_0)) = j_+(g_1 \cdot i_+(h_0)) \in j_+(K(A[X], M[X])) \subseteq P_\alpha(*)$,
-  which shows that $t_\alpha(aX^{-1})$ is defined on the representative $(g, h \cdot i_+(h_0), u)$, which is congruent to $(g, h, u)$.
+ $p(g, h \cdot i_-(h_0), u) = j_+(g_1) \cdot j_-(i_-(h_0)) = j_+(g_1 \cdot i_+(h_0)) \in j_+(K(A[X], M[X])) \subseteq P_\alpha(*)$, which shows that $t_\alpha(aX^{-1})$ is defined on the representative $(g, h \cdot i_+(h_0), u)$, which is congruent to $(g, h, u)$.
   
  Next, let us show that the value of $T_\alpha(aX^{-1})$ does not depend on a choice of the representative.
  Let $(g, h_1, u) \sim (g, h_2, u)$ be elements of the same orbit for which both $p(g, h_1, u)$ and $p(g, h_2, u)$ belong to $P_\alpha(*)$.
  By definition, $h_1^{-1} h_2 = i_-(h_0)$, for some $h_0 \in G^0_M$, moreover, 
   $p(g, h_1, u)^{-1} \cdot p(g, h_2, u) = j_- i_-(h_0) = j_+ i_+(h_0) \in P_\alpha(*)$.
  By~\cref{Pstar-char} there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $g_0 := ev^*_{X=0}(g_1) \in Z_\alpha(A, M)$ and $j_+(g_1) = j_+ i_+ (h_0)$.
- From the last equality and the injectivity of the map $G(\Phi, A[X]) \to G(\Phi, A[X, X^{-1}])$ we obtain that
- the projections of $g_0$, $g_1$ and $h_0$ in $G(\Phi, A[X, X^{-1}])$ are equal, which shows that $g_0 \cdot h_0^{-1} \in \overline{\K_2}(\Phi, A, M)$. 
- It follows from Stein's theorem that the latter subgroup is generated by relative Steinberg symbols $\{ a, 1 + m \}$ and therefore is contained in $Z_\alpha(A, M)$ by~\cref{Z-DS}. Thus, we have obtained that $h_0 \in Z_\alpha(A, M)$ and hence that $i_-(h_0)$ is centralized by $X_\alpha(A[X^{-1}])$, which allows us to conclude that
+ From the last equality and the injectivity of the map $G(\Phi, A[X]) \to G(\Phi, R)$ we obtain that the projections of $g_0$, $g_1$ and $h_0$ in $G(\Phi, R)$ are equal, which shows that $g_0 \cdot h_0^{-1} \in \overline{\K_2}(\Phi, A, M)$. It follows from Stein's theorem that the latter subgroup is generated by relative Steinberg symbols $\{ a, 1 + m \}$ and therefore is contained in $Z_\alpha(A, M)$ by~\cref{Z-DS}. Thus, we have obtained that $h_0 \in Z_\alpha(A, M)$ and hence that $i_-(h_0)$ is centralized by $X_\alpha(A[X^{-1}])$, which allows us to conclude that
  \begin{multline} \nonumber
   t_\alpha(aX^{-1})(g, h_1, u) = \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) \sim \\
   \sim \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 i_-(h_0) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) = t_\alpha(aX^{-1})(g, h_2, u). \qedhere
@@ -866,8 +849,6 @@ Since $x_\beta(Xf)$ belongs to $P_\alpha(0)$ we obtain from~\cref{SR:additivity}
 \begin{multline} \nonumber [T_\beta(Xf),\ T_\alpha(aX^{-1})] \left(g,\ [h],\ u\right) = \\ 
 = T_\beta(Xf) \cdot T_\alpha(aX^{-1}) \left(x_{\beta}(-Xf) \cdot x_\alpha(-aX^{-1})\cdot g,\ \left[h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 - am}\right) \cdot h^{-1}_\alpha(1-am)\right],\ u(1-am)\right) = \\ = \left([x_\beta(Xf),\ x_\alpha(aX^{-1})] \cdot g,\ \left[h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 + \tfrac{am}{1-am}}\right)\right],\ u \right) = \\ = (x_{\alpha+\beta}(N_{\beta,\alpha} \cdot af) \cdot g,\ [h],\ u). \qedhere \end{multline} \end{proof}
 
-%The following proposition is a direct generalization of~\cite[Proposition~4.3]{Tu83}.
-
 \begin{lemma} \label{R3_1_1} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations $\mathrm{R3}_{1,1}^{\angle}$. \end{lemma}
 \begin{proof}
 Let $\alpha, \beta$ be a pair of roots such that $\alpha$ and $\beta$ form a sharp angle.
@@ -891,15 +872,6 @@ the expressions in the right-hand sides of the above formulae would remain uncha
 
 \begin{lemma} \label{R2_0_1} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations $\mathrm{R2}_{0,1}$. \end{lemma}
 \begin{proof} 
-\begin{comment}
-Suppose $(g, h, u)$ is such that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
-Set $h' := x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot h^{-1}_\alpha(1+am) \cdot x_\alpha\left(-bX^{-1}\left(1 + \tfrac{bm}{1+am}\right)^{-1}\right) =
-  x_\alpha\left(- \tfrac{(a+b)X^{-1}}{1 + (a + b)m}\right) \cdot h^{-1}_\alpha(1+am).$
-The assertion for $\text{R1}_1$ is obtained via~\cref{SR:additivity}:
-\begin{multline} \nonumber T_\alpha(bX^{-1}) T_\alpha(aX^{-1}) \left(g,\ h,\ u\right) \sim \\ \sim
-T_\alpha(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am),\ u(1 + am)\right) = \\
- = \left( x_\alpha\left((a+b)X^{-1}\right)\cdot g,\ h \cdot h',\ u(1 + am + bm) \right) \sim T_\alpha((a+b)X^{-1}) \left( g,\ h,\ u\right), \end{multline} 
-\end{comment}
 Let $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$.
 As before, we may assume $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m'))$ for some $m, m' \in M$.
 Now for $a, b \in A$ set $\epsilon = N_{\alpha, \beta},$ $c = 1 - \epsilon abm'$.
@@ -927,71 +899,28 @@ the operators $T_\alpha$ defined above specify a well-defined action of $\St(\Ph
 This action satisfies the following additional property. If $v = (g, [h], u) \in \overline{V}$ is such that $\overline{p}(v) = \overline{1} = G_M^0$ then for any $h_1 \in \St(\Phi, A[X\inv])$ holds $j_-(h_1) \cdot v = (h_1 \cdot g, [h \cdot h_1^{-1}], u)$ and, moreover, $\overline{p}(j_-(h_1) \cdot v) = \overline{1}$.
 \end{prop}
 \begin{proof}
-  By~\cref{superfluous-relations} and Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1} the action of $\St^{\leq 1}(\Phi, B)$ on $\overline{V}$ given by~\eqref{T_1} and~\eqref{T_leq0} is well-defined. On the other hand, the group $\St^{\leq 1}(\Phi, B)$ is isomorphic to $\St(\Phi, B)$ by~\cref{lemma33} which implies the first assertion.
+  By~\cref{superfluous-relations} and Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1} the action of $\St^{\leq 1}(\Phi, B)$ on $\overline{V}$ given by~\eqref{T_1} and~\eqref{T_leq0} is well-defined. On the other hand, the group $\St^{\leq 1}(\Phi, B)$ is isomorphic to $\St(\Phi, B)$ by~\cref{lemma33} (set $t = X^{-1}$).
   
   The second assertion can be verified directly using~\eqref{T_1}, \eqref{T_leq0} and the fact that $\St(\Phi, A[X\inv])$ is generated by $x_\alpha(a)$ and $x_\alpha(aX\inv)$ for $\alpha\in\Phi$, $a\in A$.
 \end{proof}
 
-\begin{lemma}
-For $g_1 \in \overline{G}_M^{\geq 0}$ and $v\in \overline{V}$ one has $\overline{p}(t(g_1) \cdot v) = g_1 \cdot \overline{p}(v)$, where $t$ is the map from~\cref{lem:lemma32}.
-\end{lemma}
-\begin{proof} 
-It suffices to verify the assertion for the generators $g = z_\alpha(f, \xi)$ of the subgroup $\overline{G}^{\geq 0}_M$ for all $f \in M[X]$, $\xi\in A[X]$. We accomplished this by induction on the degree of $\xi$ in $X$.
-It is obvious, that the assertion holds in the case $\xi = a \in A$. 
+Denote by $I$ the ideal $M[X, X\inv]$ of $B$ (and also of $R$).
+We denote by $t$ the map $\St(\Phi, R, I) \to \St(\Phi, B)$ from~\cref{lem:lemma32}.
+\begin{lemma} For $v\in \overline{V}$ and any $g \in \St(\Phi, R, I)$ holds $\overline{p}(t(g) \cdot v) = \mu_R(g) \cdot \overline{p}(v)$. \end{lemma}
+\begin{proof} First of all, notice that the assertion of the lemma can be verified by direct computation using~\eqref{T_1} and~\eqref{T_leq0} in the cases $g = z_\alpha(f, a)$ or $g = z_\alpha(X^2f, aX^{-1})$ for all $a\in A$, $f\in M[X]$. Notice that in both cases $g$ is contained in the image of $\St(\Phi, B, I)$, therefore $t$ acts identically on it.
 
-Suppose that the assertion is true for all $g_1 = z_\alpha(f, \xi)$ with $\xi$ of degree $\leq n$.
-Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ in~\eqref{Z5} we obtain the following equality in $\St(\Phi, A[X, X\inv], M[X, X\inv])$:
-\begin{multline}
- z_{\alpha+\beta}(f, X\xi) = x_\alpha(\epsilon Xf) \cdot x_{-\beta}(-faX^2) \cdot x_{\beta}(af) \cdot x_{\alpha+\beta}(f) \cdot \\ \cdot z_\alpha(-\epsilon Xf, -\epsilon \xi) \cdot x_{-\alpha}(-\epsilon \xi^2fX) \cdot x_{-\alpha-\beta}(- f \xi^2X^2) \cdot z_{-\beta}(X^2f\xi, -X^{-1})
-\end{multline}
-It is not hard to verify the assertion for all the factors in the right hand side of the above expression
- (except for the fifth factor, for which it is precisely the inductive assumption). It remains to see that
-  $t(z_\alpha(f, X\xi + a)) = x_\alpha(-a) \cdot t(z_\alpha(f, X\xi)) \cdot x_\alpha(a)$.
+It suffices to verify the assertion of the lemma for the generators $g = z_\alpha(f, \xi)$ of $\St(\Phi, R, I)$ for all $f \in M[X]$, $\xi\in A[X]$, $\alpha \in \Phi$. We accomplish this by 
+induction on the degree of $\xi$ in $X$. The base of induction is clear by the above observation.
+
+Now, suppose that the assertion holds for all $g = z_\alpha(f, \xi)$ in which $\xi$ has degree $\leq n$.
+Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ in~\eqref{Z5} and using the definition of $t$ we obtain the following equality in $\St(\Phi, B)$ (in which $\epsilon = N_{\alpha, \beta}$):
+\begin{multline*}
+ t(z_{\alpha+\beta}(f, X\xi)) = x_\alpha(\epsilon Xf) \cdot x_{-\beta}(-faX^2) \cdot x_{\beta}(af) \cdot x_{\alpha+\beta}(f) \cdot \\ \cdot t(z_\alpha(-\epsilon Xf, -\epsilon \xi)) \cdot x_{-\alpha}(-\epsilon \xi^2fX) \cdot x_{-\alpha-\beta}(- f \xi^2X^2) \cdot z_{-\beta}(X^2f\xi, -X^{-1}).
+\end{multline*}
+By inductive assumption the assertion of the lemma holds for all the factors in the right-hand side, therefore it also holds for  $z_\alpha(f, X\xi)$. From this it is not hard to deduce the assertion for $g = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
 \end{proof}
-
-  
   
 \subsection{Proof of the $\mathbb{P}^1$-glueing theorem.}
-
-\begin{comment}
-$n \geq m$
-$b = \epsilon  X^{-m}$
-$\epsilon \in R^*$, $d \in R$
-$abc = d X^{-n}$
-
-$|a| = n-m$, $|b| = m$, $|c| = 0$
-
-\begin{align*}
-[x_{il}(abc), x_{jk}(b)] &= 1 & \text{R3}_{n,m} \\
-[x_{ij}(a), x_{kl}(c)] &= 1 & \text{R3}_{n-m, 0}\\
-[x_{ik}(ab), x_{kl}(c)] &= x_{il}(abc), & \text{R2}_{n, 0} \\
-[x_{jk}(b), x_{kl}(c)] &= x_{jl}(bc), & \text{R2}_{m, 0}\\
-[x_{ij}(a), x_{jk}(b)] &= x_{ik}(ab), & \text{R2}_{n-m, m}\\
-[x_{ij}(a), x_{jl}(bc)] &= x_{il}(abc),& \text{R2}_{n-m, m}\\
-[x_{jk}(b), x_{kl}(c)] &= x_{jl}(bc), & \text{R2}_{m, 0}\\
-[x_{ij}(a), x_{jk}(b)] &= x_{ik}(ab) & \text{R2}_{n-m, m}
-\end{align*}
-
-\begin{lemma} For any simply laced root system $\Phi$ of rank $\geq 3$, a local ring $A$ and any $1 \leq m \leq n$ the relation $\text{R3}_{n,m}^\bot$ follows from $\text{R1}_n$, $\text{R2}_{n,0}$, $\text{R2}_{m,0}$ and $\text{R2}_{n-m,m}$ and $\text{R3}_{n-m, 0}^\bot$. \end{lemma}
-\begin{proof}
-We need to show that $[x_{\alpha}(cX^{n}), x_{\beta}(dX^{m})] = 1$ for all $c, d\in A$, $\alpha \perp \beta$. Notice that in the special case $c = \epsilon \in A^*$ the assertion follows from a consideration of \cite[Fig.~4]{KS99} in which one substitutes $a = \epsilon^{-1} d \cdot X^{-(n-m)}$, $b = \epsilon X^{-m}$, $c = 1$.
-
-Now if $c \in M$ we can express it as a difference $c = \epsilon_1 - \epsilon_2$ of two invertible elements. The required assertion now follows from $\text{R1}_{n}$, the standard commutator identity $[ab, c] = {}^a[b, c] [a, c]$ and the just considered case.
-\end{proof}
-
-\begin{align*} {}^{x_\gamma(X^{-1})}x_\alpha(bX^{-1}) = {}^{x_\gamma(X^{-1})}[x_{-\beta}(b'X^{-1}), x_{\alpha+\beta}(1)] & \text{ by R$2_1$}\\
- = [x_{-\beta}(b'X^{-1}), {}^{x_\gamma(X^{-1})}x_{\alpha+\beta}(1)] & \text{ by R$3_1$ for sharp angles}\\
- = [[x_{-\beta-\gamma}(b''), x_\gamma(X^{-1})], {}^{x_\gamma(X^{-1})}x_{\alpha+\beta}(1)] & \text{ by R$2_1$}\\
- = [x_{-\beta-\gamma}(b''), [x_\gamma(X^{-1}), x_{\alpha+\beta}(1)]] & \text{ by R$3_0$}\\
- = x_{\alpha}(b'''X^{-1}) & \text{ by R$2_1$.} \end{align*}
-
-\begin{align*} x_{\alpha+\beta+\gamma}(abX^{-1}) = {}^{x_{-\beta}(X^{-1})}\!x_{\alpha+\beta+\gamma}(abX^{-1}) & \text{ by the above relation}\\
- = {}^{x_{-\beta}(X^{-1})}\![x_{\alpha+\beta}(b'), x_\gamma(aX^{-1})] & \text{ by R$2_1$} \\
- = [x_{\alpha}(b'X^{-1}) x_{\alpha+\beta}(b'), x_\gamma(aX^{-1})] & \text{ by R$2_1$ and R$3_1$ for sharp angles }\\
- = {}^{x_{\alpha}(b'X^{-1})}\!x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$2_1$} \\
- = x_{\alpha+\beta+\gamma}(abX^{-1}) [x_{\alpha}(b'X^{-1}), x_\gamma(aX^{-1})] & \text{ by R$3_1$ for sharp angles.} \end{align*}
-
-\include{rehmann}
 \end{comment}
 
 \printbibliography
