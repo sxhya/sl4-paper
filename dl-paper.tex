@@ -905,24 +905,38 @@ This action satisfies the following additional property. If $v = (g, [h], u) \in
 \end{proof}
 
 \subsection{Proof of the $\mathbb{P}^1$-glueing theorem.}
-We retain notation of the previous subsection and assume additionally that
-the obvious map $\St(\Phi, B) \to \St(\Phi, R)$ is injective.
-Denote by $I$ the ideal $M[X, X\inv]$ of $B$ (and also of $R$).
+We retain notation of the previous subsection and assume additionally that the map $\St(\Phi, B) \to \St(\Phi, R)$ is injective. This assumption allows us to consider $\St(\Phi, B)$ as a subgroup of $\St(\Phi, R)$.
+%Denote by $I$ the ideal $M[X, X\inv]$ of $B$ (it is also an ideal of $R$).
+Notice that by~\cref{lem:lemma32} the subgroup $\overline{G}^{\geq 0}_M$ is contained in $\St(\Phi, B)$.
 
-We denote by $t$ the map $\St(\Phi, R, I) \to \St(\Phi, B)$ from~\cref{lem:lemma32}.
-\begin{lemma} For $v\in \overline{V}$ and any $g \in \St(\Phi, R, I)$ holds $\overline{p}(t(g) \cdot v) = \mu_R(g) \cdot \overline{p}(v)$. \end{lemma}
-\begin{proof} First of all, notice that the assertion of the lemma can be verified by direct computation using~\eqref{T_1} and~\eqref{T_leq0} in the cases $g = z_\alpha(f, a)$ or $g = z_\alpha(X^2f, aX^{-1})$ for all $a\in A$, $f\in M[X]$. Notice that in both cases $g$ is contained in the image of $\St(\Phi, B, I)$, therefore $t$ acts identically on it.
+%We denote by $t$ the map $\St(\Phi, R, I) \to \St(\Phi, B)$ from.
+\begin{lemma} For $v\in \overline{V}$ and any $g \in \overline{G}^{\geq 0}_M$ holds $\overline{p}(g \cdot v) = g \cdot \overline{p}(v)$. \end{lemma}
+\begin{proof} First of all, notice that the assertion of the lemma can be verified directly in the case $g = z_\alpha(f, a)$ for all $a\in A$, $f\in M[X]$. Using~\cref{SR:additivity} and the fact that $x_\beta(X^2f) \in P_\alpha(0)$ for all $\beta \in \Phi$ it is not hard to show that the assertion also holds for $g = z_\alpha(X^2f, aX^{-1})$.
 
-It suffices to verify the assertion of the lemma for the generators $g = z_\alpha(f, \xi)$ of $\St(\Phi, R, I)$ for all $f \in M[X]$, $\xi\in A[X]$, $\alpha \in \Phi$. We accomplish this by 
-induction on the degree of $\xi$ in $X$. The base of induction is clear by the above observation.
+It suffices to verify the assertion of the lemma for the generators $g = z_\alpha(f, \xi)$ of $\overline{G}_M^{\geq 0}$ for all $f \in M[X]$, $\xi\in A[X]$, $\alpha \in \Phi$. We accomplish this by 
+induction on the degree of $\xi$ in $X$. The base of induction is clear.
 
-Now, suppose that the assertion holds for all $g = z_\alpha(f, \xi)$ in which $\xi$ has degree $\leq n$.
-Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ in~\eqref{Z5} and using the definition of $t$ we obtain the following equality in $\St(\Phi, B)$ (in which $\epsilon = N_{\alpha, \beta}$):
+Suppose that the assertion holds for all $g = z_\alpha(f, \xi)$ for which $\xi$ has degree $\leq n$.
+Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ in~\eqref{Z5} we obtain the following equality in $\St(\Phi, B)$:
 \begin{multline*}
- t(z_{\alpha+\beta}(f, X\xi)) = x_\alpha(\epsilon Xf) \cdot x_{-\beta}(-faX^2) \cdot x_{\beta}(af) \cdot x_{\alpha+\beta}(f) \cdot \\ \cdot t(z_\alpha(-\epsilon Xf, -\epsilon \xi)) \cdot x_{-\alpha}(-\epsilon \xi^2fX) \cdot x_{-\alpha-\beta}(- f \xi^2X^2) \cdot z_{-\beta}(X^2f\xi, -X^{-1}).
+ z_{\alpha+\beta}(f, X\xi) = x_\alpha(\epsilon Xf) \cdot x_{-\beta}(-faX^2) \cdot x_{\beta}(af) \cdot x_{\alpha+\beta}(f) \cdot \\ \cdot z_\alpha(-\epsilon Xf, -\epsilon \xi) \cdot x_{-\alpha}(-\epsilon \xi^2fX) \cdot x_{-\alpha-\beta}(- f \xi^2X^2) \cdot z_{-\beta}(X^2f\xi, -X^{-1}),\text{ where $\epsilon = N_{\alpha, \beta}$.}
 \end{multline*}
-By inductive assumption the assertion of the lemma holds for all the factors in the right-hand side, therefore it also holds for  $z_\alpha(f, X\xi)$. From this it is not hard to deduce the assertion for $g = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
+From the first part of the proof and inductive assumption we obtain that the assertion of the lemma holds for all the factors in the right-hand side and, therefore, also holds holds for $g = z_\alpha(f, X\xi)$. It is easy to deduce from this that the assertion also holds for $g = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
 \end{proof}
+
+\begin{theorem}
+ Suppose that $\Phi$ is as in the statement of~\cref{lemma33}. Then the map $j_+\colon \St(\Phi, A[X]) \to \St(\Phi, R)$ is injective.
+ 
+ Suppose, moreover, that $\St(\Phi, B) \to \St(\Phi, R)$ is injective. Then the following square is a pullback square in which all arrows are injective
+ \begin{equation} \nonumber
+  \xymatrix{ \St(\Phi, A) \ar[r] \ar[d] & \St(\Phi, A[X]) \ar[d]^{j_+} \\ \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, R).}
+ \end{equation}
+\end{theorem}
+\begin{proof}
+ 
+\end{proof}
+
+
 
 \printbibliography
 
