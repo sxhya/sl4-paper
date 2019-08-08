@@ -156,11 +156,15 @@ Recall that $\K_1^\mathrm{MW}(k)$ is isomorphic to the pullback of the diagram:
 in other words, it consists of pairs $[u, x]$ such that $x - \langle \langle u \rangle \rangle \in I^2(k)$.
 It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\rangle - x)$ defines an isomorphism of $\K_1^\mathrm{MW}(k)$ and $P(k)$. \end{proof}
  
-\begin{corollary} \label{field-injectivity} For $\Phi\neq\rG_2$ the map $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. \end{corollary}
-\begin{proof} Follows from consideration of the following commutative diagram:
+\begin{corollary} \label{field-injectivity} For $\Phi\neq\rG_2$ the map $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{corollary}
+\begin{proof} The first assertion follows from consideration of the following commutative diagram:
 \[\xymatrix{ & \K_2(\Phi, k) \ar[dl]_{\cong} \ar@{^{(}->}[dr] & \\
                \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}]),} \]
-in which the left arrow is an isomorphism by the Korollar of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}. \end{proof}
+in which the left arrow is an isomorphism by the Korollar of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}. 
+
+Let us verify the second assertion. Let $g$ be an element of the intersection of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$.
+Clearly, the image of $g$ in $G(\Phi, k[X, X\inv])$ lies in $G(\Phi, k)$, therefore there exists $g_0 \in \St(\Phi, k)$ such that $gg_0^{-1} \in \K_2(\Phi, k[t]) = \K_2(\Phi, k)$. Thus, we conclude that $g \in \St(\Phi, k)$.
+\end{proof}
 
 \subsection{Relative Steinberg groups and unstable K-groups} \label{sec:quillen}
 In this subsection we recall the definitions and basic facts pertaining to relative Steinberg groups as defined by J.-L.~Loday in~\cite{Lo78}, where a theory of relative central extensions was developed and then applied to the stable Steinberg group $\St(R)$ from algebraic K-theory. The main goal of this subsection is to show that Loday's results can be applied to unstable Steinberg groups, and that the resulting relative groups enjoy many good properties of their stable counterparts.
@@ -896,7 +900,7 @@ We are ready to formulate the main result of this subsection.
 For $\Phi$ as in the statement of~\cref{lemma33}.
 the operators $T_\alpha$ defined above specify a well-defined action of $\St(\Phi, B)$ on $\overline{V}$. 
 
-This action satisfies the following additional property. If $v = (g, [h], u) \in \overline{V}$ is such that $\overline{p}(v) = \overline{1} = G_M^0$ then for any $h_1 \in \St(\Phi, A[X\inv])$ holds $j_-(h_1) \cdot v = (h_1 \cdot g, [h \cdot h_1^{-1}], u)$ and, moreover, $\overline{p}(j_-(h_1) \cdot v) = \overline{1}$.
+This action satisfies the following additional property. If $v = (g, [h], u) \in \overline{V}$ is such that $\overline{p}(v) = \overline{1} = G_M^0$ then for any $h_1 \in \St(\Phi, A[X\inv])$ holds $j_B(h_1) \cdot v = (h_1 \cdot g, [h \cdot h_1^{-1}], u)$ and, moreover, $\overline{p}(j_B(h_1) \cdot v) = \overline{1}$. Here $j_B$ denotes the obvious map $\St(\Phi, A[X\inv]) \to \St(\Phi, B)$.
 \end{prop}
 \begin{proof}
   By~\cref{superfluous-relations} and Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1} the action of $\St^{\leq 1}(\Phi, B)$ on $\overline{V}$ given by~\eqref{T_1} and~\eqref{T_leq0} is well-defined. On the other hand, the group $\St^{\leq 1}(\Phi, B)$ is isomorphic to $\St(\Phi, B)$ by~\cref{lemma33} (set $t = X^{-1}$).
@@ -905,7 +909,7 @@ This action satisfies the following additional property. If $v = (g, [h], u) \in
 \end{proof}
 
 \subsection{Proof of the $\mathbb{P}^1$-glueing theorem.}
-We retain notation of the previous subsection and assume additionally that the map $\St(\Phi, B) \to \St(\Phi, R)$ is injective. This assumption allows us to consider $\St(\Phi, B)$ as a subgroup of $\St(\Phi, R)$.
+We retain notation of the previous subsection and assume additionally that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, R)$ is injective. This assumption allows us to consider $\St(\Phi, B)$ as a subgroup of $\St(\Phi, R)$.
 %Denote by $I$ the ideal $M[X, X\inv]$ of $B$ (it is also an ideal of $R$).
 Notice that by~\cref{lem:lemma32} the subgroup $\overline{G}^{\geq 0}_M$ is contained in $\St(\Phi, B)$.
 
@@ -925,21 +929,22 @@ From the first part of the proof and inductive assumption we obtain that the ass
 \end{proof}
 
 \begin{theorem}
- If $\Phi$ is as in the statement of~\cref{lemma33}, then the map $j_-$ is injective.
- If, moreover, $\St(\Phi, A[X]) \to \St(\Phi, B)$ is injective, then the following square is pullback
+ Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
+ %Suppose that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
+ Then the map $j_-$ is injective and the following commutative square is pullback
  \begin{equation} \nonumber
-  \xymatrix{ \St(\Phi, A) \ar[r] \ar[d] & \St(\Phi, A[X]) \ar[d]^{j_+} \\ \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, R).}
+  \xymatrix{ \St(\Phi, A) \ar[r] \ar[d] & \St(\Phi, A[X]) \ar[d]^{j_+} \\ \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, A[X, X\inv]).}
  \end{equation}
 \end{theorem}
 \begin{proof}
- Let us show that $j_-$ is injective. Set $v_0 = (1, [1], 1) \in \overline{V}$ and suppose $g \in \Ker(j_-)$.
- By~\cref{prop43} holds $v_0 = j_-(g) \cdot v_0 = (g, [g^{-1}], u)$ therefore $g \in G_M^0$ and consequently $g=1$.
+ Since $j_- = j_R j_B$, where $j_B$ is as in~\cref{prop43}, it suffices to show that $j_B$ is injective.
+ Set $v_0 = (1, [1], 1) \in \overline{V}$ and suppose $g \in \Ker(j_B)$.
+ By~\cref{prop43} holds $v_0 = j_B(g) \cdot v_0 = (g, [g^{-1}], u)$ therefore $g \in G_M^0$ and consequently $g = 1$.
  
- Now suppose $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_-(g_-) = j_+(g_-)$. From~\cref{field-injectivity} it follows that the image $j_+(g_+) = j_-(g_-)$ in $\St(\Phi, k[X, X\inv])$ belongs to $\St(\Phi, k)$ and therefore coincides with the image in $\St(\Phi, k)$ of some $g_0 \in \St(\Phi, A)$. Dividing $g_+$ and $g_-$ by $g_0$ we can achieve
+ Now suppose $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_-(g_-) = j_+(g_-)$. From~\cref{field-injectivity} it follows that the image $j_+(g_+) = j_-(g_-)$ in $\St(\Phi, k[X, X\inv])$ belongs to $\St(\Phi, k)$ and therefore coincides with the image in $\St(\Phi, k)$ of some $g_0 \in \St(\Phi, A)$. 
+ Set $g_+' = g_+g_0^{-1}$ and $g_-' = g_-g_0^{-1}$.
+ %Clearly, $g_+' \in \overline{\St}(\Phi, A[X], M[X])$. Set $v = () $
 \end{proof}
 
-
-
 \printbibliography
-
 \end{document}
