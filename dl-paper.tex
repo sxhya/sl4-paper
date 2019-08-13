@@ -800,9 +800,12 @@ The set $\overline{V}$ is the one upon which we will construct an action of $\St
 
 Before we proceed further let us explain how our sets $V$ and $\overline{V}$ compare with the constructions used by Tulenbaev in his proof of~\cite[Proposition~4.3]{Tu83}. This may also help to explain the intuition behind our definition of $\overline{V}$. Recall that Tulenbaev constructs an action of $\St(\Phi, B)$ (of course, only for $\Phi = \rA_\ell$) on a different set, which we denote by $\overline{V}_T$. This set $\overline{V}_T$ is defined as the quotient of the set of triples $V_T = \overline{G}_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1+M)^\times$ modulo the equivalence relation given by $(p \gamma, h, u) \sim (p, \gamma h, u)$, $\gamma \in G^0_M$. Tulenbaev denotes the image of $(p, h, u)$ in $\overline{V}_T$ by $[p, h, u]$.
 
-The isomorphism between the sets $\overline{V}$ and $\overline{V}_T$ is given by the following two maps:
+The isomorphism between the sets $\overline{V}$ and $\overline{V}_T$ is given by the following two maps, which are easily seen to be mutually inverse to each other:
 \begin{equation} \label{eq:VVT} \xymatrix @R0.3pc {\overline{V} \ar[r]^{\cong} & \ar[l] \overline{V}_T \\ (g, [h], u) \ar@{|->}[r] & [p(g, h, u), h^{-1}, u] \\ (p \cdot j_-(h) \cdot \{u, X\}, [h^{-1}], u) & \ar@{|->}[l] [p, h, u]. } \end{equation}
-It is easy to see that these two maps are mutually inverse. This isomorphism allows us to treat these two sets as more or less the same object. In certain situations, however, it is preferable to work with one of them rather than the other. For example, specifying the action of $\St(\Phi, B)$ in terms of $\overline{V}$ leads to much shorter calculations in Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1}, while the statements of~\cref{sec:P1glueing} look more natural when stated for~$\overline{V}_T$. 
+The above isomorphism allows us to treat $\overline{V}$ and $\overline{V}_T$ as a single object, for which we can interchangeably use either of the two notations,
+ depending on which of them is more convenient in a given situation.
+For example, specifying the action of $\St(\Phi, B)$ in terms of $\overline{V}$ leads to much shorter calculations in Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1},
+ while the statements of~\cref{sec:P1glueing} look more natural when formulated for~$\overline{V}_T$. 
 
 Now we are ready to proceed with the construction of the action of $\St(\Phi, B)$ on $\overline{V}$. 
 
@@ -835,7 +838,7 @@ Then for any $\alpha \in \Phi$ and $a \in A$ the partial function $t_\alpha(aX^{
  \end{multline} \end{proof}
 
 For $a + Xf \in A + XM[X]$ we can define the operator $T_\alpha(a + Xf) \colon \overline{V} \to \overline{V}$ by the following identity:
-\begin{equation} \label{T_leq0} T_\alpha(a + Xf) \cdot (g, [h], u) = (x_\alpha(a + Xf) \cdot g, [h], u).  \end{equation}
+\begin{equation} \label{T_leq0} T_\alpha(a + Xf) \cdot (g, [h], u) = (x_\alpha(a + Xf) \cdot g, [h \cdot x_{\alpha}(-a)], u).  \end{equation}
 It is easy to see that this definition is correct.
 
 Thus far we have specified the action of the generators of the "truncated'' Steinberg group $\St^{\leq 1}(\Phi, B)$ from~\cref{sec:presentation} on $\overline{V}$ using formulae~\eqref{T_1} and~\eqref{T_leq0}. We need to verify that this action respects the defining relations of the group $\St^{\leq 1}(\Phi, B)$ (notice that $\leq 1$ here stands for the degree of relations with respect to $t = X^{-1}$). This is accomplished in the series of lemmas below.
@@ -898,18 +901,17 @@ Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain 
  where $h' = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \cdot x_{\beta}(bc)$  
   and the last equality is obtained as follows:
  \begin{multline} \nonumber
- h'' = h' \cdot x_\alpha\left(-\tfrac{a(1 - am)X^{-1}}{c}\right) \sim \\ \sim  h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1})\cdot x_{\alpha + \beta}\left(\epsilon ab(1-am)X^{-1}\right)\cdot x_\alpha\left(-\tfrac{a(1 - am)X^{-1}}{c}\right) = \\
- = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot x_{\alpha + \beta}\left(\tfrac{\epsilon \cdot abX^{-1}}{c}\right)\cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 - am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \sim
- h\cdot x_{\alpha + \beta}\left(\tfrac{\epsilon   abX^{-1}}{1 - \epsilon a b m'}\right). \qedhere
+ h'' = h' \cdot x_\alpha\left(-\tfrac{a(1 - am)X^{-1}}{c}\right) \cdot x_\beta(-b) \sim \\ \sim  h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1})\cdot x_{\alpha + \beta}\left(\epsilon ab(1-am)X^{-1}\right)\cdot x_\alpha\left(-\tfrac{a(1 - am)X^{-1}}{c}\right) = \\
+ = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot x_{\alpha + \beta}\left(\tfrac{\epsilon \cdot abX^{-1}}{c}\right)\cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 - am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \sim h\cdot x_{\alpha + \beta}\left(\tfrac{\epsilon   abX^{-1}}{1 - \epsilon a b m'}\right). \qedhere
 \end{multline}
 \end{proof}
 
-We are ready to formulate the main result of this subsection.
+We are ready to prove the main result of this subsection.
 \begin{prop} \label{prop43}
 For $\Phi$ as in the statement of~\cref{lemma33}.
-the operators $T_\alpha$ defined above specify a well-defined action of $\St(\Phi, B)$ on $\overline{V} \cong \overline{V}$. 
+the operators $T_\alpha$ defined above specify a well-defined action of $\St(\Phi, B)$ on $\overline{V}$. 
 
-This action satisfies the following additional property. For any $h_1 \in \St(\Phi, A[X\inv])$ holds $j_B^-(h_1) \cdot [1, h, u] = [1, h_1 h, u]$, where $j_B^-$ denotes the map $\St(\Phi, A[X\inv]) \to \St(\Phi, B)$ (here we identify $\overline{V}$ with $\overline{V}_T$ using the isomorphism~\eqref{eq:VVT}).
+This action satisfies the following additional property. For any $h_1 \in \St(\Phi, A[X\inv])$ holds $j_B^-(h_1) \cdot [1, h, u] = [1, h_1 h, u]$, where $j_B^-$ denotes the map $\St(\Phi, A[X\inv]) \to \St(\Phi, B)$ (we identify $\overline{V}$ with $\overline{V}_T$ using the isomorphism~\eqref{eq:VVT}).
 \end{prop}
 \begin{proof}
   By~\cref{superfluous-relations} and Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1} the action of $\St^{\leq 1}(\Phi, B)$ on $\overline{V}$ given by~\eqref{T_1} and~\eqref{T_leq0} is well-defined. On the other hand, the group $\St^{\leq 1}(\Phi, B)$ is isomorphic to $\St(\Phi, B)$ by~\cref{lemma33} (set $t = X^{-1}$).
@@ -933,12 +935,12 @@ Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ in~\eqref{Z5} we obtain 
 \begin{multline*}
  z_{\alpha+\beta}(f, X\xi) = x_\alpha(\epsilon Xf) \cdot x_{-\beta}(-faX^2) \cdot x_{\beta}(af) \cdot x_{\alpha+\beta}(f) \cdot \\ \cdot z_\alpha(-\epsilon Xf, -\epsilon \xi) \cdot x_{-\alpha}(-\epsilon \xi^2fX) \cdot x_{-\alpha-\beta}(- f \xi^2X^2) \cdot z_{-\beta}(X^2f\xi, -X^{-1}),\text{ where $\epsilon = N_{\alpha, \beta}$.}
 \end{multline*}
-From the first part of the proof and inductive assumption we obtain that the assertion of the lemma holds for all the factors in the right-hand side and, therefore, also holds holds for $p_1 = z_\alpha(f, X\xi)$. It is easy to deduce from this that the assertion also holds for $p_1 = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
+From the first part of the proof and inductive assumption we obtain that the assertion of the lemma holds for all the factors in the right-hand side and, therefore, also holds  for $p_1 = z_\alpha(f, X\xi)$. It is easy to deduce from this that the assertion also holds for $p_1 = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
 \end{proof}
 
 \begin{theorem}
  Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
- %Suppose that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
+ Suppose that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
  Then the map $j_-$ is injective and the following commutative square is pullback
  \begin{equation} \nonumber
   \xymatrix{ \St(\Phi, A) \ar[r] \ar[d] & \St(\Phi, A[X]) \ar[d]^{j_+} \\ \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, A[X, X\inv]).}
