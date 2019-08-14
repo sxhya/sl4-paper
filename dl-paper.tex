@@ -467,15 +467,12 @@ Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \
 
 \begin{corollary} \label{Kgen-strong} For a local pair $(A, M)$ and arbitrary fixed root $\gamma$ of an irreducible simply-laced root system $\Phi$ the subgroup $K(A[X], M[X])$ is generated as a group by $\overline{\St}(\Phi, A[X], XM[X])$ and the elements $c_{\gamma}(m, X\eta)$, where $m \in M$, $\eta \in A[X]$. \end{corollary}
 \begin{proof} Substituting $\xi = 1$, $s = m$, $t = X\eta$ into relation~\eqref{C4} of~\cref{Crels} we obtain that modulo 
- $\overline{\St}(\Phi, A[X], XM[X])$ the element $c_{\alpha + \beta}(m, X\eta)$ is equivalent to $c_{\alpha}(-\epsilon m, -\epsilon X \eta)^{-1}$, $\epsilon = N_{\alpha, \beta}$. The assertion of the corollary now easily follows from the irreducibility of $\Phi$.
-\end{proof}
-
+ $\overline{\St}(\Phi, A[X], XM[X])$ the element $c_{\alpha + \beta}(m, X\eta)$ is equivalent to $c_{\alpha}(-\epsilon m, -\epsilon X \eta)^{-1}$, $\epsilon = N_{\alpha, \beta}$. The assertion of the corollary now easily follows from the irreducibility of $\Phi$. \end{proof}   
 
 \section{Proof of the main result}
-The main result of this section is~\cref{thm:P1glueing}. The proof of this theorem is rather long and technical, so before setting out technical details, we briefly describe its main steps which closely follow~\cite{Tu83}.
+The main result of this section is~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. The proof of this theorem is rather long and technical, so before setting out technical details, we briefly describe the main steps of this proof.
 
-The object playing a key role in the proof of~\cref{thm:P1glueing} is an action of the group $G = \St(\Phi, A[X\inv] + M[X])$ on a certain set $\overline{V}$. To be able to write an explicit formula for this action we need two major ingredients. The first one is a presentation of $G$, which involves fewer generations and relations. We obtain this presentation in~\cref{lemma33}, which can be considered as a generalization of~\cite[Lemma~3.3]{Tu83}.
-
+The object playing a key role in the proof of~\cref{thm:P1glueing} is a certain action of the group $G = \St(\Phi, A[X\inv] + M[X])$ on a certain set $\overline{V}$. To be able to write an explicit formula for this action we need two major ingredients. The first one is a presentation of $G$, which involves much fewer generations and relations. We obtain this presentation in~\cref{lemma33}. The other ingredient are the subgroups $P_\alpha(0)$ of $\St(\Phi, A[X, X\inv])$, whose definition and properties are given in Sections~\ref{sec:Pa0-basic}--\ref{sec:Pa0-Steinberg}.
 
 \subsection{Presentation of Steinberg groups by homogeneous generators}
 \label{sec:presentation}
@@ -537,12 +534,12 @@ Without loss of generality we may assume $e \geq d$ and $e > 0$. We need to cons
  = {}^{x_{\beta+\gamma}(bt^{e-1})}\![x_{\alpha+\beta+\gamma}(\epsilon_2abt^{e+d-1}), x_{-\beta}(-\epsilon_1 t)] & \text{ by $\text{R2}_{d,e-1}$ and $\text{R3}^\angle_{e-1,e-1}$  } \\
  = 1 & \text{ by $\text{R3}^\bot_{d+e-1,1}$,} \end{align*} where $\epsilon_1 = N_{\beta,\gamma}$, $\epsilon_2 = N_{\alpha,\beta+\gamma}$.
  \end{enumerate}                                                           
- 
 
 The assertion of the lemma now follows from the above observation by induction on the degree of $R$ and the fact
  that by~\eqref{first-computation} relation $\text{R3}^\bot_{1,1}$ is a consequence of $\text{R3}^\bot_{0,0}$.
 \end{proof}
 
+The following proposition is the main result of this subsection and also a direct generalization of~\cite[Lemma~3.3]{Tu83}.
 \begin{prop} \label{lemma33} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the map $i_n\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$ induced by the natural embedding of generators, is an isomorphism. In particular, the obvious map $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{prop}
 \begin{proof}
  We need to construct a map $j_n$ which would be the inverse of $i_n$. 
@@ -571,7 +568,7 @@ The relation $R$ lies in the image of the left arrow, therefore it comes from so
 \end{rem}
 
 
-\subsection{The subgroups \texorpdfstring{$P_\alpha(0)$}{Pa(0)}, \texorpdfstring{$P_\alpha(*)$}{Pa(*)} and their properties.} 
+\subsection{The subgroups \texorpdfstring{$P_\alpha(0)$}{Pa(0)}, \texorpdfstring{$P_\alpha(*)$}{Pa(*)} and their properties.} \label{sec:Pa0-basic}
 For a root system $\Phi$ consider the following subsets of $\Phi$:
 \begin{align} Z_+(\alpha) & = \{ \beta \in \Phi \mid \langle \alpha, \beta \rangle > 0 \}, \\
    Z_0(\alpha) & = \{ \beta \in \Phi \mid \alpha + \beta \not\in \Phi,\ \langle \alpha, \beta \rangle = 0 \}, \\
@@ -698,7 +695,7 @@ Now by~\eqref{eq:Smult} and~\cref{P0_conj} one has
 
 The second assertion can be verified directly using~\eqref{eq:symbol-properties}. \end{proof}
 
-\subsection{The subgroups \texorpdfstring{$K(\alpha, \beta)$}{K(a,b)} and their properties}
+\subsection{The subgroups \texorpdfstring{$K(\alpha, \beta)$}{K(a,b)} and their properties} \label{sec:Pa0-Steinberg}
 Throughout this subsection $\alpha, \beta$ denote a fixed pair of roots of $\Phi$ forming a sharp angle (i.\,e. $\langle \alpha, \beta \rangle = 1$). We denote by $\Psi$ the subsystem of type $\rA_2$ generated by $\alpha$ and $\beta$.
 \begin{df} Denote by $K(\alpha, \beta)$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by the following elements (as before, $\xi \in A[X]$, $f\in M[X]$):
  \begin{enumerate}
@@ -792,7 +789,6 @@ Notice that $G_M^0$ can be considered as a subgroup of $\St(\Phi, R)$.
 \[ \xymatrix{ G_M^0 \ar@{^{(}->}[r]^{i_+} \ar@{^{(}->}[d]^{i_-} & \overline{\St}(\Phi, A[X], M[X]) \ar^{j_+^M}[d] \ar@{^{(}->}[r] & \St(\Phi, A[X]) \ar[dl]^{j_+} \\
               \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, R) &  } \] 
 We denote by $\overline{G}^{\geq 0}_M$ the image of the map $j_+^M$. 
-
 Denote by $V$ the subset of \[\St(\Phi, R) \times \St(\Phi, A[X\inv]) \times (1 + M)^\times\] consisting of those triples $(g, h, u)$ for which
 \[p(g, h, u) := g \cdot j_-(h) \cdot \{ X, u \}\] belongs to $\overline{G}_M^{\geq 0}$.
 
@@ -810,11 +806,9 @@ The isomorphism between the sets $\overline{V}$ and $\overline{V}_T$ is given by
 The above isomorphism allows us to treat $\overline{V}$ and $\overline{V}_T$ as a single object, for which we can interchangeably use either of the two notations,
  depending on which of them is more convenient in a given situation.
 For example, specifying the action of $\St(\Phi, B)$ in terms of $\overline{V}$ leads to much shorter calculations in Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1},
- while the statements of~\cref{prop43} and~\cref{lem:action} are more natural when expressed in terms of~$\overline{V}_T$. 
+ while the statements of~\cref{prop43} and~\cref{lem:action} look more natural when formulated in terms of~$\overline{V}_T$. 
 
-Now we are ready to proceed with the construction of the action of $\St(\Phi, B)$ on $\overline{V}$. 
-
-We start by defining for $\alpha \in \Phi$, $a \in A$ a partial function $t_\alpha(aX^{-1}) \colon V \not\to V$.
+Now we are ready to proceed with the construction of the action of $\St(\Phi, B)$ on $\overline{V}$. We start by defining for $\alpha \in \Phi$, $a \in A$ a partial function $t_\alpha(aX^{-1}) \colon V \not\to V$.
 This function is defined for the triples $(g, h, u)$ satisfying $p(g, h, u) \in P_\alpha(*) \subseteq \overline{G}_M^{\geq 0}$.
 If $p(g, h, u)$ belongs to $P_\alpha(m)$ for some $m \in M$, then $t_\alpha(aX^{-1})$ is defined via the following identity:
 \begin{equation} \label{T_1} t_\alpha(aX^{-1}) (g, h, u) = \left( x_\alpha(aX^{-1})\cdot g ,\ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right).\end{equation}
