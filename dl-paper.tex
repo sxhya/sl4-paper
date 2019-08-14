@@ -472,6 +472,11 @@ Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \
 
 
 \section{Proof of the main result}
+The main result of this section is~\cref{thm:P1glueing}. The proof of this theorem is rather long and technical, so before setting out technical details, we briefly describe its main steps which closely follow~\cite{Tu83}.
+
+The object playing a key role in the proof of~\cref{thm:P1glueing} is an action of the group $G = \St(\Phi, A[X\inv] + M[X])$ on a certain set $\overline{V}$. To be able to write an explicit formula for this action we need two major ingredients. The first one is a presentation of $G$, which involves fewer generations and relations. We obtain this presentation in~\cref{lemma33}, which can be considered as a generalization of~\cite[Lemma~3.3]{Tu83}.
+
+
 \subsection{Presentation of Steinberg groups by homogeneous generators}
 \label{sec:presentation}
 Let $M\trianglelefteq A$ be an ideal of a commutative ring $A$.
@@ -940,8 +945,8 @@ Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ in~\eqref{Z5} we obtain 
 From the first part of the proof and inductive assumption we obtain that the assertion of the lemma holds for all the factors in the right-hand side and, therefore, also holds  for $p_1 = z_\alpha(f, X\xi)$. It is easy to deduce from this that the assertion also holds for $p_1 = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
 \end{proof}
 
-We are ready to prove the key result of this section.
-\begin{theorem}
+We are ready to prove our main result.
+\begin{theorem} \label{thm:P1glueing}
  Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
  Suppose that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
  Then the map $j_-$ is injective and the following commutative square is pullback
