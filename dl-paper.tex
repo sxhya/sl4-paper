@@ -779,7 +779,6 @@ Denote by $h_0$ the product of all terms except the first and the last one in th
 \end{multline}
 \end{proof}
 
-%\subsection{Construction of a model for $\St(\Phi, A[X\inv] + M[X])$}
 \subsection{Proof of the $\mathbb{P}^1$-glueing theorem.} \label{sec:P1glueing}
 Throughout this subsection $\Phi$ denotes arbitrary irreducible simply-laced root system of rank $\geq 3$, unless stated otherwise. Let $A$ be a local ring with maximal ideal $M$ and residue field $k$. As in~\cref{firstPart} we denote by $B$ the ring $A[X\inv] + M[X]$ considered as a graded subring of the ring of Laurent polynomials $R = A[X, X\inv]$.
 
@@ -941,7 +940,7 @@ Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ in~\eqref{Z5} we obtain 
 From the first part of the proof and inductive assumption we obtain that the assertion of the lemma holds for all the factors in the right-hand side and, therefore, also holds  for $p_1 = z_\alpha(f, X\xi)$. It is easy to deduce from this that the assertion also holds for $p_1 = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
 \end{proof}
 
-We are ready to prove the key result of this subsection.
+We are ready to prove the key result of this section.
 \begin{theorem}
  Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
  Suppose that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
@@ -954,10 +953,11 @@ We are ready to prove the key result of this subsection.
  Set $v_0 = [1, 1, 1] \in \overline{V}$ and suppose $g \in \Ker(j_B)$.
  By~\cref{prop43} holds $v_0 = j_B(g) \cdot v_0 = [1, g, 1]$ therefore $g \in G_M^0$ and consequently $g = 1$.
  
- Now suppose $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_-(g_-) = j_+(g_-)$. From~\cref{field-injectivity} it follows that the image $j_+(g_+) = j_-(g_-)$ in $\St(\Phi, k[X, X\inv])$ belongs to $\St(\Phi, k)$ and therefore coincides with the image in $\St(\Phi, k)$ of some $g_0 \in \St(\Phi, A)$. 
+ Now suppose $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_-(g_-) = j_+(g_-)$.
+ From~\cref{field-injectivity} it follows that the image $j_+(g_+) = j_-(g_-)$ in $\St(\Phi, k[X, X\inv])$ belongs to $\St(\Phi, k)$ and therefore coincides with the image in $\St(\Phi, k)$ of some $g_0 \in \St(\Phi, A)$.
  
- Set $h_+ = g_+g_0^{-1}$ and $h_- = g_-g_0^{-1}$, $v_0 = (1, [j_-(h_-)], 1)$.
- It is clear that $h_+ \in \overline{\St}(\Phi, A[X], M[X])$, $h_- \in \overline{\St}(\Phi, A[X\inv], M[X\inv])$ and that $j_-(h_-) = j_+(h_+)$.
+ Set $h_+ = g_+g_0^{-1}$ and $h_- = g_-g_0^{-1}$.
+ It is clear that \[ h_+ \in \overline{\St}(\Phi, A[X], M[X]), h_- \in \overline{\St}(\Phi, A[X\inv], M[X\inv])\text{ and that }j_-(h_-) = j_+(h_+).\]
  From~\cref{prop43} and~\cref{lem:action} we obtain that
  \[ [j_+(h_+)^{-1}, h_-, 1] = j_+(h_+)^{-1} \cdot [1, h_-, 1] = j_+(h_+)^{-1} j_B^-(h_-) \cdot [1, 1, 1] = [1, 1, 1]. \]
  Thus, $h_-$ (and hence $h_+$) come from some element of $G_M^0$, which implies that $g_+$ and $g_-$ are images of some element of $\St(\Phi, A)$.
