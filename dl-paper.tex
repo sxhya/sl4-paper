@@ -65,7 +65,7 @@
 
 \numberwithin{equation}{section}
 
-\title{On the presentation of orthogonal groups over polynomial rings}
+\title{A Horrocks-type theorem for orthogonal $K_2$}
 \keywords {Steinberg group, $K_2$-functor, Serre problem
  {\em Mathematical Subject Classification (2010):} 19C20}
 \author{Andrei Lavrenov}
@@ -81,14 +81,20 @@
 \maketitle
 \section{Introduction}
 
+\begin{theorem*} Suppose $A$ is a local ring with maximal ideal $M$. Then for any $\ell \geq 7$ and $2 \in A^*$ the following commutative square is a pullback in which all arrows are injective:
+ \begin{equation} \nonumber
+  \xymatrix{ \St(\rD_\ell, A) \ar[r] \ar[d] & \St(\rD_\ell, A[X]) \ar[d] \\ \St(\rD_\ell, A[X\inv]) \ar[r] & \St(\rD_\ell, A[X, X\inv]).}
+ \end{equation}
+\end{theorem*}
+
 
 \section{Preliminaries}
-$\langle \alpha, \beta \rangle = (\alpha, \beta^\vee) = (\alpha, \frac{2\beta}{(\beta, \beta)})$
-Our convention for Cartan matrices is 
-$A_{ij} = \langle \alpha_i, \alpha_j \rangle = (\alpha_i, \alpha_j^\vee)$.
+%$\langle \alpha, \beta \rangle = (\alpha, \beta^\vee) = (\alpha, \frac{2\beta}{(\beta, \beta)})$ Our convention for Cartan matrices is $A_{ij} = \langle \alpha_i, \alpha_j \rangle = (\alpha_i, \alpha_j^\vee)$.
 
 \subsection{Steinberg groups}
-Let $\Phi$ be a reduced and irreducible root system of rank $\geq 2$ and $R$ be a commutative ring with $1$. Recall that in this case the \emph{Steinberg group} $\St(\Phi, R)$ can be defined by means of generators $x_{\alpha}(s)$ (where $\alpha\in\Phi, s\in R$) and relations:
+Let $\Phi$ be a reduced and irreducible root system of rank $\geq 2$ and $R$ be a commutative ring with $1$. Recall that in this case the \emph{Steinberg group} $\St(\Phi, R)$ can be defined by means of generators $x_{\alpha}(s)$ 
+%(where $\alpha\in\Phi, s\in R$)
+and relations:
 \begin{align}
 & \phantom{[}
 x_\alpha(s) \cdot x_\alpha(t) = x_\alpha(s+t),\ \alpha\in\Phi,\ s,t\in R; \label{rel:add}\\
@@ -100,7 +106,7 @@ all positive natural numbers such that $i\alpha + j\beta\in\Phi$.
 The constants $N_{\alpha \beta i j}$ appearing in the right-hand side of \eqref{rel:CCF} are integers equal to $\pm 1,\pm 2,\pm 3$, they are called the {\it structure constants} of the Chevalley group $G_{sc}(\Phi, R)$. Several different methods have been proposed for choosing signs of these constants, see e.\,g.~\cite{V00}, \cite[\S~9]{VP}.
 
 Whenever we speak of the Steinberg group $\St(\Psi, R)$ parametrized by a root subsystem $\Psi \subset \Phi$ we imply that the choice of structure constants 
- for $\St(\Psi, R)$ is compatible with that for $\St(\Phi, R)$ (i.\,e. the obvious map between these groups induced $\Psi\subseteq \Phi$ is well-defined).
+ for $\St(\Psi, R)$ is compatible with that for $\St(\Phi, R)$ (i.\,e. the obvious map between these groups induced by the embedding $\Psi\subseteq \Phi$ is well-defined).
 
 In this paper we will be mostly interested in the case when the Dynkin diagram of $\Phi$ is {\it simply-laced}, i.\,e. does not contain double bonds. In this case the defining relations of $\St(\Phi, R)$ have the following simpler form:
 \begin{align}
@@ -108,12 +114,12 @@ In this paper we will be mostly interested in the case when the Dynkin diagram o
 &[x_{\alpha}(a),\,x_{\beta}(b)]=x_{\alpha+\beta}(N_{\alpha\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \tag{R2} \\
 &[x_{\alpha}(a),\,x_{\beta}(b)]=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \tag{R3}
 \end{align}
-In the above formulae $a, b \in R$ and the integers $N_{\alpha, \beta} = N_{\alpha, \beta, 1, 1} = \pm 1$ are the structure constants of the Lie algebra of type $\Phi$. Although there is still some degree of freedom in their choice, these constants always must satisfy the relations, provided by the following lemma (cf.~\cite[\S~14]{VP}).
+In the above formulae $a, b \in R$ and the integers $N_{\alpha, \beta} = N_{\alpha, \beta, 1, 1} = \pm 1$ are the structure constants of the Lie algebra of type $\Phi$. Although there is still some degree of freedom in their choice, these constants always must satisfy the relations, provided by the following lemma (cf.~\cite[\S~14]{VP}). 
 \begin{lemma} Suppose $\Phi$ is simply laced and $\alpha, \beta$ are roots of $\Phi$ such that $\alpha+\beta\in \Phi$, then holds
 \begin{equation} \label{eq:simplest} N_{\alpha, \beta} = -N_{\beta,\alpha} = - N_{-\alpha, -\beta} = N_{\beta, -\alpha-\beta} = N_{-\alpha-\beta, \alpha}. \end{equation}
 If, moreover, $\gamma \in \Phi$ is such that $\alpha,\beta,\gamma$ form a basis of a root subsystem of type $\rA_3$ then holds
 \begin{equation} \label{eq:cocycle} N_{\beta,\gamma} \cdot N_{\alpha, \beta+\gamma} = N_{\alpha+\beta, \gamma} \cdot N_{\alpha, \beta}. \end{equation} \end{lemma}
-In the computations below we use identities~\eqref{eq:simplest} without explicit reference.
+In our computations we will be using the identity~\eqref{eq:simplest} without explicit reference.
 
 For $\alpha\in\Phi$ and $s \in R^\times$ we define certain elements $w_\alpha(s), h_\alpha(s)$ of $\St(\Phi, R)$ (the latter ones are sometimes called {\it semisimple root elements}):
 \begin{align*} w_\alpha(s) & =  x_\alpha(s) \cdot x_{-\alpha}(-s^{-1}) \cdot x_\alpha(s), \\ h_\alpha(s) & =  w_\alpha(s) \cdot w_\alpha(-1).  \end{align*}
@@ -121,7 +127,7 @@ For $\alpha\in\Phi$ and $s \in R^\times$ we define certain elements $w_\alpha(s)
 Recall from~\cite[Lemma~5.2]{Ma69} that the following relations hold for semisimple root elements:
 \begin{align} \label{eq:conj-h-x} {}^{h_\alpha(t)}\!x_\beta(u) & = x_\beta(t^{\langle \beta,  \alpha \rangle}u), \\ \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}. \end{align}
 
-\subsection{\texorpdfstring{$\K_2$}{K2}-groups and symbols} In our computations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our treatment of symbols follows~\cite{DS73}. Recall that Steinberg symbols are defined for arbitrary $s, t \in R^\times$ as follows:
+\subsection{\texorpdfstring{$\K_2$}{K2}-groups and symbols} In our computations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our notational conventions for symbols follow~\cite{DS73} and not more modern textbooks such as~\cite{Kbook}. Recall that Steinberg symbols are defined for arbitrary $s, t \in R^\times$ as follows:
 \begin{equation} \label{eq:steinberg} \{ s, t \}_\alpha = h_\alpha(st) \cdot h_\alpha^{-1}(s) \cdot h_\alpha^{-1}(t). \end{equation}
 In turn, Dennis--Stein symbols are defined for arbitrary $a, b\in R$ satisfying $1 + ab \in R^\times$:
 \begin{equation} \label{eq:dennis-stein}  \langle a,b \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- b}{1 + ab}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(b) \cdot x_{\alpha}\left(\tfrac{- a}{1+ab}\right) \cdot h_{\alpha}^{-1}(1 + ab). \end{equation} 
@@ -170,7 +176,7 @@ Clearly, the image of $g$ in $G(\Phi, k[X, X\inv])$ lies in $G(\Phi, k)$, theref
 \end{proof}
 
 \subsection{Relative Steinberg groups and unstable K-groups} \label{sec:quillen}
-In this subsection we recall the definitions and basic facts pertaining to relative Steinberg groups as defined by J.-L.~Loday in~\cite{Lo78}, where a theory of relative central extensions was developed and then applied to the stable Steinberg group $\St(R)$ from algebraic K-theory. The main goal of this subsection is to show that Loday's results can be applied to unstable Steinberg groups, and that the resulting relative groups enjoy many good properties of their stable counterparts.
+In this subsection we recall the definitions and basic facts pertaining to the theory of relative extensions developed by J.-L.~Loday in~\cite{Lo78}. This theory was applied by J.~Loday to the stable Steinberg group $\St(R)$ from algebraic K-theory. The main goal of this subsection is to show that Loday's theory can be applied to unstable Steinberg groups, and that the resulting relative Steinberg groups enjoy the same good properties as their stable counterparts.
 Some of the results of this subsection have been briefly mentioned in~\cite{S15} (cf. e.\,g. Corollaries 3--4).
 
 Recall that the category of (commutative) pairs $\catname{Pairs}$ is defined as follows.
@@ -239,7 +245,7 @@ It is not hard to obtain the following concrete description of these functors in
  \item $\K_3^{G,P}(R) \cong \HH_3(S(R), \ZZ).$ \end{enumerate} \end{lemma}
 \begin{proof} The first claim is obvious, the second and the third claim follow from~\ref{req:subfunc} and~\ref{req:uce} using the standard properties of the plus-construction, see \cite[\S~IV.1]{Kbook}   (cf. Exercises~1.8--1.9 ibid.) \end{proof}
 
-Now let us give the example of a triple $(G, P, S)$ playing a key role in the present paper.
+Now let us give an example of the triple $(G, P, S)$ playing a key role in the present paper.
 We denote by $\mathrm{O}_{2n}(R)$ and $\mathrm{EO}_{2n}(R)$ the orthogonal group of rank $n$ over a ring $R$ and its elementary subgroup, respectively
  (see e.\,g.~\cite{Su82} for the definition of these groups).
 Now set $G_n = \mathrm{O}_{2n}(-)$, $P_n = \mathrm{EO}_{2n}(R)$, $S_n = \St(\rD_n, -)$ and let $\pi$ be the obvious projection $S_n \to P_n$.
@@ -264,19 +270,18 @@ We conclude this subsection with the following stability result (see~\cite[Theor
  and an isomorphism for $n \geq b + 1$, where $b = \mathrm{max}(2i, a+i-1)$. \end{externaltheorem}
 
 \section{Proof of the first part of the injectivity theorem} \label{firstPart}
-We start this section by recalling basic notation and facts pertaining to hermitian K-theory.
-First of all, recall that the stable orthogonal K-groups $\KO_i(R) = \KO_i(\infty, R)$ are precisely the hermitian K-groups ${}_{-1}\!L_i(R)$ introduced by Karoubi in~\cite{Ka80}. We will need yet another redesignation for these groups $\KO_i(R)$, which comes from the theory of {\it higher Grothendieck--Witt groups of schemes}.
-Recall that this theory, developed by M.~Schlichting, is a modern broad generalization of the classical hermitian K-theory of rings developed in~\cite{Ka80}.
-We refer the reader to~\cite[\S~2]{FRS12} and~\cite[\S~2]{AF17} for the introduction to it.
+We start this section by recalling basic notation and facts pertaining to Grothendieck--Witt groups.
+%First of all, recall that the stable orthogonal K-groups $\KO_i(R) = \KO_i(\infty, R)$ are precisely the hermitian K-groups ${}_{-1}\!L_i(R)$ introduced by Karoubi in~\cite{Ka80}. We will need yet another redesignation for these groups $\KO_i(R)$, which comes from the theory of {\it higher Grothendieck--Witt groups of schemes}.
+Recall that this theory, developed by M.~Schlichting, is a modern broad generalization of the classical hermitian K-theory of rings developed in~\cite{Ka80}. We refer the reader to~\cite[\S~2]{FRS12} and~\cite[\S~2]{AF17} for an introduction to it.
 
-For our purposes it suffices to restrict attention to the affine case, in which we can consider Grothendieck--Witt groups $\GW_i^{[k]}(R)$ for $i \geq 1,\ [k] \in \ZZ/4\ZZ$
- simply as a shorthand for the following groups
+For our purposes it suffices to restrict attention to the affine case, in which  the Grothendieck--Witt groups $\GW_i^{[k]}(R)$ for $i \geq 1,\ [k] \in \ZZ/4\ZZ$ can be considered simply as a shorthand for the following groups:
 \begin{equation*} \GW_i^{[k]}(R) = \left\{\begin{array}{ll} \KO_i(R), & k = 0 \\ U_i(R), & k = 1 \\ \mathrm{KSp}_i(R), & k = 2 \\ {}_{-1}\!U_i(R), & k = 3. \end{array}\right. \end{equation*}
-The groups ${}_{\pm 1}\!U_i(R)$, $\mathrm{KSp}_i(R)$ are defined in~\cite{Ka80} and we will not use their definition. 
-What we need from Grothendieck--Witt groups is the following result due to M.~Schlichting.
+Here the groups $\mathrm{KO}_i(R)$ are the stable analogues of the groups $\KO_i(2n, R)$ considered in the previous chapter. Similarly, one can also define the symplectic $K$-groups $\mathrm{KSp}_i(R)$. The groups ${}_{\pm 1}\!U_i(R)$ are defined in~\cite{Ka80} and we will not use their definition directly.
+
+The following result, which is a special case of~\cite[Theorem~9.13]{Sch16} of M.~Schlichting, plays a key role in the proof of~\cref{thm41}.
 \begin{theorem*}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $R$ is a regular ring such that $2 \in R^*$, 
 then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{theorem*}
-\begin{proof} This is a very special case of~\cite[Theorem~9.13]{Sch16} and the remark that follows it. \end{proof}
+%\begin{proof} This is a very special case of and the remark that follows it. \end{proof}
 We will use the above theorem only in the special case $i=0$, in which it boils down to an earlier result of Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
 
 For the rest of this section let us fix the following notation.
@@ -432,11 +437,13 @@ For the rest of this subsection $A$ denotes a local ring with maximal ideal $M$.
 The aim of this subsection is to describe a generating set for the kernel of the map $ev_{X=0}^*\colon\overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, A, M)$
 induced by the ring homomorphism of evaluation at $0$. We denote this kernel by $K(A[X], M[X])$.
 
-It is obvious that $K(A[X], M[X])$ contains the subgroup $\overline{\St}(\Phi, A[X], XM[X])$. It turns out that although being larger than this subgroup, $K(A[X], M[X])$ contains very few extra generators, which can all be explicitly described.
+It is obvious that $K(A[X], M[X])$ contains the subgroup $\overline{\St}(\Phi, A[X], XM[X])$. It turns out that, although being larger than this subgroup, $K(A[X], M[X])$ contains very few extra generators, which can all be explicitly described (see~\cref{Kgen} and the corollary that follows it). 
+
+It follows from~\cref{Kdecomp1} below that $K(A[X], M[X])$ coincides with the double commutator subgroup $[\overline{\St}(\Phi, A[X], M[X]), \overline{\St}(\Phi, A[X], XA[X])].$ Thus, if we replace relative Steinberg groups in the statement of~\cref{Kgen} with relative elementary groups then the resulting assertion becomes a special case of a much more general recent result of N.~Vavilov and Z.~Zhang (cf.~\cite[Theorem~1]{VZ18}).
 
 Since $ev_{X=0}^*$ admits a section, we can consider $\overline{\St}(\Phi, A, M)$ and $\St(\Phi, M)$ as subgroups of $\overline{\St}(\Phi, A[X], M[X])$,
  moreover, one has $\overline{\St}(\Phi, A[X], M[X]) = \overline{\St}(\Phi, A, M) \cdot K(A[X], M[X]).$
-\begin{lemma} The following decomposition holds
+\begin{lemma} \label{Kdecomp1} The following decomposition holds
  \[ K(A[X], M[X]) = \overline{\St}(\Phi, A[X], XM[X]) \cdot \left[\St(\Phi, XA[X]),\ \overline{\St}(\Phi, A, M)\right].\] \end{lemma}
 \begin{proof} Fix $g \in K(A[X], M[X])$ and write it as $g(X) = \prod_i z_{\alpha_i}(f_i(X), \xi_i(X))$ for some $f_i(X) = f_i(0) + Xf_i'(X) \in M[X]$, $\xi_i(X) = \xi_i(0) + X\xi_i'(X) \in A[X]$.
  It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the element $g(X)$ is congruent to $g_1(X) = \prod_i z_{\alpha_i}(f_i(0), \xi_i(X)).$ 
