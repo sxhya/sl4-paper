@@ -77,15 +77,38 @@
 \email {sinchukss at gmail.com}
 \date {\today}
 
+
+
 \begin{document}
+\begin{abstract} We prove an analogue of Horrocks theorem for orthogonal Steinberg groups. \end{abstract}
 \maketitle
 \section{Introduction}
 
+The solution of the famous Serre problem on projective modules by D.~Quillen and A.~Suslin was one of the achievements of the mathematics of the 70's,
+ which played a significant role in the development of modern algebraic K-theory. In its simplest form it asks whether any projective module over a polynomial ring $k[x_1,\ldots, x_n]$ over a field $k$ is free. 
+ 
+We refer the reader to the textbook~\cite{Lam10} for a more complete introduction to the problem and its history.
+
+Numerous analogues of Serre problem have been studied subsequently. For example, A.~Suslin himself solved the so-called $K_1$-analogue of Serre's problem, see~\cite{Su77}.
+His results were generalized by E.~Abe in~\cite{Abe83} and later by A.~Stavrova in~\cite{St-poly}.
+
+There are three main ingredients in the proof of any analogue of Serre's problem: Quillen--Suslin local-global principle, Horrocks theorem, Zariski glueing.
+In~\cite{LS17} the authors have already shown that Steinberg groups $\St(\Phi, R)$ satisfy the local-global principle. In this paper we make another step towards
+ transferring Tulenbayev's result to Steiberg groups and prove the following theorem.
 \begin{theorem*} Suppose $A$ is a local ring with maximal ideal $M$. Then for any $\ell \geq 7$ and $2 \in A^*$ the following commutative square is a pullback in which all arrows are injective:
  \begin{equation} \nonumber
   \xymatrix{ \St(\rD_\ell, A) \ar[r] \ar[d] & \St(\rD_\ell, A[X]) \ar[d] \\ \St(\rD_\ell, A[X\inv]) \ar[r] & \St(\rD_\ell, A[X, X\inv]).}
  \end{equation}
 \end{theorem*}
+This result should be compared with~\cite[Theorem~1.1]{St-poly}...
+
+The proof of our main result breaks into two parts. 
+
+\subsection{Acknowledgements} Theorem 1 is due to the first-named author who acknowledges the financial support of RSCF grant No ???.
+Theorem 2 is due to the second-named author who acknowledges the financial support of GazpromNeft and RFBR grant No ???
+
+The authors would also to express their gratitude to A.~Stavrova for posing the problem and also
+ to A.~Stepanov and N.~Vavilov for many useful comments and also their interest in this work.
 
 
 \section{Preliminaries}
@@ -237,7 +260,7 @@ This map is an isomorphism by~\cite[Th{\'e}or{\`e}me~2]{Lo78}. \end{proof}
 
 We retain our notation for the functors $S, P$ and $G$.
 For $i\geq 1$ we define the unstable Quillen K-functors $\K_{i}^{G, P}$ via
-\[ \K_i^{G,P}(R) = \pi_i(BG(R)^+_{P(R)}). \]
+\begin{equation} \label{plus-constr} \K_i^{G,P}(R) = \pi_i(BG(R)^+_{P(R)}). \end{equation}
 It is not hard to obtain the following concrete description of these functors in the cases $i=1,2,3$.
 \begin{lemma}\label{lem:lowerKgroups} There are natural isomorphisms \begin{enumerate}
  \item $\K_1^{G,P}(R) \cong G(R) / P(R)$;
@@ -270,19 +293,22 @@ We conclude this subsection with the following stability result (see~\cite[Theor
  and an isomorphism for $n \geq b + 1$, where $b = \mathrm{max}(2i, a+i-1)$. \end{externaltheorem}
 
 \section{Proof of the first part of the injectivity theorem} \label{firstPart}
-We start this section by recalling basic notation and facts pertaining to Grothendieck--Witt groups.
+We start this section by recalling basic notation and facts pertaining to the theory of Grothendieck--Witt groups.
 %First of all, recall that the stable orthogonal K-groups $\KO_i(R) = \KO_i(\infty, R)$ are precisely the hermitian K-groups ${}_{-1}\!L_i(R)$ introduced by Karoubi in~\cite{Ka80}. We will need yet another redesignation for these groups $\KO_i(R)$, which comes from the theory of {\it higher Grothendieck--Witt groups of schemes}.
 Recall that this theory, developed by M.~Schlichting, is a modern broad generalization of the classical hermitian K-theory of rings developed in~\cite{Ka80}. We refer the reader to~\cite[\S~2]{FRS12} and~\cite[\S~2]{AF17} for an introduction to it.
 
-For our purposes it suffices to restrict attention to the affine case, in which  the Grothendieck--Witt groups $\GW_i^{[k]}(R)$ for $i \geq 1,\ [k] \in \ZZ/4\ZZ$ can be considered simply as a shorthand for the following groups:
+For our purposes it suffices to restrict attention to the affine case, in which  the Grothendieck--Witt groups $\GW_i^{[k]}(R)$ for $i \geq 1,\ [k] \in \ZZ/4\ZZ$ can be considered simply as a shorthand for the following 4 groups:
 \begin{equation*} \GW_i^{[k]}(R) = \left\{\begin{array}{ll} \KO_i(R), & k = 0 \\ U_i(R), & k = 1 \\ \mathrm{KSp}_i(R), & k = 2 \\ {}_{-1}\!U_i(R), & k = 3. \end{array}\right. \end{equation*}
-Here the groups $\mathrm{KO}_i(R)$ are the stable analogues of the groups $\KO_i(2n, R)$ considered in the previous chapter. Similarly, one can also define the symplectic $K$-groups $\mathrm{KSp}_i(R)$. The groups ${}_{\pm 1}\!U_i(R)$ are defined in~\cite{Ka80} and we will not use their definition directly.
+Here $\mathrm{KO}_i(R)$ denotes the usual orthogonal K-group defined via~\eqref{plus-constr} in which $G(R) = O_\infty(R)$ and $P(R) = [G(R), G(R)]$.
+Replacing the stable orthogonal group with the stable symplectic group one can also define the symplectic $K$-groups $\mathrm{KSp}_i(R)$.
+We refer the reader to~\cite{Ka80} for the definition and properties of the groups ${}_{\pm 1}\!U_i(R)$.
+We will not directly use the definitions of these groups.
 
 The following result, which is a special case of~\cite[Theorem~9.13]{Sch16} of M.~Schlichting, plays a key role in the proof of~\cref{thm41}.
-\begin{theorem*}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $R$ is a regular ring such that $2 \in R^*$, 
-then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{theorem*}
+\begin{externaltheorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $R$ is a regular ring such that $2 \in R^*$, 
+then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{externaltheorem}
 %\begin{proof} This is a very special case of and the remark that follows it. \end{proof}
-We will use the above theorem only in the special case $i=0$, in which it boils down to an earlier result of Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
+We will use the above theorem only in the special case $i=0$, in which it boils down to an earlier result of J.~Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
 
 For the rest of this section let us fix the following notation.
 Let $A$ be arbitrary commutative local ring with maximal ideal $M$ and residue field $k$.
@@ -301,7 +327,7 @@ and using the isomorphisms of~\cref{lem:relativeH3} and~\cref{lem:lowerKgroups} 
  \KO_3(2\ell, B) \ar[r] \ar[d] & \KO_3(2\ell, k[X]) \ar[d]_{f'} \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
  \KO_3(2\ell, R) \ar[r]        & \KO_3(2\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
 By~\cref{Panin-stability} theorem the map $f'$ can be identified with the canonical map $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
-By Bass fundamental theorem $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k) \oplus \GW_2^{[3]}(k),$
+By~\cref{bass-ft} $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k) \oplus \GW_2^{[3]}(k),$
 but since the group $\GW_2^{[3]}(k)$ is trivial by~\cite[Lemma~2.2]{FRS12}, the map $f'$ (and hence $f$) is surjective.
 \end{proof} 
  
@@ -386,7 +412,7 @@ and the required assertion follows from~\eqref{Z2}.
 \end{proof}
 
 Let us mention an immediate application of the just proved lemma. 
-First of all, recall the following two results in which two generating sets for the group $\overline{\St}(\Phi, R, I)$ are described.
+First of all, recall the following two results which give two generating sets for the group $\overline{\St}(\Phi, R, I)$.
 \begin{externaltheorem}[Stein--Tits--Vaserstein] \label{thm:Tits} For arbitrary $\Phi$ of rank $\geq 2$ the group $\overline{\St}(\Phi, R, I)$ is generated by elements $z_\alpha(s, \xi)$, $\alpha \in \Phi$, $s \in I$, $\xi \in R$. \end{externaltheorem} \begin{proof} See e.\,g.~\cite[Theorem 2]{Va86}. \end{proof}
 
 For a subset of roots $U \subseteq \Phi$ we denote by $\mathcal{Z}(U, R, I)$ the subset of roots consisting of elements $x_\alpha(s)$, $s \in I$, $\alpha \in \Phi$ and $z_\alpha(s, \xi)$, $\alpha \in U$, $s\in I$, $\xi \in R$.
@@ -837,7 +863,7 @@ Then for any $\alpha \in \Phi$ and $a \in A$ the partial function $t_\alpha(aX^{
  By definition, $h_1^{-1} h_2 = i_-(h_0)$, for some $h_0 \in G^0_M$, moreover, 
   $p(g, h_1, u)^{-1} \cdot p(g, h_2, u) = j_- i_-(h_0) = j_+ i_+(h_0) \in P_\alpha(*)$.
  By~\cref{Pstar-char} there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $g_0 := ev^*_{X=0}(g_1) \in Z_\alpha(A, M)$ and $j_+(g_1) = j_+ i_+ (h_0)$.
- From the last equality and the injectivity of the map $G(\Phi, A[X]) \to G(\Phi, R)$ we obtain that the projections of $g_0$, $g_1$ and $h_0$ in $G(\Phi, R)$ are equal, which shows that $g_0 \cdot h_0^{-1} \in \overline{\K_2}(\Phi, A, M)$. It follows from Stein's theorem that the latter subgroup is generated by relative Steinberg symbols $\{ a, 1 + m \}$ and therefore is contained in $Z_\alpha(A, M)$ by~\cref{Z-DS}. Thus, we have obtained that $h_0 \in Z_\alpha(A, M)$ and hence that $i_-(h_0)$ is centralized by $X_\alpha(A[X^{-1}])$, which allows us to conclude that
+ From the last equality and the injectivity of the map $G(\Phi, A[X]) \to G(\Phi, R)$ we obtain that the projections of $g_0$, $g_1$ and $h_0$ in $G(\Phi, R)$ are equal, which shows that $g_0 \cdot h_0^{-1} \in \overline{\K_2}(\Phi, A, M)$. It follows from~\cref{thm:Stein} that the latter subgroup is generated by relative Steinberg symbols $\{ a, 1 + m \}$ and hence by~\cref{Z-DS} it is contained in $Z_\alpha(A, M)$. Thus, we have obtained that $h_0 \in Z_\alpha(A, M)$ and hence that $i_-(h_0)$ is centralized by $X_\alpha(A[X^{-1}])$, which allows us to conclude that
  \begin{multline} \nonumber
   t_\alpha(aX^{-1})(g, h_1, u) = \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) \sim \\
   \sim \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 i_-(h_0) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) = t_\alpha(aX^{-1})(g, h_2, u). \qedhere
