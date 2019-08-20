@@ -85,30 +85,28 @@
 \section{Introduction}
 
 The solution of the famous Serre problem on projective modules by D.~Quillen and A.~Suslin was one of the achievements of the mathematics of the 70's,
- which played a significant role in the development of modern algebraic K-theory. In its simplest form it asks whether any projective module over a polynomial ring $k[x_1,\ldots, x_n]$ over a field $k$ is free. 
- 
-We refer the reader to the textbook~\cite{Lam10} for a more complete introduction to the problem and its history.
+ which played a significant role in the development of modern algebraic K-theory. In its simplest form it asks whether any projective module over a polynomial ring $k[x_1,\ldots, x_n]$ over a field $k$ is free. We refer the reader to the textbook~\cite{Lam10} for a more complete introduction to the problem and its history.
 
 Numerous analogues of Serre problem have been studied subsequently. For example, A.~Suslin himself solved the so-called $K_1$-analogue of Serre's problem, see~\cite{Su77}.
-His results were generalized by E.~Abe in~\cite{Abe83} and later by A.~Stavrova in~\cite{St-poly}.
+His results were generalized by E.~Abe in~\cite{Abe83} and later by A.~Stavrova in~\cite{St-poly}. 
 
-There are three main ingredients in the proof of any analogue of Serre's problem: Quillen--Suslin local-global principle, Horrocks theorem, Zariski glueing.
+There are three main ingredients in the proof of the $\K_2$-analogue of Serre's problem. These ingredients are Quillen--Suslin local-global principle, Horrocks theorem, Zariski glueing.
 In~\cite{LS17} the authors have already shown that Steinberg groups $\St(\Phi, R)$ satisfy the local-global principle. In this paper we make another step towards
- transferring Tulenbayev's result to Steiberg groups and prove the following theorem.
-\begin{theorem*} Suppose $A$ is a local ring with maximal ideal $M$. Then for any $\ell \geq 7$ and $2 \in A^*$ the following commutative square is a pullback in which all arrows are injective:
- \begin{equation} \nonumber
+ transferring Tulenbayev's result to orthogonal Steiberg groups and prove the following theorem (cf.~\cite[Theorem~5.1]{Tu83})
+\begin{theorem}\label{thm:main} Suppose $A$ is a commutative ring in which $2$ is invertible. Then for any $\ell \geq 7$ the following commutative square is a pullback in which all arrows are injective:
+\begin{equation} \nonumber
   \xymatrix{ \St(\rD_\ell, A) \ar[r] \ar[d] & \St(\rD_\ell, A[X]) \ar[d] \\ \St(\rD_\ell, A[X\inv]) \ar[r] & \St(\rD_\ell, A[X, X\inv]).}
- \end{equation}
-\end{theorem*}
-This result should be compared with~\cite[Theorem~1.1]{St-poly}...
+\end{equation} \end{theorem}
+It is easy to see that in the statement of the above theorem the groups $\St(\rD_\ell, -)$  can be replaced with the groups $\K_2(\rD_\ell, -)$. Thus, the above result can be thought of as a direct $\K_2$-analogue of~\cite[Theorem~6.8]{Su82}.
 
-The proof of our main result breaks into two parts. 
+The proof of~\cref{thm:main} goes as follows. After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local. Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $\St(\rD_\ell, A[X]) \to \St(\rD_\ell, A[X, X\inv])$ comes down to proving injectivity of the following two maps
+\[ \xymatrix{ \St(\rD_\ell, A[X]) \ar[r] & \St(\rD_\ell, A[X\inv] + M[X]) \ar[r] & \St(\rD_\ell, A[X, X\inv].) }\]
+The injectivity of the second map is obtained in~\cref{thm41}. This is the only place in our proof which uses the invertibility of $2$ assumption. This result involves some previously known computations with Grothendieck--Witt groups and also the stabilization theorem for the orthogonal K-theory. The injectivity of the first map is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. In the proof of this result we also make explicit many of the details which are left implicit in Tulenbaev's proof.
 
-\subsection{Acknowledgements} Theorem 1 is due to the first-named author who acknowledges the financial support of RSCF grant No ???.
-Theorem 2 is due to the second-named author who acknowledges the financial support of GazpromNeft and RFBR grant No ???
+\subsection{Acknowledgements} Theorem 2 is due to the first-named author who acknowledges the financial support of RSCF grant No ???.
+Theorem 3 is due to the second-named author who acknowledges the financial support of JSC Gazpromneft and RFBR grant No 18-31-20044
 
-The authors would also to express their gratitude to A.~Stavrova for posing the problem and also
- to A.~Stepanov and N.~Vavilov for many useful comments and also their interest in this work.
+The authors would also to express their gratitude to A.~Stavrova for posing the problem and also to A.~Stepanov and N.~Vavilov for many useful comments and also their interest in this work.
 
 
 \section{Preliminaries}
@@ -295,7 +293,7 @@ We conclude this subsection with the following stability result (see~\cite[Theor
  Then the stability map $\KO_i(2n, R) \to \KO_i(2(n+1), R)$ is an epimorphism for $n \geq b$ 
  and an isomorphism for $n \geq b + 1$, where $b = \mathrm{max}(2i, a+i-1)$. \end{externaltheorem}
 
-\section{Proof of the first part of the injectivity theorem} \label{firstPart}
+\section{An injectivity theorem for Steinberg groups} \label{firstPart}
 We start this section by recalling basic notation and facts pertaining to the theory of Grothendieck--Witt groups.
 %First of all, recall that the stable orthogonal K-groups $\KO_i(R) = \KO_i(\infty, R)$ are precisely the hermitian K-groups ${}_{-1}\!L_i(R)$ introduced by Karoubi in~\cite{Ka80}. We will need yet another redesignation for these groups $\KO_i(R)$, which comes from the theory of {\it higher Grothendieck--Witt groups of schemes}.
 Recall that this theory, developed by M.~Schlichting, is a modern broad generalization of the classical hermitian K-theory of rings (see e.\,g.~\cite{Ka80}). We refer the reader to~\cite[\S~2]{FRS12} and~\cite[\S~2]{AF17} for an introduction to Grothendieck--Witt groups.
@@ -974,7 +972,7 @@ Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ in~\eqref{Z5} we obtain 
 From the first part of the proof and inductive assumption we obtain that the assertion of the lemma holds for all the factors in the right-hand side and, therefore, also holds  for $p_1 = z_\alpha(f, X\xi)$. It is easy to deduce from this that the assertion also holds for $p_1 = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
 \end{proof}
 
-We are ready to prove our main result.
+We are ready for the first main result of this section.
 \begin{theorem} \label{thm:P1glueing}
  Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
  Suppose that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
@@ -996,6 +994,15 @@ We are ready to prove our main result.
  \[ [j_+(h_+)^{-1}, h_-, 1] = j_+(h_+)^{-1} \cdot [1, h_-, 1] = j_+(h_+)^{-1} j_B^-(h_-) \cdot [1, 1, 1] = [1, 1, 1]. \]
  Thus, $h_-$ (and hence $h_+$) come from some element of $G_M^0$, which implies that $g_+$ and $g_-$ are images of some element of $\St(\Phi, A)$.
  \end{proof}
+  
+\begin{proof}[Proof of~\cref{thm:main}]
+ The assertion of the theorem follows from~\cref{thm41} and~\cref{thm:P1glueing} in the special case when $A$ is a local ring.
+ 
+ Now if $g \in \St(\rD_\ell, A[X])$ is such that its image in $\St(\rD_\ell, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\rD_\ell, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$. By the just established local case the images of $g$ in all $\St(\rD_\ell, A_M[X])$ are also trivial hence by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is also trivial. 
+ 
+ The proof of the fact the square of Steinberg groups is pullback is very similar   to the above argument (cf. also with~\cite[Theorem~5.1a]{Tu83}).
+\end{proof}
 
+  
 \printbibliography
 \end{document}
