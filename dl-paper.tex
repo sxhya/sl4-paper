@@ -6,7 +6,7 @@
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz}
 \usepackage{enumitem}
-\usepackage[notref,notcite]{showkeys}
+%\usepackage[notref,notcite]{showkeys}
 
 \addbibresource{paper.bib}
 \renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
@@ -83,14 +83,14 @@
 \begin{abstract} We prove an analogue of Horrocks theorem for even-dimensional orthogonal Steinberg groups. This result transfers to the orthogonal case an earlier result of M.~Tulenbaev and is also a $\K_2$-analogue of an earlier result of A.~Suslin and V.~Kopeiko. \end{abstract}
 \maketitle
 \section{Introduction}
-The solution of the famous Serre problem on projective modules by D.~Quillen and A.~Suslin was one of the brilliant achievements of mathematics of the 70's, which bolstered the development of modern algebraic K-theory. In its weakest form Serre problem asks whether any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. We refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent affirmative solution.
+The solution of the famous Serre problem on projective modules by D.~Quillen and A.~Suslin was one of the brilliant achievements of mathematics of the 70's, which bolstered the development of modern algebraic K-theory, see~\cite{Su76, Qu76}. In its weakest form Serre problem asks whether any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. We refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent affirmative solution.
 
-After the original Serre problem had been solved, numerous analogous statements have drawn the attention of specialists. For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_{1,n}(R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has trivial values on polynomial rings $k[x_1, \ldots x_n]$ over fields for all $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently, A.~Stavrova has obtained probably the most general result in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on arbitary isotropic reductive group scheme $G/k$ of isotropic rank $\geq 2$ (see~\cite[Theorem~1.2]{St-poly}).
+After the original Serre problem had been solved, numerous analogous statements have drawn the attention of specialists. For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_{1,n}(R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has trivial values on polynomial rings $k[x_1, \ldots x_n]$ over fields for all $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently, A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ (see~\cite[Theorem~1.2]{St-poly} for the result over a field and ~\cite[Corollary~1.2]{St-Ded} for its further generalization to Dedekind domains of arithmetic type).
 
 Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the group $G(\Phi, R)$ called {\it simply-connected Chevalley group} (see~\cite[\S~3]{St71} or~\cite{VP}) and the group $\St(\Phi, R)$ called {\it Steinberg group} (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined map $\pi \colon \St(\Phi, R) \to G(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this map are, by definition, the $\K_1$ and $\K_2$ groups modeled on Chevalley group $G(\Phi, -)$:
 \[ \xymatrix{ 1 \ar[r] & \K_2(\Phi, R) \ar[r] & \St(\Phi, R) \ar^{\pi}[r] & G(\Phi, R) \ar[r] & \K_1(\Phi, R) \ar[r] & 1.} \]
 
-One might ask whether any analogue of Serre's problem also exists for the functor $\K_2$ and it turns out that it is indeed so. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrates an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^M_2(k)$ immediately follows for $\ell \geq 4$. While a number of new results on the $\K_1$-analogue of Serre's problem have appeared in the literature since~\cite{Su77} (see e.\,g.~\cite{Abe83, St-poly}), little progress has been made for the $\K_2$-analogue since~\cite{Tu83}. Currently the conjecture still remains open for all $\Phi$ different from $\rA_\ell$, $\ell \geq 4$.
+One might ask whether any analogue of Serre's problem also exists for the functor $\K_2$ and it turns out that it is indeed so. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrates an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^M_2(k)$ immediately follows for $\ell \geq 4$. While a number of new results on the $\K_1$-analogue of Serre's problem have appeared in the literature since~\cite{Su77} (see e.\,g.~\cite{Abe83, St-poly, St-Ded}), little progress has been made for the $\K_2$-analogue since~\cite{Tu83}. Currently the conjecture still remains open for all $\Phi$ different from $\rA_\ell$, $\ell \geq 4$.
 
 In~\cite{LS17} the authors have shown that Steinberg groups $\St(\Phi, R)$ satisfy Quillen--Suslin local-global principle provided $\Phi$ is simply-laced and has rank $\geq 3$. This result is one of the ingredients needed in the proof of the $\K_2$-analogue of Serre problem. The aim of the present article is to make yet another step towards the solution of the problem. Our main result is the following theorem, which is the orthogonal analogue of~\cite[Theorem~5.1]{Tu83} and the $\K_2$-analogue of~\cite[Theorem~6.8]{Su82} (cf. also with~\cite[Theorem~VI.5.2]{Lam10} and~\cite[Theorem~1.1]{St-poly}).
 \begin{theorem}[Horrocks theorem for orthogonal $\K_2$]\label{thm:main} Suppose $A$ is a commutative ring in which $2$ is invertible. Then for any $\ell \geq 7$ the following commutative square is a pullback square in which all arrows are injective:
@@ -103,8 +103,8 @@ Our proof of~\cref{thm:main} goes as follows. After invoking the local-global pr
 \[ \xymatrix{ \St(\rD_\ell, A[X]) \ar[r] & \St(\rD_\ell, A[X\inv] + M[X]) \ar[r] & \St(\rD_\ell, A[X, X\inv].) }\]
 The injectivity of the second map is obtained in~\cref{thm41}. This is the only place in our proof which invokes the assumption that $2$ is invertible. The proof of~\cref{thm41} depends on certain computations with Grothendieck--Witt groups and also on the stability theorem for the higher orthogonal K-groups. The injectivity of the first map is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. %In the proof of~\cref{thm:P1glueing} we also write explicitly many of the details left implicit in Tulenbaev's paper.
 
-\subsection{Acknowledgements} Theorem 2 is obtained by the first-named author who acknowledges the financial support of RSCF grant No ???.
-Theorem 3 is obtained by the second-named author who acknowledges the financial support of JSC Gazpromneft and RFBR grant No 18-31-20044
+\subsection{Acknowledgements} \cref{thm41} is obtained by the first-named author who acknowledges the financial support of RSCF grant No ???.
+\cref{thm:P1glueing} is obtained by the second-named author who acknowledges the financial support of JSC Gazpromneft and RFBR grant No 18-31-20044
 
 The authors would also to express their gratitude to A.~Stavrova for posing the problem and also to A.~Stepanov and N.~Vavilov for many useful comments and their interest in this work.
 
@@ -296,7 +296,7 @@ We conclude this subsection with the following stability result (see~\cite[Theor
 \section{An injectivity theorem for Steinberg groups} \label{firstPart}
 We start this section by recalling basic notation and facts pertaining to the theory of Grothendieck--Witt groups.
 %First of all, recall that the stable orthogonal K-groups $\KO_i(R) = \KO_i(\infty, R)$ are precisely the hermitian K-groups ${}_{-1}\!L_i(R)$ introduced by Karoubi in~\cite{Ka80}. We will need yet another redesignation for these groups $\KO_i(R)$, which comes from the theory of {\it higher Grothendieck--Witt groups of schemes}.
-Recall that this theory, developed by M.~Schlichting, is a modern broad generalization of the classical hermitian K-theory of rings (see e.\,g.~\cite{Ka80}). We refer the reader to~\cite[\S~2]{FRS12} and~\cite[\S~2]{AF17} for an introduction to Grothendieck--Witt groups.
+Recall that this theory, developed by M.~Schlichting, is a modern broad generalization of the classical hermitian K-theory of rings (see~\cite{Ka80}). We refer the reader to~\cite[\S~2]{FRS12} and~\cite[\S~2]{AF17} for an introduction to Grothendieck--Witt groups.
 
 For our purposes it suffices to restrict attention to the affine case, in which  the Grothendieck--Witt groups $\GW_i^{[k]}(R)$ for $i \geq 1,\ [k] \in \ZZ/4\ZZ$ can be considered simply as a shorthand for the following 4 groups:
 \begin{equation*} \GW_i^{[k]}(R) = \left\{\begin{array}{ll} \KO_i(R), & k = 0 \\ U_i(R), & k = 1 \\ \mathrm{KSp}_i(R), & k = 2 \\ {}_{-1}\!U_i(R), & k = 3. \end{array}\right. \end{equation*}
@@ -347,9 +347,7 @@ Then there exists a diagonal map $t$ which makes the diagram commute.
 %  (see~\cite[\S~2]{LS17} for more details).
 \end{proof}
 
-\begin{theorem} \label{thm41}
-Suppose that $2 \in A^*$. Then for $\ell \geq 7$ the canonical map $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective.
-\end{theorem}
+\begin{externaltheorem} \label{thm41} Suppose that $2 \in A^*$. Then for $\ell \geq 7$ the canonical map $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective. \end{externaltheorem}
 \begin{proof}
  Consider the following commutative diagram with exact rows, in which the lifting $t$ is obtained from~\cref{lem:lemma32}:
 \begin{equation*} \xymatrix{
@@ -421,7 +419,7 @@ For a subset of roots $U \subseteq \Phi$ we denote by $\mathcal{Z}(U, R, I)$ the
  Here $\Sigma_S$ denotes the special part of an arbitrary parabolic subset of roots $S \subseteq \Phi$.
 \end{externaltheorem} \begin{proof} See~\cite[Lemma~4]{S15}. \end{proof}
 
-\begin{rem} For a simply-laced $\Phi$~\cref{thm:Stepanov} can be deduced from~\cref{thm:Tits} by means of~\cref{Zrels}. Indeed, consider the operator $d \colon 2^\Phi \to 2^\Phi$ of root subsets given by $d(U) = U \cup (U - U)\cap \Phi$, $U \subseteq \Phi$. In other words, $d$ adjoins to $U$ all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^n(\Sigma_S) = \Phi$ (in fact, $n=2$). It remains to see that relation~\eqref{Z5} immediately implies that every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
+\begin{rem} For a simply-laced $\Phi$~\cref{thm:Stepanov} can be deduced from~\cref{thm:Tits} by means of~\cref{Zrels}. Indeed, consider the operator $d \colon 2^\Phi \to 2^\Phi$ of root subsets given by $d(U) = U \cup (U - U)\cap \Phi$, $U \subseteq \Phi$. In other words, $d$ adjoins to $U$ all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^n(\Sigma_S) = \Phi$ for some $n>1$ (in fact, $n=2$). It remains to see that relation~\eqref{Z5} immediately implies that every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
 
 For the following lemma we will need the following variant of Hall--Witt identity:
 \begin{equation} \label{HW-variant} [[x, y], z] = \left([x^{-1}, [ y^{-1}, z]] ^ {y^{-1}} \cdot [y, [ z^{-1}, x^{-1}]] ^ {z^{-1}} \right)^{x^{-1}}.\end{equation}
@@ -973,14 +971,14 @@ From the first part of the proof and inductive assumption we obtain that the ass
 \end{proof}
 
 We are ready for the first main result of this section.
-\begin{theorem} \label{thm:P1glueing}
+\begin{externaltheorem} \label{thm:P1glueing}
  Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
  Suppose that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
  Then the map $j_-$ is injective and the following commutative square is pullback
  \begin{equation} \nonumber
   \xymatrix{ \St(\Phi, A) \ar[r] \ar[d] & \St(\Phi, A[X]) \ar[d]^{j_+} \\ \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, A[X, X\inv]).}
  \end{equation}
-\end{theorem}
+\end{externaltheorem}
 \begin{proof} Since $j_- = j_R j_B^-$, where $j_B^-$ is as in~\cref{prop43}, it suffices to show that $j_B^-$ is injective.
  Set $v_0 = [1, 1, 1] \in \overline{V}_T$ and suppose $g \in \Ker(j_B)$.
  By~\cref{prop43} holds $v_0 = j_B^-(g) \cdot v_0 = [1, g, 1]$ therefore $g \in G_M^0$ and consequently $g = 1$.
