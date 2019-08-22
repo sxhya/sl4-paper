@@ -77,31 +77,37 @@
 \email {sinchukss at gmail.com}
 \date {\today}
 
-
-
 \begin{document}
 \begin{abstract} We prove an analogue of Horrocks theorem for even-dimensional orthogonal Steinberg groups. This result transfers to the orthogonal case an earlier result of M.~Tulenbaev and is also a $\K_2$-analogue of an earlier result of A.~Suslin and V.~Kopeiko. \end{abstract}
 \maketitle
 \section{Introduction}
-The solution of the famous Serre problem on projective modules by D.~Quillen and A.~Suslin was one of the brilliant achievements of mathematics of the 70's, which bolstered the development of modern algebraic K-theory, see~\cite{Su76, Qu76}. In its weakest form Serre problem asks whether any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. We refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent affirmative solution.
+The solution of the famous Serre problem on projective modules by D.~Quillen and A.~Suslin was one of the brilliant achievements of mathematics of the 70's, which bolstered the development of modern algebraic K-theory, see~\cite{Su76, Qu76}. In its weakest form Serre problem asks whether any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. We refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
 
-After the original Serre problem had been solved, numerous analogous statements have drawn the attention of specialists. For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_{1,n}(R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has trivial values on polynomial rings $k[x_1, \ldots x_n]$ over fields for all $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently, A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ (see~\cite[Theorem~1.2]{St-poly} for the result over a field and ~\cite[Corollary~1.2]{St-Ded} for its further generalization to Dedekind domains of arithmetic type).
+After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see~\cite{Su77, Su82, Abe83, Tu83, Lam10, Das17, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_{1,n}(R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_{1,n}(k[x_1, \ldots x_n]) = \K_{1,n}(k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently, A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ (see~\cite[Theorem~1.2]{St-poly} for the result over a field and ~\cite[Corollary~1.2]{St-Ded} for its further generalization to Dedekind domains of arithmetic type).
 
 Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the group $G(\Phi, R)$ called {\it simply-connected Chevalley group} (see~\cite[\S~3]{St71} or~\cite{VP}) and the group $\St(\Phi, R)$ called {\it Steinberg group} (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined map $\pi \colon \St(\Phi, R) \to G(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this map are, by definition, the $\K_1$ and $\K_2$ groups modeled on Chevalley group $G(\Phi, -)$:
 \[ \xymatrix{ 1 \ar[r] & \K_2(\Phi, R) \ar[r] & \St(\Phi, R) \ar^{\pi}[r] & G(\Phi, R) \ar[r] & \K_1(\Phi, R) \ar[r] & 1.} \]
 
-One might ask whether any analogue of Serre's problem also exists for the functor $\K_2$ and it turns out that it is indeed so. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrates an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^M_2(k)$ immediately follows for $\ell \geq 4$. While a number of new results on the $\K_1$-analogue of Serre's problem have appeared in the literature since~\cite{Su77} (see e.\,g.~\cite{Abe83, St-poly, St-Ded}), little progress has been made for the $\K_2$-analogue since~\cite{Tu83}. Currently the conjecture still remains open for all $\Phi$ different from $\rA_\ell$, $\ell \geq 4$.
+One might ask whether any analogue of Serre's problem also exists for the functor $\K_2$ and it turns out that it is indeed so. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrates an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^\mathrm{M}_2(k)$ immediately follows for $\ell \geq 4$. While numerous results on the $\K_1$-analogue of Serre's problem have appeared in the literature since~\cite{Su77} (see e.\,g.~\cite{Su82, Abe83, St-poly, St-Ded}), little progress has been made on the $\K_2$-analogue. Currently the conjecture still remains open for all $\Phi$ different from $\rA_\ell$, $\ell \geq 4$.
 
-In~\cite{LS17} the authors have shown that Steinberg groups $\St(\Phi, R)$ satisfy Quillen--Suslin local-global principle provided $\Phi$ is simply-laced and has rank $\geq 3$. This result is one of the ingredients needed in the proof of the $\K_2$-analogue of Serre problem. The aim of the present article is to make yet another step towards the solution of the problem. Our main result is the following theorem, which is the orthogonal analogue of~\cite[Theorem~5.1]{Tu83} and the $\K_2$-analogue of~\cite[Theorem~6.8]{Su82} (cf. also with~\cite[Theorem~VI.5.2]{Lam10} and~\cite[Theorem~1.1]{St-poly}).
-\begin{theorem}[Horrocks theorem for orthogonal $\K_2$]\label{thm:main} Suppose $A$ is a commutative ring in which $2$ is invertible. Then for any $\ell \geq 7$ the following commutative square is a pullback square in which all arrows are injective:
+In~\cite{LS17} the authors have shown that Steinberg groups $\St(\Phi, R)$ satisfy Quillen--Suslin local-global principle provided $\Phi$ is simply-laced and has rank $\geq 3$. This result is one of the ingredients needed in the proof of the $\K_2$-analogue of Serre problem. The aim of the present article is to make yet another step towards the solution of the problem, namely  to prove an analogue of Horrocks theorem~\cite{Ho64} for Steinberg groups.
+
+Thus, our main result is the following theorem, which is the orthogonal analogue of~\cite[Theorem~5.1]{Tu83} and the $\K_2$-analogue of~\cite[Theorem~6.8]{Su82} (cf. also with~\cite[Theorem~VI.5.2]{Lam10} and~\cite[Theorem~1.1]{St-poly}).
+\begin{theorem}[Horrocks theorem for orthogonal $\K_2$]\label{thm:main} Let $A$ be a commutative ring in which $2$ is invertible. Then for any $\ell \geq 7$ the following commutative square is a pullback square in which all maps are injective:
 \begin{equation} \nonumber
-  \xymatrix{ \St(\rD_\ell, A) \ar[r] \ar[d] & \St(\rD_\ell, A[X]) \ar[d] \\ \St(\rD_\ell, A[X\inv]) \ar[r] & \St(\rD_\ell, A[X, X\inv]).}  
+  \xymatrix{ \KO_2(2\ell, A) \ar[r] \ar[d] & \KO_2(2\ell, A[X]) \ar[d] \\ \KO_2(2\ell, A[X\inv]) \ar[r] & \KO_2(2\ell, A[X, X\inv]).}  
 \end{equation} 
-Moreover, the same assertion remains true if one replaces the functor $\St(\rD_\ell, -)$ with $\K_2(\rD_\ell, -)$. \end{theorem}
+Moreover, the same assertion holds if one replaces the functor $\KO_2(2\ell, -)$ with $\K_2(\rD_\ell, -)$ or $\St(\rD_\ell, -)$. \end{theorem}
+In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $K_2$-functor (see~\cref{sec:quillen}).
 
-Our proof of~\cref{thm:main} goes as follows. After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local. Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $\St(\rD_\ell, A[X]) \to \St(\rD_\ell, A[X, X\inv])$ comes down to proving injectivity of the following two maps
+Our proof of~\cref{thm:main} goes as follows. We notice that it suffices to prove the $\St(\rD_\ell, -)$-variant of the theorem, moreover, the proof of the injectivity of
+ $j_+ \colon \St(\rD_\ell, A[X]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to be the hardest part of the proof.
+After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local.
+Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_+$ comes down to proving injectivity of the following two maps
 \[ \xymatrix{ \St(\rD_\ell, A[X]) \ar[r] & \St(\rD_\ell, A[X\inv] + M[X]) \ar[r] & \St(\rD_\ell, A[X, X\inv].) }\]
-The injectivity of the second map is obtained in~\cref{thm41}. This is the only place in our proof which invokes the assumption that $2$ is invertible. The proof of~\cref{thm41} depends on certain computations with Grothendieck--Witt groups and also on the stability theorem for the higher orthogonal K-groups. The injectivity of the first map is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. %In the proof of~\cref{thm:P1glueing} we also write explicitly many of the details left implicit in Tulenbaev's paper.
+The injectivity of the second map is obtained in~\cref{thm41}. This is the only place in our proof which invokes the assumption that $2$ is invertible. The proof of~\cref{thm41} depends on the stability theorem for higher orthogonal K-groups and also on certain computations with Grothendieck--Witt groups
+(these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}).
+Finally, the injectivity of the first map is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}.
 
 \subsection{Acknowledgements} \cref{thm41} is obtained by the first-named author who acknowledges the financial support of RSCF grant No ???.
 \cref{thm:P1glueing} is obtained by the second-named author who acknowledges the financial support of JSC Gazpromneft and RFBR grant No 18-31-20044
@@ -169,9 +175,9 @@ In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$
 \end{comment}
 The classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field. More concretely, it asserts that $\K_2(\Phi, k) \cong \K_2^\mathrm{MW}(k)$ provided $\Phi$ is symplectic and  $\K_2(\Phi, k) \cong \K_2^\mathrm{M}(k)$ otherwise. In the following lemma we 
 recall the computation of the group $\K_2(\Phi, R)$ in the case $R=k[X, X\inv]$.
-\begin{lemma}\label{K2-laurent-field}Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field. Then there is a split exact sequence of abelian groups
+\begin{lemma}[Hurrelbrink--Morita--Rehmann]\label{K2-laurent-field} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field. Then there is a split exact sequence of abelian groups
 \[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ in which} \]
-\[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_1(k) \cong k^* & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
+\[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_1(k) \cong k^\times & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
 \begin{proof} Let us first consider the case of nonsymplectic $\Phi$, in which one can find a long root $\alpha\in \Phi$ in such a way that there is a commutative diagram of abelian groups
 \[\xymatrixcolsep{5pc}\xymatrix{k^* \ar[r]^-{h} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
                                                                                       &                                 & \K_2^\mathrm{M}(k(X)),} \]
@@ -235,7 +241,7 @@ a crossed module $(M, N, \mu)$ such that the cokernel of $\mu$ is $\nu$:
 A morphism $(M, \mu) \to (M', \mu')$ of two relative central extensions of $\nu$ is, by definition, an $N$-group homomorphism $f\colon M \to M'$ such that $\mu' f = \mu$. 
 A relative central extension is said to be {\it universal} if it is an initial object of the category of relative central extensions of $\nu$. 
 
-It turns out that the set  $Ext(Q, N; L)$  of isomorphism classes of relative central extensions of $\nu$ by an abelian group $L$ can be classified by means of a certain cohomological invariant called {\it characteristic class}. More precisely, \cite[Th{\'e}or{\`e}me~1]{Lo78} asserts that there is a well-defined bijection $\xi \colon Ext(Q, N; L) \to \HH^3(Q, N; L)$.
+It turns out that the set $Ext(Q, N; L)$ of isomorphism classes of relative central extensions of $\nu$ by an abelian group $L$ can be classified by means of a certain cohomological invariant called {\it characteristic class}. More precisely, \cite[Th{\'e}or{\`e}me~1]{Lo78} asserts that there is a well-defined bijection $\xi \colon Ext(Q, N; L) \to \HH^3(Q, N; L)$.
  
 For the rest of this subsection $S \xrightarrow{\pi} P \subseteq G$ is a triple of group-valued functors on the category of commutative rings satisfying the following assumptions:
 \begin{enumerate} [label=(A\arabic*)]
@@ -252,7 +258,7 @@ For the rest of this subsection $S \xrightarrow{\pi} P \subseteq G$ is a triple 
 The action of $S(R)$ on $S(D_{R, I})$ given by ${}^g h = S(\Delta)(g) \cdot h \cdot S(\Delta)(g)^{-1}$ induces an action of $S(R)$ on $S(R, I)$.
 The map $\mu \colon S(R, I) \to S(R)$ from~\eqref{LodayRelativization} is an $S(R)$-map with respect to this action.
 From~\ref{req:left-exact} and $\varphi(G_i) \subseteq \Ker(G(p_i))$ we obtain that 
-$G_0 \cap G_1 \subseteq \Ker(\pi_{D_{R, I}})$ and therefore is a central subgroup of $S(D_{R,I})$ by~\ref{req:uce}. Thus, we have verified the assumptions of~\cite[Proposition~6]{Lo78} which asserts that the map $\mu$ is a universal relative central extension of the coequalizer $\nu = \mathrm{coeq}(d_0, d_1)$. Since $\nu$ coincides with $S(R) \to S(R/I)$ by~\ref{req:coeq}, we have completed the proof of the first assertion of the lemma.
+$G_0 \cap G_1 \subseteq \Ker(\pi_{D_{R, I}})$ hence it is a central subgroup of $S(D_{R,I})$ by~\ref{req:uce}. Thus, we have verified the assumptions of~\cite[Proposition~6]{Lo78} which asserts that the map $\mu$ is a universal relative central extension of the coequalizer $\nu = \mathrm{coeq}(d_0, d_1)$. Since $\nu$ coincides with $S(R) \to S(R/I)$ by~\ref{req:coeq}, we have completed the proof of the first assertion of the lemma.
 
 Set $N = S(R)$, $Q = S(R/I)$, $C = \HH_3(Q, N; \ZZ)$. Recall from the proof of~\cite[Th{\'e}or{\`e}me~2]{Lo78} that to every relative central extension $(M, \mu)$ of $\nu$ with kernel $L$ one can associate a map of abelian groups $C \to L$. This map is obtained from the characteristic class $\xi(M, \mu)$ via the isomorphism $\HH^3(Q, N; L) \cong \mathrm{Hom}(C, L)$ of the universal coefficients theorem.
 
@@ -277,7 +283,12 @@ Now set $G_n = \mathrm{O}_{2n}(-)$, $P_n = \mathrm{EO}_{2n}(R)$, $S_n = \St(\rD_
 It is easy to see that functors $G_n$, $P_n$ and $S_n$ satisfy \ref{req:left-exact} and \ref{req:coeq}.
 By~\cite{Su82} the requirement~\ref{req:subfunc} is also satisfied for $n \geq 3$.
 Finally, from~\cite[Corollary~5.4]{St71} and~\cite[Theorem~1]{LS17} it follows that $S_n$ and $P_n$ satisfy~\ref{req:uce} for $n \geq 5$.
-We write $\KO_i(2n, R)$ as a shorthand for $\K_i^{G_n, P_n}(R)$.
+We use the notation $\KO_i(2n, R)$ as a shorthand for $\K_i^{G_n, P_n}(R)$. 
+
+Notice that $\KO_2(2n, R) = \Ker(\St(\rD_\ell, R) \to \mathrm{SO}(2n, R))$ is a larger subgroup of $\St(\rD_\ell, R)$ than $\K_2(\rD_\ell, R)$.
+More precisely, from~\cite[157]{Ba74} and Snake lemma it follows that \[\KO_2(2n, R)/\K_2(\rD_n, R) \cong \Ker(\mathrm{Spin}(2n, R) \to \mathrm{SO}(2n, R)) = \mu_2(R).\]
+On the other hand, from~\cref{lem:lowerKgroups} it follows that $\KO_3(2n, R)$ is isomorphic to the group $K_3^{G, P}$ in which
+$G = G(\rD_n, -) = \mathrm{Spin}(2n, -)$ as $P = \mathrm{Epin}(2n, -)$ is the elementary subfunctor of $G$.
 %Notice that $\K_2(\rD_n, R) \subset \mathrm{KO}_2(n, R)$.
 
 \begin{comment}
@@ -299,7 +310,7 @@ We start this section by recalling basic notation and facts pertaining to the th
 Recall that this theory, developed by M.~Schlichting, is a modern broad generalization of the classical hermitian K-theory of rings (see~\cite{Ka80}). We refer the reader to~\cite[\S~2]{FRS12} and~\cite[\S~2]{AF17} for an introduction to Grothendieck--Witt groups.
 
 For our purposes it suffices to restrict attention to the affine case, in which  the Grothendieck--Witt groups $\GW_i^{[k]}(R)$ for $i \geq 1,\ [k] \in \ZZ/4\ZZ$ can be considered simply as a shorthand for the following 4 groups:
-\begin{equation*} \GW_i^{[k]}(R) = \left\{\begin{array}{ll} \KO_i(R), & k = 0 \\ U_i(R), & k = 1 \\ \mathrm{KSp}_i(R), & k = 2 \\ {}_{-1}\!U_i(R), & k = 3. \end{array}\right. \end{equation*}
+\begin{equation} \label{GW-concrete} \GW_i^{[k]}(R) = \left\{\begin{array}{ll} \KO_i(R), & k = 0 \\ U_i(R), & k = 1 \\ \mathrm{KSp}_i(R), & k = 2 \\ {}_{-1}\!U_i(R), & k = 3. \end{array}\right. \end{equation}
 Here $\mathrm{KO}_i(R)$ denotes the usual orthogonal K-group defined via~\eqref{plus-constr} with $G(R) = O_\infty(R)$ and $P(R) = [G(R), G(R)]$.
 Replacing the stable orthogonal group with the stable symplectic group one can also define the symplectic K-groups $\mathrm{KSp}_i(R)$.
 We refer the reader to~\cite{Ka80} for the definition and properties of the groups ${}_{\pm 1}\!U_i(R)$. We will not use these definitions directly.
@@ -598,7 +609,6 @@ The relation $R$ lies in the image of the left arrow, therefore it comes from so
  In the cases $\Phi = \rA_3, \rD_4$, $M \neq A$ it is still possible to prove the injectivity of $i_n$ starting from $n\geq 2$ using a variation of the argument of Rehmann--Soul{\'e} (cf. the lower bound for $m$ in~\cite[3.2.1]{RS76}). However, apparently, it is not possible to establish the injectivity of $i_1$ in the specified cases using arguments similar to~\cite{RS76}.
 \end{rem}
 
-
 \subsection{The subgroups \texorpdfstring{$P_\alpha(0)$}{Pa(0)}, \texorpdfstring{$P_\alpha(*)$}{Pa(*)} and their properties.} \label{sec:Pa0-basic}
 For a root system $\Phi$ consider the following subsets of $\Phi$:
 \begin{align} Z_+(\alpha) & = \{ \beta \in \Phi \mid \langle \alpha, \beta \rangle > 0 \}, \\
@@ -630,10 +640,11 @@ In the above formulae and for the rest of this subsection $f \in M[X]$ and $\xi 
 We also denote by $P_{\alpha, M}(*)$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by $P_{\alpha, M}(0)$ and the elements $x_{-\alpha}(mX)$, $m \in M$.
 \end{df}
 
-Typically, the ideal $M$ from the above definition is precisely the maximal ideal of $A$, however, sometimes (e.\,g. in~\cref{P0-conj-invariant}) we also use the subgroups defined above for $M=A$.
+Almost always we will be using the above definition in the situation when $M$ is precisely the maximal ideal of $A$.
+The only exception to this is~\cref{P0-conj-invariant} where the above subgroups are also used for $M=A$.
 
-\begin{lemma}\label{P0_normal} The subgroup $P_{\alpha, M}(0)$ is normal in $P_{\alpha, M}(*)$. In particular, there is a short exact sequence, which is split by the map $m \mapsto x_{-\alpha}(mX)$:
-\[\xymatrix{1 \ar[r] & P_\alpha(0) \ar[r] & P_\alpha(*) \ar@{->>}[r]^{p_\alpha} & M^+ \ar@<5pt>@{-->}[l] \ar[r] & 1}.\] \end{lemma}
+\begin{lemma}\label{P0_normal} The subgroup $P_{\alpha, M}(0)$ is normal in $P_{\alpha, M}(*)$. In particular, there is a short exact sequence of groups, which is split by the map $m \mapsto x_{-\alpha}(mX)$ (we denote by $(M, +)$ the additive group of the ideal $M$):
+\[\xymatrix{1 \ar[r] & P_\alpha(0) \ar[r] & P_\alpha(*) \ar@{->>}[r]^{p_\alpha} & (M, +) \ar@<5pt>@{-->}[l] \ar[r] & 1}.\] \end{lemma}
 \begin{proof} We need to verify that the conjugate by $x_{-\alpha}(mX)$ to every generator $g$ of $P_\alpha(0)$ listed in~Definition~\ref{defP0} belongs to $P_\alpha(0)$.
 The assertion is obvious for the generators of type 3 and 4.
 
@@ -671,7 +682,7 @@ Now $p_\alpha(g)$ is precisely the sum of constant terms of the polynomials $f_i
 \begin{lemma} \label{P0-conj-invariant} Suppose $(A, M)$ is a local pair. Then for any $\beta \in Z(\alpha)$ and $b \in A$ the subgroups $P_{\alpha, M}(0)$ and $P_{\alpha, M}(*)$ are stable under conjugation by $x_\beta(b)$. \end{lemma}
 \begin{proof}
 Notice that both $Z_\alpha(A, M)$ and $K(A[X], M[X])$ are stable under the specified conjugation, which implies the assertion for $P_{\alpha, M}(*)$. 
-To obtain the assertion for $P_{\alpha, M}(0)$ consider the following commutative diagram. \[ \xymatrix{ P_{\alpha, M}(0) \ar@{^{(}->}[r] \ar@{^{(}->}[d] & P_{\alpha, M}(*) \ar@{->>}[r]^{p_{\alpha, M}} \ar@{^{(}->}[d] & M^+ \ar@{^{(}->}[d] \\ P_{\alpha, A}(0) \ar@{^{(}->}[r] & P_{\alpha, A}(*) \ar@{->>}[r]^{p_{\alpha, A}} & A^+} \]
+To obtain the assertion for $P_{\alpha, M}(0)$ consider the following commutative diagram. \[ \xymatrix{ P_{\alpha, M}(0) \ar@{^{(}->}[r] \ar@{^{(}->}[d] & P_{\alpha, M}(*) \ar@{->>}[r]^{p_{\alpha, M}} \ar@{^{(}->}[d] & (M, +) \ar@{^{(}->}[d] \\ P_{\alpha, A}(0) \ar@{^{(}->}[r] & P_{\alpha, A}(*) \ar@{->>}[r]^{p_{\alpha, A}} & (A, +)} \]
 Notice that $x_\beta(b) \in P_{\alpha, A}(0)$ therefore for $g \in P_{\alpha, M}(0)$ one has \[p_{\alpha, M}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(g) = 0,\] which implies the assertion.\end{proof}
 
 For the rest of this section $M$ denotes the maximal ideal of $A$, so everywhere below we shorten the notation for $P_{\alpha, M}(*)$ (resp. $P_{\alpha, M}(0)$) to just $P_{\alpha}(*)$ (resp. $P_{\alpha}(0)$). For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
@@ -994,7 +1005,8 @@ We are ready for the first main result of this section.
  \end{proof}
   
 \begin{proof}[Proof of~\cref{thm:main}]
- The assertion of the theorem follows from~\cref{thm41} and~\cref{thm:P1glueing} in the special case when $A$ is a local ring.
+ Notice that the assertions of the theorem for $\KO_2(2\ell, -)$ and $\K_2(\rD_\ell, -)$ follows from the assertion for $\St(\rD_\ell, -)$.
+ In turn, the latter assertion follows from~\cref{thm41} and~\cref{thm:P1glueing} in the special case when $A$ is a local ring.
  
  Now if $g \in \St(\rD_\ell, A[X])$ is such that its image in $\St(\rD_\ell, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\rD_\ell, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$. By the just established local case the images of $g$ in all $\St(\rD_\ell, A_M[X])$ are also trivial. Now by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is trivial as well.  
  
