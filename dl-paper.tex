@@ -85,7 +85,7 @@ The solution of the famous Serre problem on projective modules by D.~Quillen and
 
 After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see~\cite{Su77, Su82, Abe83, Tu83, Lam10, Das17, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_{1,n}(R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_{1,n}(k[x_1, \ldots x_n]) = \K_{1,n}(k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently, A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ (see~\cite[Theorem~1.2]{St-poly} for the result over a field and ~\cite[Corollary~1.2]{St-Ded} for its further generalization to Dedekind domains of arithmetic type).
 
-Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the group $G(\Phi, R)$ called {\it simply-connected Chevalley group} (see~\cite[\S~3]{St71} or~\cite{VP}) and the group $\St(\Phi, R)$ called {\it Steinberg group} (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined map $\pi \colon \St(\Phi, R) \to G(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this map are, by definition, the $\K_1$ and $\K_2$ groups modeled on Chevalley group $G(\Phi, -)$:
+Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the group $G(\Phi, R)$ called {\it simply-connected Chevalley group} (see~\cite[\S~3]{St71} or~\cite{VP}) and the group $\St(\Phi, R)$ called {\it Steinberg group} (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined map $\pi \colon \St(\Phi, R) \to G(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this map are, by definition, the $\K_1$ and $\K_2$ groups modeled on Chevalley group $G(\Phi, -)$ (see~\cite{St78}).
 \[ \xymatrix{ 1 \ar[r] & \K_2(\Phi, R) \ar[r] & \St(\Phi, R) \ar^{\pi}[r] & G(\Phi, R) \ar[r] & \K_1(\Phi, R) \ar[r] & 1.} \]
 
 One might ask whether any analogue of Serre's problem also exists for the functor $\K_2$ and it turns out that it is indeed so. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrates an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^\mathrm{M}_2(k)$ immediately follows for $\ell \geq 4$. While numerous results on the $\K_1$-analogue of Serre's problem have appeared in the literature since~\cite{Su77} (see e.\,g.~\cite{Su82, Abe83, St-poly, St-Ded}), little progress has been made on the $\K_2$-analogue. Currently the conjecture still remains open for all $\Phi$ different from $\rA_\ell$, $\ell \geq 4$.
@@ -98,7 +98,7 @@ Our main result is the following theorem, which is the orthogonal analogue of~\c
   \xymatrix{ \KO_2(2\ell, A) \ar[r] \ar[d] & \KO_2(2\ell, A[X]) \ar[d] \\ \KO_2(2\ell, A[X\inv]) \ar[r] & \KO_2(2\ell, A[X, X\inv]).}  
 \end{equation} 
 Moreover, the same assertion holds if one replaces the functor $\KO_2(2\ell, -)$ with $\K_2(\rD_\ell, -)$ or $\St(\rD_\ell, -)$. \end{theorem}
-In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $K_2$-functor (see~\cref{sec:quillen}).
+In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $\K_2$-functor (see~\cref{sec:quillen}).
 
 Our proof of~\cref{thm:main} goes as follows. We notice that it suffices to prove the $\St(\rD_\ell, -)$-variant of the theorem, moreover, the proof of the injectivity of
  $j_+ \colon \St(\rD_\ell, A[X]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to be the hardest part of the proof.
@@ -109,10 +109,12 @@ The injectivity of the second map is obtained in~\cref{thm41}. This is the only 
 (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}).
 Finally, the injectivity of the first map is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}.
 
-\subsection{Acknowledgements} \cref{thm41} was obtained by the first-named author who acknowledges the financial support of RSF grant No 17-11-01261.
-\cref{thm:P1glueing} was obtained by the second-named author who acknowledges the financial support of JSC Gazpromneft and RFBR grant No 18-31-20044.
+\subsection{Acknowledgements} 
+\cref{thm41} was obtained with support from RSF grant 19-71-30002,
+ while \cref{thm:P1glueing} was obtained with support from RFBR grant No 18-31-20044.
+The authors of this paper were also supported by ``Native towns'', a social investment program of PJSC ``Gazprom Neft''.
 
-The authors would also to express their gratitude to A.~Stavrova for posing the problem and also to A.~Stepanov and N.~Vavilov for many useful comments and their interest in this work.
+The authors would also to express their gratitude to A.~Stavrova for posing the problem and also to A.~Stepanov and N.~Vavilov for their useful comments and interest in this work.
 
 
 \section{Preliminaries}
@@ -173,8 +175,10 @@ Suppose for a moment that $\langle \alpha, \beta \rangle = -1$ and  $\langle \be
 \[ \{s, t^{-1} \} = \{s,  t^{-1}\}_\alpha = \{t, s^{-1} \}_\beta^{-1} = \{s^{-1}, t\} \]
 In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$ 
 \end{comment}
-The classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field. More concretely, it asserts that $\K_2(\Phi, k) \cong \K_2^\mathrm{MW}(k)$ provided $\Phi$ is symplectic and  $\K_2(\Phi, k) \cong \K_2^\mathrm{M}(k)$ otherwise. In the following lemma we 
-recall the computation of the group $\K_2(\Phi, R)$ in the case $R=k[X, X\inv]$.
+Recall that the classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field.
+Using the modern language of Milnor--Witt K-theory (see~\cite{Mo04}) it can be formulated as the following computation:
+\[\K_2(\Phi, k) = \left\{\begin{array}{ll} \K_2^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_2^\mathrm{M}(k) & \text{otherwise.}\end{array}\right. \]
+In the following lemma we recall the computation of the group $\K_2(\Phi, R)$ in the case $R=k[X, X\inv]$.
 \begin{lemma}[Hurrelbrink--Morita--Rehmann]\label{K2-laurent-field} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field. Then there is a split exact sequence of abelian groups
 \[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ in which} \]
 \[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_1(k) \cong k^\times & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
@@ -190,7 +194,7 @@ which asserts that for $\ell \geq 1$ one has $\K_2(\rC_\ell, k[X, X\inv] \cong \
 $P(k)$ is the set $k^* \times I_2(k)$ with the group structure given by
 \[ (u, y) \cdot (v, z) = (uv, y + z - \langle\langle u, v\rangle\rangle).\]
 Here $I^2(k)$ stands for the second power of the fundamental ideal $I(k)$ in the Witt ring $W(k)$ of $k$.
-Recall that $\K_1^\mathrm{MW}(k)$ is isomorphic to the pullback of the diagram:
+Recall from~\cite{Mo04} that $\K_1^\mathrm{MW}(k)$ is isomorphic to the pullback of the diagram:
 \[ \xymatrix{ \K_1^\mathrm{MW}(k) \ar[r] \ar[d] & I(k) \ar[d] \\ \K_1(k) \ar[r] & I(k)/I^2(k), } \]
 in other words, it consists of pairs $[u, x]$ such that $x - \langle \langle u \rangle \rangle \in I^2(k)$.
 It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\rangle - x)$ defines an isomorphism of $\K_1^\mathrm{MW}(k)$ and $P(k)$. \end{proof}
@@ -315,7 +319,7 @@ The following result, which is a special case of~\cite[Theorem~9.13]{Sch16} of M
 \begin{externaltheorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $R$ is a regular ring such that $2 \in R^*$, 
 then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{externaltheorem}
 %\begin{proof} This is a very special case of and the remark that follows it. \end{proof}
-We will use the above theorem only in the special case $i=0$, in which it boils down to an earlier result of J.~Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
+We will use the above theorem only in the special case $k=0$, in which it boils down to an earlier result of J.~Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
 
 For the rest of this section let us fix the following notation.
 Let $A$ be arbitrary commutative local ring with maximal ideal $M$ and residue field $k$.
@@ -529,7 +533,7 @@ It is not hard to show that $\St(\Phi, B)$ can be presented by the set of all ho
 &\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha - \beta \in \Phi,\ \tag{R$3^\angle_{d,e}$} \\
 &\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha \perp \beta.\ \tag{R$3^\bot_{d,e}$}
 \end{align}
-By the degree of a Steinberg relation we mean the maximum of degrees of generators that appear in it.
+By the degree of a Steinberg relation we mean the maximum of degrees of generators that appear in the relation.
 For example, the degree of every relation of type $\text{R2}_{d,e}$ is $\max(d,e,d+e)$ 
  while the degree of a relation of type $\text{R3}^\bot_{d,e}$ or $\text{R3}^\angle_{d,e}$ is $\max(d,e)$.
 
@@ -583,7 +587,7 @@ The following proposition is the main result of this subsection and also a direc
  We start with a word map $\widetilde{j}_n^\Phi \colon F\langle \mathcal{X}^\Phi_{\leq n+1} \rangle \to \St^{\leq n}(\Phi, B)$ defined via
  \[ \widetilde{j}_n(x_\alpha(at^k)) = \begin{cases} x_\alpha(at^k), & k\leq n; \\
       [x_{\alpha - \beta} (N_{\alpha-\beta, \beta} \cdot at^{k-1}), x_{\beta}(t)], & k = n+1, \end{cases} \]
- where $\beta$ is an arbitrary root of $\Phi$ forming a sharp angle with $\alpha$.
+ where $\beta$ is any root of $\Phi$ forming a sharp angle with $\alpha$.
  Standard argument (cf.~\cite[Proposition~1.1]{Re75} or~\cite[Proposition~3.2.2]{RS76}) shows that $\widetilde{j}_n$ does not depend on the choice of $\beta$.
  
  Set $\mathcal{R}^\Phi_{n+1} = \mathcal{R}^\Phi_{\leq n+1} \setminus \mathcal{R}^\Phi_{\leq n}$. It suffices to verify that the image of every relator $R \in \mathcal{R}^\Phi_{n+1}$ under $\widetilde{j}^\Phi_n$ is a trivial element of $\St^{\leq n}(\Phi, B)$. In the special case $\Phi=\rA_{\geq 4}$ this has already been demonstrated by Tulenbayev in~\cite[Lemma~3.3]{Tu83}, so in this case the proof of the proposition is complete. We will deduce the assertion in the remaining cases $\Phi=\rD_\ell,\rE_\ell$ from the special case $\Phi=\rA_4$ of Tulenbayev's result.
