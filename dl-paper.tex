@@ -110,12 +110,10 @@ The injectivity of the second map is obtained in~\cref{thm41}. This is the only 
 Finally, the injectivity of the first map is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}.
 
 \subsection{Acknowledgements} 
-\cref{thm41} was obtained with support from RSF grant 19-71-30002,
- while \cref{thm:P1glueing} was obtained with support from RFBR grant No 18-31-20044.
 The authors of this paper were also supported by ``Native towns'', a social investment program of PJSC ``Gazprom Neft''.
+The second-named author also acknowledges the financial support of RFBR grant No 18-31-20044.
 
 The authors would also to express their gratitude to A.~Stavrova for posing the problem and also to A.~Stepanov and N.~Vavilov for their useful comments and interest in this work.
-
 
 \section{Preliminaries}
 %$\langle \alpha, \beta \rangle = (\alpha, \beta^\vee) = (\alpha, \frac{2\beta}{(\beta, \beta)})$ Our convention for Cartan matrices is $A_{ij} = \langle \alpha_i, \alpha_j \rangle = (\alpha_i, \alpha_j^\vee)$.
@@ -210,7 +208,7 @@ Clearly, the image of $g$ in $G(\Phi, k[X, X\inv])$ lies in $G(\Phi, k)$, theref
 \end{proof}
 
 \subsection{Relative Steinberg groups and unstable K-groups} \label{sec:quillen}
-In this subsection we recall the definitions and basic facts pertaining to the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. This theory was applied by J.~Loday to the stable Steinberg group $\St(R)$ from algebraic K-theory. The main goal of this subsection is to show that Loday's theory also can be applied to unstable Steinberg groups, and that the resulting relative Steinberg groups enjoy many good properties of their stable counterparts.
+In this subsection we recall the definitions and basic facts pertaining to the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. This theory was applied to the stable Steinberg group $\St(R)$ from algebraic K-theory. The main goal of this subsection is to show that Loday's theory also can be applied to unstable Steinberg groups, and that the resulting relative Steinberg groups enjoy many good properties of their stable counterparts.
 Some of the results of this subsection have been briefly mentioned in~\cite{S15} (cf. e.\,g. Corollaries 3--4).
 
 Recall that the category of (commutative) pairs $\catname{Pairs}$ is defined as follows.
@@ -514,7 +512,7 @@ Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \
 
 \section{Proof of the main result}
 The main result of this section is~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. 
-The object playing a key role in its proof is a certain action of the group $G = \St(\Phi, A[X\inv] + M[X])$ on a certain set $\overline{V}$ (see the begining of~\cref{sec:P1glueing} for the definition). To be able to write an explicit formula for this action we need two major ingredients. The first one is a certain presentation of $G$ involving much fewer generations and relations than the the usual one. This presentation is obtained in~\cref{lemma33}. The other ingredient are certain subgroups $P_\alpha(0)$ of $\St(\Phi, A[X, X\inv])$, which are modeled after the nameless groups from~\cite[Lemma~3.4]{Tu83}. Their precise definition and immediate properties are given in section~\ref{sec:Pa0-basic}, while the facts about them, which are needed to verify that the action of $G$ satisfies Steinberg relations, are placed in~\cref{sec:Pa0-Steinberg}.
+The object playing a key role in its proof is a certain action of the group $G\St(\Phi, A[X\inv] + M[X])$ on a certain set $\overline{V}$ (see the begining of~\cref{sec:P1glueing} for the definition). To be able to write an explicit formula for this action we need two major ingredients. The first one is a certain presentation of $G$ involving much fewer generations and relations than the the usual one. This presentation is obtained in~\cref{lemma33}. The other ingredient are certain subgroups $P_\alpha(0)$ of $\St(\Phi, A[X, X\inv])$, which are modeled after the nameless groups from~\cite[Lemma~3.4]{Tu83}. Their precise definition and immediate properties are given in section~\ref{sec:Pa0-basic}, while the facts about them, which are needed to verify that the action of $G$ satisfies Steinberg relations, are placed in~\cref{sec:Pa0-Steinberg}.
 
 \subsection{Presentation of Steinberg groups by homogeneous generators}
 \label{sec:presentation}
@@ -823,7 +821,7 @@ Denote by $h_0$ the product of all terms except the first and the last one in th
 \end{multline}
 \end{proof}
 
-\subsection{Proof of the $\mathbb{P}^1$-glueing theorem.} \label{sec:P1glueing}
+\subsection{Construction of a ''torsor`` for \texorpdfstring{$\St(\Phi, B)$}{St(Ф, B)}.} \label{sec:V-construction}
 Throughout this subsection $\Phi$ denotes arbitrary irreducible simply-laced root system of rank $\geq 3$, unless stated otherwise. Let $A$ be a local ring with maximal ideal $M$ and residue field $k$. As in~\cref{firstPart} we denote by $B$ the ring $A[X\inv] + M[X]$ considered as a graded subring of the ring of Laurent polynomials $R = A[X, X\inv]$.
 
 For shortness we denote the subgroup $\overline{\St}(\Phi, A, M)$ by $G_M^0$.
@@ -959,8 +957,10 @@ This action satisfies the following additional property. For any $h_1 \in \St(\P
   The second assertion can be verified directly using~\eqref{T_1}, \eqref{T_leq0} and the fact that $\St(\Phi, A[X\inv])$ is generated by $x_\alpha(a)$ and $x_\alpha(aX\inv)$ for $\alpha\in\Phi$, $a\in A$.
 \end{proof}
 
-For the rest of this section we assume that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, R)$ is injective. 
-This assumption allows us to consider $\St(\Phi, B)$ as a subgroup of $\St(\Phi, R)$.
+\subsection{Proof of the $\mathbb{P}^1$-glueing theorem.} \label{sec:P1glueing}
+We retain the notation of the previous section.
+Throughtout this section we assume additionally that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, R)$ is injective,
+ which allows us to consider $\St(\Phi, B)$ as a subgroup of $\St(\Phi, R)$.
 Being considered in this way $\St(\Phi, B)$ contains the subgroup $\overline{G}^{\geq 0}_M$ of $\St(\Phi, R)$.
 This follows from a consideration of the following commutative diagram, in which the map $t$ is obtained from~\cref{lem:lemma32}:
 \[ \xymatrix{ \St(\Phi, A[X], M[X]) \ar[d] \ar[r] & \St(\Phi, R, M[X, X\inv]) \ar[r]^(.65){t} & \St(\Phi, B) \ar[d]^{j_R} \\
@@ -1013,6 +1013,26 @@ We are ready for the first main result of this section.
  The proof of the fact the square of Steinberg groups is pullback is very similar   to the above argument (cf. also with~\cite[Theorem~5.1a]{Tu83}).
 \end{proof}
 
-  
+\begin{rem}
+\begin{comment}
+\begin{equation} \label{T_2} t_\alpha(aX^{-1}) (g, h, u) = \left[ x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \{ X, 1+am \} ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right) h ,\ u \cdot (1 + am)\right].\end{equation}
+
+\begin{multline*}
+ t_\alpha(aX^{-1}) (x_{-\alpha}(mX), 1, 1) = \left[ x_\alpha(aX^{-1})\cdot x_{-\alpha}(mX) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \{ X, 1+am \} ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right),\  (1 + am)\right] = \\
+ = \left[ x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right),\  (1 + am)\right]
+\end{multline*}
+
+This implies that 
+\begin{multline*} x_{\alpha}\left(\tfrac{-aX^{-1}}{1+am}\right) \cdot h_\alpha(1+am)^{-1} \cdot \langle a, m \rangle^{-1} \cdot x_{-\alpha}\left(\tfrac{-mX}{1+am}\right) x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) [1, 1, 1] = [1, 1, 1+am]
+\end{multline*}
+
+\begin{equation} \langle a,m \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- m}{1 + am}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(m) \cdot x_{\alpha}\left(\tfrac{- a}{1+am}\right) \cdot h_{\alpha}^{-1}(1 + am). \end{equation} 
+\begin{equation} \langle a,m \rangle _ \alpha ^{-1} =  h_{\alpha}(1 + am) \cdot x_{\alpha}\left(\tfrac{a}{1+am}\right) \cdot x_{-\alpha}(-m) \cdot x_{\alpha}(-a) \cdot x_{-\alpha}\left(\tfrac{m}{1 + am}\right). \end{equation} \end{comment}
+\begin{equation*}
+  \langle a, m \rangle^{-1} \cdot \langle aX^{-1}, mX \rangle [1, 1, 1] = [1, 1, 1+am]
+\end{equation*}
+\end{rem}
+
+
 \printbibliography
 \end{document}
