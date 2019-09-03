@@ -206,12 +206,11 @@ Clearly, the image of $g$ in $G(\Phi, k[X, X\inv])$ lies in $G(\Phi, k)$, theref
 \end{proof}
 
 \subsection{Relative Steinberg groups and unstable K-groups} \label{sec:quillen}
-In this subsection we recall the definitions and basic facts pertaining to the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. This theory was applied to the stable Steinberg group $\St(R)$ from algebraic K-theory. The main goal of this subsection is to show that Loday's theory also can be applied to unstable Steinberg groups, and that the resulting relative Steinberg groups enjoy many good properties of their stable counterparts.
-Some of the results of this subsection have been briefly mentioned in~\cite{S15} (cf. e.\,g. Corollaries 3--4).
+In this subsection we recall the definitions and basic facts pertaining to the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. The main goal of this subsection is to show that Loday's theory also can be applied to unstable Steinberg groups, and that the resulting relative unstable Steinberg groups have many of the good properties of their stable counterparts. Some of the results of this subsection have been briefly mentioned in~\cite{S15} (cf. e.\,g. Corollaries 3--4).
 
 Recall that the category of (commutative) pairs $\catname{Pairs}$ is defined as follows.
-Its objects are pairs $(R, I)$, in which $R$ is a commutative ring and $I$ is an ideal of $R$. A morphism of pairs $f \colon (R, I) \to (R', I')$ is, by definition, a ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$. Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ the morphism category $\catname{CRings}^\rightarrow$.
-If a pair $(R, I)$ is such that $R$ is a local ring with maximal ideal $I$, we call such a pair a {\it local pair}.
+Its objects are pairs $(R, I)$, in which $R$ is a commutative ring and $I$ is an ideal of $R$. A morphism of pairs $f \colon (R, I) \to (R', I')$ is, by definition, a ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$. Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ to the morphism category $\catname{CRings}^\rightarrow$.
+If a pair $(R, I)$ is such that $R$ is a local ring with maximal ideal $I$, we call such pair a {\it local pair}.
 
 There is an obvious fully faithful embedding $\catname{CRings} \to \catname{Pairs}$ sending $R$ to $(R, R)$. For a given functor $S \colon \catname{CRings} \to \catname{Groups}$ a {\it relativization} of $S$ is any functor $\widetilde{S} \colon \catname{Pairs} \to \catname{Groups}$ extending $S$ in the obvious sense. Relativization of a functor is not unique.
 
@@ -502,7 +501,7 @@ Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \
 \section{Proof of the main result}
 The main result of this section is~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. 
 The object playing a key role in its proof is a certain action of the group $G = \St(\Phi, A[X\inv] + M[X])$ on a certain set $\overline{V}$, which is defined in~\cref{sec:V-construction}. Later, we will see that $\overline{V}$ is, in fact, a set-theoretic $G$-torsor.
-To be able to write an explicit formula for this action we need two major ingredients. The first one is a certain presentation of $G$ involving much fewer generations and relation, see~\cref{lemma33}. The other ingredient are certain subgroups $P_\alpha(0)$ of $\St(\Phi, A[X, X\inv])$, which are modeled after the nameless groups from~\cite[Lemma~3.4]{Tu83}. Their precise definition and immediate properties are given in section~\ref{sec:Pa0-basic}, while the facts about them, which are needed to verify that the action of $G$ satisfies Steinberg relations, are placed in~\cref{sec:Pa0-Steinberg}.
+To be able to write an explicit formula for this action we need two major ingredients. The first one is a certain presentation of $G$ involving much fewer generations and relation, see~\cref{lemma33}. The other ingredients are certain subgroups $P_\alpha(0)$, $P_\alpha(*)$ of $\St(\Phi, A[X, X\inv])$, which are modeled after the nameless groups from~\cite[Lemma~3.4]{Tu83}. Their precise definition and immediate properties are given in section~\ref{sec:Pa0-basic}, while the facts about them, which are needed to verify that the action of $G$ satisfies Steinberg relations, are placed in~\cref{sec:Pa0-Steinberg}.
 
 \subsection{Presentation of Steinberg groups by homogeneous generators}
 \label{sec:presentation}
@@ -757,8 +756,7 @@ $\gamma \in \Sigma(S) \subseteq \Phi\setminus \Psi$ and $x_\gamma(Xf)$, $\gamma 
  
  It is clear from the definition that $K(\alpha, \beta) \subseteq P_\alpha(0) \cap P_\beta(0) \cap K(A[X], M[X])$. The reverse inclusion follows from the just proved decomposition and the fact that for $g\in K(A[X], M[X])$ one has $p_{\alpha}(g) = m$ and $p_\beta(g) = m'$ (cf.~\cref{rem:palpha}). \end{proof}
  
-We need one more technical definition.
-\begin{df} Denote by $Z_{\alpha, \beta}$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by elements $z_\gamma(f, X\xi)$, where $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$.\end{df}
+We need one more technical definition. We denote by $Z_{\alpha, \beta}$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by elements $z_\gamma(f, X\xi)$, where $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$.
   
 \begin{lemma} \label{image-K-a-b} The image of $K(\alpha, \beta)$ under $S_{\alpha}(a, -)$ is contained in the subgroup of $\St(\Phi, A[X, X^{-1}])$  generated by $K(\alpha, \beta)$ and $Z_{\alpha, \beta}$. \end{lemma}
 \begin{proof} To simplify notation we call the generators of the subgroup $Z_{\alpha,\beta}$ ``generators of type Z``. By~\eqref{eq:Zconj1}, \eqref{eq:Zconj2} the conjugate to each generator $z_\gamma(Xf, \xi)$ of type 1 by $x_\alpha(aX^{-1})$ is a product of generators of type Z, Z, 1.
@@ -833,7 +831,7 @@ Before we proceed further let us explain how our sets $V$ and $\overline{V}$ com
 
 The isomorphism between the sets $\overline{V}$ and $\overline{V}_T$ is given by the following two maps, which are easily seen to be mutually inverse to each other:
 \begin{equation} \label{eq:VVT} \xymatrix @R0.3pc {\overline{V} \ar[r]^{\cong} & \ar[l] \overline{V}_T \\ (g, [h], u) \ar@{|->}[r] & [p(g, h, u), h^{-1}, u] \\ (p \cdot j_-(h) \cdot \{u, X\}, [h^{-1}], u) & \ar@{|->}[l] [p, h, u]. } \end{equation}
-The above isomorphism allows us to treat $\overline{V}$ and $\overline{V}_T$ as a single object, for which we can interchangeably use either of the two notations,
+The above isomorphism allows us to treat $\overline{V}$ and $\overline{V}_T$ like the same object, for which we can interchangeably use either of the two notations,
  depending on which of them is more convenient in a given situation.
 For example, specifying the action of $\St(\Phi, B)$ in terms of $\overline{V}$ leads to much shorter calculations in Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1},
  while the statements of~\cref{prop43} and~\cref{lem:action} look more natural when formulated in terms of~$\overline{V}_T$. 
@@ -973,6 +971,25 @@ Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ in~\eqref{Z5} we obtain 
 From the first part of the proof and inductive assumption we obtain that the assertion of the lemma holds for all the factors in the right-hand side and, therefore, also holds  for $p_1 = z_\alpha(f, X\xi)$. It is easy to deduce from this that the assertion also holds for $p_1 = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
 \end{proof}
 
+\begin{rem}
+Although we will not need this for our main result, it can be noted that $\overline{V}$ is a left $\St(\Phi, B)$-torsor, i.\,e. the action of $\St(\Phi, B)$ on $\overline{V}$ is both transitive and faithful. The faithfulness follows from the second property of~\cref{prop43} and our assumption that $j_R$ is injective.
+\begin{comment}
+\begin{equation} \label{T_2} t_\alpha(aX^{-1}) (g, h, u) = \left[ x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \{ X, 1+am \} ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right) h ,\ u \cdot (1 + am)\right].\end{equation}
+
+\begin{multline*}
+ t_\alpha(aX^{-1}) (x_{-\alpha}(mX), 1, 1) = \left[ x_\alpha(aX^{-1})\cdot x_{-\alpha}(mX) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \{ X, 1+am \} ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right),\  (1 + am)\right] = \\
+ = \left[ x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right),\  (1 + am)\right]
+\end{multline*}
+
+This implies that 
+\begin{multline*} x_{\alpha}\left(\tfrac{-aX^{-1}}{1+am}\right) \cdot h_\alpha(1+am)^{-1} \cdot \langle a, m \rangle^{-1} \cdot x_{-\alpha}\left(\tfrac{-mX}{1+am}\right) x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) [1, 1, 1] = [1, 1, 1+am]
+\end{multline*}
+
+\begin{equation} \langle a,m \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- m}{1 + am}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(m) \cdot x_{\alpha}\left(\tfrac{- a}{1+am}\right) \cdot h_{\alpha}^{-1}(1 + am). \end{equation} 
+\begin{equation} \langle a,m \rangle _ \alpha ^{-1} =  h_{\alpha}(1 + am) \cdot x_{\alpha}\left(\tfrac{a}{1+am}\right) \cdot x_{-\alpha}(-m) \cdot x_{\alpha}(-a) \cdot x_{-\alpha}\left(\tfrac{m}{1 + am}\right). \end{equation} \end{comment}
+The transitivity follows from~\cref{lem:action}, the first property of~\cref{prop43} and the following computation, which we leave as an exercise to the reader:
+\begin{equation*} \langle 1, m \rangle^{-1} \langle X^{-1}, mX \rangle \cdot [1, 1, 1] = [1, 1, 1+m]. \end{equation*} \end{rem}
+
 \begin{externaltheorem} \label{thm:P1glueing}
  Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
  Suppose that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
@@ -1003,26 +1020,6 @@ From the first part of the proof and inductive assumption we obtain that the ass
  
  The proof of the fact the square of Steinberg groups is pullback is very similar   to the above argument (cf. also with~\cite[Theorem~5.1a]{Tu83}).
 \end{proof}
-
-\begin{rem}
-Although we did not use this in our proof, it can be noted that $\overline{V}$ is a (left) $\St(\Phi, B)$-torsor, i.\,e. the action of $\St(\Phi, B)$ on $\overline{V}$ is both transitive and faithful. The faithfulness follows from the second property of~\cref{prop43} and our assumption that $j_R$ is injective.
-\begin{comment}
-\begin{equation} \label{T_2} t_\alpha(aX^{-1}) (g, h, u) = \left[ x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \{ X, 1+am \} ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right) h ,\ u \cdot (1 + am)\right].\end{equation}
-
-\begin{multline*}
- t_\alpha(aX^{-1}) (x_{-\alpha}(mX), 1, 1) = \left[ x_\alpha(aX^{-1})\cdot x_{-\alpha}(mX) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \{ X, 1+am \} ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right),\  (1 + am)\right] = \\
- = \left[ x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right),\  (1 + am)\right]
-\end{multline*}
-
-This implies that 
-\begin{multline*} x_{\alpha}\left(\tfrac{-aX^{-1}}{1+am}\right) \cdot h_\alpha(1+am)^{-1} \cdot \langle a, m \rangle^{-1} \cdot x_{-\alpha}\left(\tfrac{-mX}{1+am}\right) x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) [1, 1, 1] = [1, 1, 1+am]
-\end{multline*}
-
-\begin{equation} \langle a,m \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- m}{1 + am}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(m) \cdot x_{\alpha}\left(\tfrac{- a}{1+am}\right) \cdot h_{\alpha}^{-1}(1 + am). \end{equation} 
-\begin{equation} \langle a,m \rangle _ \alpha ^{-1} =  h_{\alpha}(1 + am) \cdot x_{\alpha}\left(\tfrac{a}{1+am}\right) \cdot x_{-\alpha}(-m) \cdot x_{\alpha}(-a) \cdot x_{-\alpha}\left(\tfrac{m}{1 + am}\right). \end{equation} \end{comment}
-The transitivity follows from~\cref{lem:action}, the first property of~\cref{prop43} and the following computation, which we leave as an exercise:
-\begin{equation*} \langle 1, m \rangle^{-1} \langle X^{-1}, mX \rangle \cdot [1, 1, 1] = [1, 1, 1+m]. \end{equation*} \end{rem}
-
 
 \printbibliography
 \end{document}
