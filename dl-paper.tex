@@ -114,12 +114,8 @@ The second-named author also acknowledges the financial support of RFBR grant No
 The authors would like to express their gratitude to A.~Stavrova for posing the problem and also to A.~Stepanov and N.~Vavilov for their useful comments and interest in this work.
 
 \section{Preliminaries}
-%$\langle \alpha, \beta \rangle = (\alpha, \beta^\vee) = (\alpha, \frac{2\beta}{(\beta, \beta)})$ Our convention for Cartan matrices is $A_{ij} = \langle \alpha_i, \alpha_j \rangle = (\alpha_i, \alpha_j^\vee)$.
-
 \subsection{Steinberg groups} \label{sec:Steinberg-intro}
-Let $\Phi$ be a reduced and irreducible root system of rank $\geq 2$ and $R$ be a commutative ring with $1$. Recall that in this case the \emph{Steinberg group} $\St(\Phi, R)$ can be defined by means of generators $x_{\alpha}(s)$ 
-%(where $\alpha\in\Phi, s\in R$)
-and relations:
+Let $\Phi$ be a reduced and irreducible root system of rank $\geq 2$ and $R$ be a commutative ring with $1$. Recall that in this case the \emph{Steinberg group} $\St(\Phi, R)$ can be defined by means of generators $x_{\alpha}(s)$ and relations:
 \begin{align}
 & \phantom{[}
 x_\alpha(s) \cdot x_\alpha(t) = x_\alpha(s+t),\ \alpha\in\Phi,\ s,t\in R; \label{rel:add}\\
@@ -162,15 +158,9 @@ In turn, Dennis--Stein symbols are defined for arbitrary $a, b\in R$ satisfying 
 Dennis--Stein symbol $\langle a, b \rangle_\alpha$ can be expressed through Steinberg symbols in the special case when either $a$ or $b$ is an invertible element of $R$. More specifically, the following formulae hold (cf.~\cite[p.~250]{DS73}).
 \begin{equation} \label{DS-S-relationship} \langle a, b \rangle_\alpha = \{-a, 1+ab\}_\alpha\text{ for } a, 1+ab\in R^\times,\ \
  \{ s, t \}_\alpha = \left\langle -s, \tfrac{1 - t}{s} \right\rangle_\alpha\text{ for } s, t\in R^\times. \end{equation}
-%Using~\eqref{eq:conj-h-h} it is easy to verify that \[[h_\alpha(s), h_\beta(t)] = \{s, t^{\langle \alpha, \beta \rangle}\}_\alpha = \{t, s^{\langle \beta, \alpha \rangle}\}_\beta^{-1}.\] 
 Steinberg and Dennis--Stein symbols depend only on the length of $\alpha$, in particular they do not depend on $\alpha$ if $\Phi$ is simply-laced. If $\Phi$ happens to be {\it nonsymplectic}, i.\,e. $\Phi \neq \rA_1, \rB_2, \rC_{\geq 3}$, Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. they satisfy the following identities: \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
 For these and other properties of symbols we refer the reader to~\cite{DS73}.
 
-\begin{comment}
-Suppose for a moment that $\langle \alpha, \beta \rangle = -1$ and  $\langle \beta, \alpha \rangle = -1$ then
-\[ \{s, t^{-1} \} = \{s,  t^{-1}\}_\alpha = \{t, s^{-1} \}_\beta^{-1} = \{s^{-1}, t\} \]
-In particular, $\{s, s^{-1}\} = \{s, s^{-1}\}^{-1}$ 
-\end{comment}
 Recall that the classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field.
 Using the modern language of Milnor--Witt K-theory (see~\cite{Mo04}) it can be formulated as the following computation:
 \[\K_2(\Phi, k) = \left\{\begin{array}{ll} \K_2^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_2^\mathrm{M}(k) & \text{otherwise.}\end{array}\right. \]
@@ -229,7 +219,7 @@ A central extension is said to be {\it universal} if it is an initial object of 
 
 Recall that a {\it crossed module} is a triple $(M, N, \mu)$ consisting of a group $N$ acting on itself by left conjugation, an $N$-group $M$ and a map
  $\mu \colon M\to N$ of $N$-groups satisfying {\it Peiffer identity} $\mu(m) \cdot m' = m m' m^{-1}$. It can be shown that the image of $\mu$ is always
-  a normal subgroup of $N$ and that the kernel of $\mu$, which we denote by $L$, is always contained in the center of $M$. %TODO: There's a problem with the side of the action :(
+  a normal subgroup of $N$ and that the kernel of $\mu$, which we denote by $L$, is always contained in the center of $M$.
  
 Let $\nu \colon N \twoheadrightarrow Q$ be a surjective group-theoretic map.
 A {\it relative central extension of $\nu$} is, by definition,
@@ -304,7 +294,6 @@ We refer the reader to~\cite{Ka80} for the definition and properties of the grou
 The following result, which is a special case of~\cite[Theorem~9.13]{Sch16} of M.~Schlichting, plays a key role in the proof of~\cref{thm41}.
 \begin{externaltheorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $R$ is a regular ring such that $2 \in R^\times$, 
 then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{externaltheorem}
-%\begin{proof} This is a very special case of and the remark that follows it. \end{proof}
 We will use the above theorem only in the special case $k=0$, in which it boils down to an earlier result of J.~Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
 
 For the rest of this section let us fix the following notation.
@@ -316,8 +305,6 @@ by $I$ the ideal $M[X, X^{-1}]$ of $B$ (it is clear that $I$ is also an ideal of
 Assume additionally that the residue field $k$ is of characteristic $\neq 2$.
 Then the canonical map $f\colon C(\rD_\ell, B, I) \to C(\rD_\ell, R, I)$ is surjective for $\ell \geq 7$. \end{lemma}
 \begin{proof}
-%There is a natural exact sequence:
-% \[ \xymatrix{\K_3(G, P, R) \ar[r] & \K_3(G, P, R/I) \ar@{->>}[r] & C_S(R, I).} \]
 Writing the starting portion of the homology long exact sequence for the map $\St(\rD_\ell, R) \to \St(\rD_\ell, R/I)$ 
 and using the isomorphisms of~\cref{lem:relativeH3} and~\cref{lem:lowerKgroups} we obtain the following commutative diagram:
 \begin{equation*}\xymatrix{
@@ -341,7 +328,6 @@ Then there exists a diagonal map $t$ which makes the diagram commute.
   and that $I$ is uniquely $X$-divisible in the sense of~\cite[\S~4]{LS17}.
  Thus, in the special case $\Phi = \rA_3$ the assertion of the lemma follows from~\cite[Theorem~3]{LS17}.
  In the general case the assertion of the lemma is a corollary of amalgamation theorem~\cite[Theorem~9]{S15}.
-%  (see~\cite[\S~2]{LS17} for more details).
 \end{proof}
 
 \begin{externaltheorem} \label{thm41} Suppose that $2 \in A^\times$. Then for $\ell \geq 7$ the canonical map $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective. \end{externaltheorem}
@@ -362,13 +348,6 @@ The required assertion now follows from the following computation:
 \end{proof}
 
 \section{Elementary calculations in relative Steinberg groups}
-\begin{comment}
-Hall-Witt identity
-\[ [[ y^{-1}, x], z] ^ {y^{-1}}  [[ z^{-1}, y], x] ^ {z^{-1}}  [[ x^{-1}, z], y] ^ {x^{-1}} = 1 \]
-\[ [[ y^{-1}, x], z]  \cdot [[ z^{-1}, y], x] ^ {z^{-1}y} \cdot  [[ x^{-1}, z], y] ^ {x^{-1}y} = 1. \]
-\[ [[ z^{-1}, y^{-1}], x] ^ {z^{-1}y^{-1}} \cdot  [[ x^{-1}, z], y^{-1}] ^ {x^{-1}y^{-1}} = [z, [ y, x]] . \]
-\[  . \]
-\end{comment}
 Throughout this section $\Phi$ denotes a simply laced root system, $R$ a commutative ring, and $I, J$ are two ideals of $R$. 
 We denote by $\overline{\St}(\Phi, R, I)$ the kernel of the map $\St(\Phi, R) \to \St(\Phi, R/I)$.
 This group coincides with the image in $\St(\Phi, R)$ of the relative group $\St(\Phi, R, I)$ defined in~\cref{sec:quillen}.
@@ -534,7 +513,7 @@ The following lemma asserts that most of the relations of type $\text{R3}^\bot_{
 \end{lemma}
 \begin{proof}
 For the proof we will need the following commutator identities:
-\begin{align} \label{eq:H1ii} [xy, z] = {}^x[y, z] \cdot [x,z];&\\ %= [a,[b,c]]\cdot [b,c] \cdot [a,c];&\\
+\begin{align} \label{eq:H1ii} [xy, z] = {}^x[y, z] \cdot [x,z];&\\
  \label{eq:H1iii} [x,z] = 1 \text{ implies } [x, [y,z]] = [[x,y],{}^yz].& \end{align}
  
 The proof is based on the following observation: every relation of type $\text{R3}^\bot_{d,e}$ of degree
@@ -922,7 +901,6 @@ Now for $a, b \in A$ set $\epsilon = N_{\alpha, \beta},$ $c = 1 - \epsilon abm'$
 Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain that 
 \begin{multline} \nonumber
 [T_\beta(b), T_\alpha(aX^{-1})] \left(g, [h], u \right) = \\
- %= T_\beta(b) \cdot T_\alpha(aX^{-1}) \left(x_\beta(-b) \cdot x_\alpha (-a X^{-1}) \cdot g, \left[h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1-am}\right)\right], u (1 - am) \right) = \\
  = T_\beta(b) \cdot T_\alpha(aX^{-1}) \left(x_\beta(-b) \cdot x_\alpha (-a X^{-1}) g,\ [h'],\ u (1 - am) \right) = \\
  = \left([x_\beta(b), x_\alpha(aX^{-1})]\cdot g,\ [h''],\ u c\right) = T_{\alpha+\beta}(-\epsilon abX^{-1})(g,\ [h],\ u),\end{multline} 
  where $h' = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \cdot x_{\beta}(bc)$  
@@ -956,7 +934,6 @@ Being considered as a subgroup of $\St(\Phi, R)$ the group $\St(\Phi, B)$ contai
 \[ \xymatrix{ \St(\Phi, A[X], M[X]) \ar[d] \ar[r] & \St(\Phi, R, M[X, X\inv]) \ar[r]^(.65){t} & \St(\Phi, B) \ar[d]^{j_R} \\
    \St(\Phi, A[X]) \ar[rr]^{j_+} & & \St(\Phi, R). } \]
 
-%We denote by $t$ the map $\St(\Phi, R, I) \to \St(\Phi, B)$ from.
 \begin{lemma}\label{lem:action} For any $[p, h, u]\in \overline{V}_T$ and any $p_1 \in \overline{G}^{\geq 0}_M$ holds $p_1 \cdot [p, h, u] = [p_1p, h, u]$. \end{lemma}
 \begin{proof} First of all, notice that the assertion of the lemma can be verified directly in the case $p_1 = z_\alpha(f, a)$ for all $a\in A$, $f\in M[X]$. Using~\cref{SR:additivity} and the fact that $x_\beta(X^2f) \in P_\alpha(0)$ for all $\beta \in \Phi$ it is not hard to show that the assertion also holds for $p_1 = z_\alpha(X^2f, aX^{-1})$.
 
@@ -973,20 +950,6 @@ From the first part of the proof and inductive assumption we obtain that the ass
 
 \begin{rem}
 Although we will not need this for our main result, it can be noted that $\overline{V}$ is a left $\St(\Phi, B)$-torsor, i.\,e. the action of $\St(\Phi, B)$ on $\overline{V}$ is both transitive and faithful. The faithfulness follows from the second property of~\cref{prop43} and our assumption that $j_R$ is injective.
-\begin{comment}
-\begin{equation} \label{T_2} t_\alpha(aX^{-1}) (g, h, u) = \left[ x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \{ X, 1+am \} ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right) h ,\ u \cdot (1 + am)\right].\end{equation}
-
-\begin{multline*}
- t_\alpha(aX^{-1}) (x_{-\alpha}(mX), 1, 1) = \left[ x_\alpha(aX^{-1})\cdot x_{-\alpha}(mX) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \{ X, 1+am \} ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right),\  (1 + am)\right] = \\
- = \left[ x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right),\  (1 + am)\right]
-\end{multline*}
-
-This implies that 
-\begin{multline*} x_{\alpha}\left(\tfrac{-aX^{-1}}{1+am}\right) \cdot h_\alpha(1+am)^{-1} \cdot \langle a, m \rangle^{-1} \cdot x_{-\alpha}\left(\tfrac{-mX}{1+am}\right) x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) [1, 1, 1] = [1, 1, 1+am]
-\end{multline*}
-
-\begin{equation} \langle a,m \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- m}{1 + am}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(m) \cdot x_{\alpha}\left(\tfrac{- a}{1+am}\right) \cdot h_{\alpha}^{-1}(1 + am). \end{equation} 
-\begin{equation} \langle a,m \rangle _ \alpha ^{-1} =  h_{\alpha}(1 + am) \cdot x_{\alpha}\left(\tfrac{a}{1+am}\right) \cdot x_{-\alpha}(-m) \cdot x_{\alpha}(-a) \cdot x_{-\alpha}\left(\tfrac{m}{1 + am}\right). \end{equation} \end{comment}
 The transitivity follows from~\cref{lem:action}, the first property of~\cref{prop43} and the following computation, which we leave as an exercise to the reader:
 \begin{equation*} \langle 1, m \rangle^{-1} \langle X^{-1}, mX \rangle \cdot [1, 1, 1] = [1, 1, 1+m]. \end{equation*} \end{rem}
 
