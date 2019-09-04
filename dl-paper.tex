@@ -12,7 +12,7 @@
 \renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
 \renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
 \newbibmacro{string+doi}[1]{\iffieldundef{doi}{\iffieldundef{url}{#1}{\href{\thefield{url}}{#1}}}{\href{https://dx.doi.org/\thefield{doi}}{#1}}}
-\DeclareFieldFormat[article, inproceedings, inbook, book, thesis]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
+\DeclareFieldFormat[article, inproceedings, inbook, book]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
 \renewcommand*{\bibfont}{\footnotesize}
 
 \newtheorem{theorem}{Theorem}
@@ -87,9 +87,9 @@ After the original Serre problem had been solved, numerous analogous questions d
 Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the group $G(\Phi, R)$ called {\it simply-connected Chevalley group} (see~\cite[\S~3]{St71} or~\cite{VP}) and the group $\St(\Phi, R)$ called {\it Steinberg group} (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined map $\pi \colon \St(\Phi, R) \to G(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this map are, by definition, the $\K_1$ and $\K_2$-groups modeled on Chevalley group $G(\Phi, -)$ (see~\cite{St78}).
 \[ \xymatrix{ 1 \ar[r] & \K_2(\Phi, R) \ar[r] & \St(\Phi, R) \ar^{\pi}[r] & G(\Phi, R) \ar[r] & \K_1(\Phi, R) \ar[r] & 1.} \]
 
-It turns out that an assertion similar to Serre problem also holds for the functor $\K_2$. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrates an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^\mathrm{M}_2(k)$ immediately follows for $\ell \geq 4$. Notice that $\K_2(\rA_\ell, R)$ here is just another notation for the unstable linear K-functor $\K_2(n, R)$.
+It turns out that an assertion similar to Serre problem also holds for the functor $\K_2$. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrates an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^\mathrm{M}_2(k)$ immediately follows for $\ell \geq 4$. Notice that $\K_2(\rA_\ell, R)$ here is just another notation for the unstable linear functor $\K_2(\ell+1, R)$.
 
-While numerous results on the $\K_1$-analogue of Serre's problem have appeared in the literature since~\cite{Su77} (see e.\,g.~\cite{Su82, Abe83, St-poly, St-Ded}), little progress has been made on the $\K_2$-analogue. Currently the problem still remains open for all $\Phi$ different from $\rA_\ell$, $\ell \geq 4$.
+While numerous results on the $\K_1$-analogue of Serre's problem have appeared in the literature since~\cite{Su77} (see e.\,g.~\cite{Su82, Abe83, St-poly, St-Ded}), little progress has been made on the $\K_2$-analogue. It has been conjectured by Wendt, see~\cite[Vermutung~6.22]{Vo11} that the $\K_2$-analogue of Serre problem holds for $\K_2(\Phi, -)$ for all $\Phi$ of rank $\geq 3$, however this conjecture still remains open for $\Phi$ different from $\rA_\ell$, $\ell \geq 4$.
 
 In~\cite{LS17} the authors have shown that Steinberg groups $\St(\Phi, R)$ satisfy Quillen--Suslin local-global principle provided $\Phi$ is simply-laced and has rank $\geq 3$. This result is one of the ingredients needed in the proof of the $\K_2$-analogue of Serre problem. The aim of the present article is to make yet another step towards the solution of the problem, namely to prove an analogue of Horrocks theorem~\cite{Ho64} for Steinberg groups.
 
@@ -911,7 +911,7 @@ Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain 
 \end{multline}
 \end{proof}
 
-We are ready for the first main result of this subsection.
+Now we are ready to prove the main result of this subsection.
 \begin{prop} \label{prop43}
 For $\Phi$ as in the statement of~\cref{lemma33}.
 the operators $T_\alpha$ defined above specify a well-defined action of $\St(\Phi, B)$ on $\overline{V}$. 
@@ -922,11 +922,9 @@ This action satisfies the following additional properties.
  \item If we consider $\St(\Phi, A[X, X\inv])$ as a group with the left multiplication action of $\St(\Phi, B)$ then the map $\overline{V} \to \St(\Phi, A[X, X\inv])$ given by $(g, [h], u) \mapsto g$ is a map of $\St(\Phi, B)$-groups.
 \end{enumerate}
 \end{prop}
-\begin{proof}
-  By~\cref{superfluous-relations} and Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1} the action of $\St^{\leq 1}(\Phi, B)$ on $\overline{V}$ given by~\eqref{T_1} and~\eqref{T_leq0} is well-defined. On the other hand, the group $\St^{\leq 1}(\Phi, B)$ is isomorphic to $\St(\Phi, B)$ by~\cref{lemma33} (set $t = X^{-1}$).
+\begin{proof} By~\cref{superfluous-relations} and Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1} the action of $\St^{\leq 1}(\Phi, B)$ on $\overline{V}$ given by~\eqref{T_1} and~\eqref{T_leq0} is well-defined. On the other hand, the group $\St^{\leq 1}(\Phi, B)$ is isomorphic to $\St(\Phi, B)$ by~\cref{lemma33} (set $t = X^{-1}$).
   
-  The first property can be verified directly using~\eqref{T_1}, \eqref{T_leq0} and the fact that $\St(\Phi, A[X\inv])$ is generated by $x_\alpha(a)$ and $x_\alpha(aX\inv)$ for $\alpha\in\Phi$, $a\in A$. The second property can be verified in a similar fashion.
-\end{proof}
+The first property can be verified directly using~\eqref{T_1}, \eqref{T_leq0} and the fact that $\St(\Phi, A[X\inv])$ is generated by $x_\alpha(a)$ and $x_\alpha(aX\inv)$ for $\alpha\in\Phi$, $a\in A$. The second property can be verified in a similar fashion. \end{proof}
 
 \subsection{Proof of the \texorpdfstring{$\mathbb{P}^1$}{P\textonesuperior}-glueing theorem.} \label{sec:P1glueing}
 We retain the notation of the previous section and assume additionally that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, R)$ is injective. 
