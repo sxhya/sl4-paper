@@ -6,7 +6,7 @@
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz}
 \usepackage{enumitem}
-%\usepackage[notref,notcite]{showkeys}
+\usepackage[notref,notcite]{showkeys}
 
 \addbibresource{paper.bib}
 \renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
@@ -80,16 +80,16 @@
 \begin{abstract} We prove a $\mathbb{P}^1$-glueing theorem for even-dimensional orthogonal Steinberg groups. This result, which is an analogue of Horrocks theorem, transfers to the orthogonal case an earlier result of M.~Tulenbaev and is also an analogue of an earlier result of A.~Suslin and V.~Kopeiko. \end{abstract}
 \maketitle
 \section{Introduction}
-The solution of the famous Serre problem on projective modules by D.~Quillen and A.~Suslin was one of the brilliant achievements of mathematics of the 70's, which bolstered the development of modern algebraic K-theory, see~\cite{Su76, Qu76}. In its weakest form Serre problem asks whether any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. We refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
+The solution of the famous Serre problem on projective modules by D.~Quillen and A.~Suslin was one of the brilliant achievements of mathematics of the 70's, which bolstered the development of algebraic K-theory, see~\cite{Su76, Qu76}. In its weakest form Serre problem asks whether any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. We refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
 
 After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_{1,n}(R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_{1,n}(k[x_1, \ldots x_n]) = \K_{1,n}(k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently, A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ (see~\cite[Theorem~1.2]{St-poly} for the result over a field and ~\cite[Corollary~1.2]{St-Ded} for its further generalization to Dedekind domains of arithmetic type).
 
 Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the group $G(\Phi, R)$ called {\it simply-connected Chevalley group} (see~\cite[\S~3]{St71} or~\cite{VP}) and the group $\St(\Phi, R)$ called {\it Steinberg group} (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined map $\pi \colon \St(\Phi, R) \to G(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this map are, by definition, the $\K_1$ and $\K_2$-groups modeled on Chevalley group $G(\Phi, -)$ (see~\cite{St78}).
 \[ \xymatrix{ 1 \ar[r] & \K_2(\Phi, R) \ar[r] & \St(\Phi, R) \ar^{\pi}[r] & G(\Phi, R) \ar[r] & \K_1(\Phi, R) \ar[r] & 1.} \]
 
-It turns out that an assertion similar to Serre problem also holds for the functor $\K_2$. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrates an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^\mathrm{M}_2(k)$ immediately follows for $\ell \geq 4$. Notice that $\K_2(\rA_\ell, R)$ here is just another notation for the unstable linear functor $\K_2(\ell+1, R)$.
+It turns out that an assertion similar to Serre problem also holds for the functor $\K_2$. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrated an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^\mathrm{M}_2(k)$ follows for $\ell \geq 4$. Notice that $\K_2(\rA_\ell, R)$ here is just another notation for the unstable linear functor $\K_2(\ell+1, R)$.
 
-While numerous results on the $\K_1$-analogue of Serre's problem have appeared in the literature since~\cite{Su77} (see e.\,g.~\cite{Su82, Abe83, St-poly, St-Ded}), little progress has been made on the $\K_2$-analogue. It has been conjectured by Wendt, see~\cite[Vermutung~6.22]{Vo11} that the $\K_2$-analogue of Serre problem holds for $\K_2(\Phi, -)$ for all $\Phi$ of rank $\geq 3$, however this conjecture still remains open for $\Phi$ different from $\rA_\ell$, $\ell \geq 4$.
+While numerous results on the $\K_1$-analogue of Serre's problem have appeared in the literature since~\cite{Su77} (see e.\,g.~\cite{Su82, Abe83, St-poly, St-Ded}), little progress has been made on the $\K_2$-analogue. It has been conjectured by M.~Wendt, see~\cite[Vermutung~6.22]{Vo11} that the $\K_2$-analogue of Serre problem holds for $\K_2(\Phi, -)$ for all $\Phi$ of rank $\geq 3$, however this conjecture still remains open for $\Phi$ different from $\rA_\ell$, $\ell \geq 4$.
 
 In~\cite{LS17} the authors have shown that Steinberg groups $\St(\Phi, R)$ satisfy Quillen--Suslin local-global principle provided $\Phi$ is simply-laced and has rank $\geq 3$. This result is one of the ingredients needed in the proof of the $\K_2$-analogue of Serre problem. The aim of the present article is to make yet another step towards the solution of the problem, namely to prove an analogue of Horrocks theorem~\cite{Ho64} for Steinberg groups.
 
@@ -184,7 +184,9 @@ Recall from~\cite{Mo04} that $\K_1^\mathrm{MW}(k)$ is isomorphic to the pullback
 \[ \xymatrix{ \K_1^\mathrm{MW}(k) \ar[r] \ar[d] & I(k) \ar[d] \\ \K_1(k) \ar[r] & I(k)/I^2(k), } \]
 in other words, it consists of pairs $[u, x]$ such that $x - \langle \langle u \rangle \rangle \in I^2(k)$.
 It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\rangle - x)$ defines an isomorphism of $\K_1^\mathrm{MW}(k)$ and $P(k)$. \end{proof}
- 
+
+\begin{rem} The above lemma can be considered as the unstable version of~\cite[Lemma~4.1.1]{AF17} (compute~$\mathrm{KSp}_2(k[X, X\inv])$ using~\eqref{GW-concrete} and~\cref{bass-ft} below). \end{rem}
+
 \begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the map $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
 \begin{proof} The first assertion follows from consideration of the following commutative diagram:
 \[\xymatrix{ & \K_2(\Phi, k) \ar[dl]_{\cong} \ar@{^{(}->}[dr] & \\
@@ -480,7 +482,7 @@ Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \
 \section{Proof of the main result}
 The main result of this section is~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. 
 The object playing a key role in its proof is a certain action of the group $G = \St(\Phi, A[X\inv] + M[X])$ on a certain set $\overline{V}$, which is defined in~\cref{sec:V-construction}. Later, we will see that $\overline{V}$ is, in fact, a set-theoretic $G$-torsor.
-To be able to write an explicit formula for this action we need two major ingredients. The first one is a certain presentation of $G$ involving much fewer generations and relation, see~\cref{lemma33}. The other ingredients are certain subgroups $P_\alpha(0)$, $P_\alpha(*)$ of $\St(\Phi, A[X, X\inv])$, which are modeled after the nameless groups from~\cite[Lemma~3.4]{Tu83}. Their precise definition and immediate properties are given in section~\ref{sec:Pa0-basic}, while the facts about them, which are needed to verify that the action of $G$ satisfies Steinberg relations, are placed in~\cref{sec:Pa0-Steinberg}.
+To be able to write an explicit formula for this action we need two major ingredients. The first one is ~\cref{lemma33}, which delivers a presentation of $G$ with much fewer generations and relations than~\eqref{rel:add}-\eqref{rel:CCF}. The other ingredients are certain subgroups $P_\alpha(0)$, $P_\alpha(*)$ of $\St(\Phi, A[X, X\inv])$, which are modeled after the nameless groups from~\cite[Lemma~3.4]{Tu83}. The definition and properties of these groups are given in Sections~\ref{sec:Pa0-basic}--\ref{sec:Pa0-Steinberg}.
 
 \subsection{Presentation of Steinberg groups by homogeneous generators}
 \label{sec:presentation}
