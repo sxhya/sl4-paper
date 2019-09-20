@@ -80,7 +80,7 @@
 \begin{abstract} We prove a $\mathbb{P}^1$-glueing theorem for even-dimensional orthogonal Steinberg groups. This result transfers to the orthogonal case an earlier result of M.~Tulenbaev and is also an analogue of an earlier result of A.~Suslin and V.~Kopeiko. \end{abstract}
 \maketitle
 \section{Introduction}
-Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. The problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and the solution of the problem played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
+Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. Thшы problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and its solution played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
 
 After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_{1,n}(R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_{1,n}(k[x_1, \ldots x_n]) = \K_{1,n}(k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently, A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ (see~\cite[Theorem~1.2]{St-poly}).
 See also \cite[Corollary~1.2]{St-Ded} for the generalization of Abe's result to Dedekind domains of arithmetic type.
@@ -105,7 +105,7 @@ The proof of~\cref{thm:main} goes as follows. We notice that it suffices to prov
 $j_+ \colon \St(\rD_\ell, A[X]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to be the hardest part. After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local.
 Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_+$ comes down to proving injectivity of the following two maps:
 \[ \xymatrix{ \St(\rD_\ell, A[X^{-1}]) \ar[r] & \St(\rD_\ell, A[X\inv] + M[X]) \ar[r] & \St(\rD_\ell, A[X, X\inv]). }\]
-The injectivity of the second map is obtained in~\cref{thm41}. This is the only place in our proof which invokes the assumption that $2$ is invertible. The proof of~\cref{thm41} depends on the stability theorem for higher orthogonal K-groups and also on certain basic computations with Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). Finally, the injectivity of the first map is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ of rank $\geq 5$.
+The injectivity of the second map is obtained in~\cref{thm41}. This is the only place in our proof which invokes the assumption that $2$ is invertible. The proof of~\cref{thm41} depends on the stability theorem for higher orthogonal K-groups and also on certain basic computations with Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). Finally, the injectivity of the first map is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ containing a subsystem of type $\rA_4$.
 %$\rD_\ell$, $\ell=5,6$ and also $\rE_\ell$, $\ell=6,7,8$.
 
 \subsection{Acknowledgements} 
@@ -120,8 +120,8 @@ Let $\Phi$ be a reduced and irreducible root system of rank $\geq 2$ and $R$ be 
 \begin{align}
 & \phantom{[}
 x_\alpha(s) \cdot x_\alpha(t) = x_\alpha(s+t),\ \alpha\in\Phi,\ s,t\in R; \label{rel:add}\\
-& [x_\alpha(s), x_\beta(t)] = \prod\limits_{i,j\in\mathbb{N}}
- x_{i\alpha + j\beta}\left(N_{\alpha,\beta ij}\, s^i t^j\right),\quad \alpha,\beta\in\Phi,\ \alpha\neq\pm\beta,\ s,t\in R. \label{rel:CCF}
+& [x_\alpha(s), x_\beta(t)] = \prod
+ x_{i\alpha + j\beta}\left(N_{\alpha,\beta ij}\, s^i t^j\right),\quad \alpha,\beta\in\Phi,\ \alpha\neq-\beta,\ s,t\in R. \label{rel:CCF}
 \end{align}
 The indices $i$, $j$ appearing in the right-hand side of the above relation range over
 all positive natural numbers such that $i\alpha + j\beta\in\Phi$.
@@ -143,7 +143,7 @@ In the above formulae $a, b \in R$ and the integers $N_{\alpha, \beta} = N_{\alp
 \begin{equation} \label{eq:simplest} N_{\alpha, \beta} = -N_{\beta,\alpha} = - N_{-\alpha, -\beta} = N_{\beta, -\alpha-\beta} = N_{-\alpha-\beta, \alpha}. \end{equation}
 If, moreover, $\gamma \in \Phi$ is such that $\alpha,\beta,\gamma$ form a basis of a root subsystem of type $\rA_3$ then one has
 \begin{equation} \label{eq:cocycle} N_{\beta,\gamma} \cdot N_{\alpha, \beta+\gamma} = N_{\alpha+\beta, \gamma} \cdot N_{\alpha, \beta}. \end{equation} \end{lemma}
-In our computations below we will be using identities~\eqref{eq:simplest} without futher reference.
+In our computations below we will be using identities~\eqref{eq:simplest} without further reference.
 
 For $\alpha\in\Phi$ and $s \in R^\times$ we define certain elements $w_\alpha(s), h_\alpha(s)$ of $\St(\Phi, R)$ (the latter ones are sometimes called {\it semisimple root elements}):
 \begin{align*} w_\alpha(s) & =  x_\alpha(s) \cdot x_{-\alpha}(-s^{-1}) \cdot x_\alpha(s), \\ h_\alpha(s) & =  w_\alpha(s) \cdot w_\alpha(-1).  \end{align*}
@@ -170,15 +170,15 @@ In the following lemma we recall the computation of the group $\K_2(\Phi, R)$ in
 \[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ in which} \]
 \[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_1(k) \cong k^\times & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
 \begin{proof} Let us first consider the case of nonsymplectic $\Phi$, in which one can find a long root $\alpha\in \Phi$ in such a way that there is a commutative diagram of abelian groups
-\[\xymatrixcolsep{5pc}\xymatrix{k^* \ar[r]^-{h} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
+\[\xymatrixcolsep{5pc}\xymatrix{k^\times \ar[r]^-{h} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
                                                                                       &                                 & \K_2^\mathrm{M}(k(X)),} \]
 in which $h = \{ -, X \}_{\alpha}$ and the vertical map is an isomorphism by Matsumoto theorem.
 Notice that the diagonal map is split by the obvious residue homomorphism and therefore is injective. This, in turn, implies that $h$ is also injective.
 The assertion of the lemma now follows from~\cite[Satz~3]{Hur77} which asserts that for a nonsymplectic $\Phi$ holds $\K_2(\Phi, k[X, X\inv]) = \mathrm{Im}(h) \oplus \K_2(\Phi, k)$.
 
 Consider now the case when $\Phi$ is symplectic. In this case the assertion of the lemma is just a reformulation of~\cite[Theorem~B]{MR91},
-which asserts that for $\ell \geq 1$ one has $\K_2(\rC_\ell, k[X, X\inv] \cong \K_2(\rC_\ell, k) \oplus P(k)$, where
-$P(k)$ is the set $k^* \times I_2(k)$ with the group structure given by
+which asserts that for $\ell \geq 1$ one has $\K_2(\rC_\ell, k[X, X\inv]) \cong \K_2(\rC_\ell, k) \oplus P(k)$, where
+$P(k)$ is the set $k^\times \times I_2(k)$ with the group structure given by
 \[ (u, y) \cdot (v, z) = (uv, y + z - \langle\langle u, v\rangle\rangle).\]
 Here $I^2(k)$ stands for the second power of the fundamental ideal $I(k)$ in the Witt ring $W(k)$ of $k$.
 Recall from~\cite{Mo04} that $\K_1^\mathrm{MW}(k)$ is isomorphic to the pullback of the diagram:
@@ -188,7 +188,7 @@ It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\r
 
 \begin{rem} The above lemma can be considered as the unstable version of~\cite[Lemma~4.1.1]{AF17} (compute~$\mathrm{KSp}_2(k[X, X\inv])$ using~\eqref{GW-concrete} and~\cref{bass-ft} below). \end{rem}
 
-\begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the map $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
+\begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the map $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of the images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
 \begin{proof} The first assertion follows from consideration of the following commutative diagram:
 \[\xymatrix{ & \K_2(\Phi, k) \ar[dl]_{\cong} \ar@{^{(}->}[dr] & \\
                \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}]),} \]
@@ -199,11 +199,11 @@ Clearly, the image of $g$ in $G(\Phi, k[X, X\inv])$ lies in $G(\Phi, k)$, theref
 \end{proof}
 
 \subsection{Relative Steinberg groups and unstable K-groups} \label{sec:quillen}
-In this subsection we recall the definitions and basic facts pertaining to the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. The main goal of this subsection is to show that Loday's theory also can be applied to unstable Steinberg groups, and that the resulting relative unstable Steinberg groups have many of the good properties of their stable counterparts. Some of the results of this subsection have been briefly mentioned in~\cite{S15} (cf. e.\,g. Corollaries 3--4).
+In this subsection we recall the definitions and basic facts pertaining to the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. The main goal of this subsection is to show that Loday's theory can be applied to unstable Steinberg groups, and that the resulting relative unstable Steinberg groups have many of the properties of their stable counterparts. Some of the results of this subsection have been briefly mentioned in~\cite{S15} (cf. e.\,g. Corollaries 3--4).
 
 Recall that the category of (commutative) pairs $\catname{Pairs}$ is defined as follows.
 Its objects are pairs $(R, I)$, in which $R$ is a commutative ring and $I$ is an ideal of $R$. A morphism of pairs $f \colon (R, I) \to (R', I')$ is, by definition, a ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$. Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ to the morphism category $\catname{CRings}^\rightarrow$.
-If a pair $(R, I)$ is such that $R$ is a local ring with maximal ideal $I$, we call such pair a {\it local pair}.
+If $(R, I)$ is such that $R$ is a local ring with maximal ideal $I$, we call such pair a {\it local pair}.
 
 There is an obvious fully faithful embedding $\catname{CRings} \to \catname{Pairs}$ sending $R$ to $(R, R)$. For a given functor $S \colon \catname{CRings} \to \catname{Groups}$ a {\it relativization} of $S$ is any functor $\widetilde{S} \colon \catname{Pairs} \to \catname{Groups}$ extending $S$ in the obvious sense. Relativization of a functor is not unique.
 
@@ -214,7 +214,7 @@ Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor. Set $G_i = \K
 \begin{df} By definition, the {\it relative Steinberg group} $\St(\Phi, R, I)$ is the result of application of Loday's relativization to the functor $\St(\Phi, -)$. Notice that $\St(\Phi, R, I)$ is not a subgroup of $\St(\Phi, R)$ but rather its central extension by the abelian group $C_{\St(\Phi, -)}(R, I)$. For shortness we rename the latter group to $C(\Phi, R, I)$. \end{df}
 
 Our next goal is to obtain a homological interpretation of the group $C(\Phi, R, I)$.
-For doing this we need to recall some additional notation and terminology.
+In order to do this, we need to recall some additional notation and terminology.
 
 First of all, recall that a {\it central extension} of a group $G$ is a surjective map $\widetilde{G} \to G$, whose kernel is contained in the center of $\widetilde{G}$. 
 A morphism of central extensions is a group-theoretic map $\widetilde{G} \to \widetilde{G}'$ over $G$.
