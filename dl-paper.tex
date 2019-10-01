@@ -149,7 +149,9 @@ For $\alpha\in\Phi$ and $s \in R^\times$ we define certain elements $w_\alpha(s)
 \begin{align*} w_\alpha(s) & =  x_\alpha(s) \cdot x_{-\alpha}(-s^{-1}) \cdot x_\alpha(s), \\ h_\alpha(s) & =  w_\alpha(s) \cdot w_\alpha(-1).  \end{align*}
 
 Recall from~\cite[Lemma~5.2]{Ma69} that the following relations hold for semisimple root elements:
-\begin{align} \label{eq:conj-h-x} {}^{h_\alpha(t)}\!x_\beta(u) & = x_\beta(t^{\langle \beta,  \alpha \rangle}u), \\ \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}. \end{align}
+\begin{align} \label{eq:conj-h-x} {}^{h_\alpha(t)}\!x_\beta(u) & = x_\beta(t^{\langle \beta,  \alpha \rangle}u), \\
+              \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}, \\
+              \label{eq:h-inv}    h_\alpha(t)^{-1}             & = h_{-\alpha}(t). \end{align}
 Here $\langle \beta, \alpha \rangle$ denotes the integer $\tfrac{2(\beta, \alpha)}{(\alpha, \alpha)}$.
 
 \subsection{$\K_2$-groups and symbols} In our computations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our notational conventions for symbols follow~\cite{DS73} and {\it not} more modern textbooks such as~\cite{Kbook}. Recall that Steinberg symbols are defined for arbitrary $s, t \in R^\times$ as follows:
@@ -663,7 +665,7 @@ To obtain the assertion for $P_{\alpha, M}(0)$ consider the following commutativ
 Notice that $x_\beta(b) \in P_{\alpha, A}(0)$ therefore for $g \in P_{\alpha, M}(0)$ one has \[p_{\alpha, M}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(g) = 0,\] which implies the assertion.\end{proof}
 
 For the rest of this section $M$ denotes the maximal ideal of $A$, so everywhere below we shorten the notation for $P_{\alpha, M}(*)$ (resp. $P_{\alpha, M}(0)$) to just $P_{\alpha}(*)$ (resp. $P_{\alpha}(0)$). For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
-From~\cref{P0_normal} it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. This allows us to make the following definition. 
+From~\cref{P0_normal} it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$, which allows us to give the following definition. 
 
 \begin{df} Define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, A[X, X^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
 \[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}.\] \end{df}
@@ -770,32 +772,32 @@ The assertion now follows from the preceding corollary.
 Now if $g = x_\gamma(Xf)$, $\gamma \in \{\pm \alpha, \pm \beta\}$ is a generator of type 2 or 3, the conjugation by $x_{\beta-\alpha}(a)$ either fixes $g$ or transforms it into a product of two generators of type 2 or 3.  Finally, from~\cref{rem:palpha} we obtain that $z_{\alpha-\beta}(Xf, b) \in K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0) = K(\alpha, \beta)$. \end{proof} 
 
 \begin{lemma} For $g \in K(\alpha, \beta)$ and $a, b\in A$ the conjugate of $S_\alpha(a, g)$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. \end{lemma}
-\begin{proof} By~\cref{image-K-a-b} and~\cref{conj-K-a-b} it remains to show that the conjugate of each generator $g = z_\gamma(f, X\xi)$, $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ of $Z_{\alpha, \beta}$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. Throughout the proof we understand generator types according to~\cref{defP0}. It is clear that $g$ itself is a generator of type 2, therefore it remains to consider the case $\gamma\not \perp \beta - \alpha$. 
+\begin{proof} By~\cref{image-K-a-b} and~\cref{conj-K-a-b} it remains to show that the conjugate of each generator $g = z_\gamma(f, X\xi)$, $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ of $Z_{\alpha, \beta}$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. Throughout this proof we understand generator types according to~\cref{defP0}. It is clear that $g$ itself is a generator of type 2, therefore it remains to consider the case $\gamma\not \perp \beta - \alpha$. 
  
 In the case $\alpha - \beta - \gamma \in \Phi$ we obtain from \eqref{Z2} of~\cref{Zrels} that
-\[ z_{\gamma}(f, X\xi) ^ {x_{\beta-\alpha}(b)} = x_{\beta-\alpha} (- bXf\xi) \cdot x_{-\alpha + \gamma + \beta} (N_{\gamma, \beta -\alpha}\cdot bf)     \cdot z_{\gamma}(f, X\xi). \] Notice that $\langle \alpha - \beta - \gamma, \alpha \rangle = \langle \alpha, \alpha \rangle - \langle \beta, \alpha \rangle - \langle \gamma, \alpha \rangle \leq 2 - 1 - 1 = 0$, 
+\[ z_{\gamma}(f, X\xi) ^ {x_{\beta-\alpha}(b)} = x_{\beta-\alpha} (- bXf\xi) \cdot x_{\beta - \alpha + \gamma} (N_{\gamma, \beta -\alpha}\cdot bf)     \cdot z_{\gamma}(f, X\xi). \] Notice that $\langle \alpha - \beta - \gamma, \alpha \rangle = \langle \alpha, \alpha \rangle - \langle \beta, \alpha \rangle - \langle \gamma, \alpha \rangle \leq 2 - 1 - 1 = 0$, 
  hence $\langle \alpha - \beta - \gamma, \alpha \rangle = -1,0$ and the expression in the right-hand side is a product of generators of type 1, 2, 2 or 1, 3, 2.
 
 Now suppose that the other alternative holds, namely that $\alpha - \beta + \gamma \in \Phi$.
 Since $\langle \alpha - \beta + \gamma, \alpha \rangle = \langle \alpha , \alpha \rangle - \langle \beta, \alpha \rangle + \langle \gamma, \alpha \rangle \geq 2 - 1 + 1 = 2$
-we obtain that $\alpha - \beta + \gamma = \alpha$. Thus, by \eqref{Z3} of~\cref{Zrels}
-\[z_{\gamma}(f, X\xi) ^ {x_{\beta-\alpha}(b)} = x_{\beta-\alpha} (bXf\xi) \cdot x_{-\alpha} (N_{\gamma,\alpha - \beta}\cdot bX^2 f\xi^2) \cdot z_{\gamma}(f, X\xi). \]
+we obtain that $\alpha - \beta + \gamma = \alpha$, i.\,e. $\beta=\gamma$. Thus, by \eqref{Z3} of~\cref{Zrels}
+\[z_{\beta}(f, X\xi) ^ {x_{\beta-\alpha}(b)} = x_{\beta-\alpha} (bXf\xi) \cdot x_{-\alpha} (N_{\beta,\alpha - \beta}\cdot bX^2 f\xi^2) \cdot z_{\beta}(f, X\xi). \]
 The expression in the right-hand side is a product of generators of type 1, 4, 2. \end{proof}
 
 \begin{lemma} \label{SR:obtuse} For $g \in K(A[X], M[X]) \cap P_\alpha(m) \cap P_\beta(m')$ and $a, b\in A$ the element \[ x_{\beta - \alpha}(b) \cdot S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta - \alpha}((1 + \epsilon abm')^{-1})\cdot x_{\beta - \alpha}(-b(1 + \epsilon abm')) \]
  belongs to $P_\alpha\left(\tfrac{m - \epsilon bm'}{1+am}\right)$, where $\epsilon = N_{\alpha, -\beta}$.
 \end{lemma}
 \begin{proof} Set $c = 1 + \epsilon a b m'$, $s_0 = \langle a, m \rangle$, $s_1 = \langle \epsilon am', -bc^{-1} \rangle$.
-From the definition of $S_\alpha(a, -)$ we obtain that
+From the definition of $S_\alpha(a, -)$, \cref{lem:Tulenbaev-formula}, \eqref{eq:conj-h-x}, \eqref{eq:h-inv} and~\eqref{eq:dennis-stein} we obtain that
  \begin{multline} \label{eq:SRobtuse-computation}
- S_\alpha(a, x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta-\alpha}(c^{-1})\cdot x_{\beta - \alpha}(-bc) = \\ 
+ S_\alpha\left(a, x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)\right) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta-\alpha}(c^{-1})\cdot x_{\beta - \alpha}(-bc) = \\ 
  = S_\alpha(a, x_{-\beta}(m'X)) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_\alpha^{-1} (1 + am) \cdot h_{\beta - \alpha}(c^{-1}) \cdot x_{\beta - \alpha}(-bc) = \\
  = x_{-\beta}(m'X) \cdot x_{\alpha - \beta}(\epsilon am') \cdot x_{\beta - \alpha}(-bc^{-1}) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot s_0 \cdot h_{\beta - \alpha}(c^{-1}) = \\
  = x_{-\beta}(m'X) \cdot x_{\beta - \alpha}(-b) \cdot s_1 \cdot h_{\alpha-\beta}(c^{-1}) \cdot x_{\alpha-\beta}\left(\epsilon acm'\right) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot s_0 \cdot h_{\beta - \alpha}(c^{-1}) = \\
  =  x_{\beta - \alpha}(-b) \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(-\epsilon bm'X) \cdot s_1 \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot x_{-\alpha}\left(\tfrac{cmX}{1+am}\right) \cdot s_0 = \\
  = x_{\beta-\alpha}(-b) \cdot x_{-\beta}\left(m'X(1 - \epsilon abm'c^{-1})\right) \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot s_1 \cdot s_0 \cdot x_{-\alpha}\left(-\epsilon bm' X + \tfrac{cmX}{1+am}\right).
 \end{multline}
-Denote by $h_0$ the product of all terms except the first and the last one in the above formula. It is clear that $h_0$ lies in $P_\alpha(0)$. Using~\cref{K-a-b} we can decompose $g = g_0 \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)$ for some $g_0 \in K(\alpha, \beta)$. The required assertion now follows from \eqref{eq:Smult}, \eqref{eq:SRobtuse-computation} and the preceding lemma:
+Denote by $h_0$ the product of all factors in the above formula except the first and the last one. It is clear that $h_0$ lies in $P_\alpha(0)$. Using~\cref{K-a-b} we can decompose $g = g_0 \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)$ for some $g_0 \in K(\alpha, \beta)$. The required assertion now follows from \eqref{eq:Smult}, \eqref{eq:SRobtuse-computation} and the preceding lemma:
 \begin{multline} \nonumber
  x_{\beta - \alpha}(b) \cdot S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta - \alpha}(c^{-1})\cdot x_{\beta - \alpha}(-bc) = \\
   = x_{\beta - \alpha}(b) \cdot S_\alpha(a, g_0) \cdot x_{\beta-\alpha}(-b) \cdot h_0 \cdot x_{-\alpha}\left(\tfrac{m -\epsilon bm'}{1+am}\right) \in P_\alpha(\tfrac{m -\epsilon bm'}{1+am}). \qedhere
@@ -806,18 +808,18 @@ Denote by $h_0$ the product of all terms except the first and the last one in th
 Throughout this subsection $\Phi$ denotes arbitrary irreducible simply-laced root system of rank $\geq 3$, unless stated otherwise. Let $A$ be a local ring with maximal ideal $M$ and residue field $k$. As in~\cref{firstPart} we denote by $B$ the ring $A[X\inv] + M[X]$ considered as a graded subring of the ring of Laurent polynomials $R = A[X, X\inv]$.
 
 For shortness we denote the subgroup $\overline{\St}(\Phi, A, M)$ by $G_M^0$.
-Notice that $G_M^0$ can be considered as a subgroup of $\St(\Phi, R)$.
+Notice that $G_M^0$ can be considered as a subgroup of $\St(\Phi, R)$. Consider the following commutative diagram.
 \[ \xymatrix{ G_M^0 \ar@{^{(}->}[r]^{i_+} \ar@{^{(}->}[d]^{i_-} & \overline{\St}(\Phi, A[X], M[X]) \ar^{j_+^M}[d] \ar@{^{(}->}[r] & \St(\Phi, A[X]) \ar[dl]^{j_+} \\
               \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, R). &  } \] 
 We denote by $\overline{G}^{\geq 0}_M$ the image of the map $j_+^M$.               
 Denote by $\overline{V}_T$ the quotient of the set of triples 
 \[V_T = \overline{G}_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1+M)^\times\] by the equivalence relation given by $(p \gamma, h, u)_T \sim (p, \gamma h, u)_T$, $\gamma \in G^0_M$. We denote the image of $(p, h, u)_T$ in $\overline{V}_T$ by $[p, h, u]$.              
-$\overline{V}_T$ is precisely the set upon which M.~Tulenbaev constructs an action of $\St(\Phi, B)$ in~\cite[Proposition~4.3]{Tu83}.
+$\overline{V}_T$ is precisely the set upon which M.~Tulenbaev in~\cite[Proposition~4.3]{Tu83} constructs an action of $\St(\Phi, B)$.
 
 Sometimes it will be more convenient for us to work with another set $\overline{V}$ isomorphic to $\overline{V}_T$. Denote by $V$ the subset of $\St(\Phi, R) \times \St(\Phi, A[X\inv]) \times (1 + M)^\times$ consisting of those triples $(g, h, u)$ for which $p(g, h, u) := g \cdot j_-(h) \cdot \{ X, u \}$ belongs to $\overline{G}_M^{\geq 0}$. 
 
 We let $h_0 \in G_M^0$ act on $V$ on the right by $(g, h, u) \cdot h_0 = (g, h \cdot i_-(h_0), u)$. This action is well defined since $G^0_M \subset \overline{G}^{\geq 0}_M$.
-We denote by $\overline{V}$ the set of orbits of this action of $G_M^0$ and use the notation $(g, [h], u)$ for the elements of $\overline{V}$.
+We denote by $\overline{V}$ the set of orbits of this action and use the notation $(g, [h], u)$ for the elements of $\overline{V}$.
 Whenever $v_1, v_2 \in V$ lie in the same $G_M^0$-orbit we use the notation $v_1 \sim v_2$.
 We denote by $\overline{p}$ the function $\overline{V} \to \overline{G}^{\geq 0}_M/G_M^0$ sending each $(g, [h], u) \in V$ to the left coset $p(g, h, u)G_M^0$.
 
@@ -843,9 +845,9 @@ Then for any $\alpha \in \Phi$ and $a \in A$ the partial function $t_\alpha(aX^{
  First of all, let us show that the resulting function is total. 
  Fix $v_0 = (g, h, u) \in V$. Since $p(g, h, u) \in \overline{G}^{\geq 0}_M$ there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $j_+(g_1) = p(g, h, u).$
  Set $h_0 = ev^*_{X=0}(g_1)^{-1}$, then, clearly, $g_1 \cdot i_+(h_0) \in K(A[X], M[X])$ and 
- $p(g, h \cdot i_-(h_0), u) = j_+(g_1) \cdot j_-(i_-(h_0)) = j_+(g_1 \cdot i_+(h_0)) \in j_+(K(A[X], M[X])) \subseteq P_\alpha(*)$, which shows that $t_\alpha(aX^{-1})$ is defined on the representative $(g, h \cdot i_+(h_0), u)$ lying in the same $G_M^0$-orbit as $v_0$.
+ $p(g, h \cdot i_-(h_0), u) = j_+(g_1) \cdot j_-(i_-(h_0)) = j_+(g_1 \cdot i_+(h_0)) \in j_+(K(A[X], M[X])) \subseteq P_\alpha(*)$, which shows that $t_\alpha(aX^{-1})$ is defined on the representative $(g, h \cdot i_-(h_0), u)$ lying in the same $G_M^0$-orbit as $v_0$.
   
- Next, let us show that the value of $T_\alpha(aX^{-1})$ does not depend on a choice of the representative.
+ Next, let us show that the value of $T_\alpha(aX^{-1})$ does not depend on the choice of a representative.
  Let $v_1 = (g, h_1, u)$ and $v_2 = (g, h_2, u)$ be two elements of the same $G_M^0$-orbit for which both $p(v_1)$ and $p(v_2)$ belong to $P_\alpha(*)$.
  By definition, $h_1^{-1} h_2 = i_-(h_0)$, for some $h_0 \in G^0_M$, moreover, 
   $p(v_1)^{-1} \cdot p(v_2) = j_- i_-(h_0) = j_+ i_+(h_0) \in P_\alpha(*)$.
@@ -866,7 +868,7 @@ Thus far we have specified the action of the generators of the "truncated'' Stei
 \begin{proof} We need to show that $[T_\alpha(aX^{-1}), T_\beta(b)](g, [h], u) = (g, [h], u)$ for $\beta\in Z(\alpha)$, $a\in A$, $b\in A + XM[X]$.
 Write $b = b_0 + Xf$ for some $b_0 \in A$, $f \in M[X]$.
 We may assume that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$  (cf. the first part of the proof of~\cref{lem:orbit-action}).
-It follows from~\cref{P0-conj-invariant} that $P_\alpha\left(\tfrac{m}{1-am}\right)$ is stable under conjugation with $x_\beta(b_0)$, therefore by~\cref{SR:additivity} we have
+It follows from~\cref{P0-conj-invariant} that $P_\alpha\left(\tfrac{m}{1-am}\right)$ is stable under conjugation by $x_\beta(b_0)$, therefore by~\cref{SR:additivity} we have
 \begin{multline} \nonumber
   \left[T_\beta(b),\ T_\alpha(aX^{-1}) \right] (g, [h], u) = \\
   = T_\beta(b) \cdot T_\alpha(aX^{-1}) \left(x_\beta(-b) \cdot x_\alpha(-aX^{-1}) \cdot g, [h'], u(1-am)\right) = \\ = \left( [x_\beta(b), x_{\alpha}(aX^{-1})] \cdot g, [h''], u] \right) = \left(g, [h], u\right), \end{multline}
@@ -888,13 +890,13 @@ Since $x_\beta(Xf)$ belongs to $P_\alpha(0)$ we obtain from~\cref{SR:additivity}
 \begin{lemma} \label{R3_1_1} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations $\mathrm{R3}_{1,1}^{\angle}$. \end{lemma}
 \begin{proof}
 Let $\alpha, \beta$ be a pair of roots such that $\alpha$ and $\beta$ form a sharp angle.
-From~\cref{K-a-b} and the proof of the first part of~\cref{lem:orbit-action} it follows that \[p(g, h, u) \in j_+\left(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\beta}(m')\right)\text{ for some }m,m' \in M.\]
+From~\cref{K-a-b} and the proof of the first part of~\cref{lem:orbit-action} it follows that \[p(g, h, u) \in j_+\left(K(A[X], M[X])\right) \cap P_\alpha(m) \cap P_{\beta}(m')\text{ for some }m,m' \in M.\]
 Set $\epsilon = N_{\alpha,-\beta}$. Applying~\cref{SR:sharp} we obtain that
 \begin{multline} \nonumber
  T_\beta(bX^{-1}) \cdot T_\alpha(aX^{-1}) \left(g, [h], u\right) = 
  T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ \left[h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right)\right],\ u(1 + am)\right) = \\ 
  = T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ \left[h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am')\right],\ u(1 + am)\right) = \\
- = (x_\beta(bX^{-1}) x_\alpha(aX^{-1}) \cdot g, [h'], u(1 + am + bm')), \end{multline}
+ = (x_\beta(bX^{-1}) \cdot x_\alpha(aX^{-1}) \cdot g, [h'], u(1 + am + bm')), \end{multline}
 where 
 \begin{multline} \nonumber
  h' = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am') \cdot x_\beta\left(-\tfrac{bX^{-1}(1+am)}{1 + am + bm'}\right) \sim \\
@@ -902,21 +904,20 @@ where
  = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am} + \tfrac{m'abX^{-1}}{(1+am)(1 + am + bm')}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right) \cdot h^{-1}_\alpha(1 + am) \sim \\
  \sim h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am + bm'}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right).
 \end{multline}
-In the last computation notation $h \sim h'$ means that $h$ and $h'$ lie in the same left $G_M^0$-coset.
-If we swapped $(a,\alpha,m)$ with $(b,\beta,m')$, 
-the expressions in the right-hand sides of the above formulae would remain unchanged. This implies the required assertion.
+In the last calculation notation $h \sim h'$ means that $h$ and $h'$ lie in the same left $G_M^0$-coset.
+If we swap $(a,\alpha,m)$ with $(b,\beta,m')$, the expressions in the right-hand sides of the above formulae will remain unchanged. This implies the required assertion.
 \end{proof}
 
 \begin{lemma} \label{R2_0_1} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations $\mathrm{R2}_{0,1}$. \end{lemma}
 \begin{proof} 
 Let $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$.
-As before, we may assume $p(g, h, u) \in j_+(K(A[X], M[X]) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m'))$ for some $m, m' \in M$.
+As before, we may assume $p(g, h, u) \in j_+\left(K(A[X], M[X])\right) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m')$ for some $m, m' \in M$.
 Now for $a, b \in A$ set $\epsilon = N_{\alpha, \beta},$ $c = 1 - \epsilon abm'$.
 Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain that 
 \begin{multline} \nonumber
-[T_\beta(b), T_\alpha(aX^{-1})] \left(g, [h], u \right) = \\
- = T_\beta(b) \cdot T_\alpha(aX^{-1}) \left(x_\beta(-b) \cdot x_\alpha (-a X^{-1}) g,\ [h'],\ u (1 - am) \right) = \\
- = \left([x_\beta(b), x_\alpha(aX^{-1})]\cdot g,\ [h''],\ u c\right) = T_{\alpha+\beta}(-\epsilon abX^{-1})(g,\ [h],\ u),\end{multline} 
+[T_\beta(b),\ T_\alpha(aX^{-1})] \left(g, [h], u \right) = \\
+ = T_\beta(b) \cdot T_\alpha(aX^{-1}) \left(x_\beta(-b) \cdot x_\alpha (-a X^{-1})\cdot  g,\ [h'],\ u (1 - am) \right) = \\
+ = \left([x_\beta(b),\ x_\alpha(aX^{-1})]\cdot g,\ [h''],\ u c\right) = T_{\alpha+\beta}(-\epsilon abX^{-1})(g,\ [h],\ u),\end{multline} 
  where $h' = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \cdot x_{\beta}(bc)$  
   and the last equality is obtained as follows:
  \begin{multline} \nonumber
@@ -927,8 +928,7 @@ Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain 
 
 Now we are ready to prove the main result of this subsection.
 \begin{prop} \label{prop43}
-For $\Phi$ as in the statement of~\cref{lemma33}.
-the operators $T_\alpha$ defined above specify a well-defined action of $\St(\Phi, B)$ on $\overline{V}$. 
+For $\Phi$ as in the statement of~\cref{lemma33} the operators $T_\alpha$ defined above specify a well-defined action of $\St(\Phi, B)$ on $\overline{V}$. 
 
 This action satisfies the following additional properties.
 \begin{enumerate}
