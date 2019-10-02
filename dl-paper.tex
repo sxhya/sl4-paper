@@ -1,7 +1,7 @@
 \documentclass[oneside, 8pt]{amsart}
 \usepackage{amscd, amsmath, amssymb, amsthm, amsfonts, amstext, verbatim, mathtools, xfrac, microtype, nameref, thmtools}
 \usepackage[breaklinks=false,unicode]{hyperref}
-\usepackage[backend=biber, bibencoding=utf8, giveninits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
+\usepackage[backend=bibtex, bibencoding=utf8, giveninits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
 \usepackage[capitalize]{cleveref}
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz}
@@ -808,12 +808,12 @@ Denote by $h_0$ the product of all factors in the above formula except the first
 Throughout this subsection $\Phi$ denotes arbitrary irreducible simply-laced root system of rank $\geq 3$, unless stated otherwise. Let $A$ be a local ring with maximal ideal $M$ and residue field $k$. As in~\cref{firstPart} we denote by $B$ the ring $A[X\inv] + M[X]$ considered as a graded subring of the ring of Laurent polynomials $R = A[X, X\inv]$.
 
 For shortness we denote the subgroup $\overline{\St}(\Phi, A, M)$ by $G_M^0$.
-Notice that $G_M^0$ can be considered as a subgroup of $\St(\Phi, R)$. Consider the following commutative diagram.
+Notice that the map $j_+i_+$ is split by the map $ev^*_{X=a}$ of evaluation at $a\neq 0$, hence $G_M^0$ can be considered as a subgroup of $\St(\Phi, R)$. Consider the following commutative diagram.
 \[ \xymatrix{ G_M^0 \ar@{^{(}->}[r]^{i_+} \ar@{^{(}->}[d]^{i_-} & \overline{\St}(\Phi, A[X], M[X]) \ar^{j_+^M}[d] \ar@{^{(}->}[r] & \St(\Phi, A[X]) \ar[dl]^{j_+} \\
               \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, R). &  } \] 
 We denote by $\overline{G}^{\geq 0}_M$ the image of the map $j_+^M$.               
 Denote by $\overline{V}_T$ the quotient of the set of triples 
-\[V_T = \overline{G}_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1+M)^\times\] by the equivalence relation given by $(p \cdot j_+(i_+(\gamma)), h, u)_T \sim (p, i_-(\gamma) \cdot h, u)_T$, $\gamma \in G^0_M$. We denote the image of $(p, h, u)_T$ in $\overline{V}_T$ by $[p, h, u]$.              
+\[V_T = \overline{G}_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1+M)^\times\] by the equivalence relation given by $(p \cdot j_+i_+(\gamma), h, u)_T \sim (p, i_-(\gamma) \cdot h, u)_T$, $\gamma \in G^0_M$. We denote the image of $(p, h, u)_T$ in $\overline{V}_T$ by $[p, h, u]$.
 $\overline{V}_T$ is precisely the set upon which M.~Tulenbaev in~\cite[Proposition~4.3]{Tu83} constructs an action of $\St(\Phi, B)$.
 
 Sometimes it will be more convenient for us to work with another set $\overline{V}$ isomorphic to $\overline{V}_T$. Denote by $V$ the subset of $\St(\Phi, R) \times \St(\Phi, A[X\inv]) \times (1 + M)^\times$ consisting of those triples $(g, h, u)$ for which $p(g, h, u) := g \cdot j_-(h) \cdot \{ X, u \}$ belongs to $\overline{G}_M^{\geq 0}$. 
@@ -947,8 +947,10 @@ From the second property of the above proposition we immediately obtain the foll
 \[\E(\Phi, A[X\inv] + M[X]) = \E(\Phi, A[X], M[X]) \cdot \E(\Phi, A[X\inv]).\] \end{corollary}
 
 \subsection{Proof of Horrocks theorem.} \label{sec:P1glueing}
-We retain the notation of the previous section and assume additionally that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, R)$ is injective. 
-Being considered as a subgroup of $\St(\Phi, R)$ the group $\St(\Phi, B)$ contains the subgroup $\overline{G}^{\geq 0}_M$ of $\St(\Phi, R)$. This follows from a consideration of the following commutative diagram, in which the map $t$ is obtained from~\cref{lem:lemma32}:
+We retain the notation of the previous section and assume additionally that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, R)$ is injective.
+This assumption allows us to consider the group $\St(\Phi, B)$ as a subgroup of $\St(\Phi, R)$.
+Being considered in this way, $\St(\Phi, B)$ contains the subgroup $\overline{G}^{\geq 0}_M$ of $\St(\Phi, R)$.
+This follows from a consideration of the following commutative diagram, in which the map $t$ is obtained from~\cref{lem:lemma32}:
 \[ \xymatrix{ \St(\Phi, A[X], M[X]) \ar[d] \ar[r] & \St(\Phi, R, M[X, X\inv]) \ar[r]^(.65){t} & \St(\Phi, B) \ar[d]^{j_R} \\
    \St(\Phi, A[X]) \ar[rr]^{j_+} & & \St(\Phi, R). } \]
 
@@ -996,8 +998,8 @@ This implies that
 \end{externaltheorem}
 \begin{proof} Since $j_- = j_R j_B^-$, where $j_B^-$ is as in~\cref{prop43}, it suffices to show that $j_B^-$ is injective.
  Set $v_0 = [1, 1, 1] \in \overline{V}_T$ and suppose $g \in \Ker(j_B^-)$.
- By~\cref{prop43} holds $v_0 = j_B^-(g) \cdot v_0 = [1, g, 1]$ therefore $g = i_-(\gamma)$ for some $\gamma \in G_M^0$ satisfying $j_+i_+(\gamma) = 1$,
-  which implies that $g = 1$.
+ By~\cref{prop43} holds $v_0 = j_B^-(g) \cdot v_0 = [1, g, 1]$ therefore, by the definition of $\overline{V}_T$, $g = i_-(\gamma)$ for some $\gamma \in G_M^0$ such that $j_+i_+(\gamma) = 1$.
+ Since $j_+i_+$ is injective, we conclude that $g = 1$.
  
  Now suppose $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_B^-(g_-) = j_+(g_+)$.
  From~\cref{field-injectivity} it follows that the image of $j_+(g_+) = j_-(g_-)$ in $\St(\Phi, k[X, X\inv])$ belongs to $\St(\Phi, k)$ and therefore coincides with the image in $\St(\Phi, k)$ of some $g_0 \in \St(\Phi, A)$.
@@ -1010,12 +1012,15 @@ This implies that
  \end{proof}
   
 \begin{proof}[Proof of~\cref{thm:main}]
- Notice that the assertions of the theorem for $\KO_2(2\ell, -)$ and $\K_2(\rD_\ell, -)$ follow from the assertion for $\St(\rD_\ell, -)$.
- In turn, the latter assertion follows from~\cref{thm41} and~\cref{thm:P1glueing} in the special case when $A$ is a local ring.
+ Notice that the assertions of the theorem for $\KO_2(2\ell, -)$ and $\K_2(\rD_\ell, -)$ follow from the assertion for $\St(\rD_\ell, -)$,
+ which, in turn, follows from~\cref{thm41} and~\cref{thm:P1glueing} in the special case when $A$ is a local ring.
  
- Now if $g \in \St(\rD_\ell, A[X])$ is such that its image in $\St(\rD_\ell, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\rD_\ell, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$. By the just established local case the images of $g$ in all $\St(\rD_\ell, A_M[X])$ are also trivial. Now by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is trivial as well.  
- 
- The proof of the fact the square of Steinberg groups is pullback is very similar   to the above argument (cf. also with~\cite[Theorem~5.1a]{Tu83}).
+ Now let $A$ be arbitrary commutative ring and $\Phi = \rD_\ell$. If $g \in \St(\Phi, A[X])$ is such that its image in $\St(\Phi, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\Phi, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$. By the just established local case the images of $g$ in all $\St(\Phi, A_M[X])$ are also trivial. Now by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is trivial as well.
+
+ Now suppose that $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_+(g_+) = j_-(g_-)$. Set $g_0 = ev^*_{X=0}(g_+)$, $h_+ = g_+ \cdot i_+(g_0^{-1})$, $h_- = g_- \cdot i_-(g_0^{-1})$.
+ Notice that $h_+ \in \overline{\St}(\Phi, A[X], XA[X])$, moreover, for every maximal ideal $M$ of $A$, the image of $h_+$ in $\St(\Phi, A_M[X], XA_M[X])$ is trivial by~\cref{thm:P1glueing}.
+ Thus, again by the local-global principle~\cite[Theorem~2]{LS17} the element $h_+$ is trivial, therefore $g_+ = i_+(g_0)$.
+ Using similar argument one can show that $g_- = i_-(g_0')$ for some $g_0' \in \St(\Phi, A)$. But $g_0'$ must coincide with $g_0$ since $j_+i_+ = j_-i_-$ is injective.
 \end{proof}
 
 \printbibliography
