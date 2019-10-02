@@ -78,14 +78,14 @@
 \date {\today}
 
 \begin{document}
-\begin{abstract} We prove a $\mathbb{P}^1$-glueing theorem for even-dimensional orthogonal Steinberg groups. This result transfers to the orthogonal case an earlier result of M.~Tulenbaev and is also an analogue of an earlier result of A.~Suslin and V.~Kopeiko. \end{abstract}
+\begin{abstract} We prove a $\mathbb{P}^1$-glueing theorem for even-dimensional orthogonal Steinberg groups. This result transfers to the orthogonal case an earlier result of M.~Tulenbaev and is also an analogue of a result of A.~Suslin and V.~Kopeiko for the functor $\K_2$. \end{abstract}
 \maketitle
 \section{Introduction}
 Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. Thшы problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and its solution played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
 
 After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_{1,n}(R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_{1,n}(k[x_1, \ldots x_n]) = \K_{1,n}(k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ over a field (see~\cite[Theorem~1.2]{St-poly}) and also generalized Abe's result to Dedekind domains of arithmetic type (see~\cite[Corollary~1.2]{St-Ded}).
 
-Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the {\it simply-connected Chevalley group} $G(\Phi, R)$ (see~\cite[\S~3]{St71} or~\cite{VP}) and the {\it Steinberg group} $\St(\Phi, R)$ (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined map $\pi \colon \St(\Phi, R) \to G(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this map are, by definition, the $\K_1(\Phi, R)$ and $\K_2(\Phi, R)$-functors modeled on Chevalley group $G(\Phi, -)$, see~\cite{St78}.
+Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the {\it simply-connected Chevalley group} $G(\Phi, R)$ (see e.\,g.~\cite[\S~3]{St71} or~\cite{VP}) and the {\it Steinberg group} $\St(\Phi, R)$ (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined map $\pi \colon \St(\Phi, R) \to G(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this map are, by definition, the $\K_1(\Phi, R)$ and $\K_2(\Phi, R)$-functors modeled on Chevalley group $G(\Phi, -)$, see~\cite{St78}.
 
 It turns out that an assertion similar to Serre problem also holds for the functor $\K_2$. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrated an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^\mathrm{M}_2(k)$ follows for $\ell \geq 4$. Notice that $\K_2(\rA_\ell, R)$ here is just another notation for the unstable linear functor $\K_2(\ell+1, R)$.
 
@@ -970,8 +970,8 @@ From the first part of the proof and inductive assumption we obtain that the ass
 
 \begin{rem}
 Although we will not need this for our main result, it can be noted that $\overline{V}$ is a left $\St(\Phi, B)$-torsor, i.\,e. the action of $\St(\Phi, B)$ on $\overline{V}$ is both transitive and faithful. The faithfulness follows from the second property of~\cref{prop43} and our assumption that $j_R$ is injective.
-The transitivity follows from~\cref{lem:action}, the first property of~\cref{prop43} and the following calculation, which we leave as an exercise to the reader:
-\begin{equation*} \langle 1, m \rangle^{-1} \langle X^{-1}, mX \rangle \cdot [1, 1, 1] = [1, 1, 1+m]. \end{equation*} \end{rem}
+The transitivity follows from~\cref{lem:action}, the first property of~\cref{prop43} and the following formula, which is a direct consequence of~\cref{lem:Tulenbaev-formula} and~\eqref{T_1}--\eqref{T_leq0}:
+\begin{equation*} \langle a, m \rangle^{-1} \cdot \langle aX^{-1}, mX \rangle \cdot [1, 1, 1] = [1, 1, 1+am]. \end{equation*} \end{rem}
 
 \begin{comment}
 \begin{equation} \label{T_2} t_\alpha(aX^{-1}) (g, h, u) = \left[ x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \{ X, 1+am \} ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right) h ,\ u \cdot (1 + am)\right].\end{equation}
@@ -986,7 +986,8 @@ This implies that
 \end{multline*}
 
 \begin{equation} \langle a,m \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- m}{1 + am}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(m) \cdot x_{\alpha}\left(\tfrac{- a}{1+am}\right) \cdot h_{\alpha}^{-1}(1 + am). \end{equation} 
-\begin{equation} \langle a,m \rangle _ \alpha ^{-1} =  h_{\alpha}(1 + am) \cdot x_{\alpha}\left(\tfrac{a}{1+am}\right) \cdot x_{-\alpha}(-m) \cdot x_{\alpha}(-a) \cdot x_{-\alpha}\left(\tfrac{m}{1 + am}\right). \end{equation} \end{comment}
+\begin{equation} \langle a,m \rangle _ \alpha ^{-1} =  h_{\alpha}(1 + am) \cdot x_{\alpha}\left(\tfrac{a}{1+am}\right) \cdot x_{-\alpha}(-m) \cdot x_{\alpha}(-a) \cdot x_{-\alpha}\left(\tfrac{m}{1 + am}\right). \end{equation} 
+\end{comment}
 
 \begin{externaltheorem} \label{thm:P1glueing}
  Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
