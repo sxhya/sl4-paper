@@ -1,12 +1,12 @@
 \documentclass[oneside, 8pt]{amsart}
 \usepackage{amscd, amsmath, amssymb, amsthm, amsfonts, amstext, verbatim, mathtools, xfrac, microtype, nameref, thmtools}
 \usepackage[breaklinks=false,unicode]{hyperref}
-\usepackage[backend=bibtex, bibencoding=utf8, giveninits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
+\usepackage[backend=biber, bibencoding=utf8, giveninits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
 \usepackage[capitalize]{cleveref}
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz}
 \usepackage{enumitem}
-\usepackage[notref,notcite]{showkeys}
+%\usepackage[notref,notcite]{showkeys}
 
 \addbibresource{paper.bib}
 \renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
@@ -1015,10 +1015,11 @@ This implies that
  Notice that the assertions of the theorem for $\KO_2(2\ell, -)$ and $\K_2(\rD_\ell, -)$ follow from the assertion for $\St(\rD_\ell, -)$,
  which, in turn, follows from~\cref{thm41} and~\cref{thm:P1glueing} in the special case when $A$ is a local ring.
  
- Now let $A$ be arbitrary commutative ring and $\Phi = \rD_\ell$. If $g \in \St(\Phi, A[X])$ is such that its image in $\St(\Phi, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\Phi, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$. By the just established local case the images of $g$ in all $\St(\Phi, A_M[X])$ are also trivial. Now by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is trivial as well.
+ Now let $A$ be arbitrary commutative ring and $\Phi = \rD_\ell$, $\ell \geq 7$. If $g \in \St(\Phi, A[X])$ is such that its image in $\St(\Phi, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\Phi, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$. By the just established local case of the theorem the images $\lambda_M(g)$ in all $\St(\Phi, A_M[X])$ are also trivial. Now by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is trivial as well.
 
  Now suppose that $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_+(g_+) = j_-(g_-)$. Set $g_0 = ev^*_{X=0}(g_+)$, $h_+ = g_+ \cdot i_+(g_0^{-1})$, $h_- = g_- \cdot i_-(g_0^{-1})$.
- Notice that $h_+ \in \overline{\St}(\Phi, A[X], XA[X])$, moreover, for every maximal ideal $M$ of $A$, the image of $h_+$ in $\St(\Phi, A_M[X], XA_M[X])$ is trivial by~\cref{thm:P1glueing}.
+ Notice that $h_+ \in \overline{\St}(\Phi, A[X], XA[X])$, moreover, for every maximal ideal $M$ of $A$ the image $\lambda_M(h_+)\in \St(\Phi, A_M[X], XA_M[X])$ is trivial by~\cref{thm:P1glueing}
+  (since $j_+(\lambda_M(h_+)) = j_-(\lambda_M(h_-))$).
  Thus, again by the local-global principle~\cite[Theorem~2]{LS17} the element $h_+$ is trivial, therefore $g_+ = i_+(g_0)$.
  Using similar argument one can show that $g_- = i_-(g_0')$ for some $g_0' \in \St(\Phi, A)$. But $g_0'$ must coincide with $g_0$ since $j_+i_+ = j_-i_-$ is injective.
 \end{proof}
