@@ -78,7 +78,7 @@
 \date {\today}
 
 \begin{document}
-\begin{abstract} We prove a $\mathbb{P}^1$-glueing theorem for even-dimensional orthogonal Steinberg groups. This result transfers to the orthogonal case an earlier result of M.~Tulenbaev and is also an analogue of a result of A.~Suslin and V.~Kopeiko for the functor $\K_2$. \end{abstract}
+\begin{abstract} We prove a $\mathbb{P}^1$-glueing theorem for even-dimensional orthogonal Steinberg groups. This result transfers to the orthogonal case an earlier result of M.~Tulenbaev and is also an analogue for the functor $\K_2$ of a 1982 result of A.~Suslin and V.~Kopeiko. \end{abstract}
 \maketitle
 \section{Introduction}
 Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. Thшы problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and its solution played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
@@ -89,9 +89,9 @@ Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ o
 
 It turns out that an assertion similar to Serre problem also holds for the functor $\K_2$. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrated an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^\mathrm{M}_2(k)$ follows for $\ell \geq 4$. Notice that $\K_2(\rA_\ell, R)$ here is just another notation for the unstable linear functor $\K_2(\ell+1, R)$.
 
-While numerous results on the $\K_1$-analogue of Serre's problem have appeared in the literature since~\cite{Su77} (see e.\,g.~\cite{Su82, Abe83, St-poly, St-Ded}), little progress has been made on the $\K_2$-analogue. It has been conjectured by M.~Wendt, see~\cite[Vermutung~6.22]{Vo11} that the $\K_2$-analogue of Serre problem holds for $\K_2(\Phi, -)$ for all $\Phi$ of rank $\geq 3$, however this conjecture still remains open for $\Phi$ different from $\rA_\ell$, $\ell \geq 4$.
+While numerous results on the $\K_1$-analogue of Serre's problem have appeared in the literature since~\cite{Su77} (see e.\,g.~\cite{Su82, Abe83, St-poly, St-Ded}), little progress has been made on the $\K_2$-analogue. It has been conjectured by M.~Wendt, see~\cite[Vermutung~6.22]{Vo11} that a $\K_2$-analogue of Serre problem holds for $\K_2(\Phi, -)$ for all $\Phi$ of rank $\geq 3$, however this conjecture still remains open for $\Phi$ different from $\rA_\ell$, $\ell \geq 4$.
 
-In~\cite{LS17} the authors have shown that Steinberg groups $\St(\Phi, R)$ satisfy Quillen--Suslin local-global principle provided $\Phi$ is simply-laced and has rank $\geq 3$. This result is one of the ingredients needed in the proof of the $\K_2$-analogue of Serre problem. The aim of the present article is to make yet another step towards its solution, namely to prove an analogue of Horrocks theorem~\cite{Ho64} for Steinberg groups.
+In~\cite{LS17} the authors have shown that Steinberg groups $\St(\Phi, R)$ satisfy Quillen--Suslin local-global principle provided $\Phi$ is simply-laced and has rank $\geq 3$. This result is one of the ingredients needed in the proof of the $\K_2$-analogue of Serre problem for Chevalley groups. The aim of the present article is to make yet another step towards the solution of the problem, namely to prove an analogue of Horrocks theorem~\cite{Ho64} for Steinberg groups of type $\rD_\ell$.
 
 Our main result is, thus, the following theorem, which is the orthogonal analogue of~\cite[Theorem~5.1]{Tu83} and the $\K_2$-analogue of~\cite[Theorem~6.8]{Su82} (cf. also with~\cite[Theorem~VI.5.2]{Lam10} and~\cite[Theorem~1.1]{St-poly}).
 \begin{theorem}[Horrocks theorem for orthogonal $\K_2$]\label{thm:main} Let $A$ be a commutative ring in which $2$ is invertible. Then for any $\ell \geq 7$ the following commutative square is a pullback square in which all maps are injective:
@@ -1016,11 +1016,13 @@ This implies that
  Notice that the assertions of the theorem for $\KO_2(2\ell, -)$ and $\K_2(\rD_\ell, -)$ follow from the assertion for $\St(\rD_\ell, -)$,
  which, in turn, follows from~\cref{thm41} and~\cref{thm:P1glueing} in the special case when $A$ is a local ring.
  
- Now let $A$ be arbitrary commutative ring and $\Phi = \rD_\ell$, $\ell \geq 7$. If $g \in \St(\Phi, A[X])$ is such that its image in $\St(\Phi, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\Phi, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$. By the just established local case of the theorem the images $\lambda_M(g)$ in all $\St(\Phi, A_M[X])$ are also trivial. Now by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is trivial as well.
+ Now let $A$ be arbitrary commutative ring and $\Phi = \rD_\ell$, $\ell \geq 7$. If $g \in \St(\Phi, A[X])$ is such that its image in $\St(\Phi, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\Phi, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$.
+ We denote by $\lambda_{M}$ (resp. $\lambda_{M, -}$) the localization map $A[X] \to A_M[X]$ (resp. $A[X\inv] \to A_M[X\inv]$) and by $\lambda_M^*$, $\lambda_{M,-}^*$ the corresponding maps of Steinberg groups.
+ By the just established local case of the theorem the images $\lambda^*_M(g)$ in all $\St(\Phi, A_M[X])$ are also trivial. Now by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is trivial as well.
 
  Now suppose that $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_+(g_+) = j_-(g_-)$. Set $g_0 = ev^*_{X=0}(g_+)$, $h_+ = g_+ \cdot i_+(g_0^{-1})$, $h_- = g_- \cdot i_-(g_0^{-1})$.
- Notice that $h_+ \in \overline{\St}(\Phi, A[X], XA[X])$, moreover, for every maximal ideal $M$ of $A$ the image $\lambda_M(h_+)\in \St(\Phi, A_M[X], XA_M[X])$ is trivial by~\cref{thm:P1glueing}
-  (since $j_+(\lambda_M(h_+)) = j_-(\lambda_M(h_-))$).
+ Notice that $h_+ \in \overline{\St}(\Phi, A[X], XA[X])$, moreover, for every maximal ideal $M$ of $A$ the image $\lambda_M^*(h_+)\in \St(\Phi, A_M[X], XA_M[X])$ is trivial by~\cref{thm:P1glueing}
+  (since $j_+(\lambda^*_M(h_+)) = j_-(\lambda^*_{M,-}(h_-))$).
  Thus, again by the local-global principle~\cite[Theorem~2]{LS17} the element $h_+$ is trivial, therefore $g_+ = i_+(g_0)$.
  Using similar argument one can show that $g_- = i_-(g_0')$ for some $g_0' \in \St(\Phi, A)$. But $g_0'$ must coincide with $g_0$ since $j_+i_+ = j_-i_-$ is injective.
 \end{proof}
