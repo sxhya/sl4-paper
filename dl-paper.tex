@@ -103,7 +103,7 @@ The proof of~\cref{thm:main} goes as follows. We notice that it suffices to prov
 $j_+ \colon \St(\rD_\ell, A[X]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to be the hardest part. After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local.
 Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_+$ comes down to proving injectivity of the following two maps:
 \[ \xymatrix{ \St(\rD_\ell, A[X^{-1}]) \ar[r] & \St(\rD_\ell, A[X\inv] + M[X]) \ar[r] & \St(\rD_\ell, A[X, X\inv]). }\]
-The injectivity of the second map is obtained in~\cref{thm41}. This is the only place in our proof which invokes the assumption that $2$ is invertible. The proof of~\cref{thm41} depends on the stability theorem for higher orthogonal K-groups and also on certain basic computations with Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). Finally, the injectivity of the first map is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ containing a subsystem of type $\rA_4$.
+The injectivity of the second map is obtained in~\cref{thm41}. This is the only place in our proof which invokes the assumption that $2$ is invertible. The proof of~\cref{thm41} depends on the stability theorem for higher orthogonal K-groups and also on certain basic calculations with Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). Finally, the injectivity of the first map is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ containing a subsystem of type $\rA_4$.
 %$\rD_\ell$, $\ell=5,6$ and also $\rE_\ell$, $\ell=6,7,8$.
 
 \subsection{Acknowledgements} 
@@ -141,7 +141,7 @@ In the above formulae $a, b \in R$ and the integers $N_{\alpha, \beta} = N_{\alp
 \begin{equation} \label{eq:simplest} N_{\alpha, \beta} = -N_{\beta,\alpha} = - N_{-\alpha, -\beta} = N_{\beta, -\alpha-\beta} = N_{-\alpha-\beta, \alpha}. \end{equation}
 If, moreover, $\gamma \in \Phi$ is such that $\alpha,\beta,\gamma$ form a basis of a root subsystem of type $\rA_3$ then one has
 \begin{equation} \label{eq:cocycle} N_{\beta,\gamma} \cdot N_{\alpha, \beta+\gamma} = N_{\alpha+\beta, \gamma} \cdot N_{\alpha, \beta}. \end{equation} \end{lemma}
-In our computations below we will be using identities~\eqref{eq:simplest} without further reference.
+In our calculations below we will be using identities~\eqref{eq:simplest} without further reference.
 
 For $\alpha\in\Phi$ and $s \in R^\times$ we define certain elements $w_\alpha(s), h_\alpha(s)$ of $\St(\Phi, R)$ (the latter ones are sometimes called {\it semisimple root elements}):
 \begin{align*} w_\alpha(s) & =  x_\alpha(s) \cdot x_{-\alpha}(-s^{-1}) \cdot x_\alpha(s), \\ h_\alpha(s) & =  w_\alpha(s) \cdot w_\alpha(-1).  \end{align*}
@@ -152,7 +152,7 @@ Recall from~\cite[Lemma~5.2]{Ma69} that the following relations hold for semisim
               \label{eq:h-inv}    h_\alpha(t)^{-1}             & = h_{-\alpha}(t). \end{align}
 Here $\langle \beta, \alpha \rangle$ denotes the integer $\tfrac{2(\beta, \alpha)}{(\alpha, \alpha)}$.
 
-\subsection{\texorpdfstring{$\K_2$}{K2}-groups and symbols} In our computations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our notational conventions for symbols follow~\cite{DS73} and {\it not} more modern textbooks such as~\cite{Kbook}. Recall that Steinberg symbols are defined for arbitrary $s, t \in R^\times$ as follows:
+\subsection{\texorpdfstring{$\K_2$}{K2}-groups and symbols} In our calculations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our notational conventions for symbols follow~\cite{DS73} and {\it not} more modern textbooks such as~\cite{Kbook}. Recall that Steinberg symbols are defined for arbitrary $s, t \in R^\times$ as follows:
 \begin{equation} \label{eq:steinberg} \{ s, t \}_\alpha = h_\alpha(st) \cdot h_\alpha^{-1}(s) \cdot h_\alpha^{-1}(t). \end{equation}
 In turn, Dennis--Stein symbols are defined for arbitrary $a, b\in R$ satisfying $1 + ab \in R^\times$:
 \begin{equation} \label{eq:dennis-stein}  \langle a,b \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- b}{1 + ab}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(b) \cdot x_{\alpha}\left(\tfrac{- a}{1+ab}\right) \cdot h_{\alpha}^{-1}(1 + ab). \end{equation} 
@@ -163,7 +163,7 @@ Steinberg and Dennis--Stein symbols depend only on the length of $\alpha$, in pa
 For these and other properties of symbols we refer the reader to~\cite{DS73}.
 
 Recall that the classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field.
-Using the modern language of Milnor--Witt K-theory (see~\cite{Mo04}) it can be formulated as the following computation:
+Using the modern language of Milnor--Witt K-theory (see~\cite{Mo04}) it can be formulated as follows:
 \[\K_2(\Phi, k) = \left\{\begin{array}{ll} \K_2^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_2^\mathrm{M}(k) & \text{otherwise.}\end{array}\right. \]
 In the following lemma we recall the computation of the group $\K_2(\Phi, R)$ in the case $R=k[X, X\inv]$.
 \begin{lemma}[Hurrelbrink--Morita--Rehmann]\label{K2-laurent-field} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be arbitrary field. Then there is a split exact sequence of abelian groups
@@ -346,7 +346,7 @@ Let $a$ be an element of $\Ker(h)$. Since $i$ is injective by~\cref{field-inject
  also lies in $\Ker(\nu_B)$ and hence comes from some $b \in \St(\rD_\ell, B, I)$ via $\mu_B$.
 Since $g(b) \in \Ker(\mu_R)$ there exists some $c \in C(\rD_\ell, R, I)$ such that $\lambda_R(c) = g(b)$. 
 By~\cref{lem:prop41}, $f$ is surjective, therefore $c = f(d)$ for some $d \in C(\rD_\ell, R, I)$.
-The required assertion now follows from the following computation:
+The required assertion now follows from the following calculation:
  \[ 1 = \mu_B\lambda_B(d) = tg\lambda_B(d) = t\lambda_Rf(d) =t(g(b)) = \mu_B(b) = a. \qedhere \]
 \end{proof}
 
@@ -823,7 +823,7 @@ We denote by $\overline{p}$ the function $\overline{V} \to \overline{G}^{\geq 0}
 
 The isomorphism between the sets $\overline{V}$ and $\overline{V}_T$ is given by the following two maps, which are easily seen to be mutually inverse to each other:
 \begin{equation} \label{eq:VVT} \xymatrix @R0.3pc {\overline{V} \ar[r]^{\cong} & \ar[l] \overline{V}_T \\ (g, [h], u) \ar@{|->}[r] & [p(g, h, u), h^{-1}, u] \\ (p \cdot j_-(h) \cdot \{u, X\}, [h^{-1}], u) & \ar@{|->}[l] [p, h, u]. } \end{equation}
-The above isomorphism allows us to regard $\overline{V}$ and $\overline{V}_T$ as one and the same object, for which we can interchangeably use either of the two notations,
+The above isomorphism allows us to regard $\overline{V}$ and $\overline{V}_T$ as the same object, for elements of which we can interchangeably use either of the two notations,
  depending on which of them is more convenient in a given situation.
 For example, specifying the action of $\St(\Phi, B)$ in terms of $\overline{V}$ leads to much shorter calculations in Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1},
  while the statements of~\cref{prop43} and~\cref{lem:action} look more natural when formulated in terms of~$\overline{V}_T$.
