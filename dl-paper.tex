@@ -6,7 +6,7 @@
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz}
 \usepackage{enumitem}
-%\usepackage[notref,notcite]{showkeys}
+\usepackage[notref,notcite]{showkeys}
 
 \addbibresource{paper.bib}
 \renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
@@ -166,7 +166,7 @@ For these and other properties of symbols we refer the reader to~\cite{DS73}.
 
 Recall that the classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field.
 Using the modern language of Milnor--Witt K-theory (see~\cite{Mo04}) it can be formulated as follows:
-\[\K_2(\Phi, k) = \left\{\begin{array}{ll} \K_2^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_2^\mathrm{M}(k) & \text{otherwise.}\end{array}\right. \]
+\begin{equation*} \K_2(\Phi, k) = \left\{\begin{array}{ll} \K_2^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_2^\mathrm{M}(k) & \text{otherwise.}\end{array}\right. \end{equation*}
 In the following lemma we recall the computation of the group $\K_2(\Phi, R)$ in the case $R=k[X, X\inv]$.
 \begin{lemma}[Hurrelbrink--Morita--Rehmann]\label{K2-laurent-field} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be an arbitrary field. Then there is a split exact sequence of abelian groups
 \[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ in which} \]
@@ -176,7 +176,7 @@ In the following lemma we recall the computation of the group $\K_2(\Phi, R)$ in
                                                                                       &                                 & \K_2^\mathrm{M}(k(X)),} \]
 in which $h = \{ -, X \}_{\alpha}$ and the vertical map is an isomorphism by Matsumoto's theorem.
 Notice that the diagonal map is split by the obvious residue homomorphism and therefore is injective. This, in turn, implies that $h$ is also injective.
-The assertion of the lemma now follows from~\cite[Satz~3]{Hur77} which asserts that for a nonsymplectic $\Phi$ holds $\K_2(\Phi, k[X, X\inv]) = \mathrm{Im}(h) \oplus \K_2(\Phi, k)$.
+The assertion of the lemma now follows from~\cite[Satz~3]{Hur77} which asserts that for a nonsymplectic $\Phi$ one has $\K_2(\Phi, k[X, X\inv]) = \mathrm{Im}(h) \oplus \K_2(\Phi, k)$.
 
 Consider now the case when $\Phi$ is symplectic. In this case the assertion of the lemma is just a reformulation of~\cite[Theorem~B]{MR91},
 which asserts that for $\ell \geq 1$ one has $\K_2(\rC_\ell, k[X, X\inv]) \cong \K_2(\rC_\ell, k) \oplus P(k)$, where
@@ -188,23 +188,25 @@ Recall from~\cite{Mo04} that $\K_1^\mathrm{MW}(k)$ is isomorphic to the pullback
 in other words, it consists of pairs $[u, x]$ such that $x - \langle \langle u \rangle \rangle \in I^2(k)$.
 It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\rangle - x)$ defines an isomorphism of $\K_1^\mathrm{MW}(k)$ and $P(k)$. \end{proof}
 
-\begin{rem} The above lemma can be considered as the unstable version of~\cite[Lemma~4.1.1]{AF17} (compute~$\mathrm{KSp}_2(k[X, X\inv])$ using~\eqref{GW-concrete} and~\cref{bass-ft} below). \end{rem}
+\begin{rem} It is possible to directly prove the stable symplectic counterpart of the above lemma. Indeed, we have the following chain of isomorphisms:
+\[ \K_2(C_\infty, k[X, X^{-1}]) \cong \GW_2^2(k[X,X^{-1}]) \cong \GW_2^2(k) \oplus \GW_1^1(k) \cong \K_2^\mathrm{MW}(k) \oplus \K_1^\mathrm{MW}(k),\]
+in which the first two are obtained from~\eqref{GW-concrete} and~\cref{bass-ft} and the last one follows from the isomorphism $\GW_1^1(k) \cong \K_1^\mathrm{MW}(k)$ of~\cite[Lemma~4.1.1]{AF17} and Matsumoto's theorem. 
+Thus, we see that the result of Morita and Rehmann agrees with the modern literature on higher Grothendieck--Witt groups. \end{rem}
 
 \begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the map $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of the images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
-\begin{proof} The first assertion follows from consideration of the following commutative diagram:
+\begin{proof} The first assertion follows from the commutative diagram
 \[\xymatrix{ & \K_2(\Phi, k) \ar[dl]_{\cong} \ar@{^{(}->}[dr] & \\
-               \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}]),} \]
-in which the left arrow is an isomorphism by the Korollar of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}.
+               \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}])} \]
+and the injectivity of its diagonal arrows. Indeed, the left arrow is an isomorphism by the Korollar of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}.
 
 Let us verify the second assertion. Let $g$ be an element of the intersection of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$.
-Clearly, the image of $g$ in $G(\Phi, k[X, X\inv])$ lies in $G(\Phi, k)$, therefore there exists $g_0 \in \St(\Phi, k)$ such that $gg_0^{-1} \in \K_2(\Phi, k[t]) = \K_2(\Phi, k)$. Thus, we conclude that $g \in \St(\Phi, k)$.
+Clearly, the image of $g$ in $G(\Phi, k[X, X\inv])$ lies in $G(\Phi, k)$, therefore there exists $g_0 \in \St(\Phi, k)$ such that $gg_0^{-1} \in \K_2(\Phi, k[X]) = \K_2(\Phi, k)$. Thus, we conclude that $g \in \St(\Phi, k)$.
 \end{proof}
 
 \subsection{Relative Steinberg groups and unstable K-groups} \label{sec:quillen}
 In this subsection we recall the definitions and basic facts pertaining to the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. The main goal of this subsection is to show that Loday's theory can be applied to unstable Steinberg groups, and that the resulting relative unstable Steinberg groups have many of the properties of their stable counterparts. Some of the results of this subsection have been briefly mentioned in~\cite{S15} (cf. e.\,g. Corollaries 3--4).
 
-Recall that the category of (commutative) pairs $\catname{Pairs}$ is defined as follows.
-Its objects are pairs $(R, I)$, in which $R$ is a commutative ring and $I$ is an ideal of $R$. A morphism of pairs $f \colon (R, I) \to (R', I')$ is, by definition, a ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$. Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ to the morphism category $\catname{CRings}^\rightarrow$.
+Recall that the category of (commutative) pairs $\catname{Pairs}$ is defined as follows. Its objects are pairs $(R, I)$, in which $R$ is a commutative ring with a unit and $I$ is an ideal of $R$. A morphism of pairs $f \colon (R, I) \to (R', I')$ is, by definition, a unit-preserving ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$. Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ to the morphism category $\catname{CRings}^\rightarrow$.
 If $(R, I)$ is such that $R$ is a local ring with maximal ideal $I$, we call such pair a {\it local pair}.
 
 There is an obvious fully faithful embedding $\catname{CRings} \to \catname{Pairs}$ sending $R$ to $(R, R)$. For a given functor $S \colon \catname{CRings} \to \catname{Groups}$ a {\it relativization} of $S$ is any functor $\widetilde{S} \colon \catname{Pairs} \to \catname{Groups}$ extending $S$ in the obvious sense. Relativization of a functor is not unique.
@@ -218,15 +220,15 @@ Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor. Set $G_i = \K
 Our next goal is to obtain a homological interpretation of the group $C(\Phi, R, I)$.
 In order to do this, we need to recall some additional notation and terminology.
 
-First of all, recall that a {\it central extension} of a group $G$ is a surjective map $\widetilde{G} \to G$, whose kernel is contained in the center of $\widetilde{G}$. 
-A morphism of central extensions is a group-theoretic map $\widetilde{G} \to \widetilde{G}'$ over $G$.
+First of all, recall that a {\it central extension} of a group $G$ is a surjective homomorphism $\widetilde{G} \to G$, whose kernel is contained in the center of $\widetilde{G}$. 
+A morphism of central extensions is a homomorphism $\widetilde{G} \to \widetilde{G}'$ over $G$.
 A central extension is said to be {\it universal} if it is an initial object of the category of central extensions of $G$.
 
 Recall that a {\it crossed module} is a triple $(M, N, \mu)$ consisting of a group $N$ acting on itself by left conjugation, an $N$-group $M$ and a map
  $\mu \colon M\to N$ of $N$-groups satisfying {\it Peiffer identity} $\mu(m) \cdot m' = m m' m^{-1}$. It can be shown that the image of $\mu$ is always
   a normal subgroup of $N$ and that the kernel of $\mu$, which we denote by $L$, is always contained in the center of $M$.
  
-Let $\nu \colon N \twoheadrightarrow Q$ be a surjective group-theoretic map.
+Let $\nu \colon N \twoheadrightarrow Q$ be a surjective homomorphism.
 A {\it relative central extension of $\nu$} is, by definition,
 a crossed module $(M, N, \mu)$ such that the cokernel of $\mu$ is $\nu$:
 \begin{equation} \label{RelativeCentralExtension}
