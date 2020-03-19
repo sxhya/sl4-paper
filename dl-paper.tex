@@ -206,7 +206,7 @@ Clearly, the image of $g$ in $G(\Phi, k[X, X\inv])$ lies in $G(\Phi, k)$, theref
 \subsection{Relative Steinberg groups and unstable K-groups} \label{sec:quillen}
 In this subsection we recall the definitions and basic facts pertaining to the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. The main goal of this subsection is to show that Loday's theory can be applied to unstable Steinberg groups, and that the resulting relative unstable Steinberg groups have many of the properties of their stable counterparts. Some of the results of this subsection have been briefly mentioned in~\cite{S15} (cf. e.\,g. Corollaries 3--4).
 
-Recall that the category of (commutative) pairs $\catname{Pairs}$ is defined as follows. Its objects are pairs $(R, I)$, in which $R$ is a commutative ring with a unit and $I$ is an ideal of $R$. A morphism of pairs $f \colon (R, I) \to (R', I')$ is, by definition, a unit-preserving ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$. Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ to the morphism category $\catname{CRings}^\rightarrow$.
+Recall that the category of (commutative) pairs $\catname{Pairs}$ is defined as follows. Its objects are pairs $(R, I)$, in which $R$ is a commutative ring with $1$ and $I$ is a (not neccessarily proper) ideal of $R$. A morphism of pairs $f \colon (R, I) \to (R', I')$ is, by definition, a unit-preserving ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$. Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ to the morphism category $\catname{CRings}^\rightarrow$.
 If $(R, I)$ is such that $R$ is a local ring with maximal ideal $I$, we call such pair a {\it local pair}.
 
 There is an obvious fully faithful embedding $\catname{CRings} \to \catname{Pairs}$ sending $R$ to $(R, R)$. For a given functor $S \colon \catname{CRings} \to \catname{Groups}$ a {\it relativization} of $S$ is any functor $\widetilde{S} \colon \catname{Pairs} \to \catname{Groups}$ extending $S$ in the obvious sense. Relativization of a functor is not unique.
@@ -224,9 +224,13 @@ First of all, recall that a {\it central extension} of a group $G$ is a surjecti
 A morphism of central extensions is a homomorphism $\widetilde{G} \to \widetilde{G}'$ over $G$.
 A central extension is said to be {\it universal} if it is an initial object of the category of central extensions of $G$.
 
-Recall that a {\it crossed module} is a triple $(M, N, \mu)$ consisting of a group $N$ acting on itself by left conjugation, an $N$-group $M$ and a map
- $\mu \colon M\to N$ of $N$-groups satisfying {\it Peiffer identity} $\mu(m) \cdot m' = m m' m^{-1}$. It can be shown that the image of $\mu$ is always
-  a normal subgroup of $N$ and that the kernel of $\mu$, which we denote by $L$, is always contained in the center of $M$.
+Recall that a {\it crossed module} is a triple $(M, N, \mu)$ consisting of the following data:
+\begin{enumerate}
+ \item a group $N$ acting on itself by left conjugation (i.\,e. ${}^{n}\!n' = n n' n^{-1}$).
+ \item a group $M$ with a left action of $N$ (we call such a group an $N$-group and use the notation ${}^n m$ to denote the image of an element $m\in M$ under the action of $n \in N$);
+ \item a homorphism $\mu \colon M\to N$ preserving the action of $N$-groups and satisfying {\it Peiffer identity} ${}^{\mu(m)}\!m' = m m' m^{-1}$.
+\end{enumerate}
+It can be shown that the image of $\mu$ is always a normal subgroup of $N$ and that the kernel of $\mu$, which we denote by $L$, is always contained in the center of $M$.
  
 Let $\nu \colon N \twoheadrightarrow Q$ be a surjective homomorphism.
 A {\it relative central extension of $\nu$} is, by definition,
@@ -276,12 +280,12 @@ We denote by $\mathrm{O}_{2n}(R)$ and $\mathrm{EO}_{2n}(R)$ the orthogonal group
  (see e.\,g.~\cite{Su82} for the definition of these groups).
 Now set $G_n = \mathrm{O}_{2n}(-)$, $P_n = \mathrm{EO}_{2n}(R)$, $S_n = \St(\rD_n, -)$ and let $\pi$ be the obvious projection $S_n \to P_n$.
 
-It is easy to see that functors $G_n$, $P_n$ and $S_n$ satisfy \ref{req:left-exact} and \ref{req:coeq}.
+It is easy to see that the functors $G_n$, $P_n$ and $S_n$ satisfy \ref{req:left-exact} and \ref{req:coeq}.
 By~\cite{Su82} the requirement~\ref{req:subfunc} is also satisfied for $n \geq 3$.
 Finally, from~\cite[Corollary~5.4]{St71} and~\cite[Theorem~1]{LS17} it follows that $S_n$ and $P_n$ satisfy~\ref{req:uce} for $n \geq 5$.
 We use the notation $\KO_i(2n, R)$ as a shorthand for $\K_i^{G_n, P_n}(R)$. 
 
-Notice that $\KO_2(2n, R) = \Ker(\St(\rD_\ell, R) \to \mathrm{SO}(2n, R))$ contains $\K_2(\rD_\ell, R)$, but the converse is not generally true. On the other hand, from~\cref{lem:lowerKgroups} it follows that $\KO_3(2n, R)$ is isomorphic to the group $K_3^{G, P}$ in which $G = G(\rD_n, -) = \mathrm{Spin}(2n, -)$ and $P = \mathrm{Epin}(2n, -)$ is its elementary subfunctor.
+Notice that $\KO_2(2n, R) = \Ker(\St(\rD_n, R) \to \mathrm{SO}(2n, R))$ contains $\K_2(\rD_n, R)$, but the converse is not generally true. On the other hand, from~\cref{lem:lowerKgroups} it follows that $\KO_3(2n, R)$ is isomorphic to the group $K_3^{G, P}$ in which $G = G(\rD_n, -) = \mathrm{Spin}(2n, -)$ and $P = \mathrm{Epin}(2n, -)$ is its elementary subfunctor.
 
 We conclude this subsection with the following stability result (see~\cite[Theorem~9.4]{Pa89}).
 \begin{externaltheorem}[Panin] \label{Panin-stability}
@@ -290,7 +294,7 @@ We conclude this subsection with the following stability result (see~\cite[Theor
  and an isomorphism for $n \geq b + 1$, where $b = \mathrm{max}(2i, a+i-1)$. \end{externaltheorem}
 
 \section{An injectivity theorem for Steinberg groups} \label{firstPart}
-We start this section by recalling basic notation and facts pertaining to the theory of Grothendieck--Witt groups. Recall that this theory, developed by M.~Schlichting, is a modern broad generalization of the classical hermitian K-theory of rings. We refer the reader to~\cite[\S~2]{FRS12} and~\cite[\S~2]{AF17} for an introduction to Grothendieck--Witt groups.
+We start this section by recalling basic notation and facts pertaining to the theory of higher Grothendieck--Witt groups. Recall that this theory, developed by M.~Schlichting, is a modern broad generalization of the classical hermitian K-theory of rings. We refer the reader to~\cite[\S~2]{FRS12} and~\cite[\S~2]{AF17} for an introduction to Grothendieck--Witt groups.
 
 For our purposes it suffices to restrict attention to the affine case, in which  the Grothendieck--Witt groups $\GW_i^{[k]}(R)$ for $i \geq 1,\ [k] \in \ZZ/4\ZZ$ can be considered simply as a shorthand for the following 4 groups:
 \begin{equation} \label{GW-concrete} \GW_i^{[k]}(R) = \left\{\begin{array}{ll} \KO_i(R), & k = 0 \\ U_i(R), & k = 1 \\ \mathrm{KSp}_i(R), & k = 2 \\ {}_{-1}\!U_i(R), & k = 3. \end{array}\right. \end{equation}
@@ -304,7 +308,7 @@ then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence 
 We will need only the special case $k=0$ of the above theorem, in which case it turns into an earlier result of J.~Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
 
 For the rest of this section let us fix the following notation.
-Let $A$ be arbitrary commutative local ring with maximal ideal $M$ and residue field $k$.
+Let $A$ be an arbitrary commutative local ring with maximal ideal $M$ and residue field $k$.
 Denote by $B = B_{A, M}$ the subring $A[X^{-1}] + M[X]$ of the ring $R = A[X, X^{-1}]$ and
 by $I$ the ideal $M[X, X^{-1}]$ of $B$ (it is clear that $I$ is also an ideal of $R$).
 
@@ -339,13 +343,14 @@ Then there exists a diagonal map $t$ which makes the diagram commute.
 
 \begin{externaltheorem} \label{thm41} Suppose that $2 \in A^\times$. Then for $\ell \geq 7$ the canonical map $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective. \end{externaltheorem}
 \begin{proof}
- Consider the following commutative diagram with exact rows, in which the lifting $t$ is obtained from~\cref{lem:lemma32}:
+ Consider the following commutative diagram with exact rows obtained from~\eqref{LodayRelativization}:
 \begin{equation*} \xymatrix{
  C(\rD_\ell, B, I) \ar[r]^{\lambda_B} \ar@{->>}[d]_{f} & \St(\rD_\ell, B, I) \ar[r]^{\mu_B} \ar[d]_{g} &
  \St(\rD_\ell, B) \ar[r]^{\nu_B} \ar[d]_{h} & \St(\rD_\ell, k[X]) \ar[d]_{i} \\
  C(\rD_\ell, R, I) \ar[r]^{\lambda_R}         & \St(\rD_\ell, R, I) \ar[r]^{\mu_R} \ar@{-->}[ur]^{t}&
  \St(\rD_\ell, R) \ar[r]^-{\nu_R}        & \St(\rD_\ell, k[X, X^{-1}]).
 }\end{equation*}
+The lifting $t$ in the above diagram is obtained from~\cref{lem:lemma32}.
 Let $a$ be an element of $\Ker(h)$. Since $i$ is injective by~\cref{field-injectivity}, the element $a$
  also lies in $\Ker(\nu_B)$ and hence comes from some $b \in \St(\rD_\ell, B, I)$ via $\mu_B$.
 Since $g(b) \in \Ker(\mu_R)$ there exists some $c \in C(\rD_\ell, R, I)$ such that $\lambda_R(c) = g(b)$. 
