@@ -113,6 +113,16 @@ The work of the second-named author (\S~4--5) was supported by RFBR grant No 18-
 The authors would like to express their gratitude to A.~Stavrova, A.~Stepanov and N.~Vavilov for their useful comments and interest in this work.
 
 \section{Preliminaries}
+If $x$ and $y$ are elements of a group $G$ then $[x, y]$ denotes the left-normed commutator $xyx^{-1}y^{-1}$.
+We denote by $x^y$ (resp. ${}^y\!x$) the element $y^{-1}xy$ (resp. $yxy^{-1}$). 
+Throughout the paper we make use of the following commutator identities:
+\begin{align}
+ [x, yz]^y =& [y^{-1}, x] \cdot [x, z], \label{rel43} \\ 
+ \label{eq:H1ii} [xy, z] =& {}^x[y, z] \cdot [x,z]. \\
+ [[x, y], z] =& \left([x^{-1}, [ y^{-1}, z]] ^ {y^{-1}} \cdot [y, [ z^{-1}, x^{-1}]] ^ {z^{-1}} \right)^{x^{-1}}. \label{HW-variant} \end{align}
+Sometimes we will also be using the fact that 
+\begin{equation} \label{eq:H1iii} [x,z] = 1 \text{ implies } [x, [y,z]] = [[x,y],{}^yz]. \end{equation} 
+
 \subsection{Steinberg groups} \label{sec:Steinberg-intro}
 Let $\Phi$ be a reduced and irreducible root system of rank $\ell \geq 2$ and $R$ be a commutative ring with $1$. Recall that in this case the \emph{Steinberg group} $\St(\Phi, R)$ can be defined by means of generators $x_{\alpha}(s)$ and relations:
 \begin{align}
@@ -132,9 +142,9 @@ Whenever we speak of the Steinberg group $\St(\Psi, R)$ parametrized by a root s
 
 In this paper we will be mostly interested in the case when the Dynkin diagram of $\Phi$ is {\it simply-laced}, i.\,e. does not contain double bonds. In this case the defining relations of $\St(\Phi, R)$ have the following simpler form:
 \begin{align}
-&x_{\alpha}(a)\cdot x_{\alpha}(b)=x_{\alpha}(a+b), \tag{R1}\\
-&[x_{\alpha}(a),\,x_{\beta}(b)]=x_{\alpha+\beta}(N_{\alpha\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \tag{R2} \\
-&[x_{\alpha}(a),\,x_{\beta}(b)]=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \tag{R3}
+&x_{\alpha}(a)\cdot x_{\alpha}(b)=x_{\alpha}(a+b), \tag{R1} \label{Steinberg-additivity}\\
+&[x_{\alpha}(a),\,x_{\beta}(b)]=x_{\alpha+\beta}(N_{\alpha\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \tag{R2} \label{Chevalley-CCF1} \\
+&[x_{\alpha}(a),\,x_{\beta}(b)]=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \tag{R3} \label{Chevalley-CCF2}
 \end{align}
 In the above formulae $a, b \in R$ and the integers $N_{\alpha, \beta} = N_{\alpha, \beta, 1, 1} = \pm 1$ are the structure constants of the Lie algebra of type $\Phi$. Although there is still some degree of freedom in their choice, they always must satisfy the relations, indicated in the following lemma (cf. \cite[\S~14]{VP}).
 \begin{lemma} Suppose $\Phi$ is simply laced and $\alpha, \beta$ are roots of $\Phi$ such that $\alpha+\beta\in \Phi$, then the following identities hold for the structure constants:
@@ -228,7 +238,7 @@ Recall that a {\it crossed module} is a triple $(M, N, \mu)$ consisting of the f
 \begin{enumerate}
  \item a group $N$ acting on itself by left conjugation (i.\,e. ${}^{n}\!n' = n n' n^{-1}$).
  \item a group $M$ with a left action of $N$ (we call such a group an $N$-group and use the notation ${}^n m$ to denote the image of an element $m\in M$ under the action of $n \in N$);
- \item a homorphism $\mu \colon M\to N$ preserving the action of $N$-groups and satisfying {\it Peiffer identity} ${}^{\mu(m)}\!m' = m m' m^{-1}$.
+ \item a homomorphism $\mu \colon M\to N$ preserving the action of $N$-groups and satisfying {\it Peiffer identity} ${}^{\mu(m)}\!m' = m m' m^{-1}$.
 \end{enumerate}
 It can be shown that the image of $\mu$ is always a normal subgroup of $N$ and that the kernel of $\mu$, which we denote by $L$, is always contained in the center of $M$.
  
@@ -376,20 +386,21 @@ We define the following two families of elements of $\overline{\St}(\Phi, R, I)$
  \item $c_\alpha(s, t) = [x_\alpha(s), x_{-\alpha}(t)]$ defined for $s \in I$, $t \in J$.
 \end{itemize}
 
-\begin{lemma}\label{Zrels} The elements $z_\alpha(s, \xi)$ satisfy the following relations for all $\xi, \eta\in R$, $s\in I$:
+\begin{lemma}\label{Zrels} Let $\Phi$ be a simply laced root system.
+The elements $z_\alpha(s, \xi)$ satisfy the following relations for all $\xi, \eta\in R$, $s\in I$:
 \begin{enumerate} 
 \item\label{Z1} $z_{\alpha}(s, \xi) ^ {x_{-\alpha}(\eta)} = z_{\alpha}(s, \xi + \eta)$;
 \item\label{Z2} $z_{\beta}(s, \xi) ^ {x_{\alpha}(\eta)} = x_{\alpha} (- s\xi \eta) \cdot x_{\alpha+\beta} (N_{\beta, \alpha}\cdot s\eta)     \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha + \beta \in \Phi$;
 \item\label{Z3} $z_{\beta}(s, \xi) ^ {x_{\alpha}(\eta)} = x_{\alpha} (s\xi \eta) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot s\xi^2\eta) \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha - \beta \in \Phi$;
 
 \item\label{Z4} $z_{\beta}(s, \xi) ^ {x_{\alpha}(\eta)} = z_{\beta}(s, \xi)\ \text{if}\ \alpha\perp\beta$;
-\item If $\alpha+\beta\in\Phi$ then holds:
+\item If $\alpha+\beta\in\Phi$ then one has:
 \begin{multline} \label{Z5} z_{\alpha+\beta}(s\eta, \xi) = x_\alpha(\epsilon s)\cdot x_{-\beta}(-s\xi) \cdot x_{\beta}(s\xi\eta^2) \cdot x_{\alpha+\beta}(s \eta) \cdot \\ \cdot z_\alpha(-\epsilon s, -\epsilon \xi\eta) \cdot
   x_{-\alpha}(-\epsilon s\xi^2\eta^2) \cdot x_{-\alpha-\beta}(- s \xi^2 \eta) \cdot z_{-\beta}(s\xi, -\eta)\text{ where $\epsilon = N_{\alpha,\beta}$.}\end{multline}
 \end{enumerate} \end{lemma}
 \begin{proof}
 The first four assertions are contained in~\cite[Lemma~9]{S15}, so it remains to verify the last assertion.
-Direct computation shows that
+Direct computation using Chevalley commutator identities~\eqref{Chevalley-CCF1}--\eqref{Chevalley-CCF2} shows that
 \begin{multline} \nonumber
   z_{\alpha+\beta}(s\eta, \xi) = [x_\alpha(\epsilon s)^{x_{-\alpha-\beta}(\xi)}, x_\beta(\eta)^{x_{-\alpha-\beta}(\xi)}] =
   [x_\alpha(\epsilon s) x_{-\beta}(-s\xi), x_{\beta}(\eta) x_{-\alpha}(\epsilon \xi\eta)] = \\ 
@@ -398,27 +409,31 @@ Direct computation shows that
 and the required assertion follows from~\eqref{Z2}.
 \end{proof}
 
-Let us mention an immediate application of the just proved lemma.
-First of all, recall the following two results which give two different generating sets for the group $\overline{\St}(\Phi, R, I)$ (notice that both results are applicable for arbitrary $\Phi$)
+Let us mention an immediate application of~\cref{Zrels}.
+First of all, recall the following two results which give two different generating sets for the group $\overline{\St}(\Phi, R, I)$ (notice that both results apply to general irreducible $\Phi$ of rank $\geq 2$, i.\,e. not neccessarily simply-laced ones).
 \begin{externaltheorem}[Stein--Tits--Vaserstein] \label{thm:Tits} The group $\overline{\St}(\Phi, R, I)$ is generated (as an abstract group) by elements $z_\alpha(s, \xi)$, $\alpha \in \Phi$, $s \in I$, $\xi \in R$. \end{externaltheorem} \begin{proof} See e.\,g.~\cite[Theorem 2]{Va86}. \end{proof}
 
-Recall that a closed root subset $S \subseteq \Phi$ is called {\it parabolic} (resp. {\it reductive}, resp. {\it special}) if $S \cup -S = \Phi$ (resp. $S = -S$, resp. $S \cap (-S) = \varnothing$).
+\begin{df} \label{df:root-subsets}
+Recall that a root subset $S \subseteq \Phi$ is called {\it closed} if $\alpha, \beta \in S$ and $\alpha+\beta\in \Phi$ imply $\alpha + \beta \in S$. 
+Recall that a closed root subset $S$ is called {\it parabolic} (resp. {\it reductive}, resp. {\it special}) if $S \cup -S = \Phi$ (resp. $S = -S$, resp. $S \cap (-S) = \varnothing$).
 The {\it special part} $\Sigma_S$ of a parabolic subset $S$, by definition, consists of all $\alpha \in S$ such that $-\alpha \not\in S$.
+\end{df}
 
 For a subset of roots $U \subseteq \Phi$ we denote by $\mathcal{Z}(U, R, I)$ the subset of roots consisting of elements $x_\alpha(s)$, $s \in I$, $\alpha \in \Phi$ and $z_\alpha(s, \xi)$, $\alpha \in U$, $s\in I$, $\xi \in R$.
 \begin{externaltheorem}[Stepanov] \label{thm:Stepanov} 
 Let $S \subseteq \Phi$ be a parabolic subset of $\Phi$. Then the group $\overline{\St}(\Phi, R, I)$ is generated by the set $\mathcal{Z}(\Sigma_S, R, I)$.
  \end{externaltheorem} \begin{proof} See~\cite[Lemma~4]{S15}. \end{proof}
 
-\begin{rem} We claim that in the simply-laced case the stronger \cref{thm:Stepanov} can be deduced from~\cref{thm:Tits} by means of~\cref{Zrels}. Indeed, consider the operator $d \colon 2^\Phi \to 2^\Phi$ of root subsets given by $d(U) = U \cup (U - U)\cap \Phi$, $U \subseteq \Phi$. In other words, $d$ adjoins to $U$ all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^n(\Sigma_S) = \Phi$ for some $n>1$ (in fact, $n=2$). It remains to see that relation~\eqref{Z5} immediately implies that every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
+\begin{rem} We claim that in the simply-laced case the stronger \cref{thm:Stepanov} can be deduced from~\cref{thm:Tits} by means of~\cref{Zrels}. Indeed, consider the operator $d \colon 2^\Phi \to 2^\Phi$ of root subsets, whose value on each $U \subseteq \Phi$ is given by \[d(U) = U \cup \left((U - U)\cap \Phi\right).\]
+Here $(U-U) \cap \Phi$ denotes the set of all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^n(\Sigma_S) = \Phi$ for some $n>1$ (in fact, $n=2$). It remains to see that relation~\eqref{Z5} immediately implies that every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
 
-\begin{lemma} \label{Crels}
-The elements $c_\alpha(s, t)$ satisfy the following relations for all $s\in I,\ t\in J,\ \xi\in R$.
+\begin{lemma} \label{Crels} Let $\Phi$ be a simply-laced root system.
+The elements $c_\alpha(s, t)$ satisfy the following relations for all $s\in I,\ t\in J,\ \xi\in R$:
  \begin{enumerate}
  \item \label{C1} $[c_\beta(s, t),\ x_{\alpha}(\xi)] = x_{\alpha}(- st\xi) \cdot x_{\alpha+\beta}(N_{\alpha,\beta}\cdot s^2t\xi)$ if $\alpha+\beta \in \Phi$;
  \item \label{C2} $[c_\beta(s, t),\ x_{\alpha}(\xi)] = x_{\alpha}(st\xi + s^2t^2\xi) \cdot x_{\alpha-\beta}(N_{-\alpha, \beta}\cdot st^2\xi)$ if $\alpha-\beta \in \Phi$;  
  \item \label{C3} $[c_\beta(s, t),\ x_{\alpha}(\xi)] = 1$ if $\alpha \perp \beta$;  
- \item \label{C4} If $\alpha+\beta\in\Phi$ then holds:
+ \item \label{C4} If $\alpha+\beta\in\Phi$ then
   \begin{equation} \label{eq:C4} c_{\alpha+\beta}(s, t\xi) = [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2),\end{equation}
   where $\epsilon = N_{\alpha,\beta}$.
  \end{enumerate}
@@ -427,28 +442,26 @@ The elements $c_\alpha(s, t)$ satisfy the following relations for all $s\in I,\ 
 The first assertion follows from the following computation:
 \begin{multline} \nonumber [c_{\beta}(s, t),\ x_{\alpha}(\xi)]  = [x_{\beta}(s),\ x_{-\beta}(t)] \cdot [x_{-\beta}(t),\ x_{\beta}(s)\cdot x_{\alpha + \beta}(N_{\alpha, \beta} \cdot s\xi)] = \\
  = {}^{x_\beta(s)}\![x_{-\beta}(t),\ x_{\alpha+\beta}(N_{\alpha, \beta} \cdot s\xi)] = x_{\alpha}(- st\xi) \cdot x_{\alpha+\beta}(N_{\alpha,\beta} \cdot s^2t\xi). \end{multline}
-
-For the proof of the other assertions we will need the following commutator identities:
-\begin{align}
- [x, yz]^y =& [y^{-1}, x] \cdot [x, z], \label{rel43} \\
-  [[x, y], z] =& \left([x^{-1}, [ y^{-1}, z]] ^ {y^{-1}} \cdot [y, [ z^{-1}, x^{-1}]] ^ {z^{-1}} \right)^{x^{-1}}. \label{HW-variant}
-\end{align}
  
-The second assertion follows directly from~\eqref{HW-variant}:
+The second assertion follows directly from~\eqref{HW-variant} and Chevalley commutator identities:
 \begin{multline} \nonumber
 [[x_\beta(s),\ x_{-\beta}(t)],\ x_{\alpha}(\xi)] = \\
 = \left([x_\beta(-s),\ [x_{-\beta}(-t),\ x_{\alpha}(\xi)]] ^ {x_{-\beta}(-t)} \cdot [x_{-\beta}(t),\ [ x_{\alpha}(-\xi),\ x_\beta(-s)]] ^ {x_{\alpha}(-\xi)}\right)^{x_\beta(-s)} = \\
 = x_{\alpha}(-N_{\beta, \alpha-\beta} N_{\alpha,-\beta} \cdot s t \xi) ^ {x_{-\beta}(-t) \cdot x_\beta(-s)} = x_{\alpha}(s t \xi) ^ {x_{-\beta}(-t) \cdot x_\beta(-s)} = \\
 = x_{\alpha}(st\xi) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot st^2\xi)^{x_\beta(-s)} = x_{\alpha}(st\xi + s^2t^2 \xi) \cdot x_{\alpha-\beta}(N_{-\alpha,\beta}\cdot st^2\xi). \end{multline}
 
-Finally, the last assertion can be verified via the following direct computation, which uses~\eqref{rel43} and \eqref{HW-variant} (with both sides of the equality inverted):
-\begin{multline} \nonumber [x_{\alpha+\beta}(s),\ x_{-\alpha-\beta}(t\xi)] = [x_{\alpha+\beta}(s),\ [x_{-\alpha}(-\epsilon t),\ x_{-\beta}(\xi)]] = \\ 
-= \left([[x_{\alpha+\beta}(-s),\ x_{-\alpha}(\epsilon t)],\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s)} \cdot  [[ x_{-\beta}(-\xi),\ x_{\alpha+\beta}(s)],\ x_{-\alpha}(\epsilon t)]^{x_{-\beta}(-\xi)}\right)^{x_{-\alpha}(\epsilon t)} = \\
-= [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha}(\epsilon t)]^{x_{-\beta}(-\xi)x_{-\alpha}(\epsilon t)}  = \\
-= [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha}(\epsilon t) x_{-\alpha-\beta}(t\xi)]^{x_{-\alpha}(\epsilon t)} = \\
-= [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot [x_{-\alpha}(-\epsilon t),\ x_{\alpha}(\epsilon s\xi)] \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha-\beta}(t\xi)] = \\
-= [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2). \qedhere
-\end{multline}
+Finally, the last assertion can be verified via the following direct computation:
+\begin{align*}
+[x_{\alpha+\beta}(s),\ x_{-\alpha-\beta}(t\xi)] = [x_{\alpha+\beta}(s),\ [x_{-\alpha}(-\epsilon t),\ x_{-\beta}(\xi)]]&\ \text{by~\eqref{Chevalley-CCF1}}\\
+\begin{split}
+    =\bigl( [[x_{\alpha+\beta}(-s),\ x_{-\alpha}(\epsilon t)],\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s)} \cdot \hspace{70pt} \\
+        \cdot [[ x_{-\beta}(-\xi),\ x_{\alpha+\beta}(s)],\ x_{-\alpha}(\epsilon t)]^{x_{-\beta}(-\xi)}\bigr)^{x_{-\alpha}(\epsilon t)} &\ \text{by~\eqref{HW-variant}}
+\end{split}\\
+= [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha}(\epsilon t)]^{x_{-\beta}(-\xi)x_{-\alpha}(\epsilon t)} &\ \text{by~\eqref{Chevalley-CCF1}}\\
+= [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha}(\epsilon t) x_{-\alpha-\beta}(t\xi)]^{x_{-\alpha}(\epsilon t)} &\ \text{by~\eqref{Chevalley-CCF1},\eqref{Chevalley-CCF2}}\\
+= [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot [x_{-\alpha}(-\epsilon t),\ x_{\alpha}(\epsilon s\xi)] \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha-\beta}(t\xi)] &\ \text{by~\eqref{rel43}}\\
+= [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2)  &\ \text{by~\eqref{Chevalley-CCF1}}. \qedhere
+\end{align*}
 \end{proof}
 
 \subsection{Computation of the kernel of the map of evaluation at $0$.}
@@ -458,15 +471,15 @@ induced by the ring homomorphism of evaluation at $0$. We denote this kernel by 
 
 It is obvious that $K(A[X], M[X])$ contains the subgroup $\overline{\St}(\Phi, A[X], XM[X])$.
 It turns out that, although $K(A[X], M[X])$ is generally strictly larger than $\overline{\St}(\Phi, A[X], XM[X])$,
- it contains very few extra generators, which can all be explicitly described (see~\cref{Kgen} and the corollary that follows it). 
+ it contains very few extra generators, which all can be explicitly described (see~\cref{Kgen} and the corollary that follows it). 
 
 It follows from~\cref{Kdecomp1} below that $K(A[X], M[X])$ coincides with the double commutator subgroup $[\overline{\St}(\Phi, A[X], M[X]), \overline{\St}(\Phi, A[X], XA[X])].$ Thus, if we replace relative Steinberg groups in the statement of~\cref{Kgen} with relative elementary groups, the resulting assertion turns into a special case of a much more general recent result of N.~Vavilov and Z.~Zhang (cf.~\cite[Theorem~1]{VZ18}).
 
 Since $ev_{X=0}^*$ admits a section, we can consider $\overline{\St}(\Phi, A, M)$ and $\St(\Phi, M)$ as subgroups of $\overline{\St}(\Phi, A[X], M[X])$,
  moreover, one has $\overline{\St}(\Phi, A[X], M[X]) = \overline{\St}(\Phi, A, M) \cdot K(A[X], M[X]).$
-\begin{lemma} \label{Kdecomp1} The following decomposition holds
+\begin{lemma} \label{Kdecomp1} The following decomposition holds:
  \[ K(A[X], M[X]) = \overline{\St}(\Phi, A[X], XM[X]) \cdot \left[\St(\Phi, XA[X]),\ \overline{\St}(\Phi, A, M)\right].\] \end{lemma}
-\begin{proof} Fix $g \in K(A[X], M[X])$ and write it as $g(X) = \prod_i z_{\alpha_i}(f_i(X), \xi_i(X))$ for some $f_i(X) = f_i(0) + Xf_i'(X) \in M[X]$, $\xi_i(X) = \xi_i(0) + X\xi_i'(X) \in A[X]$.
+\begin{proof} Let us fix $g(X) \in K(A[X], M[X])$. By~\cref{thm:Tits} we can write it as $\prod_i z_{\alpha_i}(f_i(X), \xi_i(X))$ for some $f_i(X) = f_i(0) + Xf_i'(X) \in M[X]$, $\xi_i(X) = \xi_i(0) + X\xi_i'(X) \in A[X]$.
  It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the element $g(X)$ is congruent to $g_1(X) = \prod_i z_{\alpha_i}(f_i(0), \xi_i(X)).$ 
  
  Now each factor $z_{\alpha_i}(f_i(0), \xi_i(X))$ can be written as follows:
@@ -474,7 +487,7 @@ Since $ev_{X=0}^*$ admits a section, we can consider $\overline{\St}(\Phi, A, M)
  It follows from the formula $[g,\ h]^{h_1} = [h_1^{-1},\ g][g,\ h_1^{-1}h]$ that the subgroup \[C_0 := \left[\St(\Phi, XA[X]),\ \overline{\St}(\Phi, A, M)\right]\] is normalized by $\overline{\St}(\Phi, A, M)$. Thus, we conclude that $g_1(X)$ is congruent to $\prod_i z_{\alpha_i}(f_i(0), \xi_i(0)) = g(0) = 1$ modulo $C_0$,
  which implies the assertion. \qedhere \end{proof}
 
-For a closed root subset $S \subseteq \Phi$ we denote by $U(S, M)$ the subgroup of $\St(\Phi, A)$ generated by root subgroups $X_\alpha(M)$ corresponding to all $\alpha \in S$. We denote by $\Phi^+$ (resp. $\Phi^-$) the subsets of positive (resp. negative) roots of $\Phi$ with respect to some chosen order on $\Phi$.
+Let $S \subseteq \Phi$ be a closed root subset (see~\cref{df:root-subsets}). We denote by $U(S, M)$ the subgroup of $\St(\Phi, A)$ generated by root subgroups $X_\alpha(M)$ corresponding to all $\alpha \in S$. We denote by $\Phi^+$ (resp. $\Phi^-$) the subsets of positive (resp. negative) roots of $\Phi$ with respect to some chosen order on $\Phi$.
  
 \begin{externaltheorem}[Stein] \label{thm:Stein} One has $\overline{\St}(\Phi, A, M) = U(\Phi^+, M) \cdot \myol{H}(\Phi, A, M) \cdot U(\Phi^-, M).$ \end{externaltheorem} \begin{proof} See~\cite[Theorem~2.4]{Ste73}. \end{proof}
 
@@ -534,10 +547,6 @@ The following lemma asserts that most of the relations of type $\text{R3}^\bot_{
  the presentation of $\St^{\leq n}(\Phi, B)$ all relations of type $\text{R3}_{d,e}^\bot$ whenever $\max(0,d) + \max(0,e) > 1$.
 \end{lemma}
 \begin{proof}
-For the proof we will need the following commutator identities:
-\begin{align} \label{eq:H1ii} [xy, z] = {}^x[y, z] \cdot [x,z];&\\
- \label{eq:H1iii} [x,z] = 1 \text{ implies } [x, [y,z]] = [[x,y],{}^yz].& \end{align}
- 
 The proof is based on the following observation: every relation of type $\text{R3}^\bot_{d,e}$ of degree
  $\geq 2$ is a consequence of some relation of type $\text{R3}^\bot$ of strictly smaller degree.
 Let us fix some relation $[x_\alpha(at^d),\ x_\gamma(bt^e)] = 1$ of type $\text{R3}^\bot_{d,e}$ for some $\alpha\perp\gamma$. Denote this relation by $R$.
@@ -657,7 +666,7 @@ The following lemma shows that $P_{\alpha, M}(*)$ is sufficiently large.
 \begin{lemma} \label{Pstar-large} Suppose that $(A, M)$ is a local pair. Then the subgroup $P_{\alpha, M}(*)$ contains the image of $K(A[X], M[X])$ in $\St(\Phi, A[X, X^{-1}])$. \end{lemma}
 \begin{proof} Clearly, $P_\alpha(*)$ contains the elements $x_\beta(Xf)$ for all $\beta \in \Phi$ and $z_\beta(Xf, \xi)$ for $\beta \in \Phi \setminus \{\pm \alpha\}$, $f \in M[X]$, $\xi\in A[X]$ hence by~\cref{thm:Stepanov} $P_\alpha(*)$ contains whole $j_+(\overline{\St}(\Phi, A[X], XM[X]))$. The required assertion now follows from~\cref{Kgen-strong} and the preceding remark. \end{proof}
 
-\begin{rem} \label{Pstar-char} The above lemma allows us to characterize $P_{\alpha, M}(*)$ as follows: it conincides with the image under $j_+$ of the subgroup 
+\begin{rem} \label{Pstar-char} The above lemma allows us to characterize $P_{\alpha, M}(*)$ as follows: it coincides with the image under $j_+$ of the subgroup 
 of $\overline{\St}(\Phi, A[X], M[X])$ consisting of those elements $g$ for which $ev_{X=0}^*(g)$ lies in the subgroup $Z_\alpha(A, M)$. \end{rem} 
 
 \begin{rem} \label{rem:palpha} It follows from~\cref{P0_normal} and~\cref{Pstar-large} that the value of the function $p_\alpha$ from the statement of~\cref{P0_normal} on an element $g\in K(A[X], M[X])$ can be computed via the following procedure. 
