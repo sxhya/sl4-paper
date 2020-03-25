@@ -97,7 +97,7 @@ Our main result is, thus, the following theorem, which is the orthogonal analogu
   \xymatrix{ \KO_2(2\ell, A) \ar[r] \ar[d] & \KO_2(2\ell, A[X]) \ar[d] \\ \KO_2(2\ell, A[X\inv]) \ar[r] & \KO_2(2\ell, A[X, X\inv]).}  
 \end{equation} 
 Moreover, the same assertion holds if one replaces the functor $\KO_2(2\ell, -)$ with $\K_2(\rD_\ell, -)$ or $\St(\rD_\ell, -)$. \end{theorem}
-In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $\K_2$-functor (see~\cref{sec:quillen}).
+In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $\K_2$-functor (see~\cref{sec:quillen}). Notice also that in the special case when $A=k$ is a field the above theorem follows from the results of U.~Rehmann, J.~Hurrelbrink and J.~Morita (see~\cref{field-injectivity} below).
 
 The proof of~\cref{thm:main} goes as follows. We notice that it suffices to prove the $\St(\rD_\ell, -)$-variant of the theorem. Moreover, the proof of the injectivity of
 $j_+ \colon \St(\rD_\ell, A[X]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to be the hardest part. After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local.
@@ -162,7 +162,7 @@ Recall from~\cite[Lemma~5.2]{Ma69} that the following relations hold for semisim
               \label{eq:h-inv}    h_\alpha(t)^{-1}             & = h_{-\alpha}(t). \end{align}
 Here $\langle \beta, \alpha \rangle$ denotes the integer $\tfrac{2(\beta, \alpha)}{(\alpha, \alpha)}$ (we denote by $(-,-)$ the inner product on the euclidean space $\mathbb{R}^\ell$ containing $\Phi$).
 
-\subsection{\texorpdfstring{$\K_2$}{K2}-groups and symbols} In our calculations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our notational conventions for symbols follow~\cite{DS73} and {\it not} more modern textbooks such as~\cite{Kbook}. In particular, the product of symbols is written multiplicatively.
+\subsection{\texorpdfstring{$\K_2$}{K2}-groups and symbols} In our calculations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our notational conventions for symbols follow~\cite{DS73} and {\it not} more modern textbooks such as~\cite{Kbook} (cf. with~Definition~III.5.11 ibid.). Notice also that the operation on $\K_2(\Phi, R)$ is always written multiplicatively.
 
 Recall that Steinberg symbols are defined for arbitrary $s, t \in R^\times$ as follows:
 \begin{equation} \label{eq:steinberg} \{ s, t \}_\alpha = h_\alpha(st) \cdot h_\alpha^{-1}(s) \cdot h_\alpha^{-1}(t). \end{equation}
@@ -172,7 +172,7 @@ Dennis--Stein symbol $\langle a, b \rangle_\alpha$ can be expressed through Stei
 \begin{equation} \label{DS-S-relationship} \langle a, b \rangle_\alpha = \{-a, 1+ab\}_\alpha\text{ for } a, 1+ab\in R^\times,\ \
  \{ s, t \}_\alpha = \left\langle -s, \tfrac{1 - t}{s} \right\rangle_\alpha\text{ for } s, t\in R^\times. \end{equation}
 Steinberg and Dennis--Stein symbols depend only on the length of $\alpha$, in particular they do not depend on $\alpha$ if $\Phi$ is simply-laced. If $\Phi$ happens to be {\it nonsymplectic}, i.\,e. $\Phi \neq \rA_1, \rB_2, \rC_{\geq 3}$, Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. they satisfy the following identities: \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
-For these and other properties of symbols we refer the reader to~\cite{DS73}. 
+For these and other properties of symbols we refer the reader to~\cite{DS73}.
 
 Recall that the classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field.
 Using the modern language of Milnor--Witt K-theory (see~\cite{Mo04}) it can be formulated as follows:
@@ -198,10 +198,10 @@ Recall from~\cite{Mo04} that $\K_1^\mathrm{MW}(k)$ is isomorphic to the pullback
 in other words, it consists of pairs $[u, x]$ such that $x - \langle \langle u \rangle \rangle \in I^2(k)$.
 It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\rangle - x)$ defines an isomorphism of $\K_1^\mathrm{MW}(k)$ and $P(k)$. \end{proof}
 
-\begin{rem} It is possible to directly prove the stable symplectic counterpart of the above lemma. Indeed, we have the following chain of isomorphisms:
+\begin{rem} It is possible to directly prove the stable symplectic counterpart of the above lemma (under the additional assumption that the characteristic of $k$ is not $2$). Indeed, we have the following chain of isomorphisms:
 \[ \K_2(C_\infty, k[X, X^{-1}]) \cong \GW_2^2(k[X,X^{-1}]) \cong \GW_2^2(k) \oplus \GW_1^1(k) \cong \K_2^\mathrm{MW}(k) \oplus \K_1^\mathrm{MW}(k),\]
-in which the first two are obtained from~\eqref{GW-concrete} and~\cref{bass-ft} and the last one follows from the isomorphism $\GW_1^1(k) \cong \K_1^\mathrm{MW}(k)$ of~\cite[Lemma~4.1.1]{AF17} and Matsumoto's theorem. 
-Thus, we see that the result of Morita and Rehmann agrees with the modern literature on higher Grothendieck--Witt groups. \end{rem}
+in which the first two isomorphisms are obtained from~\eqref{GW-concrete} and~\cref{bass-ft} and the last one follows from the isomorphism $\GW_1^1(k) \cong \K_1^\mathrm{MW}(k)$ of~\cite[Lemma~4.1.1]{AF17} and Matsumoto's theorem. 
+Thus, we see that in the stable range the result of Morita and Rehmann agrees with the modern literature on higher Grothendieck--Witt groups. \end{rem}
 
 \begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the map $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of the images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
 \begin{proof} The first assertion follows from the commutative diagram
@@ -295,7 +295,10 @@ By~\cite{Su82} the requirement~\ref{req:subfunc} is also satisfied for $n \geq 3
 Finally, from~\cite[Corollary~5.4]{St71} and~\cite[Theorem~1]{LS17} it follows that $S_n$ and $P_n$ satisfy~\ref{req:uce} for $n \geq 5$.
 We use the notation $\KO_i(2n, R)$ as a shorthand for $\K_i^{G_n, P_n}(R)$. 
 
-Notice that $\KO_2(2n, R) = \Ker(\St(\rD_n, R) \to \mathrm{SO}(2n, R))$ contains $\K_2(\rD_n, R)$, but the converse is not generally true. On the other hand, from~\cref{lem:lowerKgroups} it follows that $\KO_3(2n, R)$ is isomorphic to the group $K_3^{G, P}$ in which $G = G(\rD_n, -) = \mathrm{Spin}(2n, -)$ and $P = \mathrm{Epin}(2n, -)$ is its elementary subfunctor.
+Notice that $\KO_2(2n, R) = \Ker(\St(\rD_n, R) \to \mathrm{SO}(2n, R))$ does not coincide with $\K_2(\rD_n, R) = \Ker(\St(\rD_n, R) \to \mathrm{Spin}(2n, R))$ but rather is related with it via the exact sequence
+\[ \xymatrix{ 1 \ar[r] & \K_2(\rD_n, R) \ar[r] & \KO_2(2n, R) \ar[r] & \mu_2(R) \ar[r] & 1,} \]
+which can be obtained from the exact sequence~\cite[p.~189]{Ba74} by means of the snake lemma (cf. also with~\cite[Corollary~4.3.5]{Ba74}).
+On the other hand, from~\cref{lem:lowerKgroups} it follows that $\KO_3(2n, R)$ is isomorphic to the group $K_3^{G, P}$ in which $G = G(\rD_n, -) = \mathrm{Spin}(2n, -)$ and $P = \mathrm{Epin}(2n, -)$ is its elementary subfunctor.
 
 We conclude this subsection with the following stability result (see~\cite[Theorem~9.4]{Pa89}).
 \begin{externaltheorem}[Panin] \label{Panin-stability}
@@ -331,7 +334,7 @@ and using the isomorphisms of~\cref{lem:relativeH3} and~\cref{lem:lowerKgroups} 
 \begin{equation*}\xymatrix{
  \KO_3(2\ell, B) \ar[r] \ar[d] & \KO_3(2\ell, k[X]) \ar[d]_{f'} \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
  \KO_3(2\ell, R) \ar[r]        & \KO_3(2\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
-By~\cref{Panin-stability} theorem the map $f'$ can be identified with the canonical map $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
+By~\cref{Panin-stability} the map $f'$ can be identified with the canonical map $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
 By~\cref{bass-ft} $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k) \oplus \GW_2^{[3]}(k),$
 but since the group $\GW_2^{[3]}(k)$ is trivial by~\cite[Lemma~2.2]{FRS12}, the map $f'$ (and hence $f$) is surjective.
 \end{proof} 
