@@ -97,7 +97,7 @@ Our main result is, thus, the following theorem, which is the orthogonal analogu
   \xymatrix{ \KO_2(2\ell, A) \ar[r] \ar[d] & \KO_2(2\ell, A[X]) \ar[d] \\ \KO_2(2\ell, A[X\inv]) \ar[r] & \KO_2(2\ell, A[X, X\inv]).}  
 \end{equation} 
 Moreover, the same assertion holds if one replaces the functor $\KO_2(2\ell, -)$ with $\K_2(\rD_\ell, -)$ or $\St(\rD_\ell, -)$. \end{theorem}
-In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $\K_2$-functor (see~\cref{sec:quillen}). Notice also that in the special case when $A=k$ is a field the above theorem follows from the results of U.~Rehmann, J.~Hurrelbrink and J.~Morita (see~\cref{field-injectivity} below).
+In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $\K_2$-functor (see~\cref{sec:quillen}). Notice also that in the special case when $A=k$ is a field the assertion of the above theorem follows from the results of U.~Rehmann, J.~Hurrelbrink and J.~Morita (see~\cref{field-injectivity} below).
 
 The proof of~\cref{thm:main} goes as follows. We notice that it suffices to prove the $\St(\rD_\ell, -)$-variant of the theorem. Moreover, the proof of the injectivity of
 $j_+ \colon \St(\rD_\ell, A[X]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to be the hardest part. After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local.
@@ -120,7 +120,7 @@ Throughout the paper we make use of the following commutator identities:
  [x, yz]^y =& [y^{-1}, x] \cdot [x, z], \label{rel43} \\ 
  \label{eq:H1ii} [xy, z] =& {}^x[y, z] \cdot [x,z]. \\
  [[x, y], z] =& \left([x^{-1}, [ y^{-1}, z]] ^ {y^{-1}} \cdot [y, [ z^{-1}, x^{-1}]] ^ {z^{-1}} \right)^{x^{-1}}. \label{HW-variant} \end{align}
-Sometimes we will also be using the fact that 
+We will also be using the fact that 
 \begin{equation} \label{eq:H1iii} [x,z] = 1 \text{ implies } [x, [y,z]] = [[x,y],{}^yz]. \end{equation} 
 
 \subsection{Steinberg groups} \label{sec:Steinberg-intro}
@@ -520,6 +520,12 @@ The main result of this section is~\cref{thm:P1glueing}, which is a direct gener
 The object playing a key role in its proof is a certain action of the group $G = \St(\Phi, A[X\inv] + M[X])$ on a certain set $\overline{V}$, which is defined in~\cref{sec:V-construction}. Later, we will see that $\overline{V}$ is, in fact, a set-theoretic $G$-torsor.
 To be able to write an explicit formula for this action we need two major ingredients. The first one is ~\cref{lemma33}, which gives a presentation of $G$ with much fewer generations and relations than in the original presentation~\eqref{rel:add}-\eqref{rel:CCF}. The other ingredients are certain subgroups $P_\alpha(0)$, $P_\alpha(*)$ of $\St(\Phi, A[X, X\inv])$ modeled after the nameless groups from~\cite[Lemma~3.4]{Tu83}. The definition and properties of these groups are given in Sections~\ref{sec:Pa0-basic}--\ref{sec:Pa0-Steinberg}.
 
+Throughout this section we will employ the following notation:
+\begin{itemize}
+ \item $R$ denotes the Laurent polynomial ring $A[t, t^{-1}]$;
+ \item $B$ denotes the subring $A[t] + m[t^{-1}]$ of $R$ consisting of Laurent polynomials $f(t,t^{-1})$ whose coefficients of terms of negative degree belong to $m$;
+ \item $I$ denotes the ideal $m[t, t^{-1}]$ of $R$ (which can be also considered as an ideal of $B$).
+\end{itemize}
 \subsection{Presentation of Steinberg groups by homogeneous generators}
 \label{sec:presentation}
 Let $M\trianglelefteq A$ be an ideal of a commutative ring $A$.
@@ -541,7 +547,7 @@ By the degree of a Steinberg relation we mean the maximum of degrees of generato
 For example, the degree of every relation of type $\text{R2}_{d,e}$ is $\max(d,e,d+e)$ 
  while the degree of a relation of type $\text{R3}^\bot_{d,e}$ or $\text{R3}^\angle_{d,e}$ is $\max(d,e)$.
 
-For $n\geq 1$ we define ``truncated'' Steinberg group $\St^{\leq n}(\Phi, B)$ by means of the set $\mathcal{X}_{\leq n}^\Phi$ of homogeneous Steinberg generators of degree $\leq n$ and the set of Steinberg relations $\mathcal{R}_{\leq n}^\Phi$ of degree $\leq n$. We denote by $F(\mathcal{X}^\Phi_{\leq n})$ the free group on $\mathcal{X}^\Phi_{\leq n}$.
+For $n\geq 1$ we define the ``truncated'' Steinberg group $\St^{\leq n}(\Phi, B)$ by means of the set $\mathcal{X}_{\leq n}^\Phi$ of homogeneous Steinberg generators of degree $\leq n$ and the set of Steinberg relations $\mathcal{R}_{\leq n}^\Phi$ of degree $\leq n$. We denote by $F(\mathcal{X}^\Phi_{\leq n})$ the free group on $\mathcal{X}^\Phi_{\leq n}$.
 
 The following lemma asserts that most of the relations of type $\text{R3}^\bot_{d,e}$ of positive degree in this presentation of $\St^{\leq n}(\Phi, B)$ 
  are superfluous and can be omitted.
@@ -587,9 +593,9 @@ The following proposition is the main result of this subsection and also a direc
  \[ \widetilde{j}^{\Phi}_n(x_\alpha(at^k)) = \begin{cases} x_\alpha(at^k), & k\leq n; \\
       [x_{\alpha - \beta} (N_{\alpha-\beta, \beta} \cdot at^{k-1}), x_{\beta}(t)], & k = n+1, \end{cases} \]
  where $\beta$ is any root of $\Phi$ forming a sharp angle with $\alpha$.
- Standard argument (cf. \cite[Proposition~1.1]{Re75} or~\cite[Proposition~3.2.2]{RS76}) shows that $\widetilde{j}^\Phi_n$ does not depend on the choice of $\beta$.
+ A standard argument, cf. \cite[Proposition~1.1]{Re75} or~\cite[Proposition~3.2.2]{RS76}, shows that $\widetilde{j}^\Phi_n$ does not depend on the choice of $\beta$.
   
- Set $\mathcal{R}^\Phi_{n+1} = \mathcal{R}^\Phi_{\leq n+1} \setminus \mathcal{R}^\Phi_{\leq n}$. It suffices to verify that the image of every relator $R \in \mathcal{R}^\Phi_{n+1}$ under $\widetilde{j}^\Phi_n$ is a trivial element of $\St^{\leq n}(\Phi, B)$. In the special case $\Phi=\rA_{\geq 4}$ this has already been demonstrated by Tulenbaev in~\cite[Lemma~3.3]{Tu83}, so in this case the proof of the proposition is complete. We will deduce the assertion in the remaining cases $\Phi=\rD_\ell,\rE_\ell$ from the special case $\Phi=\rA_4$ of Tulenbaev's result.
+ Set $\mathcal{R}^\Phi_{n+1} = \mathcal{R}^\Phi_{\leq n+1} \setminus \mathcal{R}^\Phi_{\leq n}$. It suffices to verify that the image of every relation $R \in \mathcal{R}^\Phi_{n+1}$ under $\widetilde{j}^\Phi_n$ is a trivial element of $\St^{\leq n}(\Phi, B)$. In the special case $\Phi=\rA_{\geq 4}$ this has already been demonstrated by Tulenbaev in~\cite[Lemma~3.3]{Tu83}, so in this case the proof of the proposition is complete. We will deduce the assertion in the remaining cases $\Phi=\rD_\ell,\rE_\ell$ from the special case $\Phi=\rA_4$ of Tulenbaev's result.
  
  Let $R$ be a relation from $\mathcal{R}^\Phi_{n+1}$. By~\cref{superfluous-relations} we may assume that $R$ is not of type $\text{R3}^\bot$, therefore the roots $\alpha, \beta$ appearing in $R$ are contained in a root subsystem of $\Phi$ of type $\rA_2$. Our assumptions on $\Phi$ guarantee that there exists some root subsystem $\Psi$ of type $\rA_4$ containing $\alpha$ and $\beta$. Consider the following commutative diagram in which the vertical arrows are induced by the embedding $\Psi\subseteq\Phi$. 
   \begin{equation} \nonumber \xymatrix{
@@ -609,7 +615,7 @@ The relation $R$ lies in the image of the left arrow, therefore it comes from so
 \end{rem}
 
 \subsection{The subgroups \texorpdfstring{$P_\alpha(0)$}{Pa(0)}, \texorpdfstring{$P_\alpha(*)$}{Pa(*)} and their properties.} \label{sec:Pa0-basic}
-Let $\Phi$ be a root system and $\alpha \in \Phi$ be its element.
+Let $\Phi$ be a root system and $\alpha$ be an element of $\Phi$.
 Consider the following subsets of $\Phi$:
 \begin{align} Z_+(\alpha) & = \{ \beta \in \Phi \mid \langle \alpha, \beta \rangle > 0 \}, \\
    Z_0(\alpha) & = \{ \beta \in \Phi \mid \alpha + \beta \not\in \Phi,\ \langle \alpha, \beta \rangle = 0 \}, \\
@@ -642,7 +648,7 @@ We also denote by $P_{\alpha, M}(*)$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ g
 Almost always we will be using the above definition in the situation when $M$ is precisely the maximal ideal of $A$.
 The only exception to this is~\cref{P0-conj-invariant} where the above subgroups are also used for $M=A$.
 
-\begin{lemma}\label{P0_normal} The subgroup $P_{\alpha, M}(0)$ is normal in $P_{\alpha, M}(*)$. In particular, there is a short exact sequence of groups, which is split by the map $m \mapsto x_{-\alpha}(mX)$ (we denote by $(M, +)$ the additive group of the ideal $M$):
+\begin{lemma}\label{P0_normal} The subgroup $P_{\alpha, M}(0)$ is normal in $P_{\alpha, M}(*)$. Moreover, there is a short exact sequence of groups, which is split by the map $m \mapsto x_{-\alpha}(mX)$ (we denote by $(M, +)$ the additive group of the ideal $M$):
 \[\xymatrix{1 \ar[r] & P_\alpha(0) \ar[r] & P_\alpha(*) \ar@{->>}[r]^{p_\alpha} & (M, +) \ar@<5pt>@{-->}[l] \ar[r] & 1}.\] \end{lemma}
 \begin{proof} We need to verify that the conjugate by $x_{-\alpha}(mX)$ to every generator $g$ of $P_\alpha(0)$ listed in~Definition~\ref{defP0} belongs to $P_\alpha(0)$.
 The assertion is obvious for generators of type 3 and 4.
