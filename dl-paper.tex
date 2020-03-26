@@ -520,24 +520,19 @@ The main result of this section is~\cref{thm:P1glueing}, which is a direct gener
 The object playing a key role in its proof is a certain action of the group $G = \St(\Phi, A[X\inv] + M[X])$ on a certain set $\overline{V}$, which is defined in~\cref{sec:V-construction}. Later, we will see that $\overline{V}$ is, in fact, a set-theoretic $G$-torsor.
 To be able to write an explicit formula for this action we need two major ingredients. The first one is ~\cref{lemma33}, which gives a presentation of $G$ with much fewer generations and relations than in the original presentation~\eqref{rel:add}-\eqref{rel:CCF}. The other ingredients are certain subgroups $P_\alpha(0)$, $P_\alpha(*)$ of $\St(\Phi, A[X, X\inv])$ modeled after the nameless groups from~\cite[Lemma~3.4]{Tu83}. The definition and properties of these groups are given in Sections~\ref{sec:Pa0-basic}--\ref{sec:Pa0-Steinberg}.
 
-Throughout this section we adopt the following notation:
+Throughout this section we use the following notations and conventions:
 \begin{itemize}
- \item $A$ is an arbitarary commutative ring and $M$ is an ideal of $A$. 
- In Section~\ref{sec:presentation} there are no restrictions on $(A, M)$, but in later sections the pair $(A, M)$ is assumed to be local.
- \item $R$ denotes the Laurent polynomial ring $A[X, X^{-1}]$. It will be convenient for us to set $t = X^{-1}$, so also $R = A[t, t^{-1}]$.
- \item $B$ denotes the subring $A[t] + M[t^{-1}]$ of $R$ consisting of Laurent polynomials $f(t,t^{-1})$ whose coefficients of terms of negative degree belong to $M$;
- \item $I$ denotes the ideal $M[t, t^{-1}]$ of $R$. $I$ can also be considered as an ideal of $B$.
-\end{itemize}
+ \item Let $A$ be an arbitarary commutative ring and $M$ be an ideal of $A$. Starting from subsection~\ref{sec:Pa0-basic} we also assume that $A$ is local and $M$ is the maximal ideal of $A$.
+ \item We denote by $R$ the Laurent polynomial ring $A[X, X^{-1}]$. We set $t = X^{-1}$, so that $R = A[X, X^{-1}] = A[t, t^{-1}]$.
+ \item $B = B_{A, M}$ denotes the subring $A[t] + M[t^{-1}] = A[X^{-1}] + M[X]$ of $R$. Obviously, $B = A[t]$ in the case $M=0$ and $B = R$ in the case $M=A$.
+ \end{itemize}
 \subsection{Presentation of Steinberg groups by homogeneous generators}
 \label{sec:presentation}
-Let $M\trianglelefteq A$ be an ideal of a commutative ring $A$.
-We consider $A[t, t\inv]$ as a $\mathbb{Z}$-graded ring in which $t$ has degree $1$.
-We denote by $B = B(A, M)$ the subring $A[t] + M[t\inv] \subseteq A[t, t\inv]$ with the induced grading.
-As an $A$-module $B$ decomposes as $\oplus_{d\in\mathbb Z}B_d$ where $B_d=M \cdot t^d$ for $d<0$, and $B_d=A \cdot t^d$ for $d\geq0$. Obviously, $B = A[t]$ in the case $M=0$ and $B = A[t, t\inv]$ in the case $M=A$.
+We consider $R = A[t, t\inv]$ as a $\mathbb{Z}$-graded ring in which $t$ has degree $1$. This grading induces the grading on the subring $B \subseteq R$. For an integer $d$ we denote by $R_d$ (resp. $B_d$) the degree $d$ part of the ring $R$ (resp. $B$). Obviously, $B_d=M \cdot t^d$ for $d<0$, and $B_d=A \cdot t^d$ for $d\geq0$. With this notation, $B$ decomposes as $\oplus_{d\in\mathbb Z}B_d$ as an $A$-module. 
 
 Whenever the coefficient $\xi$ of a Steinberg generator $g = x_\alpha(\xi)$ of $\St(\Phi, B)$ is a homogeneous element of $B$, i.\,e. $\xi \in B_d$ for some $d \in \mathbb{Z}$,
  we call the corresponding generator $g$ {\it homogeneous of degree $d$}.
-It is not hard to show that $\St(\Phi, B)$ can be presented by the set of all homogeneous Steinberg generators modulo the following set of Steinberg relations
+We denote by $\St^h(\Phi, B)$ the Steinberg group in the homogeneous presentation, i.\,e. the group given by the set of all homogeneous Steinberg generators modulo the following set of relations which we call homogeneous Steinberg relations
 (below $a, a' \in B_d$, $b\in R_e$ and $d,e \in \mathbb{Z}$): 
 \begin{align}
 &\,\,x_{\alpha}(a)\cdot x_{\alpha}(a') =  x_{\alpha}(a+a'),                        & \tag{R$1_d$} \\
@@ -545,11 +540,19 @@ It is not hard to show that $\St(\Phi, B)$ can be presented by the set of all ho
 &\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha - \beta \in \Phi,\ \tag{R$3^\angle_{d,e}$} \\
 &\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha \perp \beta.\ \tag{R$3^\bot_{d,e}$}
 \end{align}
+\begin{rem}
+Notice that in the above presentation we omitted the relations $[x_\alpha(a), x_\alpha(b)] = 1$ but it easy to see that they, in fact, follow from~\eqref{eq:H1iii},~$\text{R2}_{d,e}$ and $R3_{d,e}^\angle$: \[ ???. \]
+\end{rem}
+
+It is not hard to show that the map $\St^h(\Phi, B) \to \St(\Phi, B)$ induced by the obvious embedding of generators is an isomorphism. 
+
 By the degree of a Steinberg relation we mean the maximum of degrees of generators that appear in the relation.
 For example, the degree of every relation of type $\text{R2}_{d,e}$ is $\max(d,e,d+e)$ 
  while the degree of a relation of type $\text{R3}^\bot_{d,e}$ or $\text{R3}^\angle_{d,e}$ is $\max(d,e)$.
 
-For $n\geq 1$ we define the ``truncated'' Steinberg group $\St^{\leq n}(\Phi, B)$ by means of the set $\mathcal{X}_{\leq n}^\Phi$ of homogeneous Steinberg generators of degree $\leq n$ and the set of Steinberg relations $\mathcal{R}_{\leq n}^\Phi$ of degree $\leq n$. We denote by $F(\mathcal{X}^\Phi_{\leq n})$ the free group on $\mathcal{X}^\Phi_{\leq n}$.
+For $n\geq 1$ we define the ``truncated'' Steinberg group $\St^{\leq n}(\Phi, B)$ by means of the set $\mathcal{X}_{\leq n}^\Phi$ of homogeneous Steinberg generators of degree $\leq n$ and the set of homogeneous Steinberg relations $\mathcal{R}_{\leq n}^\Phi$ of degree $\leq n$.  We denote by $F(\mathcal{X}^\Phi_{\leq n})$ the free group on $\mathcal{X}^\Phi_{\leq n}$. 
+
+Notice that $\lim\limits_{n \to +\infty} \St^{\leq n}(\Phi, B) = \St^h(\Phi, B) \cong \St(\Phi, B)$.
 
 The following lemma asserts that most of the relations of type $\text{R3}^\bot_{d,e}$ of positive degree in this presentation of $\St^{\leq n}(\Phi, B)$ 
  are superfluous and can be omitted.
