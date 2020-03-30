@@ -656,15 +656,15 @@ The only exception to this is~\cref{P0-conj-invariant} where the above subgroups
 \begin{proof} We need to verify that the conjugate by $x_{-\alpha}(mX)$ to every generator $g$ of $\widetilde{P}_\alpha(0)$ listed in~Definition~\ref{defP0} belongs to $\widetilde{P}_\alpha(0)$.
 The assertion is obvious for the generators of type 3 and 4.
 
-Let $g = z_\beta(Xf, \xi)$ be a generator of type 1 such that $\alpha - \beta \in \Phi$. By~\cref{Zrels}(2) we get that \begin{equation} z_{\beta}(Xf, \xi) ^ {x_{-\alpha}(mX)} =  x_{-\alpha} (- mX^2f\xi) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mX^2f) \cdot z_{\beta}(Xf, \xi). \label{eq3-1} \end{equation}
+Let $g = z_\beta(Xf, \xi)$ be a generator of type 1 such that $\alpha - \beta \in \Phi$. By~\cref{Zrels}\eqref{Z2} we get that \begin{equation} z_{\beta}(Xf, \xi) ^ {x_{-\alpha}(mX)} =  x_{-\alpha} (- mX^2f\xi) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mX^2f) \cdot z_{\beta}(Xf, \xi). \label{eq3-1} \end{equation}
 The first and the last factors in the right-hand side of the above equation are generators of type $4$ and $1$, respectively. It is easy to see that the second factor is also a generator of type 1, indeed:
 \[ x_{\beta - \alpha} (N_{\beta,-\alpha} \cdot mX^2 f) = z_{\beta'}(Xf', 0)\text{ for } f' = N_{\beta,-\alpha} \cdot mX f\text{ and }\beta' = \beta - \alpha \text{ (clearly, $\alpha + \beta' \in \Phi$).}\]
-Now consider the case when $g = z_\beta(f, X\xi)$ is a generator of type $2$. Again by~\cref{Zrels}(2)
+Now consider the case when $g = z_\beta(f, X\xi)$ is a generator of type $2$. Again by~\cref{Zrels}\eqref{Z2}
 \begin{equation}
 z_{\beta}(f, X\xi) ^ {x_{-\alpha}(mX)} =  x_{-\alpha} (- mX^2f\xi ) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mXf) \cdot z_{\beta}(f, X\xi). \label{eq3-2} \end{equation}
 It is easy to see that the expression in the right-hand side of~\eqref{eq3-2} is a product of generators of type 4, 1, 2.  
 
-Now let $g = z_{\beta}(Xf, \xi)$ be a generator of type 1 in the case $\alpha + \beta \in \Phi$. By~\cref{Zrels}(3) 
+Now let $g = z_{\beta}(Xf, \xi)$ be a generator of type 1 in the case $\alpha + \beta \in \Phi$. By~\cref{Zrels}\eqref{Z3}
 \begin{equation} \label{eq3-3} z_{\beta}(Xf, \xi) ^ {x_{-\alpha}(mX)} = x_{-\alpha} (mX^2f\xi ) \cdot x_{-\alpha-\beta} (N_{\beta,\alpha}\cdot mX^2f\xi^2) \cdot z_{\beta}(Xf, \xi), \end{equation}
 and the latter expression is a product of generators of type $4, 1, 1$.
 
@@ -701,21 +701,25 @@ Notice that $x_\beta(b) \in \widetilde{P}_{\alpha, A}(0)$ therefore for $g \in \
 
 For the rest of this section $M$ denotes the maximal ideal of $A$.
 \begin{df} 
-Define the following two subgroups of $\overline{\St}(\Phi, R, M[X, X^{-1}])$:
+We define the following two subgroups of $\overline{\St}(\Phi, R, M[X, X^{-1}])$:
 \[ P_{\alpha}(0) = j_+(\widetilde{P}_{\alpha, M}(0)), \ P_{\alpha}(*) = j_+(\widetilde{P}_{\alpha, M}(*)), \]
-where $j_+ \colon \overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, R, M[X, X^{-1}]$ is the obvious embedding.
+where $j_+ \colon \overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, R, M[X, X^{-1}]$ is the obvious homomorphism.
 For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
-From~\cref{P0_normal} it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. 
 
-Define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, A[X, X^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
+From~\cref{P0_normal} it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. This allows to define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, A[X, X^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
 \[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}.\] \end{df}
-It follows immediately from the definition of $S_\alpha(a, -)$ that for $g_1 \in P_\alpha(m)$, $g_2 \in P_\alpha(*)$ one has
-\begin{equation} \label{eq:Smult} S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right).\end{equation}
 
+In the sequel we often use the following property of $S_\alpha(a, -)$.
+\begin{lemma} \label{lem:Smult}
+For $g_1 \in P_\alpha(m)$, $g_2 \in P_\alpha(*)$ one has
+$S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right).$
+\end{lemma} \begin{proof} Since $g_2\in P_\alpha(m')$ for some $m' \in M$, we have that $g_1 \cdot g_2 \in P_\alpha(m + m')$. The assertion now follows from the definition of $S_\alpha(a, -)$:
+\begin{multline*} S_\alpha(a, g_1 \cdot g_2) = x_\alpha(aX^{-1}) \cdot g_1 \cdot g_2 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1+am+am'}\right) \cdot \{X, 1 + am + am'\} = \\ = x_\alpha(aX^{-1}) \cdot g_1 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1+am}\right) \cdot g_2 \cdot x_\alpha\left(-\frac{\tfrac{a}{1+am}\cdot X^{-1}}{1 + \tfrac{a}{1+am}\cdot m'}\right) \{X, (1+am)(1 + \tfrac{am'}{1+am})\} = \\ = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right). \qedhere \end{multline*}
+\end{proof}
 It is clear that the restriction of the map $S_\alpha(a, g)$ to the subgroup $P_\alpha(0)$ coincides with the homomorphism of left conjugation by $x_\alpha(aX^{-1})$.
-
 \begin{lemma}\label{P0_conj} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a\in A$. \end{lemma}
-\begin{proof} We need to verify that the conjugate by $x_\alpha(aX^{-1})$ to every generator $g = z_\beta(f, \xi)$ from~\cref{defP0} lies in $P_\alpha(0)$. 
+\begin{proof} 
+We need to verify that the conjugate by $x_\alpha(aX^{-1})$ to every generator $g$ from~\cref{defP0} lies in $P_\alpha(0)$. 
 The assertion is clear for generators of type 3 and 5.
 First of all, consider the case $\alpha + \beta \in \Phi$, which is only possible in the case of a generator of type 1:
 \begin{equation}\label{eq:Zconj1} z_{\beta}(Xf, \xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (- af\xi) \cdot x_{\alpha+\beta} (N_{\beta, \alpha}\cdot af) \cdot z_{\beta}(Xf, \xi). \end{equation}
@@ -749,7 +753,7 @@ which implies the assertion. \end{proof}
 \begin{corollary}\label{SR:additivity} For $g \in P_\alpha(m)$ holds $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \tfrac{m}{1 + am})$.
 Consequently one has \[ S_\alpha(a+b, g) = S_\alpha\left(b,\ S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)\right)\cdot h_\alpha(1+am). \]\end{corollary} \begin{proof}
 Fix an element $g \in P_\alpha(m)$ and write it $g = g_0 \cdot x_{-\alpha}(mX)$ for some $g_0 \in P_\alpha(0)$.
-Now by~\eqref{eq:Smult} and~\cref{P0_conj} one has
+Now by~\cref{lem:Smult} and~\cref{P0_conj} one has
 \begin{multline} \nonumber S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_{\alpha}^{-1}(1+am) = 
 \\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot\langle a, m \rangle \in P_\alpha\left(\tfrac{m}{1+am}\right). \end{multline}
 
@@ -802,7 +806,7 @@ Notice that $\gamma \in Z_+(\alpha) \setminus \{\alpha - \beta \}$ cannot form a
 If $\langle \beta, \gamma \rangle$ is $0$ or $1$, then $g$ is a generator of type 2 or 3 for $P_\beta(0)$ in the sense of~\cref{defP0}. Finally, if $\gamma = \beta$ the element $g = z_\beta(f, X\xi)$ also belongs to $P_\beta(0)$ (this follows e.\,g. from~\cref{rem:palpha}). \end{proof}
 
 \begin{lemma} \label{SR:sharp} For $g \in K(A[X], M[X]) \cap P_\alpha(m) \cap P_\beta(m')$ and $a \in A$ holds \[S_\alpha(a, g)\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot am') \in P_\beta\left(\tfrac{m'}{1 + am}\right). \] \end{lemma}
-\begin{proof} By~\cref{K-a-b} $g$ can be presented as $ g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $g_0\in K(\alpha, \beta)$, therefore from~\eqref{eq:Smult} and~\cref{lem:Tulenbaev-formula} we obtain that \begin{multline} \nonumber S_\alpha(a, g) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot S_\alpha\left(\tfrac{a}{1+am}, x_{-\beta}(m'X)\right) = \\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m \rangle \cdot h_\alpha(1+am) \cdot x_{-\beta}(m'X) \cdot x_{\alpha-\beta}\left(\tfrac{N_{\alpha, -\beta} \cdot am'}{1+am}\right) = \\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m \rangle \cdot  x_{-\beta}\left(\tfrac{m'X}{1+am}\right) \cdot x_{\alpha-\beta}\left(N_{\alpha, -\beta} \cdot am'\right) \cdot h_\alpha(1+am). \end{multline}
+\begin{proof} By~\cref{K-a-b} $g$ can be presented as $ g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $g_0\in K(\alpha, \beta)$, therefore from~\cref{lem:Smult} and~\cref{lem:Tulenbaev-formula} we obtain that \begin{multline} \nonumber S_\alpha(a, g) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot S_\alpha\left(\tfrac{a}{1+am}, x_{-\beta}(m'X)\right) = \\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m \rangle \cdot h_\alpha(1+am) \cdot x_{-\beta}(m'X) \cdot x_{\alpha-\beta}\left(\tfrac{N_{\alpha, -\beta} \cdot am'}{1+am}\right) = \\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m \rangle \cdot  x_{-\beta}\left(\tfrac{m'X}{1+am}\right) \cdot x_{\alpha-\beta}\left(N_{\alpha, -\beta} \cdot am'\right) \cdot h_\alpha(1+am). \end{multline}
 The assertion now follows from the preceding corollary.
 \end{proof}
   
@@ -837,7 +841,7 @@ From the definition of $S_\alpha(a, -)$, \cref{lem:Tulenbaev-formula}, \eqref{eq
  =  x_{\beta - \alpha}(-b) \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(-\epsilon bm'X) \cdot s_1 \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot x_{-\alpha}\left(\tfrac{cmX}{1+am}\right) \cdot s_0 = \\
  = x_{\beta-\alpha}(-b) \cdot x_{-\beta}\left(m'X(1 - \epsilon abm'c^{-1})\right) \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot s_1 \cdot s_0 \cdot x_{-\alpha}\left(-\epsilon bm' X + \tfrac{cmX}{1+am}\right).
 \end{multline}
-Denote by $h_0$ the product of all factors in the above formula except the first and the last one. It is clear that $h_0$ lies in $P_\alpha(0)$. Using~\cref{K-a-b} we can decompose $g = g_0 \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)$ for some $g_0 \in K(\alpha, \beta)$. The required assertion now follows from \eqref{eq:Smult}, \eqref{eq:SRobtuse-computation} and the preceding lemma:
+Denote by $h_0$ the product of all factors in the above formula except the first and the last one. It is clear that $h_0$ lies in $P_\alpha(0)$. Using~\cref{K-a-b} we can decompose $g = g_0 \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)$ for some $g_0 \in K(\alpha, \beta)$. The required assertion now follows from \cref{lem:Smult}, \eqref{eq:SRobtuse-computation} and the preceding lemma:
 \begin{multline} \nonumber
  x_{\beta - \alpha}(b) \cdot S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta - \alpha}(c^{-1})\cdot x_{\beta - \alpha}(-bc) = \\
   = x_{\beta - \alpha}(b) \cdot S_\alpha(a, g_0) \cdot x_{\beta-\alpha}(-b) \cdot h_0 \cdot x_{-\alpha}\left(\tfrac{m -\epsilon bm'}{1+am}\right) \in P_\alpha(\tfrac{m -\epsilon bm'}{1+am}). \qedhere
@@ -995,7 +999,7 @@ This follows from a consideration of the following commutative diagram, in which
    \St(\Phi, A[X]) \ar[rr]^{j_+} & & \St(\Phi, R). } \]
 
 \begin{lemma}\label{lem:action} For any $[p, h, u]\in \overline{V}_T$ and any $p_1 \in \overline{G}^{\geq 0}_M$ holds $p_1 \cdot [p, h, u] = [p_1p, h, u]$. \end{lemma}
-\begin{proof} First of all, notice that the assertion of the lemma can be verified directly in the case $p_1 = z_\alpha(f, a)$ for all $a\in A$, $f\in M[X]$. Using~\eqref{eq:Smult} and the fact that $x_\beta(X^2f) \in P_\alpha(0)$ for all $\beta \in \Phi$ it is not hard to show that the assertion also holds for $p_1 = z_\alpha(X^2f, aX^{-1})$.
+\begin{proof} First of all, notice that the assertion of the lemma can be verified directly in the case $p_1 = z_\alpha(f, a)$ for all $a\in A$, $f\in M[X]$. Using~\cref{lem:Smult} and the fact that $x_\beta(X^2f) \in P_\alpha(0)$ for all $\beta \in \Phi$ it is not hard to show that the assertion also holds for $p_1 = z_\alpha(X^2f, aX^{-1})$.
 
 It suffices to verify the assertion of the lemma for the generators $p_1 = z_\alpha(f, \xi)$ of $\overline{G}_M^{\geq 0}$ for all $f \in M[X]$, $\xi\in A[X]$, $\alpha \in \Phi$. We accomplish this by 
 induction on the degree of $\xi$ in $X$. The base of induction is clear.
