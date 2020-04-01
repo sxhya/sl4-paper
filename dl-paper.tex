@@ -7,7 +7,6 @@
 \usepackage{tikz}
 \usepackage{enumitem}
 \usepackage[notref,notcite]{showkeys}
-\usepackage{MnSymbol}
 
 \addbibresource{paper.bib}
 \renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
@@ -80,7 +79,7 @@
 \begin{abstract} We prove a $\mathbb{P}^1$-glueing theorem for even-dimensional orthogonal Steinberg groups. This result transfers to the orthogonal case an earlier result of M.~Tulenbaev and is also an analogue for the functor $\K_2$ of a 1982 result of A.~Suslin and V.~Kopeiko. \end{abstract}
 \maketitle
 \section{Introduction}
-Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. Thшы problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and its solution played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
+Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. This problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and its solution played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
 
 After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_{1,n}(R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_{1,n}(k[x_1, \ldots x_n]) = \K_{1,n}(k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on an arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ over a field (see~\cite[Theorem~1.2]{St-poly}) and also generalized Abe's result to Dedekind domains of arithmetic type (see~\cite[Corollary~1.2]{St-Ded}).
 
@@ -174,6 +173,9 @@ Dennis--Stein symbol $\langle a, b \rangle_\alpha$ can be expressed through Stei
  \{ s, t \}_\alpha = \left\langle -s, \tfrac{1 - t}{s} \right\rangle_\alpha\text{ for } s, t\in R^\times. \end{equation}
 Steinberg and Dennis--Stein symbols depend only on the length of $\alpha$, in particular they do not depend on $\alpha$ if $\Phi$ is simply-laced. If $\Phi$ happens to be {\it nonsymplectic}, i.\,e. $\Phi \neq \rA_1, \rB_2, \rC_{\geq 3}$, Steinberg symbols are antisymmetric and bimultiplicative, i.\,e. they satisfy the following identities: \begin{equation} \label{eq:symbol-properties} \{ u, st \} = \{ u, s\} \{ u, t \}, \ \{ u, v \} = \{ v, u\}^{-1}. \end{equation}
 For these and other properties of symbols we refer the reader to~\cite{DS73}.
+From~\eqref{eq:symbol-properties} it follows that
+\begin{equation} \label{eq:symbol-inverse} \{u, v\}^{-1} = \{u^{-1}, v\} = \{u, v^{-1}\}. \end{equation}
+
 
 Recall that the classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allows one to compute the group $\K_2(\Phi, R)$ in the special case when $R=k$ is a field.
 Using the modern language of Milnor--Witt K-theory (see~\cite{Mo04}) it can be formulated as follows:
@@ -650,12 +652,7 @@ Let $M$ be an ideal of a local ring $A$. Denote by $\widetilde{P}_{\alpha, M}(0)
 Almost always we will be using the above definition in the situation when $M$ is precisely the maximal ideal of $A$.
 The only exception to this is~\cref{P0-conj-invariant} where the above subgroups are also used for $M=A$.
 \begin{rem} \label{rem:recognition}
-  From the above definition it follows that an element $z_\gamma(f, \xi)$ is a generator of type 1 provided $X \divides f$, $\gamma\neq\pm\alpha$ and $\gamma$ is not orthogonal to $\alpha$.
-  Since $x_\gamma(f) = z_\gamma(f, 0)$, it follows that under the same assumptions $x_{\gamma}(f)$ is also a generator of type 1.
-  In particular, if $\beta, \alpha - \beta \in \Phi$ then $x_{\pm(\alpha-\beta)}(Xf)$ is a generator of type 1.
-  
-  Similarly, if $\gamma - \alpha \in \Phi$ and $X \divides \xi$ then $z_\gamma(f, \xi)$ is a generator of type 2.
-  In particular, if $\beta, \alpha + \beta \in \Phi$ then $x_{\alpha+\beta}(f)$ is a generator of type 2.
+  From the above definition it follows that an element $z_\gamma(Xf, \xi)$ is a generator of type 1 provided $\gamma\neq\pm\alpha$ and $\gamma \not \perp \alpha$. Since $x_\gamma(Xf) = z_\gamma(Xf, 0)$, it follows that $x_{\gamma}(Xf)$ is also a generator of type 1. In particular, if $\beta, \alpha + \beta \in \Phi$ then $x_{\pm(\alpha+\beta)}(Xf)$ is a generator of type 1 and $x_{\alpha+\beta}(f)$ is a generator of type 2.
 \end{rem}
 
 \begin{lemma}\label{P0_normal} The subgroup $\widetilde{P}_{\alpha, M}(0)$ is normal in $\widetilde{P}_{\alpha, M}(*)$. Moreover, there is a short exact sequence of groups, which is split by the map $m \mapsto x_{-\alpha}(mX)$ (we denote by $(M, +)$ the additive group of the ideal $M$):
@@ -674,10 +671,10 @@ Now let $g = z_{\beta}(Xf, \xi)$ be a generator of type 1 in the case $\alpha + 
 \begin{equation} \label{eq3-3} z_{\beta}(Xf, \xi) ^ {x_{-\alpha}(mX)} = x_{-\alpha} (mX^2f\xi ) \cdot x_{-\alpha-\beta} (N_{\beta,\alpha}\cdot mX^2f\xi^2) \cdot z_{\beta}(Xf, \xi), \end{equation}
 and the latter expression is a product of generators of type $4, 1, 1$.
 
-Finally, let $g = x_\alpha(f)$ be a generator of type $5$. Substituting in~\eqref{Z5} $s = -\epsilon f$, $\xi = -\epsilon m$, $\eta=X$, $\epsilon = N_{\alpha, \beta}$ and expressing the fifth factor in the right-hand side of~\eqref{Z5} through other terms we obtain that
+Finally, let $g = x_\alpha(f)$ be a generator of type $5$. Substituting in~\eqref{Z5} $s = -\epsilon f$, $\xi = -\epsilon m$, $\eta=X$, and expressing the fifth factor in the right-hand side of~\eqref{Z5} through other terms we obtain that
 \begin{multline} \label{eq:zalpha} g^{x_{-\alpha}(mX)} = z_\alpha(f, mX) = x_{\alpha+\beta}(\epsilon Xf) \cdot x_{\beta}(-mX^2 f) \cdot x_{-\beta}(mf) \cdot x_\alpha(f) \cdot \\ 
  \cdot z_{\alpha+\beta}(-\epsilon X f, -\epsilon m) \cdot z_{-\beta}(-mf, -X) \cdot x_{-\alpha-\beta}(-\epsilon m^2X f) \cdot x_{-\alpha}(-m^2X^2 f), \end{multline}
-and the latter expression is a product of generators of type 1, 1, 2, 5, 1, 2, 1, 4. \end{proof}
+where $\epsilon = N_{\alpha, \beta}$. It is clear that the latter expression is a product of generators of type 1, 1, 2, 5, 1, 2, 1, 4. \end{proof}
 
 \begin{rem}\label{rem:c-DS} By~\eqref{Cdef} one has $c_\beta(f, X\xi) = x_{\beta} (f) \cdot z_{\beta}(-f, -X\xi)$. This implies that for $\beta \in Z_+(\alpha)$ (resp. $\beta \in Z_0(\alpha)$) the element $c_\beta(f, X\xi)$ is a product of two generators of type 2 (resp. 3).
 Thus, the elements $c_{\beta}(f, X\xi)$ lie in $\widetilde{P}_{\alpha, M}(0)$ for all $\beta \in Z(\alpha)$.
@@ -706,21 +703,21 @@ To obtain the assertion for $P_{\alpha, M}(0)$ consider the following commutativ
 Notice that $x_\beta(b) \in \widetilde{P}_{\alpha, A}(0)$ therefore for $g \in \widetilde{P}_{\alpha, M}(0)$ one has \[p_{\alpha, M}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(g) = 0,\] which implies the assertion.\end{proof}
 
 For the rest of this section $M$ denotes the maximal ideal of $A$.
-\begin{df} 
+\begin{df}\label{S-def}
 We define the following two subgroups of $\overline{\St}(\Phi, R, M[X, X^{-1}])$:
 \[ P_{\alpha}(0) = j_+(\widetilde{P}_{\alpha, M}(0)), \ P_{\alpha}(*) = j_+(\widetilde{P}_{\alpha, M}(*)), \]
 where $j_+ \colon \overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, R, M[X, X^{-1}]$ is the obvious homomorphism.
 For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
 
 From~\cref{P0_normal} it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. This allows to define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, A[X, X^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
-\[ S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}.\] \end{df}
+\begin{equation}\label{eq:S-def} S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}.\end{equation} \end{df}
 
 In the sequel we often use the following property of $S_\alpha(a, -)$.
 \begin{lemma} \label{lem:Smult}
 For $g_1 \in P_\alpha(m)$, $g_2 \in P_\alpha(*)$ one has
 $S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right).$
-\end{lemma} \begin{proof} Assume $g_2\in P_\alpha(m')$ for some $m' \in M$, so that $g_1 \cdot g_2 \in P_\alpha(m + m')$. The assertion now follows from the definition of $S_\alpha(a, -)$:
-\begin{multline*} S_\alpha(a, g_1 \cdot g_2) = x_\alpha(aX^{-1}) \cdot g_1 \cdot g_2 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1+am+am'}\right) \cdot \{X, 1 + am + am'\} = \\ = x_\alpha(aX^{-1}) \cdot g_1 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1+am}\right) \cdot g_2 \cdot x_\alpha\left(-\frac{\tfrac{a}{1+am}\cdot X^{-1}}{1 + \tfrac{a}{1+am}\cdot m'}\right) \{X, (1+am)(1 + \tfrac{am'}{1+am})\} = \\ = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right). \qedhere \end{multline*}
+\end{lemma} \begin{proof} Assume $g_2\in P_\alpha(m')$ for some $m' \in M$, so that $g_1 \cdot g_2 \in P_\alpha(m + m')$. The assertion now follows from the definition of $S_\alpha(a, -)$ and the centrality of Steinberg symbols:
+\begin{multline*} S_\alpha(a, g_1 \cdot g_2) = x_\alpha(aX^{-1}) \cdot g_1 \cdot g_2 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1+am+am'}\right) \cdot \{X, 1 + am + am'\} = \\ = x_\alpha(aX^{-1}) g_1  x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1+am}\right) g_2 x_\alpha\left(-\frac{\tfrac{a}{1+am}\cdot X^{-1}}{1 + \tfrac{a}{1+am}\cdot m'}\right) \cdot \{X, (1+am)\left(1 + \tfrac{am'}{1+am}\right)\} = \\ = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right). \qedhere \end{multline*}
 \end{proof}
 It is clear that the restriction of the map $S_\alpha(a, g)$ to the subgroup $P_\alpha(0)$ coincides with the homomorphism of left conjugation by $x_\alpha(aX^{-1})$.
 \begin{lemma}\label{P0_conj} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a\in A$. \end{lemma}
@@ -730,18 +727,18 @@ The assertion is clear for the generators of type 3 and 5.
 
 Let $\beta$ be such that $\alpha + \beta \in \Phi$ and $g = z_\beta(Xf, \xi)$ be a generator of type $1$.
 By~\cref{Zrels}\eqref{Z2}
-\begin{equation}\label{eq:Zconj1} z_{\beta}(Xf, \xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (- af\xi) \cdot x_{\alpha+\beta} (N_{\beta, \alpha}\cdot af) \cdot z_{\beta}(Xf, \xi), \end{equation}
+\begin{equation}\label{eq:Zconj1} g^{x_{\alpha}(aX^{-1})} = z_{\beta}(Xf, \xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (- af\xi) \cdot x_{\alpha+\beta} (N_{\beta, \alpha}\cdot af) \cdot z_{\beta}(Xf, \xi), \end{equation}
 and the latter expression a product of generators of type 5, 2, 1 (see~\cref{rem:recognition}).
 
-Let $\beta$ be such that $\alpha - \beta \in \Phi$ and let $g = z_{\beta}(Xf, \xi)$ be a generator of type $1$. From~\cref{Zrels}~\eqref{Z3} we obtain that
-\begin{equation} z_{\beta}(Xf, \xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (af\xi) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot af\xi^2) \cdot z_{\beta}(Xf, \xi), \label{eq:Zconj2} \end{equation}
+Let $\beta$ be such that $\alpha - \beta \in \Phi$ and $g = z_\beta(Xf, \xi)$ be a generator of type 1. By~\cref{Zrels}\eqref{Z3}
+\begin{equation} g^{x_{\alpha}(aX^{-1})} = z_{\beta}(Xf, \xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (af\xi) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot af\xi^2) \cdot z_{\beta}(Xf, \xi), \label{eq:Zconj2} \end{equation}
 and the expression in the right-hand side is a product of generators of type 5, 2, 1.
-Now let $g = z_{\beta}(f, X\xi)$ be a generator of type 2 (for $\beta$ as above). Again by~\cref{Zrels}~\ref{Z3}
-\begin{equation} z_{\beta}(f, X\xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (af\xi) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot aXf\xi^2) \cdot z_{\beta}(f, X\xi).
-\end{equation}
-and the expression in the right-hand side are products of generators of type 5, 1, 2.
 
-Let us verify the assertion for a generator of type 4.
+Now if $g = z_{\beta}(f, X\xi)$ is a generator of type 2 for $\alpha - \beta \in \Phi$, we obtain by~\cref{Zrels}\eqref{Z3} that
+\begin{equation} g^{x_{\alpha}(aX^{-1})} = z_{\beta}(f, X\xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (af\xi) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot aXf\xi^2) \cdot z_{\beta}(f, X\xi).
+\end{equation} and the expression in the right-hand side is a product of generators of type 5, 1, 2.
+
+It remains to verify the assertion for a generator $g = x_{-\alpha}(X^2f)$ of type 4.
 Choose $\beta\in \Phi$ such that $\alpha+\beta \in \Phi$. 
 Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = -\alpha - \beta$ into~\eqref{Z5} we obtain that
 \begin{multline} \label{eq:Zconj3} z_{-\alpha}(X^2f, aX^{-1}) = x_{-\alpha-\beta}(\epsilon Xf) \cdot x_{-\beta}(-af) \cdot x_{\beta}(aX^2 f) \cdot x_{-\alpha}(X^2f) \cdot \\
@@ -752,23 +749,29 @@ Clearly, the expression in the right-hand side is a product of generators of typ
 \begin{lemma} \label{lem:Tulenbaev-formula} 
 One has $S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am).$
 \end{lemma}
-\begin{proof} Since $\Phi$ is nonsymplectic, we can choose $\gamma \in \Phi$ such that $\langle \alpha, \gamma \rangle = -1$. Direct computation using~\eqref{eq:conj-h-x}--\eqref{eq:dennis-stein},\eqref{eq:symbol-properties} shows that
- \begin{multline*}
- x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) = {}^{h_\gamma(X)}(x_\alpha(a) \cdot x_{-\alpha}(m)) = \\
- = {}^{h_\gamma(X)}\left( x_{-\alpha}\left(\tfrac{m}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\tfrac{a}{1+am}\right) \right) = \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha^{-1}\left(X^{-1}\right) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) = \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot \{X^{-1}, 1+am\} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) = \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}, \end{multline*}
-which implies the assertion. \end{proof}
+\begin{proof} Since $\Phi$ is nonsymplectic, we can choose $\gamma \in \Phi$ such that $\langle \alpha, \gamma \rangle = -1$. Direct computation shows that
+ \begin{align} 
+ x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) = {}^{h_\gamma(X)}(x_\alpha(a) \cdot x_{-\alpha}(m)) &\text{ by~\eqref{eq:conj-h-x}} \label{eq:Tf-comp} \\
+ = {}^{h_\gamma(X)}\left( x_{-\alpha}\left(\tfrac{m}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\tfrac{a}{1+am}\right) \right) &\text{ by~\eqref{eq:dennis-stein}} \nonumber \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha^{-1}\left(X^{-1}\right) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) &\text{ by~\eqref{eq:conj-h-x}, \eqref{eq:conj-h-h}} \nonumber \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot \{X^{-1}, 1+am\} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right)&\text{ by~\eqref{eq:steinberg}} \nonumber \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}&\text{ by~\eqref{eq:symbol-properties}, \eqref{eq:symbol-inverse}}. \nonumber \end{align}
+The assertion of the lemma now follows from the following computation:
+\begin{align*}
+ S_\alpha(a, x_{-\alpha}(mX)) = x_\alpha(aX^{-1})\cdot x_{-\alpha}(mX) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\} &\text{ by~\eqref{eq:S-def}} \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot \{1+am, X\} \cdot \{X, 1+ am\}&\text{ by~\eqref{eq:Tf-comp}} \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) &\text{ by~\eqref{eq:symbol-properties}}. \qedhere\end{align*}  \end{proof}
 
-\begin{corollary}\label{SR:additivity} For $g \in P_\alpha(m)$ holds $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \tfrac{m}{1 + am})$.
-Consequently one has \[ S_\alpha(a+b, g) = S_\alpha\left(b,\ S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)\right)\cdot h_\alpha(1+am). \]\end{corollary} \begin{proof}
+\begin{corollary}\label{SR:additivity} For $g \in P_\alpha(m)$ one has $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \tfrac{m}{1 + am})$, moreover, \[ S_\alpha(a+b, g) = S_\alpha\left(b,\ S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)\right)\cdot h_\alpha(1+am). \]\end{corollary} \begin{proof}
 Fix an element $g \in P_\alpha(m)$ and write it $g = g_0 \cdot x_{-\alpha}(mX)$ for some $g_0 \in P_\alpha(0)$.
-Now by~\cref{lem:Smult} and~\cref{P0_conj} one has
-\begin{multline} \nonumber S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_{\alpha}^{-1}(1+am) = 
-\\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot\langle a, m \rangle \in P_\alpha\left(\tfrac{m}{1+am}\right). \end{multline}
+Direct computation shows that
+\begin{align*}
+ S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_{\alpha}^{-1}(1+am)&\text{ by~\cref{lem:Smult}} \\\
+ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot\langle a, m \rangle &\text{ by~\cref{lem:Tulenbaev-formula}.}
+\end{align*}
+By \cref{P0_conj} and \cref{rem:c-DS} the subgroup $P_\alpha(0)$ contains $S_\alpha(a, g_0)$ and the symbol $\langle a, m \rangle$. Thus, the expression in the right-hand side of the above formula lies in $P_\alpha\left(\tfrac{m}{1+am}\right)$. 
 
-The second assertion can be verified directly using~\eqref{eq:symbol-properties}. \end{proof}
+The second assertion of the lemma can be verified directly using~\eqref{eq:symbol-properties}. \end{proof}
 
 \subsection{The subgroups \texorpdfstring{$K(\alpha, \beta)$}{K(a,b)} and their properties} \label{sec:Pa0-Steinberg}
 Throughout this subsection $\alpha, \beta$ denote a fixed pair of roots of $\Phi$ forming a sharp angle (i.\,e. $\langle \alpha, \beta \rangle = 1$). We denote by $\Psi$ the subsystem of type $\rA_2$ generated by $\alpha$ and $\beta$.
