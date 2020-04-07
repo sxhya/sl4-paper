@@ -722,30 +722,7 @@ $S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am
 \end{proof}
 It is clear that the restriction of the map $S_\alpha(a, g)$ to the subgroup $P_\alpha(0)$ coincides with the homomorphism of left conjugation by $x_\alpha(aX^{-1})$.
 \begin{lemma}\label{P0_conj} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a\in A$. \end{lemma}
-\begin{proof} 
-Since $P_\alpha(0)$ has the same generators as $\widetilde{P}_{\alpha, M}(0)$ we need to verify that the conjugate by $x_\alpha(aX^{-1})$ to every generator from~\cref{defP0} lies in $P_\alpha(0)$. 
-The assertion is clear for the generators of type 3 and 5.
-
-Let $\beta$ be such that $\alpha + \beta \in \Phi$ and $g = z_\beta(Xf, \xi)$ be a generator of type $1$.
-By~\cref{Zrels}\eqref{Z2}
-\begin{equation}\label{eq:Zconj1} g^{x_{\alpha}(aX^{-1})} = z_{\beta}(Xf, \xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (- af\xi) \cdot x_{\alpha+\beta} (N_{\beta, \alpha}\cdot af) \cdot z_{\beta}(Xf, \xi), \end{equation}
-and the latter expression a product of generators of type 5, 2, 1 (see~\cref{rem:recognition}).
-
-Let $\beta$ be such that $\alpha - \beta \in \Phi$ and $g = z_\beta(Xf, \xi)$ be a generator of type 1. By~\cref{Zrels}\eqref{Z3}
-\begin{equation} g^{x_{\alpha}(aX^{-1})} = z_{\beta}(Xf, \xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (af\xi) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot af\xi^2) \cdot z_{\beta}(Xf, \xi), \label{eq:Zconj2} \end{equation}
-and the expression in the right-hand side is a product of generators of type 5, 2, 1.
-
-Now if $g = z_{\beta}(f, X\xi)$ is a generator of type 2 for $\alpha - \beta \in \Phi$, we obtain by~\cref{Zrels}\eqref{Z3} that
-\begin{equation} g^{x_{\alpha}(aX^{-1})} = z_{\beta}(f, X\xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (af\xi) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot aXf\xi^2) \cdot z_{\beta}(f, X\xi).
-\end{equation} and the expression in the right-hand side is a product of generators of type 5, 1, 2.
-
-It remains to verify the assertion for a generator $g = x_{-\alpha}(X^2f)$ of type 4.
-Choose $\beta\in \Phi$ such that $\alpha+\beta \in \Phi$. 
-Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = -\alpha - \beta$ into~\eqref{Z5} we obtain that
-\begin{multline} \label{eq:Zconj3} z_{-\alpha}(X^2f, aX^{-1}) = x_{-\alpha-\beta}(\epsilon Xf) \cdot x_{-\beta}(-af) \cdot x_{\beta}(aX^2 f) \cdot x_{-\alpha}(X^2f) \cdot \\
- \cdot z_{-\alpha-\beta}(-\epsilon Xf, -\epsilon a) \cdot x_{\alpha+\beta}(-\epsilon a^2 Xf) \cdot x_{\alpha}(- a^2 f) \cdot z_{-\beta}(a f, -X), \end{multline}
-where $\epsilon = N_{-\alpha-\beta,\beta}$. 
-Clearly, the expression in the right-hand side is a product of generators of type 1, 2, 1, 4, 1, 1, 5, 2. \end{proof}
+\begin{proof} ??? \end{proof}
 
 \begin{lemma} \label{lem:Tulenbaev-formula} 
 One has $S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am).$
@@ -785,13 +762,14 @@ Fix a root $\delta \in \Phi \setminus \Psi$. Define $\widetilde{K}(\alpha, \beta
   \item $x_{\alpha-\beta}(Xf)$, $x_{\beta-\alpha}(Xf)$;
   \item $c_{\delta}(f, X\xi)$. \end{enumerate}
 Denote by $K(\alpha, \beta)$ the image of $\widetilde{K}(\alpha, \beta)$ under $j_+ \colon \St(\Phi, A[X]) \to \St(\Phi, A[X, X\inv])$. \end{df}
-\begin{prop} \label{K-a-b} Every element $g \in K(A[X], M[X])$ can be written as a product $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $m, m' \in M$ and $g_0 \in \widetilde{K}(\alpha, \beta)$. 
-Consequently, $K(\alpha, \beta)$ coincides with the intersection $j_+(K(A[X], M[X])) \cap P_\alpha(0) \cap P_\beta(0)$. In particular, $K(\alpha, \beta)$ does not depend on the choice of the root $\delta$. \end{prop}
-\begin{proof} 
+\begin{prop} \label{K-a-b} One has $K(A[X], M[X]) = \widetilde{K}(\alpha, \beta) \cdot X_{-\alpha}(M \cdot X) \cdot X_{-\beta}(M \cdot X)$. 
+\end{prop} 
+\begin{proof}
+It is clear that $K(A[X], M[X]) \supseteq \widetilde{K}(\alpha, \beta) \cdot X_{-\alpha}(M \cdot X) \cdot X_{-\beta}(M \cdot X)$. Let us prove the reverse inclusion. Fix an element $g\in K(A[X], M[X])$. We need to show that $g$ lies in the product of subgroups in the right-hand side.
+
 For $i=1,\ldots,5$ denote by $\mathcal{G}_i$ the set of all generators of type $i$ from~\cref{def:Kab}.
 Notice that $\Phi \setminus \Psi$ contains the parabolic set of roots $(\Phi \setminus \Psi)\cap \Phi^+$.
-Thus, by~\cref{thm:Stepanov} every element of $\overline{\St}(\Phi, A[X], XM[X])$ can be presented as a product of generators $\mathcal{G}_1$ and generators $\mathcal{G}' = \{ x_{\gamma}(Xf) \mid \gamma \in \Psi\}$. 
-In turn, by~\cref{Kgen-strong} one can express $g \in K(A[X], M[X])$ as a product of these generators and generators $\mathcal{G}_5$. 
+Thus, by~\cref{thm:Stepanov} every element of $\overline{\St}(\Phi, A[X], XM[X])$ can be presented as a product of generators $\mathcal{G}_1$ and generators $\mathcal{G}' = \{ x_{\gamma}(Xf) \mid \gamma \in \Psi\}$. In turn, by~\cref{Kgen-strong} one can express $g$ as a product of these generators and generators $\mathcal{G}_5$. 
 
 By~\cref{thm:Stepanov} $\widetilde{K}(\alpha, \beta)$ contains the normal subgroup $G_0 = \overline{\St}(\Phi, A[X], X^2M[X])$, so it suffices to obtain the required presentation of $g$ modulo $G_0$. By~\cref{Zrels} and~\cref{Crels} the elements of $\mathcal{G}'$ commute with the elements of $\mathcal{G}_1$ and $\mathcal{G}_5$ modulo $G_0$, therefore we can rewrite $g$ as $g_1 \cdot g_2$, for some $g_1 \in \langle \mathcal{G}_1, \mathcal{G}_5, G_0 \rangle \subseteq \widetilde{K}(\alpha, \beta)$ and $g_2 \in \langle \mathcal{G}' \rangle$.
 
@@ -799,49 +777,54 @@ It is clear that  $x_{\gamma_1}(mX)$ and $x_{\gamma_2}(m'X)$ commute modulo $G_0
 
 Now pick each factor $x_{\gamma}(Xf)$, $\gamma \in \{ -\alpha, -\beta \}$ appearing in the presentation for $g_2$, decompose it as $x_{\gamma}(X^2f') \cdot x_{\gamma}(m'X)$ for some $f' \in M[X]$, $m' \in M$ and then move the second factor to the rightmost position within $g_2$ conjugating all factors along the way. By the previous paragraph only elements of  $\mathcal{G}_5$ may appear modulo $G_0$ after simplification of these conjugates.
 Thus, we can rewrite $g_2$ as $g_{21} \cdot g_{22}$, where $g_{21} \in \langle \mathcal{G}_2, \mathcal{G}_3, \mathcal{G}_4, \mathcal{G}_5, G_0 \rangle \subseteq \widetilde{K}(\alpha, \beta)$ and $g_{22} \in \langle X_{-\alpha}(MX), X_{-\beta}(MX) \rangle = X_{-\alpha}(MX) \cdot X_{-\beta}(MX)$.
-Thus, we have obtained the desired decomposition for $g$.
- 
-It is clear from the definition that $K(\alpha, \beta) \subseteq P_\alpha(0) \cap P_\beta(0) \cap j_+(K(A[X], M[X]))$. 
-Let us prove the reverse inclusion. Let $g$ be an element of the intersection $P_\alpha(0) \cap P_\beta(0) \cap j_+(K(A[X], M[X]))$.
-By the first part of the proposition $g$ can be presented as $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\alpha}(m'X)$ for some $g_0 \in K(\alpha, \beta)$ and $m, m' \in M$. From~\cref{rem:palpha} we obtain that $0 = p_\alpha(g) = m$, $0 = p_\beta(g) = m'$, therefore $g = g_0$ lies in $K(\alpha, \beta)$, as required. \end{proof}
- 
+Thus, we have obtained the desired decomposition for $g$. \end{proof}
+
+\begin{corollary} \label{K-a-b-cor}
+One has $\widetilde{K}(\alpha, \beta) = K(A[X], M[X]) \cap \widetilde{P}_{\alpha, M}(0) \cap \widetilde{P}_{\beta, M}(0)$. In particular, $\widetilde{K}(\alpha, \beta)$ and $K(\alpha, \beta)$ do not depend on the choice of the root $\delta$ in~\cref{def:Kab}.
+\end{corollary}
+\begin{proof} It is clear that $\widetilde{K}(\alpha, \beta) \subseteq \widetilde{P}_{\alpha, M}(0) \cap \widetilde{P}_{\beta, M}(0) \cap K(A[X], M[X])$. 
+Let us prove the reverse inclusion. Let $g$ be an element of the intersection of subgroups in the right-hand side.
+By~\cref{K-a-b} $g$ can be presented as $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\alpha}(m'X)$ for some $g_0 \in \widetilde{K}(\alpha, \beta)$ and $m, m' \in M$. From~\cref{rem:palpha} we obtain that $0 = p_\alpha(g) = m$, $0 = p_\beta(g) = m'$, therefore $g = g_0$ lies in $\widetilde{K}(\alpha, \beta)$, as required.\end{proof}
+
+\begin{corollary} \label{K-a-b-cor2}
+ One has $\widetilde{P}_\alpha(0) \cap K(A[X], M[X]) =  \widetilde{K}(\alpha, \beta) \cdot X_{-\beta}(M \cdot X).$ 
+\end{corollary}
+\begin{proof} ??? \end{proof}
+
 We need one more technical definition. We denote by $Z_{\alpha, \beta}$ the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by elements $x_\gamma(f)$, where $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ and $f \in M[X]$. To simplify notation we call the generators of the subgroup $Z_{\alpha,\beta}$ ``generators of type Z``. 
   
 \begin{lemma} \label{image-K-a-b} The image of $K(\alpha, \beta)$ under conjugation by $x_\alpha(aX^{-1})$ is contained in the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by $K(\alpha, \beta)$ and $Z_{\alpha, \beta}$. \end{lemma}
 \begin{proof} We need to verify that the conjugate by $x_\alpha(aX^{-1})$ of every generator from~\cref{def:Kab} lies in the specified subgroup. 
 
-Let $g = z_\gamma(Xf, \xi)$ be a generator of type $1$ for some $\gamma \in \Phi \setminus \Psi$.
+Let $z_\gamma(Xf, \xi)$ be a generator of type $1$ for some $\gamma \in \Phi \setminus \Psi$.
 In the case $\gamma \perp \alpha$ this generator commutes with $x_\alpha(aX^{-1})$ by~\cref{Zrels}\eqref{Z4}.
 If $\gamma$ is such that $\alpha + \gamma \in \Phi$ we obtain from~\cref{Zrels}\eqref{Z2} that
 \begin{equation} z_{\gamma}(Xf, \xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (- af\xi) \cdot x_{\alpha+\gamma} (N_{\gamma, \alpha}\cdot af) \cdot z_{\gamma}(Xf, \xi). \end{equation}
-If, on the other hand, $\gamma$ is such that $\alpha - \gamma \in \Phi$, we obtain from~\cref{Zrels}\eqref{Z3} that
+On the other hand, if $\gamma$ is such that $\alpha - \gamma \in \Phi$, we obtain from~\cref{Zrels}\eqref{Z3} that
 \begin{equation} z_{\gamma}(Xf, \xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (af\xi) \cdot x_{\alpha-\gamma} (N_{\gamma,-\alpha}\cdot af\xi^2) \cdot z_{\gamma}(Xf, \xi). \end{equation}
 By the choice of $\gamma$ both $\alpha + \gamma$ and $\alpha - \gamma$ lie in $Z_+(\alpha) \setminus \{\alpha - \beta\}$, therefore in both cases the expressions in the right-hand side are products of generators of type Z, Z, 1.
 
 A similar computation using \eqref{C1}--\eqref{C3} of \cref{Crels} shows that the conjugate of a generator of type 5 is either the generator itself or a product of generators of type Z, Z, 5.
 
-Now let us verify the assertion for the generators of types 2--4.
+Let us verify the assertion for the generators of types 2--4.
 By~\eqref{Chevalley-CCF2} the conjugation by $x_\alpha(aX^{-1})$ fixes root subgroups $X_{\alpha}(X\cdot M[X])$, $X_{\beta}(X\cdot M[X])$, $X_{\alpha-\beta}(X\cdot M[X])$. 
-On the other hand, from~\eqref{Chevalley-CCF1} we get that
+Further, from~\eqref{Chevalley-CCF1} we obtain that
 \begin{align*}
  x_{-\beta}(X^2f)^{x_\alpha(aX^{-1})}     &= x_{-\beta}(X^2f) \cdot x_{\alpha-\beta}(N_{-\beta, \alpha} \cdot aXf);\\
- x_{\beta-\alpha}(Xf)^{x_\alpha(aX^{-1})} &= x_{\beta-\alpha}(Xf) \cdot x_{\beta}(N_{\alpha,-\beta}\cdot af).
+ x_{\beta-\alpha}(Xf)^{x_\alpha(aX^{-1})} &= x_{\beta-\alpha}(Xf) \cdot x_{\beta}(N_{\alpha,-\beta}\cdot af),
 \end{align*}
-Clearly, the expressions in the right-hand side are products of generators of type 2, 4 and 4, Z.
+and the expressions in the right-hand side are products of generators of type 2, 4 and 4, Z.
 
-Now pick a root $\gamma \in \Phi \setminus \Psi$ such that $\alpha + \gamma \in \Phi$. Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = -\alpha - \gamma$ into~\eqref{Z5} we obtain that
-\begin{multline*} z_{-\alpha}(X^2f, aX^{-1}) = x_{-\alpha-\gamma}(\epsilon Xf) \cdot x_{-\gamma}(-af) \cdot x_{\gamma}(aX^2 f) \cdot x_{-\alpha}(X^2f) \cdot \\
- \cdot z_{-\alpha-\gamma}(-\epsilon Xf, -\epsilon a) \cdot x_{\alpha+\gamma}(-\epsilon a^2 Xf) \cdot x_{\alpha}(- a^2 f) \cdot z_{-\gamma}(a f, -X), \end{multline*}
-where $\epsilon = N_{\gamma,\alpha}$. 
-It is clear that the the first 7 factors in the right-hand side are generators of type
-1, Z, 1, 2, 1, 1, Z.
-
-From~\eqref{eq:Zconj3} in which $\gamma$ is substituted for $\beta$ it follows that  $z_{-\alpha}(X^2f, aX^{-1})$ is a product of generators of type 1, Z, 1, 2, 1, 1, Z, Z\@.
-\end{proof}
+It remains to verify the assertion for the generators $x_{-\alpha}(X^2f) $ of type 2.
+By~\cref{K-a-b-cor} we may assume that the root $\delta$ in~\cref{def:Kab} forms a sharp angle with $\alpha$, i.\,e. $\alpha-\delta \in \Phi$. Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = \delta-\alpha$ into~\eqref{Z5} we obtain that
+\begin{multline*} z_{-\alpha}(X^2f, aX^{-1}) = x_{\delta-\alpha}(\epsilon Xf) \cdot x_{\delta}(-af) \cdot x_{-\delta}(aX^2 f) \cdot x_{-\alpha}(X^2f) \cdot \\
+ \cdot z_{\delta-\alpha}(-\epsilon Xf, -\epsilon a) \cdot x_{\alpha-\delta}(-\epsilon a^2 Xf) \cdot x_{\alpha}(- a^2 f) \cdot z_{\delta}(a f, -X), \end{multline*}
+where $\epsilon = N_{-\delta,\alpha}$. 
+The first 7 factors in the right-hand side are generators of type 1, Z, 1, 2, 1, 1, Z.
+The remaining last factor $z_\delta(af, -X)$ can be rewritten as $x_{\delta}(af) \cdot c_{\delta}(-af, X)$ (cf.~\cref{rem:c}) and therefore is a product of generators of type Z and 5. \end{proof}
 
 \begin{lemma} \label{P0_conj-alternative} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a \in A$. \end{lemma}
-\begin{proof} It follows from~\cref{K-a-b} that $\widetilde{P}_\alpha(0) \cap K(A[X], M[X]) =  \widetilde{K}(\alpha, \beta) \cdot X_{-\beta}(M \cdot X).$ 
-Since any subgroup $H \leq \St(\Phi, A[X], M[X])$ satisfies $H = \left(H \cap K(A[X], M[X])\right) \rtimes ev^*_{X=0}\left(H\right)$, we obtain from~\cref{rem:DS} that
+\begin{proof} Since any subgroup $H \leq \St(\Phi, A[X], M[X])$ satisfies $H = \left(H \cap K(A[X], M[X])\right) \rtimes ev^*_{X=0}\left(H\right)$, we obtain from~\cref{rem:DS} that
 $\widetilde{P}_\alpha(0) =  \left(\widetilde{K}(\alpha, \beta) \cdot X_{-\beta}(M \cdot X)\right) \rtimes Z_\alpha(A, M).$
  
 Thus, in view of~\cref{image-K-a-b} it remains to show that $X_{-\beta}(MX)^{x_\alpha(aX^{-1})} \subseteq P_\alpha(0)$ and $Z_{\alpha, \beta}^{x_\alpha(aX^{-1})} \subseteq P_\alpha(0)$.
