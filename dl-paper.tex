@@ -654,7 +654,7 @@ The only exception to this is~\cref{P0-conj-invariant} where the above subgroups
 In the sequel we continue using letters $f$ and $\xi$ to denote elements of $M[X]$ and $A[X]$, respectively.
 
 \begin{rem} \label{rem:recognition}
-  From the above definition it follows that an element $z_\gamma(Xf, \xi)$ is a generator of type 1 provided $\gamma\neq\pm\alpha$ and $\gamma \not \perp \alpha$. Since $x_\gamma(Xf) = z_\gamma(Xf, 0)$, it follows that $x_{\gamma}(Xf)$ is also a generator of type 1. In particular, if $\beta, \alpha + \beta \in \Phi$ then $x_{\pm(\alpha+\beta)}(Xf)$ is a generator of type 1 and $x_{\alpha+\beta}(f)$ is a generator of type 2.
+  From the above definition it follows that an element $z_\gamma(Xf, \xi)$ is a generator of type 1 provided $\gamma\neq\pm\alpha$ and $\gamma \not \perp \alpha$. Since $x_\gamma(Xf) = z_\gamma(Xf, 0)$, it follows that $x_{\gamma}(Xf)$ is also a generator of type 1. In particular, if $\beta$ is such that $\alpha + \beta \in \Phi$ then $x_{\pm(\alpha+\beta)}(Xf)$ is a generator of type 1 and $x_{\alpha+\beta}(f)$ is a generator of type 2.
 \end{rem}
 
 \begin{lemma}\label{P0_normal} The subgroup $\widetilde{P}_{\alpha, M}(0)$ is normal in $\widetilde{P}_{\alpha, M}(*)$. Moreover, there is a short exact sequence of groups, which is split by the map $m \mapsto x_{-\alpha}(mX)$ (we denote by $(M, +)$ the additive group of the ideal $M$):
@@ -689,8 +689,7 @@ The following lemma shows that $\widetilde{P}_{\alpha, M}(*)$ is sufficiently la
 Then the subgroup $\widetilde{P}_{\alpha, M}(*)$ contains the subgroup $K(A[X], M[X]) \leq \overline{\St}(\Phi, A[X], M[X])$ defined in the beginning of~\cref{sec:computationOfK}. \end{lemma}
 \begin{proof} Clearly, $\widetilde{P}_{\alpha, M}(*)$ contains the elements $x_\beta(Xf)$ for all $\beta \in \Phi$ and $z_\beta(Xf, \xi)$ for $\beta \in \Phi \setminus \{\pm \alpha\}$, $f \in M[X]$, $\xi\in A[X]$, therefore by~\cref{thm:Stepanov} $\widetilde{P}_{\alpha, M}(*)$ contains all of $\overline{\St}(\Phi, A[X], XM[X])$. The required assertion now follows from~\cref{Kgen-strong} and~\cref{rem:c}. \end{proof}
 
-\begin{rem} \label{Pstar-char} 
-By the above lemma and~\cref{rem:DS} the subgroup $\widetilde{P}_{\alpha, M}(*)$ coincides with the preimage of the subgroup $Z_\alpha(A, M) \leq \overline{\St}(\Phi, A, M)$ under the homomorphism \[ev_{X=0}^*\colon \overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, A, M).\] \end{rem} 
+\begin{rem} \label{Pstar-char} From the above lemma and~\cref{rem:DS} it follows that the subgroup $\widetilde{P}_{\alpha, M}(*)$ admits decomposition $\widetilde{P}_{\alpha, M}(*) = Z_\alpha(A, M) \ltimes K(A[X], M[X]).$ \end{rem} 
 
 \begin{rem} \label{rem:palpha} It follows from~\cref{P0_normal} and~\cref{Pstar-large} that the value of the function $p_\alpha$ from the statement of~\cref{P0_normal} on an element $g\in K(A[X], M[X])$ can be computed via the following procedure. 
 Start with any presentation of $g$ as a product of elements $z_{\beta}(Xf, \xi)$ for $\beta \in \Phi$ and $c_\delta(f, X\xi)$ for some fixed $\delta\in Z_0(\alpha)$. 
@@ -721,8 +720,6 @@ $S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am
 \begin{multline*} S_\alpha(a, g_1 \cdot g_2) = x_\alpha(aX^{-1}) \cdot g_1 \cdot g_2 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1+am+am'}\right) \cdot \{X, 1 + am + am'\} = \\ = x_\alpha(aX^{-1}) g_1  x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1+am}\right) g_2 x_\alpha\left(-\frac{\tfrac{a}{1+am}\cdot X^{-1}}{1 + \tfrac{a}{1+am}\cdot m'}\right) \cdot \{X, (1+am)\left(1 + \tfrac{am'}{1+am}\right)\} = \\ = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right). \qedhere \end{multline*}
 \end{proof}
 It is clear that the restriction of the map $S_\alpha(a, g)$ to the subgroup $P_\alpha(0)$ coincides with the homomorphism of left conjugation by $x_\alpha(aX^{-1})$.
-\begin{lemma}\label{P0_conj} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a\in A$. \end{lemma}
-\begin{proof} ??? \end{proof}
 
 \begin{lemma} \label{lem:Tulenbaev-formula} 
 One has $S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am).$
@@ -787,7 +784,7 @@ Let us prove the reverse inclusion. Let $g$ be an element of the intersection of
 By~\cref{K-a-b} $g$ can be presented as $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\alpha}(m'X)$ for some $g_0 \in \widetilde{K}(\alpha, \beta)$ and $m, m' \in M$. From~\cref{rem:palpha} we obtain that $0 = p_\alpha(g) = m$, $0 = p_\beta(g) = m'$, therefore $g = g_0$ lies in $\widetilde{K}(\alpha, \beta)$, as required.\end{proof}
 
 \begin{corollary} \label{K-a-b-cor2}
- One has $\widetilde{P}_\alpha(0) \cap K(A[X], M[X]) =  \widetilde{K}(\alpha, \beta) \cdot X_{-\beta}(M \cdot X).$ 
+ One has $\widetilde{P}_{\alpha, M}(0) \cap K(A[X], M[X]) =  \widetilde{K}(\alpha, \beta) \cdot X_{-\beta}(M \cdot X).$ 
 \end{corollary}
 \begin{proof} ??? \end{proof}
 
@@ -823,7 +820,7 @@ where $\epsilon = N_{-\delta,\alpha}$.
 The first 7 factors in the right-hand side are generators of type 1, Z, 1, 2, 1, 1, Z.
 The remaining last factor $z_\delta(af, -X)$ can be rewritten as $x_{\delta}(af) \cdot c_{\delta}(-af, X)$ (cf.~\cref{rem:c}) and therefore is a product of generators of type Z and 5. \end{proof}
 
-\begin{lemma} \label{P0_conj-alternative} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a \in A$. \end{lemma}
+\begin{lemma} \label{P0_conj} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a \in A$. \end{lemma}
 \begin{proof} Since any subgroup $H \leq \St(\Phi, A[X], M[X])$ satisfies $H = \left(H \cap K(A[X], M[X])\right) \rtimes ev^*_{X=0}\left(H\right)$, we obtain from~\cref{rem:DS} that
 $\widetilde{P}_\alpha(0) =  \left(\widetilde{K}(\alpha, \beta) \cdot X_{-\beta}(M \cdot X)\right) \rtimes Z_\alpha(A, M).$
  
@@ -880,6 +877,8 @@ Denote by $h_0$ the product of all factors in the above formula except the first
   = x_{\beta - \alpha}(b) \cdot S_\alpha(a, g_0) \cdot x_{\beta-\alpha}(-b) \cdot h_0 \cdot x_{-\alpha}\left(\tfrac{m -\epsilon bm'}{1+am}\right) \in P_\alpha(\tfrac{m -\epsilon bm'}{1+am}). \qedhere
 \end{multline}
 \end{proof}
+
+\subsection{The map \texorpdfstring{$S_\alpha$}{Sa} and its properties.}
 
 \subsection{Construction of a \texorpdfstring{$\St(\Phi, B)$}{St(B)}-torsor.} \label{sec:V-construction}
 Throughout this subsection $\Phi$ denotes arbitrary irreducible simply-laced root system of rank $\geq 3$, unless stated otherwise. Let $A$ be a local ring with maximal ideal $M$ and residue field $k$. As in~\cref{firstPart} we denote by $B$ the ring $A[X\inv] + M[X]$ considered as a graded subring of the ring of Laurent polynomials $R = A[X, X\inv]$.
