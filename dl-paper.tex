@@ -824,33 +824,38 @@ where $\epsilon = N_{-\delta,\alpha}$.
 The first 7 factors in the right-hand side are generators of type K1, Z, K1, K2, K1, K1, Z.
 The remaining last factor $z_\delta(af, -X)$ can be rewritten as $x_{\delta}(af) \cdot c_{\delta}(-af, X)$ (cf.~\cref{rem:c}) and hence is a product of generators of type Z and K5. \end{proof}
 
+\begin{corollary} \label{K-a-b-P-b} The image of $K(\alpha, \beta)$ under the automorphism of conjugation by $x_\alpha(aX^{-1})$ is contained in $P_\beta(0)$. \end{corollary}
+\begin{proof} 
+In view of~\cref{image-K-a-b} and~\cref{K-a-b-cor} it suffices to show that $Z_{\alpha, \beta} \subseteq P_\beta(0)$. Let $g = x_{\gamma}(f)$ be a generator of $Z_{\alpha, \beta}$ for some
+$\gamma \in Z_+(\alpha) \setminus \{\alpha - \beta \}$. Notice that $\gamma$ cannot form an obtuse angle with $\beta$, otherwise from $\langle \beta, \gamma \rangle = -1$ it follows that $ \langle \alpha - \beta, \gamma \rangle \geq 2$ and hence that $\gamma = \alpha - \beta$, a contradiction.
+Now if $\langle \beta, \gamma \rangle$ is $0$, $1$ or $2$, then $g$ is a generator of type P3, P2 or P5 for $P_\beta(0)$, respectively.\end{proof}
+
 \begin{lemma} \label{P0_conj} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a \in A$. \end{lemma}
 \begin{proof} 
 Intersecting the factors of~\eqref{eq:sd-decomp} with $\widetilde{P}_{\alpha, M}(0)$ and invoking~\cref{rem:DS} and~\cref{K-a-b-cor2} we obtain that $\widetilde{P}_{\alpha, M}(0) =  Z_\alpha(A, M) \ltimes \left(\widetilde{K}(\alpha, \beta) \cdot X_{-\beta}(M \cdot X)\right).$
 It suffices to show that the image of each of these three subgroups under the automorphism of conjugation by $x_\alpha(aX^{-1})$ is contained in $P_\alpha(0)$.
 
-It is clear that the specified conjugation centralizes $j_+(Z_\alpha(A, M))$. By~\eqref{Chevalley-CCF1} and~\cref{rem:recognition} 
+It is clear that the specified conjugation fixes $j_+(Z_\alpha(A, M))$. By~\eqref{Chevalley-CCF1} and~\cref{rem:recognition} 
 $X_{-\beta}(M\cdot X)^{x_\alpha(aX^{-1})} \subseteq X_{-\beta}(M\cdot X) \cdot X_{\alpha-\beta}(M) \subseteq P_\alpha(0).$ 
 Notice that the generators of $Z_{\alpha,\beta}$ are generators of type P2 for $P_\alpha(0)$.
 Thus, from~\cref{image-K-a-b} we get that
 $K(\alpha, \beta)^{x_\alpha(aX^{-1})} \subseteq \langle K(\alpha, \beta), Z_{\alpha, \beta} \rangle \subseteq P_\alpha(0)$.
 \end{proof}
 
-\begin{corollary} The image of $K(\alpha, \beta)$ under the automorphism of conjugation by $x_\alpha(aX^{-1})$ is contained in $P_\beta(0)$. \end{corollary}
-\begin{proof} 
-In view of~\cref{image-K-a-b} and~\cref{K-a-b-cor} it suffices to show that $Z_{\alpha, \beta} \subseteq P_\beta(0)$. Let $g = x_{\gamma}(f)$ be a generator of $Z_{\alpha, \beta}$ for some
-$\gamma \in Z_+(\alpha) \setminus \{\alpha - \beta \}$. Notice that $\gamma$ cannot form an obtuse angle with $\beta$, otherwise from $\langle \beta, \gamma \rangle = -1$ it follows that $ \langle \alpha - \beta, \gamma \rangle \geq 2$ and hence that $\gamma = \alpha - \beta$, a contradiction.
-Now if $\langle \beta, \gamma \rangle$ is $0$, $1$ or $2$, then $g$ is a generator of type P3, P2 or P5 for $P_\beta(0)$, respectively.\end{proof}
-
-\begin{lemma} \label{SR:sharp} For $g \in K(A[X], M[X]) \cap P_\alpha(m) \cap P_\beta(m')$ and $a \in A$ holds \[S_\alpha(a, g)\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot am') \in P_\beta\left(\tfrac{m'}{1 + am}\right). \] \end{lemma}
-\begin{proof} By~\cref{K-a-b} $g$ can be presented as $ g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $g_0\in K(\alpha, \beta)$, therefore from~\cref{lem:Smult} and~\cref{lem:Tulenbaev-formula} we obtain that \begin{multline} \nonumber S_\alpha(a, g) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot S_\alpha\left(\tfrac{a}{1+am}, x_{-\beta}(m'X)\right) = \\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m \rangle \cdot h_\alpha(1+am) \cdot x_{-\beta}(m'X) \cdot x_{\alpha-\beta}\left(\tfrac{N_{\alpha, -\beta} \cdot am'}{1+am}\right) = \\ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m \rangle \cdot  x_{-\beta}\left(\tfrac{m'X}{1+am}\right) \cdot x_{\alpha-\beta}\left(N_{\alpha, -\beta} \cdot am'\right) \cdot h_\alpha(1+am). \end{multline}
-The assertion now follows from the preceding corollary.
+\begin{lemma} \label{SR:sharp} For $g \in K(A[X], M[X]) \cap P_\alpha(m) \cap P_\beta(m')$ and $a \in A$ one has \[S_\alpha(a, g)\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot am') \in P_\beta\left(\tfrac{m'}{1 + am}\right). \] \end{lemma}
+\begin{proof} By~\cref{K-a-b} $g$ can be presented as $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $g_0\in K(\alpha, \beta)$. By~\cref{K-a-b-P-b} the element $g_1 = S_\alpha(a, g_0) $ lies in $P_\beta(0)$. Since $x_{-\beta}(m'X) \in P_\alpha(0)$ we get that
+\begin{align*}
+  S_\alpha(a, g) = g_1 \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot S_\alpha\left(\tfrac{a}{1+am}, x_{-\beta}(m'X)\right) & \text{ by~\cref{lem:Smult}} \\ 
+  = g_1 \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m \rangle \cdot h_\alpha(1+am) \cdot x_{-\beta}(m'X) \cdot x_{\alpha-\beta}\left(\tfrac{N_{\alpha, -\beta} \cdot am'}{1+am}\right) & \text{ by~\cref{lem:Tulenbaev-formula},\eqref{Chevalley-CCF1}} \\
+  = g_1 \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m \rangle \cdot x_{-\beta}\left(\tfrac{m'X}{1+am}\right) \cdot x_{\alpha-\beta}\left(N_{\alpha, -\beta} \cdot am'\right) \cdot h_\alpha(1+am) & \text{ by~\eqref{eq:conj-h-x}}.
+\end{align*}
+The required assertion now follows from~\cref{rem:palpha}.
 \end{proof}
   
 \begin{lemma} \label{conj-K-a-b} For $b \in A$ one has $K(\alpha, \beta)^{x_{\beta - \alpha}(b)} \subseteq K(\alpha, \beta)$. \end{lemma}
-\begin{proof} By~\cref{Zrels} the conjugate of a generator $g = z_\gamma(Xf, \xi)$ of type 1 by $x_{\beta-\alpha}(b)$ is either $g$ itself or a product of generators of type 4, 1, 1. By~\cref{Crels} the conjugate of a generator $g = c_\delta(f, X\xi)$ of type 5 is either $g$ or a product of generators of type 5, 4, 1.
+\begin{proof} By~\cref{Zrels} the conjugate of a generator $g = z_\gamma(Xf, \xi)$ of type K1 by $x_{\beta-\alpha}(b)$ is either $g$ itself or a product of generators of type K4, K1, K1. By~\cref{Crels} the conjugate of a generator $g = c_\delta(f, X\xi)$ of type K5 is either $g$ or a product of generators of type K5, K4, K1.
 
-Now if $g = x_\gamma(Xf)$, $\gamma \in \{\pm \alpha, \pm \beta\}$ is a generator of type 2 or 3, the conjugation by $x_{\beta-\alpha}(a)$ either fixes $g$ or transforms it into a product of two generators of type 2 or 3.  Finally, from~\cref{rem:palpha} we obtain that $z_{\alpha-\beta}(Xf, b) \in K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0) = K(\alpha, \beta)$. \end{proof} 
+Now if $g = x_\gamma(Xf)$, $\gamma \in \{\pm \alpha, \pm \beta\}$ is a generator of type K2 or K3, the conjugation by $x_{\beta-\alpha}(a)$ either fixes $g$ or transforms it into a product of two generators of type 2 or 3.  Finally, from~\cref{rem:palpha} we obtain that $z_{\alpha-\beta}(Xf, b) \in K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0) = K(\alpha, \beta)$. \end{proof} 
 
 \begin{lemma} For $g \in K(\alpha, \beta)$ and $a, b\in A$ the conjugate of $S_\alpha(a, g)$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. \end{lemma}
 \begin{proof} By~\cref{image-K-a-b} and~\cref{conj-K-a-b} it remains to show that the conjugate of each generator $g = z_\gamma(f, X\xi)$, $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ of $Z_{\alpha, \beta}$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. Throughout this proof we understand generator types according to~\cref{defP0}. It is clear that $g$ itself is a generator of type 2, therefore it remains to consider the case $\gamma\not \perp \beta - \alpha$. 
