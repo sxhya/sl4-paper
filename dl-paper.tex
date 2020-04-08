@@ -782,7 +782,7 @@ One has $\widetilde{K}(\alpha, \beta) = K(A[X], M[X]) \cap \widetilde{P}_{\alpha
 \end{corollary}
 \begin{proof} Denote $\widetilde{P}_{\alpha, M}(0) \cap \widetilde{P}_{\beta, M}(0) \cap K(A[X], M[X])$ by $K$. It is clear that $\widetilde{K}(\alpha, \beta) \subseteq K$. 
 Let us prove the reverse inclusion. Let $g$ be an element of $K$.
-By~\cref{K-a-b} $g$ can be presented as $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\alpha}(m'X)$ for some $g_0 \in \widetilde{K}(\alpha, \beta)$ and $m, m' \in M$. From~\cref{rem:palpha} we obtain that $0 = p_\alpha(g) = m$, $0 = p_\beta(g) = m'$, therefore $g = g_0$ lies in $\widetilde{K}(\alpha, \beta)$, as required.\end{proof}
+By~\cref{K-a-b} $g$ can be presented as $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $g_0 \in \widetilde{K}(\alpha, \beta)$ and $m, m' \in M$. From~\cref{rem:palpha} we obtain that $0 = p_\alpha(g) = m$, $0 = p_\beta(g) = m'$, therefore $g = g_0$ lies in $\widetilde{K}(\alpha, \beta)$, as required.\end{proof}
 
 \begin{corollary} \label{K-a-b-cor2}
  One has $\widetilde{P}_{\alpha, M}(0) \cap K(A[X], M[X]) = \widetilde{K}(\alpha, \beta) \cdot X_{-\beta}(M \cdot X).$ 
@@ -855,7 +855,7 @@ The required assertion now follows from~\cref{rem:palpha}.
 \begin{lemma} \label{conj-K-a-b} For $b \in A$ one has $K(\alpha, \beta)^{x_{\beta - \alpha}(b)} \subseteq K(\alpha, \beta)$. \end{lemma}
 \begin{proof} By~\cref{Zrels} the conjugate of a generator $g = z_\gamma(Xf, \xi)$ of type K1 by $x_{\beta-\alpha}(b)$ is either $g$ itself or a product of generators of type K4, K1, K1. By~\cref{Crels} the conjugate of a generator $g = c_\delta(f, X\xi)$ of type K5 is either $g$ or a product of generators of type K5, K4, K1.
 
-Now if $g = x_\gamma(Xf)$, $\gamma \in \{\pm \alpha, \pm \beta\}$ is a generator of type K2 or K3, the conjugation by $x_{\beta-\alpha}(a)$ either fixes $g$ or transforms it into a product of two generators of type 2 or 3.  Finally, from~\cref{rem:palpha} we obtain that $z_{\alpha-\beta}(Xf, b) \in K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0) = K(\alpha, \beta)$. \end{proof} 
+Now if $g = x_\gamma(Xf)$, $\gamma \in \{\pm \alpha, \pm \beta\}$ is a generator of type K2 or K3, the conjugation by $x_{\beta-\alpha}(a)$ either fixes $g$ or transforms it into a product of two generators of type K2 or K3.  Finally, from~\cref{rem:palpha} we obtain that $z_{\alpha-\beta}(Xf, b) \in K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0) = K(\alpha, \beta)$. \end{proof} 
 
 \begin{lemma} For $g \in K(\alpha, \beta)$ and $a, b\in A$ the conjugate of $S_\alpha(a, g)$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. \end{lemma}
 \begin{proof} By~\cref{image-K-a-b} and~\cref{conj-K-a-b} it remains to show that the conjugate of each generator $g = z_\gamma(f, X\xi)$, $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ of $Z_{\alpha, \beta}$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. Throughout this proof we understand generator types according to~\cref{defP0}. It is clear that $g$ itself is a generator of type 2, therefore it remains to consider the case $\gamma\not \perp \beta - \alpha$. 
