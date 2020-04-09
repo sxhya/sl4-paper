@@ -229,7 +229,7 @@ Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definitio
 
 Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor. Set $G_i = \Ker(S(p_i))$ and define {\it Loday's relativization} $S(R, I)$ as $ G_0 / [G_0, G_1]$. The map $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. We denote this map by $\mu = \mu_{R,I}$ and its kernel by $C_S(R, I)$: \begin{equation} \label{LodayRelativization} \xymatrix{ 1 \ar[r] & C_S(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1.} \end{equation}
 
-\begin{df} By definition, the {\it relative Steinberg group} $\St(\Phi, R, I)$ is the result of application of Loday's relativization to the functor $\St(\Phi, -)$. Notice that $\St(\Phi, R, I)$ is not a subgroup of $\St(\Phi, R)$ but rather its central extension by the abelian group $C_{\St(\Phi, -)}(R, I)$. For shortness we rename the latter group to $C(\Phi, R, I)$. \end{df}
+\begin{df} By definition, the {\it relative Steinberg group} $\St(\Phi, R, I)$ is the result of application of Loday's relativization to the functor $\St(\Phi, -)$. Notice that $\St(\Phi, R, I)$ is not a subgroup of $\St(\Phi, R)$ but a central extension of a subgroup of $\St(\Phi, R)$ by the abelian group $C_{\St(\Phi, -)}(R, I)$. For shortness we rename the latter group to $C(\Phi, R, I)$. \end{df}
 
 Our next goal is to obtain a homological interpretation of the group $C(\Phi, R, I)$.
 In order to do this, we need to recall some additional notation and terminology.
@@ -299,9 +299,9 @@ By~\cite{Su82} the requirement~\ref{req:subfunc} is also satisfied for $n \geq 3
 Finally, from~\cite[Corollary~5.4]{St71} and~\cite[Theorem~1]{LS17} it follows that $S_n$ and $P_n$ satisfy~\ref{req:uce} for $n \geq 5$.
 We use the notation $\KO_i(2n, R)$ as a shorthand for $\K_i^{G_n, P_n}(R)$. 
 
-Notice that $\KO_2(2n, R) = \Ker(\St(\rD_n, R) \to \mathrm{SO}(2n, R))$ does not coincide with $\K_2(\rD_n, R) = \Ker(\St(\rD_n, R) \to \mathrm{Spin}(2n, R))$ but rather is related with it via the exact sequence
+Notice that $\KO_2(2n, R) = \Ker(\St(\rD_n, R) \to \mathrm{SO}(2n, R))$ is different from $\K_2(\rD_n, R) = \Ker(\St(\rD_n, R) \to \mathrm{Spin}(2n, R))$. The relationship between these groups is illustrated by the exact sequence
 \[ \xymatrix{ 1 \ar[r] & \K_2(\rD_n, R) \ar[r] & \KO_2(2n, R) \ar[r] & \mu_2(R) \ar[r] & 1,} \]
-which can be obtained from the exact sequence~\cite[p.~189]{Ba74} by means of the snake lemma (cf. also with~\cite[Corollary~4.3.5]{Ba74}).
+which can be obtained from the exact sequence on p.~189 of~\cite{Ba74} by means of the snake lemma (cf. also with~\cite[Corollary~4.3.5]{Ba74}).
 On the other hand, from~\cref{lem:lowerKgroups} it follows that $\KO_3(2n, R)$ is isomorphic to the group $K_3^{G, P}$ in which $G = G(\rD_n, -) = \mathrm{Spin}(2n, -)$ and $P = \mathrm{Epin}(2n, -)$ is its elementary subfunctor.
 
 We conclude this subsection with the following stability result (see~\cite[Theorem~9.4]{Pa89}).
