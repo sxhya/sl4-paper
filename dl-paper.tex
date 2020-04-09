@@ -523,13 +523,14 @@ Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \
 \section{Proof of the main result}
 The main result of this section is~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. 
 The object playing a key role in its proof is a certain action of the group $G = \St(\Phi, A[X\inv] + M[X])$ on a certain set $\overline{V}$, which is defined in~\cref{sec:V-construction}. Later, we will see that $\overline{V}$ is, in fact, a set-theoretic $G$-torsor.
-To be able to write an explicit formula for this action we need two major ingredients. The first one is ~\cref{lemma33}, which gives a presentation of $G$ with much fewer generations and relations than in the original presentation~\eqref{rel:add}-\eqref{rel:CCF}. The other ingredients are certain subgroups $P_\alpha(0)$, $P_\alpha(*)$ of $\St(\Phi, A[X, X\inv])$ modeled after the nameless groups from~\cite[Lemma~3.4]{Tu83}. The definition and properties of these groups are given in Sections~\ref{sec:Pa0-basic}--\ref{sec:Pa0-Steinberg}.
+To be able to write an explicit formula for this action we need two major ingredients. The first one is ~\cref{lemma33}, which gives a presentation of $G$ with much fewer generations and relations than in the original presentation~\eqref{rel:add}-\eqref{rel:CCF}. The other ingredients are certain subgroups $P_\alpha(0)$, $P_\alpha(*)$ of $\St(\Phi, A[X, X\inv])$ modeled after the nameless groups from~\cite[Lemma~3.4]{Tu83}. The definition and properties of these groups are given in Sections~\ref{sec:Pa0-basic}--\ref{sec:S-a}.
 
 Throughout this section we use the following notations and conventions:
 \begin{itemize}
  \item $A$ denotes an arbitarary commutative ring and $M$ is an ideal of $A$. Starting from subsection~\ref{sec:Pa0-basic} we also assume that $A$ is local and $M$ is the maximal ideal of $A$.
  \item We denote by $R$ the Laurent polynomial ring $A[X, X^{-1}]$. We set $t = X^{-1}$, so that $R = A[X, X^{-1}] = A[t, t^{-1}]$.
  \item $B = B_{A, M}$ denotes the subring $A[t] + M[t^{-1}] = A[X^{-1}] + M[X]$ of $R$. Obviously, $B = A[t]$ in the case $M=0$ and $B = R$ in the case $M=A$.
+ \item $I$ denotes the ideal $M[X, X^{-1}]$ of $R$. Notice that $I$ is also an ideal of $B$.
  \end{itemize}
 \subsection{Presentation of Steinberg groups by homogeneous generators}
 \label{sec:presentation}
@@ -618,7 +619,7 @@ The relation $R$ lies in the image of the left arrow, therefore it comes from so
  In the cases $\Phi = \rA_3, \rD_4$, $M \neq A$ it is still possible to prove the injectivity of $i_n$ starting from $n\geq 2$ using a variation of the argument of Rehmann--Soul{\'e} (cf. the lower bound for $m$ in~\cite[3.2.1]{RS76}). However, apparently, it is not possible to establish the injectivity of $i_1$ in the specified cases using arguments similar to~\cite{RS76}.
 \end{rem}
 
-\subsection{The subgroups \texorpdfstring{$P_\alpha(0)$}{Pa(0)}, \texorpdfstring{$P_\alpha(*)$}{Pa(*)} and their properties.} \label{sec:Pa0-basic}
+\subsection{The subgroups \texorpdfstring{$P_\alpha(0)$}{Pa(0)}, \texorpdfstring{$P_\alpha(*)$}{Pa(*)}, \texorpdfstring{$K(\alpha, \beta)$}{K(a,b)} and their properties.} \label{sec:Pa0-basic}
 Let $\Phi$ be a root system and $\alpha$ be an element of $\Phi$.
 Consider the following subsets of $\Phi$:
 \begin{align} Z_+(\alpha) & = \{ \beta \in \Phi \mid \langle \alpha, \beta \rangle > 0 \}, \\
@@ -632,13 +633,15 @@ It is not hard to see that \[Z_\alpha(A, M) = \Img\left(\overline{\St}(Z_0(\alph
 In the above formula $U(Z_+(\alpha), M)$ denotes the subgroup defined before~\cref{thm:Stein}.
 It is clear, that $Z_\alpha(A, M)$ centralizes the root subgroup $X_\alpha(A)$ (cf.~\cite[984]{St71}).
 
-For the rest of this subsection $\Phi$ is a simply-laced root system of rank $\geq 3$ and $\alpha$ is a fixed root of $\Phi$. Notice that in the simply-laced case the assumption $\alpha+\beta\not\in \Phi$ in the definition of $Z_0(\alpha)$ is superfluous, i.\,e. $Z_0(\alpha) = \{ \beta\in\Phi \mid \alpha \perp \beta \}$
+For the rest of this subsection $\Phi$ is a simply-laced root system of rank $\geq 3$.
+Let $\alpha$ be a fixed root of $\Phi$. 
+Notice that in the simply-laced case the assumption $\alpha+\beta\not\in \Phi$ in the definition of $Z_0(\alpha)$ is superfluous, i.\,e. $Z_0(\alpha) = \{ \beta\in\Phi \mid \alpha \perp \beta \}$
 (cf.~\cite[Proposition~5.7]{St71}).
 
 \begin{rem}\label{Z-DS} Notice that our assumptions on the rank of $\Phi$ guarantee that $Z_0(\alpha)$ is nonempty. In particular, if $A$ is a local ring with maximal ideal $M$ the group $Z_\alpha(A, M)$ contains relative Dennis--Stein symbols $\langle a, m \rangle$ for $a\in A$, $m\in M$.
 By~\eqref{DS-S-relationship} relative Steinberg symbols $\{a, 1+m\}$ are also contained in $Z_\alpha(A, M)$ for all $a\in A^\times$, $m\in M$. \end{rem}
 
-\begin{df} \label{defP0}
+\begin{df}\label{defP0}
 Let $M$ be an ideal of a local ring $A$. Denote by $\widetilde{P}_{\alpha, M}(0)$ the subgroup of $\overline{\St}(\Phi, A[X], M[X])$ generated by the following 5 families of elements parameterized by $f \in M[X]$, $\xi \in A[X]$:
 \begin{enumerate}[label=(P\arabic*)]
  \item $z_{\beta}(Xf, \xi),\ \beta \in \Phi \text{ such that }\alpha + \beta \in \Phi\text{ or } \alpha - \beta \in \Phi;$
@@ -647,16 +650,13 @@ Let $M$ be an ideal of a local ring $A$. Denote by $\widetilde{P}_{\alpha, M}(0)
  \item $x_{-\alpha}(X^2f)$;
  \item $x_{\alpha}(f)$. \end{enumerate}
 
- We denote by $\widetilde{P}_{\alpha, M}(*)$ the subgroup of $\overline{\St}(\Phi, A[X], M[X])$ generated by $\widetilde{P}_{\alpha, M}(0)$ and the elements $x_{-\alpha}(mX)$, $m \in M$.
+We denote by $\widetilde{P}_{\alpha, M}(*)$ the subgroup of $\overline{\St}(\Phi, A[X], M[X])$ generated by $\widetilde{P}_{\alpha, M}(0)$ and the elements $x_{-\alpha}(mX)$, $m \in M$.
 \end{df}
-Almost always we will be using the above definition in the situation when $M$ is precisely the maximal ideal of $A$.
-The only exception to this is~\cref{P0-conj-invariant} where the above subgroups are also used for $M=A$.
+Almost always we will be using the above definition in the situation when $M$ is precisely the maximal ideal of $A$. The only exception to this is~\cref{P0-conj-invariant} where the above subgroups are also used for $M=A$.
 
 In the sequel we continue using letters $f$ and $\xi$ to denote elements of $M[X]$ and $A[X]$, respectively.
 
-\begin{rem} \label{rem:recognition}
-  From the above definition it follows that an element $z_\gamma(Xf, \xi)$ is a generator of type P1 provided $\gamma\neq\pm\alpha$ and $\gamma \not \perp \alpha$. Since $x_\gamma(Xf) = z_\gamma(Xf, 0)$, it follows that $x_{\gamma}(Xf)$ is also a generator of type P1. In particular, if $\beta$ is such that $\alpha + \beta \in \Phi$ then $x_{\pm(\alpha+\beta)}(Xf)$ is a generator of type P1 and $x_{\alpha+\beta}(f)$ is a generator of type P2.
-\end{rem}
+\begin{rem} \label{rem:recognition} From the above definition it follows that an element $z_\gamma(Xf, \xi)$ is a generator of type P1 provided $\gamma\neq\pm\alpha$ and $\gamma \not \perp \alpha$. Since $x_\gamma(Xf) = z_\gamma(Xf, 0)$, it follows that $x_{\gamma}(Xf)$ is also a generator of type P1. In particular, if $\beta$ is such that $\alpha + \beta \in \Phi$ then $x_{\pm(\alpha+\beta)}(Xf)$ is a generator of type P1 and $x_{\alpha+\beta}(f)$ is a generator of type P2. \end{rem}
 
 \begin{lemma}\label{P0_normal} The subgroup $\widetilde{P}_{\alpha, M}(0)$ is normal in $\widetilde{P}_{\alpha, M}(*)$. Moreover, there is a short exact sequence of groups, which is split by the map $m \mapsto x_{-\alpha}(mX)$ (we denote by $(M, +)$ the additive group of the ideal $M$):
 \[\xymatrix{1 \ar[r] & \widetilde{P}_{\alpha,M}(0) \ar[r] & \widetilde{P}_{\alpha,M}(*) \ar@{->>}[r]^{p_\alpha} & (M, +) \ar@<5pt>@{-->}[l] \ar[r] & 1}.\] \end{lemma}
@@ -687,7 +687,7 @@ In particular, if $M$ is the maximal ideal of $A$, the subgroup $\widetilde{P}_{
 
 The following lemma shows that $\widetilde{P}_{\alpha, M}(*)$ is sufficiently large.
 \begin{lemma} \label{Pstar-large} Suppose that $(A, M)$ is a local pair. 
-Then the subgroup $\widetilde{P}_{\alpha, M}(*)$ contains the subgroup $K(A[X], M[X]) \leq \overline{\St}(\Phi, A[X], M[X])$ defined in the beginning of~\cref{sec:computationOfK}. \end{lemma}
+Then the subgroup $\widetilde{P}_{\alpha, M}(*)$ contains the subgroup $K(A[X], M[X]) \leq \overline{\St}(\Phi, A[X], M[X])$ defined at the beginning of~\cref{sec:computationOfK}. \end{lemma}
 \begin{proof} Clearly, $\widetilde{P}_{\alpha, M}(*)$ contains the elements $x_\beta(Xf)$ for all $\beta \in \Phi$ and $z_\beta(Xf, \xi)$ for $\beta \in \Phi \setminus \{\pm \alpha\}$, $f \in M[X]$, $\xi\in A[X]$, therefore by~\cref{thm:Stepanov} $\widetilde{P}_{\alpha, M}(*)$ contains all of $\overline{\St}(\Phi, A[X], XM[X])$. The required assertion now follows from~\cref{Kgen-strong} and~\cref{rem:c}. \end{proof}
 
 \begin{rem} \label{Pstar-char} From the above lemma,~\eqref{eq:sd-decomp} and~\cref{rem:DS} it follows that the subgroup $\widetilde{P}_{\alpha, M}(*)$ admits decomposition $\widetilde{P}_{\alpha, M}(*) = Z_\alpha(A, M) \ltimes K(A[X], M[X]).$ \end{rem} 
@@ -703,54 +703,8 @@ Notice that both $Z_\alpha(A, M)$ and $K(A[X], M[X])$ are stable under the speci
 To obtain the assertion for $\widetilde{P}_{\alpha, M}(0)$ consider the following commutative diagram. \[ \xymatrix{ \widetilde{P}_{\alpha, M}(0) \ar@{^{(}->}[r] \ar@{^{(}->}[d] & \widetilde{P}_{\alpha, M}(*) \ar@{->>}[r]^{p_{\alpha, M}} \ar@{^{(}->}[d] & (M, +) \ar@{^{(}->}[d] \\ \widetilde{P}_{\alpha, A}(0) \ar@{^{(}->}[r] & \widetilde{P}_{\alpha, A}(*) \ar@{->>}[r]^{p_{\alpha, A}} & (A, +)} \]
 Notice that $x_\beta(b) \in \widetilde{P}_{\alpha, A}(0)$, therefore for $g \in \widetilde{P}_{\alpha, M}(0)$ one has \[p_{\alpha, M}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(g) = 0,\] which implies the assertion.\end{proof}
 
-For the rest of this section $M$ denotes the maximal ideal of $A$.
-\begin{df}\label{S-def}
-Define the subgroup $P_\alpha(0)$ (resp. $P_{\alpha}(*)$) of $\overline{\St}(\Phi, R, M[X, X^{-1}])$
- as the image of the subgroup $\widetilde{P}_{\alpha, M}(0)$ (resp. $\widetilde{P}_{\alpha, M}(*)$) 
- under $j_+ \colon \St(\Phi, A[X]) \to \St(\Phi, R)$.
-
-For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
-From~\cref{P0_normal} it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. This allows us to define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, A[X, X^{-1}])$ on each coset $P_\alpha(m)$, $m \in M$ via the following formula:
-\begin{equation}\label{eq:S-def} S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}.\end{equation} \end{df}
-
-In the sequel we often use the following property of $S_\alpha(a, -)$.
-\begin{lemma} \label{lem:Smult}
-For $g_1 \in P_\alpha(m)$, $g_2 \in P_\alpha(*)$ one has
-$S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right).$
-\end{lemma} \begin{proof} Suppose $g_2\in P_\alpha(m')$ for some $m' \in M$, so that $g_1 \cdot g_2 \in P_\alpha(m + m')$. The assertion now follows from the definition of $S_\alpha(a, -)$ and~\eqref{eq:symbol-properties}:
-\begin{multline*} S_\alpha(a, g_1 \cdot g_2) = x_\alpha(aX^{-1}) \cdot g_1 \cdot g_2 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1+am+am'}\right) \cdot \{X, 1 + am + am'\} = \\ = x_\alpha(aX^{-1}) g_1  x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1+am}\right) g_2 x_\alpha\left(-\frac{\tfrac{a}{1+am}\cdot X^{-1}}{1 + \tfrac{a}{1+am}\cdot m'}\right) \cdot \{X, (1+am)\left(1 + \tfrac{am'}{1+am}\right)\} = \\ = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right). \qedhere \end{multline*}
-\end{proof}
-It is clear that the restriction of the map $S_\alpha(a, g)$ to the subgroup $P_\alpha(0)$ coincides with the homomorphism of left conjugation by $x_\alpha(aX^{-1})$.
-
-\begin{lemma} \label{lem:Tulenbaev-formula} 
-One has $S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am).$
-\end{lemma}
-\begin{proof} Since $\Phi$ is nonsymplectic, we can choose $\gamma \in \Phi$ such that $\langle \alpha, \gamma \rangle = -1$. Direct computation shows that
- \begin{align} 
- x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) = {}^{h_\gamma(X)}(x_\alpha(a) \cdot x_{-\alpha}(m)) &\text{ by~\eqref{eq:conj-h-x}} \label{eq:Tf-comp} \\
- = {}^{h_\gamma(X)}\left( x_{-\alpha}\left(\tfrac{m}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\tfrac{a}{1+am}\right) \right) &\text{ by~\eqref{eq:dennis-stein}} \nonumber \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha^{-1}\left(X^{-1}\right) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) &\text{ by~\eqref{eq:conj-h-x}, \eqref{eq:conj-h-h}} \nonumber \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot \{X^{-1}, 1+am\} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right)&\text{ by~\eqref{eq:steinberg}} \nonumber \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}&\text{ by~\eqref{eq:symbol-properties}, \eqref{eq:symbol-inverse}}. \nonumber \end{align}
-The assertion of the lemma now follows from the following computation:
-\begin{align*}
- S_\alpha(a, x_{-\alpha}(mX)) = x_\alpha(aX^{-1})\cdot x_{-\alpha}(mX) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\} &\text{ by~\eqref{eq:S-def}} \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot \{1+am, X\} \cdot \{X, 1+ am\}&\text{ by~\eqref{eq:Tf-comp}} \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) &\text{ by~\eqref{eq:symbol-properties}}. \qedhere\end{align*}  \end{proof}
-
-\begin{corollary}\label{SR:additivity} For $g \in P_\alpha(m)$ one has $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \tfrac{m}{1 + am})$, moreover, \[ S_\alpha(a+b, g) = S_\alpha\left(b,\ S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)\right)\cdot h_\alpha(1+am). \]\end{corollary} \begin{proof}
-Fix an element $g \in P_\alpha(m)$ and write it $g = g_0 \cdot x_{-\alpha}(mX)$ for some $g_0 \in P_\alpha(0)$.
-Direct computation shows that
-\begin{align*}
- S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_{\alpha}^{-1}(1+am)&\text{ by~\cref{lem:Smult}} \\\
- = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot\langle a, m \rangle &\text{ by~\cref{lem:Tulenbaev-formula}.}
-\end{align*}
-By \cref{P0_conj} and \cref{rem:DS} the subgroup $P_\alpha(0)$ contains $S_\alpha(a, g_0)$ and the symbol $\langle a, m \rangle$. Thus, the expression in the right-hand side of the above formula lies in $P_\alpha\left(\tfrac{m}{1+am}\right)$. 
-
-The second assertion of the lemma can be verified directly using~\eqref{eq:symbol-properties}. \end{proof}
-
-\subsection{The subgroups \texorpdfstring{$K(\alpha, \beta)$}{K(a,b)} and their properties} \label{sec:Pa0-Steinberg}
-Throughout this subsection $\alpha, \beta$ denote a fixed pair of roots of $\Phi$ forming a sharp angle (i.\,e. $\langle \alpha, \beta \rangle = 1$). We denote by $\Psi$ the subsystem of type $\rA_2$ generated by $\alpha$ and $\beta$.
+For the rest of this subsection $M$ is the maximal ideal $A$.
+We denote by $\beta$ another fixed root of $\Phi$ forming a sharp angle with $\alpha$ (i.\,e. $\langle \alpha, \beta \rangle = 1$). We denote by $\Psi$ the subsystem of type $\rA_2$ generated by $\alpha$ and $\beta$.
 \begin{df}\label{def:Kab} 
 Fix a root $\delta \in \Phi \setminus \Psi$. Define $\widetilde{K}(\alpha, \beta)$ as the subgroup of $\overline{\St}(\Phi, A[X], M[X])$ generated by the following 5 families of elements parametrized by $\xi \in A[X]$, $f\in M[X]$:
  \begin{enumerate}[label=(K\arabic*)]
@@ -758,8 +712,7 @@ Fix a root $\delta \in \Phi \setminus \Psi$. Define $\widetilde{K}(\alpha, \beta
   \item $x_{-\alpha}(X^2f)$, $x_{-\beta}(X^2f)$;
   \item $x_{\alpha}(Xf)$, $x_\beta(Xf)$;
   \item $x_{\alpha-\beta}(Xf)$, $x_{\beta-\alpha}(Xf)$;
-  \item $c_{\delta}(f, X\xi)$. \end{enumerate}
-Denote by $K(\alpha, \beta)$ the image of $\widetilde{K}(\alpha, \beta)$ under $j_+ \colon \St(\Phi, A[X]) \to \St(\Phi, A[X, X\inv])$. \end{df}
+  \item $c_{\delta}(f, X\xi)$. \end{enumerate} \end{df}
 \begin{prop} \label{K-a-b} One has $K(A[X], M[X]) = \widetilde{K}(\alpha, \beta) \cdot X_{-\alpha}(M \cdot X) \cdot X_{-\beta}(M \cdot X)$. 
 \end{prop} 
 \begin{proof}
@@ -791,10 +744,18 @@ By~\cref{K-a-b} $g$ can be presented as $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\be
 The elements of $X_{-\beta}(M\cdot X)$ are generators of type P1 for $\widetilde{P}_{\alpha, M}(0)$ (cf.~\cref{rem:recognition}),
  therefore $X_{-\beta}(M \cdot X) \subseteq L$. On the other hand, by~\cref{K-a-b-cor} $\widetilde{K}(\alpha, \beta) \subseteq L$. Thus, we have shown that $\widetilde{K}(\alpha, \beta) \cdot X_{-\beta}(M \cdot X) \subseteq L$. The reverse inclusion immediately follows from~\cref{K-a-b} and~\cref{rem:palpha}.
  \end{proof}
+ 
+\begin{lemma} \label{conj-K-a-b} For $b \in A$ one has $\widetilde{K}(\alpha, \beta)^{x_{\beta - \alpha}(b)} \subseteq \widetilde{K}(\alpha, \beta)$. \end{lemma}
+\begin{proof} By~\cref{Zrels} the conjugate of a generator $g = z_\gamma(Xf, \xi)$ of type K1 by $x_{\beta-\alpha}(b)$ is either $g$ itself or a product of generators of type K4, K1, K1. By~\cref{Crels} the conjugate of a generator $g = c_\delta(f, X\xi)$ of type K5 is either $g$ or a product of generators of type K5, K4, K1.
+
+Now if $g = x_\gamma(Xf)$, $\gamma \in \{\pm \alpha, \pm \beta\}$ is a generator of type K2 or K3, the conjugation by $x_{\beta-\alpha}(a)$ either fixes $g$ or transforms it into a product of two generators of type K2 or K3.  Finally, from~\cref{rem:palpha} we obtain that $z_{\alpha-\beta}(Xf, b) \in K(A[X], M[X]) \cap \widetilde{P}_\alpha(0) \cap \widetilde{P}_{\beta}(0) = \widetilde{K}(\alpha, \beta)$. \end{proof}  
+
+We come to the central concept of this subsection.
+\begin{df} Define the subgroups $P_\alpha(0)$, $P_{\alpha}(*)$ and $K(\alpha, \beta)$ of $\overline{\St}(\Phi, R, M[X, X^{-1}])$ as the images of the subgroups $\widetilde{P}_{\alpha, M}(0)$, $\widetilde{P}_{\alpha, M}(*)$ and $\widetilde{K}(\alpha, \beta)$ under the natural homomorphism $j_+ \colon \St(\Phi, A[X]) \to \St(\Phi, R)$.\end{df}
 
 We need one more technical definition. Denote by $Z_{\alpha, \beta}$ the subgroup $U(Z_+(\alpha) \setminus \{\alpha - \beta \}, M[X])$ of $\St(\Phi, A[X, X^{-1}])$.  Recall that this means that $Z_{\alpha, \beta}$ is generated by all root subgroups $X_\gamma(M[X])$, where $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$. 
   
-\begin{lemma} \label{image-K-a-b} The image of $K(\alpha, \beta)$ under conjugation by $x_\alpha(aX^{-1})$ is contained in the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by $K(\alpha, \beta)$ and $Z_{\alpha, \beta}$. \end{lemma}
+\begin{lemma} \label{image-K-a-b} The image of $K(\alpha, \beta)$ under the automorphism of conjugation by $x_\alpha(aX^{-1})$ is contained in the subgroup of $\St(\Phi, A[X, X^{-1}])$ generated by $K(\alpha, \beta)$ and $Z_{\alpha, \beta}$. \end{lemma}
 \begin{proof} We need to verify that the conjugate by $x_\alpha(aX^{-1})$ of every generator from~\cref{def:Kab} lies in the specified subgroup. To simplify notation we call the generators of  $Z_{\alpha,\beta}$ ``generators of type Z``. 
 
 Let $z_\gamma(Xf, \xi)$ be a generator of type K1 for some $\gamma \in \Phi \setminus \Psi$.
@@ -832,7 +793,7 @@ Now if $\langle \beta, \gamma \rangle$ is $0$, $1$ or $2$, then $g$ is a generat
 
 \begin{lemma} \label{P0_conj} The subgroup $P_\alpha(0)$ is stable under conjugation by $x_\alpha(aX^{-1})$ for arbitrary $a \in A$. \end{lemma}
 \begin{proof} 
-Intersecting the factors of~\eqref{eq:sd-decomp} with $\widetilde{P}_{\alpha, M}(0)$ and invoking~\cref{rem:DS} and~\cref{K-a-b-cor2} we obtain that $\widetilde{P}_{\alpha, M}(0) =  Z_\alpha(A, M) \ltimes \left(\widetilde{K}(\alpha, \beta) \cdot X_{-\beta}(M \cdot X)\right).$
+Intersecting the factors of~\eqref{eq:sd-decomp} with $\widetilde{P}_{\alpha, M}(0)$ and invoking~\cref{rem:DS} and~\cref{K-a-b-cor2} we obtain that $P_{\alpha}(0) =  j_+(Z_\alpha(A, M)) \ltimes \left(K(\alpha, \beta) \cdot X_{-\beta}(M \cdot X)\right).$
 It suffices to show that the image of each of these three subgroups under the automorphism of conjugation by $x_\alpha(aX^{-1})$ is contained in $P_\alpha(0)$.
 
 It is clear that the specified conjugation fixes $j_+(Z_\alpha(A, M))$. By~\eqref{Chevalley-CCF1} and~\cref{rem:recognition} 
@@ -841,6 +802,62 @@ Notice that the generators of $Z_{\alpha,\beta}$ are generators of type P2 for $
 Thus, from~\cref{image-K-a-b} we get that
 $K(\alpha, \beta)^{x_\alpha(aX^{-1})} \subseteq \langle K(\alpha, \beta), Z_{\alpha, \beta} \rangle \subseteq P_\alpha(0)$.
 \end{proof}
+
+\begin{lemma} \label{conj-S-a-x-bma} For $a, b\in A$ the image of $K(\alpha,\beta)^{x_\alpha(aX^{-1})}$ under the automorphism of conjugation by $x_{\beta-\alpha}(b)$ is contained in $P_\alpha(0)$. \end{lemma}
+\begin{proof} By Lemmas~\ref{conj-K-a-b}--\ref{image-K-a-b} it suffices to show that the conjugate $g_1$ of each generator $g = x_\gamma(f)$, $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ of $Z_{\alpha, \beta}$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. It is clear that $g$ itself is a generator of type P2 for $P_\alpha(0)$, therefore it remains to consider the case $\gamma\not \perp \beta - \alpha$. 
+ 
+In the case $\alpha - \beta - \gamma \in \Phi$ we obtain from~\eqref{Chevalley-CCF1} that
+$g_1 = x_{\beta - \alpha + \gamma} (N_{\gamma, \beta -\alpha}\cdot bf)     \cdot x_{\gamma}(f).$ Notice that $\langle \alpha - \beta - \gamma, \alpha \rangle = \langle \alpha, \alpha \rangle - \langle \beta, \alpha \rangle - \langle \gamma, \alpha \rangle \leq 2 - 1 - 1 = 0$, 
+ therefore $\langle \alpha - \beta - \gamma, \alpha \rangle = -1,0$. Thus, $g_1$ is a product of generators of type P2, P2 or P3, P2.
+
+Now suppose that the other alternative holds, namely that $\alpha - \beta + \gamma \in \Phi$.
+Since $\langle \alpha - \beta + \gamma, \alpha \rangle = \langle \alpha , \alpha \rangle - \langle \beta, \alpha \rangle + \langle \gamma, \alpha \rangle \geq 2 - 1 + 1 = 2$
+we obtain that $\alpha - \beta + \gamma = \alpha$, i.\,e. $\beta=\gamma$. Thus, by~\eqref{Chevalley-CCF2} $g_1 = x_\beta(f)^{x_{\beta-\alpha}(b)} = x_\beta(f)$. \end{proof}
+
+\subsection{The map \texorpdfstring{$S_\alpha(a, -)$}{S(a,-)} and its properties.} \label{sec:S-a}
+Throughout this section $(A, M)$ is a local pair and, as before, $\alpha, \beta$ are some fixed roots of $\Phi$ forming a sharp angle.
+
+For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
+From~\cref{P0_normal} it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. 
+\begin{df}\label{S-def}
+Define the map $S_\alpha(a, -) \colon P_\alpha(*) \to \St(\Phi, A[X, X^{-1}])$ on each coset $P_\alpha(m)$ via the following formula:
+\begin{equation}\label{eq:S-def} S_\alpha(a, g) = x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\}.\end{equation} \end{df}
+Notice that the restriction of the map $S_\alpha(a, -)$ to the subgroup $P_\alpha(0)$ coincides with the automorphism of left conjugation by $x_\alpha(aX^{-1})$.
+
+In the sequel we often use the following property of $S_\alpha(a, -)$.
+\begin{lemma} \label{lem:Smult}
+For $g_1 \in P_\alpha(m)$, $g_2 \in P_\alpha(*)$ one has
+$S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right).$
+\end{lemma} \begin{proof} Suppose $g_2\in P_\alpha(m')$ for some $m' \in M$, so that $g_1 \cdot g_2 \in P_\alpha(m + m')$. The assertion now follows from the definition of $S_\alpha(a, -)$ and~\eqref{eq:symbol-properties}:
+\begin{multline*} S_\alpha(a, g_1 \cdot g_2) = x_\alpha(aX^{-1}) \cdot g_1 \cdot g_2 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1+am+am'}\right) \cdot \{X, 1 + am + am'\} = \\ = x_\alpha(aX^{-1}) g_1  x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1+am}\right) g_2 x_\alpha\left(-\frac{\tfrac{a}{1+am}\cdot X^{-1}}{1 + \tfrac{a}{1+am}\cdot m'}\right) \cdot \{X, (1+am)\left(1 + \tfrac{am'}{1+am}\right)\} = \\ = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right). \qedhere \end{multline*}
+\end{proof}
+
+\begin{lemma} \label{lem:Tulenbaev-formula} 
+One has $S_\alpha(a, x_{-\alpha}(mX)) = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am).$
+\end{lemma}
+\begin{proof} Since $\Phi$ is nonsymplectic, we can choose $\gamma \in \Phi$ such that $\langle \alpha, \gamma \rangle = -1$. Direct computation shows that
+ \begin{align} 
+ x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) = {}^{h_\gamma(X)}(x_\alpha(a) \cdot x_{-\alpha}(m)) &\text{ by~\eqref{eq:conj-h-x}} \label{eq:Tf-comp} \\
+ = {}^{h_\gamma(X)}\left( x_{-\alpha}\left(\tfrac{m}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_\alpha\left(\tfrac{a}{1+am}\right) \right) &\text{ by~\eqref{eq:dennis-stein}} \nonumber \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(X^{-1}(1+am))\cdot h_\alpha^{-1}\left(X^{-1}\right) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) &\text{ by~\eqref{eq:conj-h-x}, \eqref{eq:conj-h-h}} \nonumber \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot \{X^{-1}, 1+am\} \cdot h_\alpha(1+am)\cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right)&\text{ by~\eqref{eq:steinberg}} \nonumber \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1+am}\right) \cdot \{1+am, X\}&\text{ by~\eqref{eq:symbol-properties}, \eqref{eq:symbol-inverse}}. \nonumber \end{align}
+The assertion of the lemma now follows from the following computation:
+\begin{align*}
+ S_\alpha(a, x_{-\alpha}(mX)) = x_\alpha(aX^{-1})\cdot x_{-\alpha}(mX) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\} &\text{ by~\eqref{eq:S-def}} \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot \{1+am, X\} \cdot \{X, 1+ am\}&\text{ by~\eqref{eq:Tf-comp}} \\
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) &\text{ by~\eqref{eq:symbol-properties}}. \qedhere\end{align*}  \end{proof}
+
+\begin{corollary}\label{SR:additivity} For $g \in P_\alpha(m)$ one has $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \tfrac{m}{1 + am})$, moreover, \[ S_\alpha(a+b, g) = S_\alpha\left(b,\ S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)\right)\cdot h_\alpha(1+am). \]\end{corollary} \begin{proof}
+Fix an element $g \in P_\alpha(m)$ and write it $g = g_0 \cdot x_{-\alpha}(mX)$ for some $g_0 \in P_\alpha(0)$.
+Direct computation shows that
+\begin{align*}
+ S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am) = S_\alpha(a, g_0) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_{\alpha}^{-1}(1+am)&\text{ by~\cref{lem:Smult}} \\\
+ = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot\langle a, m \rangle &\text{ by~\cref{lem:Tulenbaev-formula}.}
+\end{align*}
+By \cref{P0_conj} and \cref{rem:DS} the subgroup $P_\alpha(0)$ contains $S_\alpha(a, g_0)$ and the symbol $\langle a, m \rangle$. Thus, the expression in the right-hand side of the above formula lies in $P_\alpha\left(\tfrac{m}{1+am}\right)$. 
+
+The second assertion of the lemma can be verified directly using~\eqref{eq:symbol-properties}. \end{proof}
 
 \begin{lemma} \label{SR:sharp} For $g \in j_+(K(A[X], M[X])) \cap P_\alpha(m) \cap P_\beta(m')$ and $a \in A$ one has \[S_\alpha(a, g)\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot am') \in P_\beta\left(\tfrac{m'}{1 + am}\right). \] \end{lemma}
 \begin{proof} By~\cref{K-a-b} $g$ can be presented as $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $g_0\in K(\alpha, \beta)$. By~\cref{K-a-b-P-b} the element $g_1 = S_\alpha(a, g_0) $ lies in $P_\beta(0)$. Since $x_{-\beta}(m'X) \in P_\alpha(0)$ we get that
@@ -851,22 +868,6 @@ $K(\alpha, \beta)^{x_\alpha(aX^{-1})} \subseteq \langle K(\alpha, \beta), Z_{\al
 \end{align*}
 The required assertion now follows from~\cref{rem:palpha}.
 \end{proof}
-  
-\begin{lemma} \label{conj-K-a-b} For $b \in A$ one has $K(\alpha, \beta)^{x_{\beta - \alpha}(b)} \subseteq K(\alpha, \beta)$. \end{lemma}
-\begin{proof} By~\cref{Zrels} the conjugate of a generator $g = z_\gamma(Xf, \xi)$ of type K1 by $x_{\beta-\alpha}(b)$ is either $g$ itself or a product of generators of type K4, K1, K1. By~\cref{Crels} the conjugate of a generator $g = c_\delta(f, X\xi)$ of type K5 is either $g$ or a product of generators of type K5, K4, K1.
-
-Now if $g = x_\gamma(Xf)$, $\gamma \in \{\pm \alpha, \pm \beta\}$ is a generator of type K2 or K3, the conjugation by $x_{\beta-\alpha}(a)$ either fixes $g$ or transforms it into a product of two generators of type K2 or K3.  Finally, from~\cref{rem:palpha} we obtain that $z_{\alpha-\beta}(Xf, b) \in j_+(K(A[X], M[X])) \cap P_\alpha(0) \cap P_{\beta}(0) = K(\alpha, \beta)$. \end{proof} 
-
-\begin{lemma} \label{conj-S-a-x-bma} For $g \in K(\alpha, \beta)$ and $a, b\in A$ the conjugate of $S_\alpha(a, g)$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. \end{lemma}
-\begin{proof} By~\cref{image-K-a-b} and~\cref{conj-K-a-b} it suffices to show that the conjugate $g_1$ of each generator $g = x_\gamma(f)$, $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ of $Z_{\alpha, \beta}$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. It is clear that $g$ itself is a generator of type P2 for $P_\alpha(0)$, therefore it remains to consider the case $\gamma\not \perp \beta - \alpha$. 
- 
-In the case $\alpha - \beta - \gamma \in \Phi$ we obtain from~\eqref{Chevalley-CCF1} that
-$g_1 = x_{\beta - \alpha + \gamma} (N_{\gamma, \beta -\alpha}\cdot bf)     \cdot x_{\gamma}(f).$ Notice that $\langle \alpha - \beta - \gamma, \alpha \rangle = \langle \alpha, \alpha \rangle - \langle \beta, \alpha \rangle - \langle \gamma, \alpha \rangle \leq 2 - 1 - 1 = 0$, 
- therefore $\langle \alpha - \beta - \gamma, \alpha \rangle = -1,0$. Thus, $g_1$ is a product of generators of type P2, P2 or P3, P2.
-
-Now suppose that the other alternative holds, namely that $\alpha - \beta + \gamma \in \Phi$.
-Since $\langle \alpha - \beta + \gamma, \alpha \rangle = \langle \alpha , \alpha \rangle - \langle \beta, \alpha \rangle + \langle \gamma, \alpha \rangle \geq 2 - 1 + 1 = 2$
-we obtain that $\alpha - \beta + \gamma = \alpha$, i.\,e. $\beta=\gamma$. Thus, by~\eqref{Chevalley-CCF2} $g_1 = x_\beta(f)^{x_{\beta-\alpha}(b)} = x_\beta(f)$. \end{proof}
 
 \begin{lemma} \label{SR:obtuse} For $g \in j_+(K(A[X], M[X])) \cap P_\alpha(m) \cap P_\beta(m')$ and $a, b\in A$ the element \[ x_{\beta - \alpha}(b) \cdot S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta - \alpha}((1 + \epsilon abm')^{-1})\cdot x_{\beta - \alpha}(-b(1 + \epsilon abm')) \]
  belongs to $P_\alpha\left(\tfrac{m - \epsilon bm'}{1+am}\right)$, where $\epsilon = N_{\alpha, -\beta}$.
@@ -890,8 +891,6 @@ Denote by $h_0$ the product of all factors in the above formula except the first
   = x_{\beta - \alpha}(b) \cdot S_\alpha(a, g_0) \cdot x_{\beta-\alpha}(-b) \cdot h_0 \cdot x_{-\alpha}\left(\tfrac{m -\epsilon bm'}{1+am}\right) \in P_\alpha(\tfrac{m -\epsilon bm'}{1+am}). \qedhere
 \end{multline}
 \end{proof}
-
-\subsection{The map \texorpdfstring{$S_\alpha$}{Sa} and its properties.}
 
 \subsection{Construction of a \texorpdfstring{$\St(\Phi, B)$}{St(B)}-torsor.} \label{sec:V-construction}
 Throughout this subsection $\Phi$ denotes arbitrary irreducible simply-laced root system of rank $\geq 3$, unless stated otherwise. Let $A$ be a local ring with maximal ideal $M$ and residue field $k$. As in~\cref{firstPart} we denote by $B$ the ring $A[X\inv] + M[X]$ considered as a graded subring of the ring of Laurent polynomials $R = A[X, X\inv]$.
