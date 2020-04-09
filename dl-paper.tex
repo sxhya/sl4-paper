@@ -857,33 +857,34 @@ The required assertion now follows from~\cref{rem:palpha}.
 
 Now if $g = x_\gamma(Xf)$, $\gamma \in \{\pm \alpha, \pm \beta\}$ is a generator of type K2 or K3, the conjugation by $x_{\beta-\alpha}(a)$ either fixes $g$ or transforms it into a product of two generators of type K2 or K3.  Finally, from~\cref{rem:palpha} we obtain that $z_{\alpha-\beta}(Xf, b) \in K(A[X], M[X]) \cap P_\alpha(0) \cap P_{\beta}(0) = K(\alpha, \beta)$. \end{proof} 
 
-\begin{lemma} For $g \in K(\alpha, \beta)$ and $a, b\in A$ the conjugate of $S_\alpha(a, g)$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. \end{lemma}
-\begin{proof} By~\cref{image-K-a-b} and~\cref{conj-K-a-b} it remains to show that the conjugate of each generator $g = z_\gamma(f, X\xi)$, $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ of $Z_{\alpha, \beta}$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. Throughout this proof we understand generator types according to~\cref{defP0}. It is clear that $g$ itself is a generator of type 2, therefore it remains to consider the case $\gamma\not \perp \beta - \alpha$. 
+\begin{lemma} \label{conj-S-a-x-bma} For $g \in K(\alpha, \beta)$ and $a, b\in A$ the conjugate of $S_\alpha(a, g)$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. \end{lemma}
+\begin{proof} By~\cref{image-K-a-b} and~\cref{conj-K-a-b} it suffices to show that the conjugate $g_1$ of each generator $g = x_\gamma(f)$, $\gamma \in Z_+(\alpha) \setminus \{ \alpha - \beta \}$ of $Z_{\alpha, \beta}$ by $x_{\beta-\alpha}(b)$ belongs to $P_\alpha(0)$. It is clear that $g$ itself is a generator of type P2 for $P_\alpha(0)$, therefore it remains to consider the case $\gamma\not \perp \beta - \alpha$. 
  
-In the case $\alpha - \beta - \gamma \in \Phi$ we obtain from \eqref{Z2} of~\cref{Zrels} that
-\[ z_{\gamma}(f, X\xi) ^ {x_{\beta-\alpha}(b)} = x_{\beta-\alpha} (- bXf\xi) \cdot x_{\beta - \alpha + \gamma} (N_{\gamma, \beta -\alpha}\cdot bf)     \cdot z_{\gamma}(f, X\xi). \] Notice that $\langle \alpha - \beta - \gamma, \alpha \rangle = \langle \alpha, \alpha \rangle - \langle \beta, \alpha \rangle - \langle \gamma, \alpha \rangle \leq 2 - 1 - 1 = 0$, 
- hence $\langle \alpha - \beta - \gamma, \alpha \rangle = -1,0$ and the expression in the right-hand side is a product of generators of type 1, 2, 2 or 1, 3, 2.
+In the case $\alpha - \beta - \gamma \in \Phi$ we obtain from~\eqref{Chevalley-CCF1} that
+$g_1 = x_{\beta - \alpha + \gamma} (N_{\gamma, \beta -\alpha}\cdot bf)     \cdot x_{\gamma}(f).$ Notice that $\langle \alpha - \beta - \gamma, \alpha \rangle = \langle \alpha, \alpha \rangle - \langle \beta, \alpha \rangle - \langle \gamma, \alpha \rangle \leq 2 - 1 - 1 = 0$, 
+ therefore $\langle \alpha - \beta - \gamma, \alpha \rangle = -1,0$. Thus, $g_1$ is a product of generators of type P2, P2 or P3, P2.
 
 Now suppose that the other alternative holds, namely that $\alpha - \beta + \gamma \in \Phi$.
 Since $\langle \alpha - \beta + \gamma, \alpha \rangle = \langle \alpha , \alpha \rangle - \langle \beta, \alpha \rangle + \langle \gamma, \alpha \rangle \geq 2 - 1 + 1 = 2$
-we obtain that $\alpha - \beta + \gamma = \alpha$, i.\,e. $\beta=\gamma$. Thus, by \eqref{Z3} of~\cref{Zrels}
-\[z_{\beta}(f, X\xi) ^ {x_{\beta-\alpha}(b)} = x_{\beta-\alpha} (bXf\xi) \cdot x_{-\alpha} (N_{\beta,\alpha - \beta}\cdot bX^2 f\xi^2) \cdot z_{\beta}(f, X\xi). \]
-The expression in the right-hand side is a product of generators of type 1, 4, 2. \end{proof}
+we obtain that $\alpha - \beta + \gamma = \alpha$, i.\,e. $\beta=\gamma$. Thus, by~\eqref{Chevalley-CCF2} $g_1 = x_\beta(f)^{x_{\beta-\alpha}(b)} = x_\beta(f)$. \end{proof}
 
 \begin{lemma} \label{SR:obtuse} For $g \in K(A[X], M[X]) \cap P_\alpha(m) \cap P_\beta(m')$ and $a, b\in A$ the element \[ x_{\beta - \alpha}(b) \cdot S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta - \alpha}((1 + \epsilon abm')^{-1})\cdot x_{\beta - \alpha}(-b(1 + \epsilon abm')) \]
  belongs to $P_\alpha\left(\tfrac{m - \epsilon bm'}{1+am}\right)$, where $\epsilon = N_{\alpha, -\beta}$.
 \end{lemma}
 \begin{proof} Set $c = 1 + \epsilon a b m'$, $s_0 = \langle a, m \rangle$, $s_1 = \langle \epsilon am', -bc^{-1} \rangle$.
-From the definition of $S_\alpha(a, -)$, \cref{lem:Tulenbaev-formula}, \eqref{eq:conj-h-x}, \eqref{eq:h-inv} and~\eqref{eq:dennis-stein} we obtain that
- \begin{multline} \label{eq:SRobtuse-computation}
- S_\alpha\left(a, x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)\right) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta-\alpha}(c^{-1})\cdot x_{\beta - \alpha}(-bc) = \\ 
- = S_\alpha(a, x_{-\beta}(m'X)) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_\alpha^{-1} (1 + am) \cdot h_{\beta - \alpha}(c^{-1}) \cdot x_{\beta - \alpha}(-bc) = \\
- = x_{-\beta}(m'X) \cdot x_{\alpha - \beta}(\epsilon am') \cdot x_{\beta - \alpha}(-bc^{-1}) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot s_0 \cdot h_{\beta - \alpha}(c^{-1}) = \\
- = x_{-\beta}(m'X) \cdot x_{\beta - \alpha}(-b) \cdot s_1 \cdot h_{\alpha-\beta}(c^{-1}) \cdot x_{\alpha-\beta}\left(\epsilon acm'\right) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot s_0 \cdot h_{\beta - \alpha}(c^{-1}) = \\
- =  x_{\beta - \alpha}(-b) \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(-\epsilon bm'X) \cdot s_1 \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot x_{-\alpha}\left(\tfrac{cmX}{1+am}\right) \cdot s_0 = \\
- = x_{\beta-\alpha}(-b) \cdot x_{-\beta}\left(m'X(1 - \epsilon abm'c^{-1})\right) \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot s_1 \cdot s_0 \cdot x_{-\alpha}\left(-\epsilon bm' X + \tfrac{cmX}{1+am}\right).
-\end{multline}
-Denote by $h_0$ the product of all factors in the above formula except the first and the last one. It is clear that $h_0$ lies in $P_\alpha(0)$. Using~\cref{K-a-b} we can decompose $g = g_0 \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)$ for some $g_0 \in K(\alpha, \beta)$. The required assertion now follows from \cref{lem:Smult}, \eqref{eq:SRobtuse-computation} and the preceding lemma:
+Notice that $1 - \epsilon abc^{-1}m' = c^{-1}$, therefore by~\eqref{eq:dennis-stein}
+\begin{equation} \label{eq:computation-SR-obtuse} x_{\alpha-\beta}(\epsilon am') \cdot x_{\beta-\alpha}(-bc^{-1}) = x_{\beta-\alpha}(-b) \cdot s_1 \cdot h_{\alpha-\beta}(c^{-1}) \cdot x_{\alpha-\beta}(\epsilon acm').\end{equation}
+Notice that $x_{-\beta}(m'X) \in P_\alpha(0)$ therefore from the definition of $S_\alpha(a, -)$ we obtain that
+\begin{align*}
+ S_\alpha\left(a, x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)\right) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta-\alpha}(c^{-1})\cdot x_{\beta - \alpha}(-bc) \\ 
+ = S_\alpha(a, x_{-\beta}(m'X)) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_\alpha^{-1} (1 + am) \cdot h_{\beta - \alpha}(c^{-1}) \cdot x_{\beta - \alpha}(-bc) &\text{ by~\cref{lem:Smult}}\\
+ = S_\alpha(a, x_{-\beta}(m'X)) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot s_0 \cdot h_{\beta - \alpha}(c^{-1}) \cdot x_{\beta - \alpha}(-bc) &\text{ by~\cref{lem:Tulenbaev-formula}}\\
+ = x_{-\beta}(m'X) \cdot x_{\alpha - \beta}(\epsilon am') \cdot x_{\beta - \alpha}(-bc^{-1}) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot s_0 \cdot h_{\beta - \alpha}(c^{-1}) &\text{ by~\eqref{Chevalley-CCF1},~\eqref{Chevalley-CCF2}, \eqref{eq:conj-h-x}}\\
+ \begin{split}= x_{-\beta}(m'X) \cdot x_{\beta - \alpha}(-b) \cdot s_1 \cdot h_{\alpha-\beta}(c^{-1}) \cdot \hspace{100pt} \\ \cdot x_{\alpha-\beta}\left(\epsilon acm'\right) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot s_0 \cdot h_{\beta - \alpha}(c^{-1}) &\text{ by~\eqref{eq:computation-SR-obtuse}} \end{split}\\
+ =  x_{\beta - \alpha}(-b) \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(-\epsilon bm'X) \cdot s_1 \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot x_{-\alpha}\left(\tfrac{cmX}{1+am}\right) \cdot s_0 &\text{ by~\eqref{Chevalley-CCF1},~\eqref{eq:conj-h-x},~\eqref{eq:h-inv}}\\
+ = x_{\beta-\alpha}(-b) \cdot x_{-\beta}(m'c^{-1}X) \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot s_1 \cdot s_0 \cdot x_{-\alpha}\left(-\epsilon bm' X + \tfrac{cmX}{1+am}\right) &\text{ by~\eqref{Chevalley-CCF1}.}
+\end{align*}
+Denote by $h_0$ the product of all factors in the above formula except the first and the last one. It is clear that $h_0$ lies in $P_\alpha(0)$. Using~\cref{K-a-b} we can decompose $g = g_0 \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)$ for some $g_0 \in K(\alpha, \beta)$. The required assertion now follows from \cref{lem:Smult},\cref{conj-S-a-x-bma} and the above computation:
 \begin{multline} \nonumber
  x_{\beta - \alpha}(b) \cdot S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta - \alpha}(c^{-1})\cdot x_{\beta - \alpha}(-bc) = \\
   = x_{\beta - \alpha}(b) \cdot S_\alpha(a, g_0) \cdot x_{\beta-\alpha}(-b) \cdot h_0 \cdot x_{-\alpha}\left(\tfrac{m -\epsilon bm'}{1+am}\right) \in P_\alpha(\tfrac{m -\epsilon bm'}{1+am}). \qedhere
