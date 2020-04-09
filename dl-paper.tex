@@ -119,6 +119,7 @@ Throughout the paper we make use of the following commutator identities:
 \begin{align}
  [x, yz]^y =& [y^{-1}, x] \cdot [x, z], \label{rel43} \\ 
  \label{eq:H1ii} [xy, z] =& {}^x[y, z] \cdot [x,z], \\
+ \label{eq:H1ii-2}[x, yz] =& [x, y] \cdot {}^{y}\![x, z], \\
  [[x, y], z] =& \left([x^{-1}, [ y^{-1}, z]] ^ {y^{-1}} \cdot [y, [ z^{-1}, x^{-1}]] ^ {z^{-1}} \right)^{x^{-1}}. \label{HW-variant} \end{align}
 Recall also from~\cite[Lemma~3.1.1]{RS76} that
 \begin{equation} \label{eq:H1iii} [x,z] = 1 \text{ implies } [x, [y,z]] = [[x,y],{}^yz]. \end{equation} 
@@ -151,7 +152,7 @@ In the above formulae $a, b \in R$ and the integers $N_{\alpha, \beta} = N_{\alp
 \begin{equation} \label{eq:simplest} N_{\alpha, \beta} = -N_{\beta,\alpha} = - N_{-\alpha, -\beta} = N_{\beta, -\alpha-\beta} = N_{-\alpha-\beta, \alpha}. \end{equation}
 If, moreover, $\gamma \in \Phi$ is such that $\alpha,\beta,\gamma$ form a basis of a root subsystem of type $\rA_3$ then one has
 \begin{equation} \label{eq:cocycle} N_{\beta,\gamma} \cdot N_{\alpha, \beta+\gamma} = N_{\alpha+\beta, \gamma} \cdot N_{\alpha, \beta}. \end{equation} \end{lemma}
-In our calculations below we will be using identities~\eqref{eq:simplest} without further reference.
+In our calculations below we repeatedly use identities~\eqref{eq:simplest} without explicit reference.
 
 For $\alpha\in\Phi$ and $s \in R^\times$ we define certain elements $w_\alpha(s), h_\alpha(s)$ of $\St(\Phi, R)$ (the latter ones are sometimes called {\it semisimple root elements}):
 \begin{align*} w_\alpha(s) & =  x_\alpha(s) \cdot x_{-\alpha}(-s^{-1}) \cdot x_\alpha(s), \\ h_\alpha(s) & =  w_\alpha(s) \cdot w_\alpha(-1).  \end{align*}
@@ -160,7 +161,7 @@ Recall from~\cite[Lemma~5.2]{Ma69} that the following relations hold for semisim
 \begin{align} \label{eq:conj-h-x} {}^{h_\alpha(t)}\!x_\beta(u) & = x_\beta(t^{\langle \beta,  \alpha \rangle}u), \\
               \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}, \\
               \label{eq:h-inv}    h_\alpha(t)^{-1}             & = h_{-\alpha}(t). \end{align}
-Here $\langle \beta, \alpha \rangle$ denotes the integer $\tfrac{2(\beta, \alpha)}{(\alpha, \alpha)}$ (we denote by $(-,-)$ the inner product on the euclidean space $\mathbb{R}^\ell$ containing $\Phi$).
+In the above formulae $\langle \beta, \alpha \rangle$ denotes the integer $\tfrac{2(\beta, \alpha)}{(\alpha, \alpha)}$ (we denote by $(\text{-},\text{-})$ the inner product on the euclidean space $\mathbb{R}^\ell$ containing $\Phi$).
 
 \subsection{\texorpdfstring{$\K_2$}{K2}-groups and symbols} In our calculations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our notational conventions for symbols follow~\cite{DS73} and {\it not} more modern textbooks such as~\cite{Kbook} (cf. with~Definition~III.5.11 ibid.). Notice also that the operation on $\K_2(\Phi, R)$ is always written multiplicatively.
 
@@ -446,18 +447,14 @@ The elements $c_\alpha(s, t)$ satisfy the following relations for all $s\in I,\ 
  \end{enumerate}
 \end{lemma}
 \begin{proof}
-The first assertion follows from the following computation:
-\begin{multline} \nonumber [c_{\beta}(s, t),\ x_{\alpha}(\xi)]  = [x_{\beta}(s),\ x_{-\beta}(t)] \cdot [x_{-\beta}(t),\ x_{\beta}(s)\cdot x_{\alpha + \beta}(N_{\alpha, \beta} \cdot s\xi)] = \\
- = {}^{x_\beta(s)}\![x_{-\beta}(t),\ x_{\alpha+\beta}(N_{\alpha, \beta} \cdot s\xi)] = x_{\alpha}(- st\xi) \cdot x_{\alpha+\beta}(N_{\alpha,\beta} \cdot s^2t\xi). \end{multline}
- 
-The second assertion follows directly from~\eqref{HW-variant} and Chevalley commutator identities:
-\begin{multline} \nonumber
-[[x_\beta(s),\ x_{-\beta}(t)],\ x_{\alpha}(\xi)] = \\
-= \left([x_\beta(-s),\ [x_{-\beta}(-t),\ x_{\alpha}(\xi)]] ^ {x_{-\beta}(-t)} \cdot [x_{-\beta}(t),\ [ x_{\alpha}(-\xi),\ x_\beta(-s)]] ^ {x_{\alpha}(-\xi)}\right)^{x_\beta(-s)} = \\
-= x_{\alpha}(-N_{\beta, \alpha-\beta} N_{\alpha,-\beta} \cdot s t \xi) ^ {x_{-\beta}(-t) \cdot x_\beta(-s)} = x_{\alpha}(s t \xi) ^ {x_{-\beta}(-t) \cdot x_\beta(-s)} = \\
-= x_{\alpha}(st\xi) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot st^2\xi)^{x_\beta(-s)} = x_{\alpha}(st\xi + s^2t^2 \xi) \cdot x_{\alpha-\beta}(N_{-\alpha,\beta}\cdot st^2\xi). \end{multline}
-
-Finally, the last assertion can be verified via the following direct computation:
+The first two assertions can be verified by direct calculation:
+\begin{align*} \nonumber [c_{\beta}(s, t),\ x_{\alpha}(\xi)] = [x_{\beta}(s),\ x_{-\beta}(t)] \cdot [x_{-\beta}(t),\ x_{\beta}(s)\cdot x_{\alpha + \beta}(N_{\alpha, \beta} \cdot s\xi)] &\text{ by~\eqref{Cdef}, \eqref{Chevalley-CCF1}, \eqref{Chevalley-CCF2}} \\
+ = {}^{x_\beta(s)}\![x_{-\beta}(t),\ x_{\alpha+\beta}(N_{\alpha, \beta} \cdot s\xi)] &\text{ by~\eqref{eq:H1ii-2}} \\ = x_{\alpha}(- st\xi) \cdot x_{\alpha+\beta}(N_{\alpha,\beta} \cdot s^2t\xi) &\text{ by~\eqref{Chevalley-CCF1};} \end{align*}
+\begin{align*} \nonumber
+\begin{split}[[x_\beta(s),\ x_{-\beta}(t)],\ x_{\alpha}(\xi)] = \bigl([x_\beta(-s),\ [x_{-\beta}(-t),\ x_{\alpha}(\xi)]] ^ {x_{-\beta}(-t)} \cdot \hspace{50pt} \\ \cdot [x_{-\beta}(t),\ [ x_{\alpha}(-\xi),\ x_\beta(-s)]] ^ {x_{\alpha}(-\xi)}\bigr)^{x_\beta(-s)} & \text{ by~\eqref{HW-variant}}\end{split} \\
+= x_{\alpha}(-N_{\beta, \alpha-\beta} N_{\alpha,-\beta} \cdot s t \xi) ^ {x_{-\beta}(-t) \cdot x_\beta(-s)} = x_{\alpha}(s t \xi) ^ {x_{-\beta}(-t) \cdot x_\beta(-s)} & \text{ by~\eqref{Chevalley-CCF1},\eqref{Chevalley-CCF2}}\\
+= x_{\alpha}(st\xi) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot st^2\xi)^{x_\beta(-s)} = x_{\alpha}(st\xi + s^2t^2 \xi) \cdot x_{\alpha-\beta}(N_{-\alpha,\beta}\cdot st^2\xi) & \text{ by~\eqref{Chevalley-CCF1}.} \end{align*}
+The assertion~\eqref{C3} is obvious. Finally, last assertion can be obtained as follows:
 \begin{align*}
 [x_{\alpha+\beta}(s),\ x_{-\alpha-\beta}(t\xi)] = [x_{\alpha+\beta}(s),\ [x_{-\alpha}(-\epsilon t),\ x_{-\beta}(\xi)]]&\ \text{by~\eqref{Chevalley-CCF1}}\\
 \begin{split}
@@ -469,6 +466,8 @@ Finally, the last assertion can be verified via the following direct computation
 = [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot [x_{-\alpha}(-\epsilon t),\ x_{\alpha}(\epsilon s\xi)] \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha-\beta}(t\xi)] &\ \text{by~\eqref{rel43}}\\
 = [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2)  &\ \text{by~\eqref{Chevalley-CCF1}}. \qedhere
 \end{align*}
+
+
 \end{proof}
 
 \subsection{Computation of the kernel of the map of evaluation at $0$.}\label{sec:computationOfK}
@@ -660,7 +659,7 @@ In the sequel we continue using letters $f$ and $\xi$ to denote elements of $M[X
 
 \begin{lemma}\label{P0_normal} The subgroup $\widetilde{P}_{\alpha, M}(0)$ is normal in $\widetilde{P}_{\alpha, M}(*)$. Moreover, there is a short exact sequence of groups, which is split by the map $m \mapsto x_{-\alpha}(mX)$ (we denote by $(M, +)$ the additive group of the ideal $M$):
 \[\xymatrix{1 \ar[r] & \widetilde{P}_{\alpha,M}(0) \ar[r] & \widetilde{P}_{\alpha,M}(*) \ar@{->>}[r]^{p_\alpha} & (M, +) \ar@<5pt>@{-->}[l] \ar[r] & 1}.\] \end{lemma}
-\begin{proof} We need to verify that the conjugate by $x_{-\alpha}(mX)$ to every generator $g$ of $\widetilde{P}_\alpha(0)$ listed in~\cref{defP0} belongs to $\widetilde{P}_\alpha(0)$.
+\begin{proof} We need to verify that the conjugate by $x_{-\alpha}(mX)$ of every generator $g$ of $\widetilde{P}_\alpha(0)$ listed in~\cref{defP0} belongs to $\widetilde{P}_\alpha(0)$.
 The assertion is obvious for the generators of type P3 and P4.
 
 Let $\beta\in\Phi$ be such that $\alpha - \beta \in \Phi$ and $g = z_\beta(Xf, \xi)$ be a generator of type P1. By~\cref{Zrels}\eqref{Z2} we get that \begin{equation} z_{\beta}(Xf, \xi) ^ {x_{-\alpha}(mX)} =  x_{-\alpha} (- mX^2f\xi) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mX^2f) \cdot z_{\beta}(Xf, \xi). \label{eq3-1} \end{equation}
