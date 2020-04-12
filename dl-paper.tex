@@ -1086,14 +1086,15 @@ We retain the notation of the previous section and assume additionally that the 
 This assumption allows us to consider the group $\St(\Phi, B)$ as a subgroup of $\St(\Phi, R)$.
 Being considered in this way, $\St(\Phi, B)$ contains the subgroup $\overline{G}^{\geq 0}_M$ of $\St(\Phi, R)$.
 This follows from a consideration of the following commutative diagram, in which the map $t$ is obtained from~\cref{lem:lemma32}:
-\[ \xymatrix{ \St(\Phi, A[X], M[X]) \ar[d] \ar[r] & \St(\Phi, R, I) \ar[r]^(.65){t} & \St(\Phi, B) \ar[d]^{j_R} \\
+\[ \xymatrix{ \St(\Phi, A[X], M[X]) \ar[d] \ar[r] & \St(\Phi, R, I) \ar[r]^{t} & \St(\Phi, B) \ar[d]^{j_R} \\
    \St(\Phi, A[X]) \ar[rr]^{j_+} & & \St(\Phi, R). } \]
 
-\begin{lemma}\label{lem:action} For any $[p, h, u]\in \overline{V}_T$ and any $p_1 \in \overline{G}^{\geq 0}_M$ holds $p_1 \cdot [p, h, u] = [p_1p, h, u]$. \end{lemma}
-\begin{proof} First of all, notice that the assertion of the lemma can be verified directly in the case $p_1 = z_\alpha(f, a)$ for all $a\in A$, $f\in M[X]$. Using~\cref{lem:Smult} and the fact that $x_\beta(X^2f) \in P_\alpha(0)$ for all $\beta \in \Phi$ it is not hard to show that the assertion also holds for $p_1 = z_\alpha(X^2f, aX^{-1})$.
+\begin{lemma}\label{lem:action} For any $[p, h, u]\in \overline{V}_T$ and any $p_1 \in \overline{G}^{\geq 0}_M$ one has $p_1 \cdot [p, h, u] = [p_1p, h, u]$. \end{lemma}
+\begin{proof} 
+In view of~\cref{thm:Tits} it suffices to verify the assertion of the lemma for the generators $p_1 = z_\alpha(f, \xi)$ of $\overline{G}_M^{\geq 0}$ for all $f \in M[X]$, $\xi\in A[X]$, $\alpha \in \Phi$. We accomplish this by induction on the degree of $\xi$ in $X$. 
 
-It suffices to verify the assertion of the lemma for the generators $p_1 = z_\alpha(f, \xi)$ of $\overline{G}_M^{\geq 0}$ for all $f \in M[X]$, $\xi\in A[X]$, $\alpha \in \Phi$. We accomplish this by 
-induction on the degree of $\xi$ in $X$. The base of induction is clear.
+First of all, notice that the base case $\xi = a \in A$ can be verified by direct computation involving~\eqref{eq:VVT} and~\eqref{T_leq0}.
+Using~\cref{lem:Smult} and the fact that $x_\beta(X^2f) \in P_\alpha(0)$ for all $\beta \in \Phi$ it is not hard to show that the assertion also holds for $p_1 = z_\alpha(X^2f, aX^{-1})$.
 
 Suppose that the assertion holds for all $p_1 = z_\alpha(f, \xi)$ for which $\xi$ has degree $\leq n$.
 Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ into~\eqref{Z5} we obtain the following equality in $\St(\Phi, B)$:
@@ -1108,22 +1109,6 @@ Although we will not need this for our main result, it can be noted that $\overl
 The transitivity follows from~\cref{lem:action}, the first property of~\cref{prop43} and the following formula, which is a direct consequence of~\cref{lem:Tulenbaev-formula} and~\eqref{T_1}--\eqref{T_leq0}:
 \begin{equation*} \langle a, m \rangle^{-1} \cdot \langle aX^{-1}, mX \rangle \cdot [1, 1, 1] = [1, 1, 1+am]. \end{equation*} \end{rem}
 
-\begin{comment}
-\begin{equation} \label{T_2} t_\alpha(aX^{-1}) (g, h, u) = \left[ x_\alpha(aX^{-1})\cdot g \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \{ X, 1+am \} ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right) h ,\ u \cdot (1 + am)\right].\end{equation}
-
-\begin{multline*}
- t_\alpha(aX^{-1}) (x_{-\alpha}(mX), 1, 1) = \left[ x_\alpha(aX^{-1})\cdot x_{-\alpha}(mX) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \{ X, 1+am \} ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right),\  (1 + am)\right] = \\
- = \left[ x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) ,\ x_\alpha\left(\tfrac{aX^{-1}}{1 + am}\right),\  (1 + am)\right]
-\end{multline*}
-
-This implies that 
-\begin{multline*} x_{\alpha}\left(\tfrac{-aX^{-1}}{1+am}\right) \cdot h_\alpha(1+am)^{-1} \cdot \langle a, m \rangle^{-1} \cdot x_{-\alpha}\left(\tfrac{-mX}{1+am}\right) x_\alpha(aX^{-1}) \cdot x_{-\alpha}(mX) [1, 1, 1] = [1, 1, 1+am]
-\end{multline*}
-
-\begin{equation} \langle a,m \rangle _ \alpha = x_{-\alpha}\left(\tfrac{- m}{1 + am}\right) \cdot x_{\alpha}(a) \cdot x_{-\alpha}(m) \cdot x_{\alpha}\left(\tfrac{- a}{1+am}\right) \cdot h_{\alpha}^{-1}(1 + am). \end{equation} 
-\begin{equation} \langle a,m \rangle _ \alpha ^{-1} =  h_{\alpha}(1 + am) \cdot x_{\alpha}\left(\tfrac{a}{1+am}\right) \cdot x_{-\alpha}(-m) \cdot x_{\alpha}(-a) \cdot x_{-\alpha}\left(\tfrac{m}{1 + am}\right). \end{equation} 
-\end{comment}
-
 \begin{externaltheorem} \label{thm:P1glueing}
  Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
  Suppose that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
@@ -1135,7 +1120,7 @@ This implies that
 \begin{proof} Since $j_- = j_R j_B^-$, where $j_B^-$ is as in~\cref{prop43}, it suffices to show that $j_B^-$ is injective.
  Set $v_0 = [1, 1, 1] \in \overline{V}_T$ and suppose $g \in \Ker(j_B^-)$.
  By~\cref{prop43} holds $v_0 = j_B^-(g) \cdot v_0 = [1, g, 1]$, therefore by the definition of $\overline{V}_T$, $g = i_-(\gamma)$ for some $\gamma \in G_M^0$ such that $j_+i_+(\gamma) = 1$.
- Since $j_+i_+$ is injective, we conclude that $g = 1$.
+ Notice that $j_+i_+$ is split by the evaluation homomorphism $ev_{X=a}^*$, $a\neq 0$ and therefore is injective. Thus, we conclude that $g = 1$.
  
  Now suppose $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_B^-(g_-) = j_+(g_+)$.
  From~\cref{field-injectivity} it follows that the image of $j_+(g_+) = j_-(g_-)$ in $\St(\Phi, k[X, X\inv])$ belongs to $\St(\Phi, k)$ and therefore coincides with the image in $\St(\Phi, k)$ of some $g_0 \in \St(\Phi, A)$.
