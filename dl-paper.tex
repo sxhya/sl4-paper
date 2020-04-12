@@ -995,7 +995,7 @@ where $g' = x_\beta(-b) \cdot x_\alpha(-aX^{-1}) \cdot g$, $h' = h \cdot x_{\alp
 
 Notice that by~\eqref{eq:conj-h-x} $[h'] = [h'']$, where $h'' = h \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot x_\beta(b_0).$
 From~\cref{P0-conj-invariant} and \cref{SR:additivity} we obtain that
-\begin{multline*} p(g',h'',u(1-am)) = x_{\beta}(-Xf) \cdot \left(S_\alpha(a, p(g,h,u)) \cdot h_{\alpha}^{-1}(1-am)\right)^{x_\beta(b_0)} \in \\ \in x_{\beta}(-Xf) \cdot P_\alpha(\tfrac{m}{1-am})^{x_\beta(b_0)} \subseteq P_\alpha(\tfrac{m}{1-am}).\end{multline*}
+\begin{multline*} p(g',h'',u(1-am)) = x_{\beta}(-Xf) \cdot \left(S_\alpha(-a, p(g,h,u)) \cdot h_{\alpha}^{-1}(1-am)\right)^{x_\beta(b_0)} \in \\ \in x_{\beta}(-Xf) \cdot P_\alpha(\tfrac{m}{1-am})^{x_\beta(b_0)} \subseteq P_\alpha(\tfrac{m}{1-am}).\end{multline*}
 Thus, we can invoke ~\eqref{T_1}--\eqref{T_leq0} once again and can continue~\eqref{R3leq0-computation} as follows:
 \begin{equation} \label{R3leq0-computation2} \ldots = \left( [x_\beta(b), x_{\alpha}(aX^{-1})] \cdot g, [h'' \cdot x_{\alpha}\left(-a(1-am)X^{-1}\right) \cdot x_{\beta}(-b_0)], u \right) = \left(g, [h], u\right), \end{equation}
 where in the last equality we use the following computation:
@@ -1022,9 +1022,9 @@ From~\eqref{T_1} we obtain that
  \end{multline}
 where $h' = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am').$
 Notice that by~\cref{SR:sharp}
-\[ p(x_\alpha(aX^{-1})\cdot g, h', u(1 + am)) = S_\alpha(p(g, h, u) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am') \in P_\beta(\tfrac{m'}{1+am}), \]
+\[ p\left(x_\alpha(aX^{-1})\cdot g, h', u(1 + am)\right) = S_\alpha(a, p(g, h, u)) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am') \in P_\beta(\tfrac{m'}{1+am}), \]
 therefore we can invoke~\eqref{T_1} once again and can continue~\eqref{R3_1_1-computation} as follows:
-\begin{equation}\label{R3_1_1-computation2} \ldots = \left(x_\beta(bX^{-1}) \cdot x_\alpha(aX^{-1}) \cdot g, \left[h' \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + \tfrac{bm'}{1+am}}\right)\right], u(1 + am + bm')\right). \end{equation}
+\begin{equation}\label{R3_1_1-computation2} \ldots = \left(x_\beta(bX^{-1}) \cdot x_\alpha(aX^{-1}) \cdot g,\ \left[h' \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + \tfrac{bm'}{1+am}}\right)\right],\ u(1 + am + bm')\right). \end{equation}
 The second component of the above triple can be simplified using~\eqref{eq:conj-h-x} as follows:
 \begin{multline*}
  \left[ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am') \cdot x_\beta\left(-\tfrac{bX^{-1}(1+am)}{1 + am + bm'}\right)\right] = \\
@@ -1039,19 +1039,26 @@ Thus, we see that the expression in the right-hand side of~\eqref{R3_1_1-computa
 \begin{proof} 
 Let $a, b \in A$ and $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$. Set $\epsilon = N_{\alpha, \beta},$ $c = 1 - \epsilon abm'$.
 
-As before, we may assume that \[p(g, h, u) \in j_+\left(K(A[X], M[X])\right) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m')\ttxt{ for some $m, m' \in M\].
+As before, we may assume that \[p(g, h, u) \in j_+\left(K(A[X], M[X])\right) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m')\text{ for some $m, m' \in M$.} \]
 
-Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain that 
-\begin{multline} \nonumber
+%Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain that 
+%
+From~\eqref{T_1}--\eqref{T_leq0} and~\eqref{eq:conj-h-x} we obtain that
+\begin{multline} \label{R2_0_1-computation}
 [T_\beta(b),\ T_\alpha(aX^{-1})] \left(g, [h], u \right) = \\
- = T_\beta(b) \cdot T_\alpha(aX^{-1}) \left(x_\beta(-b) \cdot x_\alpha (-a X^{-1})\cdot  g,\ [h'],\ u (1 - am) \right) = \\
- = \left([x_\beta(b),\ x_\alpha(aX^{-1})]\cdot g,\ [h''],\ u c\right) = T_{\alpha+\beta}(-\epsilon abX^{-1})(g,\ [h],\ u),\end{multline} 
- where $h' = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \cdot x_{\beta}(bc)$  
-  and the last equality is obtained as follows:
+= T_\beta(b) \cdot T_\alpha(aX^{-1}) \left(x_\beta(-b) \cdot x_\alpha (-a X^{-1})\cdot  g,\ [h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot x_{\beta}(b)],\ u (1 - am) \right) = \\
+= T_\beta(b) \cdot T_\alpha(aX^{-1}) \left(x_\beta(-b) \cdot x_\alpha (-a X^{-1})\cdot  g,\ [h'],\ u (1 - am) \right),
+ \end{multline} 
+ where $h' = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \cdot x_{\beta}(bc)$. Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain that
+\begin{multline*} p\left(x_\beta(-b) \cdot x_\alpha (-a X^{-1})\cdot  g,\ h',\ u (1 - am) \right) = \\ =
+ x_\beta(-b) \cdot S_\alpha(-a, p(g,h,u)) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \cdot x_{\beta}(bc) \in P_\alpha(\tfrac{m+\epsilon bm'}{1-am}). \end{multline*}
+Thus, we can continue~\eqref{R2_0_1-computation} using~\eqref{T_1}--\eqref{T_leq0}:
+\begin{equation} \label{R2_0_1-computation2} \ldots = \left([x_\beta(b),\ x_\alpha(aX^{-1})]\cdot g,\ [h''],\ uc\right) = T_{\alpha+\beta}(-\epsilon abX^{-1})(g,\ [h],\ u), \end{equation} where the last equality is obtained via~\eqref{eq:conj-h-x} as follows:
  \begin{multline} \nonumber
- h'' = h' \cdot x_\alpha\left(-\tfrac{a(1 - am)X^{-1}}{c}\right) \cdot x_\beta(-b) \sim \\ \sim  h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1})\cdot x_{\alpha + \beta}\left(\epsilon ab(1-am)X^{-1}\right)\cdot x_\alpha\left(-\tfrac{a(1 - am)X^{-1}}{c}\right) = \\
- = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot x_{\alpha + \beta}\left(\tfrac{\epsilon \cdot abX^{-1}}{c}\right)\cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 - am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \sim h\cdot x_{\alpha + \beta}\left(\tfrac{\epsilon   abX^{-1}}{1 - \epsilon a b m'}\right). \qedhere
+ [h''] = \left[ h' \cdot x_\alpha\left(-\tfrac{a(1 - am)X^{-1}}{c}\right) \cdot x_\beta(-b) \right] = \\ = \left[ h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1})\cdot x_{\alpha + \beta}\left(\epsilon ab(1-am)X^{-1}\right)\cdot x_\alpha\left(-\tfrac{a(1 - am)X^{-1}}{c}\right) \right] = \\
+ = \left[ h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot x_{\alpha + \beta}\left(\tfrac{\epsilon \cdot abX^{-1}}{c}\right)\cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 - am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \right]   = \\ = \left[ h\cdot x_{\alpha + \beta}\left(\tfrac{\epsilon   abX^{-1}}{1 - \epsilon a b m'}\right) \right].
 \end{multline}
+The assertion of the lemma now follows from~\eqref{R2_0_1-computation}--\eqref{R2_0_1-computation2}.
 \end{proof}
 
 Now we are ready to prove the main result of this subsection.
@@ -1060,7 +1067,7 @@ For $\Phi$ as in the statement of~\cref{lemma33} the operators $T_\alpha$ define
 
 This action satisfies the following additional properties.
 \begin{enumerate}
- \item For any $h_1 \in \St(\Phi, A[X\inv])$ holds $j_B^-(h_1) \cdot [1, h, u] = [1, h_1 h, u]$, where $j_B^-$ denotes the map $\St(\Phi, A[X\inv]) \to \St(\Phi, B)$ (we identify $\overline{V}$ with $\overline{V}_T$ using the isomorphism~\eqref{eq:VVT}).
+ \item For any $h_1 \in \St(\Phi, A[X\inv])$ one has $j_B^-(h_1) \cdot [1, h, u] = [1, h_1 h, u]$, where $j_B^-$ denotes the map $\St(\Phi, A[X\inv]) \to \St(\Phi, B)$ (we identify $\overline{V}$ with $\overline{V}_T$ using the isomorphism~\eqref{eq:VVT}).
  \item If we consider $\St(\Phi, A[X, X\inv])$ as a set with the left multiplication action of $\St(\Phi, B)$ then the map $\overline{V} \to \St(\Phi, A[X, X\inv])$ given by $(g, [h], u) \mapsto g$ is a map of $\St(\Phi, B)$-sets.
 \end{enumerate}
 \end{prop}
