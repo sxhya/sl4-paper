@@ -528,7 +528,7 @@ Throughout this section we use the following notations and conventions:
 \begin{itemize}
  \item $A$ denotes an arbitarary commutative ring and $M$ is an ideal of $A$. Starting from subsection~\ref{sec:Pa0-basic} we also assume that $A$ is local and $M$ is the maximal ideal of $A$.
  \item We denote by $R$ the Laurent polynomial ring $A[X, X^{-1}]$. We set $t = X^{-1}$, so that $R = A[X, X^{-1}] = A[t, t^{-1}]$.
- \item $B = B_{A, M}$ denotes the subring $A[t] + M[t^{-1}] = A[X^{-1}] + M[X]$ of $R$. Obviously, $B = A[t]$ in the case $M=0$ and $B = R$ in the case $M=A$.
+ \item $B = B_{A, M}$ denotes the subring $A[t] + M[t^{-1}] = A[X^{-1}] + M[X]$ of $R$.
  \item $I$ denotes the ideal $M[X, X^{-1}]$ of $R$. Notice that $I$ is also an ideal of $B$.
  \end{itemize}
 \subsection{Presentation of Steinberg groups by homogeneous generators}
@@ -950,11 +950,9 @@ Our next goal is to define for $a + Xf \in A + XM[X]$ the operator $T_\alpha(a +
 Let $(g, h, u)$ be an element of $V$. We define the value of $T_\alpha(a + Xf)$ on $(g, h, u)$ via the following identity:
 \begin{equation} \label{T_leq0} T_\alpha(a + Xf) \cdot (g, h, u) = (x_\alpha(a + Xf) \cdot g, h \cdot x_{\alpha}(-a), u).  \end{equation}
 Notice that $p(T_\alpha(a + Xf) \cdot (g, h, u)) = x_\alpha(Xf) \cdot {}^{x_\alpha(a)}p(g, h, u) \in \overline{G}_M^{\geq 0},$ therefore
- the right-hand side of~\eqref{T_leq0} lies in $V$. Finally, the fact that~\eqref{T_leq0} gives rise to a well-defined map $\overline{V} \to \overline{V}$ follows
-  from the following identity:
-\[T_\alpha(a + Xf) \cdot ((g, h, u) \cdot h_0) = (T_\alpha(a + Xf) \cdot (g, h, u)) \cdot {}^{x_{\alpha}(a)}\!h_0.\]  
-
-It is easy to see that the expression in the right-hand side of~\eqref{T_leq0} does not depend on the choice of the representative for $h$.
+ the right-hand side of~\eqref{T_leq0} lies in $V$. Notice that for $h_0 \in G^0_M$ one has
+\[T_\alpha(a + Xf) \cdot ((g, h, u) \cdot h_0) = (T_\alpha(a + Xf) \cdot (g, h, u)) \cdot {}^{x_{\alpha}(a)}\!h_0,\]  
+therefore~\eqref{T_leq0}, indeed, gives rise to a well-defined map $\overline{V} \to \overline{V}$.
 
 Thus far we have specified the action of the generators of the "truncated'' Steinberg group $\St^{\leq 1}(\Phi, B)$ from~\cref{sec:presentation} on $\overline{V}$ using formulae~\eqref{T_1} and~\eqref{T_leq0}. We need to verify that this action respects the defining relations of the group $\St^{\leq 1}(\Phi, B)$ (notice that $\leq 1$ here stands for the degree of relations with respect to $t = X^{-1}$). This is accomplished in the series of lemmas below.
 
@@ -969,7 +967,7 @@ Thus far we have specified the action of the generators of the "truncated'' Stei
   T_\alpha(bX^{-1}) \cdot T_\alpha(aX^{-1}) (g, [h], u) = T_\alpha(bX^{-1}) \cdot \left(x_\alpha(aX^{-1})\cdot g ,\ \left[ h' \right],\ u \cdot (1 + am)\right),
  \end{equation}
  where $h' = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right)$.
- Notice that we can not naively invoke~\eqref{T_1} for the second time because the value of the function $p$ on the triple $(x_\alpha(aX^{-1})\cdot g ,\ h',\ u \cdot (1 + am))$ does not belong to $P_\alpha(*)$.
+ Notice that we can not invoke~\eqref{T_1} for the second time because the value of the function $p$ on the triple $(x_\alpha(aX^{-1})\cdot g ,\ h',\ u \cdot (1 + am))$ does not belong to $P_\alpha(*)$.
  
  However, it is very easy to fix this. Indeed, we are free to replace $[h]$ with $[h \cdot h_0]$ for any $h_0 \in G_M^0$, so in~\eqref{add-computation} we
   can replace $h'$ with $h'' = h' \cdot h^{-1}_\alpha(1+am)$. Now from~\cref{SR:additivity} we obtain that
@@ -999,47 +997,50 @@ Notice that by~\eqref{eq:conj-h-x} $[h'] = [h'']$, where $h'' = h \cdot x_{\alph
 From~\cref{P0-conj-invariant} and \cref{SR:additivity} we obtain that
 \begin{multline*} p(g',h'',u(1-am)) = x_{\beta}(-Xf) \cdot \left(S_\alpha(a, p(g,h,u)) \cdot h_{\alpha}^{-1}(1-am)\right)^{x_\beta(b_0)} \in \\ \in x_{\beta}(-Xf) \cdot P_\alpha(\tfrac{m}{1-am})^{x_\beta(b_0)} \subseteq P_\alpha(\tfrac{m}{1-am}).\end{multline*}
 Thus, we can invoke ~\eqref{T_1}--\eqref{T_leq0} once again and can continue~\eqref{R3leq0-computation} as follows:
-\begin{equation*} \ldots = \left( [x_\beta(b), x_{\alpha}(aX^{-1})] \cdot g, [h'' \cdot x_{\alpha}\left(-a(1-am)X^{-1}\right) \cdot x_{\beta}(-b_0)], u \right) = \left(g, [h], u\right), \end{equation*}
+\begin{equation} \label{R3leq0-computation2} \ldots = \left( [x_\beta(b), x_{\alpha}(aX^{-1})] \cdot g, [h'' \cdot x_{\alpha}\left(-a(1-am)X^{-1}\right) \cdot x_{\beta}(-b_0)], u \right) = \left(g, [h], u\right), \end{equation}
 where in the last equality we use the following computation:
 \begin{equation} \nonumber
  h'' \cdot x_{\alpha}\left(-a(1-am)X^{-1}\right) \cdot x_{\beta}(-b_0) = h \cdot h_\alpha^{-1}(1-am) \cdot \left[x_\alpha\left(a(1-am)X^{-1}\right),\ x_\beta(b_0)\right] = h \cdot h_\alpha^{-1}(1-am). \end{equation}
-\end{proof}
+The assertion of the lemma now follows from~\eqref{R3leq0-computation}--\eqref{R3leq0-computation2}. \end{proof}
 
 \begin{lemma} \label{R3_leqm1_1} The operators $T_\alpha$ satisfy Steinberg relations of type $\mathrm{R2}_{d, 1}$ for $d \leq -1$ . \end{lemma}
-\begin{proof} We need to show that for $a\in A$, $f \in M[X]$ and $\alpha, \beta \in \Phi$ forming an obtuse angle one has 
- \[ [T_\beta(Xf),\ T_\alpha(aX^{-1})] (g, [h], u) = \left(x_{\alpha+\beta}(N_{\beta,\alpha} \cdot af) \cdot g, [h], u\right) = T_{\alpha+\beta}(N_{\beta, \alpha} \cdot af) (g, [h], u). \]
-
-As before, we may assume that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
-Since $x_\beta(Xf)$ belongs to $P_\alpha(0)$ we obtain from~\cref{SR:additivity} that:
+\begin{proof} Let $a \in A$, $f \in M[X]$ and $\alpha$, $\beta$ be a pair of roots forming an obtuse angle. As before, we may assume that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
+From~\eqref{T_1}--\eqref{T_leq0} and the fact that $x_\beta(Xf) \in P_\alpha(0)$ we obtain that
 \begin{multline} \nonumber [T_\beta(Xf),\ T_\alpha(aX^{-1})] \left(g,\ [h],\ u\right) = \\ 
-= T_\beta(Xf) \cdot T_\alpha(aX^{-1}) \left(x_{\beta}(-Xf) \cdot x_\alpha(-aX^{-1})\cdot g,\ \left[h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 - am}\right) \cdot h^{-1}_\alpha(1-am)\right],\ u(1-am)\right) = \\ = \left([x_\beta(Xf),\ x_\alpha(aX^{-1})] \cdot g,\ \left[h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 + \tfrac{am}{1-am}}\right)\right],\ u \right) = \\ = (x_{\alpha+\beta}(N_{\beta,\alpha} \cdot af) \cdot g,\ [h],\ u). \qedhere \end{multline} \end{proof}
+= T_\beta(Xf) \cdot T_\alpha(aX^{-1}) \left(x_{\beta}(-Xf) \cdot x_\alpha(-aX^{-1})\cdot g,\ \left[h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 - am}\right) \cdot h^{-1}_\alpha(1-am)\right],\ u(1-am)\right) = \\ = \left([x_\beta(Xf),\ x_\alpha(aX^{-1})] \cdot g,\ \left[h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 + \tfrac{am}{1-am}}\right)\right],\ u \right) = \\ = (x_{\alpha+\beta}(N_{\beta,\alpha} \cdot af) \cdot g,\ [h],\ u) = T_{\alpha+\beta}(N_{\beta, \alpha} \cdot af) (g, [h], u). \end{multline}
+
+As in the proof of Lemmas~\ref{R1_d}--\ref{R3_leq0_1}, in the above computation we had to add the factor $h_\alpha^{-1}(1-am)$ to the second triple, so that we could pass from the second line to the third one (again, we need to invoke \cref{SR:additivity} to check that the value of $p$ on the second triple lies in the coset $P_\alpha(\tfrac{m}{1-am})$). \end{proof}
 
 \begin{lemma} \label{R3_1_1} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations $\mathrm{R3}_{1,1}^{\angle}$. \end{lemma}
 \begin{proof}
-Let $\alpha, \beta$ be a pair of roots such that $\alpha$ and $\beta$ form a sharp angle.
-From~\cref{K-a-b-cor} and the proof of the first part of~\cref{lem:orbit-action} it follows that \[p(g, h, u) \in j_+\left(K(A[X], M[X])\right) \cap P_\alpha(m) \cap P_{\beta}(m')\text{ for some }m,m' \in M.\]
-Set $\epsilon = N_{\alpha,-\beta}$. Applying~\cref{SR:sharp} we obtain that
-\begin{multline} \nonumber
- T_\beta(bX^{-1}) \cdot T_\alpha(aX^{-1}) \left(g, [h], u\right) = 
- T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ \left[h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right)\right],\ u(1 + am)\right) = \\ 
- = T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ \left[h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am')\right],\ u(1 + am)\right) = \\
- = (x_\beta(bX^{-1}) \cdot x_\alpha(aX^{-1}) \cdot g, [h'], u(1 + am + bm')), \end{multline}
-where 
-\begin{multline} \nonumber
- h' = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am') \cdot x_\beta\left(-\tfrac{bX^{-1}(1+am)}{1 + am + bm'}\right) \sim \\
-    \sim h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha}\left(\tfrac{m'abX^{-1}(1+am)}{1 + am + bm'}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}(1+am)}{1 + am + bm'}\right) = \\
- = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am} + \tfrac{m'abX^{-1}}{(1+am)(1 + am + bm')}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right) \cdot h^{-1}_\alpha(1 + am) \sim \\
- \sim h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am + bm'}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right).
-\end{multline}
-In the last calculation notation $h \sim h'$ means that $h$ and $h'$ lie in the same left $G_M^0$-coset.
-If we swap $(a,\alpha,m)$ with $(b,\beta,m')$, the expressions in the right-hand sides of the above formulae will remain unchanged. This implies the required assertion.
+Let $a, b \in A$ and $\alpha$, $\beta$ be a pair of roots forming a sharp angle. Set $\epsilon = N_{\alpha,-\beta}$. From~\cref{K-a-b} and the proof of the first part of~\cref{lem:orbit-action} it follows that \[p(g, h, u) \in j_+\left(K(A[X], M[X])\right) \cap P_\alpha(m) \cap P_{\beta}(m')\text{ for some }m,m' \in M.\]
+From~\eqref{T_1} we obtain that
+\begin{multline} \label{R3_1_1-computation}
+ T_\beta(bX^{-1}) \cdot T_\alpha(aX^{-1}) \left(g, [h], u\right) = \\
+ = T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ \left[h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right)\right],\ u(1 + am)\right) = \\ 
+ = T_\beta(bX^{-1}) \left(x_\alpha(aX^{-1})\cdot g,\ \left[h'\right],\ u(1 + am)\right),
+ \end{multline}
+where $h' = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am').$
+Notice that by~\cref{SR:sharp}
+\[ p(x_\alpha(aX^{-1})\cdot g, h', u(1 + am)) = S_\alpha(p(g, h, u) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am') \in P_\beta(\tfrac{m'}{1+am}), \]
+therefore we can invoke~\eqref{T_1} once again and can continue~\eqref{R3_1_1-computation} as follows:
+\begin{equation}\label{R3_1_1-computation2} \ldots = \left(x_\beta(bX^{-1}) \cdot x_\alpha(aX^{-1}) \cdot g, \left[h' \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + \tfrac{bm'}{1+am}}\right)\right], u(1 + am + bm')\right). \end{equation}
+The second component of the above triple can be simplified using~\eqref{eq:conj-h-x} as follows:
+\begin{multline*}
+ \left[ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-\epsilon am') \cdot x_\beta\left(-\tfrac{bX^{-1}(1+am)}{1 + am + bm'}\right)\right] = \\
+ = \left[ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot h^{-1}_\alpha(1 + am) \cdot x_{\alpha}\left(\tfrac{m'abX^{-1}(1+am)}{1 + am + bm'}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}(1+am)}{1 + am + bm'}\right)\right] = \\
+ = \left[ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am} + \tfrac{m'abX^{-1}}{(1+am)(1 + am + bm')}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right) \cdot h^{-1}_\alpha(1 + am)\right] = \\
+ = \left[ h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am + bm'}\right) \cdot x_\beta\left(-\tfrac{bX^{-1}}{1 + am + bm'}\right)\right].
+\end{multline*}
+Thus, we see that the expression in the right-hand side of~\eqref{R3_1_1-computation2} would remain unchanged if we swapped $(a,\alpha,m)$ with $(b,\beta,m')$. This implies the required assertion.
 \end{proof}
 
 \begin{lemma} \label{R2_0_1} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations $\mathrm{R2}_{0,1}$. \end{lemma}
 \begin{proof} 
-Let $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$.
-As before, we may assume $p(g, h, u) \in j_+\left(K(A[X], M[X])\right) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m')$ for some $m, m' \in M$.
-Now for $a, b \in A$ set $\epsilon = N_{\alpha, \beta},$ $c = 1 - \epsilon abm'$.
+Let $a, b \in A$ and $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$. Set $\epsilon = N_{\alpha, \beta},$ $c = 1 - \epsilon abm'$.
+
+As before, we may assume that \[p(g, h, u) \in j_+\left(K(A[X], M[X])\right) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m')\ttxt{ for some $m, m' \in M\].
+
 Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain that 
 \begin{multline} \nonumber
 [T_\beta(b),\ T_\alpha(aX^{-1})] \left(g, [h], u \right) = \\
