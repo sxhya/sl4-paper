@@ -78,7 +78,7 @@ Recall that the classical Serre problem on projective modules asks if any projec
 
 After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_1(n, R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_1(n, k[x_1, \ldots x_n]) = \K_1(n, k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on an arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ over a field (see~\cite[Theorem~1.2]{St-poly}) and also generalized Abe's result to Dedekind domains of arithmetic type (see~\cite[Corollary~1.2]{St-Ded}).
 
-Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the {\it simply-connected Chevalley group} $\GG(\Phi, R)$ (see e.\,g.~\cite[\S~3]{St71} or~\cite{VP}) and the {\it Steinberg group} $\St(\Phi, R)$ (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined map $\pi \colon \St(\Phi, R) \to \GG(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this map are, by definition, the $\K_1(\Phi, R)$ and $\K_2(\Phi, R)$-functors modeled on the Chevalley group $\GG(\Phi, -)$, see~\cite{St78}.
+Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the {\it simply-connected Chevalley group} $\GG(\Phi, R)$ (see e.\,g.~\cite[\S~3]{St71} or~\cite{VP}) and the {\it Steinberg group} $\St(\Phi, R)$ (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined homomorphism $\pi \colon \St(\Phi, R) \to \GG(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this homomorphism (denoted $\K_1(\Phi, R)$ and $\K_2(\Phi, R)$, respectively) are, by definition, the values of the so-called $\mathrm{K}_1$ and $\mathrm{K_2}$-functors modeled on the Chevalley group $\GG(\Phi, -)$, see~\cite{St78}.
 
 It turns out that an assertion similar to the Serre problem also holds for the functor $\K_2$. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrated an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^\mathrm{M}_2(k)$ follows for $\ell \geq 4$. Notice that $\K_2(\rA_\ell, R)$ here is just another notation for the unstable linear functor $\K_2(\ell+1, R)$.
 
@@ -87,7 +87,7 @@ While numerous results on the $\K_1$-analogue of Serre's problem have appeared i
 In~\cite{LS17} the authors have shown that the Steinberg groups $\St(\Phi, R)$ satisfy the Quillen--Suslin local-global principle provided $\Phi$ is simply-laced and has rank $\geq 3$. This result is one of the ingredients needed in the proof of the $\K_2$-analogue of the Serre problem for Chevalley groups. The aim of the present article is to make yet another step towards the solution of the problem, namely to prove an analogue of Horrocks theorem~\cite{Ho64} for Steinberg groups of type $\rD_\ell$.
 
 Our main result is, thus, the following theorem, which is the orthogonal analogue of~\cite[Theorem~5.1]{Tu83} and the $\K_2$-analogue of~\cite[Theorem~6.8]{Su82} (cf. also with~\cite[Theorem~VI.5.2]{Lam10} and~\cite[Theorem~1.1]{St-poly}).
-\begin{theorem}[Horrocks theorem for orthogonal $\K_2$]\label{thm:main} Let $A$ be a commutative ring in which $2$ is invertible. Then for any $\ell \geq 7$ the following commutative square is a pullback square in which all maps are injective:
+\begin{theorem}[Horrocks theorem for orthogonal $\K_2$]\label{thm:main} Let $A$ be a commutative ring in which $2$ is invertible. Then for any $\ell \geq 7$ the following commutative square is a pullback square in which all homomorphisms are injective:
 \begin{equation} \nonumber
   \xymatrix{ \KO_2(2\ell, A) \ar[r] \ar[d] & \KO_2(2\ell, A[X]) \ar[d] \\ \KO_2(2\ell, A[X\inv]) \ar[r] & \KO_2(2\ell, A[X, X\inv]).}  
 \end{equation} 
@@ -96,9 +96,9 @@ In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $\K_2$-
 
 The proof of~\cref{thm:main} goes as follows. We notice that it suffices to prove the $\St(\rD_\ell, -)$-variant of the theorem. Moreover, the proof of the injectivity of
 $j_+ \colon \St(\rD_\ell, A[X]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to be the hardest part. After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local.
-Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_+$ comes down to proving injectivity of the following two maps:
+Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_+$ comes down to proving injectivity of the following two homomorphisms:
 \[ \xymatrix{ \St(\rD_\ell, A[X^{-1}]) \ar[r] & \St(\rD_\ell, A[X\inv] + M[X]) \ar[r] & \St(\rD_\ell, A[X, X\inv]). }\]
-The injectivity of the second map is obtained in~\cref{thm41}. This is the only place in our proof which invokes the assumption that $2$ is invertible. The proof of~\cref{thm41} depends on the stability theorem for higher orthogonal K-groups and also on certain basic calculations with Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). Finally, the injectivity of the first map is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ containing a subsystem of type $\rA_4$.
+The injectivity of the second homomorphism is obtained in~\cref{thm41}. This is the only place in our proof which invokes the assumption that $2$ is invertible. The proof of~\cref{thm41} depends on the stability theorem for higher orthogonal K-groups and also on certain basic calculations with Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). Finally, the injectivity of the first homomorphism is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ containing a subsystem of type $\rA_4$.
 %$\rD_\ell$, $\ell=5,6$ and also $\rE_\ell$, $\ell=6,7,8$.
 
 \subsection{Acknowledgements} 
@@ -202,7 +202,7 @@ It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\r
 in which the first two isomorphisms are obtained from~\eqref{GW-concrete} and~\cref{bass-ft} and the last one follows from the isomorphism $\GW_1^1(k) \cong \K_1^\mathrm{MW}(k)$ of~\cite[Lemma~4.1.1]{AF17} and Matsumoto's theorem. 
 Thus, we see that in the stable range the result of Morita and Rehmann agrees with the modern literature on higher Grothendieck--Witt groups. \end{rem}
 
-\begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the map $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of the images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
+\begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the homomorphism $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of the images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
 \begin{proof} The first assertion follows from the commutative diagram
 \[\xymatrix{ & \K_2(\Phi, k) \ar[dl]_{\cong} \ar@{^{(}->}[dr] & \\
                \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}])} \]
@@ -215,14 +215,14 @@ Clearly, the image of $g$ in $\GG(\Phi, k[X, X\inv])$ lies in $\GG(\Phi, k)$, th
 \subsection{Relative Steinberg groups and unstable K-groups} \label{sec:quillen}
 In this subsection we recall the definitions and basic facts pertaining to the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. The main goal of this subsection is to show that Loday's theory can be applied to unstable Steinberg groups, and that the resulting relative unstable Steinberg groups have many of the properties of their stable counterparts. Some of the results of this subsection have been briefly mentioned in~\cite{S15} (cf. e.\,g. Corollaries 3--4).
 
-Recall that the category of (commutative) pairs $\catname{Pairs}$ is defined as follows. Its objects are pairs $(R, I)$, in which $R$ is a commutative ring with $1$ and $I$ is a (not neccessarily proper) ideal of $R$. A morphism of pairs $f \colon (R, I) \to (R', I')$ is, by definition, a unit-preserving ring map $f \colon R \to R'$ such that $f(I) \subseteq I'$. Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ to the morphism category $\catname{CRings}^\rightarrow$.
+Recall that the category of (commutative) pairs $\catname{Pairs}$ is defined as follows. Its objects are pairs $(R, I)$, in which $R$ is a commutative ring with $1$ and $I$ is a (not neccessarily proper) ideal of $R$. A morphism of pairs $f \colon (R, I) \to (R', I')$ is, by definition, a (unit-preserving) ring homomorphism $f \colon R \to R'$ such that $f(I) \subseteq I'$. Notice that the mapping $(R, I) \mapsto (R \to R/I)$ defines a functor from $\catname{Pairs}$ to the morphism category $\catname{CRings}^\rightarrow$.
 If $(R, I)$ is such that $R$ is a local ring with maximal ideal $I$, we call such pair a {\it local pair}.
 
 There is an obvious fully faithful embedding $\catname{CRings} \to \catname{Pairs}$ sending $R$ to $(R, R)$. For a given functor $S \colon \catname{CRings} \to \catname{Groups}$ a {\it relativization} of $S$ is any functor $\widetilde{S} \colon \catname{Pairs} \to \catname{Groups}$ extending $S$ in the obvious sense. Relativization of a functor is not unique.
 
 Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definition, the pullback ring $R \times_{R/I} R$. In other words, it is the ring consisting of pairs of elements of $R$ congruent modulo $I$. Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\xymatrix{D_{R,I} \ar@<1pt>[r] \ar@<-2.5pt>[r] & \ar@<-4pt>[l] R}$. It is clear that $p_0 \Delta = p_1 \Delta = id_{R}$.
 
-Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor. Set $G_i = \Ker(S(p_i))$ and define {\it Loday's relativization} $S(R, I)$ as $ G_0 / [G_0, G_1]$. The map $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. We denote this map by $\mu = \mu_{R,I}$ and its kernel by $C_S(R, I)$: \begin{equation} \label{LodayRelativization} \xymatrix{ 1 \ar[r] & C_S(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1.} \end{equation}
+Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor. Set $G_i = \Ker(S(p_i))$ and define {\it Loday's relativization} $S(R, I)$ as $ G_0 / [G_0, G_1]$. The homomorphism $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. We denote this map by $\mu = \mu_{R,I}$ and its kernel by $C_S(R, I)$: \begin{equation} \label{LodayRelativization} \xymatrix{ 1 \ar[r] & C_S(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1.} \end{equation}
 
 \begin{df} By definition, the {\it relative Steinberg group} $\St(\Phi, R, I)$ is the result of application of Loday's relativization to the functor $\St(\Phi, -)$. Notice that $\St(\Phi, R, I)$ is not a subgroup of $\St(\Phi, R)$ but a central extension of a subgroup of $\St(\Phi, R)$ by the abelian group $C_{\St(\Phi, -)}(R, I)$. For shortness we rename the latter group to $C(\Phi, R, I)$. \end{df}
 
@@ -257,22 +257,22 @@ For the rest of this subsection $S \xrightarrow{\pi} P \subseteq G$ is a triple 
  \item \label{req:left-exact} $G(D_{R, I}) \cong G(R) \times_{G(R/I)} G(R)$.
  \item \label{req:coeq} For every pair $(R, I)$ the coequalizer of $S(p_0), S(p_1)$ is precisely $S(R) \to S(R/I)$.
  \item \label{req:subfunc} $P(R)$ is a perfect normal subgroup of $G(R)$.
- \item \label{req:uce} The map $ \pi_R \colon S(R) \to P(R)$ is a universal central extension for all $R$. In particular, $\HH_1(S(R), \ZZ) = \HH_2(S(R), \ZZ) = 0$.
+ \item \label{req:uce} The homomorphism $ \pi_R \colon S(R) \to P(R)$ is a universal central extension for all $R$. In particular, $\HH_1(S(R), \ZZ) = \HH_2(S(R), \ZZ) = 0$.
 \end{enumerate}
 
 \begin{lemma}\label{lem:relativeH3}
- For every pair $(R, I)$ the map $\mu \colon S(R, I) \to S(R)$ is a universal relative central extension of $\nu \colon S(R) \to S(R/I)$. The group $C_S(R, I)$ is naturally isomorphic to the relative homology group $\HH_3(S(R/I), S(R); \ZZ)$.
+ For every pair $(R, I)$ the homomorphism $\mu \colon S(R, I) \to S(R)$ is a universal relative central extension of $\nu \colon S(R) \to S(R/I)$. The group $C_S(R, I)$ is naturally isomorphic to the relative homology group $\HH_3(S(R/I), S(R); \ZZ)$.
 \end{lemma}
 \begin{proof}
 The action of $S(R)$ on $S(D_{R, I})$ given by ${}^g h = S(\Delta)(g) \cdot h \cdot S(\Delta)(g)^{-1}$ induces an action of $S(R)$ on $S(R, I)$.
-The map $\mu \colon S(R, I) \to S(R)$ from~\eqref{LodayRelativization} is an $S(R)$-map with respect to this action.
+The homomorphism $\mu \colon S(R, I) \to S(R)$ from~\eqref{LodayRelativization} is an $S(R)$-homomorphism with respect to this action.
 From~\ref{req:left-exact} and $\pi(G_i) \subseteq \Ker(G(p_i))$ we obtain that 
-$G_0 \cap G_1 \subseteq \Ker(\pi_{D_{R, I}})$ hence it is a central subgroup of $S(D_{R,I})$ by~\ref{req:uce}. Thus, we have verified the assumptions of~\cite[Proposition~6]{Lo78} which asserts that the map $\mu$ is a universal relative central extension of the coequalizer $\nu = \mathrm{coeq}(d_0, d_1)$. Since $\nu$ coincides with $S(R) \to S(R/I)$ by~\ref{req:coeq}, we have completed the proof of the first assertion of the lemma.
+$G_0 \cap G_1 \subseteq \Ker(\pi_{D_{R, I}})$ hence it is a central subgroup of $S(D_{R,I})$ by~\ref{req:uce}. Thus, we have verified the assumptions of~\cite[Proposition~6]{Lo78} which asserts that the homomorphism $\mu$ is a universal relative central extension of the coequalizer $\nu = \mathrm{coeq}(d_0, d_1)$. Since $\nu$ coincides with $S(R) \to S(R/I)$ by~\ref{req:coeq}, we have completed the proof of the first assertion of the lemma.
 
-Set $N = S(R)$, $Q = S(R/I)$, $C = \HH_3(Q, N; \ZZ)$. Recall from the proof of~\cite[Th{\'e}or{\`e}me~2]{Lo78} that to every relative central extension $(M, \mu)$ of $\nu$ with kernel $L$ one can associate a map of abelian groups $C \to L$. This map is obtained from the characteristic class $\xi(M, \mu)$ via the isomorphism $\HH^3(Q, N; L) \cong \mathrm{Hom}(C, L)$ of the universal coefficients theorem for cohomology (for this isomorphism we need the vanishing of $\HH_2(Q, N; \ZZ)$, which is a consequence of~\ref{req:uce}).
+Set $N = S(R)$, $Q = S(R/I)$, $C = \HH_3(Q, N; \ZZ)$. Recall from the proof of~\cite[Th{\'e}or{\`e}me~2]{Lo78} that to every relative central extension $(M, \mu)$ of $\nu$ with kernel $L$ one can associate a homomorphism of abelian groups $C \to L$. This homomorphism is obtained from the characteristic class $\xi(M, \mu)$ via the isomorphism $\HH^3(Q, N; L) \cong \mathrm{Hom}(C, L)$ of the universal coefficients theorem for cohomology (for this isomorphism we need the vanishing of $\HH_2(Q, N; \ZZ)$, which is a consequence of~\ref{req:uce}).
 
-In the special case $M = S(R, I)$ this construction produces a map $C \to C_{S}(R, I)$ whose naturality in $(R, I)$ follows from~\cite[Proposition~3]{Lo78}. 
-This map is an isomorphism by~\cite[Th{\'e}or{\`e}me~2]{Lo78}. \end{proof}
+In the special case $M = S(R, I)$ this construction produces a homomorphism $C \to C_{S}(R, I)$ whose naturality in $(R, I)$ follows from~\cite[Proposition~3]{Lo78}. 
+This homomorphism is an isomorphism by~\cite[Th{\'e}or{\`e}me~2]{Lo78}. \end{proof}
 
 We retain our notation for the functors $S, P$ and $G$.
 For $i\geq 1$ we define the unstable Quillen K-functors $\K_{i}^{G, P}$ via
@@ -321,30 +321,30 @@ We will need only the special case $k=0$ of the above theorem, in which case it 
 
 For the rest of this section let us fix the following notation.
 Let $A$ be an arbitrary commutative local ring with maximal ideal $M$ and residue field $k$.
-Denote by $B = B_{A, M}$ the subring $A[X^{-1}] + M[X]$ of the ring $R = A[X, X^{-1}]$ and
+Denote by $B$ the subring $A[X^{-1}] + M[X]$ of the ring $R = A[X, X^{-1}]$ and
 by $I$ the ideal $M[X, X^{-1}]$ of $B$ (it is clear that $I$ is also an ideal of $R$).
 
 \begin{lemma} \label{lem:prop41}
 Assume additionally that the residue field $k$ is of characteristic $\neq 2$.
-Then the canonical map $f\colon C(\rD_\ell, B, I) \to C(\rD_\ell, R, I)$ is surjective for $\ell \geq 7$. \end{lemma}
+Then the canonical homomorphism $f\colon C(\rD_\ell, B, I) \to C(\rD_\ell, R, I)$ is surjective for $\ell \geq 7$. \end{lemma}
 \begin{proof}
-Writing the starting portion of the homology long exact sequence for the map $\St(\rD_\ell, R) \to \St(\rD_\ell, R/I)$ 
+Writing the starting portion of the homology long exact sequence for the homomorphism $\St(\rD_\ell, R) \to \St(\rD_\ell, R/I)$ 
 and using the isomorphisms of~\cref{lem:relativeH3} and~\cref{lem:lowerKgroups} we obtain the following commutative diagram:
 \begin{equation*}\xymatrix{
  \KO_3(2\ell, B) \ar[r] \ar[d] & \KO_3(2\ell, k[X]) \ar[d]_{f'} \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
  \KO_3(2\ell, R) \ar[r]        & \KO_3(2\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
-By~\cref{Panin-stability} the map $f'$ can be identified with the canonical map $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
+By~\cref{Panin-stability} the homomorphism $f'$ can be identified with the canonical map $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
 By~\cref{bass-ft} $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k) \oplus \GW_2^{[3]}(k),$
-but since the group $\GW_2^{[3]}(k)$ is trivial by~\cite[Lemma~2.2]{FRS12}, the map $f'$ (and hence $f$) is surjective.
+but since the group $\GW_2^{[3]}(k)$ is trivial by~\cite[Lemma~2.2]{FRS12}, the homomorphism $f'$ (and hence $f$) is surjective.
 \end{proof} 
  
 We will also need the following property of relative Steinberg groups which is a special case of a more general property discussed in~\cite[\S~2]{LS17}.
 \begin{lemma}\label{lem:lemma32} Let $\Phi$ be a simply-laced root system of rank $\geq 3$,
-Consider the following commutative square of canonical maps.
+Consider the following commutative square of canonical homomorphisms.
 \[ \xymatrix{
     \St(\Phi, B, I) \ar[r] \ar[d] & \St(\Phi, B) \ar[d] \\
     \St(\Phi, R, I) \ar[r] \ar@{-->}^t[ur] & \St(\Phi, R) } \]
-Then there exists a diagonal map $t$ which makes the diagram commute.   
+Then there exists a diagonal homomorphism $t$ which makes the diagram commute.   
 \end{lemma} 
 \begin{proof}
  Notice that $R$ is isomorphic to the principal localisation of $B$ at $X$
@@ -353,7 +353,7 @@ Then there exists a diagonal map $t$ which makes the diagram commute.
  In the general case the assertion of the lemma is a corollary of amalgamation theorem~\cite[Theorem~9]{S15}.
 \end{proof}
 
-\begin{externaltheorem} \label{thm41} Suppose that $2 \in A^\times$. Then for $\ell \geq 7$ the canonical map $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective. \end{externaltheorem}
+\begin{externaltheorem} \label{thm41} Suppose that $2 \in A^\times$. Then for $\ell \geq 7$ the canonical homomorphism $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective. \end{externaltheorem}
 \begin{proof}
  Consider the following commutative diagram with exact rows obtained from~\eqref{LodayRelativization}:
 \begin{equation*} \xymatrix{
@@ -375,11 +375,11 @@ The required assertion now follows from the following calculation:
 Throughout this section $\Phi$ denotes an irreducible root system of rank $\geq 2$, $R$ a commutative ring, and $I, J$ denote a pair of ideals of $R$.
 Unless stated otherwise we assume $\Phi$ to be simply laced.
 
-We denote by $\overline{\St}(\Phi, R, I)$ the kernel of the map $\St(\Phi, R) \to \St(\Phi, R/I)$.
+We denote by $\overline{\St}(\Phi, R, I)$ the kernel of the homomorphism $\St(\Phi, R) \to \St(\Phi, R/I)$.
 This group coincides with the image in $\St(\Phi, R)$ of the relative group $\St(\Phi, R, I)$ defined in~\cref{sec:quillen}.
 
 \subsection{Generators of relative Steinberg groups}
-Denote by $\St(\Phi, I)$ the subgroup of $\St(\Phi, R)$ generated as a group by root unipotents of level $I$.
+Denote by $\St(\Phi, I)$ the subgroup of $\St(\Phi, R)$ generated as a group by all root subgroups $X_\alpha(I)$, $\alpha\in\Phi$.
 It is clear that $\overline{\St}(\Phi, R, I)$ contains $\St(\Phi, I)$ and, in fact, is its normal closure.
 We also denote by $\myol{H}(\Phi, R, I)$ the subgroup of $\overline{\St}(\Phi, R, I)$ generated by the semisimple root elements $h_\alpha(u)$ and symbols $\{u, v\}$, $u \in (1+I)^\times$, $v \in R^\times$, $\alpha\in \Phi$.
 
@@ -474,7 +474,7 @@ It is obvious that $K(A[X], M[X])$ contains the subgroup $\overline{\St}(\Phi, A
 It turns out that, although $K(A[X], M[X])$ is generally strictly larger than $\overline{\St}(\Phi, A[X], XM[X])$,
  it contains very few extra generators, which all can be explicitly described (see~\cref{Kgen} and the corollary that follows it). 
 
-It follows from~\cref{Kdecomp1} below that $K(A[X], M[X])$ coincides with the double commutator subgroup $[\overline{\St}(\Phi, A[X], M[X]), \overline{\St}(\Phi, A[X], XA[X])].$ Thus, if we replace relative Steinberg groups in the statement of~\cref{Kgen} with relative elementary groups, the resulting assertion turns into a special case of a much more general recent result of N.~Vavilov and Z.~Zhang (cf.~\cite[Theorem~1]{VZ18}).
+It follows from~\cref{Kdecomp1} below that $K(A[X], M[X])$ coincides with the commutator subgroup $[\overline{\St}(\Phi, A[X], M[X]), \overline{\St}(\Phi, A[X], XA[X])].$ Thus, if we replace relative Steinberg groups in the statement of~\cref{Kgen} with relative elementary groups, the resulting assertion turns into a special case of a much more general recent result of N.~Vavilov and Z.~Zhang (cf.~\cite[Theorem~1]{VZ18}).
 
 Since $ev_{X=0}^*$ admits a section, we can consider $\overline{\St}(\Phi, A, M)$ and $\St(\Phi, M)$ as subgroups of $\overline{\St}(\Phi, A[X], M[X])$,
  moreover, one has 
@@ -523,7 +523,7 @@ Throughout this section we use the following notations and conventions:
 \begin{itemize}
  \item $A$ denotes an arbitarary commutative ring and $M$ is an ideal of $A$. Starting from subsection~\ref{sec:Pa0-basic} we also assume that $A$ is local and $M$ is the maximal ideal of $A$.
  \item We denote by $R$ the Laurent polynomial ring $A[X, X^{-1}]$. We set $t = X^{-1}$, so that $R = A[X, X^{-1}] = A[t, t^{-1}]$.
- \item $B = B_{A, M}$ denotes the subring $A[t] + M[t^{-1}] = A[X^{-1}] + M[X]$ of $R$.
+ \item $B$ denotes the subring $A[t] + M[t^{-1}] = A[X^{-1}] + M[X]$ of $R$.
  \item $I$ denotes the ideal $M[X, X^{-1}]$ of $R$. Notice that $I$ is also an ideal of $B$.
  \end{itemize}
 \subsection{Presentation of Steinberg groups by homogeneous generators}
@@ -893,8 +893,8 @@ Throughout this subsection $\Phi$ denotes an arbitrary irreducible simply-laced 
 Denote the subgroup $\overline{\St}(\Phi, A, M)$ by $G_M^0$. 
 Consider the following commutative diagram, in which the homomorphisms $i_\pm$ and $j_\pm$ are induced by the natural ring homomorphisms $A \to A[X^\pm]$ and $A[X^\pm]\to R$:
 \[\xymatrix{ G_M^0 \ar@{^{(}->}[rr]^{i_+^M} \ar@<-5pt>@{^{(}->}[dd]^{i_-^M} \ar@<-5pt>@{^{(}->}[rd] & & \overline{\St}(\Phi, A[X], M[X]) \ar[dd]_(.3){j_+^M} \ar@<-2.5pt>@{^{(}->}[rd] & \\ & \St(\Phi, A) \ar@{^{(}->}[rr]^(.3){i_+} \ar@<-2.5pt>@{^{(}->}[dd]^(.3){i_-} & & \St(\Phi, A[X]) \ar[dd]^{j_+} \\ \overline{\St}(\Phi, A[X\inv], M[X\inv]) \ar@<-2.5pt>@{^{(}->}[rd] \ar[rr]^(.35){j_-^M} & & \overline{\St}(\Phi, R, I) \ar@<-2.5pt>@{^{(}->}[rd] & \\ & \St(\Phi, A[X\inv]) \ar[rr]_{j_-} & & \St(\Phi, R)} \]
-Denote by $\overline{G}^{\geq 0}_M$ the image of the map $j_+^M$. \end{df}
-Notice that the map $j_+^Mi_+^M$ is split by the homomorphism $ev^*_{X=a}$ of evaluation at $a\neq 0$, therefore $G_M^0$ can be considered as a subgroup of $\overline{G}^{\geq 0}_M$.
+Denote by $\overline{G}^{\geq 0}_M$ the image of the homomorphism $j_+^M$. \end{df}
+Notice that the homomorphism $j_+^Mi_+^M$ is split by the homomorphism $ev^*_{X=1}$ of evaluation at $1$, therefore $G_M^0$ can be considered as a subgroup of $\overline{G}^{\geq 0}_M$.
 
 Denote by $\overline{V}_T$ the quotient of the set of triples 
 \[V_T = \overline{G}_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1+M)^\times\] by the equivalence relation given by $(p \cdot j_+i_+(\gamma), h, u)_T \sim (p, i_-(\gamma) \cdot h, u)_T$, $\gamma \in G^0_M$. We denote the image of $(p, h, u)_T$ in $\overline{V}_T$ by $[p, h, u]$.
@@ -926,7 +926,7 @@ Notice that $t_\alpha(aX^{-1}) (g, h, u) \in V$. Indeed, from~\cref{SR:additivit
 Then for any $\alpha \in \Phi$ and $a \in A$ the partial function $t_\alpha(aX^{-1}) \colon V \not \to V$ gives rise to a well-defined total function $T_\alpha(aX^{-1}) \colon \overline{V} \to \overline{V}$. \end{lemma}
 \begin{proof}
  First of all, let us show that the resulting function is total. 
- Fix $v_0 = (g, h, u) \in V$. Since $p(g, h, u) \in \overline{G}^{\geq 0}_M$ there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $j_+(g_1) = p(g, h, u).$ Notice that the map $i_+$ is split by $ev^*_{X=0}$.
+ Fix $v_0 = (g, h, u) \in V$. Since $p(g, h, u) \in \overline{G}^{\geq 0}_M$ there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $j_+(g_1) = p(g, h, u).$ Notice that the homomorphism $i_+$ is split by $ev^*_{X=0}$.
  Set $h_0 = ev^*_{X=0}(g_1)^{-1}$, then, clearly, $g_1 \cdot i_+(h_0) \in K(A[X], M[X])$ and 
  $p(g, h \cdot i_-(h_0), u) = j_+(g_1) \cdot j_-(i_-(h_0)) = j_+(g_1 \cdot i_+(h_0)) \in j_+(K(A[X], M[X])).$ The latter subgroup is contained in $P_\alpha(*)$ by~\cref{Pstar-large}. Thus, $t_\alpha(aX^{-1})$ is defined on the representative $(g, h \cdot i_-(h_0), u)$ lying in the same $G_M^0$-orbit as $v_0$.
   
@@ -935,7 +935,7 @@ Then for any $\alpha \in \Phi$ and $a \in A$ the partial function $t_\alpha(aX^{
  By definition, $h_1^{-1} h_2 = i_-(h_0)$, for some $h_0 \in G^0_M$, moreover, 
   $p(v_1)^{-1} \cdot p(v_2) = j_- i_-(h_0) = j_+ i_+(h_0) \in P_\alpha(*)$.
  By~\cref{Pstar-char} there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $g_0 := ev^*_{X=0}(g_1) \in Z_\alpha(A, M)$ and $j_+(g_1) = j_+ i_+ (h_0)$.
- From the last equality and the injectivity of the map $\GG(\Phi, A[X]) \to \GG(\Phi, R)$ we obtain that the projections of $g_0$, $g_1$ and $h_0$ in $\GG(\Phi, R)$ are equal, which shows that $g_0 \cdot h_0^{-1} \in \overline{\K_2}(\Phi, A, M)$. It follows from~\cref{thm:Stein} that the latter subgroup is generated by relative Steinberg symbols $\{ a, 1 + m \}$ and hence by~\cref{Z-DS} it is contained in $Z_\alpha(A, M)$. Thus, we have obtained that $h_0 \in Z_\alpha(A, M)$ and hence that $i_-(h_0)$ is centralized by $X_\alpha(A[X^{-1}])$, which allows us to conclude that
+ From the last equality and the injectivity of the homomorphism $\GG(\Phi, A[X]) \to \GG(\Phi, R)$ we obtain that the projections of $g_0$, $g_1$ and $h_0$ in $\GG(\Phi, R)$ are equal, which shows that $g_0 \cdot h_0^{-1} \in \overline{\K_2}(\Phi, A, M)$. It follows from~\cref{thm:Stein} that the latter subgroup is generated by relative Steinberg symbols $\{ a, 1 + m \}$ and hence by~\cref{Z-DS} it is contained in $Z_\alpha(A, M)$. Thus, we have obtained that $h_0 \in Z_\alpha(A, M)$ and hence that $i_-(h_0)$ is centralized by $X_\alpha(A[X^{-1}])$, which allows us to conclude that
  \begin{multline} \nonumber
   t_\alpha(aX^{-1})(v_1) = \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) \sim \\
   \sim \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 i_-(h_0) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) = t_\alpha(aX^{-1})(v_2). \qedhere
@@ -1036,8 +1036,6 @@ Let $a, b \in A$ and $\alpha, \beta$ be a pair of roots such that $\alpha + \bet
 
 As before, we may assume that \[p(g, h, u) \in j_+\left(K(A[X], M[X])\right) \cap P_\alpha(m) \cap P_{\alpha + \beta}(m')\text{ for some $m, m' \in M$.} \]
 
-%Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain that 
-%
 From~\eqref{T_1}--\eqref{T_leq0} and~\eqref{eq:conj-h-x} we obtain that
 \begin{multline} \label{R2_0_1-computation}
 [T_\beta(b),\ T_\alpha(aX^{-1})] \left(g, [h], u \right) = \\
@@ -1046,7 +1044,7 @@ From~\eqref{T_1}--\eqref{T_leq0} and~\eqref{eq:conj-h-x} we obtain that
  \end{multline} 
  where $h' = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \cdot x_{\beta}(bc)$. Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain that
 \begin{multline*} p\left(x_\beta(-b) \cdot x_\alpha (-a X^{-1})\cdot  g,\ h',\ u (1 - am) \right) = \\ =
- x_\beta(-b) \cdot S_\alpha(-a, p(g,h,u)) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \cdot x_{\beta}(bc) \in P_\alpha\left(\tfrac{m+\epsilon bm'}{1-am}\right). \end{multline*}
+ x_\beta(-b) \cdot S_\alpha(-a, p(g,h,u)) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \cdot x_{\beta}(bc) \in P_\alpha\left(\tfrac{m-\epsilon bm'}{1-am}\right). \end{multline*}
 Thus, we can continue~\eqref{R2_0_1-computation} using~\eqref{T_1}--\eqref{T_leq0}:
 \begin{equation} \label{R2_0_1-computation2} \ldots = \left([x_\beta(b),\ x_\alpha(aX^{-1})]\cdot g,\ [h''],\ uc\right) = T_{\alpha+\beta}(-\epsilon abX^{-1})(g,\ [h],\ u), \end{equation} where the last equality is obtained from~\eqref{eq:conj-h-x} as follows:
  \begin{multline} \nonumber
@@ -1062,7 +1060,7 @@ For $\Phi$ as in the statement of~\cref{lemma33} the operators $T_\alpha$ define
 
 This action satisfies the following additional properties.
 \begin{enumerate}
- \item For any $h_1 \in \St(\Phi, A[X\inv])$ one has $j_B^-(h_1) \cdot [1, h, u] = [1, h_1 h, u]$, where $j_B^-$ denotes the map $\St(\Phi, A[X\inv]) \to \St(\Phi, B)$ (we identify $\overline{V}$ with $\overline{V}_T$ using the isomorphism~\eqref{eq:VVT}).
+ \item For any $h_1 \in \St(\Phi, A[X\inv])$ one has $j_B^-(h_1) \cdot [1, h, u] = [1, h_1 h, u]$, where $j_B^-$ denotes the homomorphism $\St(\Phi, A[X\inv]) \to \St(\Phi, B)$ (we identify $\overline{V}$ with $\overline{V}_T$ using the isomorphism~\eqref{eq:VVT}).
  \item If we consider $\St(\Phi, A[X, X\inv])$ as a set with the left multiplication action of $\St(\Phi, B)$ then the map $\overline{V} \to \St(\Phi, A[X, X\inv])$ given by $(g, [h], u) \mapsto g$ is a map of $\St(\Phi, B)$-sets.
 \end{enumerate}
 \end{prop}
@@ -1071,16 +1069,16 @@ This action satisfies the following additional properties.
 The first property can be verified directly using~\eqref{T_1}--\eqref{T_leq0} and the fact that $\St(\Phi, A[X\inv])$ is generated by $x_\alpha(a)$ and $x_\alpha(aX\inv)$ for $\alpha\in\Phi$, $a\in A$. The second property can be verified in a similar fashion. \end{proof}
 
 For a pair $(R, I)$ denote by $\E(\Phi, R, I)$ the {\it relative elementary subgroup} of $\GG(\Phi, R)$, i.\,e.
-the image of the relative Steinberg group $\overline{\St}(\Phi, R, I)$ under the map $\pi \colon \St(\Phi, R) \to \GG(\Phi, R)$.
+the image of the relative Steinberg group $\overline{\St}(\Phi, R, I)$ under the homomorphism $\pi \colon \St(\Phi, R) \to \GG(\Phi, R)$.
 From the second property of the above proposition we immediately obtain the following group factorization.
 \begin{corollary} For $\Phi$ as in the statement of~\cref{lemma33} one has
 \[\E(\Phi, A[X\inv] + M[X]) = \E(\Phi, A[X], M[X]) \cdot \E(\Phi, A[X\inv]).\] \end{corollary}
 
 \subsection{Proof of Horrocks theorem.} \label{sec:P1glueing}
-We retain the notation of the previous section and assume additionally that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, R)$ is injective.
+We retain the notation of the previous section and assume additionally that the homomorphism $j_R \colon \St(\Phi, B) \to \St(\Phi, R)$ is injective.
 This assumption allows us to consider the group $\St(\Phi, B)$ as a subgroup of $\St(\Phi, R)$.
 Being considered in this way, $\St(\Phi, B)$ contains the subgroup $\overline{G}^{\geq 0}_M$ of $\St(\Phi, R)$.
-This follows from a consideration of the following commutative diagram, in which the map $t$ is obtained from~\cref{lem:lemma32}:
+This follows from a consideration of the following commutative diagram, in which the homomorphism $t$ is obtained from~\cref{lem:lemma32}:
 \[ \xymatrix{ \St(\Phi, A[X], M[X]) \ar[d] \ar[r] & \St(\Phi, R, I) \ar[r]^{t} & \St(\Phi, B) \ar[d]^{j_R} \\
    \St(\Phi, A[X]) \ar[rr]^{j_+} & & \St(\Phi, R). } \]
 
@@ -1106,8 +1104,8 @@ The transitivity follows from~\cref{lem:action}, the first property of~\cref{pro
 
 \begin{externaltheorem} \label{thm:P1glueing}
  Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
- Suppose that the map $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
- Then the map $j_-$ is injective and the following commutative square is pullback
+ Suppose that the homomorphism $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
+ Then the homomorphism $j_-$ is injective and the following commutative square is pullback
  \begin{equation} \nonumber
   \xymatrix{ \St(\Phi, A) \ar[r] \ar[d] & \St(\Phi, A[X]) \ar[d]^{j_+} \\ \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, A[X, X\inv]).}
  \end{equation}
@@ -1115,7 +1113,7 @@ The transitivity follows from~\cref{lem:action}, the first property of~\cref{pro
 \begin{proof} Since $j_- = j_R j_B^-$, where $j_B^-$ is as in~\cref{prop43}, it suffices to show that $j_B^-$ is injective.
  Set $v_0 = [1, 1, 1] \in \overline{V}_T$ and suppose $g \in \Ker(j_B^-)$.
  By~\cref{prop43} one has $v_0 = j_B^-(g) \cdot v_0 = [1, g, 1]$, therefore by the definition of $\overline{V}_T$, $g = i_-(\gamma)$ for some $\gamma \in G_M^0$ such that $j_+i_+(\gamma) = 1$.
- Notice that $j_+i_+$ is split by the evaluation homomorphism $ev_{X=a}^*$, $a\neq 0$ and therefore is injective. Thus, we conclude that $g = 1$.
+ Notice that $j_+i_+$ is split by the evaluation homomorphism $ev_{X=1}^*$ and therefore is injective. Thus, we conclude that $g = 1$.
  
  Now suppose $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_B^-(g_-) = j_+(g_+)$.
  From~\cref{field-injectivity} it follows that the image of $j_+(g_+) = j_-(g_-)$ in $\St(\Phi, k[X, X\inv])$ belongs to $\St(\Phi, k)$ and therefore coincides with the image in $\St(\Phi, k)$ of some $g_0 \in \St(\Phi, A)$.
@@ -1132,7 +1130,7 @@ The transitivity follows from~\cref{lem:action}, the first property of~\cref{pro
  which, in turn, follows from~\cref{thm41} and~\cref{thm:P1glueing} in the special case when $A$ is a local ring.
  
  Now let $A$ be arbitrary commutative ring and $\Phi = \rD_\ell$, $\ell \geq 7$. If $g \in \St(\Phi, A[X])$ is such that its image in $\St(\Phi, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\Phi, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$.
- We denote by $\lambda_{M}$ (resp. $\lambda_{M, -}$) the localization map $A[X] \to A_M[X]$ (resp. $A[X\inv] \to A_M[X\inv]$) and by $\lambda_M^*$, $\lambda_{M,-}^*$ the corresponding maps of Steinberg groups.
+ We denote by $\lambda_{M}$ (resp. $\lambda_{M, -}$) the localization homomorphism $A[X] \to A_M[X]$ (resp. $A[X\inv] \to A_M[X\inv]$) and by $\lambda_M^*$, $\lambda_{M,-}^*$ the corresponding homomorphism of Steinberg groups.
  By the just established local case of the theorem the images $\lambda^*_M(g)$ in all $\St(\Phi, A_M[X])$ are also trivial. Now by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is trivial as well.
 
  Now suppose that $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_+(g_+) = j_-(g_-)$. Set $g_0 = ev^*_{X=0}(g_+)$, $h_+ = g_+ \cdot i_+(g_0^{-1})$, $h_- = g_- \cdot i_-(g_0^{-1})$.
