@@ -34,10 +34,6 @@
 \newtheorem{rem}[lemma]{Remark}
 \newtheorem{cond}[lemma]{Condition}
 
-
-\newlist{proplist}{enumerate}{1} \setlist[proplist]{label=(\roman{proplisti}), ref=\thethm.(\roman{proplisti}),noitemsep} \Crefname{proplisti}{Proposition}{Propositions}
-\newlist{lemlist}{enumerate}{1} \setlist[lemlist]{label=(\roman{lemlisti}), ref=\thelem.(\roman{lemlisti}),noitemsep} \Crefname{lemlisti}{Lemma}{Lemmas}
-
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Img}{Im}
 \DeclareMathOperator{\St}{St}
@@ -238,7 +234,7 @@ A morphism of central extensions is a homomorphism $\widetilde{G} \to \widetilde
 A central extension is said to be {\it universal} if it is an initial object of the category of central extensions of $G$.
 
 Recall that a {\it crossed module} is a triple $(M, N, \mu)$ consisting of the following data:
-\begin{enumerate}
+\begin{enumerate} [label=\normalfont(\arabic*)]
  \item a group $N$ acting on itself by left conjugation (i.\,e. ${}^{n}\!n' = n n' n^{-1}$).
  \item a group $M$ with a left action of $N$ (we call such a group an $N$-group and use the notation ${}^n m$ to denote the image of an element $m\in M$ under the action of $n \in N$);
  \item a homomorphism $\mu \colon M\to N$ preserving the action of $N$-groups and satisfying {\it Peiffer identity} ${}^{\mu(m)}\!m' = m m' m^{-1}$.
@@ -257,7 +253,7 @@ A relative central extension is said to be {\it universal} if it is an initial o
 It turns out that the set $Ext(Q, N; L)$ of isomorphism classes of relative central extensions of $\nu$ by an abelian group $L$ can be classified by means of a certain cohomological invariant called {\it characteristic class}. More precisely, \cite[Th{\'e}or{\`e}me~1]{Lo78} asserts that there is a well-defined bijection $\xi \colon Ext(Q, N; L) \to \HH^3(Q, N; L)$.
  
 For the rest of this subsection $S \xrightarrow{\pi} P \subseteq G$ is a triple of group-valued functors on the category of commutative rings satisfying the following assumptions:
-\begin{enumerate} [label=(A\arabic*)]
+\begin{enumerate} [label=\normalfont(A\arabic*)]
  \item \label{req:left-exact} $G(D_{R, I}) \cong G(R) \times_{G(R/I)} G(R)$.
  \item \label{req:coeq} For every pair $(R, I)$ the coequalizer of $S(p_0), S(p_1)$ is precisely $S(R) \to S(R/I)$.
  \item \label{req:subfunc} $P(R)$ is a perfect normal subgroup of $G(R)$.
@@ -282,7 +278,7 @@ We retain our notation for the functors $S, P$ and $G$.
 For $i\geq 1$ we define the unstable Quillen K-functors $\K_{i}^{G, P}$ via
 \begin{equation} \label{plus-constr} \K_i^{G,P}(R) = \pi_i(BG(R)^+_{P(R)}). \end{equation}
 It is not hard to obtain the following concrete description of these functors in the cases $i=1,2,3$.
-\begin{lemma}\label{lem:lowerKgroups} There are natural isomorphisms \begin{enumerate}
+\begin{lemma}\label{lem:lowerKgroups} There are natural isomorphisms \begin{enumerate} [label=\normalfont(\arabic*)]
  \item $\K_1^{G,P}(R) \cong G(R) / P(R)$;
  \item $\K_2^{G,P}(R) \cong \Ker(S(R) \to G(R))$;
  \item $\K_3^{G,P}(R) \cong \HH_3(S(R), \ZZ).$ \end{enumerate} \end{lemma}
@@ -395,15 +391,15 @@ For $s\in I$, $\xi \in R$, $t \in J$ we define the following two families of ele
 
 \begin{lemma}\label{Zrels} Let $\Phi$ be a simply laced root system.
 The elements $z_\alpha(s, \xi)$ satisfy the following relations for all $\xi, \eta\in R$, $s\in I$:
-\begin{enumerate} 
+\begin{enumerate} [label=\normalfont(\arabic*)]
 \item\label{Z1} $z_{\alpha}(s, \xi) ^ {x_{-\alpha}(\eta)} = z_{\alpha}(s, \xi + \eta)$;
 \item\label{Z2} $z_{\beta}(s, \xi) ^ {x_{\alpha}(\eta)} = x_{\alpha} (- s\xi \eta) \cdot x_{\alpha+\beta} (N_{\beta, \alpha}\cdot s\eta)     \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha + \beta \in \Phi$;
 \item\label{Z3} $z_{\beta}(s, \xi) ^ {x_{\alpha}(\eta)} = x_{\alpha} (s\xi \eta) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot s\xi^2\eta) \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha - \beta \in \Phi$;
 
 \item\label{Z4} $z_{\beta}(s, \xi) ^ {x_{\alpha}(\eta)} = z_{\beta}(s, \xi)\ \text{if}\ \alpha\perp\beta$;
-\item If $\alpha+\beta\in\Phi$ then one has:
+\item If $\alpha+\beta\in\Phi$ then
 \begin{multline} \label{Z5} z_{\alpha+\beta}(s\eta, \xi) = x_\alpha(\epsilon s)\cdot x_{-\beta}(-s\xi) \cdot x_{\beta}(s\xi\eta^2) \cdot x_{\alpha+\beta}(s \eta) \cdot \\ \cdot z_\alpha(-\epsilon s, -\epsilon \xi\eta) \cdot
-  x_{-\alpha}(-\epsilon s\xi^2\eta^2) \cdot x_{-\alpha-\beta}(- s \xi^2 \eta) \cdot z_{-\beta}(s\xi, -\eta)\text{ where $\epsilon = N_{\alpha,\beta}$.}\end{multline}
+  x_{-\alpha}(-\epsilon s\xi^2\eta^2) \cdot x_{-\alpha-\beta}(- s \xi^2 \eta) \cdot z_{-\beta}(s\xi, -\eta),\text{ where $\epsilon = N_{\alpha,\beta}$.}\end{multline}
 \end{enumerate} \end{lemma}
 \begin{proof}
 The first four assertions are contained in~\cite[Lemma~9]{S15}, so it remains to verify the last assertion.
@@ -413,7 +409,7 @@ Direct computation using~\eqref{Chevalley-CCF1}--\eqref{Chevalley-CCF2} shows th
   [x_\alpha(\epsilon s) x_{-\beta}(-s\xi), x_{\beta}(\eta) x_{-\alpha}(\epsilon \xi\eta)] = \\ 
   = x_\alpha(\epsilon s) \cdot x_{-\beta}(-s\xi) \cdot z_\alpha(-\epsilon s, -\epsilon \xi\eta)^{x_{\beta}(-\eta)} \cdot z_{-\beta}(s\xi, -\eta)^{x_{-\alpha}(-\epsilon \xi\eta)},
 \end{multline} 
-and the required assertion follows from~\eqref{Z2}.
+and the required assertion follows from~\ref{Z2}.
 \end{proof}
 
 Let us mention an immediate application of~\cref{Zrels}.
@@ -432,11 +428,11 @@ Let $S \subseteq \Phi$ be a parabolic subset of $\Phi$. Then the group $\overlin
  \end{externaltheorem} \begin{proof} See~\cite[Lemma~4]{S15}. \end{proof}
 
 \begin{rem} We claim that in the simply-laced case the stronger \cref{thm:Stepanov} can be deduced from~\cref{thm:Tits} by means of~\cref{Zrels}. Indeed, consider the operator $d \colon 2^\Phi \to 2^\Phi$ of root subsets, whose value on each $U \subseteq \Phi$ is given by \[d(U) = U \cup \left((U - U)\cap \Phi\right).\]
-Here $(U-U) \cap \Phi$ denotes the set of all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^n(\Sigma_S) = \Phi$ for some $n>1$ (in fact, $n=2$). It remains to see that relation~\eqref{Z5} immediately implies that every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
+Here $(U-U) \cap \Phi$ denotes the set of all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^n(\Sigma_S) = \Phi$ for some $n>1$ (in fact, $n=2$). It remains to see that relation~\ref{Z5} immediately implies that every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
 
 \begin{lemma} \label{Crels} Let $\Phi$ be a simply-laced root system.
 The elements $c_\alpha(s, t)$ satisfy the following relations for all $s\in I,\ t\in J,\ \xi\in R$:
- \begin{enumerate}
+ \begin{enumerate} [label=\normalfont(\arabic*)]
  \item \label{C1} $[c_\beta(s, t),\ x_{\alpha}(\xi)] = x_{\alpha}(- st\xi) \cdot x_{\alpha+\beta}(N_{\alpha,\beta}\cdot s^2t\xi)$ if $\alpha+\beta \in \Phi$;
  \item \label{C2} $[c_\beta(s, t),\ x_{\alpha}(\xi)] = x_{\alpha}(st\xi + s^2t^2\xi) \cdot x_{\alpha-\beta}(N_{-\alpha, \beta}\cdot st^2\xi)$ if $\alpha-\beta \in \Phi$;  
  \item \label{C3} $[c_\beta(s, t),\ x_{\alpha}(\xi)] = 1$ if $\alpha \perp \beta$;  
@@ -453,7 +449,7 @@ The first two assertions can be verified by direct calculation:
 \begin{split}[[x_\beta(s),\ x_{-\beta}(t)],\ x_{\alpha}(\xi)] = \bigl([x_\beta(-s),\ [x_{-\beta}(-t),\ x_{\alpha}(\xi)]] ^ {x_{-\beta}(-t)} \cdot \hspace{50pt} \\ \cdot [x_{-\beta}(t),\ [ x_{\alpha}(-\xi),\ x_\beta(-s)]] ^ {x_{\alpha}(-\xi)}\bigr)^{x_\beta(-s)} & \text{ by~\eqref{HW-variant}}\end{split} \\
 = x_{\alpha}(-N_{\beta, \alpha-\beta} N_{\alpha,-\beta} \cdot s t \xi) ^ {x_{-\beta}(-t) \cdot x_\beta(-s)} = x_{\alpha}(s t \xi) ^ {x_{-\beta}(-t) \cdot x_\beta(-s)} & \text{ by~\eqref{Chevalley-CCF1},\eqref{Chevalley-CCF2}}\\
 = x_{\alpha}(st\xi) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot st^2\xi)^{x_\beta(-s)} = x_{\alpha}(st\xi + s^2t^2 \xi) \cdot x_{\alpha-\beta}(N_{-\alpha,\beta}\cdot st^2\xi) & \text{ by~\eqref{Chevalley-CCF1}.} \end{align*}
-The assertion~\eqref{C3} is obvious. Finally, last assertion can be obtained as follows:
+The assertion~\ref{C3} is obvious. Finally, last assertion can be obtained as follows:
 \begin{align*}
 [x_{\alpha+\beta}(s),\ x_{-\alpha-\beta}(t\xi)] = [x_{\alpha+\beta}(s),\ [x_{-\alpha}(-\epsilon t),\ x_{-\beta}(\xi)]]&\ \text{by~\eqref{Chevalley-CCF1}}\\
 \begin{split}
@@ -512,7 +508,7 @@ It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the commutator subgr
 Thus, it remains to show that commutators $[[x_\alpha(m),\ x_{-\alpha}(X\xi)],\ g]$ belong to $\overline{\St}(\Phi, A[X], XM[X])$.
 Since the latter subgroup is normal it suffices to prove this inclusion in the special case when $g$ is a member of some generating set for $\St(\Phi, A[X])$.
 Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \alpha$ is such a generating set, 
- and in this case the required inclusions follow from~\eqref{C1}--\eqref{C3} of~\cref{Crels}. \end{proof}
+ and in this case the required inclusions follow from~\ref{C1}--\ref{C3} of~\cref{Crels}. \end{proof}
 
 \begin{corollary} \label{Kgen-strong} For a local pair $(A, M)$ and arbitrary fixed root $\gamma$ of an irreducible simply-laced root system $\Phi$ the subgroup $K(A[X], M[X])$ is generated as a group by $\overline{\St}(\Phi, A[X], XM[X])$ and the elements $c_{\gamma}(m, X\eta)$, where $m \in M$, $\eta \in A[X]$. \end{corollary}
 \begin{proof} Substituting $\xi = 1$, $s = m$, $t = X\eta$ into~\eqref{eq:C4} we obtain that modulo 
@@ -661,18 +657,18 @@ In the sequel we continue using letters $f$ and $\xi$ to denote elements of $M[X
 \begin{proof} We need to verify that the conjugate by $x_{-\alpha}(mX)$ of every generator $g$ of $\widetilde{P}_\alpha(0)$ listed in~\cref{defP0} belongs to $\widetilde{P}_\alpha(0)$.
 The assertion is obvious for the generators of type P3 and P4.
 
-Let $\beta\in\Phi$ be such that $\alpha - \beta \in \Phi$ and $g = z_\beta(Xf, \xi)$ be a generator of type P1. By~\cref{Zrels}\eqref{Z2} we get that \begin{equation} z_{\beta}(Xf, \xi) ^ {x_{-\alpha}(mX)} =  x_{-\alpha} (- mX^2f\xi) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mX^2f) \cdot z_{\beta}(Xf, \xi). \label{eq3-1} \end{equation}
+Let $\beta\in\Phi$ be such that $\alpha - \beta \in \Phi$ and $g = z_\beta(Xf, \xi)$ be a generator of type P1. By~\cref{Zrels}\ref{Z2} we get that \begin{equation} z_{\beta}(Xf, \xi) ^ {x_{-\alpha}(mX)} =  x_{-\alpha} (- mX^2f\xi) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mX^2f) \cdot z_{\beta}(Xf, \xi). \label{eq3-1} \end{equation}
 The expression in the right-hand side is a product of generators of type P4, P1, P1 (see~\cref{rem:recognition}).
-Now consider the case when $g = z_\beta(f, X\xi)$ is a generator of type P2 (so that $\alpha-\beta\in\Phi$). Again by~\cref{Zrels}\eqref{Z2}
+Now consider the case when $g = z_\beta(f, X\xi)$ is a generator of type P2 (so that $\alpha-\beta\in\Phi$). Again by~\cref{Zrels}\ref{Z2}
 \begin{equation}
 z_{\beta}(f, X\xi) ^ {x_{-\alpha}(mX)} =  x_{-\alpha} (- mX^2f\xi ) \cdot x_{\beta-\alpha} (N_{\beta, -\alpha}\cdot mXf) \cdot z_{\beta}(f, X\xi). \label{eq3-2} \end{equation}
 It is easy to see that the expression in the right-hand side of~\eqref{eq3-2} is a product of generators of type P4, P1, P2.
 
-Now let $g = z_{\beta}(Xf, \xi)$ be a generator of type P1 in the case $\alpha + \beta \in \Phi$. By~\cref{Zrels}\eqref{Z3}
+Now let $g = z_{\beta}(Xf, \xi)$ be a generator of type P1 in the case $\alpha + \beta \in \Phi$. By~\cref{Zrels}\ref{Z3}
 \begin{equation} \label{eq3-3} z_{\beta}(Xf, \xi) ^ {x_{-\alpha}(mX)} = x_{-\alpha} (mX^2f\xi ) \cdot x_{-\alpha-\beta} (N_{\beta,\alpha}\cdot mX^2f\xi^2) \cdot z_{\beta}(Xf, \xi), \end{equation}
 and the latter expression is a product of generators of type P4, P1, P1.
 
-Finally, let $g = x_\alpha(f)$ be a generator of type P5. Substituting in~\eqref{Z5} $s = -\epsilon f$, $\xi = -\epsilon m$, $\eta=X$, and expressing the fifth factor in the right-hand side of~\eqref{Z5} through other terms we obtain that
+Finally, let $g = x_\alpha(f)$ be a generator of type P5. Substituting in~\ref{Z5} $s = -\epsilon f$, $\xi = -\epsilon m$, $\eta=X$, and expressing the fifth factor in the right-hand side of~\ref{Z5} through other terms we obtain that
 \begin{multline} \label{eq:zalpha} g^{x_{-\alpha}(mX)} = z_\alpha(f, mX) = x_{\alpha+\beta}(\epsilon Xf) \cdot x_{\beta}(-mX^2 f) \cdot x_{-\beta}(mf) \cdot x_\alpha(f) \cdot \\ 
  \cdot z_{\alpha+\beta}(-\epsilon X f, -\epsilon m) \cdot z_{-\beta}(-mf, -X) \cdot x_{-\alpha-\beta}(-\epsilon m^2X f) \cdot x_{-\alpha}(-m^2X^2 f), \end{multline}
 where $\epsilon = N_{\alpha, \beta}$. It is clear that the latter expression is a product of generators of type P1, P1, P2, P5, P1, P2, P1, P4. \end{proof}
@@ -756,14 +752,14 @@ We need one more technical definition. Denote by $Z_{\alpha, \beta}$ the subgrou
 \begin{proof} We need to verify that the conjugate by $x_\alpha(aX^{-1})$ of every generator from~\cref{def:Kab} lies in the specified subgroup. To simplify notation we call the generators of  $Z_{\alpha,\beta}$ ``generators of type Z``. 
 
 Let $z_\gamma(Xf, \xi)$ be a generator of type K1 for some $\gamma \in \Phi \setminus \Psi$.
-In the case $\gamma \perp \alpha$ this generator commutes with $x_\alpha(aX^{-1})$ by~\cref{Zrels}\eqref{Z4}.
-If $\gamma$ is such that $\alpha + \gamma \in \Phi$ we obtain from~\cref{Zrels}\eqref{Z2} that
+In the case $\gamma \perp \alpha$ this generator commutes with $x_\alpha(aX^{-1})$ by~\cref{Zrels}\ref{Z4}.
+If $\gamma$ is such that $\alpha + \gamma \in \Phi$ we obtain from~\cref{Zrels}\ref{Z2} that
 \begin{equation} z_{\gamma}(Xf, \xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (- af\xi) \cdot x_{\alpha+\gamma} (N_{\gamma, \alpha}\cdot af) \cdot z_{\gamma}(Xf, \xi). \end{equation}
-On the other hand, if $\gamma$ is such that $\alpha - \gamma \in \Phi$, we obtain from~\cref{Zrels}\eqref{Z3} that
+On the other hand, if $\gamma$ is such that $\alpha - \gamma \in \Phi$, we obtain from~\cref{Zrels}\ref{Z3} that
 \begin{equation} z_{\gamma}(Xf, \xi) ^ {x_{\alpha}(aX^{-1})} = x_{\alpha} (af\xi) \cdot x_{\alpha-\gamma} (N_{\gamma,-\alpha}\cdot af\xi^2) \cdot z_{\gamma}(Xf, \xi). \end{equation}
 By the choice of $\gamma$ both $\alpha + \gamma$ and $\alpha - \gamma$ lie in $Z_+(\alpha) \setminus \{\alpha - \beta\}$, therefore in both cases the expressions in the right-hand side are products of generators of type Z, Z, K1.
 
-A similar computation using \eqref{C1}--\eqref{C3} of \cref{Crels} shows that the conjugate of a generator of type K5 is either the generator itself or a product of generators of type Z, Z, K5.
+A similar computation using \ref{C1}--\ref{C3} of \cref{Crels} shows that the conjugate of a generator of type K5 is either the generator itself or a product of generators of type Z, Z, K5.
 
 Let us verify the assertion for the generators of types K2, K3, K4.
 By~\eqref{Chevalley-CCF2} the conjugation by $x_\alpha(aX^{-1})$ fixes root subgroups $X_{\alpha}(X\cdot M[X])$, $X_{\beta}(X\cdot M[X])$, $X_{\alpha-\beta}(X\cdot M[X])$. 
@@ -775,7 +771,7 @@ Further, from~\eqref{Chevalley-CCF1} we obtain that
 and the expressions in the right-hand side are products of generators of type K2, K4 and K4, Z, respectively.
 
 It remains to verify the assertion for the generators $x_{-\alpha}(X^2f) $ of type K2.
-By~\cref{K-a-b-cor} we may assume that the root $\delta$ in~\cref{def:Kab} forms a sharp angle with $\alpha$, i.\,e. $\alpha-\delta \in \Phi$. Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = \delta-\alpha$, $\beta = -\delta$ into~\eqref{Z5} we obtain that
+By~\cref{K-a-b-cor} we may assume that the root $\delta$ in~\cref{def:Kab} forms a sharp angle with $\alpha$, i.\,e. $\alpha-\delta \in \Phi$. Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = \delta-\alpha$, $\beta = -\delta$ into~\ref{Z5} we obtain that
 \begin{multline*} z_{-\alpha}(X^2f, aX^{-1}) = x_{\delta-\alpha}(\epsilon Xf) \cdot x_{\delta}(-af) \cdot x_{-\delta}(aX^2 f) \cdot x_{-\alpha}(X^2f) \cdot \\
  \cdot z_{\delta-\alpha}(-\epsilon Xf, -\epsilon a) \cdot x_{\alpha-\delta}(-\epsilon a^2 Xf) \cdot x_{\alpha}(- a^2 f) \cdot z_{\delta}(a f, -X), \end{multline*}
 where $\epsilon = N_{-\delta,\alpha}$. 
@@ -1096,7 +1092,7 @@ First of all, notice that the base case $\xi = a \in A$ can be verified by direc
 Using~\cref{lem:Smult} and the fact that $x_\beta(X^2f) \in P_\alpha(0)$ for all $\beta \in \Phi$ it is not hard to show that the assertion also holds for $p_1 = z_\alpha(X^2f, aX^{-1})$.
 
 Suppose that the assertion holds for all $p_1 = z_\alpha(f, \xi)$ for which $\xi$ has degree $\leq n$.
-Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ into~\eqref{Z5} we obtain the following equality in $\St(\Phi, B)$:
+Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ into~\ref{Z5} we obtain the following equality in $\St(\Phi, B)$:
 \begin{multline*}
  z_{\alpha+\beta}(f, X\xi) = x_\alpha(\epsilon Xf) \cdot x_{-\beta}(-X^2 f\xi ) \cdot x_{\beta}(\xi f) \cdot x_{\alpha+\beta}(f) \cdot \\ \cdot z_\alpha(-\epsilon Xf, -\epsilon \xi) \cdot x_{-\alpha}(-\epsilon X\xi^2f) \cdot x_{-\alpha-\beta}(- X^2f \xi^2) \cdot z_{-\beta}(X^2f\xi, -X^{-1}),\text{ where $\epsilon = N_{\alpha, \beta}$.}
 \end{multline*}
