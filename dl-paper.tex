@@ -269,7 +269,7 @@ The map $\mu \colon S(R, I) \to S(R)$ from~\eqref{LodayRelativization} is an $S(
 From~\ref{req:left-exact} and $\pi(G_i) \subseteq \Ker(G(p_i))$ we obtain that 
 $G_0 \cap G_1 \subseteq \Ker(\pi_{D_{R, I}})$ hence it is a central subgroup of $S(D_{R,I})$ by~\ref{req:uce}. Thus, we have verified the assumptions of~\cite[Proposition~6]{Lo78} which asserts that the map $\mu$ is a universal relative central extension of the coequalizer $\nu = \mathrm{coeq}(d_0, d_1)$. Since $\nu$ coincides with $S(R) \to S(R/I)$ by~\ref{req:coeq}, we have completed the proof of the first assertion of the lemma.
 
-Set $N = S(R)$, $Q = S(R/I)$, $C = \HH_3(Q, N; \ZZ)$. Recall from the proof of~\cite[Th{\'e}or{\`e}me~2]{Lo78} that to every relative central extension $(M, \mu)$ of $\nu$ with kernel $L$ one can associate a map of abelian groups $C \to L$. This map is obtained from the characteristic class $\xi(M, \mu)$ via the isomorphism $\HH^3(Q, N; L) \cong \mathrm{Hom}(C, L)$ of the universal coefficients theorem.
+Set $N = S(R)$, $Q = S(R/I)$, $C = \HH_3(Q, N; \ZZ)$. Recall from the proof of~\cite[Th{\'e}or{\`e}me~2]{Lo78} that to every relative central extension $(M, \mu)$ of $\nu$ with kernel $L$ one can associate a map of abelian groups $C \to L$. This map is obtained from the characteristic class $\xi(M, \mu)$ via the isomorphism $\HH^3(Q, N; L) \cong \mathrm{Hom}(C, L)$ of the universal coefficients theorem for cohomology (for this isomorphism we need the vanishing of $\HH_2(Q, N; \ZZ)$, which is a consequence of~\ref{req:uce}).
 
 In the special case $M = S(R, I)$ this construction produces a map $C \to C_{S}(R, I)$ whose naturality in $(R, I)$ follows from~\cite[Proposition~3]{Lo78}. 
 This map is an isomorphism by~\cite[Th{\'e}or{\`e}me~2]{Lo78}. \end{proof}
@@ -282,7 +282,7 @@ It is not hard to obtain the following concrete description of these functors in
  \item $\K_1^{G,P}(R) \cong G(R) / P(R)$;
  \item $\K_2^{G,P}(R) \cong \Ker(S(R) \to G(R))$;
  \item $\K_3^{G,P}(R) \cong \HH_3(S(R), \ZZ).$ \end{enumerate} \end{lemma}
-\begin{proof} The first claim is obvious, the second and the third claim follow from~\ref{req:subfunc} and~\ref{req:uce} using the standard properties of the plus-construction, see \cite[\S~IV.1]{Kbook}   (cf. Exercises~1.8--1.9 ibid.) \end{proof}
+\begin{proof} The first claim is obvious, the other ones follow from~\ref{req:subfunc} and~\ref{req:uce} using the standard properties of the plus-construction, see \cite[\S~IV.1]{Kbook}   (cf. Exercises~1.8--1.9 ibid.) \end{proof}
 
 Now let us give an example of the triple $(G, P, S)$ playing a key role in the present paper.
 We denote by $\mathrm{O}_{2n}(R)$ and $\mathrm{EO}_{2n}(R)$ the orthogonal group of rank $n$ over a ring $R$ and its elementary subgroup, respectively
@@ -1136,7 +1136,7 @@ The transitivity follows from~\cref{lem:action}, the first property of~\cref{pro
  By the just established local case of the theorem the images $\lambda^*_M(g)$ in all $\St(\Phi, A_M[X])$ are also trivial. Now by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is trivial as well.
 
  Now suppose that $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_+(g_+) = j_-(g_-)$. Set $g_0 = ev^*_{X=0}(g_+)$, $h_+ = g_+ \cdot i_+(g_0^{-1})$, $h_- = g_- \cdot i_-(g_0^{-1})$.
- Notice that $h_+ \in \overline{\St}(\Phi, A[X], XA[X])$, moreover, for every maximal ideal $M$ of $A$ the image $\lambda_M^*(h_+)\in \St(\Phi, A_M[X], XA_M[X])$ is trivial by~\cref{thm:P1glueing}
+ Notice that $h_+ \in \overline{\St}(\Phi, A[X], XA[X])$, moreover, for every maximal ideal $M$ of $A$ the image $\lambda_M^*(h_+)\in \overline{\St}(\Phi, A_M[X], XA_M[X])$ is trivial by~\cref{thm:P1glueing}
   (since $j_+(\lambda^*_M(h_+)) = j_-(\lambda^*_{M,-}(h_-))$).
  Thus, again by the local-global principle~\cite[Theorem~2]{LS17} the element $h_+$ is trivial, therefore $g_+ = i_+(g_0)$.
  Using similar argument one can show that $g_- = i_-(g_0')$ for some $g_0' \in \St(\Phi, A)$. But $g_0'$ must coincide with $g_0$ since $j_+i_+ = j_-i_-$ is injective.
