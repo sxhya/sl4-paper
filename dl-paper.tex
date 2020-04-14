@@ -41,7 +41,6 @@
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Img}{Im}
 \DeclareMathOperator{\St}{St}
-\DeclareMathOperator{\GG}{G}
 \DeclareMathOperator{\E}{E}
 \DeclareMathOperator{\HH}{H}
 \DeclareMathOperator{\K}{K}
@@ -54,7 +53,7 @@
 \newcommand{\RR}[1]{\mathcal{R}_{#1}}   % Steinberg relations
 \newcommand{\catname}[1]{{\normalfont\textbf{#1}}} %Category name
 \newcommand{\myol}[2][3]{{}\mkern#1mu\overline{\mkern-#1mu#2}}
-
+\newcommand{\GG}{\mathrm{G}_{\mathrm{sc}}}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\rA}{\mathsf{A}}
 \newcommand{\rB}{\mathsf{B}}
@@ -81,9 +80,9 @@
 \section{Introduction}
 Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. This problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and its solution played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
 
-After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_{1,n}(R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_{1,n}(k[x_1, \ldots x_n]) = \K_{1,n}(k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on an arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ over a field (see~\cite[Theorem~1.2]{St-poly}) and also generalized Abe's result to Dedekind domains of arithmetic type (see~\cite[Corollary~1.2]{St-Ded}).
+After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_1(n, R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_1(n, k[x_1, \ldots x_n]) = \K_1(n, k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on an arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ over a field (see~\cite[Theorem~1.2]{St-poly}) and also generalized Abe's result to Dedekind domains of arithmetic type (see~\cite[Corollary~1.2]{St-Ded}).
 
-Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the {\it simply-connected Chevalley group} $G(\Phi, R)$ (see e.\,g.~\cite[\S~3]{St71} or~\cite{VP}) and the {\it Steinberg group} $\St(\Phi, R)$ (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined map $\pi \colon \St(\Phi, R) \to G(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this map are, by definition, the $\K_1(\Phi, R)$ and $\K_2(\Phi, R)$-functors modeled on the Chevalley group $G(\Phi, -)$, see~\cite{St78}.
+Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the {\it simply-connected Chevalley group} $\GG(\Phi, R)$ (see e.\,g.~\cite[\S~3]{St71} or~\cite{VP}) and the {\it Steinberg group} $\St(\Phi, R)$ (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined map $\pi \colon \St(\Phi, R) \to \GG(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this map are, by definition, the $\K_1(\Phi, R)$ and $\K_2(\Phi, R)$-functors modeled on the Chevalley group $\GG(\Phi, -)$, see~\cite{St78}.
 
 It turns out that an assertion similar to the Serre problem also holds for the functor $\K_2$. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrated an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^\mathrm{M}_2(k)$ follows for $\ell \geq 4$. Notice that $\K_2(\rA_\ell, R)$ here is just another notation for the unstable linear functor $\K_2(\ell+1, R)$.
 
@@ -134,7 +133,7 @@ x_\alpha(s) \cdot x_\alpha(t) = x_\alpha(s+t),\ \alpha\in\Phi,\ s,t\in R; \label
 \end{align}
 The indices $i$, $j$ appearing in the right-hand side of the above relation range over
 all positive natural numbers such that $i\alpha + j\beta\in\Phi$.
-The constants $N_{\alpha \beta i j}$ appearing in the right-hand side of \eqref{rel:CCF} are integers which can only take values $\pm 1,\pm 2,\pm 3$, they are called the {\it structure constants} of the Chevalley group $G(\Phi, R)$. Several different methods of computing signs of these constants have been proposed in the literature, see e.\,g.~\cite{V00}, \cite[\S~9]{VP}. 
+The constants $N_{\alpha \beta i j}$ appearing in the right-hand side of \eqref{rel:CCF} are integers which can only take values $\pm 1,\pm 2,\pm 3$, they are called the {\it structure constants} of the Chevalley group $\GG(\Phi, R)$. Several different methods of computing signs of these constants have been proposed in the literature, see e.\,g.~\cite{V00}, \cite[\S~9]{VP}. 
 
 For an additive subgroup $A\subseteq R$ and $\alpha \in \Phi$ we denote by $X_\alpha(A)$ the corresponding {\it root subgroup} of $\St(\Phi, R)$, i.\,e. the subgroup generated by all $x_\alpha(a)$, $a \in A$.
 
@@ -214,7 +213,7 @@ Thus, we see that in the stable range the result of Morita and Rehmann agrees wi
 and the injectivity of its diagonal arrows. Indeed, the left arrow is an isomorphism by the Korollar of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}.
 
 Let us verify the second assertion. Let $g$ be an element of the intersection of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$.
-Clearly, the image of $g$ in $G(\Phi, k[X, X\inv])$ lies in $G(\Phi, k)$, therefore there exists $g_0 \in \St(\Phi, k)$ such that $gg_0^{-1} \in \K_2(\Phi, k[X]) = \K_2(\Phi, k)$. Thus, we conclude that $g \in \St(\Phi, k)$.
+Clearly, the image of $g$ in $\GG(\Phi, k[X, X\inv])$ lies in $\GG(\Phi, k)$, therefore there exists $g_0 \in \St(\Phi, k)$ such that $gg_0^{-1} \in \K_2(\Phi, k[X]) = \K_2(\Phi, k)$. Thus, we conclude that $g \in \St(\Phi, k)$.
 \end{proof}
 
 \subsection{Relative Steinberg groups and unstable K-groups} \label{sec:quillen}
@@ -266,12 +265,12 @@ For the rest of this subsection $S \xrightarrow{\pi} P \subseteq G$ is a triple 
 \end{enumerate}
 
 \begin{lemma}\label{lem:relativeH3}
- For every pair $(R, I)$ the map $\mu \colon S(R, I) \to S(R)$ is a universal relative central extension of $\nu \colon S(R) \to S(R/I)$. The group $C_S(R, I)$ is naturally isomorphic to the relative homology group $\HH_3(S(R), S(R/I), \ZZ)$.
+ For every pair $(R, I)$ the map $\mu \colon S(R, I) \to S(R)$ is a universal relative central extension of $\nu \colon S(R) \to S(R/I)$. The group $C_S(R, I)$ is naturally isomorphic to the relative homology group $\HH_3(S(R/I), S(R); \ZZ)$.
 \end{lemma}
 \begin{proof}
 The action of $S(R)$ on $S(D_{R, I})$ given by ${}^g h = S(\Delta)(g) \cdot h \cdot S(\Delta)(g)^{-1}$ induces an action of $S(R)$ on $S(R, I)$.
 The map $\mu \colon S(R, I) \to S(R)$ from~\eqref{LodayRelativization} is an $S(R)$-map with respect to this action.
-From~\ref{req:left-exact} and $\varphi(G_i) \subseteq \Ker(G(p_i))$ we obtain that 
+From~\ref{req:left-exact} and $\pi(G_i) \subseteq \Ker(G(p_i))$ we obtain that 
 $G_0 \cap G_1 \subseteq \Ker(\pi_{D_{R, I}})$ hence it is a central subgroup of $S(D_{R,I})$ by~\ref{req:uce}. Thus, we have verified the assumptions of~\cite[Proposition~6]{Lo78} which asserts that the map $\mu$ is a universal relative central extension of the coequalizer $\nu = \mathrm{coeq}(d_0, d_1)$. Since $\nu$ coincides with $S(R) \to S(R/I)$ by~\ref{req:coeq}, we have completed the proof of the first assertion of the lemma.
 
 Set $N = S(R)$, $Q = S(R/I)$, $C = \HH_3(Q, N; \ZZ)$. Recall from the proof of~\cite[Th{\'e}or{\`e}me~2]{Lo78} that to every relative central extension $(M, \mu)$ of $\nu$ with kernel $L$ one can associate a map of abelian groups $C \to L$. This map is obtained from the characteristic class $\xi(M, \mu)$ via the isomorphism $\HH^3(Q, N; L) \cong \mathrm{Hom}(C, L)$ of the universal coefficients theorem.
@@ -940,7 +939,7 @@ Then for any $\alpha \in \Phi$ and $a \in A$ the partial function $t_\alpha(aX^{
  By definition, $h_1^{-1} h_2 = i_-(h_0)$, for some $h_0 \in G^0_M$, moreover, 
   $p(v_1)^{-1} \cdot p(v_2) = j_- i_-(h_0) = j_+ i_+(h_0) \in P_\alpha(*)$.
  By~\cref{Pstar-char} there exists $g_1 \in \overline{\St}(\Phi, A[X], M[X])$ such that $g_0 := ev^*_{X=0}(g_1) \in Z_\alpha(A, M)$ and $j_+(g_1) = j_+ i_+ (h_0)$.
- From the last equality and the injectivity of the map $G(\Phi, A[X]) \to G(\Phi, R)$ we obtain that the projections of $g_0$, $g_1$ and $h_0$ in $G(\Phi, R)$ are equal, which shows that $g_0 \cdot h_0^{-1} \in \overline{\K_2}(\Phi, A, M)$. It follows from~\cref{thm:Stein} that the latter subgroup is generated by relative Steinberg symbols $\{ a, 1 + m \}$ and hence by~\cref{Z-DS} it is contained in $Z_\alpha(A, M)$. Thus, we have obtained that $h_0 \in Z_\alpha(A, M)$ and hence that $i_-(h_0)$ is centralized by $X_\alpha(A[X^{-1}])$, which allows us to conclude that
+ From the last equality and the injectivity of the map $\GG(\Phi, A[X]) \to \GG(\Phi, R)$ we obtain that the projections of $g_0$, $g_1$ and $h_0$ in $\GG(\Phi, R)$ are equal, which shows that $g_0 \cdot h_0^{-1} \in \overline{\K_2}(\Phi, A, M)$. It follows from~\cref{thm:Stein} that the latter subgroup is generated by relative Steinberg symbols $\{ a, 1 + m \}$ and hence by~\cref{Z-DS} it is contained in $Z_\alpha(A, M)$. Thus, we have obtained that $h_0 \in Z_\alpha(A, M)$ and hence that $i_-(h_0)$ is centralized by $X_\alpha(A[X^{-1}])$, which allows us to conclude that
  \begin{multline} \nonumber
   t_\alpha(aX^{-1})(v_1) = \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) \sim \\
   \sim \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 i_-(h_0) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) = t_\alpha(aX^{-1})(v_2). \qedhere
@@ -1075,8 +1074,8 @@ This action satisfies the following additional properties.
   
 The first property can be verified directly using~\eqref{T_1}--\eqref{T_leq0} and the fact that $\St(\Phi, A[X\inv])$ is generated by $x_\alpha(a)$ and $x_\alpha(aX\inv)$ for $\alpha\in\Phi$, $a\in A$. The second property can be verified in a similar fashion. \end{proof}
 
-For a pair $(R, I)$ denote by $\E(\Phi, R, I)$ the {\it relative elementary subgroup} of $G(\Phi, R)$, i.\,e.
-the image of the relative Steinberg group $\overline{\St}(\Phi, R, I)$ under the map $\pi \colon \St(\Phi, R) \to G(\Phi, R)$.
+For a pair $(R, I)$ denote by $\E(\Phi, R, I)$ the {\it relative elementary subgroup} of $\GG(\Phi, R)$, i.\,e.
+the image of the relative Steinberg group $\overline{\St}(\Phi, R, I)$ under the map $\pi \colon \St(\Phi, R) \to \GG(\Phi, R)$.
 From the second property of the above proposition we immediately obtain the following group factorization.
 \begin{corollary} For $\Phi$ as in the statement of~\cref{lemma33} one has
 \[\E(\Phi, A[X\inv] + M[X]) = \E(\Phi, A[X], M[X]) \cdot \E(\Phi, A[X\inv]).\] \end{corollary}
