@@ -6,7 +6,7 @@
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz}
 \usepackage{enumitem}
-%\usepackage[notref,notcite]{showkeys}
+\usepackage[notref,notcite]{showkeys}
 
 \addbibresource{paper.bib}
 \renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
@@ -78,7 +78,7 @@ Recall that the classical Serre problem on projective modules asks if any projec
 
 After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_1(n, R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_1(n, k[x_1, \ldots x_n]) = \K_1(n, k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on an arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ over a field (see~\cite[Theorem~1.2]{St-poly}) and also generalized Abe's result to Dedekind domains of arithmetic type (see~\cite[Corollary~1.2]{St-Ded}).
 
-Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the {\it simply-connected Chevalley group} $\GG(\Phi, R)$ (see e.\,g.~\cite[\S~3]{St71} or~\cite{VP}) and the {\it Steinberg group} $\St(\Phi, R)$ (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined homomorphism $\pi \colon \St(\Phi, R) \to \GG(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this homomorphism (denoted $\K_1(\Phi, R)$ and $\K_2(\Phi, R)$, respectively) are, by definition, the values of the so-called $\mathrm{K}_1$ and $\mathrm{K_2}$-functors modeled on the Chevalley group $\GG(\Phi, -)$, see~\cite{St78}.
+Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the {\it simply-connected Chevalley group} $\GG(\Phi, R)$ (see e.\,g.~\cite[\S~3]{St71} or~\cite{VP}) and the {\it Steinberg group} $\St(\Phi, R)$ (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined homomorphism $\pi \colon \St(\Phi, R) \to \GG(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this homomorphism are denoted $\K_1(\Phi, R)$ and $\K_2(\Phi, R)$, respectively. The latter groups are functorial in $R$. The functors $\K_1(\Phi, -)$ and $\K_2(\Phi, -)$ are called {\it the $\mathrm{K}_1$ and $\mathrm{K_2}$-functors modeled on the Chevalley group $\GG(\Phi, -)$}, see~\cite{St78}.
 
 It turns out that an assertion similar to the Serre problem also holds for the functor $\K_2$. More precisely, in~\cite{Tu83} M. Tulenbaev demonstrated an ``early stability theorem'' from which the isomorphism $\K_2(\rA_\ell, k[x_1, \ldots x_n]) \cong \K_2(\rA_\ell, k) = \K^\mathrm{M}_2(k)$ follows for $\ell \geq 4$. Notice that $\K_2(\rA_\ell, R)$ here is just another notation for the unstable linear functor $\K_2(\ell+1, R)$.
 
@@ -115,7 +115,7 @@ Throughout the paper we make use of the following commutator identities:
  [x, yz]^y =& [y^{-1}, x] \cdot [x, z], \label{rel43} \\ 
  \label{eq:H1ii} [xy, z] =& {}^x[y, z] \cdot [x,z], \\
  \label{eq:H1ii-2}[x, yz] =& [x, y] \cdot {}^{y}\![x, z], \\
- [[x, y], z] =& \left([x^{-1}, [ y^{-1}, z]] ^ {y^{-1}} \cdot [y, [ z^{-1}, x^{-1}]] ^ {z^{-1}} \right)^{x^{-1}}. \label{HW-variant} \end{align}
+ [[x, y], z] =& {}^{x}\!\left({}^{y}[x^{-1}, [ y^{-1}, z]] \cdot {}^z[y, [ z^{-1}, x^{-1}]] \right). \label{HW-variant} \end{align}
 Recall also from~\cite[Lemma~3.1.1]{RS76} that
 \begin{equation} \label{eq:H1iii} [x,z] = 1 \text{ implies } [x, [y,z]] = [[x,y],{}^yz]. \end{equation} 
 
@@ -322,7 +322,7 @@ We will need only the special case $k=0$ of the above theorem, in which case it 
 For the rest of this section let us fix the following notation.
 Let $A$ be an arbitrary commutative local ring with maximal ideal $M$ and residue field $k$.
 Denote by $B$ the subring $A[X^{-1}] + M[X]$ of the ring $R = A[X, X^{-1}]$ and
-by $I$ the ideal $M[X, X^{-1}]$ of $B$ (it is clear that $I$ is also an ideal of $R$).
+by $I$ the ideal $M[X, X^{-1}]$ of $R$ (it is clear that $I$ is also an ideal of $B$).
 
 \begin{lemma} \label{lem:prop41}
 Assume additionally that the residue field $k$ is of characteristic $\neq 2$.
@@ -446,18 +446,18 @@ The first two assertions can be verified by direct calculation:
 \begin{align*} \nonumber [c_{\beta}(s, t),\ x_{\alpha}(\xi)] = [x_{\beta}(s),\ x_{-\beta}(t)] \cdot [x_{-\beta}(t),\ x_{\beta}(s)\cdot x_{\alpha + \beta}(N_{\alpha, \beta} \cdot s\xi)] &\text{ by~\eqref{Cdef}, \eqref{Chevalley-CCF1}, \eqref{Chevalley-CCF2}} \\
  = {}^{x_\beta(s)}\![x_{-\beta}(t),\ x_{\alpha+\beta}(N_{\alpha, \beta} \cdot s\xi)] &\text{ by~\eqref{eq:H1ii-2}} \\ = x_{\alpha}(- st\xi) \cdot x_{\alpha+\beta}(N_{\alpha,\beta} \cdot s^2t\xi) &\text{ by~\eqref{Chevalley-CCF1};} \end{align*}
 \begin{align*} \nonumber
-\begin{split}[[x_\beta(s),\ x_{-\beta}(t)],\ x_{\alpha}(\xi)] = \bigl([x_\beta(-s),\ [x_{-\beta}(-t),\ x_{\alpha}(\xi)]] ^ {x_{-\beta}(-t)} \cdot \hspace{50pt} \\ \cdot [x_{-\beta}(t),\ [ x_{\alpha}(-\xi),\ x_\beta(-s)]] ^ {x_{\alpha}(-\xi)}\bigr)^{x_\beta(-s)} & \text{ by~\eqref{HW-variant}}\end{split} \\
-= x_{\alpha}(-N_{\beta, \alpha-\beta} N_{\alpha,-\beta} \cdot s t \xi) ^ {x_{-\beta}(-t) \cdot x_\beta(-s)} = x_{\alpha}(s t \xi) ^ {x_{-\beta}(-t) \cdot x_\beta(-s)} & \text{ by~\eqref{Chevalley-CCF1},\eqref{Chevalley-CCF2}}\\
+\begin{split}[[x_\beta(s),\ x_{-\beta}(t)],\ x_{\alpha}(\xi)] = {}^{x_\beta(s)}\!\bigl( {}^{x_{-\beta}(t)}[x_\beta(-s),\ [x_{-\beta}(-t),\ x_{\alpha}(\xi)]] \cdot \hspace{50pt} \\ \cdot {}^{x_{\alpha}(\xi)}[x_{-\beta}(t),\ [ x_{\alpha}(-\xi),\ x_\beta(-s)]] \bigr)^{} & \text{ by~\eqref{HW-variant}}\end{split} \\
+= {}^{x_\beta(s) \cdot x_{-\beta}(t)}x_{\alpha}(-N_{\beta, \alpha-\beta} N_{\alpha,-\beta} \cdot s t \xi) = {}^{ x_\beta(s) \cdot x_{-\beta}(t)}x_{\alpha}(s t \xi) & \text{ by~\eqref{Chevalley-CCF1},\eqref{Chevalley-CCF2}}\\
 = x_{\alpha}(st\xi) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot st^2\xi)^{x_\beta(-s)} = x_{\alpha}(st\xi + s^2t^2 \xi) \cdot x_{\alpha-\beta}(N_{-\alpha,\beta}\cdot st^2\xi) & \text{ by~\eqref{Chevalley-CCF1}.} \end{align*}
-The assertion~\ref{C3} is obvious. Finally, last assertion can be obtained as follows:
+The assertion~\ref{C3} is obvious. Finally, the last assertion can be obtained as follows:
 \begin{align*}
 [x_{\alpha+\beta}(s),\ x_{-\alpha-\beta}(t\xi)] = [x_{\alpha+\beta}(s),\ [x_{-\alpha}(-\epsilon t),\ x_{-\beta}(\xi)]]&\ \text{by~\eqref{Chevalley-CCF1}}\\
 \begin{split}
-    =\bigl( [[x_{\alpha+\beta}(-s),\ x_{-\alpha}(\epsilon t)],\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s)} \cdot \hspace{70pt} \\
-        \cdot [[ x_{-\beta}(-\xi),\ x_{\alpha+\beta}(s)],\ x_{-\alpha}(\epsilon t)]^{x_{-\beta}(-\xi)}\bigr)^{x_{-\alpha}(\epsilon t)} &\ \text{by~\eqref{HW-variant}}
+    ={}^{x_{-\alpha}(-\epsilon t)}\!\bigl( {}^{x_{\alpha+\beta}(s)}[[x_{\alpha+\beta}(-s),\ x_{-\alpha}(\epsilon t)],\ x_{-\beta}(\xi)]  \cdot \hspace{70pt} \\
+        \cdot {}^{x_{-\beta}(\xi)}[[ x_{-\beta}(-\xi),\ x_{\alpha+\beta}(s)],\ x_{-\alpha}(\epsilon t)]\bigr) &\ \text{by~\eqref{HW-variant}}
 \end{split}\\
-= [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha}(\epsilon t)]^{x_{-\beta}(-\xi)x_{-\alpha}(\epsilon t)} &\ \text{by~\eqref{Chevalley-CCF1}}\\
-= [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha}(\epsilon t) x_{-\alpha-\beta}(t\xi)]^{x_{-\alpha}(\epsilon t)} &\ \text{by~\eqref{Chevalley-CCF1},\eqref{Chevalley-CCF2}}\\
+= \left({}^{x_{\alpha+\beta}(s)}[x_{\beta}(st),\ x_{-\beta}(\xi)] \cdot {}^{x_{-\beta}(\xi)}[x_{\alpha}(\epsilon s\xi),\ x_{-\alpha}(\epsilon t)]\right)^{x_{-\alpha}(\epsilon t)} &\ \text{by~\eqref{Chevalley-CCF1}}\\
+= \left({}^ {x_{\alpha+\beta}(s)}[x_{\beta}(st),\ x_{-\beta}(\xi)] \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha}(\epsilon t) \cdot x_{-\alpha-\beta}(t\xi)]\right)^{x_{-\alpha}(\epsilon t)} &\ \text{by~\eqref{Chevalley-CCF1},\eqref{Chevalley-CCF2}}\\
 = [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot [x_{-\alpha}(-\epsilon t),\ x_{\alpha}(\epsilon s\xi)] \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha-\beta}(t\xi)] &\ \text{by~\eqref{rel43}}\\
 = [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2)  &\ \text{by~\eqref{Chevalley-CCF1}}. \qedhere
 \end{align*}
@@ -524,7 +524,7 @@ Throughout this section we use the following notations and conventions:
  \item $A$ denotes an arbitarary commutative ring and $M$ is an ideal of $A$. Starting from subsection~\ref{sec:Pa0-basic} we also assume that $A$ is local and $M$ is the maximal ideal of $A$.
  \item We denote by $R$ the Laurent polynomial ring $A[X, X^{-1}]$. We set $t = X^{-1}$, so that $R = A[X, X^{-1}] = A[t, t^{-1}]$.
  \item $B$ denotes the subring $A[t] + M[t^{-1}] = A[X^{-1}] + M[X]$ of $R$.
- \item $I$ denotes the ideal $M[X, X^{-1}]$ of $R$. Notice that $I$ is also an ideal of $B$.
+ \item $I$ denotes the ideal $M[X, X^{-1}]$ of $R$ (it is clear that $I$ is also an ideal of $B$).
  \end{itemize}
 \subsection{Presentation of Steinberg groups by homogeneous generators}
 \label{sec:presentation}
