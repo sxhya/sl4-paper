@@ -96,8 +96,8 @@ In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $\K_2$-
 
 The proof of~\cref{thm:main} goes as follows. We notice that it suffices to prove the $\St(\rD_\ell, -)$-variant of the theorem. Moreover, the proof of the injectivity of
 $j_+ \colon \St(\rD_\ell, A[X]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to be the hardest part. After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local.
-Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_+$ comes down to proving injectivity of the following two homomorphisms:
-\[ \xymatrix{ \St(\rD_\ell, A[X^{-1}]) \ar[r] & \St(\rD_\ell, A[X\inv] + M[X]) \ar[r] & \St(\rD_\ell, A[X, X\inv]). }\]
+Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_+$ comes down to proving the injectivity of the following two homomorphisms:
+\begin{equation*} \xymatrix{ \St(\rD_\ell, A[X^{-1}]) \ar[r] & \St(\rD_\ell, A[X\inv] + M[X]) \ar[r] & \St(\rD_\ell, A[X, X\inv]). }\end{equation*}
 The injectivity of the second homomorphism is obtained in~\cref{thm41}. This is the only place in our proof which invokes the assumption that $2$ is invertible. The proof of~\cref{thm41} depends on the stability theorem for higher orthogonal K-groups and also on certain basic calculations with Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). Finally, the injectivity of the first homomorphism is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ containing a subsystem of type $\rA_4$.
 %$\rD_\ell$, $\ell=5,6$ and also $\rE_\ell$, $\ell=6,7,8$.
 
@@ -347,9 +347,9 @@ but since the group $\GW_2^{[3]}(k)$ is trivial by~\cite[Lemma~2.2]{FRS12}, the 
 We will also need the following property of relative Steinberg groups which is a special case of a more general property discussed in~\cite[\S~2]{LS17}.
 \begin{lemma}\label{lem:lemma32} Let $\Phi$ be a simply-laced root system of rank $\geq 3$,
 Consider the following commutative square of canonical homomorphisms.
-\[ \xymatrix{
+\begin{equation*} \xymatrix{
     \St(\Phi, B, I) \ar[r] \ar[d] & \St(\Phi, B) \ar[d] \\
-    \St(\Phi, R, I) \ar[r] \ar@{-->}^t[ur] & \St(\Phi, R) } \]
+    \St(\Phi, R, I) \ar[r] \ar@{-->}^t[ur] & \St(\Phi, R) } \end{equation*}
 Then there exists a diagonal homomorphism $t$ which makes the diagram commute.   
 \end{lemma} 
 \begin{proof}
@@ -903,7 +903,7 @@ Denote by $\overline{G}^{\geq 0}_M$ the image of the homomorphism $j_+^M$. \end{
 Notice that the homomorphism $j_+^Mi_+^M$ is split by the homomorphism $ev^*_{X=1}$ of evaluation at $1$, therefore $G_M^0$ can be considered as a subgroup of $\overline{G}^{\geq 0}_M$.
 
 Denote by $\overline{V}_T$ the quotient of the set of triples 
-\[V_T = \overline{G}_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1+M)^\times\] by the equivalence relation given by $(p \cdot j_+i_+(\gamma), h, u)_T \sim (p, i_-(\gamma) \cdot h, u)_T$, $\gamma \in G^0_M$. We denote the image of $(p, h, u)_T$ in $\overline{V}_T$ by $[p, h, u]$.
+\begin{equation}\label{VT-def} V_T = \overline{G}_M^{\geq 0} \times \St(\Phi, A[X\inv]) \times (1+M)^\times \end{equation} by the equivalence relation given by $(p \cdot j_+i_+(\gamma), h, u)_T \sim (p, i_-(\gamma) \cdot h, u)_T$, $\gamma \in G^0_M$. We denote the image of $(p, h, u)_T$ in $\overline{V}_T$ by $[p, h, u]$.
 $\overline{V}_T$ is precisely the set upon which M.~Tulenbaev in~\cite[Proposition~4.3]{Tu83} constructs an action of $\St(\Phi, B)$.
 
 Sometimes it will be more convenient for us to work with another set $\overline{V}$ isomorphic to $\overline{V}_T$ (this isomorphism will be established below). Denote by $V$ the subset of \[\St(\Phi, R) \times \St(\Phi, A[X\inv]) \times (1 + M)^\times\] consisting of those triples $(g, h, u)$ for which $p(g, h, u) := g \cdot j_-(h) \cdot \{ X, u \}$ belongs to $\overline{G}_M^{\geq 0}$. 
@@ -1081,12 +1081,16 @@ From the second property of the above proposition we immediately obtain the foll
 \[\E(\Phi, A[X\inv] + M[X]) = \E(\Phi, A[X], M[X]) \cdot \E(\Phi, A[X\inv]).\] \end{corollary}
 
 \subsection{Proof of Horrocks theorem.} \label{sec:P1glueing}
-We retain the notation of the previous section and assume additionally that the homomorphism $j_R \colon \St(\Phi, B) \to \St(\Phi, R)$ is injective.
-This assumption allows us to consider the group $\St(\Phi, B)$ as a subgroup of $\St(\Phi, R)$.
-Being considered in this way, $\St(\Phi, B)$ contains the subgroup $\overline{G}^{\geq 0}_M$ of $\St(\Phi, R)$.
-This follows from a consideration of the following commutative diagram, in which the homomorphism $t$ is obtained from~\cref{lem:lemma32}:
-\[ \xymatrix{ \St(\Phi, A[X], M[X]) \ar[d] \ar[r] & \St(\Phi, R, I) \ar[r]^{t} & \St(\Phi, B) \ar[d]^{j_R} \\
-   \St(\Phi, A[X]) \ar[rr]^{j_+} & & \St(\Phi, R). } \]
+Before we proceed with the proof of~\cref{thm:main} let us briefly remind the reader the relevant notation. Recall that $A$ is a local ring with maximal ideal $M$ and $I = M[X, X\inv]$ is an ideal of both $R=A[X, X\inv]$ and $B = A[X\inv] + M[X]$.
+
+Consider the following commutative diagram, in which the map $t$ is obtained from~\cref{lem:lemma32}:
+\begin{equation} \label{big-picture}
+ \xymatrix{ & \St(\Phi, A[X], M[X]) \ar[r]_(0.55){\mu_{A[X]}} \ar[d] & \St(\Phi, A[X]) \ar[dd]^{j_+} \\ & \St(\Phi, R, I) \ar[d]^t & \\ \St(\Phi, A[X\inv]) \ar[r]^{j_B^-} & \St(\Phi, B) \ar[r]^{j_R} & \St(\Phi, R). } \end{equation}
+Notice that the subgroup $\overline{G}_M^{\geq 0}$ (see~\cref{df:GM0_geq0}) coincides with the image of $j_+\mu_{A[X]}$.
+
+Our goal is to prove that the homomorphism $j_B^-$ is injective. 
+In order to be able to do this we need to show that $\St(\Phi, B)$ acts transitively on the first components of the triples from $\overline{V}_T$. These first components are parametrized by cosets $\overline{G}_M^{\geq 0}/G_M^0$ (cf.~\eqref{VT-def}). It is clear from~\eqref{big-picture} that $\overline{G}_M^{\geq 0}$ lies in the image of $j_R$.
+To simplify notation we want to consider $\overline{G}_M^{\geq 0}$ as a subgroup of $\St(\Phi, B)$. Thus, throughout this section we additionally assume that $j_R$ is injective. This assumption is innocent, since we already know from~\cref{thm41} that $j_R$ is injective under the assumptions of~\cref{thm:main}.
 
 \begin{lemma}\label{lem:action} For any $[p, h, u]\in \overline{V}_T$ and any $p_1 \in \overline{G}^{\geq 0}_M$ one has $p_1 \cdot [p, h, u] = [p_1p, h, u]$. \end{lemma}
 \begin{proof} 
@@ -1103,19 +1107,17 @@ Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ into~\ref{Z5} we obtain 
 From the first part of the proof and inductive assumption we obtain that the assertion of the lemma holds for all the factors in the right-hand side and, therefore, also holds for $p_1 = z_\alpha(f, X\xi)$. It is easy to deduce from this that the assertion also holds for $p_1 = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
 \end{proof}
 
-\begin{rem}
-Although we will not need this for our main result, it can be noted that $\overline{V}$ is a left $\St(\Phi, B)$-torsor, i.\,e. the action of $\St(\Phi, B)$ on $\overline{V}$ is both transitive and faithful. The faithfulness follows from the second property of~\cref{prop43} and our assumption that $j_R$ is injective.
-The transitivity follows from~\cref{lem:action}, the first property of~\cref{prop43} and the following formula, which is a direct consequence of~\cref{lem:Tulenbaev-formula} and~\eqref{T_1}--\eqref{T_leq0}:
+\begin{rem} Although we will not need this for our main result, it can be noted that $\overline{V}$ is a left $\St(\Phi, B)$-torsor, i.\,e. the action of $\St(\Phi, B)$ on $\overline{V}$ is both transitive and faithful. The faithfulness follows from the second property of~\cref{prop43} and our assumption that $j_R$ is injective. The transitivity follows from~\cref{lem:action}, the first property of~\cref{prop43} and the following formula, which is a direct consequence of~\cref{lem:Tulenbaev-formula} and~\eqref{T_1}--\eqref{T_leq0}:
 \begin{equation*} \langle a, m \rangle^{-1} \cdot \langle aX^{-1}, mX \rangle \cdot [1, 1, 1] = [1, 1, 1+am]. \end{equation*} \end{rem}
 
-\begin{externaltheorem} \label{thm:P1glueing}
+\begin{theorem} \label{thm:P1glueing}
  Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
- Suppose that the homomorphism $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
+ Assume additionally that the homomorphism $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
  Then the homomorphism $j_-$ is injective and the following commutative square is pullback
  \begin{equation} \nonumber
   \xymatrix{ \St(\Phi, A) \ar[r] \ar[d] & \St(\Phi, A[X]) \ar[d]^{j_+} \\ \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, A[X, X\inv]).}
  \end{equation}
-\end{externaltheorem}
+\end{theorem}
 \begin{proof} Since $j_- = j_R j_B^-$, where $j_B^-$ is as in~\cref{prop43}, it suffices to show that $j_B^-$ is injective.
  Set $v_0 = [1, 1, 1] \in \overline{V}_T$ and suppose $g \in \Ker(j_B^-)$.
  By~\cref{prop43} one has $v_0 = j_B^-(g) \cdot v_0 = [1, g, 1]$, therefore by the definition of $\overline{V}_T$, $g = i_-(\gamma)$ for some $\gamma \in G_M^0$ such that $j_+i_+(\gamma) = 1$.
