@@ -857,9 +857,20 @@ Direct computation shows that
  = S_\alpha(a, g_0) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot\langle a, m \rangle &\text{ by~\cref{lem:Tulenbaev-formula}.}
 \end{align*}
 By \cref{P0_conj} and \cref{rem:DS} the subgroup $P_\alpha(0)$ contains $S_\alpha(a, g_0)$ and the symbol $\langle a, m \rangle$. Thus, the expression in the right-hand side of the above formula lies in $P_\alpha\left(\tfrac{m}{1+am}\right)$. 
-%The second assertion of the lemma can be verified directly using~\eqref{eq:symbol-properties}. 
 \end{proof}
-
+\begin{comment}
+\begin{corollary}\label{cor:additivity} For $a, b \in A$ and $g \in P_\alpha(m)$ one has
+ \[S_\alpha(a + b, g) = S_\alpha\left(b, S_\alpha(a, g) \cdot h_\alpha^{-1}(1+am)\right) \cdot h_\alpha(1+am).\]
+\end{corollary}
+\begin{proof}
+The assertion immediately follows from the above corollary:
+ \begin{align*}
+  S_\alpha\left(b, S_\alpha(a, g) \cdot h_\alpha^{-1}(1+am)\right) \cdot h_\alpha(1+am) &\text{ by~\eqref{eq:S-def}} \\
+  = x_\alpha(bX^{-1}) \cdot S_\alpha(a, g) \cdot h_\alpha^{-1}(1+am) \cdot x_\alpha\left(-\tfrac{bX^{-1}}{1+\tfrac{bm}{1+am}}\right) \cdot \{X, 1+\tfrac{bm}{1+am}\} \cdot h_\alpha(1+am)&\text{ by~\eqref{eq:conj-h-x}} \\
+  = x_\alpha(bX^{-1}) \cdot S_\alpha(a, g) \cdot x_\alpha\left(\tfrac{-bX^{-1}}{(1+am)(1+am+bm)}\right) \cdot \left\{X, 1+\tfrac{bm}{1+am} \right\}&\text{ by~\eqref{eq:S-def}}\\
+  = x_\alpha((a+b)X^{-1}) \cdot h \cdot x_\alpha\left(- \tfrac{aX^{-1}(1+am+bm) + bX^{-1}}{(1+am)(1+am+bm)} \right) \cdot \{ X, 1+(a+b)m \} = S_\alpha(a+b, g) &\text{ by~\eqref{eq:S-def}.} \end{align*}
+\end{proof}
+\end{comment}
 \begin{lemma} \label{SR:sharp} For $g \in j_+(K(A[X], M[X])) \cap P_\alpha(m) \cap P_\beta(m')$ and $a \in A$ one has \[S_\alpha(a, g)\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot am') \in P_\beta\left(\tfrac{m'}{1 + am}\right). \] \end{lemma}
 \begin{proof} By~\cref{K-a-b} $g$ can be presented as $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $g_0\in K(\alpha, \beta)$. By~\cref{K-a-b-P-b} the element $g_1 = S_\alpha(a, g_0) $ lies in $P_\beta(0)$. Since $x_{-\beta}(m'X) \in P_\alpha(0)$ we get that
 \begin{align*}
@@ -1059,6 +1070,13 @@ Thus, we can continue~\eqref{R2_0_1-computation} using~\eqref{T_1}--\eqref{T_leq
 \end{multline}
 The assertion of the lemma now follows from~\eqref{R2_0_1-computation}--\eqref{R2_0_1-computation2}.
 \end{proof}
+\begin{comment}
+In the sequel it will be convenient to have explicit formulas for the action of operators $T_\alpha(aX^{-1})$ and $T_\alpha(a + Xf)$ on $\overline{V}_T$. These formulas are the analogues of~\eqref{T_1}--\eqref{T_leq0} and are easily obtained from them using~\eqref{eq:VVT}.
+\begin{align}\label{T_1-VT}
+ T_\alpha(aX^{-1}) \cdot [p, h, u] &= [ S_\alpha(a, p),\ x_\alpha\left(\tfrac{aX^{-1}}{1+am}\right) \cdot h,\ u(1+am)],\text{ where }p\in P_\alpha(m); \\
+ T_\alpha(a + Xf) \cdot [p, h, u] &= [x_\alpha(a + Xf) \cdot p \cdot x_\alpha(-a),\ x_\alpha(a) \cdot h, u]. \label{T_leq0-VT}
+\end{align}
+\end{comment}
 
 Now we are ready to prove the main result of this subsection.
 \begin{prop} \label{prop43}
@@ -1096,9 +1114,10 @@ To simplify notation we want to consider $\overline{G}_M^{\geq 0}$ as a subgroup
 \begin{proof} 
 In view of~\cref{thm:Tits} it suffices to verify the assertion of the lemma for the generators $p_1 = z_\alpha(f, \xi)$ of $\overline{G}_M^{\geq 0}$ for all $f \in M[X]$, $\xi\in A[X]$, $\alpha \in \Phi$. We accomplish this by induction on the degree of $\xi$ in $X$. 
 
-First of all, notice that the base case $\xi = a \in A$ can be verified by direct computation involving~\eqref{eq:VVT} and~\eqref{T_leq0}.
-Using~\cref{lem:Smult} and the fact that $x_\beta(X^2f) \in P_\alpha(0)$ for all $\beta \in \Phi$ it is not hard to show that the assertion also holds for $p_1 = z_\alpha(X^2f, aX^{-1})$.
+Notice that the assertion in the base case $\xi = a \in A$ is an immediate consequence of of~\eqref{T_leq0}.
+Since $x_\beta(X^2f) \in P_\alpha(0)$, an argument similar to the proof of~\cref{R1_d} shows that the assertion of the lemma also holds for $p_1 = z_\alpha(X^2f, aX^{-1})$.
 
+Now let us verify the induction step.
 Suppose that the assertion holds for all $p_1 = z_\alpha(f, \xi)$ for which $\xi$ has degree $\leq n$.
 Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ into~\ref{Z5} we obtain the following equality in $\St(\Phi, B)$:
 \begin{multline*}
