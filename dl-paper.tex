@@ -92,15 +92,17 @@ Our main result is, thus, the following theorem, which is the orthogonal analogu
   \xymatrix{ \KO_2(2\ell, A) \ar[r] \ar[d] & \KO_2(2\ell, A[X]) \ar[d] \\ \KO_2(2\ell, A[X\inv]) \ar[r] & \KO_2(2\ell, A[X, X\inv]).}  
 \end{equation} 
 Moreover, the same assertion holds if one replaces the functor $\KO_2(2\ell, -)$ with $\K_2(\rD_\ell, -)$ or $\St(\rD_\ell, -)$. \end{theorem}
-In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $\K_2$-functor (see~\cref{sec:quillen}). Notice also that in the special case when $A=k$ is a field the assertion of the above theorem follows from the results of U.~Rehmann, J.~Hurrelbrink and J.~Morita (see~\cref{field-injectivity} below).
+In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $\K_2$-functor (see~\cref{sec:quillen}). Notice also that in the special case when $A=k$ is a field the assertion of the above theorem is a consequence of the results of U.~Rehmann and J.~Hurrelbrink (see~\cref{field-injectivity} below).
 
 The proof of~\cref{thm:main} goes as follows. We notice that it suffices to prove the $\St(\rD_\ell, -)$-variant of the theorem. Moreover, the proof of the injectivity of
-$j_+ \colon \St(\rD_\ell, A[X]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to be the hardest part. After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local.
-Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_+$ comes down to proving the injectivity of the following two homomorphisms:
-\begin{equation*} \xymatrix{ \St(\rD_\ell, A[X^{-1}]) \ar[r] & \St(\rD_\ell, A[X\inv] + M[X]) \ar[r] & \St(\rD_\ell, A[X, X\inv]). }\end{equation*}
-The injectivity of the second homomorphism is obtained in~\cref{thm41}. This is the only place in our proof which invokes the assumption that $2$ is invertible. The proof of~\cref{thm41} depends on the stability theorem for higher orthogonal K-groups and also on certain basic calculations with Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). Finally, the injectivity of the first homomorphism is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ containing a subsystem of type $\rA_4$.
-%$\rD_\ell$, $\ell=5,6$ and also $\rE_\ell$, $\ell=6,7,8$.
+$j_- \colon \St(\rD_\ell, A[X\inv]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to be the hardest part. After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local.
+Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_-$ comes down to proving the injectivity of the following two homomorphisms:
+\begin{equation*} \xymatrix{ \St(\rD_\ell, A[X^{-1}]) \ar[r]{j_B^-} & \St(\rD_\ell, B) \ar[r]{j_R} & \St(\rD_\ell, R), }\end{equation*}
+where $B = A[X\inv] + M[X]$ and $R = A[X, X\inv]$.
+The injectivity of $j_R$ is obtained in~\cref{thm41}. This step of the proof relies on the theory of relative Steinberg groups developed by J.-L.~Loday in~\cite{Lo78}. According to it the relative Steinberg group $\St(\Phi, R, I)$ is not the kernel of $\St(\Phi, R) \to \St(\Phi, R/I)$ but rather a central extension of it by a certain subgroup, which we denote $C(\Phi, R, I)$. It turns out that a simple diagram chasing argument combined with a certain lifting property of relative Steinberg groups (see~\cref{lem:lemma32}) reduces the sought injectivity of $j_R$ to the surjectivity of the map \[C(\rD_\ell, B, M[X, X\inv]) \to C(\rD_\ell, R, M[X, X\inv]).\] This surjectivity is then obtained as a corollary of Panin's stability theorem for orthogonal K-theory and the Bass Fundamental Theorem for higher Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). This is the only step of our proof which invokes the assumption that $2$ is invertible. 
 
+Finally, the injectivity of the homomorphism $j_B^-$ is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ containing a subsystem of type $\rA_4$. The main idea of the proof of~\cref{thm:P1glueing} is to express the underlying set of $\St(\Phi, A[X\inv] + M[X])$ as an explicit quotient of the Cartesian product of three other groups, one of which is precisely $\St(\Phi, A[X\inv])$ (see~\eqref{VT-def}). This can be considered as some sort of a decomposition for $\St(\Phi, A[X\inv] + M[X])$. This technique for working with Steinberg groups probably dates back to~\cite{ST76}.
+The proof of~\cref{thm:P1glueing} requires a certain amount of preparatory work. One of the neccessary ingredients in it is~\cref{lemma33}, which is similar to the results of U.~Rehmann, C.~Soul{\'e} and M.~Tulenbaev (cf.~\cite[Satz~2]{Re75},\cite[Theorem~2]{RS76},\cite[Lemma~3.3]{Tu83}).
 \subsection{Acknowledgements} 
 The work of the first-named author (\S~3) was supported by the Russian Science Foundation grant No 17-11-01261.
 The work of the second-named author (\S~4--5) was supported by RFBR grant No 18-31-20044.
@@ -1114,7 +1116,7 @@ To simplify notation we want to consider $\overline{G}_M^{\geq 0}$ as a subgroup
 \begin{proof} 
 In view of~\cref{thm:Tits} it suffices to verify the assertion of the lemma for the generators $p_1 = z_\alpha(f, \xi)$ of $\overline{G}_M^{\geq 0}$ for all $f \in M[X]$, $\xi\in A[X]$, $\alpha \in \Phi$. We accomplish this by induction on the degree of $\xi$ in $X$. 
 
-Notice that the assertion in the base case $\xi = a \in A$ is an immediate consequence of of~\eqref{T_leq0}.
+Notice that in the base case $\xi = a \in A$ the assertion of the lemma is an immediate consequence of of~\eqref{T_leq0}.
 Since $x_\beta(X^2f) \in P_\alpha(0)$, an argument similar to the proof of~\cref{R1_d} shows that the assertion of the lemma also holds for $p_1 = z_\alpha(X^2f, aX^{-1})$.
 
 Now let us verify the induction step.
@@ -1123,7 +1125,7 @@ Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ into~\ref{Z5} we obtain 
 \begin{multline*}
  z_{\alpha+\beta}(f, X\xi) = x_\alpha(\epsilon Xf) \cdot x_{-\beta}(-X^2 f\xi ) \cdot x_{\beta}(\xi f) \cdot x_{\alpha+\beta}(f) \cdot \\ \cdot z_\alpha(-\epsilon Xf, -\epsilon \xi) \cdot x_{-\alpha}(-\epsilon X\xi^2f) \cdot x_{-\alpha-\beta}(- X^2f \xi^2) \cdot z_{-\beta}(X^2f\xi, -X^{-1}),\text{ where $\epsilon = N_{\alpha, \beta}$.}
 \end{multline*}
-From the first part of the proof and inductive assumption we obtain that the assertion of the lemma holds for all the factors in the right-hand side and, therefore, also holds for $p_1 = z_\alpha(f, X\xi)$. It is easy to deduce from this that the assertion also holds for $p_1 = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
+From the inductive assumption we obtain that the assertion of the lemma holds for all the factors in the right-hand side and, therefore, also holds for $p_1 = z_\alpha(f, X\xi)$. It is easy to deduce from this that the assertion also holds for $p_1 = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
 \end{proof}
 
 \begin{rem} Although we will not need this for our main result, it can be noted that $\overline{V}$ is a left $\St(\Phi, B)$-torsor, i.\,e. the action of $\St(\Phi, B)$ on $\overline{V}$ is both transitive and faithful. The faithfulness follows from the second property of~\cref{prop43} and our assumption that $j_R$ is injective. The transitivity follows from~\cref{lem:action}, the first property of~\cref{prop43} and the following formula, which is a direct consequence of~\cref{lem:Tulenbaev-formula} and~\eqref{T_1}--\eqref{T_leq0}:
@@ -1156,7 +1158,7 @@ From the first part of the proof and inductive assumption we obtain that the ass
  Notice that the assertions of the theorem for $\KO_2(2\ell, -)$ and $\K_2(\rD_\ell, -)$ follow from the assertion for $\St(\rD_\ell, -)$,
  which, in turn, follows from~\cref{thm41} and~\cref{thm:P1glueing} in the special case when $A$ is a local ring.
  
- Now let $A$ be arbitrary commutative ring and $\Phi = \rD_\ell$, $\ell \geq 7$. If $g \in \St(\Phi, A[X])$ is such that its image in $\St(\Phi, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\Phi, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$.
+ Now let $A$ be an arbitrary commutative ring and $\Phi = \rD_\ell$, $\ell \geq 7$. If $g \in \St(\Phi, A[X])$ is such that its image in $\St(\Phi, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\Phi, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$.
  We denote by $\lambda_{M}$ (resp. $\lambda_{M, -}$) the localization homomorphism $A[X] \to A_M[X]$ (resp. $A[X\inv] \to A_M[X\inv]$) and by $\lambda_M^*$, $\lambda_{M,-}^*$ the corresponding homomorphisms of Steinberg groups.
  By the just established local case of the theorem the images $\lambda^*_M(g)$ in all $\St(\Phi, A_M[X])$ are also trivial. Now by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is trivial as well.
 
