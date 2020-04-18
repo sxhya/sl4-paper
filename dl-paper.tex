@@ -258,8 +258,8 @@ For the rest of this subsection $S \xrightarrow{\pi} P \subseteq G$ is a triple 
 \begin{enumerate} [label=\normalfont(A\arabic*)]
  \item \label{req:left-exact} $G(D_{R, I}) \cong G(R) \times_{G(R/I)} G(R)$.
  \item \label{req:coeq} For every pair $(R, I)$ the coequalizer of $S(p_0), S(p_1)$ is precisely $S(R) \to S(R/I)$.
- \item \label{req:subfunc} $P(R)$ is a perfect normal subgroup of $G(R)$.
- \item \label{req:uce} The homomorphism $ \pi_R \colon S(R) \to P(R)$ is a universal central extension for all $R$. In particular, $\HH_1(S(R), \ZZ) = \HH_2(S(R), \ZZ) = 0$.
+ \item \label{req:subfunc} $P(R)$ is a normal subgroup of $G(R)$.
+ \item \label{req:uce} The homomorphism $ \pi_R \colon S(R) \to P(R)$ is a universal central extension for all $R$. In particular, $S(R)$ and $P(R)$ are perfect and $\HH_2(S(R), \ZZ) = 0$.
 \end{enumerate}
 
 \begin{lemma}\label{lem:relativeH3}
@@ -284,27 +284,33 @@ It is not hard to obtain the following concrete description of these functors in
  \item $\K_1^{G,P}(R) \cong G(R) / P(R)$;
  \item $\K_2^{G,P}(R) \cong \Ker(S(R) \to G(R))$;
  \item $\K_3^{G,P}(R) \cong \HH_3(S(R), \ZZ).$ \end{enumerate} \end{lemma}
-\begin{proof} The first claim is obvious, the other ones follow from~\ref{req:subfunc} and~\ref{req:uce} using the standard properties of the plus-construction, see \cite[\S~IV.1]{Kbook}   (cf. Exercises~1.8--1.9 ibid.) \end{proof}
+\begin{proof} The first claim is obvious, the other claims follow from~\ref{req:subfunc} and~\ref{req:uce} using the standard properties of the plus-construction, see \cite[\S~IV.1]{Kbook}   (cf. Exercises~1.8--1.9 ibid.) \end{proof}
 
-Now let us give an example of the triple $(G, P, S)$ playing a key role in the present paper.
-We denote by $\mathrm{O}_{2n}(R)$ and $\mathrm{EO}_{2n}(R)$ the orthogonal group of rank $n$ over a ring $R$ and its elementary subgroup, respectively
- (see e.\,g.~\cite{Su82} for the definition of these groups).
-Now set $G_n = \mathrm{O}_{2n}(-)$, $P_n = \mathrm{EO}_{2n}(R)$, $S_n = \St(\rD_n, -)$ and let $\pi$ be the obvious projection $S_n \to P_n$.
+We denote by $\mathrm{O}_{2n}(R)$ and $\mathrm{EO}_{2n}(R)$ the orthogonal group of rank $n$ over a ring $R$ and its elementary subgroup, respectively (see e.\,g.~\cite{Su82} for the definition of these groups).
+Now set $G_n = \mathrm{O}_{2n}(-)$, $P_n = \mathrm{EO}_{2n}(R)$, $S_n = \St(\rD_\ell, R)$.
+The triple $(G_n, P_n, S_n)$ plays a key role in the present paper.
 
-It is easy to see that the functors $G_n$, $P_n$ and $S_n$ satisfy \ref{req:left-exact} and \ref{req:coeq}.
-By~\cite{Su82} the requirement~\ref{req:subfunc} is also satisfied for $n \geq 3$.
-Finally, from~\cite[Corollary~5.4]{St71} and~\cite[Theorem~1]{LS17} it follows that $S_n$ and $P_n$ satisfy~\ref{req:uce} for $n \geq 5$.
-We use the notation $\KO_i(2n, R)$ as a shorthand for $\K_i^{G_n, P_n}(R)$. 
+We need to introduce more notation. Denote by $\widetilde{G}_n$ the Chevalley group $\GG(\rD_n, -) = \mathrm{Spin}(2n, -)$
+ and by $\widetilde{P}_n$ its elementary subfunctor $\mathrm{E}(\rD_n, -) = \mathrm{Epin}(2n, -)$.
 
-Now set $\widetilde{G}_n = G(\rD_n, -) = \mathrm{Spin}(2n, -)$ and $\widetilde{P}_n = \mathrm{E}(\rD_n, -) = \mathrm{Epin}(2n, -)$.
-Notice that for $n\geq 3$ the groups
-\begin{align*}
-   \KO_2(2n, R) &= \K_2^{G_n,P_n} = \Ker(\St(\rD_n, R) \to \mathrm{SO}(2n, R)), \\
- \K_2(\rD_n, R) &= \K_2^{\widetilde{G}_n,\widetilde{P}_n} = \Ker(\St(\rD_n, R) \to \mathrm{Spin}(2n, R))
-\end{align*}
-are related via the exact sequence
+It is clear that both $G_n$ and $\widetilde{G}_n$ satisfy~\ref{req:left-exact} and that $S_n$ satisfies \ref{req:coeq}.
+It is well known that $P_n$ (resp. $\widetilde{P}_n$) is a normal subgroup of $G_n$ (resp. $\widetilde{G}_n$) for $n\geq 3$ (see~\cite{Su82},\cite{Ta84}). Thus,~\ref{req:subfunc} is satisfied for $P_n$ and $\widetilde{P}_n$.
+
+By~\cite[Corollary~5.4]{St71} the group $S_n$ is {\it centrally closed} for $n \geq 5$, i.\,e. every its central extension splits.
+On the other hand, \cite[Theorem~1]{LS17} shows that $\K_2(\rD_\ell, R) = \Ker(S_n \to \widetilde{G}_n)$ is a central subgroup of $S_n$ for $n\geq 4$. 
+
+Recall from p.~189 of~\cite{Ba74} that there is an exact sequence
+\begin{equation} \label{eq:Bass-ES} \xymatrix{1 \ar[r] & \mu_2(R) \ar[r] & \widetilde{P}_n(R) \ar[r] & P_n(R) \ar[r] & 1,}
+\end{equation}
+in which the group $\mu_2(R) = \{ a \in R^\times \mid a^2 = 1 \}$ is a central subgroup of $\widetilde{P}_n(R)$.
+Now by~\cite[\S~7(v)]{Ste67} the group $\KO_2(2n, R) = \Ker(S_n \to G_n)$ is also central in $S_n$.
+Thus, we see that $S_n$ is a universal central extension of both $P_n$ and $\widetilde{P}_n$ for $n\geq 5$.
+
+We have checked that both triples $(G_n, P_n, S_n)$ and $(\widetilde{G}_n, \widetilde{P}_n, S_n)$ satisfy the requirements~\ref{req:left-exact}--\ref{req:uce} for $n \geq 5$. In the sequel we use the notation $\KO_i(2n, R)$ as a shorthand for $\K_i^{G_n, P_n}(R)$. 
+
+Notice that for $n\geq 3$ the groups $\KO_2(2n, R)$ and $\K_2(\rD_n, R)$ are related via the exact sequence
 \[ \xymatrix{ 1 \ar[r] & \K_2(\rD_n, R) \ar[r] & \KO_2(2n, R) \ar[r] & \mu_2(R) \ar[r] & 1,} \]
-which can be obtained from the exact sequence on p.~189 of~\cite{Ba74} using the snake lemma (cf. also with~\cite[Corollary~4.3.5]{Ba74}).
+which follows from~\eqref{eq:Bass-ES} via the snake lemma  (cf. also with~\cite[Corollary~4.3.5]{Ba74}).
 On the other hand, from~\cref{lem:lowerKgroups} it follows that $\KO_3(2n, R) \cong \mathrm{K}_3^{\widetilde{G}_n, \widetilde{P}_n}$.
 
 We conclude this subsection with the following stability result (see~\cite[Theorem~9.4]{Pa89}).
