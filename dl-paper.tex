@@ -6,7 +6,6 @@
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz}
 \usepackage{enumitem}
-\usepackage[notref,notcite]{showkeys}
 
 \addbibresource{paper.bib}
 \renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
@@ -84,7 +83,7 @@ It turns out that an assertion similar to the Serre problem also holds for the f
 
 While numerous results on the $\K_1$-analogue of Serre's problem have appeared in the literature since~\cite{Su77} (see e.\,g.~\cite{Su82, Abe83, St-poly, St-Ded}), little progress has been made on the $\K_2$-analogue. It has been conjectured by M.~Wendt, see~\cite[Vermutung~6.22]{Vo11} that a $\K_2$-analogue of the Serre problem holds for $\K_2(\Phi, -)$ for all $\Phi$ of rank $\geq 3$, however this conjecture still remains open for $\Phi$ different from $\rA_\ell$, $\ell \geq 4$.
 
-In~\cite{LS17} the authors have shown that the Steinberg groups $\St(\Phi, R)$ satisfy the Quillen--Suslin local-global principle provided $\Phi$ is simply-laced and has rank $\geq 3$. This result is one of the ingredients needed in the proof of the $\K_2$-analogue of the Serre problem for Chevalley groups. The aim of the present article is to make yet another step towards the solution of the problem, namely to prove an analogue of Horrocks theorem~\cite{Ho64} for Steinberg groups of type $\rD_\ell$.
+In~\cite{LS17,La18} the authors have shown that the Steinberg groups $\St(\Phi, R)$ satisfy the Quillen--Suslin local-global principle provided $\Phi$ has rank $\geq 3$ and is either simply-laced or has type $\rC_\ell$. The local-global principle is one of the ingredients needed in the proof of the $\K_2$-analogue of the Serre problem for Chevalley groups. The aim of the present article is to make yet another step towards the solution of the problem, namely to prove an analogue of Horrocks theorem~\cite{Ho64} for Steinberg groups of type $\rD_\ell$.
 
 Our main result is, thus, the following theorem, which is the orthogonal analogue of~\cite[Theorem~5.1]{Tu83} and the $\K_2$-analogue of~\cite[Theorem~6.8]{Su82} (cf. also with~\cite[Theorem~VI.5.2]{Lam10} and~\cite[Theorem~1.1]{St-poly}).
 \begin{theorem}[Horrocks theorem for orthogonal $\K_2$]\label{thm:main} Let $A$ be a commutative ring in which $2$ is invertible. Then for any $\ell \geq 7$ the following commutative square is a pullback square in which all homomorphisms are injective:
@@ -99,15 +98,15 @@ $j_- \colon \St(\rD_\ell, A[X\inv]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to
 Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_-$ comes down to proving the injectivity of the following two homomorphisms:
 \begin{equation*} \xymatrix{ \St(\rD_\ell, A[X^{-1}]) \ar[r]^(0.55){j_B^-} & \St(\rD_\ell, B) \ar[r]^{j_R} & \St(\rD_\ell, R), }\end{equation*}
 where $B = A[X\inv] + M[X]$ and $R = A[X, X\inv]$.
-The injectivity of $j_R$ is obtained in~\cref{thm41}. This step of the proof relies on the theory of relative Steinberg groups developed by J.-L.~Loday in~\cite{Lo78}. According to it the relative Steinberg group $\St(\Phi, R, I)$ is not the kernel of $\St(\Phi, R) \to \St(\Phi, R/I)$ but rather a central extension of it by a certain subgroup, which we denote $C(\Phi, R, I)$. It turns out that a simple diagram chasing argument combined with a certain lifting property of relative Steinberg groups (see~\cref{lem:lemma32}) reduces the sought injectivity of $j_R$ to the surjectivity of the map \[C(\rD_\ell, B, M[X, X\inv]) \to C(\rD_\ell, R, M[X, X\inv]).\] This surjectivity is then obtained as a corollary of Panin's stability theorem for orthogonal K-theory and the Bass Fundamental Theorem for higher Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). This is the only step of our proof which invokes the assumption that $2$ is invertible. 
+The injectivity of $j_R$ is obtained in~\cref{thm41}. This step of the proof relies on the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. According to this theory, the relative Steinberg group $\St(\Phi, R, I)$ is a central extension of $\Ker(\St(\Phi, R) \to \St(\Phi, R/I))$ by a certain subgroup, which we denote $C(\Phi, R, I)$. It turns out that a simple diagram chasing argument combined with a certain lifting property of relative Steinberg groups (see~\cref{lem:lemma32}) reduces the sought injectivity of $j_R$ to the surjectivity of the map \[C(\rD_\ell, B, M[X, X\inv]) \to C(\rD_\ell, R, M[X, X\inv]).\] This surjectivity is then obtained as a corollary of Panin's stability theorem for orthogonal K-theory and the Bass Fundamental Theorem for higher Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). This is the only step of our proof which invokes the assumption that $2$ is invertible. 
 
 Finally, the injectivity of the homomorphism $j_B^-$ is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ containing a subsystem of type $\rA_4$. The main idea of the proof of~\cref{thm:P1glueing} is to express the underlying set of $\St(\Phi, B)$ as an explicit quotient of the Cartesian product of three other groups, one of which is precisely $\St(\Phi, A[X\inv])$, see~\eqref{VT-def}. This can be considered as some sort of a decomposition for $\St(\Phi, B)$. Such technique for working with Steinberg groups probably dates back to~\cite{ST76}.
-The proof of~\cref{thm:P1glueing} requires a certain amount of preparatory work. One of the necessary ingredients is a certain presentation theorem for Steinberg groups similar to the results of U.~Rehmann, C.~Soul{\'e} and M.~Tulenbaev, see~\cref{lemma33} (cf.~\cite[Satz~2]{Re75},\cite[Theorem~2]{RS76},\cite[Lemma~3.3]{Tu83}).
+The proof of~\cref{thm:P1glueing} requires a certain amount of preparatory work. One of the necessary ingredients is a certain presentation theorem for Steinberg groups over graded rings, which is similar to the results of U.~Rehmann, C.~Soul{\'e} and M.~Tulenbaev, see~\cref{lemma33} (cf.~\cite[Satz~2]{Re75},\cite[Theorem~2]{RS76},\cite[Lemma~3.3]{Tu83}).
 \subsection{Acknowledgements} 
-The work of the first-named author (\S~3) was supported by the Russian Science Foundation grant No 17-11-01261.
+The work of the first-named author (\S~3) was supported by the Russian Science Foundation grant No 17-11-01261. The first-named author is a winner of the contest ``Young Russian Mathematics``.
 The work of the second-named author (\S~4--5) was supported by RFBR grant No 18-31-20044.
 
-The authors would like to express their gratitude to A.~Stavrova, A.~Stepanov and N.~Vavilov for their useful comments and interest in this work.
+The authors would like to express their gratitude to A.~Stavrova, A.~Stepanov and N.~Vavilov for their useful comments and interest in this work, and to the anonymous referee for his careful reading of an earlier version of the paper and suggesting a number of improvements.
 
 \section{Preliminaries}
 If $x$ and $y$ are elements of a group $G$ then $[x, y]$ denotes the left-normed commutator $xyx^{-1}y^{-1}$.
@@ -199,10 +198,10 @@ Recall from~\cite{Mo04} that $\K_1^\mathrm{MW}(k)$ is isomorphic to the pullback
 in other words, it consists of pairs $[u, x]$ such that $x - \langle \langle u \rangle \rangle \in I^2(k)$.
 It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\rangle - x)$ defines an isomorphism of $\K_1^\mathrm{MW}(k)$ and $P(k)$. \end{proof}
 
-\begin{rem} It is possible to directly prove the stable symplectic counterpart of the above lemma (under the additional assumption that the characteristic of $k$ is not $2$). Indeed, we have the following chain of isomorphisms:
+\begin{rem} It is possible to give a different proof of the above lemma in the case $\Phi = \rC_\ell$ for $\ell \geq 5$ under the additional assumption that the characteristic of $k$ is not $2$. Indeed, we have the following chain of isomorphisms:
 \[ \K_2(C_\infty, k[X, X^{-1}]) \cong \GW_2^2(k[X,X^{-1}]) \cong \GW_2^2(k) \oplus \GW_1^1(k) \cong \K_2^\mathrm{MW}(k) \oplus \K_1^\mathrm{MW}(k),\]
-in which the first two isomorphisms are obtained from~\eqref{GW-concrete} and~\cref{bass-ft} and the last one follows from the isomorphism $\GW_1^1(k) \cong \K_1^\mathrm{MW}(k)$ of~\cite[Lemma~4.1.1]{AF17} and Matsumoto's theorem. 
-Thus, we see that in the stable range the result of Morita and Rehmann agrees with the modern literature on higher Grothendieck--Witt groups. \end{rem}
+in which the first two isomorphisms are obtained from~\eqref{GW-concrete} and~\cref{bass-ft} and the last one follows from the isomorphism $\GW_1^1(k) \cong \K_1^\mathrm{MW}(k)$ of~\cite[Lemma~4.1.1]{AF17} and Matsumoto's theorem.
+It remains to invoke the stability theorem~\cite[Theorem~9.4]{Pa89} to obtain the assertion in the nonstable case. Thus, we see that the result of Morita and Rehmann agrees with the modern literature on higher Grothendieck--Witt groups. \end{rem}
 
 \begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the homomorphism $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of the images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
 \begin{proof} The first assertion follows from the commutative diagram
@@ -331,7 +330,7 @@ We refer the reader to~\cite{Ka80} for the definition and properties of the grou
 The following result, which is a special case of~\cite[Theorem~9.13]{Sch16} of M.~Schlichting, plays a key role in the proof of~\cref{thm41}.
 \begin{externaltheorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $R$ is a regular ring such that $2 \in R^\times$, 
 then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{externaltheorem}
-We will need only the special case $k=0$ of the above theorem, in which case it turns into an earlier result of J.~Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
+We will need only the special case $k=0$ of the above theorem, in which it turns into an earlier result of J.~Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
 
 For the rest of this section let us fix the following notation.
 Let $A$ be an arbitrary commutative local ring with maximal ideal $M$ and residue field $k$.
@@ -411,9 +410,9 @@ The elements $z_\alpha(s, \xi)$ satisfy the following relations for all $\xi, \e
 \item\label{Z3} $z_{\beta}(s, \xi) ^ {x_{\alpha}(\eta)} = x_{\alpha} (s\xi \eta) \cdot x_{\alpha-\beta} (N_{\beta,-\alpha}\cdot s\xi^2\eta) \cdot z_{\beta}(s, \xi)\ \text{if}\ \alpha - \beta \in \Phi$;
 
 \item\label{Z4} $z_{\beta}(s, \xi) ^ {x_{\alpha}(\eta)} = z_{\beta}(s, \xi)\ \text{if}\ \alpha\perp\beta$;
-\item If $\alpha+\beta\in\Phi$ then
-\begin{multline} \label{Z5} z_{\alpha+\beta}(s\eta, \xi) = x_\alpha(\epsilon s)\cdot x_{-\beta}(-s\xi) \cdot x_{\beta}(s\xi\eta^2) \cdot x_{\alpha+\beta}(s \eta) \cdot \\ \cdot z_\alpha(-\epsilon s, -\epsilon \xi\eta) \cdot
-  x_{-\alpha}(-\epsilon s\xi^2\eta^2) \cdot x_{-\alpha-\beta}(- s \xi^2 \eta) \cdot z_{-\beta}(s\xi, -\eta),\text{ where $\epsilon = N_{\alpha,\beta}$.}\end{multline}
+\item\label{Z5} If $\alpha+\beta\in\Phi$ then
+\begin{multline*} z_{\alpha+\beta}(s\eta, \xi) = x_\alpha(\epsilon s)\cdot x_{-\beta}(-s\xi) \cdot x_{\beta}(s\xi\eta^2) \cdot x_{\alpha+\beta}(s \eta) \cdot \\ \cdot z_\alpha(-\epsilon s, -\epsilon \xi\eta) \cdot
+  x_{-\alpha}(-\epsilon s\xi^2\eta^2) \cdot x_{-\alpha-\beta}(- s \xi^2 \eta) \cdot z_{-\beta}(s\xi, -\eta),\text{ where $\epsilon = N_{\alpha,\beta}$.}\end{multline*}
 \end{enumerate} \end{lemma}
 \begin{proof}
 The first four assertions are contained in~\cite[Lemma~9]{S15}, so it remains to verify the last assertion.
@@ -442,7 +441,7 @@ Let $S \subseteq \Phi$ be a parabolic subset of $\Phi$. Then the group $\overlin
  \end{externaltheorem} \begin{proof} See~\cite[Lemma~4]{S15}. \end{proof}
 
 \begin{rem} We claim that in the simply-laced case the stronger \cref{thm:Stepanov} can be deduced from~\cref{thm:Tits} by means of~\cref{Zrels}. Indeed, consider the operator $d \colon 2^\Phi \to 2^\Phi$ of root subsets, whose value on each $U \subseteq \Phi$ is given by \[d(U) = U \cup \left((U - U)\cap \Phi\right).\]
-Here $(U-U) \cap \Phi$ denotes the set of all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^n(\Sigma_S) = \Phi$ for some $n>1$ (in fact, $n=2$). It remains to see that relation~\ref{Z5} immediately implies that every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
+Here $(U-U) \cap \Phi$ denotes the set of all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^n(\Sigma_S) = \Phi$ for some $n>1$ (in fact, $n=2$). It remains to see that \cref{Zrels}\ref{Z5} immediately implies that every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
 
 \begin{lemma} \label{Crels} Let $\Phi$ be a simply-laced root system.
 The elements $c_\alpha(s, t)$ satisfy the following relations for all $s\in I,\ t\in J,\ \xi\in R$:
@@ -475,8 +474,6 @@ The assertion~\ref{C3} is obvious. Finally, the last assertion can be obtained a
 = [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot [x_{-\alpha}(-\epsilon t),\ x_{\alpha}(\epsilon s\xi)] \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha-\beta}(t\xi)] &\ \text{by~\eqref{rel43}}\\
 = [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2)  &\ \text{by~\eqref{Chevalley-CCF1}}. \qedhere
 \end{align*}
-
-
 \end{proof}
 
 \subsection{Computation of the kernel of the map of evaluation at $0$.}\label{sec:computationOfK}
@@ -682,7 +679,7 @@ Now let $g = z_{\beta}(Xf, \xi)$ be a generator of type P1 in the case $\alpha +
 \begin{equation} \label{eq3-3} z_{\beta}(Xf, \xi) ^ {x_{-\alpha}(mX)} = x_{-\alpha} (mX^2f\xi ) \cdot x_{-\alpha-\beta} (N_{\beta,\alpha}\cdot mX^2f\xi^2) \cdot z_{\beta}(Xf, \xi), \end{equation}
 and the latter expression is a product of generators of type P4, P1, P1.
 
-Finally, let $g = x_\alpha(f)$ be a generator of type P5. Substituting in~\ref{Z5} $s = -\epsilon f$, $\xi = -\epsilon m$, $\eta=X$, and expressing the fifth factor in the right-hand side of~\ref{Z5} through other terms we obtain that
+Finally, let $g = x_\alpha(f)$ be a generator of type P5. Substituting $s = -\epsilon f$, $\xi = -\epsilon m$, $\eta=X$ into the identity of~\cref{Zrels}\ref{Z5} and expressing the fifth factor in the right-hand side of it through other terms we obtain that
 \begin{multline} \label{eq:zalpha} g^{x_{-\alpha}(mX)} = z_\alpha(f, mX) = x_{\alpha+\beta}(\epsilon Xf) \cdot x_{\beta}(-mX^2 f) \cdot x_{-\beta}(mf) \cdot x_\alpha(f) \cdot \\ 
  \cdot z_{\alpha+\beta}(-\epsilon X f, -\epsilon m) \cdot z_{-\beta}(-mf, -X) \cdot x_{-\alpha-\beta}(-\epsilon m^2X f) \cdot x_{-\alpha}(-m^2X^2 f), \end{multline}
 where $\epsilon = N_{\alpha, \beta}$. It is clear that the latter expression is a product of generators of type P1, P1, P2, P5, P1, P2, P1, P4. \end{proof}
@@ -785,7 +782,7 @@ Further, from~\eqref{Chevalley-CCF1} we obtain that
 and the expressions in the right-hand side are products of generators of type K2, K4 and K4, Z, respectively.
 
 It remains to verify the assertion for the generators $x_{-\alpha}(X^2f) $ of type K2.
-By~\cref{K-a-b-cor} we may assume that the root $\delta$ in~\cref{def:Kab} forms a sharp angle with $\alpha$, i.\,e. $\alpha-\delta \in \Phi$. Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = \delta-\alpha$, $\beta = -\delta$ into~\ref{Z5} we obtain that
+By~\cref{K-a-b-cor} we may assume that the root $\delta$ in~\cref{def:Kab} forms a sharp angle with $\alpha$, i.\,e. $\alpha-\delta \in \Phi$. Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = \delta-\alpha$, $\beta = -\delta$ into~\cref{Zrels}\ref{Z5} we obtain that
 \begin{multline*} z_{-\alpha}(X^2f, aX^{-1}) = x_{\delta-\alpha}(\epsilon Xf) \cdot x_{\delta}(-af) \cdot x_{-\delta}(aX^2 f) \cdot x_{-\alpha}(X^2f) \cdot \\
  \cdot z_{\delta-\alpha}(-\epsilon Xf, -\epsilon a) \cdot x_{\alpha-\delta}(-\epsilon a^2 Xf) \cdot x_{\alpha}(- a^2 f) \cdot z_{\delta}(a f, -X), \end{multline*}
 where $\epsilon = N_{-\delta,\alpha}$. 
@@ -1127,7 +1124,7 @@ Since $x_\beta(X^2f) \in P_\alpha(0)$, an argument similar to the proof of~\cref
 
 Now let us verify the induction step.
 Suppose that the assertion holds for all $p_1 = z_\alpha(f, \xi)$ for which $\xi$ has degree $\leq n$.
-Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ into~\ref{Z5} we obtain the following equality in $\St(\Phi, B)$:
+Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ into~\cref{Zrels}\ref{Z5} we obtain the following equality in $\St(\Phi, B)$:
 \begin{multline*}
  z_{\alpha+\beta}(f, X\xi) = x_\alpha(\epsilon Xf) \cdot x_{-\beta}(-X^2 f\xi ) \cdot x_{\beta}(\xi f) \cdot x_{\alpha+\beta}(f) \cdot \\ \cdot z_\alpha(-\epsilon Xf, -\epsilon \xi) \cdot x_{-\alpha}(-\epsilon X\xi^2f) \cdot x_{-\alpha-\beta}(- X^2f \xi^2) \cdot z_{-\beta}(X^2f\xi, -X^{-1}),\text{ where $\epsilon = N_{\alpha, \beta}$.}
 \end{multline*}
