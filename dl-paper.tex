@@ -101,7 +101,7 @@ Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_-$ co
 where $B = A[X\inv] + M[X]$ and $R = A[X, X\inv]$.
 The injectivity of $j_R$ is obtained in~\cref{thm41}. This step of the proof relies on the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. According to this theory, the relative Steinberg group $\St(\Phi, R, I)$ is a central extension of $\Ker(\St(\Phi, R) \to \St(\Phi, R/I))$ by a certain subgroup, which we denote $C(\Phi, R, I)$. It turns out that a simple diagram chasing argument combined with a certain lifting property of relative Steinberg groups (see~\cref{lem:lemma32}) reduces the sought injectivity of $j_R$ to the surjectivity of the map \[C(\rD_\ell, B, M[X, X\inv]) \to C(\rD_\ell, R, M[X, X\inv]).\] This surjectivity is then obtained as a corollary of Panin's stability theorem for orthogonal K-theory and the Bass Fundamental Theorem for higher Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). This is the only step of our proof which invokes the assumption that $2$ is invertible. 
 
-Finally, the injectivity of the homomorphism $j_B^-$ is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ containing a subsystem of type $\rA_4$. The main idea of the proof of~\cref{thm:P1glueing} is to express the underlying set of $\St(\Phi, B)$ as an explicit quotient of the Cartesian product of three other groups, one of which is precisely $\St(\Phi, A[X\inv])$, see~\eqref{VT-def}. This can be considered as some sort of a decomposition for $\St(\Phi, B)$. Such technique for working with Steinberg groups probably dates back to~\cite{ST76}.
+Finally, the injectivity of the homomorphism $j_B^-$ is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ containing a subsystem of type $\rA_4$. The main idea of the proof of~\cref{thm:P1glueing} is to express the underlying set of $\St(\Phi, B)$ as an explicit quotient of the Cartesian product of three other groups, one of which is precisely $\St(\Phi, A[X\inv])$, see~\eqref{VT-def}. This can be considered as some sort of a decomposition for $\St(\Phi, B)$. The technique of such decompositions probably dates back to~\cite{ST76}.
 The proof of~\cref{thm:P1glueing} is based on a number of preparatory statements. One of these is a certain presentation theorem for Steinberg groups over graded rings similar to the results of U.~Rehmann, C.~Soul{\'e} and M.~Tulenbaev, see~\cref{lemma33} (cf.~\cite[Satz~2]{Re75},\cite[Theorem~2]{RS76},\cite[Lemma~3.3]{Tu83}).
 \subsection{Acknowledgements} 
 The work of the first-named author (\S~3) was supported by the Russian Science Foundation grant No 17-11-01261. 
@@ -303,7 +303,7 @@ Recall from p.~189 of~\cite{Ba74} that for $n\geq 3$ there is an exact sequence
 \begin{equation} \label{eq:Bass-ES} \xymatrix{1 \ar[r] & \mu_2(R) \ar[r] & \widetilde{P}_n(R) \ar[r] & P_n(R) \ar[r] & 1,}
 \end{equation}
 in which the group $\mu_2(R) = \{ a \in R^\times \mid a^2 = 1 \}$ is a central subgroup of $\widetilde{P}_n(R)$.
-Now by~\cite[\S~7(v)]{Ste67} the group $\KO_2(2n, R) = \Ker(S_n \to G_n)$ is also central in $S_n$.
+Now by~\cite[\S~7(v)]{St67} the group $\KO_2(2n, R) = \Ker(S_n \to G_n)$ is also central in $S_n$.
 Thus, we see that $S_n$ is a universal central extension of both $P_n$ and $\widetilde{P}_n$ for $n\geq 5$.
 
 We have checked that both triples $(G_n, P_n, S_n)$ and $(\widetilde{G}_n, \widetilde{P}_n, S_n)$ satisfy the requirements~\ref{req:left-exact}--\ref{req:uce} for $n \geq 5$. In the sequel we use the notation $\KO_i(2n, R)$ as a shorthand for $\K_i^{G_n, P_n}(R)$. 
@@ -1106,7 +1106,7 @@ From the second property of the above proposition we immediately obtain the foll
 \[\E(\Phi, A[X\inv] + M[X]) = \E(\Phi, A[X], M[X]) \cdot \E(\Phi, A[X\inv]).\] \end{corollary}
 
 \subsection{Proof of Horrocks theorem.} \label{sec:P1glueing}
-Before we proceed with the proof of~\cref{thm:P1glueing} let us briefly recall the relevant notation. As before, $A$ denotes an arbitary local ring with maximal ideal $M$ and $I = M[X, X\inv]$ is an ideal of both $R=A[X, X\inv]$ and its subring $B = A[X\inv] + M[X]$.
+Before we proceed with the proof of~\cref{thm:P1glueing} let us briefly recall the relevant notation. As before, $A$ denotes an arbitary local ring with maximal ideal $M$ and $I = M[X, X\inv]$ is an ideal of both the ring $R=A[X, X\inv]$ and its subring $B = A[X\inv] + M[X]$.
 
 Consider the following commutative diagram, in which the map $t$ is obtained from~\cref{lem:lemma32}:
 \begin{equation} \label{big-picture}
@@ -1115,13 +1115,13 @@ Notice that the subgroup $\overline{G}_M^{\geq 0}$ (see~\cref{df:GM0_geq0}) coin
 
 Our main goal is to prove that the homomorphism $j_B^-$ is injective. 
 In order to achieve this we need to show that $\St(\Phi, B)$ acts transitively on the first components of the triples from $\overline{V}_T$. These first components are parametrized by cosets $\overline{G}_M^{\geq 0}/G_M^0$ (cf.~\eqref{VT-def}). It is clear from~\eqref{big-picture} that $\overline{G}_M^{\geq 0}$ lies in the image of $j_R$.
-To simplify notation we want to consider $\overline{G}_M^{\geq 0}$ as a subgroup of $\St(\Phi, B)$. Thus, throughout this section we additionally assume that $j_R$ is injective. This assumption is innocent, since we already know from~\cref{thm41} that $j_R$ is injective under the assumptions of~\cref{thm:main}.
+To simplify notation we want to identify $\overline{G}_M^{\geq 0}$ with a subgroup of $\St(\Phi, B)$ by means of $j_R$. Thus, throughout this section we additionally assume that $j_R$ is injective. This assumption is innocent, since we already know from~\cref{thm41} that $j_R$ is injective under the assumptions of~\cref{thm:main}.
 
-\begin{lemma}\label{lem:action} For any $[p, h, u]\in \overline{V}_T$ and any $p_1 \in \overline{G}^{\geq 0}_M$ one has $p_1 \cdot [p, h, u] = [p_1p, h, u]$. \end{lemma}
+\begin{lemma}\label{lem:action} For any $[p, h, u]\in \overline{V}_T$ and any $p_1 \in \overline{G}^{\geq 0}_M$ one has $j_R^{-1}(p_1) \cdot [p, h, u] = [p_1p, h, u]$. \end{lemma}
 \begin{proof} 
 In view of~\cref{thm:Tits} it suffices to verify the assertion of the lemma for the generators $p_1 = z_\alpha(f, \xi)$ of $\overline{G}_M^{\geq 0}$ for all $f \in M[X]$, $\xi\in A[X]$, $\alpha \in \Phi$. We accomplish this by induction on the degree of $\xi$ in $X$. 
 
-Notice that in the base case $\xi = a \in A$ the assertion of the lemma is an immediate consequence of of~\eqref{T_leq0}.
+Notice that in the base case $\xi = a \in A$ the assertion of the lemma is an immediate consequence of~\eqref{T_leq0}.
 Since $x_\beta(X^2f) \in P_\alpha(0)$, an argument similar to the proof of~\cref{R1_d} shows that the assertion of the lemma also holds for $p_1 = z_\alpha(X^2f, aX^{-1})$.
 
 Now let us verify the induction step.
@@ -1147,20 +1147,15 @@ From the inductive assumption we obtain that the assertion of the lemma holds fo
 \begin{proof} Since $j_- = j_R j_B^-$, where $j_B^-$ is as in~\cref{prop43}, it suffices to show that $j_B^-$ is injective.
  Set $v_0 = [1, 1, 1] \in \overline{V}_T$ and suppose $g \in \Ker(j_B^-)$.
  By~\cref{prop43} one has $v_0 = j_B^-(g) \cdot v_0 = [1, g, 1]$, therefore by the definition of $\overline{V}_T$, $g = i_-(\gamma)$ for some $\gamma \in G_M^0$ satisfying $j_-i_-(\gamma) = j_+i_+(\gamma) = 1$.
- Notice that the homomorphism $j_+i_+ = j_-i_-$ is split by the evaluation homomorphism $ev_{X=1}^*$ and therefore is injective. Thus, we conclude that $g = 1$.
+ Notice that the homomorphism $j_+i_+ = j_-i_-$ is split by the evaluation homomorphism $ev_{X=1}^*$ and therefore is injective. Thus, we conclude that $g = 1$ and that $j_-$ is injective. By symmetry, we also have that $j_+$ is injective (we can swap $X$ with $X^{-1}$ in all statements, including the statement of our assumption that $j_R$ is injective).
  
- Now suppose that $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_B^-(g_-) = j_+(g_+)$.
+ Now suppose that $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_-(g_-) = j_+(g_+)$.
  By~\cref{field-injectivity} the image of $j_+(g_+) = j_-(g_-)$ in $\St(\Phi, k[X, X\inv])$ belongs to $\St(\Phi, k)$ and therefore coincides with the image in $\St(\Phi, k)$ of some $g_0 \in \St(\Phi, A)$.
  
  Set $h_+ = g_+\cdot g_0^{-1}$ and $h_- = g_- \cdot g_0^{-1}$.
  It is clear that \[ h_+ \in \overline{\St}(\Phi, A[X], M[X]),\ h_- \in \overline{\St}(\Phi, A[X\inv], M[X\inv])\text{ and that }j_-(h_-) = j_+(h_+).\]
  From~\cref{prop43} and~\cref{lem:action} we obtain that
- \[ [j_+(h_+)^{-1}, h_-, 1] = j_+(h_+)^{-1} \cdot [1, h_-, 1] = j_+(h_+)^{-1} j_B^-(h_-) \cdot [1, 1, 1] = [1, 1, 1], \]
-  therefore, by the definition of~$\overline{V}_T$, $h_- = i_-(\gamma_1)$ for some $\gamma_1 \in G_M^0$. 
-
-Denote by $T$ the isomorphism $\St(\Phi, A[X]) \to \St(\Phi, A[X\inv])$ induced by the obvious isomorphism of polynomial rings sending $X$ to $X^{-1}$.
-Repeating the above argument (now with $T(h_+)$ and $T^{-1}(h_-)$ playing the role of $h_-$ and $h_+$, respectively) we obtain that $h_+ =i_+(\gamma_2)$ for some $\gamma_2 \in G_M^0$. Since $j_+i_+ = j_- i_-$ is injective, we conclude that $\gamma_1 = \gamma_2$.
-Thus, we have shown that $g_+$ and $g_-$ are the images of $\gamma_1 \cdot g_0 \in \St(\Phi, A)$ under $i_+$ and $i_-$, respectively.
+ \[ [j_+(h_+)^{-1}, h_-, 1] = j_R^{-1}(j_+(h_+)^{-1}) \cdot [1, h_-, 1] = j_R^{-1}(j_+(h_+)^{-1} \cdot j_-(h_-)) \cdot [1, 1, 1] = [1, 1, 1], \] therefore, by the definition of~$\overline{V}_T$, $h_- = i_-(\gamma_1)$, $j_+(h_+) = j_+i_+(\gamma_1)$ for some $\gamma_1 \in G_M^0$. Since $j_+$ is injective we obtain that $h_+ = i_+(\gamma_1)$. Thus, we have shown that $g_+$ and $g_-$ are the images of $\gamma_1 \cdot g_0 \in \St(\Phi, A)$ under $i_+$ and $i_-$, respectively.
  \end{proof}
   
 \begin{proof}[Proof of~\cref{thm:main}]
