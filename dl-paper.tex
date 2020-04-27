@@ -70,12 +70,16 @@
 \date {\today}
 
 \begin{document}
-\begin{abstract} We prove a $\mathbb{P}^1$-glueing theorem for even-dimensional orthogonal Steinberg groups. This result transfers to the orthogonal case an earlier result of M.~Tulenbaev and is also an analogue for the functor $\K_2$ of a 1982 result of A.~Suslin and V.~Kopeiko. \end{abstract}
+
+\begin{abstract} 
+We prove a $\mathbb{P}^1$-glueing theorem for the unstable even-dimensional orthogonal $\K_2$-functor.
+This result transfers to the orthogonal case an earlier result of M.~Tulenbaev and is also one of the ingredients needed for the proof of the orthogonal $\K_2$-analogue of Serre's problem. The final result holds for general commutative rings containing $\tfrac{1}{2}$, however some of the intermediate steps in its proof are obtained without this assumption.
+\end{abstract}
 \maketitle
 \section{Introduction}
 Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. This problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and its solution played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
 
-After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $K_1$-analogue of Serre's problem. This result asserts that the functor $\K_1(n, R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_1(n, k[x_1, \ldots x_n]) = \K_1(n, k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on an arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ over a field (see~\cite[Theorem~1.2]{St-poly}) and also generalized Abe's result to Dedekind domains of arithmetic type (see~\cite[Corollary~1.2]{St-Ded}).
+After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $\K_1$-analogue of Serre's problem. This result asserts that the functor $\K_1(n, R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_1(n, k[x_1, \ldots x_n]) = \K_1(n, k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on an arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ over a field (see~\cite[Theorem~1.2]{St-poly}) and also generalized Abe's result to Dedekind domains of arithmetic type (see~\cite[Corollary~1.2]{St-Ded}).
 
 Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the {\it simply-connected Chevalley group} $\GG(\Phi, R)$ (see e.\,g.~\cite[\S~3]{St71} or~\cite{VP}) and the {\it Steinberg group} $\St(\Phi, R)$ (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined homomorphism $\pi \colon \St(\Phi, R) \to \GG(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this homomorphism are denoted $\K_1(\Phi, R)$ and $\K_2(\Phi, R)$, respectively. The latter groups are functorial in $R$. The functors $\K_1(\Phi, -)$ and $\K_2(\Phi, -)$ are called {\it the $\mathrm{K}_1$ and $\mathrm{K_2}$-functors modeled on the Chevalley group $\GG(\Phi, -)$}, see~\cite{St78}.
 
@@ -201,7 +205,7 @@ It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\r
 \begin{rem} It is possible to give a different proof of the above lemma in the case $\Phi = \rC_\ell$ for $\ell \geq 5$ under the additional assumption that the characteristic of $k$ is not $2$. Indeed, we have the following chain of isomorphisms:
 \[ \K_2(C_\infty, k[X, X^{-1}]) \cong \GW_2^2(k[X,X^{-1}]) \cong \GW_2^2(k) \oplus \GW_1^1(k) \cong \K_2^\mathrm{MW}(k) \oplus \K_1^\mathrm{MW}(k),\]
 in which the first two isomorphisms are obtained from~\eqref{GW-concrete} and~\cref{bass-ft} and the last one follows from the isomorphism $\GW_1^1(k) \cong \K_1^\mathrm{MW}(k)$ of~\cite[Lemma~4.1.1]{AF17} and Matsumoto's theorem.
-It remains to invoke the stability theorem~\cite[Theorem~9.4]{Pa89} to obtain the assertion in the nonstable case. Thus, we see that the result of Morita and Rehmann agrees with the modern literature on higher Grothendieck--Witt groups. \end{rem}
+It remains to invoke the stability theorem~\cite[Theorem~9.4]{Pa89} to obtain the assertion in the unstable case. Thus, we see that the result of Morita and Rehmann agrees with the modern literature on higher Grothendieck--Witt groups. \end{rem}
 
 \begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the homomorphism $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of the images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
 \begin{proof} The first assertion follows from the commutative diagram
@@ -293,7 +297,7 @@ We need to introduce more notation. Denote by $\widetilde{G}_n$ the Chevalley gr
  and by $\widetilde{P}_n$ its elementary subfunctor $\mathrm{E}(\rD_n, -) = \mathrm{Epin}(2n, -)$.
 
 It is clear that both $G_n$ and $\widetilde{G}_n$ satisfy~\ref{req:left-exact} and that $S_n$ satisfies \ref{req:coeq}.
-It is well known that $P_n$ (resp. $\widetilde{P}_n$) is a normal subgroup of $G_n$ (resp. $\widetilde{G}_n$) for $n\geq 3$ (see~\cite{Su82},\cite{Ta84}). Thus,~\ref{req:subfunc} is satisfied for $P_n$ and $\widetilde{P}_n$.
+It is well known that $P_n$ (resp. $\widetilde{P}_n$) is a normal subgroup of $G_n$ (resp. $\widetilde{G}_n$) for $n\geq 3$ (see~\cite{Su82},\cite{Ta86}). Thus,~\ref{req:subfunc} is satisfied for $P_n$ and $\widetilde{P}_n$.
 
 By~\cite[Corollary~5.4]{St71} the group $S_n$ is {\it centrally closed} for $n \geq 5$, i.\,e. every its central extension splits.
 On the other hand, \cite[Theorem~1]{LS17} shows that $\K_2(\rD_\ell, R) = \Ker(S_n \to \widetilde{G}_n)$ is a central subgroup of $S_n$ for $n\geq 4$. 
@@ -355,8 +359,8 @@ We will also need the following property of relative Steinberg groups which is a
 \begin{lemma}\label{lem:lemma32} Let $\Phi$ be a simply-laced root system of rank $\geq 3$,
 Consider the following commutative square of canonical homomorphisms.
 \begin{equation*} \xymatrix{
-    \St(\Phi, B, I) \ar[r] \ar[d] & \St(\Phi, B) \ar[d] \\
-    \St(\Phi, R, I) \ar[r] \ar@{-->}^t[ur] & \St(\Phi, R) } \end{equation*}
+    \St(\Phi, B, I) \ar[r]^{\mu_B} \ar[d] & \St(\Phi, B) \ar[d] \\
+    \St(\Phi, R, I) \ar[r]^{\mu_R} \ar@{-->}^t[ur] & \St(\Phi, R) } \end{equation*}
 Then there exists a diagonal homomorphism $t$ which makes the diagram commute.   
 \end{lemma} 
 \begin{proof}
@@ -1104,7 +1108,7 @@ From the second property of the above proposition we immediately obtain the foll
 \[\E(\Phi, A[X\inv] + M[X]) = \E(\Phi, A[X], M[X]) \cdot \E(\Phi, A[X\inv]).\] \end{corollary}
 
 \subsection{Proof of Horrocks theorem.} \label{sec:P1glueing}
-Before we proceed with the proof of~\cref{thm:main} let us briefly remind the reader the relevant notation. Recall that $A$ is a local ring with maximal ideal $M$ and $I = M[X, X\inv]$ is an ideal of both $R=A[X, X\inv]$ and $B = A[X\inv] + M[X]$.
+Before we proceed with the proof of~\cref{thm:main} let us recall the relevant notation. Recall that $A$ is a local ring with maximal ideal $M$ and $I = M[X, X\inv]$ is an ideal of both $R=A[X, X\inv]$ and $B = A[X\inv] + M[X]$.
 
 Consider the following commutative diagram, in which the map $t$ is obtained from~\cref{lem:lemma32}:
 \begin{equation} \label{big-picture}
