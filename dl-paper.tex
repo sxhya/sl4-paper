@@ -71,7 +71,7 @@
 
 \begin{document}
 
-\begin{abstract} We prove the $\mathbb{P}^1$-glueing theorem (aka Horrocks theorem) for the unstable even-dimensional orthogonal Steinberg groups. The $\mathbb{P}^1$-glueing theorem for Steinberg groups is one of the principal ingredients needed in the proof of the $\K_2$-analogue of Serre's problem, positive solution of which currently is only known in the linear case. \end{abstract}
+\begin{abstract} We prove the Horrocks theorem for unstable even-dimensional orthogonal Steinberg groups. The Horrocks theorem for Steinberg groups is one of the principal ingredients needed in the proof of the $\K_2$-analogue of Serre's problem, positive solution of which currently is only known in the linear case. \end{abstract}
 \maketitle
 \section{Introduction}
 Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. This problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and its solution played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
@@ -102,9 +102,9 @@ where $B = A[X\inv] + M[X]$ and $R = A[X, X\inv]$.
 The injectivity of $j_R$ is obtained in~\cref{thm41}. This step of the proof relies on the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. According to this theory, the relative Steinberg group $\St(\Phi, R, I)$ is a central extension of $\Ker(\St(\Phi, R) \to \St(\Phi, R/I))$ by a certain subgroup, which we denote $C(\Phi, R, I)$. It turns out that a simple diagram chasing argument combined with a certain lifting property of relative Steinberg groups (see~\cref{lem:lemma32}) reduces the sought injectivity of $j_R$ to the surjectivity of the map \[C(\rD_\ell, B, M[X, X\inv]) \to C(\rD_\ell, R, M[X, X\inv]).\] This surjectivity is then obtained as a corollary of Panin's stability theorem for orthogonal K-theory and the Bass Fundamental Theorem for higher Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). This is the only step of our proof which invokes the assumption that $2$ is invertible. 
 
 Finally, the injectivity of the homomorphism $j_B^-$ is obtained in~\cref{thm:P1glueing}, which is a direct generalization of~\cite[Proposition~4.3]{Tu83}. This part of the proof is obtained in somewhat greater generality and is applicable to all simply-laced root systems $\Phi$ containing a subsystem of type $\rA_4$. The main idea of the proof of~\cref{thm:P1glueing} is to express the underlying set of $\St(\Phi, B)$ as an explicit quotient of the Cartesian product of three other groups, one of which is precisely $\St(\Phi, A[X\inv])$, see~\eqref{VT-def}. This can be considered as some sort of a decomposition for $\St(\Phi, B)$. Such technique for working with Steinberg groups probably dates back to~\cite{ST76}.
-The proof of~\cref{thm:P1glueing} requires a certain amount of preparatory work. One of the necessary ingredients is a certain presentation theorem for Steinberg groups over graded rings, which is similar to the results of U.~Rehmann, C.~Soul{\'e} and M.~Tulenbaev, see~\cref{lemma33} (cf.~\cite[Satz~2]{Re75},\cite[Theorem~2]{RS76},\cite[Lemma~3.3]{Tu83}).
+The proof of~\cref{thm:P1glueing} is based on a number of preparatory statements. One of these is a certain presentation theorem for Steinberg groups over graded rings similar to the results of U.~Rehmann, C.~Soul{\'e} and M.~Tulenbaev, see~\cref{lemma33} (cf.~\cite[Satz~2]{Re75},\cite[Theorem~2]{RS76},\cite[Lemma~3.3]{Tu83}).
 \subsection{Acknowledgements} 
-The work of the first-named author (\S~3) was supported by the Russian Science Foundation grant No 17-11-01261. The first-named author is a winner of the contest ``Young Russian Mathematics``.
+The work of the first-named author (\S~3) was supported by the Russian Science Foundation grant No 17-11-01261. 
 The work of the second-named author (\S~4--5) was supported by RFBR grant No 18-31-20044.
 
 The authors would like to express their gratitude to A.~Stavrova, A.~Stepanov and N.~Vavilov for their useful comments and interest in this work, and to the anonymous referee for his careful reading of an earlier version of the paper and suggesting a number of improvements.
@@ -201,7 +201,7 @@ It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\r
 
 \begin{rem} It is possible to give a different proof of the above lemma in the case $\Phi = \rC_\ell$ for $\ell \geq 5$ under the additional assumption that the characteristic of $k$ is not $2$. Indeed, we have the following chain of isomorphisms:
 \[ \K_2(C_\infty, k[X, X^{-1}]) \cong \GW_2^2(k[X,X^{-1}]) \cong \GW_2^2(k) \oplus \GW_1^1(k) \cong \K_2^\mathrm{MW}(k) \oplus \K_1^\mathrm{MW}(k),\]
-in which the first two isomorphisms are obtained from~\eqref{GW-concrete} and~\cref{bass-ft} and the last one follows from the isomorphism $\GW_1^1(k) \cong \K_1^\mathrm{MW}(k)$ of~\cite[Lemma~4.1.1]{AF17} and Matsumoto's theorem.
+in which the first two isomorphisms are obtained from~\eqref{GW-concrete} and~\cref{bass-ft} and the last one follows from~\cite[Lemma~4.1.1]{AF17} and Matsumoto's theorem.
 It remains to invoke the stability theorem~\cite[Theorem~9.4]{Pa89} to obtain the assertion in the unstable case. \end{rem}
 
 \begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the homomorphism $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of the images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
@@ -417,7 +417,7 @@ The elements $z_\alpha(s, \xi)$ satisfy the following relations for all $\xi, \e
 \end{enumerate} \end{lemma}
 \begin{proof}
 The first four assertions are contained in~\cite[Lemma~9]{S15}, so it remains to verify the last assertion.
-Direct computation using~\eqref{Chevalley-CCF1}--\eqref{Chevalley-CCF2} shows that
+Notice that by~\eqref{Chevalley-CCF2} the elements $x_\beta(\eta)$ and $x_{-\alpha}(\epsilon s \eta)$ commute with each other, therefore from~\eqref{Chevalley-CCF1}--\eqref{Chevalley-CCF2} we obtain that
 \begin{multline} \nonumber
   z_{\alpha+\beta}(s\eta, \xi) = [x_\alpha(\epsilon s)^{x_{-\alpha-\beta}(\xi)}, x_\beta(\eta)^{x_{-\alpha-\beta}(\xi)}] =
   [x_\alpha(\epsilon s) x_{-\beta}(-s\xi), x_{\beta}(\eta) x_{-\alpha}(\epsilon \xi\eta)] = \\ 
@@ -451,19 +451,20 @@ The elements $c_\alpha(s, t)$ satisfy the following relations for all $s\in I,\ 
  \item \label{C2} $[c_\beta(s, t),\ x_{\alpha}(\xi)] = x_{\alpha}(st\xi + s^2t^2\xi) \cdot x_{\alpha-\beta}(N_{-\alpha, \beta}\cdot st^2\xi)$ if $\alpha-\beta \in \Phi$;  
  \item \label{C3} $[c_\beta(s, t),\ x_{\alpha}(\xi)] = 1$ if $\alpha \perp \beta$;  
  \item \label{C4} If $\alpha+\beta\in\Phi$ then
-  \begin{equation} \label{eq:C4} c_{\alpha+\beta}(s, t\xi) = [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2),\end{equation}
+  \begin{equation*} c_{\alpha+\beta}(s, t\xi) = [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2),\end{equation*}
   where $\epsilon = N_{\alpha,\beta}$.
  \end{enumerate}
 \end{lemma}
 \begin{proof}
-The first two assertions can be verified by direct calculation:
+Notice that~\ref{C3} is an obvious consequence of~\eqref{Chevalley-CCF2}. Let us verify the first two assertions. Suppose that $\alpha + \beta \in \Phi$.  We have that
 \begin{align*} \nonumber [c_{\beta}(s, t),\ x_{\alpha}(\xi)] = [x_{\beta}(s),\ x_{-\beta}(t)] \cdot [x_{-\beta}(t),\ x_{\beta}(s)\cdot x_{\alpha + \beta}(N_{\alpha, \beta} \cdot s\xi)] &\text{ by~\eqref{Cdef}, \eqref{Chevalley-CCF1}, \eqref{Chevalley-CCF2}} \\
- = {}^{x_\beta(s)}\![x_{-\beta}(t),\ x_{\alpha+\beta}(N_{\alpha, \beta} \cdot s\xi)] &\text{ by~\eqref{eq:H1ii-2}} \\ = x_{\alpha}(- st\xi) \cdot x_{\alpha+\beta}(N_{\alpha,\beta} \cdot s^2t\xi) &\text{ by~\eqref{Chevalley-CCF1};} \end{align*}
+ = {}^{x_\beta(s)}\![x_{-\beta}(t),\ x_{\alpha+\beta}(N_{\alpha, \beta} \cdot s\xi)] &\text{ by~\eqref{eq:H1ii-2}} \\ = x_{\alpha}(- st\xi) \cdot x_{\alpha+\beta}(N_{\alpha,\beta} \cdot s^2t\xi) &\text{ by~\eqref{Chevalley-CCF1}.} \end{align*}
+ Now suppose that $\alpha - \beta \in \Phi$. We have that
 \begin{align*} \nonumber
 \begin{split}[[x_\beta(s),\ x_{-\beta}(t)],\ x_{\alpha}(\xi)] = {}^{x_\beta(s)}\!\bigl( {}^{x_{-\beta}(t)}[x_\beta(-s),\ [x_{-\beta}(-t),\ x_{\alpha}(\xi)]] \cdot \hspace{50pt} \\ \cdot {}^{x_{\alpha}(\xi)}[x_{-\beta}(t),\ [ x_{\alpha}(-\xi),\ x_\beta(-s)]] \bigr)^{} & \text{ by~\eqref{HW-variant}}\end{split} \\
 = {}^{x_\beta(s) \cdot x_{-\beta}(t)}x_{\alpha}(-N_{\beta, \alpha-\beta} N_{\alpha,-\beta} \cdot s t \xi) = {}^{ x_\beta(s) \cdot x_{-\beta}(t)}x_{\alpha}(s t \xi) & \text{ by~\eqref{Chevalley-CCF1},\eqref{Chevalley-CCF2}}\\
 = x_{\alpha}(st\xi) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot st^2\xi)^{x_\beta(-s)} = x_{\alpha}(st\xi + s^2t^2 \xi) \cdot x_{\alpha-\beta}(N_{-\alpha,\beta}\cdot st^2\xi) & \text{ by~\eqref{Chevalley-CCF1}.} \end{align*}
-The assertion~\ref{C3} is obvious. Finally, the last assertion can be obtained as follows:
+Finally, let us prove~\ref{C4}. Suppose that $\alpha + \beta \in \Phi$. The required identity can be obtained as follows:
 \begin{align*}
 [x_{\alpha+\beta}(s),\ x_{-\alpha-\beta}(t\xi)] = [x_{\alpha+\beta}(s),\ [x_{-\alpha}(-\epsilon t),\ x_{-\beta}(\xi)]]&\ \text{by~\eqref{Chevalley-CCF1}}\\
 \begin{split}
@@ -523,7 +524,7 @@ Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \
  and in this case the required inclusions follow from~\ref{C1}--\ref{C3} of~\cref{Crels}. \end{proof}
 
 \begin{corollary} \label{Kgen-strong} For a local pair $(A, M)$ and arbitrary fixed root $\gamma$ of an irreducible simply-laced root system $\Phi$ the subgroup $K(A[X], M[X])$ is generated as a group by $\overline{\St}(\Phi, A[X], XM[X])$ and the elements $c_{\gamma}(m, X\eta)$, where $m \in M$, $\eta \in A[X]$. \end{corollary}
-\begin{proof} Substituting $\xi = 1$, $s = m$, $t = X\eta$ into~\eqref{eq:C4} we obtain that modulo 
+\begin{proof} Substituting $\xi = 1$, $s = m$, $t = X\eta$ into~\cref{Crels}\ref{C4} we obtain that modulo 
  $\overline{\St}(\Phi, A[X], XM[X])$ the element $c_{\alpha + \beta}(m, X\eta)$ is equivalent to $c_{\alpha}(-\epsilon m, -\epsilon X \eta)^{-1}$, $\epsilon = N_{\alpha, \beta}$. The assertion of the corollary now easily follows from the irreducibility of $\Phi$. \end{proof}   
 
 \section{Proof of the main result}
