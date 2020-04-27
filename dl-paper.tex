@@ -71,9 +71,7 @@
 
 \begin{document}
 
-\begin{abstract} We prove a $\mathbb{P}^1$-glueing theorem (also called Horrocks theorem) for the unstable even-dimensional orthogonal Steinberg groups.
-Horrocks theorem for Steinberg groups is one of the key ingredients needed for the proof of the $\K_2$-analogue of Serre's problem, 
- positive solution of which currently is only known in the linear case. \end{abstract}
+\begin{abstract} We prove the $\mathbb{P}^1$-glueing theorem (aka Horrocks theorem) for the unstable even-dimensional orthogonal Steinberg groups. The $\mathbb{P}^1$-glueing theorem for Steinberg groups is one of the principal ingredients needed in the proof of the $\K_2$-analogue of Serre's problem, positive solution of which currently is only known in the linear case. \end{abstract}
 \maketitle
 \section{Introduction}
 Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. This problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and its solution played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
@@ -228,7 +226,7 @@ Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definitio
 
 Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor. Set $G_i = \Ker(S(p_i))$ and define {\it Loday's relativization} $S(R, I)$ as $ G_0 / [G_0, G_1]$. The homomorphism $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. We denote this map by $\mu = \mu_{R,I}$ and its kernel by $C_S(R, I)$: \begin{equation} \label{LodayRelativization} \xymatrix{ 1 \ar[r] & C_S(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1.} \end{equation}
 
-\begin{df} By definition, the {\it relative Steinberg group} $\St(\Phi, R, I)$ is the result of application of Loday's relativization to the functor $\St(\Phi, -)$. Notice that $\St(\Phi, R, I)$ is not a subgroup of $\St(\Phi, R)$ but a central extension of a subgroup of $\St(\Phi, R)$ by the abelian group $C_{\St(\Phi, -)}(R, I)$. For shortness we rename the latter group to $C(\Phi, R, I)$. \end{df}
+\begin{df} By definition, the {\it relative Steinberg group} $\St(\Phi, R, I)$ is the result of application of Loday's relativization to the functor $\St(\Phi, -)$. Notice that $\St(\Phi, R, I)$ is a central extension of $\Ker(\St(\Phi, R) \to \St(\Phi, R/I))$ by the abelian group $C_{\St(\Phi, -)}(R, I)$. For shortness we rename the latter group to $C(\Phi, R, I)$. \end{df}
 
 Our next goal is to obtain a homological interpretation of the group $C(\Phi, R, I)$.
 In order to do this, we need to recall some additional notation and terminology.
@@ -289,7 +287,7 @@ It is not hard to obtain the following concrete description of these functors in
 \begin{proof} The first claim is obvious, the other claims follow from~\ref{req:subfunc} and~\ref{req:uce} using the standard properties of the plus-construction, see \cite[\S~IV.1]{Kbook}   (cf. Exercises~1.8--1.9 ibid.) \end{proof}
 
 We denote by $\mathrm{O}_{2n}(R)$ and $\mathrm{EO}_{2n}(R)$ the orthogonal group of rank $n$ over a ring $R$ and its elementary subgroup, respectively (see e.\,g.~\cite{Su82} for the definition of these groups).
-Now set $G_n = \mathrm{O}_{2n}(-)$, $P_n = \mathrm{EO}_{2n}(R)$, $S_n = \St(\rD_\ell, R)$.
+Now set $G_n = \mathrm{O}_{2n}(-)$, $P_n = \mathrm{EO}_{2n}(-)$, $S_n = \St(\rD_\ell, -)$.
 The triple $(G_n, P_n, S_n)$ plays a key role in the present paper.
 
 We need to introduce more notation. Denote by $\widetilde{G}_n$ the Chevalley group $\GG(\rD_n, -) = \mathrm{Spin}(2n, -)$
@@ -298,7 +296,7 @@ We need to introduce more notation. Denote by $\widetilde{G}_n$ the Chevalley gr
 It is clear that both $G_n$ and $\widetilde{G}_n$ satisfy~\ref{req:left-exact} and that $S_n$ satisfies \ref{req:coeq}.
 It is well known that $P_n$ (resp. $\widetilde{P}_n$) is a normal subgroup of $G_n$ (resp. $\widetilde{G}_n$) for $n\geq 3$ (see~\cite{Su82},\cite{Ta86}). Thus,~\ref{req:subfunc} is satisfied for $P_n$ and $\widetilde{P}_n$.
 
-By~\cite[Corollary~5.4]{St71} the group $S_n$ is {\it centrally closed} for $n \geq 5$, i.\,e. every its central extension splits.
+By~\cite[Corollary~5.4]{St71} the group $S_n$ is {\it centrally closed} for $n \geq 5$, in other words every central extension of $S_n$ splits.
 On the other hand, \cite[Theorem~1]{LS17} shows that $\K_2(\rD_\ell, R) = \Ker(S_n \to \widetilde{G}_n)$ is a central subgroup of $S_n$ for $n\geq 4$. 
 
 Recall from p.~189 of~\cite{Ba74} that for $n\geq 3$ there is an exact sequence
@@ -1107,15 +1105,15 @@ From the second property of the above proposition we immediately obtain the foll
 \[\E(\Phi, A[X\inv] + M[X]) = \E(\Phi, A[X], M[X]) \cdot \E(\Phi, A[X\inv]).\] \end{corollary}
 
 \subsection{Proof of Horrocks theorem.} \label{sec:P1glueing}
-Before we proceed with the proof of~\cref{thm:main} let us recall the relevant notation. Recall that $A$ is a local ring with maximal ideal $M$ and $I = M[X, X\inv]$ is an ideal of both $R=A[X, X\inv]$ and $B = A[X\inv] + M[X]$.
+Before we proceed with the proof of~\cref{thm:P1glueing} let us briefly recall the relevant notation. As before, $A$ denotes an arbitary local ring with maximal ideal $M$ and $I = M[X, X\inv]$ is an ideal of both $R=A[X, X\inv]$ and its subring $B = A[X\inv] + M[X]$.
 
 Consider the following commutative diagram, in which the map $t$ is obtained from~\cref{lem:lemma32}:
 \begin{equation} \label{big-picture}
  \xymatrix{ & \St(\Phi, A[X], M[X]) \ar[r]_(0.55){\mu_{A[X]}} \ar[d] & \St(\Phi, A[X]) \ar[dd]^{j_+} \\ & \St(\Phi, R, I) \ar[d]^t & \\ \St(\Phi, A[X\inv]) \ar[r]^{j_B^-} & \St(\Phi, B) \ar[r]^{j_R} & \St(\Phi, R). } \end{equation}
 Notice that the subgroup $\overline{G}_M^{\geq 0}$ (see~\cref{df:GM0_geq0}) coincides with the image of $j_+\mu_{A[X]}$.
 
-Our goal is to prove that the homomorphism $j_B^-$ is injective. 
-In order to be able to do this we need to show that $\St(\Phi, B)$ acts transitively on the first components of the triples from $\overline{V}_T$. These first components are parametrized by cosets $\overline{G}_M^{\geq 0}/G_M^0$ (cf.~\eqref{VT-def}). It is clear from~\eqref{big-picture} that $\overline{G}_M^{\geq 0}$ lies in the image of $j_R$.
+Our main goal is to prove that the homomorphism $j_B^-$ is injective. 
+In order to achieve this we need to show that $\St(\Phi, B)$ acts transitively on the first components of the triples from $\overline{V}_T$. These first components are parametrized by cosets $\overline{G}_M^{\geq 0}/G_M^0$ (cf.~\eqref{VT-def}). It is clear from~\eqref{big-picture} that $\overline{G}_M^{\geq 0}$ lies in the image of $j_R$.
 To simplify notation we want to consider $\overline{G}_M^{\geq 0}$ as a subgroup of $\St(\Phi, B)$. Thus, throughout this section we additionally assume that $j_R$ is injective. This assumption is innocent, since we already know from~\cref{thm41} that $j_R$ is injective under the assumptions of~\cref{thm:main}.
 
 \begin{lemma}\label{lem:action} For any $[p, h, u]\in \overline{V}_T$ and any $p_1 \in \overline{G}^{\geq 0}_M$ one has $p_1 \cdot [p, h, u] = [p_1p, h, u]$. \end{lemma}
@@ -1134,7 +1132,7 @@ Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ into~\cref{Zrels}\ref{Z5
 From the inductive assumption we obtain that the assertion of the lemma holds for all the factors in the right-hand side and, therefore, also holds for $p_1 = z_\alpha(f, X\xi)$. It is easy to deduce from this that the assertion also holds for $p_1 = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
 \end{proof}
 
-\begin{rem} Although we will not need this for our main result, it can be noted that $\overline{V}$ is a left $\St(\Phi, B)$-torsor, i.\,e. the action of $\St(\Phi, B)$ on $\overline{V}$ is both transitive and faithful. The faithfulness follows from the second property of~\cref{prop43} and our assumption that $j_R$ is injective. The transitivity follows from~\cref{lem:action}, the first property of~\cref{prop43} and the following formula, which is a direct consequence of~\cref{lem:Tulenbaev-formula} and~\eqref{T_1}--\eqref{T_leq0}:
+\begin{rem} Although we do not need this for our main result, it can be noted that $\overline{V}$ is a left $\St(\Phi, B)$-torsor, i.\,e. the action of $\St(\Phi, B)$ on $\overline{V}$ is both transitive and faithful. The faithfulness follows from the second property of~\cref{prop43} and our assumption that $j_R$ is injective. The transitivity follows from~\cref{lem:action}, the first property of~\cref{prop43} and the following formula, which is a direct consequence of~\cref{lem:Tulenbaev-formula} and~\eqref{T_1}--\eqref{T_leq0}:
 \begin{equation*} \langle a, m \rangle^{-1} \cdot \langle aX^{-1}, mX \rangle \cdot [1, 1, 1] = [1, 1, 1+am]. \end{equation*} \end{rem}
 
 \begin{theorem} \label{thm:P1glueing}
@@ -1147,26 +1145,29 @@ From the inductive assumption we obtain that the assertion of the lemma holds fo
 \end{theorem}
 \begin{proof} Since $j_- = j_R j_B^-$, where $j_B^-$ is as in~\cref{prop43}, it suffices to show that $j_B^-$ is injective.
  Set $v_0 = [1, 1, 1] \in \overline{V}_T$ and suppose $g \in \Ker(j_B^-)$.
- By~\cref{prop43} one has $v_0 = j_B^-(g) \cdot v_0 = [1, g, 1]$, therefore by the definition of $\overline{V}_T$, $g = i_-(\gamma)$ for some $\gamma \in G_M^0$ such that $j_+i_+(\gamma) = 1$.
- Notice that $j_+i_+$ is split by the evaluation homomorphism $ev_{X=1}^*$ and therefore is injective. Thus, we conclude that $g = 1$.
+ By~\cref{prop43} one has $v_0 = j_B^-(g) \cdot v_0 = [1, g, 1]$, therefore by the definition of $\overline{V}_T$, $g = i_-(\gamma)$ for some $\gamma \in G_M^0$ satisfying $j_-i_-(\gamma) = j_+i_+(\gamma) = 1$.
+ Notice that the homomorphism $j_+i_+ = j_-i_-$ is split by the evaluation homomorphism $ev_{X=1}^*$ and therefore is injective. Thus, we conclude that $g = 1$.
  
- Now suppose $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_B^-(g_-) = j_+(g_+)$.
- From~\cref{field-injectivity} it follows that the image of $j_+(g_+) = j_-(g_-)$ in $\St(\Phi, k[X, X\inv])$ belongs to $\St(\Phi, k)$ and therefore coincides with the image in $\St(\Phi, k)$ of some $g_0 \in \St(\Phi, A)$.
+ Now suppose that $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_B^-(g_-) = j_+(g_+)$.
+ By~\cref{field-injectivity} the image of $j_+(g_+) = j_-(g_-)$ in $\St(\Phi, k[X, X\inv])$ belongs to $\St(\Phi, k)$ and therefore coincides with the image in $\St(\Phi, k)$ of some $g_0 \in \St(\Phi, A)$.
  
- Set $h_+ = g_+g_0^{-1}$ and $h_- = g_-g_0^{-1}$.
+ Set $h_+ = g_+\cdot g_0^{-1}$ and $h_- = g_- \cdot g_0^{-1}$.
  It is clear that \[ h_+ \in \overline{\St}(\Phi, A[X], M[X]),\ h_- \in \overline{\St}(\Phi, A[X\inv], M[X\inv])\text{ and that }j_-(h_-) = j_+(h_+).\]
  From~\cref{prop43} and~\cref{lem:action} we obtain that
- \[ [j_+(h_+)^{-1}, h_-, 1] = j_+(h_+)^{-1} \cdot [1, h_-, 1] = j_+(h_+)^{-1} j_B^-(h_-) \cdot [1, 1, 1] = [1, 1, 1]. \]
- Thus, $h_-$ (and hence $h_+$) come from some element of $G_M^0$, which implies that $g_+$ and $g_-$ are images of some element of $\St(\Phi, A)$.
+ \[ [j_+(h_+)^{-1}, h_-, 1] = j_+(h_+)^{-1} \cdot [1, h_-, 1] = j_+(h_+)^{-1} j_B^-(h_-) \cdot [1, 1, 1] = [1, 1, 1], \]
+  therefore, by the definition of~$\overline{V}_T$, $h_- = i_-(\gamma_1)$ for some $\gamma_1 \in G_M^0$. 
+
+Denote by $T$ the isomorphism $\St(\Phi, A[X]) \to \St(\Phi, A[X\inv])$ induced by the obvious isomorphism of polynomial rings sending $X$ to $X^{-1}$.
+Repeating the above argument (now with $T(h_+)$ and $T^{-1}(h_-)$ playing the role of $h_-$ and $h_+$, respectively) we obtain that $h_+ =i_+(\gamma_2)$ for some $\gamma_2 \in G_M^0$. Since $j_+i_+ = j_- i_-$ is injective, we conclude that $\gamma_1 = \gamma_2$.
+Thus, we have shown that $g_+$ and $g_-$ are the images of $\gamma_1 \cdot g_0 \in \St(\Phi, A)$ under $i_+$ and $i_-$, respectively.
  \end{proof}
   
 \begin{proof}[Proof of~\cref{thm:main}]
- Notice that the assertions of the theorem for $\KO_2(2\ell, -)$ and $\K_2(\rD_\ell, -)$ follow from the assertion for $\St(\rD_\ell, -)$,
- which, in turn, follows from~\cref{thm41} and~\cref{thm:P1glueing} in the special case when $A$ is a local ring.
+ Notice that the assertions of the theorem for $\KO_2(2\ell, -)$ and $\K_2(\rD_\ell, -)$ follow from the assertion for $\St(\rD_\ell, -)$. It is also clear that the latter assertion follows from~\cref{thm41} and~\cref{thm:P1glueing} in the special case when $A$ is a local ring.
  
- Now let $A$ be an arbitrary commutative ring and $\Phi = \rD_\ell$, $\ell \geq 7$. If $g \in \St(\Phi, A[X])$ is such that its image in $\St(\Phi, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\Phi, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$.
+ Now let $A$ be an arbitrary commutative ring and $\Phi = \rD_\ell$ for $\ell \geq 7$. If $g \in \St(\Phi, A[X])$ is such that its image in $\St(\Phi, A[X, X\inv])$ is trivial, then so is its image in all localizations $\St(\Phi, A_M[X, X\inv])$, where $M$ ranges over the maximal ideals of $A$.
  We denote by $\lambda_{M}$ (resp. $\lambda_{M, -}$) the localization homomorphism $A[X] \to A_M[X]$ (resp. $A[X\inv] \to A_M[X\inv]$) and by $\lambda_M^*$, $\lambda_{M,-}^*$ the corresponding homomorphisms of Steinberg groups.
- By the just established local case of the theorem the images $\lambda^*_M(g)$ in all $\St(\Phi, A_M[X])$ are also trivial. Now by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is trivial as well.
+ By the previous paragraph the images $\lambda^*_M(g)$ in all $\St(\Phi, A_M[X])$ are also trivial. Now by the local-global principle \cite[Theorem~2]{LS17} the element $g$ is trivial as well.
 
  Now suppose that $g_+ \in \St(\Phi, A[X])$ and $g_- \in \St(\Phi, A[X\inv])$ are such that $j_+(g_+) = j_-(g_-)$. Set $g_0 = ev^*_{X=0}(g_+)$, $h_+ = g_+ \cdot i_+(g_0^{-1})$, $h_- = g_- \cdot i_-(g_0^{-1})$.
  Notice that $h_+ \in \overline{\St}(\Phi, A[X], XA[X])$, moreover, for every maximal ideal $M$ of $A$ the image $\lambda_M^*(h_+)\in \overline{\St}(\Phi, A_M[X], XA_M[X])$ is trivial by~\cref{thm:P1glueing}
