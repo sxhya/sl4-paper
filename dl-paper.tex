@@ -345,9 +345,9 @@ Then the canonical homomorphism $f\colon C(\rD_\ell, B, I) \to C(\rD_\ell, R, I)
 Writing the starting portion of the homology long exact sequence for the homomorphism $\St(\rD_\ell, R) \to \St(\rD_\ell, R/I)$ 
 and using the isomorphisms of~\cref{lem:relativeH3} and~\cref{lem:lowerKgroups} we obtain the following commutative diagram:
 \begin{equation*}\xymatrix{
- \KO_3(2\ell, B) \ar[r] \ar[d] & \KO_3(2\ell, k[X]) \ar[d]_{f'} \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
+ \KO_3(2\ell, B) \ar[r] \ar[d] & \KO_3(2\ell, k[X^{-1}]) \ar[d]_{f'} \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
  \KO_3(2\ell, R) \ar[r]        & \KO_3(2\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
-By~\cref{Panin-stability} the homomorphism $f'$ can be identified with the canonical map $\GW_3^{[0]}(k[X]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
+By~\cref{Panin-stability} the homomorphism $f'$ can be identified with the canonical map $\GW_3^{[0]}(k[X^{-1}]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
 By~\cref{bass-ft} $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k) \oplus \GW_2^{[3]}(k),$
 but since the group $\GW_2^{[3]}(k)$ is trivial by~\cite[Lemma~2.2]{FRS12}, the homomorphism $f'$ (and hence $f$) is surjective.
 \end{proof} 
@@ -372,7 +372,7 @@ Then there exists a diagonal homomorphism $t$ which makes the diagram commute.
  Consider the following commutative diagram with exact rows obtained from~\eqref{LodayRelativization}:
 \begin{equation*} \xymatrix{
  C(\rD_\ell, B, I) \ar[r]^{\lambda_B} \ar@{->>}[d]_{f} & \St(\rD_\ell, B, I) \ar[r]^{\mu_B} \ar[d]_{g} &
- \St(\rD_\ell, B) \ar[r]^{\nu_B} \ar[d]_{h} & \St(\rD_\ell, k[X]) \ar[d]_{i} \\
+ \St(\rD_\ell, B) \ar[r]^{\nu_B} \ar[d]_{h} & \St(\rD_\ell, k[X^{-1}]) \ar[d]_{i} \\
  C(\rD_\ell, R, I) \ar[r]^{\lambda_R}         & \St(\rD_\ell, R, I) \ar[r]^{\mu_R} \ar@{-->}[ur]^{t}&
  \St(\rD_\ell, R) \ar[r]^-{\nu_R}        & \St(\rD_\ell, k[X, X^{-1}]).
 }\end{equation*}
@@ -916,7 +916,7 @@ Throughout this subsection $\Phi$ denotes an arbitrary irreducible simply-laced 
 \begin{df}\label{df:GM0_geq0}
 Denote the subgroup $\overline{\St}(\Phi, A, M)$ by $G_M^0$. 
 Consider the following commutative diagram, in which the homomorphisms $i_\pm$ and $j_\pm$ are induced by the natural ring homomorphisms $A \to A[X^\pm]$ and $A[X^\pm]\to R$:
-\[\xymatrix{ G_M^0 \ar@{^{(}->}[rr]^{i_+^M} \ar@<-5pt>@{^{(}->}[dd]^{i_-^M} \ar@<-5pt>@{^{(}->}[rd] & & \overline{\St}(\Phi, A[X], M[X]) \ar[dd]_(.3){j_+^M} \ar@<-2.5pt>@{^{(}->}[rd] & \\ & \St(\Phi, A) \ar@{^{(}->}[rr]^(.3){i_+} \ar@<-2.5pt>@{^{(}->}[dd]^(.3){i_-} & & \St(\Phi, A[X]) \ar[dd]^{j_+} \\ \overline{\St}(\Phi, A[X\inv], M[X\inv]) \ar@<-2.5pt>@{^{(}->}[rd] \ar[rr]^(.35){j_-^M} & & \overline{\St}(\Phi, R, I) \ar@<-2.5pt>@{^{(}->}[rd] & \\ & \St(\Phi, A[X\inv]) \ar[rr]_{j_-} & & \St(\Phi, R)} \]
+\[\xymatrix{ G_M^0 \ar@{^{(}->}[rr]^{i_+^M} \ar@<-5pt>@{^{(}->}[dd]^{i_-^M} \ar@<-5pt>@{^{(}->}[rd] & & \overline{\St}(\Phi, A[X], M[X]) \ar[dd]_(.3){j_+^M} \ar@<-2.5pt>@{^{(}->}[rd] & \\ & \St(\Phi, A) \ar@{^{(}->}[rr]^(.3){i_+} \ar@<-2.5pt>@{^{(}->}[dd]^(.3){i_-} & & \St(\Phi, A[X]) \ar[dd]^{j_+} \\ \overline{\St}(\Phi, A[X\inv], M[X\inv]) \ar@<-2.5pt>@{^{(}->}[rd] \ar[rr]^(.35){j_-^M} & & \overline{\St}(\Phi, R, I) \ar@<-2.5pt>@{^{(}->}[rd] & \\ & \St(\Phi, A[X\inv]) \ar[rr]_{j_-} & & \St(\Phi, R).} \]
 Denote by $\overline{G}^{\geq 0}_M$ the image of the homomorphism $j_+^M$. \end{df}
 Notice that the homomorphism $j_+^Mi_+^M$ is split by the homomorphism $ev^*_{X=1}$ of evaluation at $1$, therefore $G_M^0$ can be considered as a subgroup of $\overline{G}^{\geq 0}_M$.
 
@@ -971,7 +971,7 @@ Let $(g, h, u)$ be an element of $V$. We define the value of $T_\alpha(a + Xf)$ 
 Notice that $p(T_\alpha(a + Xf) \cdot (g, h, u)) = x_\alpha(Xf) \cdot {}^{x_\alpha(a)}p(g, h, u) \in \overline{G}_M^{\geq 0},$ therefore
  the right-hand side of~\eqref{T_leq0} lies in $V$. Notice that for $h_0 \in G^0_M$ one has
 \[T_\alpha(a + Xf) \cdot ((g, h, u) \cdot h_0) = (T_\alpha(a + Xf) \cdot (g, h, u)) \cdot {}^{x_{\alpha}(a)}\!h_0,\]  
-therefore~\eqref{T_leq0}, indeed, gives rise to a well-defined map $\overline{V} \to \overline{V}$.
+therefore~\eqref{T_leq0} indeed gives rise to a well-defined map $\overline{V} \to \overline{V}$.
 
 Thus far we have specified the action of the generators of the "truncated'' Steinberg group $\St^{\leq 1}(\Phi, B)$ from~\cref{sec:presentation} on $\overline{V}$ using formulae~\eqref{T_1} and~\eqref{T_leq0}. We need to verify that this action respects the defining relations of the group $\St^{\leq 1}(\Phi, B)$ (notice that $\leq 1$ here stands for the degree of relations with respect to $t = X^{-1}$). This is accomplished in the series of lemmas below.
 
@@ -1054,7 +1054,7 @@ The second component of the above triple can be simplified using~\eqref{eq:conj-
 Thus, we see that the expression in the right-hand side of~\eqref{R3_1_1-computation2} would remain unchanged if we swapped $(a,\alpha,m)$ with $(b,\beta,m')$. This implies the required assertion.
 \end{proof}
 
-\begin{lemma} \label{R2_0_1} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations $\mathrm{R2}_{0,1}$. \end{lemma}
+\begin{lemma} \label{R2_0_1} The operators $T_\alpha$ satisfy Steinberg relations $\mathrm{R2}_{0,1}$. \end{lemma}
 \begin{proof} 
 Let $a, b \in A$ and $\alpha, \beta$ be a pair of roots such that $\alpha + \beta \in \Phi$. Set $\epsilon = N_{\alpha, \beta},$ $c = 1 - \epsilon abm'$.
 
