@@ -68,7 +68,26 @@
 \usepackage{tikz}
 \usepackage{enumitem}
 
-\addbibresource{paper.bib}
+%%%%% Embedded files should be stored in a separate subdirectory named
+%%%%% <filename>.files where <filename> is the same as the name of the
+%%%%% main tex file without the extension .tex.
+
+%%%%% In order for tex to find those embedded files, \input and
+%%%%% \includegraphics commands etc. have to reflect the embedded
+%%%%% files path by using the '\LOCAL' macro defined below, like
+%%%%% \input{\LOCAL/introduction} for embedding a file named
+%%%%% 'introduction.tex', or
+%%%%% \includegraphics[width=0.95\textwidth]{\LOCAL/knot.eps} for
+%%%%% embedding a graphics file named 'knot.eps', or
+%%%%% \bibselect{\LOCAL/references} in case references are embedded
+%%%%% from a file named 'references.ltb' etc.
+
+%%%%% Graphics files should always be submitted in encapsulated
+%%%%% postscript format (extension '.eps').
+
+\def\LOCAL{\horrocks.files}
+
+\addbibresource{horrocks.files/references.bib}
 \renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
 \renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
 \newbibmacro{string+doi}[1]{\iffieldundef{doi}{\iffieldundef{url}{#1}{\href{\thefield{url}}{#1}}}{\href{https://dx.doi.org/\thefield{doi}}{#1}}}
@@ -208,26 +227,6 @@
 
 \hfuzz=0.1pt\tolerance=2000\emergencystretch=20pt\overfullrule=5pt
 
-%%%%% Embedded files should be stored in a separate subdirectory named
-%%%%% <filename>.files where <filename> is the same as the name of the
-%%%%% main tex file without the extension .tex.
-
-%%%%% In order for tex to find those embedded files, \input and
-%%%%% \includegraphics commands etc. have to reflect the embedded
-%%%%% files path by using the '\LOCAL' macro defined below, like
-%%%%% \input{\LOCAL/introduction} for embedding a file named
-%%%%% 'introduction.tex', or
-%%%%% \includegraphics[width=0.95\textwidth]{\LOCAL/knot.eps} for
-%%%%% embedding a graphics file named 'knot.eps', or
-%%%%% \bibselect{\LOCAL/references} in case references are embedded
-%%%%% from a file named 'references.ltb' etc.
-
-%%%%% Graphics files should always be submitted in encapsulated
-%%%%% postscript format (extension '.eps').
-
-\def\LOCAL{\jobname.files}
-
-
 \begin{document}
 %%%%% ------------- fill in your data below this line  -------------------
 %%%%%    The following lines \Title ... \EndAddress must ALL be present
@@ -278,7 +277,6 @@ St. Petersburg State University,
 
 
 %%--------------------Here the manuscript ends--------------------------------
-\Addresses
 \section{Introduction}
 Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. This problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and its solution played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
 
@@ -704,8 +702,8 @@ Since $ev_{X=0}^*$ admits a section, we can consider $\overline{\St}(\Phi, A, M)
  It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the element $g(X)$ is congruent to $g_1(X) = \prod_i z_{\alpha_i}(f_i(0), \xi_i(X)).$ 
  
  Now each factor $z_{\alpha_i}(f_i(0), \xi_i(X))$ can be written as follows: 
- \scalebox{0.96}{\begin{minipage}{1.04\linewidth}
- \[z_{\alpha_i}(f_i(0), \xi_i(0))^{x_{-\alpha_i}(X\xi'_i(X))} = [x_{-\alpha_i}(-X\xi'_i(X)),\ z_{\alpha_i}(f_i(0), \xi_i(0))] \cdot z_{\alpha_i}(f_i(0), \xi_i(0)).\]\end{minipage}}
+\newline\scalebox{0.96}{\begin{minipage}{1.04\linewidth}
+ \[z_{\alpha_i}(f_i(0), \xi_i(0))^{x_{-\alpha_i}(X\xi'_i(X))} = [x_{-\alpha_i}(-X\xi'_i(X)),\ z_{\alpha_i}(f_i(0), \xi_i(0))] \cdot z_{\alpha_i}(f_i(0), \xi_i(0)).\]\end{minipage}}\vskip \belowdisplayshortskip
  It follows from the formula $[g,\ h]^{h_1} = [h_1^{-1},\ g][g,\ h_1^{-1}h]$ that the subgroup \[C_0 := \left[\St(\Phi, XA[X]),\ \overline{\St}(\Phi, A, M)\right]\] is normalized by $\overline{\St}(\Phi, A, M)$. Thus, we conclude that $g_1(X)$ is congruent to $\prod_i z_{\alpha_i}(f_i(0), \xi_i(0)) = g(0) = 1$ modulo $C_0$,
  which implies the assertion. \qedhere \end{proof}
 
@@ -715,7 +713,7 @@ Let $S \subseteq \Phi$ be a special root subset (see~\cref{df:root-subsets}). We
 
 \begin{prop} \label{Kgen} The subgroup $K(A[X], M[X])$ is generated as an abstract group by the subgroup $\overline{\St}(\Phi, A[X], XM[X])$ and
  the elements $[x_\alpha(m), x_{-\alpha}(X\xi)]$, $m \in M$, $\xi \in A[X]$, $\alpha \in \Phi$. \end{prop}
-\begin{proof} From~\eqref{eq:conj-h-x} we obtain that $\myol{H}(\Phi, A, M)$ normalizes both $\St(\Phi, XA[X])$ and $\St(\Phi, M)$ and, moreover, that $[\myol{H}(\Phi, A, M),\ \St(\Phi, XA[X])] \subseteq \overline{\St}(\Phi, A[X], XM[X])$. 
+\begin{proof} From~\eqref{eq:conj-h-x} we obtain that $\myol{H}(\Phi, A, M)$ normalizes both $\St(\Phi, XA[X])$ and $\St(\Phi, M)$ and, moreover, that \[[\myol{H}(\Phi, A, M),\ \St(\Phi, XA[X])] \subseteq \overline{\St}(\Phi, A[X], XM[X]).\]
 
 Denote by $C_1$ the commutator subgroup $[\St(\Phi, XA[X]),\ \St(\Phi, M)]$.
 It is clear that for $g \in \St(\Phi, XA[X])$, $h \in \myol{H}(\Phi, A, M)$, $u^+ \in U(\Phi^+, M)$, $u^- \in U(\Phi^-, M)$ one has:
@@ -761,8 +759,8 @@ We denote by $\St^h(\Phi, B)$ the group given by the set of all homogeneous Stei
 &\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha \perp \beta.\ \tag{R$3^\bot_{d,e}$}
 \end{align}
 \begin{rem}
-Notice that in the above presentation we omitted the relations $[x_\alpha(a), x_\alpha(b)] = 1$ but it easy to see that they follow from~$\text{R2}_{e,0}$, \eqref{eq:H1iii} and $\text{R3}_{d,e}^\angle$. Indeed, after choosing some root $\beta\in \Phi$ such that $\alpha+\beta\in\Phi$ and setting $\epsilon = N_{\alpha+\beta,-\beta}$ we have that 
-\scalebox{0.94}{\begin{minipage}{1.06\linewidth}
+Notice that in the above presentation we omitted the relations $[x_\alpha(a), x_\alpha(b)] = 1$ but it easy to see that they follow from~$\text{R2}_{e,0}$, \eqref{eq:H1iii} and $\text{R3}_{d,e}^\angle$. Indeed, after choosing some root $\beta\in \Phi$ such that $\alpha+\beta\in\Phi$ and setting $\epsilon = N_{\alpha+\beta,-\beta}$ we obtain that 
+\newline\scalebox{0.94}{\begin{minipage}{1.06\linewidth}
 \[ [x_\alpha(a),\ x_\alpha(b)] = [x_\alpha(a),\ [x_{\alpha+\beta}(b),\ x_{-\beta}(\epsilon)]] = [[x_\alpha(a),\ x_{\alpha+\beta}(b)],\ {}^{x_{\alpha+\beta}(b)}\!x_{-\beta}(\epsilon)] = 1. \]\end{minipage}}
 \end{rem}
 
@@ -787,15 +785,15 @@ Without loss of generality we may assume $e \geq d$ and $e > 0$. We need to cons
 \begin{enumerate}
 \item In the case $0 < d \leq e \leq n$ the relation $R$ is a consequence of some relation of type $\text{R3}^\bot_{0,e-d}$:
 \newline
-\scalebox{0.85}{\begin{minipage}{1.16\linewidth}
+\scalebox{0.84}{\begin{minipage}{1.16\linewidth}
 \begin{align} x_{\alpha+\beta+\gamma}(-\epsilon_1 \epsilon_2 \cdot abt^e) = 
-[x_{\beta+\gamma}(\epsilon_1 \cdot bt^{e-d}), [x_{-\beta}(t^d), x_{\alpha+\beta}(-\delta_1 \cdot a)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$} \label{first-computation} \\ 
+[x_{\beta+\gamma}(\epsilon_1 \cdot bt^{e-d}), [x_{-\beta}(t^d), x_{\alpha+\beta}(-\delta_1 \cdot a)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$} \nonumber \\ 
  = [[x_{\beta+\gamma}(\epsilon_1 \cdot bt^{e-d}), x_{-\beta}(t^d)], {}^{x_{-\beta}(t^d)} x_{\alpha+\beta}(- \delta_1 \cdot a)] & \text{ by~\eqref{eq:H1iii}, $\text{R3}^\bot_{0,e-d}$} \nonumber \\ 
  = {}^{x_{-\beta}(t^d)} [x_{\gamma}(- bt^e), x_{\alpha+\beta}(-\delta_1 \cdot a)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,e}$} \nonumber \\ 
  = {}^{x_{-\beta}(t^d)} [x_{\beta + \gamma}(\epsilon_1 \cdot bt^{e-d}), x_{\alpha}(at^d)] & \text{ by $\text{R2}_{e,0}$, $\text{R2}_{e-d,d}$} \nonumber \\ 
  = [x_{\gamma}(bt^e) \cdot x_{\beta + \gamma}(\epsilon_1 \cdot bt^{e-d}), x_{\alpha}(at^d)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,d}$} \nonumber \\ 
  = {}^{x_\gamma(bt^e)}x_{\alpha+\beta+\gamma}(-\epsilon_1\epsilon_2 \cdot abt^e) \cdot [x_\gamma(bt^e), x_\alpha(at^d)] & \text{ by~\eqref{eq:H1ii}, $\text{R2}_{e-d,d}$} \nonumber \\
- = x_{\alpha+\beta+\gamma}(-\epsilon_1\epsilon_2 \cdot abt^e) \cdot [x_\gamma(bt^e), x_\alpha(at^d)] & \text{ by $\text{R3}^\angle_{e,e}$}, \nonumber \end{align}\end{minipage}} \vskip \belowdisplayshortskip
+ = x_{\alpha+\beta+\gamma}(-\epsilon_1\epsilon_2 \cdot abt^e) \cdot [x_\gamma(bt^e), x_\alpha(at^d)] & \text{ by $\text{R3}^\angle_{e,e}$}, \label{first-computation} \end{align}\end{minipage}} \vskip \belowdisplayshortskip
  where $\epsilon_1 = N_{\beta,\gamma}$, $\epsilon_2 = N_{\alpha,\beta+\gamma}$, $\delta_1 = N_{\alpha,\beta}$ and in the 4th equality we use~\eqref{eq:cocycle}.
   
 \item In the case $d \leq 0 \leq e \leq n$ the relation $R$ is a consequence of some relation of type $\text{R3}^\bot_{1,d+e-1}$:
@@ -932,7 +930,7 @@ Fix a root $\delta \in \Phi \setminus \Psi$. Define $\widetilde{K}(\alpha, \beta
   \item $x_{\alpha}(Xf)$, $x_\beta(Xf)$;
   \item $x_{\alpha-\beta}(Xf)$, $x_{\beta-\alpha}(Xf)$;
   \item $c_{\delta}(f, X\xi)$. \end{enumerate} \end{df}
-\begin{prop} \label{K-a-b} One has $K(A[X], M[X]) = \widetilde{K}(\alpha, \beta) \cdot X_{-\alpha}(M \cdot X) \cdot X_{-\beta}(M \cdot X)$. 
+\begin{prop} \label{K-a-b} One has \[K(A[X], M[X]) = \widetilde{K}(\alpha, \beta) \cdot X_{-\alpha}(M \cdot X) \cdot X_{-\beta}(M \cdot X).\] 
 \end{prop} 
 \begin{proof}
 It is clear that $K(A[X], M[X]) \supseteq \widetilde{K}(\alpha, \beta) \cdot X_{-\alpha}(M \cdot X) \cdot X_{-\beta}(M \cdot X)$. Let us prove the reverse inclusion. Fix an element $g\in K(A[X], M[X])$. We need to show that $g$ lies in the specified product of subgroups.
@@ -941,7 +939,7 @@ For $i=1,\ldots,5$ denote by $\mathcal{G}_i$ the set of all generators of type K
 Notice that $\Phi \setminus \Psi$ contains the parabolic set of roots $(\Phi \setminus \Psi)\cap \Phi^+$.
 Thus, by~\cref{thm:Stepanov} every element of $\overline{\St}(\Phi, A[X], XM[X])$ can be presented as a product of generators $\mathcal{G}_1$ and generators $\mathcal{G}' = \{ x_{\gamma}(Xf) \mid \gamma \in \Psi\}$. In turn, by~\cref{Kgen-strong} one can express $g$ as a product of these generators and generators $\mathcal{G}_5$. 
 
-By~\cref{thm:Stepanov} $\widetilde{K}(\alpha, \beta)$ contains the normal subgroup $G_0 = \overline{\St}(\Phi, A[X], X^2M[X])$, so it suffices to obtain the required presentation of $g$ modulo $G_0$. By~\cref{Zrels} and~\cref{Crels} the elements of $\mathcal{G}'$ commute with the elements of $\mathcal{G}_1$ and $\mathcal{G}_5$ modulo $G_0$, therefore we can rewrite $g$ as $g_1 \cdot g_2$, for some $g_1 \in \langle \mathcal{G}_1, \mathcal{G}_5, G_0 \rangle \subseteq \widetilde{K}(\alpha, \beta)$ and $g_2 \in \langle \mathcal{G}' \rangle$.
+Set $G_0 = \overline{\St}(\Phi, A[X], X^2M[X])$. By~\cref{thm:Stepanov} $\widetilde{K}(\alpha, \beta)$ contains the normal subgroup $G_0$ therefore it suffices to obtain the required presentation of $g$ modulo $G_0$. By~\cref{Zrels} and~\cref{Crels} the elements of $\mathcal{G}'$ commute with the elements of $\mathcal{G}_1$ and $\mathcal{G}_5$ modulo $G_0$, therefore we can rewrite $g$ as $g_1 \cdot g_2$, for some $g_1 \in \langle \mathcal{G}_1, \mathcal{G}_5, G_0 \rangle \subseteq \widetilde{K}(\alpha, \beta)$ and $g_2 \in \langle \mathcal{G}' \rangle$.
 
 It is clear that  $x_{\gamma_1}(mX)$ and $x_{\gamma_2}(m'X)$ commute modulo $G_0$ whenever $\gamma_1 \neq - \gamma_2$ for $\gamma_1, \gamma_2 \in \Psi$. On the other hand, for $\gamma \in \Psi$ any commutator $c_{\gamma}(mX, m'X)$ is congruent to some generator of $\mathcal{G}_5$  modulo $G_0$ (cf. the proof of~\cref{Kgen-strong}) and hence commutes with the elements of $\mathcal{G}'$ modulo $G_0$. 
 
@@ -1395,4 +1393,5 @@ From the inductive assumption we obtain that the assertion of the lemma holds fo
 \end{proof}
 
 \printbibliography
+\Addresses
 \end{document}
