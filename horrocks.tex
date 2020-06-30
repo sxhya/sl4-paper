@@ -67,13 +67,10 @@
 \definecolor{DarkPurple}{rgb}{0.40,0.0,0.20}
 \hypersetup{colorlinks=true,citecolor=NavyBlue,linkcolor=DarkPurple,urlcolor=NavyBlue}
 \usepackage{color} 
-%\usepackage[breaklinks=false,unicode]{hyperref}
-\usepackage[backend=biber, bibencoding=utf8, giveninits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
 \usepackage[capitalize]{cleveref}
 \usepackage[matrix,arrow,curve]{xy}
 \usepackage{tikz}
 \usepackage{enumitem}
-\usepackage{filecontents}
 
 %%%%% Embedded files should be stored in a separate subdirectory named
 %%%%% <filename>.files where <filename> is the same as the name of the
@@ -93,14 +90,8 @@
 %%%%% postscript format (extension '.eps').
 
 \def\LOCAL{\horrocks.files}
-
-\addbibresource{horrocks.bib}
-\renewbibmacro*{volume+number+eid}{\ifentrytype{article}{\- \iffieldundef{volume}{}{Vol.~\printfield{volume},}\iffieldundef{number}{}{ No.~\printfield{number},}}}
-\renewbibmacro{in:}{\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
-\newbibmacro{string+doi}[1]{\iffieldundef{doi}{\iffieldundef{url}{#1}{\href{\thefield{url}}{#1}}}{\href{https://dx.doi.org/\thefield{doi}}{#1}}}
-\DeclareFieldFormat[article, inproceedings, inbook, book, online]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
-\renewcommand*{\bibfont}{\footnotesize}
-\defbibheading{bibliography}[\refname]{\section*{#1} \markboth{}{}}
+%\renewcommand*{\bibfont}{\footnotesize}
+%\defbibheading{bibliography}[\refname]{\section*{#1} \markboth{}{}}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem*{theorem*}{Theorem}
@@ -816,7 +807,7 @@ The assertion of the lemma now follows from the above observation by induction o
 \end{proof}
 
 The following proposition is the main result of this subsection and also a direct generalization of~\cite[Lemma~3.3]{Tu83}.
-\begin{prop} \label{lemma33} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the homomorphism $i_n\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$, induced by the natural embedding of generators, is an isomorphism. In particular, the obvious homomorphism $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{prop}
+\begin{prop} \label{lemma33} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the homomorphism $i_n\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$, induced by the natural embedding of generators, is an isomorphism. Consequently, the obvious homomorphism $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{prop}
 \begin{proof}
  We need to construct a homomorphism $j_n$ which would be the inverse of $i_n$. 
  We start with a homomorphism $\widetilde{j}_n^\Phi \colon F\langle \mathcal{X}^\Phi_{\leq n+1} \rangle \to \St^{\leq n}(\Phi, B)$ defined via
@@ -1401,400 +1392,255 @@ From the inductive assumption we obtain that the assertion of the lemma holds fo
  Using similar argument one can show that $g_- = i_-(g_0')$ for some $g_0' \in \St(\Phi, A)$. But $g_0'$ must coincide with $g_0$ since $j_+i_+ = j_-i_-$ is injective.
 \end{proof}
 
-\printbibliography
+\begin{thebibliography}{1000}
+\bibitem{Abe83}
+ E.~Abe, 
+ \emph{\href{https://dx.doi.org/10.1080/00927878308822906} 
+ {Whitehead groups of {C}hevalley groups over polynomial rings}},
+ Comm. Alg. \textbf{11} (1983), no.~12, 1271--1307.
+
+\bibitem{A13}
+ D.~Allcock, 
+ \emph{\href{https://dx.doi.org/10.2140/ant.2016.10.1791} 
+ {Steinberg groups as amalgams}},
+ Alg. Number Th. \textbf{10} (2016), no.~8, 1791--1843.
+
+\bibitem{AF17}
+ A.~Asok and J.~Fasel, 
+ \emph{\href{https://dx.doi.org/10.1112/topo.12007} 
+ {An explicit KO-degree map and applications}},
+ J. Top. \textbf{10} (2017), 268--300.
+
+\bibitem{Ba74}
+ H.~Bass, 
+ \emph{\href{https://dx.doi.org/10.2307/2373586} 
+ {Clifford algebras and spinor norms over a commutative ring}},
+ Amer. J. Math. \textbf{96} (1974), no.~1, 156--206.
+
+\bibitem{Bou81}
+ N.~Bourbaki, 
+ \emph{Groupes et algèbres de Lie: Chapitres 4, 5 et 6},
+ Masson, 1981.
+
+\bibitem{DS73}
+ R.~K.~Dennis and M.~R.~Stein,
+ \emph{\href{https://dx.doi.org/10.1007/BFb0073728} 
+ {The functor $\K_2$: A survey of computations and problems}},
+ Classical Algebraic K-Theory, and Connections with Arithmetic, Springer, 1973, pp.~241--303.
+
+\bibitem{FRS12}
+ J.~Fasel, R.~Rao, and R.~Swan,
+ \emph{\href{https://dx.doi.org/10.1007/s10240-012-0041-y} 
+ {On stably free modules over affine algebras}},
+ Publ. Math. IH{\'E}S \textbf{116} (2012), 223--243.
+
+\bibitem{Ho05}
+ J.~Hornbostel, 
+ \emph{\href{https://dx.doi.org/10.1016/j.top.2004.10.004} 
+ {$\mathbb{A}^1$-representability of hermitian K-theory and Witt groups}},
+ J. Top. \textbf{44} (2005), no.~3, 661--687.
+
+\bibitem{Ho64}
+ G.~Horrocks, 
+ \emph{\href{https://dx.doi.org/10.1112/plms/s3-14.4.714} 
+ {Projective modules over an extension of a local ring}},
+ Proc. London Math. Soc. \textbf{3} (1964), no.~4, 714--718.
+
+\bibitem{Hur77}
+ J.~Hurrelbrink, 
+ \emph{\href{https://dx.doi.org/10.1007/BF01351716} 
+ {Endlich pr\"asentierte arithmetische gruppen und $K_{2}$ {\"u}ber Laurent-polynomringen}},
+ Math. Ann. \textbf{225} (1977), no.~2, 123--129.
+
+\bibitem{Ka80}
+ M.~Karoubi, 
+ \emph{\href{https://dx.doi.org/10.2307/1971147} 
+ {Le th{\'e}oreme fondamental de la K-th{\'e}orie hermitienne}},
+ Ann. Math. \textbf{112} (1980), no.~2, 259--282.
+
+\bibitem{Lam10}
+ T.-Y.~Lam, 
+ \emph{Serre's problem on projective modules},
+ Springer Science \& Business Media, 2010.
+
+\bibitem{La18}
+ A.~Lavrenov, 
+ \emph{\href{https://dx.doi.org/10.25537/dm.2018v23.653-675}
+ {A local-global principle for symplectic $\K_2$}},
+ Doc. Math. \textbf{23} (2018), 653--675.
+
+\bibitem{LS17}
+ A.~Lavrenov and S.~Sinchuk,
+ \emph{\href{https://arxiv.org/pdf/1606.00272.pdf} 
+ {Centrality of odd orthogonal $\K_2$}},
+ J. Pure Appl. Alg. \textbf{221} (2017), 1134--1145.
+
+\bibitem{Lo78}
+ J.-L.~Loday,
+ \emph{\href{https://dx.doi.org/10.1016/0021-8693(78)90025-X}
+ {Cohomologie et groupes de Steinberg relatifs}}, 
+ J. Alg. \textbf{54} (1978), no.~1, 178--202.
+
+\bibitem{Ma69}
+ H.~Matsumoto,
+ \emph{\href{http://eudml.org/doc/81843} 
+ {Sur les sous-groupes arithm{\'e}tiques des groupes semi-simple d{\'e}ploy{\'e}s}},
+ Ann. Sci. ENS \textbf{2} (1969), no.~1, 1--62.
+
+\bibitem{Mo04}
+ F.~Morel,
+ \emph{\href{https://dx.doi.org/10.1007/s00014-004-0815-z} 
+ {Sur les puissances de l'id{\'e}al fondamental de l'anneau de Witt}},
+ Comm. Math. Helv. \textbf{79} (2004), no.~4, 689--703.
+
+\bibitem{MR91}
+ J.~Morita and U.~Rehmann,
+ \emph{\href{https://dx.doi.org/10.1007/BF02571324} 
+ {Symplectic $\K_2$ of Laurent polynomials, associated Kac--Moody groups and Witt rings}},
+ Math. Z. \textbf{206} (1991), no.~1, 57--66.
+
+\bibitem{Pa89}
+ I.~Panin, 
+ \emph{\href{http://www.mathnet.ru/links/a46c953dc23ca4b3c44578c283cd59c8/aa27.pdf} 
+ {On stabilization for orthogonal and symplectic algebraic K-theory (Russian)}},
+ Leningrad Math. J. \textbf{1} (1990), no.~3, 741--754.
+
+\bibitem{Qu76}
+ D.~Quillen, 
+ \emph{\href{https://dx.doi.org/10.1007/BF01390008} 
+ {Projective modules over polynomial rings}},
+ Inv. Math. \textbf{36} (1976), no.~1, 167--171.
+
+\bibitem{Re75}
+ U.~Rehmann, 
+ \emph{\href{http://www.math.uni-bielefeld.de/~rehmann/Publ/praesentation.pdf}
+ {Pr{\"a}sentationen von Chevalleygruppen {\"u}ber $k[t]$}}, preprint (1975).
+
+\bibitem{RS76}
+ U.~Rehmann and C.~Soul{\'e},
+ \emph{\href{https://dx.doi.org/10.1007/BFb0079999} 
+ {Finitely presented groups of matrices}}, 
+ Algebraic K-Theory, Lect. Notes. Math., vol. 551, Springer, 1976, pp.~164--169.
+
+\bibitem{Sch16}
+ M.~Schlichting, 
+ \emph{\href{https://dx.doi.org/10.1016/j.jpaa.2016.12.026} 
+ {Hermitian K-theory, derived equivalences and Karoubi's fundamental theorem}},
+ J. Pure Appl. Alg. \textbf{221} (2017), 1729--1844.
+
+\bibitem{S15}
+ S.~Sinchuk, 
+ \emph{\href{https://dx.doi.org/10.1016/j.jpaa.2015.08.003}
+ {On centrality of $K_2$ for Chevalley groups of type $\mathsf{E}_\ell$}},
+ J. Pure Appl. Alg. \textbf{220} (2016), no.~2, 857--875.
+
+\bibitem{St-poly}
+ A.~Stavrova, 
+ \emph{\href{https://dx.doi.org/10.1017/is013006012jkt232} 
+ {Homotopy invariance of non-stable $\K_1$-functors}}, 
+ J. K-th. \textbf{13} (2014), no.~2, 199--248.
+
+\bibitem{St-Ded}
+ A.~Stavrova, 
+ \emph{\href{https://dx.doi.org/10.1515/jgth-2019-0100} 
+ {Chevalley groups of polynomial rings over Dedekind domains}}, 
+ J. Gr. Th. \textbf{23} (2020), 121--132.
+
+\bibitem{St71}
+ M.~R.~Stein, 
+ \emph{\href{https://dx.doi.org/10.2307/2373742} 
+ {Generators, relations and coverings of Chevalley groups over commutative rings}},
+ Amer. J. Math. \textbf{93} (1971), no.~4, 965--1004.
+
+\bibitem{Ste73}
+ M.~R.~Stein, 
+ \emph{\href{https://dx.doi.org/10.2307/1996696} 
+ {Surjective stability in dimension 0 for $\K_2$ and related functors}},
+ Trans. Amer. Math. Soc. \textbf{178} (1973), 165--191.
+
+\bibitem{St78}
+ M.~R.~Stein, 
+ \emph{\href{https://dx.doi.org/10.4099/math1924.4.77} 
+ {Stability theorems for $\K_1$, $\K_2$ and related functors modeled on Chevalley groups}},
+ Japan J. Math. \textbf{4} (1978), 77--108.
+
+\bibitem{St67}
+ R.~Steinberg, J.~Faulkner, and R.~Wilson, 
+ \emph{Lectures on Chevalley groups},
+ Yale Univ. New Haven, 1967.
+
+\bibitem{Su76}
+ A.~Suslin, 
+ \emph{\href{http://www.mathnet.ru/links/1ebfa3efeb44dfd494087eaf83a34450/dan40545.pdf} 
+ {Projective modules over polynomial rings are free}}, 
+ Dokl. Akad. Nauk SSSR \textbf{229} (1976), 1063--1066.
+
+\bibitem{Su77}
+ A.~Suslin, 
+ \emph{\href{https://dx.doi.org/10.1070/IM1977v011n02ABEH001709} 
+ {On the structure of the special linear group over commutative rings}},
+ Math. USSR Izv. \textbf{11} (1977), 221--238.
+
+\bibitem{Su82}
+ A.~Suslin and V.~Kopeiko, 
+ \emph{\href{https://dx.doi.org/10.1007/BF01681481} 
+ {Quadratic modules and the orthogonal group over polynomial rings}},
+ J. Soviet Math. \textbf{20} (1982), no.~6, 2665--2691.
+
+\bibitem{ST76}
+ A.~Suslin and M.~Tulenbaev, 
+ \emph{\href{https://dx.doi.org/10.1007/BF01091768} 
+ {Stabilization theorem for the Milnor $K_2$-functor}},
+ J. Soviet Math. \textbf{17} (1981), no.~2, 1804--1819.
+
+\bibitem{Ta86}
+ G.~Taddei, 
+ \emph{\href{http://www.ams.org/books/conm/055.2/862660/conm862660.pdf}
+ {Normalit\'e des groupes \'el\'ementaires dans les groupes de Chevalley sur un anneau}},
+ Applications of algebraic $\K$-theory to algebraic geometry and number theory, Part II (Boulder, Colo., 1983),
+ Contemp. Math, vol.~55, 1986, pp.~693--710.
+
+\bibitem{Tu83}
+ M.~Tulenbaev, 
+ \emph{\href{https://dx.doi.org/10.1070/SM1983v045n01ABEH002591}
+ {The Steinberg group of a polynomial ring}},
+ Math. USSR Sb. \textbf{45} (1983), 131--144.
+
+\bibitem{Va86}
+ L.~Vaserstein, 
+ \emph{\href{https://dx.doi.org/10.2748/tmj/1178228489}
+ {On normal subgroups of Chevalley groups over commutative rings}},
+ Tohoku Math. J. \textbf{38} (1986), 219--230.
+
+\bibitem{V00}
+ N.~Vavilov, 
+ \emph{\href{http://eudml.org/doc/108535}
+ {A third look at weight diagrams}}, 
+ Rend. Sem. Mat. Univ. Padova \textbf{104} (2000), 201--250.
+
+\bibitem{VP}
+ N.~Vavilov and E.~Plotkin, 
+ \emph{\href{https://dx.doi.org/10.1007/BF00047884}
+ {Chevalley groups over commutative rings: I. Elementary calculations}},
+ Acta Appl. Math. \textbf{45} (1996), 73--113.
+
+\bibitem{VZ18}
+ N.~Vavilov and Z.~Zhang, 
+ \emph{\href{https://dx.doi.org/10.1017/S0013091519000555}
+ {Generation of relative commutator subgroups in Chevalley groups. II}},
+ Proc. Edinburgh Math. Soc. \textbf{63} (2020), no.~2, 497--511.
+
+\bibitem{Vo11}
+ K.~V{\"o}lkel,
+ \emph{\href{http://static.konradvoelkel.de/download/da-voelkel-20110809.pdf}
+ {Matsumotos Satz und $\mathbb{A}^1$-Homotopietheorie}},
+ Diplomarbeit, Uni. Freiburg.
+
+\bibitem{Kbook}
+ C.~A.~Weibel, 
+ \emph{The $K$-book: An introduction to algebraic $K$-theory},
+ Grad. Texts Math., vol. 145, Amer. Math. Soc., 2013.
+\end{thebibliography}
+
 \Addresses
-\begin{filecontents}{horrocks.bib}
-@Article{Abe83,
-    Author    = {Abe, Eiichi},
-    Title     = {Whitehead groups of {C}hevalley groups over polynomial rings},    
-    Journal   = {Comm. Alg.},    
-    Number    = 12,
-    Volume    = 11,
-    Pages     = {1271--1307},
-    Year      = 1983,    
-    Doi       = {10.1080/00927878308822906}}    
-    
-@Article{A13,
-    Author    = {Allcock, Daniel},
-    Title     = {Steinberg groups as amalgams},
-    Journal   = {Alg. Number Th.},    
-    Volume    = 10,
-    Number    = 8,
-    Pages     = {1791--1843},
-    Year      = 2016,
-    Doi       = {10.2140/ant.2016.10.1791}}    
-
-@Article{AF17,
-    Author    = {Asok, Aravind and Fasel, Jean},
-    Title     = {An explicit KO-degree map and applications},    
-    Journal   = {J. Top.},
-    Volume    = 10,
-    Issue     = 1,
-    Pages     = {268--300},
-    Year      = 2017,    
-    Doi       = {10.1112/topo.12007}}
-    
-@Article{Ba74,
-    Author    = {Bass, Hyman},
-    Title     = {Clifford algebras and spinor norms over a commutative ring},    
-    Journal   = {Amer. J. Math.},
-    Volume    = 96,
-    Number    = 1,
-    Pages     = {156--206},
-    Year      = 1974,
-    Doi       = {10.2307/2373586}}    
-
-@Book{Bou81,
-    Author    = {Bourbaki, Nicolas},
-    Title     = {Groupes et algèbres de Lie: Chapitres 4, 5 et 6},
-    Publisher = {Masson},
-    Year      = 1981}
-    
-@Inproceedings{DS73,
-    Author    = {Dennis, R. Keith and Stein, Michael R.},
-    Title     = {The functor $K_2$: A survey of computations and problems},    
-    Booktitle = {Classical Algebraic K-Theory, and Connections with Arithmetic},
-    Publisher = {Springer},
-    Pages     = {241--303},
-    Year      = 1973,
-    Doi       = {10.1007/BFb0073728}}
-    
-@Article{FRS12,
-    Author    = {Fasel, Jean and Rao, Ravi and Swan, Richard},
-    Title     = {On stably free modules over affine algebras},
-    Journal   = {Publ. Math. IH{\'E}S},
-    Volume    = 116,
-    Issue     = 1,
-    Pages     = {223--243},
-    Year      = 2012,
-    Doi       = {10.1007/s10240-012-0041-y}}
-    
-@Article{Ho05,
-    Author    = {Hornbostel, Jens},
-    Title     = {$\mathbb{A}^1$-representability of Hermitian K-theory and Witt groups},    
-    Journal   = {J. Top.},
-    Volume    = 44,
-    Number    = 3,
-    Pages     = {661--687},
-    Year      = 2005,
-    Doi       = {10.1016/j.top.2004.10.004}}
-    
-@Article{Ho64,
-    Author    = {Horrocks, Geoffrey},
-    Title     = {Projective modules over an extension of a local ring},    
-    Journal   = {Proc. London Math. Soc.},
-    Volume    = 3,
-    Number    = 4,
-    Pages     = {714--718},
-    Year      = 1964,
-    Doi       = {10.1112/plms/s3-14.4.714}}
-    
-@Article{Hur77,
-    Author    = {Hurrelbrink, J{\"u}rgen},
-    Title     = {Endlich pr\"asentierte arithmetische Gruppen und $K_{2}$ {\"u}ber Laurent-Polynomringen},
-    Journal   = {Math. Ann.},
-    Volume    = 225,    
-    Number    = 2,
-    Pages     = {123--129},
-    Year      = 1977,
-    Doi       = {10.1007/BF01351716}}
-    
-@Article{Ka80,
-    Author    = {Karoubi, Max},
-    Title     = {Le th{\'e}oreme fondamental de la K-th{\'e}orie hermitienne},    
-    Journal   = {Ann. Math.},
-    Volume    = 112,
-    Number    = 2,
-    Pages     = {259--282},
-    Year      = 1980,
-    Doi       = {10.2307/1971147}}
-    
-@Book{Lam10,
-    Title     = {Serre's problem on projective modules},
-    Author    = {Lam, Tsit-Yuen},
-    Publisher = {Springer Science \& Business Media},
-    Year      = {2010},
-    Doi       = {10.1007/978-3-540-34575-6}}
-    
-@Article{LS17,
-    Author    = {Lavrenov, Andrei and Sinchuk, Sergey},
-    Title     = {Centrality of odd orthogonal $K_2$},    
-    Journal   = {J. Pure Appl. Alg.},
-    Volume    = 221,
-    Pages     = {1134--1145},
-    Year      = 2017,    
-    Url       = {https://arxiv.org/pdf/1606.00272.pdf}}
-    
-@Article{La18,
-    Author    = {Lavrenov, Andrei},
-    Title     = {A local-global principle for symplectic $K_2$},    
-    Journal   = {Doc. Math.},    
-    Volume    = 23,
-    Pages     = {653--675},
-    Year      = 2018,
-    Doi       = {10.25537/dm.2018v23.653-675}}
-    
-@Article{Lo78,
-    Author    = {Loday, Jean-Louis},
-    Title     = {Cohomologie et groupes de Steinberg relatifs},
-    Journal   = {J. Alg.},    
-    Volume    = 54,
-    Number    = 1,
-    Pages     = {178--202},
-    Year      = 1978,
-    Doi       = {10.1016/0021-8693(78)90025-X}}
-    
-@Article{Ma69,
-    Author    = {Matsumoto, Hideya},
-    Title     = {Sur les sous-groupes arithm{\'e}tiques des groupes semi-simple d{\'e}ploy{\'e}s},    
-    Journal   = {Ann. Sci. ENS},
-    Volume    = 2,
-    Number    = 1,
-    Pages     = {1--62},
-    Year      = 1969,
-    Url       = {http://eudml.org/doc/81843}}
-    
-@Article{Mo04,
-    Author    = {Morel, Fabien},
-    Title     = {Sur les puissances de l'id{\'e}al fondamental de l'anneau de Witt},    
-    Journal   = {Comm. Math. Helv.},
-    Volume    = 79,
-    Number    = 4,
-    Pages     = {689--703},
-    Year      = 2004,
-    Doi       = {10.1007/s00014-004-0815-z}}
-    
-@Article{MR91,
-    Author    = {Morita, Jun and Rehmann, Ulf},
-    Title     = {Symplectic $K_2$ of Laurent polynomials, associated Kac--Moody groups and Witt rings},    
-    Journal   = {Math. Z.},
-    Volume    = 206,
-    Number    = 1,
-    Pages     = {57--66},
-    Year      = 1991,
-    Doi       = {10.1007/BF02571324}}
-    
-@Article{Pa89,
-    Author    = {Panin, Ivan},
-    Title     = {On stabilization for orthogonal and symplectic algebraic K-theory (Russian)},
-    Journal   = {Leningrad Math. J.},    
-    Volume    = 1,
-    Number    = 3,
-    Pages     = {741--754},
-    Year      = 1990,
-    Url       = {http://www.mathnet.ru/links/a46c953dc23ca4b3c44578c283cd59c8/aa27.pdf}}
-    
-@Article{Qu76,
-    Author    = {Quillen, Daniel},
-    Title     = {Projective modules over polynomial rings},
-    Journal   = {Inv. Math.},    
-    Volume    = 36,
-    Number    = 1,
-    Pages     = {167--171},
-    Year      = 1976,
-    Doi       = {10.1007/BF01390008}}
-    
-@Article{Re75,
-    Author    = {Rehmann, Ulf},
-    Title     = {Pr{\"a}sentationen von Chevalleygruppen {\"u}ber $k[t]$},    
-    Year      = {1975},
-    Url       = {http://www.math.uni-bielefeld.de/~rehmann/Publ/praesentation.pdf}}
-
-@Inproceedings{RS76,
-    Author    = {Rehmann, Ulf and Soul{\'e} , Christophe},
-    Title     = {Finitely presented groups of matrices},    
-    Booktitle = {Algebraic K-Theory},
-    Publisher = {Springer},        
-    Series    = {Lect. Notes. Math.},
-    Volume    = 551,
-    Pages     = {164--169},
-    Year      = 1976,
-    Doi       = {10.1007/BFb0079999}}
-    
-@Article{Sch16,
-    Author    = {Schlichting, Marco},
-    Title     = {Hermitian K-theory, derived equivalences and Karoubi's fundamental theorem},
-    Journal   = {J. Pure Appl. Alg.},    
-    Volume    = 221,
-    Issue     = 7,
-    Pages     = {1729--1844},
-    Year      = 2017,
-    Doi       = {10.1016/j.jpaa.2016.12.026}}
-
-@Article{S15,
-    Author    = {Sinchuk, Sergey},
-    Title     = {On centrality of $K_2$ for {C}hevalley groups of type $\mathsf{E}_\ell$ },    
-    Journal   = {J. Pure Appl. Alg.},
-    Volume    = 220,    
-    Number    = 2,    
-    Pages     = {857--875},
-    Year      = 2016,
-    Doi       = {10.1016/j.jpaa.2015.08.003}}
-    
-@Article{St-Ded,
-    Author    = {Stavrova, Anastasia},
-    Title     = {Chevalley groups of polynomial rings over Dedekind domains},
-    Journal   = {J. Gr. Th.},
-    Volume    = 23,
-    Issue     = 1,
-    Pages     = {121--132},
-    Year      = 2020,
-    Doi       = {10.1515/jgth-2019-0100}}    
-
-@Article{St-poly,
-    Author    = {Stavrova, Anastasia},
-    Title     = {Homotopy invariance of non-stable $K_1$-functors},    
-    Journal   = {J. K-th.},
-    Volume    = 13,
-    Number    = 2,
-    Pages     = {199--248},   
-    Year      = 2014,
-    Doi       = {10.1017/is013006012jkt232}}
-    
-@Article{St78,
-    Author    = {Stein, Michael R.},
-    Title     = {Stability theorems for $K_1$, $K_2$ and related functors modeled on Chevalley groups},    
-    Journal   = {Japan J. Math.},
-    Volume    = 4,
-    Issue     = 1,
-    Pages     = {77--108},
-    Year      = 1978,
-    Doi       = {10.4099/math1924.4.77}}
-    
-@Article{St71,
-    Author    = {Stein, Michael R},
-    Title     = {Generators, relations and coverings of Chevalley groups over commutative rings},
-    Journal   = {Amer. J. Math.},
-    Volume    = 93,
-    Number    = 4,
-    Pages     = {965--1004},
-    Year      = 1971,
-    Doi       = {10.2307/2373742}}
-    
-@Article{Ste73,
-    Author    = {Stein, Michael R.},
-    Title     = {Surjective stability in dimension 0 for $K_2$ and related functors},    
-    Journal   = {Trans. Amer. Math. Soc.},
-    Volume    = 178,
-    Pages     = {165--191},
-    Year      = 1973,
-    Doi       = {10.2307/1996696}}
-
-@Book{St67,
-    Author    = {Steinberg, Robert and Faulkner, John and Wilson, Robert},
-    Title     = {Lectures on Chevalley groups},        
-    Publisher = {Yale Univ. New Haven},
-    Year      = 1967}
-    
-@Article{Su77,
-    Author    = {Suslin, Andrei},
-    Title     = {On the structure of the special linear group over commutative rings},    
-    Journal   = {Math. USSR Izv.},        
-    Volume    = 11,
-    Pages     = {221--238},
-    Year      = 1977,
-    Doi       = {10.1070/IM1977v011n02ABEH001709}}
-    
-@Article{Su76,
-    Author    = {Suslin, Andrei},
-    Title     = {Projective modules over polynomial rings are free},    
-    Journal   = {Dokl. Akad. nauk SSSR},
-    Volume    = 229,
-    Pages     = {1063--1066},
-    Year      = 1976,
-    Url       = {http://www.mathnet.ru/links/1ebfa3efeb44dfd494087eaf83a34450/dan40545.pdf}}
-    
-@Article{Su82,
-    Author    = {Suslin, Andrei and Kopeiko, Vyacheslav},
-    Title     = {Quadratic modules and the orthogonal group over polynomial rings},    
-    Journal   = {J. Soviet Math.},
-    Volume    = 20,
-    Number    = 6,
-    Pages     = {2665--2691},
-    Year      = 1982,
-    Doi       = {10.1007/BF01681481}}
-    
-@Article{ST76,
-    Author    = {Suslin, Andrei and Tulenbaev, Marat},
-    Title     = {Stabilization theorem for the {M}ilnor $K_2$-functor},
-    Journal   = {J. Soviet Math.},    
-    Volume    = 17,
-    Number    = 2,
-    Pages     = {1804--1819},
-    Year      = 1981,
-    Doi       = {10.1007/BF01091768}}
-    
-@InProceedings{Ta86,
-    Author    = {Taddei, Giovanni},
-    Title     = {Normalit\'e des groupes \'el\'ementaires dans les groupes de {C}hevalley sur un anneau},    
-    Booktitle = {Applications of algebraic $\K$-theory to algebraic geometry and number theory, Part II (Boulder, Colo., 1983)},
-    Series    = {Contemp. Math},
-    Volume    = 55,
-    Pages     = {693--710},       
-    Year      = 1986,
-    Url       = {http://www.ams.org/books/conm/055.2/862660/conm862660.pdf}}
-
-@Article{Tu83,
-    Author    = {Tulenbaev, Marat},
-    Title     = {The Steinberg group of a polynomial ring},    
-    Journal   = {Math. USSR Sb.},        
-    Volume    = 45,
-    Pages     = {131--144},
-    Year      = 1983,
-    Doi       = {10.1070/SM1983v045n01ABEH002591}}
-        
-@Article{Va86,
-    Author    = {Vaserstein, Leonid},
-    Title     = {On normal subgroups of Chevalley groups over commutative rings},
-    Journal   = {Tohoku Math. J.},
-    Volume    = 38,
-    Issue     = 2,
-    Pages     = {219--230},
-    Year      = 1986,
-    Doi       = {10.2748/tmj/1178228489}}
-    
-@Article{V00,
-    Author    = {Vavilov, Nikolai},
-    Title     = {A third look at weight diagrams},    
-    Journal   = {Rend. Sem. Mat. Univ. Padova},   
-    Volume    = 104,
-    Pages     = {201--250},    
-    Year      = 2000,
-    Url       = {http://eudml.org/doc/108535}}
-    
-@Article{VP,
-    Author    = {Vavilov, Nikolai and Plotkin, Eugene},
-    Title     = {Chevalley groups over commutative rings: I. Elementary calculations},
-    Journal   = {Acta Appl. Math.},    
-    Volume    = 45,
-    Issue     = 1,
-    Pages     = {73--113},
-    Year      = {1996},       
-    Doi       = {10.1007/BF00047884}}
-    
-@Article{VZ18,
-    Author    = {Vavilov, Nikolai and Zhang, Zuhong},
-    Title     = {Generation of relative commutator subgroups in Chevalley groups. II},    
-    Journal   = {Proc. Edinburgh Math. Soc.},
-    Volume    = 63,
-    Number    = 2,
-    Pages     = {497--511},
-    Year      = 2020,
-    Doi       = {10.1017/S0013091519000555}}
-
-@Mastersthesis{Vo11,
-    Author    = {V{\"o}lkel, Konrad},
-    Title     = {\href{http://static.konradvoelkel.de/download/da-voelkel-20110809.pdf}{Matsumotos Satz und $\mathbb{A}^1$-Homotopietheorie}},
-    School    = {Uni. Freiburg},
-    Type      = {Diplomarbeit}
-    Year      = 2011}
-    
-@Book{Kbook,
-    Author    = {Weibel, Charles A},
-    Title     = {The $K$-book: An introduction to algebraic $K$-theory},        
-    Publisher = {Amer. Math. Soc.},
-    Series    = {Grad. Texts Math.},
-    Volume    = 145,
-    Year      = 2013}
-\end{filecontents}
 \end{document}
