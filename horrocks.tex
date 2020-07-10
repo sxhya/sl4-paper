@@ -68,8 +68,7 @@
 \hypersetup{colorlinks=true,citecolor=NavyBlue,linkcolor=DarkPurple,urlcolor=NavyBlue}
 \usepackage{color} 
 \usepackage[capitalize]{cleveref}
-\usepackage[matrix,arrow,curve]{xy}
-\usepackage{tikz}
+\usepackage{tikz,tikz-cd}
 \usepackage{enumitem}
 
 %%%%% Embedded files should be stored in a separate subdirectory named
@@ -98,14 +97,12 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{prop}[lemma]{Proposition}
 \newtheorem{corollary}[lemma]{Corollary}
-\newtheorem{externaltheorem}[lemma]{Theorem}
 \theoremstyle{remark} 
 
 \theoremstyle{definition}
 \numberwithin{lemma}{section}
 \numberwithin{prop}{section}
 \numberwithin{corollary}{section}
-\numberwithin{externaltheorem}{section}
 \newtheorem{df}[lemma]{Definition} \Crefname{df}{Definition}{Definitions}
 \newtheorem{example}[lemma]{Example} \Crefname{example}{Example}{Examples}
 \newtheorem{rem}[lemma]{Remark}
@@ -135,6 +132,8 @@
 \newcommand{\rE}{\mathsf{E}}
 \newcommand{\rF}{\mathsf{F}}
 \newcommand{\rG}{\mathsf{G}}
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
+    cells={nodes={scale=#1}}}}
 
 \numberwithin{equation}{section}
 
@@ -292,16 +291,14 @@ In~\cite{LS17,La18} the authors have shown that the Steinberg groups $\St(\Phi, 
 
 Our main result is, thus, the following theorem, which is the orthogonal analogue of~\cite[Theorem~5.1]{Tu83} and the $\K_2$-analogue of~\cite[Theorem~6.8]{Su82} (cf. also with~\cite[Theorem~VI.5.2]{Lam10} and~\cite[Theorem~1.1]{St-poly}).
 \begin{theorem}[Horrocks theorem for orthogonal $\K_2$]\label{thm:main} Let $A$ be a commutative ring in which $2$ is invertible. Then for any $\ell \geq 7$ the following commutative square is a pullback square in which all homomorphisms are injective:
-\begin{equation} \nonumber
-  \xymatrix{ \KO_2(2\ell, A) \ar[r] \ar[d] & \KO_2(2\ell, A[X]) \ar[d] \\ \KO_2(2\ell, A[X\inv]) \ar[r] & \KO_2(2\ell, A[X, X\inv]).}  
-\end{equation} 
+\[\begin{tikzcd} \KO_2(2\ell, A) \arrow{r} \arrow{d} & \KO_2(2\ell, A[X]) \arrow{d} \\ \KO_2(2\ell, A[X\inv]) \arrow{r} & \KO_2(2\ell, A[X, X\inv]). \end{tikzcd}\]
 Moreover, the same assertion holds if one replaces the functor $\KO_2(2\ell, -)$ with $\K_2(\rD_\ell, -)$ or $\St(\rD_\ell, -)$. \end{theorem}
 In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $\K_2$-functor (see~\cref{sec:quillen}). Notice also that in the special case when $A=k$ is a field the assertion of the above theorem is a consequence of the results of U.~Rehmann and J.~Hurrelbrink (see~\cref{field-injectivity} below).
 
 The proof of~\cref{thm:main} goes as follows. We notice that it suffices to prove the $\St(\rD_\ell, -)$-variant of the theorem. Moreover, the proof of the injectivity of
 $j_- \colon \St(\rD_\ell, A[X\inv]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to be the hardest part. After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local.
 Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_-$ comes down to proving the injectivity of the following two homomorphisms:
-\begin{equation*} \xymatrix{ \St(\rD_\ell, A[X^{-1}]) \ar[r]^(0.55){j_B^-} & \St(\rD_\ell, B) \ar[r]^{j_R} & \St(\rD_\ell, R), }\end{equation*}
+\[\begin{tikzcd} \St(\rD_\ell, A[X^{-1}]) \arrow{r}{j_B^-} & \St(\rD_\ell, B) \arrow{r}{j_R} & \St(\rD_\ell, R), \end{tikzcd} \]
 where $B = A[X\inv] + M[X]$ and $R = A[X, X\inv]$.
 The injectivity of $j_R$ is obtained in~\cref{thm41}. This step of the proof relies on the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. According to this theory, the relative Steinberg group $\St(\Phi, R, I)$ is a central extension of $\Ker(\St(\Phi, R) \to \St(\Phi, R/I))$ by a certain subgroup, which we denote $C(\Phi, R, I)$. It turns out that a simple diagram chasing argument combined with a certain lifting property of relative Steinberg groups (see~\cref{lem:lemma32}) reduces the sought injectivity of $j_R$ to the surjectivity of the map \[C(\rD_\ell, B, M[X, X\inv]) \to C(\rD_\ell, R, M[X, X\inv]).\] This surjectivity is then obtained as a corollary of Panin's stability theorem for orthogonal K-theory and the Bass Fundamental Theorem for higher Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). This is the only step of our proof which invokes the assumption that $2$ is invertible. 
 
@@ -384,11 +381,11 @@ Using the modern language of Milnor--Witt K-theory (see~\cite{Mo04}) it can be f
 \begin{equation*} \K_2(\Phi, k) = \left\{\begin{array}{ll} \K_2^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_2^\mathrm{M}(k) & \text{otherwise.}\end{array}\right. \end{equation*}
 In the following lemma we recall the computation of the group $\K_2(\Phi, R)$ in the case $R=k[X, X\inv]$.
 \begin{lemma}[Hurrelbrink--Morita--Rehmann]\label{K2-laurent-field} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be an arbitrary field. Then there is a split exact sequence of abelian groups
-\[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ in which} \]
+\[\begin{tikzcd} 0 \arrow{r} & \K_2(\Phi, k) \arrow{r} & \K_2(\Phi, k[X, X^{-1}]) \arrow{r} & H(\Phi, k) \arrow{r} & 0, \end{tikzcd}\text{ in which}\]
 \[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_1(k) \cong k^\times & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
-\begin{proof} Let us first consider the case of nonsymplectic $\Phi$, in which one can find a long root $\alpha\in \Phi$ in such a way that there is a commutative diagram of abelian groups
-\[\xymatrixcolsep{5pc}\xymatrix{k^\times \ar[drr]_{\{-, X\}} \ar[r]^-{h}  & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
-                                                                                      &                                 & \K_2^\mathrm{M}(k(X)),} \]
+\begin{proof} Let us first consider the case of nonsymplectic $\Phi$, in which one can find a long root $\alpha\in \Phi$ in such a way that there is a commutative diagram of abelian group
+\[\begin{tikzcd}[column sep=5pc] k^\times \arrow{drr}[swap]{\{-, X\}} \arrow{r}{h}  & \K_2(\Phi, k[X, X^{-1}]) \arrow{r} & \K_2(\Phi, k(X)) \arrow{d}{\cong} \\
+ & & \K_2^\mathrm{M}(k(X)), \end{tikzcd}\]
 in which $h = \{ -, X \}_{\alpha}$ and the vertical map is an isomorphism by Matsumoto's theorem.
 Notice that the diagonal map is split by the obvious residue homomorphism and therefore is injective. This, in turn, implies that $h$ is also injective.
 The assertion of the lemma now follows from~\cite[Satz~3]{Hur77} which asserts that for a nonsymplectic $\Phi$ one has $\K_2(\Phi, k[X, X\inv]) = \mathrm{Im}(h) \oplus \K_2(\Phi, k)$.
@@ -399,7 +396,7 @@ $P(k)$ is the set $k^\times \times I^2(k)$ with the group structure given by
 \[ (u, y) \cdot (v, z) = (uv, y + z - \langle\langle u, v\rangle\rangle).\]
 Here $I^2(k)$ stands for the second power of the fundamental ideal $I(k)$ in the Witt ring $W(k)$ of $k$.
 Recall from~\cite{Mo04} that $\K_1^\mathrm{MW}(k)$ is isomorphic to the pullback of the diagram:
-\[ \xymatrix{ \K_1^\mathrm{MW}(k) \ar[r] \ar[d] & I(k) \ar[d] \\ \K_1(k) \ar[r] & I(k)/I^2(k), } \]
+\[ \begin{tikzcd} \K_1^\mathrm{MW}(k) \arrow{r} \arrow{d} & I(k) \arrow{d} \\ \K_1(k) \arrow{r} & I(k)/I^2(k), \end{tikzcd} \]
 in other words, it consists of pairs $[u, x]$ such that $x - \langle \langle u \rangle \rangle \in I^2(k)$.
 It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\rangle - x)$ defines an isomorphism of $\K_1^\mathrm{MW}(k)$ and $P(k)$. \end{proof}
 
@@ -410,8 +407,7 @@ It remains to invoke the stability theorem~\cite[Theorem~9.4]{Pa89} to obtain th
 
 \begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the homomorphism $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of the images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
 \begin{proof} The first assertion follows from the commutative diagram
-\[\xymatrix{ & \K_2(\Phi, k) \ar[dl]_{\cong} \ar@{^{(}->}[dr] & \\
-               \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}])} \]
+\[\begin{tikzcd}  & \K_2(\Phi, k) \arrow{dl}[swap]{\cong} \arrow[dr, hookrightarrow] & \\ \K_2(\Phi, k[X]) \arrow{rr} & & \K_2(\Phi, k[X, X^{-1}]) \end{tikzcd} \]
 and the injectivity of its diagonal arrows. Indeed, the left arrow is an isomorphism by the Korollar of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}.
 
 Let us verify the second assertion. Let $g$ be an element of the intersection of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$.
@@ -426,9 +422,11 @@ If $(R, I)$ is such that $R$ is a local ring with maximal ideal $I$, we call suc
 
 There is an obvious fully faithful embedding $\catname{CRings} \to \catname{Pairs}$ sending $R$ to $(R, R)$. For a given functor $S \colon \catname{CRings} \to \catname{Groups}$ a {\it relativization} of $S$ is any functor $\widetilde{S} \colon \catname{Pairs} \to \catname{Groups}$ extending $S$ in the obvious sense. Relativization of a functor is not unique.
 
-Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definition, the pullback ring $R \times_{R/I} R$. In other words, it is the ring consisting of pairs of elements of~$R$ congruent modulo $I$. Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\xymatrix{D_{R,I} \ar@<1pt>[r] \ar@<-2.5pt>[r] & \ar@<-4pt>[l] R}$. It is clear that $p_0 \Delta = p_1 \Delta = id_{R}$.
+Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definition, the pullback ring $R \times_{R/I} R$. In other words, it is the ring consisting of pairs of elements of~$R$ congruent modulo $I$. Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map 
+\begin{tikzcd} D_{R, I} \arrow[r, shift right=2] \arrow[r] & R. \arrow[l, shift right=2] \end{tikzcd} It is clear that $p_0 \Delta = p_1 \Delta = id_{R}$.
 
-Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor. Set $G_i = \Ker(S(p_i))$ and define {\it Loday's relativization} $S(R, I)$ as $ G_0 / [G_0, G_1]$. The homomorphism $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. We denote this map by $\mu = \mu_{R,I}$ and its kernel by $C_S(R, I)$: \begin{equation} \label{LodayRelativization} \xymatrix{ 1 \ar[r] & C_S(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1.} \end{equation}
+Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor. Set $G_i = \Ker(S(p_i))$ and define {\it Loday's relativization} $S(R, I)$ as $ G_0 / [G_0, G_1]$. The homomorphism $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. We denote this map by $\mu = \mu_{R,I}$ and its kernel by $C_S(R, I)$: 
+\begin{equation} \label{LodayRelativization} \begin{tikzcd} 1 \arrow{r} & C_S(R, I) \arrow{r} & S(R, I) \arrow{r}{\mu} & S(R) \arrow{r} & S(R/I) \arrow{r} & 1. \end{tikzcd} \end{equation}
 
 \begin{df} By definition, the {\it relative Steinberg group} $\St(\Phi, R, I)$ is the result of application of Loday's relativization to the functor $\St(\Phi, -)$. Notice that $\St(\Phi, R, I)$ is a central extension of $\Ker(\St(\Phi, R) \to \St(\Phi, R/I))$ by the abelian group $C_{\St(\Phi, -)}(R, I)$. For shortness we rename the latter group to $C(\Phi, R, I)$. \end{df}
 
@@ -450,8 +448,7 @@ It can be shown that the image of $\mu$ is always a normal subgroup of $N$ and t
 Let $\nu \colon N \twoheadrightarrow Q$ be a surjective homomorphism.
 A {\it relative central extension of $\nu$} is, by definition,
 a crossed module $(M, N, \mu)$ such that the cokernel of $\mu$ is $\nu$:
-\begin{equation} \label{RelativeCentralExtension}
- \xymatrix{ 1 \ar[r] & L \ar[r] & M \ar^{\mu}[r] & N \ar^{\nu}[r] & Q \ar[r] & 1} \end{equation}
+\begin{equation} \label{RelativeCentralExtension} \begin{tikzcd} 1 \arrow{r} & L \arrow{r} & M \arrow{r}{\mu} & N \arrow{r}{\nu} & Q \arrow{r} & 1 \end{tikzcd} \end{equation}
 
 A morphism $(M, \mu) \to (M', \mu')$ of two relative central extensions of $\nu$ is, by definition, an $N$-group homomorphism $f\colon M \to M'$ such that $\mu' f = \mu$. 
 A relative central extension is said to be {\it universal} if it is an initial object of the category of relative central extensions of $\nu$. 
@@ -504,8 +501,7 @@ By~\cite[Corollary~5.4]{St71} the group $S_n$ is {\it centrally closed} for $n \
 On the other hand, \cite[Theorem~1]{LS17} shows that $\K_2(\rD_\ell, R) = \Ker(S_n \to \widetilde{G}_n)$ is a central subgroup of $S_n$ for $n\geq 4$. 
 
 Recall from p.~189 of~\cite{Ba74} that for $n\geq 3$ there is an exact sequence
-\begin{equation} \label{eq:Bass-ES} \xymatrix{1 \ar[r] & \mu_2(R) \ar[r] & \widetilde{P}_n(R) \ar[r] & P_n(R) \ar[r] & 1,}
-\end{equation}
+\begin{equation}\label{eq:Bass-ES} \begin{tikzcd} 1 \arrow{r} & \mu_2(R) \arrow{r} & \widetilde{P}_n(R) \arrow{r} & P_n(R) \arrow{r} & 1, \end{tikzcd} \end{equation}
 in which the group $\mu_2(R) = \{ a \in R^\times \mid a^2 = 1 \}$ is a central subgroup of $\widetilde{P}_n(R)$.
 Now by~\cite[\S~7(v)]{St67} the group $\KO_2(2n, R) = \Ker(S_n \to G_n)$ is also central in $S_n$.
 Thus, we see that $S_n$ is a universal central extension of both $P_n$ and $\widetilde{P}_n$ for $n\geq 5$.
@@ -513,15 +509,15 @@ Thus, we see that $S_n$ is a universal central extension of both $P_n$ and $\wid
 We have checked that both triples $(G_n, P_n, S_n)$ and $(\widetilde{G}_n, \widetilde{P}_n, S_n)$ satisfy the requirements~\ref{req:left-exact}--\ref{req:uce} for $n \geq 5$. In the sequel we use the notation $\KO_i(2n, R)$ as a shorthand for $\K_i^{G_n, P_n}(R)$. 
 
 Notice that the groups $\KO_2(2n, R)$ and $\K_2(\rD_n, R)$ are related via the exact sequence
-\[ \xymatrix{ 1 \ar[r] & \K_2(\rD_n, R) \ar[r] & \KO_2(2n, R) \ar[r] & \mu_2(R) \ar[r] & 1,} \]
+\[ \begin{tikzcd} 1 \arrow{r} & \K_2(\rD_n, R) \arrow{r} & \KO_2(2n, R) \arrow{r} & \mu_2(R) \arrow{r} & 1, \end{tikzcd} \]
 which is obtained from~\eqref{eq:Bass-ES} and the snake lemma (cf. also with~\cite[Corollary~4.3.5]{Ba74}).
 On the other hand, from~\cref{lem:lowerKgroups} it follows that $\KO_3(2n, R) \cong \mathrm{K}_3^{\widetilde{G}_n, \widetilde{P}_n}$.
 
 We conclude this subsection with the following stability result (see~\cite[Theorem~9.4]{Pa89}).
-\begin{externaltheorem}[Panin] \label{Panin-stability}
+\begin{theorem}[Panin] \label{Panin-stability}
  Let $R$ be either a field, principal ideal domain or a Dedekind domain. Set $a = 1,2$ or $3$ in each of these three cases, respectively.
  Then the stability map $\KO_i(2n, R) \to \KO_i(2(n+1), R)$ is an epimorphism for $n \geq b$ 
- and an isomorphism for $n \geq b + 1$, where $b = \mathrm{max}(2i, a+i-1)$. \end{externaltheorem}
+ and an isomorphism for $n \geq b + 1$, where $b = \mathrm{max}(2i, a+i-1)$. \end{theorem}
 
 \section{An injectivity theorem for Steinberg groups} \label{firstPart}
 We start this section by recalling basic notation and facts pertaining to the theory of higher Grothendieck--Witt groups. Recall that this theory, developed by M.~Schlichting, is a modern broad generalization of the classical hermitian K-theory of rings. We refer the reader to~\cite[\S~2]{FRS12} and~\cite[\S~2]{AF17} for an introduction to Grothendieck--Witt groups.
@@ -533,8 +529,9 @@ Replacing the stable orthogonal group with the stable symplectic group one can a
 We refer the reader to~\cite{Ka80} for the definition and properties of the groups ${}_{\pm 1}\!U_i(R)$. We will not use these definitions directly.
 
 The following result, which is a special case of~\cite[Theorem~9.13]{Sch16} of M.~Schlichting, plays a key role in the proof of~\cref{thm41}.
-\begin{externaltheorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $R$ is a regular ring such that $2 \in R^\times$, 
-then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{externaltheorem}
+\begin{theorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $R$ is a regular ring such that $2 \in R^\times$, 
+then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups 
+\[ \begin{tikzcd} 0 \arrow{r} & \GW_i^{[k]}(R) \arrow{r} & \GW_i^{[k]}(R[X, X^{-1}]) \arrow{r} & \GW_{i-1}^{[k-1]}(R) \arrow{r} & 0. \end{tikzcd} \] \end{theorem}
 We will need only the special case $k=0$ of the above theorem, in which it turns into an earlier result of J.~Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
 
 For the rest of this section let us fix the following notation.
@@ -548,9 +545,8 @@ Then the canonical homomorphism $f\colon C(\rD_\ell, B, I) \to C(\rD_\ell, R, I)
 \begin{proof}
 Writing the starting portion of the homology long exact sequence for the homomorphism $\St(\rD_\ell, R) \to \St(\rD_\ell, R/I)$ 
 and using the isomorphisms of~\cref{lem:relativeH3} and~\cref{lem:lowerKgroups} we obtain the following commutative diagram:
-\begin{equation*}\xymatrix{
- \KO_3(2\ell, B) \ar[r] \ar[d] & \KO_3(2\ell, k[X^{-1}]) \ar[d]_{f'} \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
- \KO_3(2\ell, R) \ar[r]        & \KO_3(2\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
+\[\begin{tikzcd} \KO_3(2\ell, B) \arrow{r} \arrow{d} & \KO_3(2\ell, k[X^{-1}]) \arrow{d}[swap]{f'} \ar[r, twoheadrightarrow] & \ar{d}[swap]{f} C(\rD_\ell, B, I) \\
+ \KO_3(2\ell, R) \arrow{r} & \KO_3(2\ell, k[X, X^{-1}]) \ar[r, twoheadrightarrow] & C(\rD_\ell, R, I). \end{tikzcd} \]
 By~\cref{Panin-stability} the homomorphism $f'$ can be identified with the canonical map $\GW_3^{[0]}(k[X^{-1}]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
 By~\cref{bass-ft} $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k) \oplus \GW_2^{[3]}(k),$
 but since the group $\GW_2^{[3]}(k)$ is trivial by~\cite[Lemma~2.2]{FRS12}, the homomorphism $f'$ (and hence $f$) is surjective.
@@ -559,9 +555,7 @@ but since the group $\GW_2^{[3]}(k)$ is trivial by~\cite[Lemma~2.2]{FRS12}, the 
 We will also need the following property of relative Steinberg groups which is a special case of a more general property discussed in~\cite[\S~2]{LS17}.
 \begin{lemma}\label{lem:lemma32} Let $\Phi$ be a simply-laced root system of rank $\geq 3$,
 Consider the following commutative square of canonical homomorphisms.
-\begin{equation*} \xymatrix{
-    \St(\Phi, B, I) \ar[r]^{\mu_B} \ar[d] & \St(\Phi, B) \ar[d] \\
-    \St(\Phi, R, I) \ar[r]^{\mu_R} \ar@{-->}^t[ur] & \St(\Phi, R) } \end{equation*}
+\[\begin{tikzcd} \St(\Phi, B, I) \arrow{r}{\mu_B} \arrow{d} & \St(\Phi, B) \arrow{d} \\ \St(\Phi, R, I) \arrow{r}{\mu_R} \ar[ur, "t", dashrightarrow] & \St(\Phi, R) \end{tikzcd} \]
 Then there exists a diagonal homomorphism $t$ which makes the diagram commute.   
 \end{lemma} 
 \begin{proof}
@@ -571,15 +565,10 @@ Then there exists a diagonal homomorphism $t$ which makes the diagram commute.
  In the general case the assertion of the lemma is a corollary of amalgamation theorem~\cite[Theorem~9]{S15}.
 \end{proof}
 
-\begin{externaltheorem} \label{thm41} Suppose that $2 \in A^\times$. Then for $\ell \geq 7$ the canonical homomorphism $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective. \end{externaltheorem}
+\begin{theorem} \label{thm41} Suppose that $2 \in A^\times$. Then for $\ell \geq 7$ the canonical homomorphism $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective. \end{theorem}
 \begin{proof}
  Consider the following commutative diagram with exact rows obtained from~\eqref{LodayRelativization}:
-\begin{equation*} \xymatrix{
- C(\rD_\ell, B, I) \ar[r]^{\lambda_B} \ar@{->>}[d]_{f} & \St(\rD_\ell, B, I) \ar[r]^{\mu_B} \ar[d]_{g} &
- \St(\rD_\ell, B) \ar[r]^{\nu_B} \ar[d]_{h} & \St(\rD_\ell, k[X^{-1}]) \ar[d]_{i} \\
- C(\rD_\ell, R, I) \ar[r]^{\lambda_R}         & \St(\rD_\ell, R, I) \ar[r]^{\mu_R} \ar@{-->}[ur]^{t}&
- \St(\rD_\ell, R) \ar[r]^-{\nu_R}        & \St(\rD_\ell, k[X, X^{-1}]).
-}\end{equation*}
+\[\begin{tikzcd} C(\rD_\ell, B, I) \arrow{r}{\lambda_B} \arrow[d, swap, "f", twoheadrightarrow] & \St(\rD_\ell, B, I) \arrow{r}{\mu_B} \arrow{d}[swap]{g} & \St(\rD_\ell, B) \arrow{r}{\nu_B} \arrow{d}[swap]{h} & \St(\rD_\ell, k[X^{-1}]) \arrow{d}[swap]{i} \\ C(\rD_\ell, R, I) \arrow{r}{\lambda_R} & \St(\rD_\ell, R, I) \arrow{r}{\mu_R} \arrow[ur, "t", dashrightarrow] & \St(\rD_\ell, R) \arrow{r}{\nu_R} & \St(\rD_\ell, k[X, X^{-1}]).\end{tikzcd}\]
 The lifting $t$ in the above diagram is obtained from~\cref{lem:lemma32}.
 Let $a$ be an element of $\Ker(h)$. Since $i$ is injective by~\cref{field-injectivity}, the element $a$
  also lies in $\Ker(\nu_B)$ and hence comes from some $b \in \St(\rD_\ell, B, I)$ via $\mu_B$.
@@ -633,7 +622,7 @@ and the required assertion follows from~\ref{Z2}.
 
 Let us mention an immediate application of~\cref{Zrels}.
 First of all, recall the following two results which give two different generating sets for the group $\overline{\St}(\Phi, R, I)$ (notice that both results apply to general irreducible $\Phi$ of rank $\geq 2$, i.\,e. not necessarily simply-laced ones).
-\begin{externaltheorem}[Stein--Tits--Vaserstein] \label{thm:Tits} The group $\overline{\St}(\Phi, R, I)$ is generated (as an abstract group) by elements $z_\alpha(s, \xi)$, $\alpha \in \Phi$, $s \in I$, $\xi \in R$. \end{externaltheorem} \begin{proof} See e.\,g.~\cite[Theorem 2]{Va86}. \end{proof}
+\begin{theorem}[Stein--Tits--Vaserstein] \label{thm:Tits} The group $\overline{\St}(\Phi, R, I)$ is generated (as an abstract group) by elements $z_\alpha(s, \xi)$, $\alpha \in \Phi$, $s \in I$, $\xi \in R$. \end{theorem} \begin{proof} See e.\,g.~\cite[Theorem 2]{Va86}. \end{proof}
 
 \begin{df} \label{df:root-subsets}
 Recall from~\cite[Ch.~VI, \S~1.7]{Bou81} that a root subset $S \subseteq \Phi$ is called {\it closed} if $\alpha, \beta \in S$ and $\alpha+\beta\in \Phi$ imply $\alpha + \beta \in S$. 
@@ -642,9 +631,9 @@ The {\it special part} $\Sigma_S$ of a parabolic subset $S$, by definition, cons
 \end{df}
 
 For a subset of roots $U \subseteq \Phi$ we denote by $\mathcal{Z}(U, R, I)$ the subset of roots consisting of elements $x_\alpha(s)$, $s \in I$, $\alpha \in \Phi$ and $z_\alpha(s, \xi)$, $\alpha \in U$, $s\in I$, $\xi \in R$.
-\begin{externaltheorem}[Stepanov] \label{thm:Stepanov} 
+\begin{theorem}[Stepanov] \label{thm:Stepanov} 
 Let $S \subseteq \Phi$ be a parabolic subset of $\Phi$. Then the group $\overline{\St}(\Phi, R, I)$ is generated by the set $\mathcal{Z}(\Sigma_S, R, I)$.
- \end{externaltheorem} \begin{proof} See~\cite[Lemma~4]{S15}. \end{proof}
+ \end{theorem} \begin{proof} See~\cite[Lemma~4]{S15}. \end{proof}
 
 \begin{rem} We claim that in the simply-laced case the stronger \cref{thm:Stepanov} can be deduced from~\cref{thm:Tits} by means of~\cref{Zrels}. Indeed, consider the operator $d \colon 2^\Phi \to 2^\Phi$ of root subsets, whose value on each $U \subseteq \Phi$ is given by \[d(U) = U \cup \left((U - U)\cap \Phi\right).\]
 Here $(U-U) \cap \Phi$ denotes the set of all differences of roots from $U$ which are themselves roots. It is not hard to show that for any parabolic subset $S \subseteq \Phi$ the subset $\Sigma_S$ has the property that $d^n(\Sigma_S) = \Phi$ for some $n>1$ (in fact, $n=2$). It remains to see that \cref{Zrels}\ref{Z5} immediately implies that every group $G$ containing $\mathcal{Z}(U, R, I)$ also contains $\mathcal{Z}(dU, R, I)$. \end{rem}
@@ -709,7 +698,7 @@ Since $ev_{X=0}^*$ admits a section, we can consider $\overline{\St}(\Phi, A, M)
 
 Let $S \subseteq \Phi$ be a special root subset (see~\cref{df:root-subsets}). We denote by $U(S, M)$ the subgroup of $\St(\Phi, A)$ generated by root subgroups $X_\alpha(M)$ corresponding to all $\alpha \in S$. We denote by $\Phi^+$ (resp. $\Phi^-$) the subsets of positive (resp. negative) roots of $\Phi$ with respect to some chosen order on $\Phi$.
  
-\begin{externaltheorem}[Stein] \label{thm:Stein} One has \[\overline{\St}(\Phi, A, M) = U(\Phi^+, M) \cdot \myol{H}(\Phi, A, M) \cdot U(\Phi^-, M).\] \end{externaltheorem} \begin{proof} See~\cite[Theorem~2.4]{Ste73}. \end{proof}
+\begin{theorem}[Stein] \label{thm:Stein} One has \[\overline{\St}(\Phi, A, M) = U(\Phi^+, M) \cdot \myol{H}(\Phi, A, M) \cdot U(\Phi^-, M).\] \end{theorem} \begin{proof} See~\cite[Theorem~2.4]{Ste73}. \end{proof}
 
 \begin{prop} \label{Kgen} The subgroup $K(A[X], M[X])$ is generated as an abstract group by the subgroup $\overline{\St}(\Phi, A[X], XM[X])$ and
  the elements $[x_\alpha(m), x_{-\alpha}(X\xi)]$, $m \in M$, $\xi \in A[X]$, $\alpha \in \Phi$. \end{prop}
@@ -819,10 +808,7 @@ The following proposition is the main result of this subsection and also a direc
  Set $\mathcal{R}^\Phi_{n+1} = \mathcal{R}^\Phi_{\leq n+1} \setminus \mathcal{R}^\Phi_{\leq n}$. It suffices to verify that the image of every relation $R \in \mathcal{R}^\Phi_{n+1}$ under $\widetilde{j}^\Phi_n$ is a trivial element of $\St^{\leq n}(\Phi, B)$. In the special case $\Phi=\rA_{\geq 4}$ this has already been demonstrated by Tulenbaev in~\cite[Lemma~3.3]{Tu83}, so in this case the proof of the proposition is complete. We will deduce the assertion in the remaining cases $\Phi=\rD_\ell,\rE_\ell$ from the special case $\Phi=\rA_4$ of Tulenbaev's result.
  
  Let $R$ be a relation from $\mathcal{R}^\Phi_{n+1}$. By~\cref{superfluous-relations} we may assume that $R$ is not of type $\text{R3}^\bot$, therefore the roots $\alpha, \beta$ appearing in $R$ are contained in a root subsystem of $\Phi$ of type $\rA_2$. Our assumptions on $\Phi$ guarantee that there exists some root subsystem $\Psi$ of type $\rA_4$ containing $\alpha$ and $\beta$. Consider the following commutative diagram in which the vertical arrows are induced by the embedding $\Psi\subseteq\Phi$. 
-  \begin{equation} \nonumber \xymatrix{
- F(\mathcal{X}_{\leq n+1}^\Psi) \ar[r]^{j_n^\Psi} \ar[d] & \St^{\leq n}(\Psi, B) \ar[d] \\
- F(\mathcal{X}_{\leq n+1}^\Phi) \ar[r]^{j_n^\Phi} & \St^{\leq n}(\Phi, B) }
- \end{equation}
+ \[\begin{tikzcd} F(\mathcal{X}_{\leq n+1}^\Psi) \arrow{r}{j_n^\Psi} \arrow{d} & \St^{\leq n}(\Psi, B) \arrow{d} \\ F(\mathcal{X}_{\leq n+1}^\Phi) \arrow{r}{j_n^\Phi} & \St^{\leq n}(\Phi, B) \end{tikzcd} \]  
 The relation $R$ lies in the image of the left arrow, therefore it comes from some relation $R' \in \mathcal{R}^\Psi_{n+1}$. The image of $R'$ in $\St^{\leq n}(\Psi, B)$ under $j_n^\Psi$ is trivial by Tulenbaev's result. But this implies that the image of $R$ under $\widetilde{j}_n^\Phi$ is also trivial and hence that $\widetilde{j}_n^\Phi$ gives rise to the desired map $j_n$.
 \end{proof}
 
@@ -875,7 +861,7 @@ In the sequel we continue using letters $f$ and $\xi$ to denote elements of $M[X
 \begin{rem} \label{rem:recognition} From the above definition it follows that an element $z_\gamma(Xf, \xi)$ is a generator of type P1 provided $\gamma\neq\pm\alpha$ and $\gamma \not \perp \alpha$. Since $x_\gamma(Xf) = z_\gamma(Xf, 0)$, it follows that $x_{\gamma}(Xf)$ is also a generator of type P1. In particular, if $\beta$ is such that $\alpha + \beta \in \Phi$ then $x_{\pm(\alpha+\beta)}(Xf)$ is a generator of type P1 and $x_{\alpha+\beta}(f)$ is a generator of type P2. \end{rem}
 
 \begin{lemma}\label{P0_normal} The subgroup $\widetilde{P}_{\alpha, M}(0)$ is normal in $\widetilde{P}_{\alpha, M}(*)$. Moreover, there is a short exact sequence of groups, which is split by the map $m \mapsto x_{-\alpha}(mX)$ (we denote by $(M, +)$ the additive group of the ideal $M$):
-\[\xymatrix{1 \ar[r] & \widetilde{P}_{\alpha,M}(0) \ar[r] & \widetilde{P}_{\alpha,M}(*) \ar@{->>}[r]^{p_\alpha} & (M, +) \ar@<5pt>@{-->}[l] \ar[r] & 1}.\] \end{lemma}
+\[\begin{tikzcd} 1 \arrow{r} & \widetilde{P}_{\alpha,M}(0) \arrow{r} & \widetilde{P}_{\alpha,M}(*) \ar[r, "p_\alpha", twoheadrightarrow] & (M, +) \arrow[l, dashrightarrow, shift left=2] \arrow{r} & 1. \end{tikzcd} \] \end{lemma}
 \begin{proof} We need to verify that the conjugate by $x_{-\alpha}(mX)$ of every generator $g$ of $\widetilde{P}_\alpha(0)$ listed in~\cref{defP0} belongs to $\widetilde{P}_\alpha(0)$.
 The assertion is obvious for the generators of type P3 and P4.
 
@@ -916,7 +902,8 @@ Now $p_\alpha(g)$ is precisely the sum of constant terms of the polynomials $f_i
 \begin{lemma} \label{P0-conj-invariant} Suppose $(A, M)$ is a local pair. Then for any $\beta \in Z(\alpha)$ and $b \in A$ the subgroups $\widetilde{P}_{\alpha, M}(0)$ and $\widetilde{P}_{\alpha, M}(*)$ are stable under conjugation by $x_\beta(b)$. \end{lemma}
 \begin{proof}
 Notice that both $Z_\alpha(A, M)$ and $K(A[X], M[X])$ are stable under the specified conjugation, which implies the assertion for $\widetilde{P}_{\alpha, M}(*)$. 
-To obtain the assertion for $\widetilde{P}_{\alpha, M}(0)$ consider the following commutative diagram. \[ \xymatrix{ \widetilde{P}_{\alpha, M}(0) \ar@{^{(}->}[r] \ar@{^{(}->}[d] & \widetilde{P}_{\alpha, M}(*) \ar@{->>}[r]^{p_{\alpha, M}} \ar@{^{(}->}[d] & (M, +) \ar@{^{(}->}[d] \\ \widetilde{P}_{\alpha, A}(0) \ar@{^{(}->}[r] & \widetilde{P}_{\alpha, A}(*) \ar@{->>}[r]^{p_{\alpha, A}} & (A, +)} \]
+To obtain the assertion for $\widetilde{P}_{\alpha, M}(0)$ consider the following commutative diagram:
+\[\begin{tikzcd} \widetilde{P}_{\alpha, M}(0) \arrow[r, hookrightarrow] \arrow[d, hookrightarrow] & \widetilde{P}_{\alpha, M}(*) \arrow[r, "p_{\alpha, M}", twoheadrightarrow] \ar[d, hookrightarrow] & (M, +) \ar[d, hookrightarrow] \\ \widetilde{P}_{\alpha, A}(0) \ar[r, hookrightarrow] & \widetilde{P}_{\alpha, A}(*) \ar[r, "p_{\alpha, A}", twoheadrightarrow] & (A, +). \end{tikzcd} \]
 Notice that $x_\beta(b) \in \widetilde{P}_{\alpha, A}(0)$, therefore for $g \in \widetilde{P}_{\alpha, M}(0)$ one has \[p_{\alpha, M}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(g) = 0,\] which implies the assertion.\end{proof}
 
 For the rest of this subsection $M$ is the maximal ideal $A$.
@@ -1128,8 +1115,9 @@ Throughout this subsection $\Phi$ denotes an arbitrary irreducible simply-laced 
 \begin{df}\label{df:GM0_geq0}
 Denote the subgroup $\overline{\St}(\Phi, A, M)$ by $G_M^0$. 
 Consider the following commutative diagram, in which the homomorphisms $i_\pm$ and $j_\pm$ are induced by the natural ring homomorphisms $A \to A[X^\pm]$ and $A[X^\pm]\to R$:
-\newline \scalebox{0.80}{\begin{minipage}{1.15\linewidth}
-\[\xymatrix{ G_M^0 \ar@{^{(}->}[rr]^{i_+^M} \ar@<-5pt>@{^{(}->}[dd]^{i_-^M} \ar@<-5pt>@{^{(}->}[rd] & & \overline{\St}(\Phi, A[X], M[X]) \ar[dd]_(.3){j_+^M} \ar@<-2.5pt>@{^{(}->}[rd] & \\ & \St(\Phi, A) \ar@{^{(}->}[rr]^(.3){i_+} \ar@<-2.5pt>@{^{(}->}[dd]^(.3){i_-} & & \St(\Phi, A[X]) \ar[dd]^{j_+} \\ \overline{\St}(\Phi, A[X\inv], M[X\inv]) \ar@<-2.5pt>@{^{(}->}[rd] \ar[rr]^(.35){j_-^M} & & \overline{\St}(\Phi, R, I) \ar@<-2.5pt>@{^{(}->}[rd] & \\ & \St(\Phi, A[X\inv]) \ar[rr]_{j_-} & & \St(\Phi, R).} \]\end{minipage}} \vskip \belowdisplayshortskip
+\[\begin{tikzcd}[scale cd=0.8]
+   G_M^0 \arrow[rr, "i_+^M", hookrightarrow] \arrow[dd, "i_-^M", hookrightarrow] \arrow[rd, hookrightarrow] & & \overline{\St}(\Phi, A[X], M[X]) \arrow[dd, "j_+^M", swap, near start] \arrow[rd, hookrightarrow] & \\ & \St(\Phi, A) \arrow[rr, "i_+", near start, hookrightarrow] \arrow[dd, "i_-", near start, hookrightarrow] & & \St(\Phi, A[X]) \arrow{dd}{j_+} \\ \overline{\St}(\Phi, A[X\inv], M[X\inv]) \arrow[rd, hookrightarrow] \arrow[rr, "j_-^M", near start] & & \overline{\St}(\Phi, R, I) \arrow[rd, hookrightarrow] & \\ & \St(\Phi, A[X\inv]) \arrow{rr}[swap]{j_-} & & \St(\Phi, R).
+  \end{tikzcd}\]
 Denote by $\overline{G}^{\geq 0}_M$ the image of the homomorphism $j_+^M$. \end{df}
 Notice that the homomorphism $j_+^Mi_+^M$ is split by the homomorphism $ev^*_{X=1}$ of evaluation at $1$, therefore $G_M^0$ can be considered as a subgroup of $\overline{G}^{\geq 0}_M$.
 
@@ -1146,7 +1134,7 @@ Whenever $v_1, v_2 \in V$ lie in the same $G_M^0$-orbit we use the notation $v_1
 We denote by $\overline{p}$ the function $\overline{V} \to \overline{G}^{\geq 0}_M/G_M^0$ sending each $(g, [h], u) \in V$ to the left coset $p(g, h, u)G_M^0$.
 
 The isomorphism between the sets $\overline{V}$ and $\overline{V}_T$ is given by the following two maps, which are easily seen to be mutually inverse to each other:
-\begin{equation} \label{eq:VVT} \xymatrix @R0.3pc {\overline{V} \ar[r]^{\cong} & \ar[l] \overline{V}_T \\ (g, [h], u) \ar@{|->}[r] & [p(g, h, u), h^{-1}, u] \\ (p \cdot j_-(h) \cdot \{u, X\}, [h^{-1}], u) & \ar@{|->}[l] [p, h, u]. } \end{equation}
+\begin{equation} \label{eq:VVT} \begin{tikzcd}[row sep=tiny] \overline{V} \arrow{r}{\cong} & \arrow{l} \overline{V}_T \\ (g, [h], u) \arrow[r, mapsto] & \left[p(g, h, u), h^{-1}, u\right] \\ (p \cdot j_-(h) \cdot \{u, X\}, [h^{-1}], u) & \arrow[l, mapsto] [p, h, u]. \end{tikzcd} \end{equation}
 The above isomorphism allows us to regard $\overline{V}$ and $\overline{V}_T$ as the same object, for elements of which we can interchangeably use either of the two notations,
  depending on which of them is more convenient in a given situation.
 For example, specifying the action of $\St(\Phi, B)$ in terms of $\overline{V}$ leads to much shorter calculations in Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1},
@@ -1323,8 +1311,7 @@ From the second property of the above proposition we immediately obtain the foll
 Before we proceed with the proof of~\cref{thm:P1glueing} let us briefly recall the relevant notation. As before, $A$ denotes an arbitary local ring with maximal ideal $M$ and $I = M[X, X\inv]$ is an ideal of both the ring $R=A[X, X\inv]$ and its subring $B = A[X\inv] + M[X]$.
 
 Consider the following commutative diagram, in which the map $t$ is obtained from~\cref{lem:lemma32}:
-\begin{equation} \label{big-picture}
- \xymatrix{ & \St(\Phi, A[X], M[X]) \ar[r]_(0.55){\mu_{A[X]}} \ar[d] & \St(\Phi, A[X]) \ar[dd]^{j_+} \\ & \St(\Phi, R, I) \ar[d]^t & \\ \St(\Phi, A[X\inv]) \ar[r]^{j_B^-} & \St(\Phi, B) \ar[r]^{j_R} & \St(\Phi, R). } \end{equation}
+\begin{equation} \label{big-picture} \begin{tikzcd} & \St(\Phi, A[X], M[X]) \arrow{r}[swap]{\mu_{A[X]}} \arrow{d} & \St(\Phi, A[X]) \arrow{dd}{j_+} \\ & \St(\Phi, R, I) \arrow{d}{t} & \\ \St(\Phi, A[X\inv]) \arrow{r}{j_B^-} & \St(\Phi, B) \arrow{r}{j_R} & \St(\Phi, R). \end{tikzcd} \end{equation}
 Notice that the subgroup $\overline{G}_M^{\geq 0}$ (see~\cref{df:GM0_geq0}) coincides with the image of $j_+\mu_{A[X]}$.
 
 Our main goal is to prove that the homomorphism $j_B^-$ is injective. 
@@ -1358,9 +1345,7 @@ From the inductive assumption we obtain that the assertion of the lemma holds fo
  Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
  Assume additionally that the homomorphism $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
  Then the homomorphism $j_-$ is injective and the following commutative square is pullback
- \begin{equation} \nonumber
-  \xymatrix{ \St(\Phi, A) \ar[r] \ar[d] & \St(\Phi, A[X]) \ar[d]^{j_+} \\ \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, A[X, X\inv]).}
- \end{equation}
+ \[ \begin{tikzcd} \St(\Phi, A) \arrow{r} \arrow{d} & \St(\Phi, A[X]) \arrow{d}{j_+} \\ \St(\Phi, A[X\inv]) \arrow{r}{j_-} & \St(\Phi, A[X, X\inv]). \end{tikzcd} \] 
 \end{theorem}
 \begin{proof} Since $j_- = j_R j_B^-$, where $j_B^-$ is as in~\cref{prop43}, it suffices to show that $j_B^-$ is injective.
  Set $v_0 = [1, 1, 1] \in \overline{V}_T$ and suppose $g \in \Ker(j_B^-)$.
