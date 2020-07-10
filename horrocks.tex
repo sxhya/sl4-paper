@@ -240,7 +240,7 @@ Andrei Lavrenov and Sergey Sinchuk
 A. Lavrenov, S. Sinchuk
 \EndTitle
 \Abstract 
-We prove the Horrocks theorem for unstable even-dimensional orthogonal Steinberg groups. The Horrocks theorem for Steinberg groups is one of the principal ingredients needed for the proof of the $\K_2$-analogue of Serre's problem, positive solution of which currently is only known in the linear case.
+We prove the Horrocks theorem for unstable even-dimensional orthogonal Steinberg groups. The Horrocks theorem for Steinberg groups is one of the principal ingredients needed for the proof of the $\K_2$-analogue of Serre’s problem,  whose positive solution is currently known only in the linear case.
 \EndAbstract
 \MSC 
 19C20
@@ -318,10 +318,10 @@ If $x$ and $y$ are elements of a group $G$ then $[x, y]$ denotes the left-normed
 We denote by $x^y$ (resp. ${}^y\!x$) the element $y^{-1}xy$ (resp. $yxy^{-1}$). 
 Throughout the paper we make use of the following commutator identities:
 \begin{align}
- [x, yz]^y =& [y^{-1}, x] \cdot [x, z], \label{rel43} \\ 
- \label{eq:H1ii} [xy, z] =& {}^x[y, z] \cdot [x,z], \\
- \label{eq:H1ii-2}[x, yz] =& [x, y] \cdot {}^{y}\![x, z], \\
- [[x, y], z] =& {}^{x}\!\left({}^{y}[x^{-1}, [ y^{-1}, z]] \cdot {}^z[y, [ z^{-1}, x^{-1}]] \right). \label{HW-variant} \end{align}
+ [x, yz]^y               & =   [y^{-1}, x] \cdot [x, z], \label{rel43} \\ 
+ \label{eq:H1ii} [xy, z] & =   {}^x[y, z] \cdot [x,z], \\
+ \label{eq:H1ii-2}[x, yz]& =   [x, y] \cdot {}^{y}\![x, z], \\
+ [[x, y], z] & =   {}^{x}\!\left({}^{y}[x^{-1}, [ y^{-1}, z]] \cdot {}^z[y, [ z^{-1}, x^{-1}]] \right). \label{HW-variant} \end{align}
 Recall also from~\cite[Lemma~3.1.1]{RS76} that
 \begin{equation} \label{eq:H1iii} [x,z] = 1 \text{ implies } [x, [y,z]] = [[x,y],{}^yz]. \end{equation} 
 
@@ -344,9 +344,9 @@ Whenever we speak of the Steinberg group $\St(\Psi, R)$ parametrized by a root s
 
 In this paper we will be mostly interested in the case when the Dynkin diagram of $\Phi$ is {\it simply-laced}, i.\,e. does not contain double bonds. In this case the defining relations of $\St(\Phi, R)$ have the following simpler form:
 \begin{align}
-&x_{\alpha}(a)\cdot x_{\alpha}(b)=x_{\alpha}(a+b), \tag{R1} \label{Steinberg-additivity}\\
-&[x_{\alpha}(a),\,x_{\beta}(b)]=x_{\alpha+\beta}(N_{\alpha\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \tag{R2} \label{Chevalley-CCF1} \\
-&[x_{\alpha}(a),\,x_{\beta}(b)]=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \tag{R3} \label{Chevalley-CCF2}
+x_{\alpha}(a)\cdot x_{\alpha}(b)&=x_{\alpha}(a+b), \tag{R1} \label{Steinberg-additivity}\\
+[x_{\alpha}(a),\,x_{\beta}(b)]  &=x_{\alpha+\beta}(N_{\alpha\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \tag{R2} \label{Chevalley-CCF1} \\
+[x_{\alpha}(a),\,x_{\beta}(b)]  &=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \tag{R3} \label{Chevalley-CCF2}
 \end{align}
 In the above formulae $a, b \in R$ and the integers $N_{\alpha, \beta} = N_{\alpha, \beta, 1, 1} = \pm 1$ are the structure constants of the Lie algebra of type $\Phi$. Although there is still some degree of freedom in their choice, they always must satisfy the relations, indicated in the following lemma (cf. \cite[\S~14]{VP}).
 \begin{lemma} Suppose $\Phi$ is simply laced and $\alpha, \beta$ are roots of $\Phi$ such that $\alpha+\beta\in \Phi$, then the following identities hold for the structure constants:
@@ -387,7 +387,7 @@ In the following lemma we recall the computation of the group $\K_2(\Phi, R)$ in
 \[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ in which} \]
 \[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_1(k) \cong k^\times & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
 \begin{proof} Let us first consider the case of nonsymplectic $\Phi$, in which one can find a long root $\alpha\in \Phi$ in such a way that there is a commutative diagram of abelian groups
-\[\xymatrixcolsep{5pc}\xymatrix{k^\times \ar[r]^-{h} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
+\[\xymatrixcolsep{5pc}\xymatrix{k^\times \ar[drr]_{\{-, X\}} \ar[r]^-{h}  & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
                                                                                       &                                 & \K_2^\mathrm{M}(k(X)),} \]
 in which $h = \{ -, X \}_{\alpha}$ and the vertical map is an isomorphism by Matsumoto's theorem.
 Notice that the diagonal map is split by the obvious residue homomorphism and therefore is injective. This, in turn, implies that $h$ is also injective.
@@ -426,7 +426,7 @@ If $(R, I)$ is such that $R$ is a local ring with maximal ideal $I$, we call suc
 
 There is an obvious fully faithful embedding $\catname{CRings} \to \catname{Pairs}$ sending $R$ to $(R, R)$. For a given functor $S \colon \catname{CRings} \to \catname{Groups}$ a {\it relativization} of $S$ is any functor $\widetilde{S} \colon \catname{Pairs} \to \catname{Groups}$ extending $S$ in the obvious sense. Relativization of a functor is not unique.
 
-Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definition, the pullback ring $R \times_{R/I} R$. In other words, it is the ring consisting of pairs of elements of $R$ congruent modulo $I$. Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\xymatrix{D_{R,I} \ar@<1pt>[r] \ar@<-2.5pt>[r] & \ar@<-4pt>[l] R}$. It is clear that $p_0 \Delta = p_1 \Delta = id_{R}$.
+Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definition, the pullback ring $R \times_{R/I} R$. In other words, it is the ring consisting of pairs of elements of~$R$ congruent modulo $I$. Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\xymatrix{D_{R,I} \ar@<1pt>[r] \ar@<-2.5pt>[r] & \ar@<-4pt>[l] R}$. It is clear that $p_0 \Delta = p_1 \Delta = id_{R}$.
 
 Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor. Set $G_i = \Ker(S(p_i))$ and define {\it Loday's relativization} $S(R, I)$ as $ G_0 / [G_0, G_1]$. The homomorphism $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. We denote this map by $\mu = \mu_{R,I}$ and its kernel by $C_S(R, I)$: \begin{equation} \label{LodayRelativization} \xymatrix{ 1 \ar[r] & C_S(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1.} \end{equation}
 
@@ -682,7 +682,7 @@ Finally, let us prove~\ref{C4}. Suppose that $\alpha + \beta \in \Phi$. The requ
 = [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2)  &\ \text{by~\eqref{Chevalley-CCF1}}. \qedhere \end{align*} \end{minipage}} \vskip \belowdisplayshortskip
 \end{proof}
 
-\subsection{Computation of the kernel of the map of evaluation at 0.}\label{sec:computationOfK}
+\subsection{Computation of the kernel of the map of evaluation at 0}\label{sec:computationOfK}
 Let $A$ be a local ring with maximal ideal $M$.
 The aim of this subsection is to describe a generating set for the kernel of the map $ev_{X=0}^*\colon\overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, A, M)$
 induced by the ring homomorphism of evaluation at $0$. We denote this kernel by $K(A[X], M[X])$.
@@ -835,7 +835,7 @@ The relation $R$ lies in the image of the left arrow, therefore it comes from so
  In the cases $\Phi = \rA_3, \rD_4$, $M \neq A$ it is still possible to prove the injectivity of $i_n$ starting from $n\geq 2$ using a variation of the argument of Rehmann--Soul{\'e} (cf. the lower bound for $m$ in 3.2.1 of~\cite{RS76}). However, apparently, it is not possible to establish the injectivity of $i_1$ in the specified cases using arguments similar to~\cite{RS76}.
 \end{rem}
 
-\subsection{The subgroups \texorpdfstring{$P_\alpha(0)$}{Pa(0)}, \texorpdfstring{$P_\alpha(*)$}{Pa(*)}, \texorpdfstring{$K(\alpha, \beta)$}{K(a,b)} and their properties.} \label{sec:Pa0-basic}
+\subsection{The subgroups \texorpdfstring{$P_\alpha(0)$}{Pa(0)}, \texorpdfstring{$P_\alpha(*)$}{Pa(*)}, \texorpdfstring{$K(\alpha, \beta)$}{K(a,b)} and their properties} \label{sec:Pa0-basic}
 Let $\Phi$ be a root system and $\alpha$ be an element of $\Phi$.
 Consider the following subsets of $\Phi$:
 \begin{align} Z_+(\alpha) & = \{ \beta \in \Phi \mid \langle \alpha, \beta \rangle > 0 \}, \\
@@ -909,7 +909,7 @@ Then the subgroup $\widetilde{P}_{\alpha, M}(*)$ contains the subgroup $K(A[X], 
 \begin{rem} \label{Pstar-char} From the above lemma,~\eqref{eq:sd-decomp} and~\cref{rem:DS} it follows that the subgroup $\widetilde{P}_{\alpha, M}(*)$ admits decomposition $\widetilde{P}_{\alpha, M}(*) = Z_\alpha(A, M) \ltimes K(A[X], M[X]).$ \end{rem} 
 
 \begin{rem} \label{rem:palpha} It follows from~\cref{P0_normal} and~\cref{Pstar-large} that the value of the function $p_\alpha$ from the statement of~\cref{P0_normal} on an element $g\in K(A[X], M[X])$ can be computed via the following procedure. 
-Start with any presentation of $g$ as a product of elements $z_{\beta}(Xf, \xi)$ for $\beta \in \Phi$ and $c_\delta(f, X\xi)$ for some fixed $\delta\in Z_0(\alpha)$. 
+Start with any presentation of~$g$ as a product of elements $z_{\beta}(Xf, \xi)$ for $\beta \in \Phi$ and $c_\delta(f, X\xi)$ for some fixed $\delta\in Z_0(\alpha)$. 
 Now pick among these factors those that correspond to the root $\beta = -\alpha$ (i.\,e. pick all factors $z_{-\alpha}(Xf_i, \xi_i)$). 
 Now $p_\alpha(g)$ is precisely the sum of constant terms of the polynomials $f_i$. \end{rem}
 
@@ -942,7 +942,7 @@ Set $G_0 = \overline{\St}(\Phi, A[X], X^2M[X])$. By~\cref{thm:Stepanov} $\wideti
 
 It is clear that  $x_{\gamma_1}(mX)$ and $x_{\gamma_2}(m'X)$ commute modulo $G_0$ whenever $\gamma_1 \neq - \gamma_2$ for $\gamma_1, \gamma_2 \in \Psi$. On the other hand, for $\gamma \in \Psi$ any commutator $c_{\gamma}(mX, m'X)$ is congruent to some generator of $\mathcal{G}_5$  modulo $G_0$ (cf. the proof of~\cref{Kgen-strong}) and hence commutes with the elements of $\mathcal{G}'$ modulo $G_0$. 
 
-Now pick each factor $x_{\gamma}(Xf)$, $\gamma \in \{ -\alpha, -\beta \}$ appearing in the presentation for $g_2$, decompose it as $x_{\gamma}(X^2f') \cdot x_{\gamma}(m'X)$ for some $f' \in M[X]$, $m' \in M$ and then move the second factor to the rightmost position within $g_2$ conjugating all factors along the way. By the previous paragraph only elements of  $\mathcal{G}_5$ may appear modulo $G_0$ after simplification of these conjugates.
+Now pick each factor $x_{\gamma}(Xf)$, $\gamma \in \{ -\alpha, -\beta \}$ appearing in the presentation for~$g_2$, decompose it as $x_{\gamma}(X^2f') \cdot x_{\gamma}(m'X)$ for some $f' \in M[X]$, $m' \in M$ and then move the second factor to the rightmost position within $g_2$ conjugating all factors along the way. By the previous paragraph only elements of  $\mathcal{G}_5$ may appear modulo $G_0$ after simplification of these conjugates.
 Thus, we can rewrite $g_2$ as $g_{21} \cdot g_{22}$, where $g_{21} \in \langle \mathcal{G}_2, \mathcal{G}_3, \mathcal{G}_4, \mathcal{G}_5, G_0 \rangle \subseteq \widetilde{K}(\alpha, \beta)$ and $g_{22} \in \langle X_{-\alpha}(MX), X_{-\beta}(MX) \rangle = X_{-\alpha}(MX) \cdot X_{-\beta}(MX)$.
 Thus, we have obtained the desired decomposition for $g$. \end{proof}
 
@@ -1029,7 +1029,7 @@ Now suppose that the other alternative holds, namely that $\alpha - \beta + \gam
 Since $\langle \alpha - \beta + \gamma, \alpha \rangle = \langle \alpha , \alpha \rangle - \langle \beta, \alpha \rangle + \langle \gamma, \alpha \rangle \geq 2 - 1 + 1 = 2$
 we obtain that $\alpha - \beta + \gamma = \alpha$, i.\,e. $\beta=\gamma$. Thus, by~\eqref{Chevalley-CCF2} $g_1 = x_\beta(f)^{x_{\beta-\alpha}(b)} = x_\beta(f)$. \end{proof}
 
-\subsection{The map \texorpdfstring{$S_\alpha(a, -)$}{S(a,-)} and its properties.} \label{sec:S-a}
+\subsection{The map \texorpdfstring{$S_\alpha(a, -)$}{S(a,-)} and its properties} \label{sec:S-a}
 Throughout this section $(A, M)$ is a local pair and, as before, $\alpha, \beta$ are some fixed roots of $\Phi$ forming a sharp angle.
 
 For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
@@ -1123,7 +1123,7 @@ Denote by $h_0$ the product of all factors in the above formula except the first
 \end{multline}
 \end{proof}
 
-\subsection{Construction of a \texorpdfstring{$\St(\Phi, B)$}{St(B)}-torsor.} \label{sec:V-construction}
+\subsection{Construction of a \texorpdfstring{$\St(\Phi, B)$}{St(B)}-torsor} \label{sec:V-construction}
 Throughout this subsection $\Phi$ denotes an arbitrary irreducible simply-laced root system of rank $\geq 3$, unless stated otherwise. 
 \begin{df}\label{df:GM0_geq0}
 Denote the subgroup $\overline{\St}(\Phi, A, M)$ by $G_M^0$. 
@@ -1319,7 +1319,7 @@ From the second property of the above proposition we immediately obtain the foll
 \begin{corollary} For $\Phi$ as in the statement of~\cref{lemma33} one has
 \[\E(\Phi, A[X\inv] + M[X]) = \E(\Phi, A[X], M[X]) \cdot \E(\Phi, A[X\inv]).\] \end{corollary}
 
-\subsection{Proof of Horrocks theorem.} \label{sec:P1glueing}
+\subsection{Proof of Horrocks theorem} \label{sec:P1glueing}
 Before we proceed with the proof of~\cref{thm:P1glueing} let us briefly recall the relevant notation. As before, $A$ denotes an arbitary local ring with maximal ideal $M$ and $I = M[X, X\inv]$ is an ideal of both the ring $R=A[X, X\inv]$ and its subring $B = A[X\inv] + M[X]$.
 
 Consider the following commutative diagram, in which the map $t$ is obtained from~\cref{lem:lemma32}:
@@ -1395,26 +1395,22 @@ From the inductive assumption we obtain that the assertion of the lemma holds fo
 \begin{thebibliography}{1000}
 \bibitem{Abe83}
  E.~Abe, 
- \emph{\href{https://dx.doi.org/10.1080/00927878308822906} 
- {Whitehead groups of {C}hevalley groups over polynomial rings}},
+ \emph{Whitehead groups of {C}hevalley groups over polynomial rings},
  Comm. Alg. \textbf{11} (1983), no.~12, 1271--1307.
 
 \bibitem{A13}
  D.~Allcock, 
- \emph{\href{https://dx.doi.org/10.2140/ant.2016.10.1791} 
- {Steinberg groups as amalgams}},
+ \emph{Steinberg groups as amalgams},
  Alg. Number Th. \textbf{10} (2016), no.~8, 1791--1843.
 
 \bibitem{AF17}
  A.~Asok and J.~Fasel, 
- \emph{\href{https://dx.doi.org/10.1112/topo.12007} 
- {An explicit KO-degree map and applications}},
+ \emph{An explicit KO-degree map and applications},
  J. Top. \textbf{10} (2017), 268--300.
 
 \bibitem{Ba74}
  H.~Bass, 
- \emph{\href{https://dx.doi.org/10.2307/2373586} 
- {Clifford algebras and spinor norms over a commutative ring}},
+ \emph{Clifford algebras and spinor norms over a commutative ring},
  Amer. J. Math. \textbf{96} (1974), no.~1, 156--206.
 
 \bibitem{Bou81}
@@ -1424,38 +1420,32 @@ From the inductive assumption we obtain that the assertion of the lemma holds fo
 
 \bibitem{DS73}
  R.~K.~Dennis and M.~R.~Stein,
- \emph{\href{https://dx.doi.org/10.1007/BFb0073728} 
- {The functor $\K_2$: A survey of computations and problems}},
+ \emph{The functor $\K_2$: A survey of computations and problems},
  Classical Algebraic K-Theory, and Connections with Arithmetic, Springer, 1973, pp.~241--303.
 
 \bibitem{FRS12}
  J.~Fasel, R.~Rao, and R.~Swan,
- \emph{\href{https://dx.doi.org/10.1007/s10240-012-0041-y} 
- {On stably free modules over affine algebras}},
+ \emph{On stably free modules over affine algebras},
  Publ. Math. IH{\'E}S \textbf{116} (2012), 223--243.
 
 \bibitem{Ho05}
  J.~Hornbostel, 
- \emph{\href{https://dx.doi.org/10.1016/j.top.2004.10.004} 
- {$\mathbb{A}^1$-representability of hermitian K-theory and Witt groups}},
+ \emph{$\mathbb{A}^1$-representability of hermitian K-theory and Witt groups},
  J. Top. \textbf{44} (2005), no.~3, 661--687.
 
 \bibitem{Ho64}
  G.~Horrocks, 
- \emph{\href{https://dx.doi.org/10.1112/plms/s3-14.4.714} 
- {Projective modules over an extension of a local ring}},
+ \emph{Projective modules over an extension of a local ring},
  Proc. London Math. Soc. \textbf{3} (1964), no.~4, 714--718.
 
 \bibitem{Hur77}
  J.~Hurrelbrink, 
- \emph{\href{https://dx.doi.org/10.1007/BF01351716} 
- {Endlich pr\"asentierte arithmetische gruppen und $K_{2}$ {\"u}ber Laurent-polynomringen}},
+ \emph{Endlich pr\"asentierte arithmetische gruppen und $K_{2}$ {\"u}ber Laurent-polynomringen},
  Math. Ann. \textbf{225} (1977), no.~2, 123--129.
 
 \bibitem{Ka80}
  M.~Karoubi, 
- \emph{\href{https://dx.doi.org/10.2307/1971147} 
- {Le th{\'e}oreme fondamental de la K-th{\'e}orie hermitienne}},
+ \emph{Le th{\'e}oreme fondamental de la K-th{\'e}orie hermitienne},
  Ann. Math. \textbf{112} (1980), no.~2, 259--282.
 
 \bibitem{Lam10}
@@ -1465,176 +1455,148 @@ From the inductive assumption we obtain that the assertion of the lemma holds fo
 
 \bibitem{La18}
  A.~Lavrenov, 
- \emph{\href{https://dx.doi.org/10.25537/dm.2018v23.653-675}
- {A local-global principle for symplectic $\K_2$}},
+ \emph{A local-global principle for symplectic $\K_2$},
  Doc. Math. \textbf{23} (2018), 653--675.
 
 \bibitem{LS17}
  A.~Lavrenov and S.~Sinchuk,
- \emph{\href{https://arxiv.org/pdf/1606.00272.pdf} 
- {Centrality of odd orthogonal $\K_2$}},
+ \emph{entrality of odd orthogonal $\K_2$},
  J. Pure Appl. Alg. \textbf{221} (2017), 1134--1145.
 
 \bibitem{Lo78}
  J.-L.~Loday,
- \emph{\href{https://dx.doi.org/10.1016/0021-8693(78)90025-X}
- {Cohomologie et groupes de Steinberg relatifs}}, 
+ \emph{Cohomologie et groupes de Steinberg relatifs}, 
  J. Alg. \textbf{54} (1978), no.~1, 178--202.
 
 \bibitem{Ma69}
  H.~Matsumoto,
- \emph{\href{http://eudml.org/doc/81843} 
- {Sur les sous-groupes arithm{\'e}tiques des groupes semi-simple d{\'e}ploy{\'e}s}},
+ \emph{Sur les sous-groupes arithm{\'e}tiques des groupes semi-simple d{\'e}ploy{\'e}s},
  Ann. Sci. ENS \textbf{2} (1969), no.~1, 1--62.
 
 \bibitem{Mo04}
  F.~Morel,
- \emph{\href{https://dx.doi.org/10.1007/s00014-004-0815-z} 
- {Sur les puissances de l'id{\'e}al fondamental de l'anneau de Witt}},
+ \emph{Sur les puissances de l'id{\'e}al fondamental de l'anneau de Witt},
  Comm. Math. Helv. \textbf{79} (2004), no.~4, 689--703.
 
 \bibitem{MR91}
  J.~Morita and U.~Rehmann,
- \emph{\href{https://dx.doi.org/10.1007/BF02571324} 
- {Symplectic $\K_2$ of Laurent polynomials, associated Kac--Moody groups and Witt rings}},
+ \emph{Symplectic $\K_2$ of Laurent polynomials, associated Kac--Moody groups and Witt rings},
  Math. Z. \textbf{206} (1991), no.~1, 57--66.
 
 \bibitem{Pa89}
  I.~Panin, 
- \emph{\href{http://www.mathnet.ru/links/a46c953dc23ca4b3c44578c283cd59c8/aa27.pdf} 
- {On stabilization for orthogonal and symplectic algebraic K-theory (Russian)}},
+ \emph{On stabilization for orthogonal and symplectic algebraic K-theory (Russian)},
  Leningrad Math. J. \textbf{1} (1990), no.~3, 741--754.
 
 \bibitem{Qu76}
  D.~Quillen, 
- \emph{\href{https://dx.doi.org/10.1007/BF01390008} 
- {Projective modules over polynomial rings}},
+ \emph{Projective modules over polynomial rings},
  Inv. Math. \textbf{36} (1976), no.~1, 167--171.
 
 \bibitem{Re75}
  U.~Rehmann, 
- \emph{\href{http://www.math.uni-bielefeld.de/~rehmann/Publ/praesentation.pdf}
- {Pr{\"a}sentationen von Chevalleygruppen {\"u}ber $k[t]$}}, preprint (1975).
+ \emph{Pr{\"a}sentationen von Chevalleygruppen {\"u}ber $k[t]$}, preprint (1975).
 
 \bibitem{RS76}
  U.~Rehmann and C.~Soul{\'e},
- \emph{\href{https://dx.doi.org/10.1007/BFb0079999} 
- {Finitely presented groups of matrices}}, 
+ \emph{Finitely presented groups of matrices}, 
  Algebraic K-Theory, Lect. Notes. Math., vol. 551, Springer, 1976, pp.~164--169.
 
 \bibitem{Sch16}
  M.~Schlichting, 
- \emph{\href{https://dx.doi.org/10.1016/j.jpaa.2016.12.026} 
- {Hermitian K-theory, derived equivalences and Karoubi's fundamental theorem}},
+ \emph{Hermitian K-theory, derived equivalences and Karoubi's fundamental theorem},
  J. Pure Appl. Alg. \textbf{221} (2017), 1729--1844.
 
 \bibitem{S15}
  S.~Sinchuk, 
- \emph{\href{https://dx.doi.org/10.1016/j.jpaa.2015.08.003}
- {On centrality of $K_2$ for Chevalley groups of type $\mathsf{E}_\ell$}},
+ \emph{On centrality of $K_2$ for Chevalley groups of type $\mathsf{E}_\ell$},
  J. Pure Appl. Alg. \textbf{220} (2016), no.~2, 857--875.
 
 \bibitem{St-poly}
  A.~Stavrova, 
- \emph{\href{https://dx.doi.org/10.1017/is013006012jkt232} 
- {Homotopy invariance of non-stable $\K_1$-functors}}, 
- J. K-th. \textbf{13} (2014), no.~2, 199--248.
+ \emph{Homotopy invariance of non-stable $\K_1$-functors}, 
+ J. K-Th. \textbf{13} (2014), no.~2, 199--248.
 
 \bibitem{St-Ded}
  A.~Stavrova, 
- \emph{\href{https://dx.doi.org/10.1515/jgth-2019-0100} 
- {Chevalley groups of polynomial rings over Dedekind domains}}, 
+ \emph{Chevalley groups of polynomial rings over Dedekind domains}, 
  J. Gr. Th. \textbf{23} (2020), 121--132.
 
 \bibitem{St71}
  M.~R.~Stein, 
- \emph{\href{https://dx.doi.org/10.2307/2373742} 
- {Generators, relations and coverings of Chevalley groups over commutative rings}},
+ \emph{Generators, relations and coverings of Chevalley groups over commutative rings},
  Amer. J. Math. \textbf{93} (1971), no.~4, 965--1004.
 
 \bibitem{Ste73}
  M.~R.~Stein, 
- \emph{\href{https://dx.doi.org/10.2307/1996696} 
- {Surjective stability in dimension 0 for $\K_2$ and related functors}},
+ \emph{Surjective stability in dimension 0 for $\K_2$ and related functors},
  Trans. Amer. Math. Soc. \textbf{178} (1973), 165--191.
 
 \bibitem{St78}
  M.~R.~Stein, 
- \emph{\href{https://dx.doi.org/10.4099/math1924.4.77} 
- {Stability theorems for $\K_1$, $\K_2$ and related functors modeled on Chevalley groups}},
+ \emph{Stability theorems for $\K_1$, $\K_2$ and related functors modeled on Chevalley groups},
  Japan J. Math. \textbf{4} (1978), 77--108.
 
 \bibitem{St67}
  R.~Steinberg, J.~Faulkner, and R.~Wilson, 
  \emph{Lectures on Chevalley groups},
- Yale Univ. New Haven, 1967.
+ Yale Univ. New Haven, 1968.
 
 \bibitem{Su76}
  A.~Suslin, 
- \emph{\href{http://www.mathnet.ru/links/1ebfa3efeb44dfd494087eaf83a34450/dan40545.pdf} 
- {Projective modules over polynomial rings are free}}, 
+ \emph{Projective modules over polynomial rings are free}, 
  Dokl. Akad. Nauk SSSR \textbf{229} (1976), 1063--1066.
 
 \bibitem{Su77}
  A.~Suslin, 
- \emph{\href{https://dx.doi.org/10.1070/IM1977v011n02ABEH001709} 
- {On the structure of the special linear group over commutative rings}},
+ \emph{On the structure of the special linear group over commutative rings},
  Math. USSR Izv. \textbf{11} (1977), 221--238.
 
 \bibitem{Su82}
  A.~Suslin and V.~Kopeiko, 
- \emph{\href{https://dx.doi.org/10.1007/BF01681481} 
- {Quadratic modules and the orthogonal group over polynomial rings}},
+ \emph{Quadratic modules and the orthogonal group over polynomial rings},
  J. Soviet Math. \textbf{20} (1982), no.~6, 2665--2691.
 
 \bibitem{ST76}
  A.~Suslin and M.~Tulenbaev, 
- \emph{\href{https://dx.doi.org/10.1007/BF01091768} 
- {Stabilization theorem for the Milnor $K_2$-functor}},
+ \emph{Stabilization theorem for the Milnor $K_2$-functor},
  J. Soviet Math. \textbf{17} (1981), no.~2, 1804--1819.
 
 \bibitem{Ta86}
  G.~Taddei, 
- \emph{\href{http://www.ams.org/books/conm/055.2/862660/conm862660.pdf}
- {Normalit\'e des groupes \'el\'ementaires dans les groupes de Chevalley sur un anneau}},
+ \emph{Normalit\'e des groupes \'el\'ementaires dans les groupes de Chevalley sur un anneau},
  Applications of algebraic $\K$-theory to algebraic geometry and number theory, Part II (Boulder, Colo., 1983),
  Contemp. Math, vol.~55, 1986, pp.~693--710.
 
 \bibitem{Tu83}
  M.~Tulenbaev, 
- \emph{\href{https://dx.doi.org/10.1070/SM1983v045n01ABEH002591}
- {The Steinberg group of a polynomial ring}},
+ \emph{The Steinberg group of a polynomial ring},
  Math. USSR Sb. \textbf{45} (1983), 131--144.
 
 \bibitem{Va86}
  L.~Vaserstein, 
- \emph{\href{https://dx.doi.org/10.2748/tmj/1178228489}
- {On normal subgroups of Chevalley groups over commutative rings}},
+ \emph{On normal subgroups of Chevalley groups over commutative rings},
  Tohoku Math. J. \textbf{38} (1986), 219--230.
 
 \bibitem{V00}
  N.~Vavilov, 
- \emph{\href{http://eudml.org/doc/108535}
- {A third look at weight diagrams}}, 
+ \emph{A third look at weight diagrams}, 
  Rend. Sem. Mat. Univ. Padova \textbf{104} (2000), 201--250.
 
 \bibitem{VP}
  N.~Vavilov and E.~Plotkin, 
- \emph{\href{https://dx.doi.org/10.1007/BF00047884}
- {Chevalley groups over commutative rings: I. Elementary calculations}},
+ \emph{Chevalley groups over commutative rings: I. Elementary calculations},
  Acta Appl. Math. \textbf{45} (1996), 73--113.
 
 \bibitem{VZ18}
  N.~Vavilov and Z.~Zhang, 
- \emph{\href{https://dx.doi.org/10.1017/S0013091519000555}
- {Generation of relative commutator subgroups in Chevalley groups. II}},
+ \emph{Generation of relative commutator subgroups in Chevalley groups. II},
  Proc. Edinburgh Math. Soc. \textbf{63} (2020), no.~2, 497--511.
 
 \bibitem{Vo11}
  K.~V{\"o}lkel,
- \emph{\href{http://static.konradvoelkel.de/download/da-voelkel-20110809.pdf}
- {Matsumotos Satz und $\mathbb{A}^1$-Homotopietheorie}},
- Diplomarbeit, Uni. Freiburg.
+ \emph{Matsumotos Satz und $\mathbb{A}^1$-Homotopietheorie},
+ Diplomarbeit, Uni. Freiburg, 2011.
 
 \bibitem{Kbook}
  C.~A.~Weibel, 
