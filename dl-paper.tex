@@ -1,10 +1,14 @@
 \documentclass[oneside, 8pt]{amsart}
+\pdfoutput=1
 \usepackage{amscd, amsmath, amssymb, amsthm, amsfonts, amstext, verbatim, mathtools, xfrac, microtype, nameref, thmtools}
-\usepackage[breaklinks=false,unicode]{hyperref}
-\usepackage[backend=biber, bibencoding=utf8, giveninits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[hyperref=true, backend=biber, bibencoding=utf8, giveninits=true, citestyle=numeric-comp, sortlocale=en_US, url=false, doi=false, eprint=true, maxbibnames=4]{biblatex}
+\usepackage[breaklinks=true,unicode]{hyperref}
+\definecolor{DarkPurple}{rgb}{0.40,0.0,0.20}
+\hypersetup{colorlinks=true,citecolor=NavyBlue,linkcolor=DarkPurple,urlcolor=NavyBlue}
+\usepackage{color} 
 \usepackage[capitalize]{cleveref}
-\usepackage[matrix,arrow,curve]{xy}
-\usepackage{tikz}
+\usepackage{tikz,tikz-cd}
 \usepackage{enumitem}
 
 \addbibresource{paper.bib}
@@ -48,7 +52,7 @@
 \newcommand{\RR}[1]{\mathcal{R}_{#1}}   % Steinberg relations
 \newcommand{\catname}[1]{{\normalfont\textbf{#1}}} %Category name
 \newcommand{\myol}[2][3]{{}\mkern#1mu\overline{\mkern-#1mu#2}}
-\newcommand{\GG}{\mathrm{G}_{\mathrm{sc}}}
+
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\rA}{\mathsf{A}}
 \newcommand{\rB}{\mathsf{B}}
@@ -57,6 +61,8 @@
 \newcommand{\rE}{\mathsf{E}}
 \newcommand{\rF}{\mathsf{F}}
 \newcommand{\rG}{\mathsf{G}}
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
+    cells={nodes={scale=#1}}}}
 
 \numberwithin{equation}{section}
 
@@ -66,17 +72,18 @@
 \email{avlavrenov at gmail.com}
 \author {Sergey Sinchuk}
 \email {sinchukss at gmail.com}
-\address{Chebyshev laboratory, St. Petersburg State University, St. Petersburg, Russia}
+
+\address{Chebyshev Laboratory, St. Petersburg State University, 14th. Line V.O. 29b, 199178, St. Petersburg, Russia}
+
 \date {\today}
 
 \begin{document}
-
-\begin{abstract} We prove the Horrocks theorem for unstable even-dimensional orthogonal Steinberg groups. The Horrocks theorem for Steinberg groups is one of the principal ingredients needed for the proof of the $\K_2$-analogue of Serre's problem, positive solution of which currently is only known in the linear case. \end{abstract}
+\begin{abstract} We prove the Horrocks theorem for unstable even-dimensional orthogonal Steinberg groups. The Horrocks theorem for Steinberg groups is one of the principal ingredients needed for the proof of the $\K_2$-analogue of Serre's problem,  whose positive solution is currently known only in the linear case. \end{abstract}
 \maketitle
 \section{Introduction}
 Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. This problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and its solution played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
 
-After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $\K_1$-analogue of Serre's problem. This result asserts that the functor $\K_1(n, R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_1(n, k[x_1, \ldots x_n]) = \K_1(n, k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on an arbitary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ over a field (see~\cite[Theorem~1.2]{St-poly}) and also generalized Abe's result to Dedekind domains of arithmetic type (see~\cite[Corollary~1.2]{St-Ded}).
+After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $\K_1$-analogue of Serre's problem. This result asserts that the functor $\K_1(n, R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_1(n, k[x_1, \ldots x_n]) = \K_1(n, k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on an arbitrary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ over a field (see~\cite[Theorem~1.2]{St-poly}) and also generalized Abe's result to Dedekind domains of arithmetic type (see~\cite[Corollary~1.2]{St-Ded}).
 
 Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the {\it simply-connected Chevalley group} $\GG(\Phi, R)$ (see e.\,g.~\cite[\S~3]{St71} or~\cite{VP}) and the {\it Steinberg group} $\St(\Phi, R)$ (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined homomorphism $\pi \colon \St(\Phi, R) \to \GG(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this homomorphism are denoted $\K_1(\Phi, R)$ and $\K_2(\Phi, R)$, respectively. The latter groups are functorial in $R$. The functors $\K_1(\Phi, -)$ and $\K_2(\Phi, -)$ are called {\it the $\mathrm{K}_1$ and $\mathrm{K_2}$-functors modeled on the Chevalley group $\GG(\Phi, -)$}, see~\cite{St78}.
 
@@ -88,16 +95,14 @@ In~\cite{LS17,La18} the authors have shown that the Steinberg groups $\St(\Phi, 
 
 Our main result is, thus, the following theorem, which is the orthogonal analogue of~\cite[Theorem~5.1]{Tu83} and the $\K_2$-analogue of~\cite[Theorem~6.8]{Su82} (cf. also with~\cite[Theorem~VI.5.2]{Lam10} and~\cite[Theorem~1.1]{St-poly}).
 \begin{theorem}[Horrocks theorem for orthogonal $\K_2$]\label{thm:main} Let $A$ be a commutative ring in which $2$ is invertible. Then for any $\ell \geq 7$ the following commutative square is a pullback square in which all homomorphisms are injective:
-\begin{equation} \nonumber
-  \xymatrix{ \KO_2(2\ell, A) \ar[r] \ar[d] & \KO_2(2\ell, A[X]) \ar[d] \\ \KO_2(2\ell, A[X\inv]) \ar[r] & \KO_2(2\ell, A[X, X\inv]).}  
-\end{equation} 
+\[\begin{tikzcd} \KO_2(2\ell, A) \arrow{r} \arrow{d} & \KO_2(2\ell, A[X]) \arrow{d} \\ \KO_2(2\ell, A[X\inv]) \arrow{r} & \KO_2(2\ell, A[X, X\inv]). \end{tikzcd}\]
 Moreover, the same assertion holds if one replaces the functor $\KO_2(2\ell, -)$ with $\K_2(\rD_\ell, -)$ or $\St(\rD_\ell, -)$. \end{theorem}
 In the above statement $\KO_2(2\ell, -)$ denotes the unstable orthogonal $\K_2$-functor (see~\cref{sec:quillen}). Notice also that in the special case when $A=k$ is a field the assertion of the above theorem is a consequence of the results of U.~Rehmann and J.~Hurrelbrink (see~\cref{field-injectivity} below).
 
 The proof of~\cref{thm:main} goes as follows. We notice that it suffices to prove the $\St(\rD_\ell, -)$-variant of the theorem. Moreover, the proof of the injectivity of
 $j_- \colon \St(\rD_\ell, A[X\inv]) \to \St(\rD_\ell, A[X, X\inv])$ turns out to be the hardest part. After invoking the local-global principle~\cite[Theorem~2]{LS17} the proof reduces to the special case when $A$ is local.
 Now if $M$ is the maximal ideal of $A$, the proof of the injectivity of $j_-$ comes down to proving the injectivity of the following two homomorphisms:
-\begin{equation*} \xymatrix{ \St(\rD_\ell, A[X^{-1}]) \ar[r]^(0.55){j_B^-} & \St(\rD_\ell, B) \ar[r]^{j_R} & \St(\rD_\ell, R), }\end{equation*}
+\[\begin{tikzcd} \St(\rD_\ell, A[X^{-1}]) \arrow{r}{j_B^-} & \St(\rD_\ell, B) \arrow{r}{j_R} & \St(\rD_\ell, R), \end{tikzcd} \]
 where $B = A[X\inv] + M[X]$ and $R = A[X, X\inv]$.
 The injectivity of $j_R$ is obtained in~\cref{thm41}. This step of the proof relies on the theory of relative central extensions developed by J.-L.~Loday in~\cite{Lo78}. According to this theory, the relative Steinberg group $\St(\Phi, R, I)$ is a central extension of $\Ker(\St(\Phi, R) \to \St(\Phi, R/I))$ by a certain subgroup, which we denote $C(\Phi, R, I)$. It turns out that a simple diagram chasing argument combined with a certain lifting property of relative Steinberg groups (see~\cref{lem:lemma32}) reduces the sought injectivity of $j_R$ to the surjectivity of the map \[C(\rD_\ell, B, M[X, X\inv]) \to C(\rD_\ell, R, M[X, X\inv]).\] This surjectivity is then obtained as a corollary of Panin's stability theorem for orthogonal K-theory and the Bass Fundamental Theorem for higher Grothendieck--Witt groups (these groups include the stable orthogonal K-groups as a special case, see~\eqref{GW-concrete}). This is the only step of our proof which invokes the assumption that $2$ is invertible. 
 
@@ -114,10 +119,10 @@ If $x$ and $y$ are elements of a group $G$ then $[x, y]$ denotes the left-normed
 We denote by $x^y$ (resp. ${}^y\!x$) the element $y^{-1}xy$ (resp. $yxy^{-1}$). 
 Throughout the paper we make use of the following commutator identities:
 \begin{align}
- [x, yz]^y =& [y^{-1}, x] \cdot [x, z], \label{rel43} \\ 
- \label{eq:H1ii} [xy, z] =& {}^x[y, z] \cdot [x,z], \\
- \label{eq:H1ii-2}[x, yz] =& [x, y] \cdot {}^{y}\![x, z], \\
- [[x, y], z] =& {}^{x}\!\left({}^{y}[x^{-1}, [ y^{-1}, z]] \cdot {}^z[y, [ z^{-1}, x^{-1}]] \right). \label{HW-variant} \end{align}
+ [x, yz]^y               & =   [y^{-1}, x] \cdot [x, z], \label{rel43} \\ 
+ \label{eq:H1ii} [xy, z] & =   {}^x[y, z] \cdot [x,z], \\
+ \label{eq:H1ii-2}[x, yz]& =   [x, y] \cdot {}^{y}\![x, z], \\
+ [[x, y], z] & =   {}^{x}\!\left({}^{y}[x^{-1}, [ y^{-1}, z]] \cdot {}^z[y, [ z^{-1}, x^{-1}]] \right). \label{HW-variant} \end{align}
 Recall also from~\cite[Lemma~3.1.1]{RS76} that
 \begin{equation} \label{eq:H1iii} [x,z] = 1 \text{ implies } [x, [y,z]] = [[x,y],{}^yz]. \end{equation} 
 
@@ -135,14 +140,14 @@ The constants $N_{\alpha \beta i j}$ appearing in the right-hand side of \eqref{
 
 For an additive subgroup $A\subseteq R$ and $\alpha \in \Phi$ we denote by $X_\alpha(A)$ the corresponding {\it root subgroup} of $\St(\Phi, R)$, i.\,e. the subgroup generated by all $x_\alpha(a)$, $a \in A$.
 
-Whenever we speak of the Steinberg group $\St(\Psi, R)$ parametrized by a root subsystem $\Psi \subset \Phi$ we imply that the choice of structure constants 
+Whenever we speak of the Steinberg group $\St(\Psi, R)$ parameterized by a root subsystem $\Psi \subset \Phi$ we imply that the choice of structure constants 
  for $\St(\Psi, R)$ is compatible with that for $\St(\Phi, R)$ (i.\,e. the mapping $x_\alpha(\xi) \mapsto x_\alpha(\xi)$ yields a group homomorphism $\St(\Psi, R) \to \St(\Phi, R)$).
 
 In this paper we will be mostly interested in the case when the Dynkin diagram of $\Phi$ is {\it simply-laced}, i.\,e. does not contain double bonds. In this case the defining relations of $\St(\Phi, R)$ have the following simpler form:
 \begin{align}
-&x_{\alpha}(a)\cdot x_{\alpha}(b)=x_{\alpha}(a+b), \tag{R1} \label{Steinberg-additivity}\\
-&[x_{\alpha}(a),\,x_{\beta}(b)]=x_{\alpha+\beta}(N_{\alpha\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \tag{R2} \label{Chevalley-CCF1} \\
-&[x_{\alpha}(a),\,x_{\beta}(b)]=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \tag{R3} \label{Chevalley-CCF2}
+x_{\alpha}(a)\cdot x_{\alpha}(b)&=x_{\alpha}(a+b), \tag{R1} \label{Steinberg-additivity}\\
+[x_{\alpha}(a),\,x_{\beta}(b)]  &=x_{\alpha+\beta}(N_{\alpha\beta} \cdot ab),\text{ for }\alpha+\beta\in\Phi, \tag{R2} \label{Chevalley-CCF1} \\
+[x_{\alpha}(a),\,x_{\beta}(b)]  &=1,\text{ for }\alpha+\beta\not\in\Phi\cup0. \tag{R3} \label{Chevalley-CCF2}
 \end{align}
 In the above formulae $a, b \in R$ and the integers $N_{\alpha, \beta} = N_{\alpha, \beta, 1, 1} = \pm 1$ are the structure constants of the Lie algebra of type $\Phi$. Although there is still some degree of freedom in their choice, they always must satisfy the relations, indicated in the following lemma (cf. \cite[\S~14]{VP}).
 \begin{lemma} Suppose $\Phi$ is simply laced and $\alpha, \beta$ are roots of $\Phi$ such that $\alpha+\beta\in \Phi$, then the following identities hold for the structure constants:
@@ -158,7 +163,7 @@ Recall from~\cite[Lemma~5.2]{Ma69} that the following relations hold for semisim
 \begin{align} \label{eq:conj-h-x} {}^{h_\alpha(t)}\!x_\beta(u) & = x_\beta(t^{\langle \beta,  \alpha \rangle}u), \\
               \label{eq:conj-h-h} {}^{h_\alpha(t)}\!h_\beta(u) & = h_\beta(t^{\langle \beta, \alpha \rangle} \cdot u) \cdot h_\beta(t^{\langle \beta,  \alpha \rangle})^{-1}, \\
               \label{eq:h-inv}    h_\alpha(t)^{-1}             & = h_{-\alpha}(t). \end{align}
-In the above formulae $\langle \beta, \alpha \rangle$ denotes the integer $\tfrac{2(\beta, \alpha)}{(\alpha, \alpha)}$ (we denote by $(\text{-},\text{-})$ the inner product on the euclidean space $\mathbb{R}^\ell$ containing $\Phi$).
+In the above formulae $\langle \beta, \alpha \rangle$ denotes the integer $\tfrac{2(\beta, \alpha)}{(\alpha, \alpha)}$ (we denote by $(\text{-},\text{-})$ the inner product on the Euclidean space $\mathbb{R}^\ell$ containing $\Phi$).
 
 \subsection{\texorpdfstring{$\K_2$}{K2}-groups and symbols} In our calculations we use two families of explicit elements of $\K_2(\Phi, R)$ called {\it Steinberg and Dennis--Stein symbols}. Notice that our notational conventions for symbols follow~\cite{DS73} and {\it not} more modern textbooks such as~\cite{Kbook} (cf. with~Definition~III.5.11 ibid.). Notice also that the operation on $\K_2(\Phi, R)$ is always written multiplicatively.
 
@@ -180,11 +185,11 @@ Using the modern language of Milnor--Witt K-theory (see~\cite{Mo04}) it can be f
 \begin{equation*} \K_2(\Phi, k) = \left\{\begin{array}{ll} \K_2^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_2^\mathrm{M}(k) & \text{otherwise.}\end{array}\right. \end{equation*}
 In the following lemma we recall the computation of the group $\K_2(\Phi, R)$ in the case $R=k[X, X\inv]$.
 \begin{lemma}[Hurrelbrink--Morita--Rehmann]\label{K2-laurent-field} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be an arbitrary field. Then there is a split exact sequence of abelian groups
-\[ \xymatrix{ 0 \ar[r] & \K_2(\Phi, k) \ar[r] & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & H(\Phi, k) \ar[r] & 0,}\text{ in which} \]
+\[\begin{tikzcd} 0 \arrow{r} & \K_2(\Phi, k) \arrow{r} & \K_2(\Phi, k[X, X^{-1}]) \arrow{r} & H(\Phi, k) \arrow{r} & 0, \end{tikzcd}\text{ in which}\]
 \[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_1(k) \cong k^\times & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
 \begin{proof} Let us first consider the case of nonsymplectic $\Phi$, in which one can find a long root $\alpha\in \Phi$ in such a way that there is a commutative diagram of abelian groups
-\[\xymatrixcolsep{5pc}\xymatrix{k^\times \ar[r]^-{h} \ar[rrd]_{\{-, X\}} & \K_2(\Phi, k[X, X^{-1}]) \ar[r] & \K_2(\Phi, k(X)) \ar[d]^{\cong} \\
-                                                                                      &                                 & \K_2^\mathrm{M}(k(X)),} \]
+\[\begin{tikzcd}[column sep=5pc] k^\times \arrow{drr}[swap]{\{-, X\}} \arrow{r}{h}  & \K_2(\Phi, k[X, X^{-1}]) \arrow{r} & \K_2(\Phi, k(X)) \arrow{d}{\cong} \\
+ & & \K_2^\mathrm{M}(k(X)), \end{tikzcd}\]
 in which $h = \{ -, X \}_{\alpha}$ and the vertical map is an isomorphism by Matsumoto's theorem.
 Notice that the diagonal map is split by the obvious residue homomorphism and therefore is injective. This, in turn, implies that $h$ is also injective.
 The assertion of the lemma now follows from~\cite[Satz~3]{Hur77} which asserts that for a nonsymplectic $\Phi$ one has $\K_2(\Phi, k[X, X\inv]) = \mathrm{Im}(h) \oplus \K_2(\Phi, k)$.
@@ -195,19 +200,18 @@ $P(k)$ is the set $k^\times \times I^2(k)$ with the group structure given by
 \[ (u, y) \cdot (v, z) = (uv, y + z - \langle\langle u, v\rangle\rangle).\]
 Here $I^2(k)$ stands for the second power of the fundamental ideal $I(k)$ in the Witt ring $W(k)$ of $k$.
 Recall from~\cite{Mo04} that $\K_1^\mathrm{MW}(k)$ is isomorphic to the pullback of the diagram:
-\[ \xymatrix{ \K_1^\mathrm{MW}(k) \ar[r] \ar[d] & I(k) \ar[d] \\ \K_1(k) \ar[r] & I(k)/I^2(k), } \]
+\[ \begin{tikzcd} \K_1^\mathrm{MW}(k) \arrow{r} \arrow{d} & I(k) \arrow{d} \\ \K_1(k) \arrow{r} & I(k)/I^2(k), \end{tikzcd} \]
 in other words, it consists of pairs $[u, x]$ such that $x - \langle \langle u \rangle \rangle \in I^2(k)$.
 It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\rangle - x)$ defines an isomorphism of $\K_1^\mathrm{MW}(k)$ and $P(k)$. \end{proof}
 
 \begin{rem} It is possible to give a different proof of the above lemma in the case $\Phi = \rC_\ell$ for $\ell \geq 5$ under the additional assumption that the characteristic of $k$ is not $2$. Indeed, we have the following chain of isomorphisms:
-\[ \K_2(C_\infty, k[X, X^{-1}]) \cong \GW_2^2(k[X,X^{-1}]) \cong \GW_2^2(k) \oplus \GW_1^1(k) \cong \K_2^\mathrm{MW}(k) \oplus \K_1^\mathrm{MW}(k),\]
+\begin{multline} \K_2(C_\infty, k[X, X^{-1}]) \cong \GW_2^2(k[X,X^{-1}]) \cong \\ \cong \GW_2^2(k) \oplus \GW_1^1(k) \cong \K_2^\mathrm{MW}(k) \oplus \K_1^\mathrm{MW}(k),\end{multline}
 in which the first two isomorphisms are obtained from~\eqref{GW-concrete} and~\cref{bass-ft} and the last one follows from~\cite[Lemma~4.1.1]{AF17} and Matsumoto's theorem.
 It remains to invoke the stability theorem~\cite[Theorem~9.4]{Pa89} to obtain the assertion in the unstable case. \end{rem}
 
 \begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the homomorphism $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of the images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
 \begin{proof} The first assertion follows from the commutative diagram
-\[\xymatrix{ & \K_2(\Phi, k) \ar[dl]_{\cong} \ar@{^{(}->}[dr] & \\
-               \K_2(\Phi, k[X]) \ar[rr] &               & \K_2(\Phi, k[X, X^{-1}])} \]
+\[\begin{tikzcd}  & \K_2(\Phi, k) \arrow{dl}[swap]{\cong} \arrow[dr, hookrightarrow] & \\ \K_2(\Phi, k[X]) \arrow{rr} & & \K_2(\Phi, k[X, X^{-1}]) \end{tikzcd} \]
 and the injectivity of its diagonal arrows. Indeed, the left arrow is an isomorphism by the Korollar of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}.
 
 Let us verify the second assertion. Let $g$ be an element of the intersection of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$.
@@ -222,9 +226,11 @@ If $(R, I)$ is such that $R$ is a local ring with maximal ideal $I$, we call suc
 
 There is an obvious fully faithful embedding $\catname{CRings} \to \catname{Pairs}$ sending $R$ to $(R, R)$. For a given functor $S \colon \catname{CRings} \to \catname{Groups}$ a {\it relativization} of $S$ is any functor $\widetilde{S} \colon \catname{Pairs} \to \catname{Groups}$ extending $S$ in the obvious sense. Relativization of a functor is not unique.
 
-Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definition, the pullback ring $R \times_{R/I} R$. In other words, it is the ring consisting of pairs of elements of $R$ congruent modulo $I$. Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map $\xymatrix{D_{R,I} \ar@<1pt>[r] \ar@<-2.5pt>[r] & \ar@<-4pt>[l] R}$. It is clear that $p_0 \Delta = p_1 \Delta = id_{R}$.
+Recall that {\it the double ring} $D_{R, I}$ of a pair $(R, I)$ is, by definition, the pullback ring $R \times_{R/I} R$. In other words, it is the ring consisting of pairs of elements of~$R$ congruent modulo $I$. Denote by $p_0, p_1, \Delta$ the two obvious projections and the diagonal map 
+\begin{tikzcd} D_{R, I} \arrow[r, shift right=2] \arrow[r] & R. \arrow[l, shift right=2] \end{tikzcd} It is clear that $p_0 \Delta = p_1 \Delta = id_{R}$.
 
-Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor. Set $G_i = \Ker(S(p_i))$ and define {\it Loday's relativization} $S(R, I)$ as $ G_0 / [G_0, G_1]$. The homomorphism $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. We denote this map by $\mu = \mu_{R,I}$ and its kernel by $C_S(R, I)$: \begin{equation} \label{LodayRelativization} \xymatrix{ 1 \ar[r] & C_S(R, I) \ar[r] & S(R, I) \ar^{\mu}[r] & S(R) \ar[r] & S(R/I) \ar[r] & 1.} \end{equation}
+Let $S \colon \catname{CRings} \to \catname{Groups}$ be a functor. Set $G_i = \Ker(S(p_i))$ and define {\it Loday's relativization} $S(R, I)$ as $ G_0 / [G_0, G_1]$. The homomorphism $S(p_1)$ induces a natural transformation $S(R, I) \to S(R)$. We denote this map by $\mu = \mu_{R,I}$ and its kernel by $C_S(R, I)$: 
+\begin{equation} \label{LodayRelativization} \begin{tikzcd} 1 \arrow{r} & C_S(R, I) \arrow{r} & S(R, I) \arrow{r}{\mu} & S(R) \arrow{r} & S(R/I) \arrow{r} & 1. \end{tikzcd} \end{equation}
 
 \begin{df} By definition, the {\it relative Steinberg group} $\St(\Phi, R, I)$ is the result of application of Loday's relativization to the functor $\St(\Phi, -)$. Notice that $\St(\Phi, R, I)$ is a central extension of $\Ker(\St(\Phi, R) \to \St(\Phi, R/I))$ by the abelian group $C_{\St(\Phi, -)}(R, I)$. For shortness we rename the latter group to $C(\Phi, R, I)$. \end{df}
 
@@ -246,8 +252,7 @@ It can be shown that the image of $\mu$ is always a normal subgroup of $N$ and t
 Let $\nu \colon N \twoheadrightarrow Q$ be a surjective homomorphism.
 A {\it relative central extension of $\nu$} is, by definition,
 a crossed module $(M, N, \mu)$ such that the cokernel of $\mu$ is $\nu$:
-\begin{equation} \label{RelativeCentralExtension}
- \xymatrix{ 1 \ar[r] & L \ar[r] & M \ar^{\mu}[r] & N \ar^{\nu}[r] & Q \ar[r] & 1} \end{equation}
+\begin{equation} \label{RelativeCentralExtension} \begin{tikzcd} 1 \arrow{r} & L \arrow{r} & M \arrow{r}{\mu} & N \arrow{r}{\nu} & Q \arrow{r} & 1 \end{tikzcd} \end{equation}
 
 A morphism $(M, \mu) \to (M', \mu')$ of two relative central extensions of $\nu$ is, by definition, an $N$-group homomorphism $f\colon M \to M'$ such that $\mu' f = \mu$. 
 A relative central extension is said to be {\it universal} if it is an initial object of the category of relative central extensions of $\nu$. 
@@ -300,8 +305,7 @@ By~\cite[Corollary~5.4]{St71} the group $S_n$ is {\it centrally closed} for $n \
 On the other hand, \cite[Theorem~1]{LS17} shows that $\K_2(\rD_\ell, R) = \Ker(S_n \to \widetilde{G}_n)$ is a central subgroup of $S_n$ for $n\geq 4$. 
 
 Recall from p.~189 of~\cite{Ba74} that for $n\geq 3$ there is an exact sequence
-\begin{equation} \label{eq:Bass-ES} \xymatrix{1 \ar[r] & \mu_2(R) \ar[r] & \widetilde{P}_n(R) \ar[r] & P_n(R) \ar[r] & 1,}
-\end{equation}
+\begin{equation}\label{eq:Bass-ES} \begin{tikzcd} 1 \arrow{r} & \mu_2(R) \arrow{r} & \widetilde{P}_n(R) \arrow{r} & P_n(R) \arrow{r} & 1, \end{tikzcd} \end{equation}
 in which the group $\mu_2(R) = \{ a \in R^\times \mid a^2 = 1 \}$ is a central subgroup of $\widetilde{P}_n(R)$.
 Now by~\cite[\S~7(v)]{St67} the group $\KO_2(2n, R) = \Ker(S_n \to G_n)$ is also central in $S_n$.
 Thus, we see that $S_n$ is a universal central extension of both $P_n$ and $\widetilde{P}_n$ for $n\geq 5$.
@@ -309,7 +313,7 @@ Thus, we see that $S_n$ is a universal central extension of both $P_n$ and $\wid
 We have checked that both triples $(G_n, P_n, S_n)$ and $(\widetilde{G}_n, \widetilde{P}_n, S_n)$ satisfy the requirements~\ref{req:left-exact}--\ref{req:uce} for $n \geq 5$. In the sequel we use the notation $\KO_i(2n, R)$ as a shorthand for $\K_i^{G_n, P_n}(R)$. 
 
 Notice that the groups $\KO_2(2n, R)$ and $\K_2(\rD_n, R)$ are related via the exact sequence
-\[ \xymatrix{ 1 \ar[r] & \K_2(\rD_n, R) \ar[r] & \KO_2(2n, R) \ar[r] & \mu_2(R) \ar[r] & 1,} \]
+\[ \begin{tikzcd} 1 \arrow{r} & \K_2(\rD_n, R) \arrow{r} & \KO_2(2n, R) \arrow{r} & \mu_2(R) \arrow{r} & 1, \end{tikzcd} \]
 which is obtained from~\eqref{eq:Bass-ES} and the snake lemma (cf. also with~\cite[Corollary~4.3.5]{Ba74}).
 On the other hand, from~\cref{lem:lowerKgroups} it follows that $\KO_3(2n, R) \cong \mathrm{K}_3^{\widetilde{G}_n, \widetilde{P}_n}$.
 
@@ -330,7 +334,8 @@ We refer the reader to~\cite{Ka80} for the definition and properties of the grou
 
 The following result, which is a special case of~\cite[Theorem~9.13]{Sch16} of M.~Schlichting, plays a key role in the proof of~\cref{thm41}.
 \begin{externaltheorem}[Bass Fundamental Theorem]\label{bass-ft} Suppose that $R$ is a regular ring such that $2 \in R^\times$, 
-then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups \[ \xymatrix{ 0 \ar[r] & \GW_i^{[k]}(R) \ar[r] & \GW_i^{[k]}(R[X, X^{-1}]) \ar[r]  & \GW_{i-1}^{[k-1]}(R) \ar[r] & 0.} \] \end{externaltheorem}
+then for any $i\geq 1$, $k\in \ZZ/4\ZZ$ there is a natural split exact sequence of abelian groups 
+\[ \begin{tikzcd} 0 \arrow{r} & \GW_i^{[k]}(R) \arrow{r} & \GW_i^{[k]}(R[X, X^{-1}]) \arrow{r} & \GW_{i-1}^{[k-1]}(R) \arrow{r} & 0. \end{tikzcd} \] \end{externaltheorem}
 We will need only the special case $k=0$ of the above theorem, in which it turns into an earlier result of J.~Hornbostel, see~\cite[Corollary~5.3]{Ho05}.
 
 For the rest of this section let us fix the following notation.
@@ -344,9 +349,8 @@ Then the canonical homomorphism $f\colon C(\rD_\ell, B, I) \to C(\rD_\ell, R, I)
 \begin{proof}
 Writing the starting portion of the homology long exact sequence for the homomorphism $\St(\rD_\ell, R) \to \St(\rD_\ell, R/I)$ 
 and using the isomorphisms of~\cref{lem:relativeH3} and~\cref{lem:lowerKgroups} we obtain the following commutative diagram:
-\begin{equation*}\xymatrix{
- \KO_3(2\ell, B) \ar[r] \ar[d] & \KO_3(2\ell, k[X^{-1}]) \ar[d]_{f'} \ar@{->>}[r] & \ar[d]_{f} C(\rD_\ell, B, I) \\
- \KO_3(2\ell, R) \ar[r]        & \KO_3(2\ell, k[X, X^{-1}]) \ar@{->>}[r]        & C(\rD_\ell, R, I).}\end{equation*}
+\[\begin{tikzcd} \KO_3(2\ell, B) \arrow{r} \arrow{d} & \KO_3(2\ell, k[X^{-1}]) \arrow{d}[swap]{f'} \ar[r, twoheadrightarrow] & \ar{d}[swap]{f} C(\rD_\ell, B, I) \\
+ \KO_3(2\ell, R) \arrow{r} & \KO_3(2\ell, k[X, X^{-1}]) \ar[r, twoheadrightarrow] & C(\rD_\ell, R, I). \end{tikzcd} \]
 By~\cref{Panin-stability} the homomorphism $f'$ can be identified with the canonical map $\GW_3^{[0]}(k[X^{-1}]) \to \GW_3^{[0]}(k[X, X^{-1}])$.
 By~\cref{bass-ft} $\GW_3^{[0]}(k[X, X^{-1}]) \cong \GW_3^{[0]}(k) \oplus \GW_2^{[3]}(k),$
 but since the group $\GW_2^{[3]}(k)$ is trivial by~\cite[Lemma~2.2]{FRS12}, the homomorphism $f'$ (and hence $f$) is surjective.
@@ -355,9 +359,7 @@ but since the group $\GW_2^{[3]}(k)$ is trivial by~\cite[Lemma~2.2]{FRS12}, the 
 We will also need the following property of relative Steinberg groups which is a special case of a more general property discussed in~\cite[\S~2]{LS17}.
 \begin{lemma}\label{lem:lemma32} Let $\Phi$ be a simply-laced root system of rank $\geq 3$,
 Consider the following commutative square of canonical homomorphisms.
-\begin{equation*} \xymatrix{
-    \St(\Phi, B, I) \ar[r]^{\mu_B} \ar[d] & \St(\Phi, B) \ar[d] \\
-    \St(\Phi, R, I) \ar[r]^{\mu_R} \ar@{-->}^t[ur] & \St(\Phi, R) } \end{equation*}
+\[\begin{tikzcd} \St(\Phi, B, I) \arrow{r}{\mu_B} \arrow{d} & \St(\Phi, B) \arrow{d} \\ \St(\Phi, R, I) \arrow{r}{\mu_R} \ar[ur, "t", dashrightarrow] & \St(\Phi, R) \end{tikzcd} \]
 Then there exists a diagonal homomorphism $t$ which makes the diagram commute.   
 \end{lemma} 
 \begin{proof}
@@ -367,15 +369,10 @@ Then there exists a diagonal homomorphism $t$ which makes the diagram commute.
  In the general case the assertion of the lemma is a corollary of amalgamation theorem~\cite[Theorem~9]{S15}.
 \end{proof}
 
-\begin{externaltheorem} \label{thm41} Suppose that $2 \in A^\times$. Then for $\ell \geq 7$ the canonical homomorphism $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective. \end{externaltheorem}
+\begin{theorem} \label{thm41} Suppose that $2 \in A^\times$. Then for $\ell \geq 7$ the canonical homomorphism $\St(\rD_\ell, B) \to \St(\rD_\ell, R)$ is injective. \end{theorem}
 \begin{proof}
  Consider the following commutative diagram with exact rows obtained from~\eqref{LodayRelativization}:
-\begin{equation*} \xymatrix{
- C(\rD_\ell, B, I) \ar[r]^{\lambda_B} \ar@{->>}[d]_{f} & \St(\rD_\ell, B, I) \ar[r]^{\mu_B} \ar[d]_{g} &
- \St(\rD_\ell, B) \ar[r]^{\nu_B} \ar[d]_{h} & \St(\rD_\ell, k[X^{-1}]) \ar[d]_{i} \\
- C(\rD_\ell, R, I) \ar[r]^{\lambda_R}         & \St(\rD_\ell, R, I) \ar[r]^{\mu_R} \ar@{-->}[ur]^{t}&
- \St(\rD_\ell, R) \ar[r]^-{\nu_R}        & \St(\rD_\ell, k[X, X^{-1}]).
-}\end{equation*}
+\[\begin{tikzcd} C(\rD_\ell, B, I) \arrow{r}{\lambda_B} \arrow[d, swap, "f", twoheadrightarrow] & \St(\rD_\ell, B, I) \arrow{r}{\mu_B} \arrow{d}[swap]{g} & \St(\rD_\ell, B) \arrow{r}{\nu_B} \arrow{d}[swap]{h} & \St(\rD_\ell, k[X^{-1}]) \arrow{d}[swap]{i} \\ C(\rD_\ell, R, I) \arrow{r}{\lambda_R} & \St(\rD_\ell, R, I) \arrow{r}{\mu_R} \arrow[ur, "t", dashrightarrow] & \St(\rD_\ell, R) \arrow{r}{\nu_R} & \St(\rD_\ell, k[X, X^{-1}]).\end{tikzcd}\]
 The lifting $t$ in the above diagram is obtained from~\cref{lem:lemma32}.
 Let $a$ be an element of $\Ker(h)$. Since $i$ is injective by~\cref{field-injectivity}, the element $a$
  also lies in $\Ker(\nu_B)$ and hence comes from some $b \in \St(\rD_\ell, B, I)$ via $\mu_B$.
@@ -413,14 +410,15 @@ The elements $z_\alpha(s, \xi)$ satisfy the following relations for all $\xi, \e
 \item\label{Z4} $z_{\beta}(s, \xi) ^ {x_{\alpha}(\eta)} = z_{\beta}(s, \xi)\ \text{if}\ \alpha\perp\beta$;
 \item\label{Z5} If $\alpha+\beta\in\Phi$ then
 \begin{multline*} z_{\alpha+\beta}(s\eta, \xi) = x_\alpha(\epsilon s)\cdot x_{-\beta}(-s\xi) \cdot x_{\beta}(s\xi\eta^2) \cdot x_{\alpha+\beta}(s \eta) \cdot \\ \cdot z_\alpha(-\epsilon s, -\epsilon \xi\eta) \cdot
-  x_{-\alpha}(-\epsilon s\xi^2\eta^2) \cdot x_{-\alpha-\beta}(- s \xi^2 \eta) \cdot z_{-\beta}(s\xi, -\eta),\text{ where $\epsilon = N_{\alpha,\beta}$.}\end{multline*}
+  x_{-\alpha}(-\epsilon s\xi^2\eta^2) \cdot x_{-\alpha-\beta}(- s \xi^2 \eta) \cdot z_{-\beta}(s\xi, -\eta),\end{multline*}
+ where $\epsilon = N_{\alpha,\beta}$.
 \end{enumerate} \end{lemma}
 \begin{proof}
 The first four assertions are contained in~\cite[Lemma~9]{S15}, so it remains to verify the last assertion.
 Notice that by~\eqref{Chevalley-CCF2} the elements $x_\beta(\eta)$ and $x_{-\alpha}(\epsilon s \eta)$ commute with each other, therefore from~\eqref{Chevalley-CCF1}--\eqref{Chevalley-CCF2} we obtain that
 \begin{multline} \nonumber
-  z_{\alpha+\beta}(s\eta, \xi) = [x_\alpha(\epsilon s)^{x_{-\alpha-\beta}(\xi)}, x_\beta(\eta)^{x_{-\alpha-\beta}(\xi)}] =
-  [x_\alpha(\epsilon s) x_{-\beta}(-s\xi), x_{\beta}(\eta) x_{-\alpha}(\epsilon \xi\eta)] = \\ 
+  z_{\alpha+\beta}(s\eta, \xi) = [x_\alpha(\epsilon s)^{x_{-\alpha-\beta}(\xi)}, x_\beta(\eta)^{x_{-\alpha-\beta}(\xi)}] = \\
+  = [x_\alpha(\epsilon s) x_{-\beta}(-s\xi), x_{\beta}(\eta) x_{-\alpha}(\epsilon \xi\eta)] = \\ 
   = x_\alpha(\epsilon s) \cdot x_{-\beta}(-s\xi) \cdot z_\alpha(-\epsilon s, -\epsilon \xi\eta)^{x_{\beta}(-\eta)} \cdot z_{-\beta}(s\xi, -\eta)^{x_{-\alpha}(-\epsilon \xi\eta)},
 \end{multline} 
 and the required assertion follows from~\ref{Z2}.
@@ -436,7 +434,7 @@ Recall that a closed root subset $S$ is called {\it parabolic} (resp. {\it symme
 The {\it special part} $\Sigma_S$ of a parabolic subset $S$, by definition, consists of all $\alpha \in S$ such that $-\alpha \not\in S$.
 \end{df}
 
-For a subset of roots $U \subseteq \Phi$ we denote by $\mathcal{Z}(U, R, I)$ the subset of roots consisting of elements $x_\alpha(s)$, $s \in I$, $\alpha \in \Phi$ and $z_\alpha(s, \xi)$, $\alpha \in U$, $s\in I$, $\xi \in R$.
+For a subset of roots $U \subseteq \Phi$ we denote by $\mathcal{Z}(U, R, I)$ the set consisting of elements $x_\alpha(s)$, $s \in I$, $\alpha \in \Phi$ and $z_\alpha(s, \xi)$, $\alpha \in U$, $s\in I$, $\xi \in R$.
 \begin{externaltheorem}[Stepanov] \label{thm:Stepanov} 
 Let $S \subseteq \Phi$ be a parabolic subset of $\Phi$. Then the group $\overline{\St}(\Phi, R, I)$ is generated by the set $\mathcal{Z}(\Sigma_S, R, I)$.
  \end{externaltheorem} \begin{proof} See~\cite[Lemma~4]{S15}. \end{proof}
@@ -462,7 +460,7 @@ Notice that~\ref{C3} is an obvious consequence of~\eqref{Chevalley-CCF2}. Let us
  Now suppose that $\alpha - \beta \in \Phi$. We have that
 \begin{align*} \nonumber
 \begin{split}[[x_\beta(s),\ x_{-\beta}(t)],\ x_{\alpha}(\xi)] = {}^{x_\beta(s)}\!\bigl( {}^{x_{-\beta}(t)}[x_\beta(-s),\ [x_{-\beta}(-t),\ x_{\alpha}(\xi)]] \cdot \hspace{50pt} \\ \cdot {}^{x_{\alpha}(\xi)}[x_{-\beta}(t),\ [ x_{\alpha}(-\xi),\ x_\beta(-s)]] \bigr)^{} & \text{ by~\eqref{HW-variant}}\end{split} \\
-= {}^{x_\beta(s) \cdot x_{-\beta}(t)}x_{\alpha}(-N_{\beta, \alpha-\beta} N_{\alpha,-\beta} \cdot s t \xi) = {}^{ x_\beta(s) \cdot x_{-\beta}(t)}x_{\alpha}(s t \xi) & \text{ by~\eqref{Chevalley-CCF1},\eqref{Chevalley-CCF2}}\\
+= {}^{x_\beta(s) \cdot x_{-\beta}(t)}x_{\alpha}\left(-N_{\beta, \alpha-\beta} \cdot N_{\alpha,-\beta} \cdot s t \xi\right) = {}^{ x_\beta(s) \cdot x_{-\beta}(t)}x_{\alpha}(s t \xi) & \text{ by~\eqref{Chevalley-CCF1},\eqref{Chevalley-CCF2}}\\
 = x_{\alpha}(st\xi) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot st^2\xi)^{x_\beta(-s)} = x_{\alpha}(st\xi + s^2t^2 \xi) \cdot x_{\alpha-\beta}(N_{-\alpha,\beta}\cdot st^2\xi) & \text{ by~\eqref{Chevalley-CCF1}.} \end{align*}
 Finally, let us prove~\ref{C4}. Suppose that $\alpha + \beta \in \Phi$. The required identity can be obtained as follows:
 \begin{align*}
@@ -474,11 +472,10 @@ Finally, let us prove~\ref{C4}. Suppose that $\alpha + \beta \in \Phi$. The requ
 = \left({}^{x_{\alpha+\beta}(s)}[x_{\beta}(st),\ x_{-\beta}(\xi)] \cdot {}^{x_{-\beta}(\xi)}[x_{\alpha}(\epsilon s\xi),\ x_{-\alpha}(\epsilon t)]\right)^{x_{-\alpha}(\epsilon t)} &\ \text{by~\eqref{Chevalley-CCF1}}\\
 = \left({}^ {x_{\alpha+\beta}(s)}[x_{\beta}(st),\ x_{-\beta}(\xi)] \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha}(\epsilon t) \cdot x_{-\alpha-\beta}(t\xi)]\right)^{x_{-\alpha}(\epsilon t)} &\ \text{by~\eqref{Chevalley-CCF1},\eqref{Chevalley-CCF2}}\\
 = [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot [x_{-\alpha}(-\epsilon t),\ x_{\alpha}(\epsilon s\xi)] \cdot [x_{\alpha}(\epsilon s\xi),\ x_{-\alpha-\beta}(t\xi)] &\ \text{by~\eqref{rel43}}\\
-= [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2)  &\ \text{by~\eqref{Chevalley-CCF1}}. \qedhere
-\end{align*}
+= [x_{\beta}(st),\ x_{-\beta}(\xi)] ^ {x_{\alpha+\beta}(-s) x_{-\alpha}(\epsilon t)} \cdot c_{\alpha}(\epsilon s\xi, -\epsilon t)^{-1} \cdot x_{-\beta}(-st\xi^2)  &\ \text{by~\eqref{Chevalley-CCF1}}. \qedhere \end{align*}
 \end{proof}
 
-\subsection{Computation of the kernel of the map of evaluation at $0$.}\label{sec:computationOfK}
+\subsection{Computation of the kernel of the map of evaluation at 0}\label{sec:computationOfK}
 Let $A$ be a local ring with maximal ideal $M$.
 The aim of this subsection is to describe a generating set for the kernel of the map $ev_{X=0}^*\colon\overline{\St}(\Phi, A[X], M[X]) \to \overline{\St}(\Phi, A, M)$
 induced by the ring homomorphism of evaluation at $0$. We denote this kernel by $K(A[X], M[X])$.
@@ -497,18 +494,19 @@ Since $ev_{X=0}^*$ admits a section, we can consider $\overline{\St}(\Phi, A, M)
 \begin{proof} Let us fix $g(X) \in K(A[X], M[X])$. By~\cref{thm:Tits} we can write it as $\prod_i z_{\alpha_i}(f_i(X), \xi_i(X))$ for some $f_i(X) = f_i(0) + Xf_i'(X) \in M[X]$, $\xi_i(X) = \xi_i(0) + X\xi_i'(X) \in A[X]$.
  It is clear that modulo $\overline{\St}(\Phi, A[X], XM[X])$ the element $g(X)$ is congruent to $g_1(X) = \prod_i z_{\alpha_i}(f_i(0), \xi_i(X)).$ 
  
- Now each factor $z_{\alpha_i}(f_i(0), \xi_i(X))$ can be written as follows:
+ Now each factor $z_{\alpha_i}(f_i(0), \xi_i(X))$ can be written as follows: 
+
  \[z_{\alpha_i}(f_i(0), \xi_i(0))^{x_{-\alpha_i}(X\xi'_i(X))} = [x_{-\alpha_i}(-X\xi'_i(X)),\ z_{\alpha_i}(f_i(0), \xi_i(0))] \cdot z_{\alpha_i}(f_i(0), \xi_i(0)).\]
  It follows from the formula $[g,\ h]^{h_1} = [h_1^{-1},\ g][g,\ h_1^{-1}h]$ that the subgroup \[C_0 := \left[\St(\Phi, XA[X]),\ \overline{\St}(\Phi, A, M)\right]\] is normalized by $\overline{\St}(\Phi, A, M)$. Thus, we conclude that $g_1(X)$ is congruent to $\prod_i z_{\alpha_i}(f_i(0), \xi_i(0)) = g(0) = 1$ modulo $C_0$,
  which implies the assertion. \qedhere \end{proof}
 
 Let $S \subseteq \Phi$ be a special root subset (see~\cref{df:root-subsets}). We denote by $U(S, M)$ the subgroup of $\St(\Phi, A)$ generated by root subgroups $X_\alpha(M)$ corresponding to all $\alpha \in S$. We denote by $\Phi^+$ (resp. $\Phi^-$) the subsets of positive (resp. negative) roots of $\Phi$ with respect to some chosen order on $\Phi$.
  
-\begin{externaltheorem}[Stein] \label{thm:Stein} One has $\overline{\St}(\Phi, A, M) = U(\Phi^+, M) \cdot \myol{H}(\Phi, A, M) \cdot U(\Phi^-, M).$ \end{externaltheorem} \begin{proof} See~\cite[Theorem~2.4]{Ste73}. \end{proof}
+\begin{externaltheorem}[Stein] \label{thm:Stein} One has \[\overline{\St}(\Phi, A, M) = U(\Phi^+, M) \cdot \myol{H}(\Phi, A, M) \cdot U(\Phi^-, M).\] \end{externaltheorem} \begin{proof} See~\cite[Theorem~2.4]{Ste73}. \end{proof}
 
 \begin{prop} \label{Kgen} The subgroup $K(A[X], M[X])$ is generated as an abstract group by the subgroup $\overline{\St}(\Phi, A[X], XM[X])$ and
  the elements $[x_\alpha(m), x_{-\alpha}(X\xi)]$, $m \in M$, $\xi \in A[X]$, $\alpha \in \Phi$. \end{prop}
-\begin{proof} From~\eqref{eq:conj-h-x} we obtain that $\myol{H}(\Phi, A, M)$ normalizes both $\St(\Phi, XA[X])$ and $\St(\Phi, M)$ and, moreover, that $[\myol{H}(\Phi, A, M),\ \St(\Phi, XA[X])] \subseteq \overline{\St}(\Phi, A[X], XM[X])$. 
+\begin{proof} From~\eqref{eq:conj-h-x} we obtain that $\myol{H}(\Phi, A, M)$ normalizes both $\St(\Phi, XA[X])$ and $\St(\Phi, M)$ and, moreover, that \[[\myol{H}(\Phi, A, M),\ \St(\Phi, XA[X])] \subseteq \overline{\St}(\Phi, A[X], XM[X]).\]
 
 Denote by $C_1$ the commutator subgroup $[\St(\Phi, XA[X]),\ \St(\Phi, M)]$.
 It is clear that for $g \in \St(\Phi, XA[X])$, $h \in \myol{H}(\Phi, A, M)$, $u^+ \in U(\Phi^+, M)$, $u^- \in U(\Phi^-, M)$ one has:
@@ -524,7 +522,7 @@ Clearly, the set consisting of $x_\beta(\xi)$, $\xi \in A[X]$, $\beta \neq \pm \
  and in this case the required inclusions follow from~\ref{C1}--\ref{C3} of~\cref{Crels}. \end{proof}
 
 \begin{corollary} \label{Kgen-strong} For a local pair $(A, M)$ and arbitrary fixed root $\gamma$ of an irreducible simply-laced root system $\Phi$ the subgroup $K(A[X], M[X])$ is generated as a group by $\overline{\St}(\Phi, A[X], XM[X])$ and the elements $c_{\gamma}(m, X\eta)$, where $m \in M$, $\eta \in A[X]$. \end{corollary}
-\begin{proof} Substituting $\xi = 1$, $s = m$, $t = X\eta$ into~\cref{Crels}\ref{C4} we obtain that modulo 
+\begin{proof} Substituting $\xi = 1$, $s = m$, $t = X\eta$ into~\cref{Crels}\ref{C4} we obtain that modulo the subgroup
  $\overline{\St}(\Phi, A[X], XM[X])$ the element $c_{\alpha + \beta}(m, X\eta)$ is equivalent to $c_{\alpha}(-\epsilon m, -\epsilon X \eta)^{-1}$, $\epsilon = N_{\alpha, \beta}$. The assertion of the corollary now easily follows from the irreducibility of $\Phi$. \end{proof}   
 
 \section{Proof of the main result}
@@ -534,7 +532,7 @@ To be able to write an explicit formula for this action we need two major ingred
 
 Throughout this section we use the following notations and conventions:
 \begin{itemize}
- \item $A$ denotes an arbitarary commutative ring and $M$ is an ideal of $A$. Starting from subsection~\ref{sec:Pa0-basic} we also assume that $A$ is local and $M$ is the maximal ideal of $A$.
+ \item $A$ denotes an arbitrary commutative ring and $M$ is an ideal of $A$. Starting from subsection~\ref{sec:Pa0-basic} we also assume that $A$ is local and $M$ is the maximal ideal of $A$.
  \item We denote by $R$ the Laurent polynomial ring $A[X, X^{-1}]$. We set $t = X^{-1}$, so that $R = A[X, X^{-1}] = A[t, t^{-1}]$.
  \item $B$ denotes the subring $A[t] + M[t^{-1}] = A[X^{-1}] + M[X]$ of $R$.
  \item $I$ denotes the ideal $M[X, X^{-1}]$ of $R$ (it is clear that $I$ is also an ideal of $B$).
@@ -554,8 +552,8 @@ We denote by $\St^h(\Phi, B)$ the group given by the set of all homogeneous Stei
 &\,[x_{\alpha}(a),\,x_{\beta}(b)]= 1,                                              & \alpha \perp \beta.\ \tag{R$3^\bot_{d,e}$}
 \end{align}
 \begin{rem}
-Notice that in the above presentation we omitted the relations $[x_\alpha(a), x_\alpha(b)] = 1$ but it easy to see that they follow from~$\text{R2}_{e,0}$, \eqref{eq:H1iii} and $\text{R3}_{d,e}^\angle$. Indeed, after choosing some root $\beta\in \Phi$ such that $\alpha+\beta\in\Phi$ and setting $\epsilon = N_{\alpha+\beta,-\beta}$ we have that \[ [x_\alpha(a),\ x_\alpha(b)] = [x_\alpha(a),\ [x_{\alpha+\beta}(b),\ x_{-\beta}(\epsilon)]] = [[x_\alpha(a),\ x_{\alpha+\beta}(b)],\ {}^{x_{\alpha+\beta}(b)}\!x_{-\beta}(\epsilon)] = 1. \]
-\end{rem}
+Notice that in the above presentation we omitted the relations $[x_\alpha(a), x_\alpha(b)] = 1$ but it easy to see that they follow from~$\text{R2}_{e,0}$, \eqref{eq:H1iii} and $\text{R3}_{d,e}^\angle$. Indeed, after choosing some root $\beta\in \Phi$ such that $\alpha+\beta\in\Phi$ and setting $\epsilon = N_{\alpha+\beta,-\beta}$ we obtain that 
+\[ [x_\alpha(a),\ x_\alpha(b)] = [x_\alpha(a),\ [x_{\alpha+\beta}(b),\ x_{-\beta}(\epsilon)]] = [[x_\alpha(a),\ x_{\alpha+\beta}(b)],\ {}^{x_{\alpha+\beta}(b)}\!x_{-\beta}(\epsilon)] = 1. \] \end{rem}
 
 It is not hard to show that the map $\St^h(\Phi, B) \to \St(\Phi, B)$ induced by the obvious embedding of generators is an isomorphism. Thus, $\St^h(\Phi, B)$ can be considered as an alternative presentation of $\St(\Phi, B)$ by homogeneous generators.
 
@@ -577,8 +575,8 @@ Let us fix some relation $R = [x_\alpha(at^d),\ x_\gamma(bt^e)] = 1$ of type $\t
 Without loss of generality we may assume $e \geq d$ and $e > 0$. We need to consider two cases.
 \begin{enumerate}
 \item In the case $0 < d \leq e \leq n$ the relation $R$ is a consequence of some relation of type $\text{R3}^\bot_{0,e-d}$:
-\begin{align} x_{\alpha+\beta+\gamma}(-\epsilon_1 \epsilon_2 \cdot abt^e) = 
-[x_{\beta+\gamma}(\epsilon_1 \cdot bt^{e-d}), [x_{-\beta}(t^d), x_{\alpha+\beta}(-\delta_1 \cdot a)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$} \label{first-computation} \\ 
+\begin{align} x_{\alpha+\beta+\gamma}(-\epsilon_1 \epsilon_2 \cdot abt^e) = \hspace{4cm} \label{first-computation} \\ =
+[x_{\beta+\gamma}(\epsilon_1 \cdot bt^{e-d}), [x_{-\beta}(t^d), x_{\alpha+\beta}(-\delta_1 \cdot a)] ] & \text{ by $\text{R2}_{d,0}$, $\text{R2}_{d, e-d}$} \nonumber \\ 
  = [[x_{\beta+\gamma}(\epsilon_1 \cdot bt^{e-d}), x_{-\beta}(t^d)], {}^{x_{-\beta}(t^d)} x_{\alpha+\beta}(- \delta_1 \cdot a)] & \text{ by~\eqref{eq:H1iii}, $\text{R3}^\bot_{0,e-d}$} \nonumber \\ 
  = {}^{x_{-\beta}(t^d)} [x_{\gamma}(- bt^e), x_{\alpha+\beta}(-\delta_1 \cdot a)] & \text{ by $\text{R2}_{e-d,d}$, $\text{R3}^\angle_{d,e}$} \nonumber \\ 
  = {}^{x_{-\beta}(t^d)} [x_{\beta + \gamma}(\epsilon_1 \cdot bt^{e-d}), x_{\alpha}(at^d)] & \text{ by $\text{R2}_{e,0}$, $\text{R2}_{e-d,d}$} \nonumber \\ 
@@ -588,32 +586,30 @@ Without loss of generality we may assume $e \geq d$ and $e > 0$. We need to cons
  where $\epsilon_1 = N_{\beta,\gamma}$, $\epsilon_2 = N_{\alpha,\beta+\gamma}$, $\delta_1 = N_{\alpha,\beta}$ and in the 4th equality we use~\eqref{eq:cocycle}.
   
 \item In the case $d \leq 0 \leq e \leq n$ the relation $R$ is a consequence of some relation of type $\text{R3}^\bot_{1,d+e-1}$:
-\begin{align*} [x_\alpha(at^d), x_{\gamma}(bt^{e})] = [x_\alpha(at^d), [x_{\beta+\gamma}(b t^{e-1}), x_{-\beta}(-\epsilon_1 t)]] & \text{ by~$\text{R2}_{e-1,1}$ } \\
+\begin{align*} [x_\alpha(at^d), x_{\gamma}(bt^{e})] = \hspace{4cm} \\ = [x_\alpha(at^d), [x_{\beta+\gamma}(b t^{e-1}), x_{-\beta}(-\epsilon_1 t)]] & \text{ by~$\text{R2}_{e-1,1}$ } \\
  = [[x_\alpha(at^d), x_{\beta+\gamma}(bt^{e-1})], {}^{x_{\beta+\gamma}(bt^{e-1})}\!x_{-\beta}(-\epsilon_1 t)] & \text{ by \eqref{eq:H1iii} and $\text{R3}^\angle_{d,1}$ } \\
  = {}^{x_{\beta+\gamma}(bt^{e-1})}\![x_{\alpha+\beta+\gamma}(\epsilon_2abt^{d+e-1}), x_{-\beta}(-\epsilon_1 t)] & \text{ by $\text{R2}_{d,e-1}$ and $\text{R3}^\angle_{e-1,d+e-1}$  } \\
- = 1 & \text{ by $\text{R3}^\bot_{1,d+e-1}$,} \end{align*} where $\epsilon_1 = N_{\beta,\gamma}$, $\epsilon_2 = N_{\alpha,\beta+\gamma}$.
- \end{enumerate}                                                           
+ = 1 & \text{ by $\text{R3}^\bot_{1,d+e-1}$,} \end{align*}
+where $\epsilon_1 = N_{\beta,\gamma}$, $\epsilon_2 = N_{\alpha,\beta+\gamma}$.
+\end{enumerate}                                                           
 
 The assertion of the lemma now follows from the above observation by induction on the degree of $R$ and the fact that by~\eqref{first-computation} the relation $\text{R3}^\bot_{1,1}$ is a consequence of $\text{R3}^\bot_{0,0}$.
 \end{proof}
 
 The following proposition is the main result of this subsection and also a direct generalization of~\cite[Lemma~3.3]{Tu83}.
-\begin{prop} \label{lemma33} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the homomorphism $i_n\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$, induced by the natural embedding of generators, is an isomorphism. In particular, the obvious homomorphism $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{prop}
+\begin{prop} \label{lemma33} For $\Phi=\rA_{\geq 4}, \rD_{\geq 5}, \rE_{6,7,8}$ and $n \geq 1$ the homomorphism $i_n\colon \St^{\leq n}(\Phi, B) \to \St^{\leq n+1}(\Phi, B)$, induced by the natural embedding of generators, is an isomorphism. Consequently, the obvious homomorphism $\St^{\leq 1}(\Phi, B) \to \St(\Phi, B)$ is an isomorphism. \end{prop}
 \begin{proof}
  We need to construct a homomorphism $j_n$ which would be the inverse of $i_n$. 
  We start with a homomorphism $\widetilde{j}_n^\Phi \colon F\langle \mathcal{X}^\Phi_{\leq n+1} \rangle \to \St^{\leq n}(\Phi, B)$ defined via
  \[ \widetilde{j}^{\Phi}_n(x_\alpha(at^k)) = \begin{cases} x_\alpha(at^k), & k\leq n; \\
       [x_{\alpha - \beta} (N_{\alpha-\beta, \beta} \cdot at^{k-1}), x_{\beta}(t)], & k = n+1, \end{cases} \]
- where $\beta$ is any root of $\Phi$ forming a sharp angle with $\alpha$.
+ where $\beta$ is any root of $\Phi$ forming an acute angle with $\alpha$.
  A standard argument, cf. \cite[Proposition~1.1]{Re75} or~\cite[Proposition~3.2.2]{RS76}, shows that $\widetilde{j}^\Phi_n$ does not depend on the choice of $\beta$.
   
  Set $\mathcal{R}^\Phi_{n+1} = \mathcal{R}^\Phi_{\leq n+1} \setminus \mathcal{R}^\Phi_{\leq n}$. It suffices to verify that the image of every relation $R \in \mathcal{R}^\Phi_{n+1}$ under $\widetilde{j}^\Phi_n$ is a trivial element of $\St^{\leq n}(\Phi, B)$. In the special case $\Phi=\rA_{\geq 4}$ this has already been demonstrated by Tulenbaev in~\cite[Lemma~3.3]{Tu83}, so in this case the proof of the proposition is complete. We will deduce the assertion in the remaining cases $\Phi=\rD_\ell,\rE_\ell$ from the special case $\Phi=\rA_4$ of Tulenbaev's result.
  
  Let $R$ be a relation from $\mathcal{R}^\Phi_{n+1}$. By~\cref{superfluous-relations} we may assume that $R$ is not of type $\text{R3}^\bot$, therefore the roots $\alpha, \beta$ appearing in $R$ are contained in a root subsystem of $\Phi$ of type $\rA_2$. Our assumptions on $\Phi$ guarantee that there exists some root subsystem $\Psi$ of type $\rA_4$ containing $\alpha$ and $\beta$. Consider the following commutative diagram in which the vertical arrows are induced by the embedding $\Psi\subseteq\Phi$. 
-  \begin{equation} \nonumber \xymatrix{
- F(\mathcal{X}_{\leq n+1}^\Psi) \ar[r]^{j_n^\Psi} \ar[d] & \St^{\leq n}(\Psi, B) \ar[d] \\
- F(\mathcal{X}_{\leq n+1}^\Phi) \ar[r]^{j_n^\Phi} & \St^{\leq n}(\Phi, B) }
- \end{equation}
+ \[\begin{tikzcd} F(\mathcal{X}_{\leq n+1}^\Psi) \arrow{r}{j_n^\Psi} \arrow{d} & \St^{\leq n}(\Psi, B) \arrow{d} \\ F(\mathcal{X}_{\leq n+1}^\Phi) \arrow{r}{j_n^\Phi} & \St^{\leq n}(\Phi, B) \end{tikzcd} \]  
 The relation $R$ lies in the image of the left arrow, therefore it comes from some relation $R' \in \mathcal{R}^\Psi_{n+1}$. The image of $R'$ in $\St^{\leq n}(\Psi, B)$ under $j_n^\Psi$ is trivial by Tulenbaev's result. But this implies that the image of $R$ under $\widetilde{j}_n^\Phi$ is also trivial and hence that $\widetilde{j}_n^\Phi$ gives rise to the desired map $j_n$.
 \end{proof}
 
@@ -626,7 +622,7 @@ The relation $R$ lies in the image of the left arrow, therefore it comes from so
  In the cases $\Phi = \rA_3, \rD_4$, $M \neq A$ it is still possible to prove the injectivity of $i_n$ starting from $n\geq 2$ using a variation of the argument of Rehmann--Soul{\'e} (cf. the lower bound for $m$ in 3.2.1 of~\cite{RS76}). However, apparently, it is not possible to establish the injectivity of $i_1$ in the specified cases using arguments similar to~\cite{RS76}.
 \end{rem}
 
-\subsection{The subgroups \texorpdfstring{$P_\alpha(0)$}{Pa(0)}, \texorpdfstring{$P_\alpha(*)$}{Pa(*)}, \texorpdfstring{$K(\alpha, \beta)$}{K(a,b)} and their properties.} \label{sec:Pa0-basic}
+\subsection{The subgroups \texorpdfstring{$P_\alpha(0)$}{Pa(0)}, \texorpdfstring{$P_\alpha(*)$}{Pa(*)}, \texorpdfstring{$K(\alpha, \beta)$}{K(a,b)} and their properties} \label{sec:Pa0-basic}
 Let $\Phi$ be a root system and $\alpha$ be an element of $\Phi$.
 Consider the following subsets of $\Phi$:
 \begin{align} Z_+(\alpha) & = \{ \beta \in \Phi \mid \langle \alpha, \beta \rangle > 0 \}, \\
@@ -666,7 +662,7 @@ In the sequel we continue using letters $f$ and $\xi$ to denote elements of $M[X
 \begin{rem} \label{rem:recognition} From the above definition it follows that an element $z_\gamma(Xf, \xi)$ is a generator of type P1 provided $\gamma\neq\pm\alpha$ and $\gamma \not \perp \alpha$. Since $x_\gamma(Xf) = z_\gamma(Xf, 0)$, it follows that $x_{\gamma}(Xf)$ is also a generator of type P1. In particular, if $\beta$ is such that $\alpha + \beta \in \Phi$ then $x_{\pm(\alpha+\beta)}(Xf)$ is a generator of type P1 and $x_{\alpha+\beta}(f)$ is a generator of type P2. \end{rem}
 
 \begin{lemma}\label{P0_normal} The subgroup $\widetilde{P}_{\alpha, M}(0)$ is normal in $\widetilde{P}_{\alpha, M}(*)$. Moreover, there is a short exact sequence of groups, which is split by the map $m \mapsto x_{-\alpha}(mX)$ (we denote by $(M, +)$ the additive group of the ideal $M$):
-\[\xymatrix{1 \ar[r] & \widetilde{P}_{\alpha,M}(0) \ar[r] & \widetilde{P}_{\alpha,M}(*) \ar@{->>}[r]^{p_\alpha} & (M, +) \ar@<5pt>@{-->}[l] \ar[r] & 1}.\] \end{lemma}
+\[\begin{tikzcd} 1 \arrow{r} & \widetilde{P}_{\alpha,M}(0) \arrow{r} & \widetilde{P}_{\alpha,M}(*) \ar[r, "p_\alpha", twoheadrightarrow] & (M, +) \arrow[l, dashrightarrow, shift left=2] \arrow{r} & 1. \end{tikzcd} \] \end{lemma}
 \begin{proof} We need to verify that the conjugate by $x_{-\alpha}(mX)$ of every generator $g$ of $\widetilde{P}_\alpha(0)$ listed in~\cref{defP0} belongs to $\widetilde{P}_\alpha(0)$.
 The assertion is obvious for the generators of type P3 and P4.
 
@@ -700,27 +696,28 @@ Then the subgroup $\widetilde{P}_{\alpha, M}(*)$ contains the subgroup $K(A[X], 
 \begin{rem} \label{Pstar-char} From the above lemma,~\eqref{eq:sd-decomp} and~\cref{rem:DS} it follows that the subgroup $\widetilde{P}_{\alpha, M}(*)$ admits decomposition $\widetilde{P}_{\alpha, M}(*) = Z_\alpha(A, M) \ltimes K(A[X], M[X]).$ \end{rem} 
 
 \begin{rem} \label{rem:palpha} It follows from~\cref{P0_normal} and~\cref{Pstar-large} that the value of the function $p_\alpha$ from the statement of~\cref{P0_normal} on an element $g\in K(A[X], M[X])$ can be computed via the following procedure. 
-Start with any presentation of $g$ as a product of elements $z_{\beta}(Xf, \xi)$ for $\beta \in \Phi$ and $c_\delta(f, X\xi)$ for some fixed $\delta\in Z_0(\alpha)$. 
+Start with any presentation of~$g$ as a product of elements $z_{\beta}(Xf, \xi)$ for $\beta \in \Phi$ and $c_\delta(f, X\xi)$ for some fixed $\delta\in Z_0(\alpha)$. 
 Now pick among these factors those that correspond to the root $\beta = -\alpha$ (i.\,e. pick all factors $z_{-\alpha}(Xf_i, \xi_i)$). 
 Now $p_\alpha(g)$ is precisely the sum of constant terms of the polynomials $f_i$. \end{rem}
 
 \begin{lemma} \label{P0-conj-invariant} Suppose $(A, M)$ is a local pair. Then for any $\beta \in Z(\alpha)$ and $b \in A$ the subgroups $\widetilde{P}_{\alpha, M}(0)$ and $\widetilde{P}_{\alpha, M}(*)$ are stable under conjugation by $x_\beta(b)$. \end{lemma}
 \begin{proof}
 Notice that both $Z_\alpha(A, M)$ and $K(A[X], M[X])$ are stable under the specified conjugation, which implies the assertion for $\widetilde{P}_{\alpha, M}(*)$. 
-To obtain the assertion for $\widetilde{P}_{\alpha, M}(0)$ consider the following commutative diagram. \[ \xymatrix{ \widetilde{P}_{\alpha, M}(0) \ar@{^{(}->}[r] \ar@{^{(}->}[d] & \widetilde{P}_{\alpha, M}(*) \ar@{->>}[r]^{p_{\alpha, M}} \ar@{^{(}->}[d] & (M, +) \ar@{^{(}->}[d] \\ \widetilde{P}_{\alpha, A}(0) \ar@{^{(}->}[r] & \widetilde{P}_{\alpha, A}(*) \ar@{->>}[r]^{p_{\alpha, A}} & (A, +)} \]
+To obtain the assertion for $\widetilde{P}_{\alpha, M}(0)$ consider the following commutative diagram:
+\[\begin{tikzcd} \widetilde{P}_{\alpha, M}(0) \arrow[r, hookrightarrow] \arrow[d, hookrightarrow] & \widetilde{P}_{\alpha, M}(*) \arrow[r, "p_{\alpha, M}", twoheadrightarrow] \ar[d, hookrightarrow] & (M, +) \ar[d, hookrightarrow] \\ \widetilde{P}_{\alpha, A}(0) \ar[r, hookrightarrow] & \widetilde{P}_{\alpha, A}(*) \ar[r, "p_{\alpha, A}", twoheadrightarrow] & (A, +). \end{tikzcd} \]
 Notice that $x_\beta(b) \in \widetilde{P}_{\alpha, A}(0)$, therefore for $g \in \widetilde{P}_{\alpha, M}(0)$ one has \[p_{\alpha, M}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(x_\beta(b) \cdot g \cdot x_\beta(-b)) = p_{\alpha, A}(g) = 0,\] which implies the assertion.\end{proof}
 
 For the rest of this subsection $M$ is the maximal ideal $A$.
-We denote by $\beta$ another fixed root of $\Phi$ forming a sharp angle with $\alpha$ (i.\,e. $\langle \alpha, \beta \rangle = 1$). We denote by $\Psi$ the subsystem of type $\rA_2$ generated by $\alpha$ and $\beta$.
+We denote by $\beta$ another fixed root of $\Phi$ forming an acute angle with $\alpha$ (i.\,e. $\langle \alpha, \beta \rangle = 1$). We denote by $\Psi$ the subsystem of type $\rA_2$ generated by $\alpha$ and $\beta$.
 \begin{df}\label{def:Kab} 
-Fix a root $\delta \in \Phi \setminus \Psi$. Define $\widetilde{K}(\alpha, \beta)$ as the subgroup of $\overline{\St}(\Phi, A[X], M[X])$ generated by the following 5 families of elements parametrized by $\xi \in A[X]$, $f\in M[X]$:
+Fix a root $\delta \in \Phi \setminus \Psi$. Define $\widetilde{K}(\alpha, \beta)$ as the subgroup of $\overline{\St}(\Phi, A[X], M[X])$ generated by the following 5 families of elements parameterized by $\xi \in A[X]$, $f\in M[X]$:
  \begin{enumerate}[label=(K\arabic*)]
   \item $z_\gamma(Xf, \xi)$, for all $\gamma \in \Phi \setminus \Psi$;
   \item $x_{-\alpha}(X^2f)$, $x_{-\beta}(X^2f)$;
   \item $x_{\alpha}(Xf)$, $x_\beta(Xf)$;
   \item $x_{\alpha-\beta}(Xf)$, $x_{\beta-\alpha}(Xf)$;
   \item $c_{\delta}(f, X\xi)$. \end{enumerate} \end{df}
-\begin{prop} \label{K-a-b} One has $K(A[X], M[X]) = \widetilde{K}(\alpha, \beta) \cdot X_{-\alpha}(M \cdot X) \cdot X_{-\beta}(M \cdot X)$. 
+\begin{prop} \label{K-a-b} One has \[K(A[X], M[X]) = \widetilde{K}(\alpha, \beta) \cdot X_{-\alpha}(M \cdot X) \cdot X_{-\beta}(M \cdot X).\] 
 \end{prop} 
 \begin{proof}
 It is clear that $K(A[X], M[X]) \supseteq \widetilde{K}(\alpha, \beta) \cdot X_{-\alpha}(M \cdot X) \cdot X_{-\beta}(M \cdot X)$. Let us prove the reverse inclusion. Fix an element $g\in K(A[X], M[X])$. We need to show that $g$ lies in the specified product of subgroups.
@@ -729,11 +726,11 @@ For $i=1,\ldots,5$ denote by $\mathcal{G}_i$ the set of all generators of type K
 Notice that $\Phi \setminus \Psi$ contains the parabolic set of roots $(\Phi \setminus \Psi)\cap \Phi^+$.
 Thus, by~\cref{thm:Stepanov} every element of $\overline{\St}(\Phi, A[X], XM[X])$ can be presented as a product of generators $\mathcal{G}_1$ and generators $\mathcal{G}' = \{ x_{\gamma}(Xf) \mid \gamma \in \Psi\}$. In turn, by~\cref{Kgen-strong} one can express $g$ as a product of these generators and generators $\mathcal{G}_5$. 
 
-By~\cref{thm:Stepanov} $\widetilde{K}(\alpha, \beta)$ contains the normal subgroup $G_0 = \overline{\St}(\Phi, A[X], X^2M[X])$, so it suffices to obtain the required presentation of $g$ modulo $G_0$. By~\cref{Zrels} and~\cref{Crels} the elements of $\mathcal{G}'$ commute with the elements of $\mathcal{G}_1$ and $\mathcal{G}_5$ modulo $G_0$, therefore we can rewrite $g$ as $g_1 \cdot g_2$, for some $g_1 \in \langle \mathcal{G}_1, \mathcal{G}_5, G_0 \rangle \subseteq \widetilde{K}(\alpha, \beta)$ and $g_2 \in \langle \mathcal{G}' \rangle$.
+Set $G_0 = \overline{\St}(\Phi, A[X], X^2M[X])$. By~\cref{thm:Stepanov} $\widetilde{K}(\alpha, \beta)$ contains the normal subgroup $G_0$ therefore it suffices to obtain the required presentation of $g$ modulo $G_0$. By~\cref{Zrels} and~\cref{Crels} the elements of $\mathcal{G}'$ commute with the elements of $\mathcal{G}_1$ and $\mathcal{G}_5$ modulo $G_0$, therefore we can rewrite $g$ as $g_1 \cdot g_2$, for some $g_1 \in \langle \mathcal{G}_1, \mathcal{G}_5, G_0 \rangle \subseteq \widetilde{K}(\alpha, \beta)$ and $g_2 \in \langle \mathcal{G}' \rangle$.
 
 It is clear that  $x_{\gamma_1}(mX)$ and $x_{\gamma_2}(m'X)$ commute modulo $G_0$ whenever $\gamma_1 \neq - \gamma_2$ for $\gamma_1, \gamma_2 \in \Psi$. On the other hand, for $\gamma \in \Psi$ any commutator $c_{\gamma}(mX, m'X)$ is congruent to some generator of $\mathcal{G}_5$  modulo $G_0$ (cf. the proof of~\cref{Kgen-strong}) and hence commutes with the elements of $\mathcal{G}'$ modulo $G_0$. 
 
-Now pick each factor $x_{\gamma}(Xf)$, $\gamma \in \{ -\alpha, -\beta \}$ appearing in the presentation for $g_2$, decompose it as $x_{\gamma}(X^2f') \cdot x_{\gamma}(m'X)$ for some $f' \in M[X]$, $m' \in M$ and then move the second factor to the rightmost position within $g_2$ conjugating all factors along the way. By the previous paragraph only elements of  $\mathcal{G}_5$ may appear modulo $G_0$ after simplification of these conjugates.
+Now pick each factor $x_{\gamma}(Xf)$, $\gamma \in \{ -\alpha, -\beta \}$ appearing in the presentation for~$g_2$, decompose it as $x_{\gamma}(X^2f') \cdot x_{\gamma}(m'X)$ for some $f' \in M[X]$, $m' \in M$ and then move the second factor to the rightmost position within $g_2$ conjugating all factors along the way. By the previous paragraph only elements of  $\mathcal{G}_5$ may appear modulo $G_0$ after simplification of these conjugates.
 Thus, we can rewrite $g_2$ as $g_{21} \cdot g_{22}$, where $g_{21} \in \langle \mathcal{G}_2, \mathcal{G}_3, \mathcal{G}_4, \mathcal{G}_5, G_0 \rangle \subseteq \widetilde{K}(\alpha, \beta)$ and $g_{22} \in \langle X_{-\alpha}(MX), X_{-\beta}(MX) \rangle = X_{-\alpha}(MX) \cdot X_{-\beta}(MX)$.
 Thus, we have obtained the desired decomposition for $g$. \end{proof}
 
@@ -784,7 +781,7 @@ Further, from~\eqref{Chevalley-CCF1} we obtain that
 and the expressions in the right-hand side are products of generators of type K2, K4 and K4, Z, respectively.
 
 It remains to verify the assertion for the generators $x_{-\alpha}(X^2f) $ of type K2.
-By~\cref{K-a-b-cor} we may assume that the root $\delta$ in~\cref{def:Kab} forms a sharp angle with $\alpha$, i.\,e. $\alpha-\delta \in \Phi$. Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = \delta-\alpha$, $\beta = -\delta$ into~\cref{Zrels}\ref{Z5} we obtain that
+By~\cref{K-a-b-cor} we may assume that the root $\delta$ in~\cref{def:Kab} forms an acute angle with $\alpha$, i.\,e. $\alpha-\delta \in \Phi$. Substituting $s = Xf$, $\eta = X$, $\xi = aX^{-1}$ and $\alpha = \delta-\alpha$, $\beta = -\delta$ into~\cref{Zrels}\ref{Z5} we obtain that
 \begin{multline*} z_{-\alpha}(X^2f, aX^{-1}) = x_{\delta-\alpha}(\epsilon Xf) \cdot x_{\delta}(-af) \cdot x_{-\delta}(aX^2 f) \cdot x_{-\alpha}(X^2f) \cdot \\
  \cdot z_{\delta-\alpha}(-\epsilon Xf, -\epsilon a) \cdot x_{\alpha-\delta}(-\epsilon a^2 Xf) \cdot x_{\alpha}(- a^2 f) \cdot z_{\delta}(a f, -X), \end{multline*}
 where $\epsilon = N_{-\delta,\alpha}$. 
@@ -820,8 +817,8 @@ Now suppose that the other alternative holds, namely that $\alpha - \beta + \gam
 Since $\langle \alpha - \beta + \gamma, \alpha \rangle = \langle \alpha , \alpha \rangle - \langle \beta, \alpha \rangle + \langle \gamma, \alpha \rangle \geq 2 - 1 + 1 = 2$
 we obtain that $\alpha - \beta + \gamma = \alpha$, i.\,e. $\beta=\gamma$. Thus, by~\eqref{Chevalley-CCF2} $g_1 = x_\beta(f)^{x_{\beta-\alpha}(b)} = x_\beta(f)$. \end{proof}
 
-\subsection{The map \texorpdfstring{$S_\alpha(a, -)$}{S(a,-)} and its properties.} \label{sec:S-a}
-Throughout this section $(A, M)$ is a local pair and, as before, $\alpha, \beta$ are some fixed roots of $\Phi$ forming a sharp angle.
+\subsection{The map \texorpdfstring{$S_\alpha(a, -)$}{S(a,-)} and its properties} \label{sec:S-a}
+Throughout this section $(A, M)$ is a local pair and, as before, $\alpha, \beta$ are some fixed roots of $\Phi$ forming an acute angle.
 
 For $m \in M$ denote by $P_\alpha(m)$ the coset $P_\alpha(0) \cdot x_{-\alpha}(mX)$.
 From~\cref{P0_normal} it follows that $P_\alpha(*)$ coincides with the union of all $P_\alpha(m)$, $m\in M$. 
@@ -833,9 +830,10 @@ Notice that the restriction of the map $S_\alpha(a, -)$ to the subgroup $P_\alph
 In the sequel we often use the following property of $S_\alpha(a, -)$.
 \begin{lemma} \label{lem:Smult}
 For $g_1 \in P_\alpha(m)$, $g_2 \in P_\alpha(*)$ one has
-$S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right).$
+\[S_\alpha(a, g_1\cdot g_2) = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right).\]
 \end{lemma} \begin{proof} Suppose $g_2\in P_\alpha(m')$ for some $m' \in M$, so that $g_1 \cdot g_2 \in P_\alpha(m + m')$. The assertion now follows from the definition of $S_\alpha(a, -)$ and~\eqref{eq:symbol-properties}:
-\begin{multline*} S_\alpha(a, g_1 \cdot g_2) = x_\alpha(aX^{-1}) \cdot g_1 \cdot g_2 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1+am+am'}\right) \cdot \{X, 1 + am + am'\} = \\ = x_\alpha(aX^{-1}) g_1  x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1+am}\right) g_2 x_\alpha\left(-\frac{\tfrac{a}{1+am}\cdot X^{-1}}{1 + \tfrac{a}{1+am}\cdot m'}\right) \cdot \{X, (1+am)\left(1 + \tfrac{am'}{1+am}\right)\} = \\ = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right). \qedhere \end{multline*}
+
+\begin{multline*} S_\alpha(a, g_1 \cdot g_2) = x_\alpha(aX^{-1}) \cdot g_1 \cdot g_2 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1+am+am'}\right) \cdot \{X, 1 + am + am'\} = \\ = x_\alpha(aX^{-1}) g_1 x_\alpha\left(-\tfrac{aX^{-1}}{1+am}\right) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1+am}\right) g_2 x_\alpha\left(-\frac{\tfrac{a}{1+am}\cdot X^{-1}}{1 + \tfrac{a}{1+am}\cdot m'}\right) \cdot \{X, (1+am)\left(1 + \tfrac{am'}{1+am}\right)\} = \\ = S_\alpha(a, g_1) \cdot S_\alpha\left(\tfrac{a}{1+am}, g_2\right). \qedhere \end{multline*}
 \end{proof}
 
 \begin{lemma} \label{lem:Tulenbaev-formula} 
@@ -852,10 +850,10 @@ The assertion of the lemma now follows from the following computation:
 \begin{align*}
  S_\alpha(a, x_{-\alpha}(mX)) = x_\alpha(aX^{-1})\cdot x_{-\alpha}(mX) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right) \cdot \{X, 1+ am\} &\text{ by~\eqref{eq:S-def}} \\
  = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) \cdot \{1+am, X\} \cdot \{X, 1+ am\}&\text{ by~\eqref{eq:Tf-comp}} \\
- = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) &\text{ by~\eqref{eq:symbol-properties}}. \qedhere\end{align*}  \end{proof}
+ = x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m\rangle_\alpha \cdot h_\alpha(1+am) &\text{ by~\eqref{eq:symbol-properties}}. \qedhere\end{align*} \end{proof}
 
-\begin{corollary}\label{SR:additivity} For $g \in P_\alpha(m)$ one has $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \tfrac{m}{1 + am})$
-.%, moreover, \[ S_\alpha(a+b, g) = S_\alpha\left(b,\ S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)\right)\cdot h_\alpha(1+am). \]
+\begin{corollary}\label{SR:additivity} For $g \in P_\alpha(m)$ one has $S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am) \in P(\alpha, \tfrac{m}{1 + am}).$
+%, moreover, \[ S_\alpha(a+b, g) = S_\alpha\left(b,\ S_\alpha(a, g) \cdot h_\alpha^{-1}(1 + am)\right)\cdot h_\alpha(1+am). \]
 \end{corollary} \begin{proof}
 Fix an element $g \in P_\alpha(m)$ and write it $g = g_0 \cdot x_{-\alpha}(mX)$ for some $g_0 \in P_\alpha(0)$.
 Direct computation shows that
@@ -880,11 +878,11 @@ The assertion immediately follows from the above corollary:
 \end{comment}
 \begin{lemma} \label{SR:sharp} For $g \in j_+(K(A[X], M[X])) \cap P_\alpha(m) \cap P_\beta(m')$ and $a \in A$ one has \[S_\alpha(a, g)\cdot  h^{-1}_\alpha(1 + am) \cdot x_{\alpha-\beta}(-N_{\alpha,-\beta}\cdot am') \in P_\beta\left(\tfrac{m'}{1 + am}\right). \] \end{lemma}
 \begin{proof} By~\cref{K-a-b} $g$ can be presented as $g_0 \cdot x_{-\alpha}(mX) \cdot x_{-\beta}(m'X)$ for some $g_0\in K(\alpha, \beta)$. By~\cref{K-a-b-P-b} the element $g_1 = S_\alpha(a, g_0) $ lies in $P_\beta(0)$. Since $x_{-\beta}(m'X) \in P_\alpha(0)$ we get that
-\begin{align*}
+\newline\scalebox{.98}{\begin{minipage}{1.02\linewidth}\begin{align*}
   S_\alpha(a, g) = g_1 \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot S_\alpha\left(\tfrac{a}{1+am}, x_{-\beta}(m'X)\right) & \text{ by~\cref{lem:Smult}} \\ 
   = g_1 \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m \rangle \cdot h_\alpha(1+am) \cdot x_{-\beta}(m'X) \cdot x_{\alpha-\beta}\left(\tfrac{N_{\alpha, -\beta} \cdot am'}{1+am}\right) & \text{ by~\cref{lem:Tulenbaev-formula},\eqref{Chevalley-CCF1}} \\
   = g_1 \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot \langle a, m \rangle \cdot x_{-\beta}\left(\tfrac{m'X}{1+am}\right) \cdot x_{\alpha-\beta}\left(N_{\alpha, -\beta} \cdot am'\right) \cdot h_\alpha(1+am) & \text{ by~\eqref{eq:conj-h-x}}.
-\end{align*}
+\end{align*}\end{minipage}} \vskip \belowdisplayshortskip
 The required assertion now follows from~\cref{rem:palpha}.
 \end{proof}
 
@@ -895,6 +893,7 @@ The required assertion now follows from~\cref{rem:palpha}.
 Notice that $1 - \epsilon abc^{-1}m' = c^{-1}$, therefore by~\eqref{eq:dennis-stein}
 \begin{equation} \label{eq:computation-SR-obtuse} x_{\alpha-\beta}(\epsilon am') \cdot x_{\beta-\alpha}(-bc^{-1}) = x_{\beta-\alpha}(-b) \cdot s_1 \cdot h_{\alpha-\beta}(c^{-1}) \cdot x_{\alpha-\beta}(\epsilon acm').\end{equation}
 Notice that $x_{-\beta}(m'X) \in P_\alpha(0)$, therefore from the definition of $S_\alpha(a, -)$ we obtain that
+\newline \scalebox{0.92}{\begin{minipage}{1.08\linewidth}
 \begin{align*}
  S_\alpha\left(a, x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)\right) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta-\alpha}(c^{-1})\cdot x_{\beta - \alpha}(-bc) \\ 
  = S_\alpha(a, x_{-\beta}(m'X)) \cdot S_\alpha(a, x_{-\alpha}(mX)) \cdot h_\alpha^{-1} (1 + am) \cdot h_{\beta - \alpha}(c^{-1}) \cdot x_{\beta - \alpha}(-bc) &\text{ by~\cref{lem:Smult}}\\
@@ -903,7 +902,7 @@ Notice that $x_{-\beta}(m'X) \in P_\alpha(0)$, therefore from the definition of 
  \begin{split}= x_{-\beta}(m'X) \cdot x_{\beta - \alpha}(-b) \cdot s_1 \cdot h_{\alpha-\beta}(c^{-1}) \cdot \hspace{100pt} \\ \cdot x_{\alpha-\beta}\left(\epsilon acm'\right) \cdot x_{-\alpha}\left(\tfrac{mX}{1+am}\right) \cdot s_0 \cdot h_{\beta - \alpha}(c^{-1}) &\text{ by~\eqref{eq:computation-SR-obtuse}} \end{split}\\
  =  x_{\beta - \alpha}(-b) \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(-\epsilon bm'X) \cdot s_1 \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot x_{-\alpha}\left(\tfrac{cmX}{1+am}\right) \cdot s_0 &\text{ by~\eqref{Chevalley-CCF1},~\eqref{eq:conj-h-x},~\eqref{eq:h-inv}}\\
  = x_{\beta-\alpha}(-b) \cdot x_{-\beta}(m'c^{-1}X) \cdot x_{\alpha-\beta}(\epsilon ac^{-1}m') \cdot s_1 \cdot s_0 \cdot x_{-\alpha}\left(-\epsilon bm' X + \tfrac{cmX}{1+am}\right) &\text{ by~\eqref{Chevalley-CCF1}.}
-\end{align*}
+\end{align*}\end{minipage}} \vskip \belowdisplayshortskip
 Denote by $h_0$ the product of all factors in the above formula except the first and the last one. It is clear that $h_0$ lies in $P_\alpha(0)$. By~\cref{K-a-b} we can decompose $g$ as $g_0 \cdot x_{-\beta}(m'X) \cdot x_{-\alpha}(mX)$ for some $g_0 \in K(\alpha, \beta)$, $m, m' \in M$. The required assertion now follows from Lemmas~\ref{conj-S-a-x-bma}, \ref{lem:Smult} and the above computation:
 \begin{multline} \nonumber
  x_{\beta - \alpha}(b) \cdot S_\alpha(a, g) \cdot h_{\alpha}^{-1}(1+am)\cdot h_{\beta - \alpha}(c^{-1})\cdot x_{\beta - \alpha}(-bc) = \\
@@ -911,12 +910,14 @@ Denote by $h_0$ the product of all factors in the above formula except the first
 \end{multline}
 \end{proof}
 
-\subsection{Construction of a \texorpdfstring{$\St(\Phi, B)$}{St(B)}-torsor.} \label{sec:V-construction}
+\subsection{Construction of a \texorpdfstring{$\St(\Phi, B)$}{St(B)}-torsor} \label{sec:V-construction}
 Throughout this subsection $\Phi$ denotes an arbitrary irreducible simply-laced root system of rank $\geq 3$, unless stated otherwise. 
 \begin{df}\label{df:GM0_geq0}
 Denote the subgroup $\overline{\St}(\Phi, A, M)$ by $G_M^0$. 
 Consider the following commutative diagram, in which the homomorphisms $i_\pm$ and $j_\pm$ are induced by the natural ring homomorphisms $A \to A[X^\pm]$ and $A[X^\pm]\to R$:
-\[\xymatrix{ G_M^0 \ar@{^{(}->}[rr]^{i_+^M} \ar@<-5pt>@{^{(}->}[dd]^{i_-^M} \ar@<-5pt>@{^{(}->}[rd] & & \overline{\St}(\Phi, A[X], M[X]) \ar[dd]_(.3){j_+^M} \ar@<-2.5pt>@{^{(}->}[rd] & \\ & \St(\Phi, A) \ar@{^{(}->}[rr]^(.3){i_+} \ar@<-2.5pt>@{^{(}->}[dd]^(.3){i_-} & & \St(\Phi, A[X]) \ar[dd]^{j_+} \\ \overline{\St}(\Phi, A[X\inv], M[X\inv]) \ar@<-2.5pt>@{^{(}->}[rd] \ar[rr]^(.35){j_-^M} & & \overline{\St}(\Phi, R, I) \ar@<-2.5pt>@{^{(}->}[rd] & \\ & \St(\Phi, A[X\inv]) \ar[rr]_{j_-} & & \St(\Phi, R).} \]
+\[\begin{tikzcd}[scale cd=0.8]
+   G_M^0 \arrow[rr, "i_+^M", hookrightarrow] \arrow[dd, "i_-^M", hookrightarrow] \arrow[rd, hookrightarrow] & & \overline{\St}(\Phi, A[X], M[X]) \arrow[dd, "j_+^M", swap, near start] \arrow[rd, hookrightarrow] & \\ & \St(\Phi, A) \arrow[rr, "i_+", near start, hookrightarrow] \arrow[dd, "i_-", near start, hookrightarrow] & & \St(\Phi, A[X]) \arrow{dd}{j_+} \\ \overline{\St}(\Phi, A[X\inv], M[X\inv]) \arrow[rd, hookrightarrow] \arrow[rr, "j_-^M", near start] & & \overline{\St}(\Phi, R, I) \arrow[rd, hookrightarrow] & \\ & \St(\Phi, A[X\inv]) \arrow{rr}[swap]{j_-} & & \St(\Phi, R).
+  \end{tikzcd}\]
 Denote by $\overline{G}^{\geq 0}_M$ the image of the homomorphism $j_+^M$. \end{df}
 Notice that the homomorphism $j_+^Mi_+^M$ is split by the homomorphism $ev^*_{X=1}$ of evaluation at $1$, therefore $G_M^0$ can be considered as a subgroup of $\overline{G}^{\geq 0}_M$.
 
@@ -933,7 +934,7 @@ Whenever $v_1, v_2 \in V$ lie in the same $G_M^0$-orbit we use the notation $v_1
 We denote by $\overline{p}$ the function $\overline{V} \to \overline{G}^{\geq 0}_M/G_M^0$ sending each $(g, [h], u) \in V$ to the left coset $p(g, h, u)G_M^0$.
 
 The isomorphism between the sets $\overline{V}$ and $\overline{V}_T$ is given by the following two maps, which are easily seen to be mutually inverse to each other:
-\begin{equation} \label{eq:VVT} \xymatrix @R0.3pc {\overline{V} \ar[r]^{\cong} & \ar[l] \overline{V}_T \\ (g, [h], u) \ar@{|->}[r] & [p(g, h, u), h^{-1}, u] \\ (p \cdot j_-(h) \cdot \{u, X\}, [h^{-1}], u) & \ar@{|->}[l] [p, h, u]. } \end{equation}
+\begin{equation} \label{eq:VVT} \begin{tikzcd}[row sep=tiny] \overline{V} \arrow{r}{\cong} & \arrow{l} \overline{V}_T \\ (g, [h], u) \arrow[r, mapsto] & \left[p(g, h, u), h^{-1}, u\right] \\ (p \cdot j_-(h) \cdot \{u, X\}, [h^{-1}], u) & \arrow[l, mapsto] [p, h, u]. \end{tikzcd} \end{equation}
 The above isomorphism allows us to regard $\overline{V}$ and $\overline{V}_T$ as the same object, for elements of which we can interchangeably use either of the two notations,
  depending on which of them is more convenient in a given situation.
 For example, specifying the action of $\St(\Phi, B)$ in terms of $\overline{V}$ leads to much shorter calculations in Lemmas~\ref{R3_leq0_1}--\ref{R2_0_1},
@@ -963,7 +964,7 @@ Then for any $\alpha \in \Phi$ and $a \in A$ the partial function $t_\alpha(aX^{
  \begin{multline} \nonumber
   t_\alpha(aX^{-1})(v_1) = \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) \sim \\
   \sim \left( x_\alpha(aX^{-1})\cdot g ,\ h_1 i_-(h_0) \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right),\ u \cdot (1 + am)\right) = t_\alpha(aX^{-1})(v_2). \qedhere
- \end{multline} \end{proof}
+ \end{multline}\end{proof}
 
 Our next goal is to define for $a + Xf \in A + XM[X]$ the operator $T_\alpha(a + Xf) \colon \overline{V} \to \overline{V}$.
 Let $(g, h, u)$ be an element of $V$. We define the value of $T_\alpha(a + Xf)$ on $(g, h, u)$ via the following identity:
@@ -982,9 +983,9 @@ Thus far we have specified the action of the generators of the "truncated'' Stei
  Let $a$ and $b$ be elements of $A$ and $(g, h, u)$ be an element of $V$.
  By the first part of the proof of~\cref{lem:orbit-action} we may assume that $p(g,h,u)\in P_\alpha(m)$ for some $m \in M$.
  From~\eqref{T_1} we obtain that 
- \begin{equation}\label{add-computation}
-  T_\alpha(bX^{-1}) \cdot T_\alpha(aX^{-1}) (g, [h], u) = T_\alpha(bX^{-1}) \cdot \left(x_\alpha(aX^{-1})\cdot g ,\ \left[ h' \right],\ u \cdot (1 + am)\right),
- \end{equation}
+ \begin{multline}\label{add-computation}
+  T_\alpha(bX^{-1}) \cdot T_\alpha(aX^{-1}) (g, [h], u) = \\ = T_\alpha(bX^{-1}) \cdot \left(x_\alpha(aX^{-1})\cdot g ,\ \left[ h' \right],\ u \cdot (1 + am)\right),
+ \end{multline}
  where $h' = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right)$.
  Notice that we can not invoke~\eqref{T_1} for the second time because the value of the function $p$ on the triple $(x_\alpha(aX^{-1})\cdot g ,\ h',\ u \cdot (1 + am))$ does not belong to $P_\alpha(*)$.
  
@@ -993,11 +994,10 @@ Thus far we have specified the action of the generators of the "truncated'' Stei
  \[ p(x_\alpha(aX^{-1})\cdot g ,\ h'',\ u \cdot (1 + am)) = S_\alpha(a, p(g, h, u)) \cdot h^{-1}_\alpha(1+am) \in P_\alpha\left(\tfrac{m}{1+am}\right).\]
  Now we can invoke~\eqref{T_1} once again and can continue~\eqref{add-computation} as follows:
  \begin{equation}\label{add-computation2}
-  \ldots = \left(x_\alpha((a + b)X^{-1})\cdot g ,\ \left[ h'' \cdot x_\alpha\left(\tfrac{-bX^{-1}}{1+\tfrac{bm}{1+am}}\right) \right],\ u \cdot (1 + am) \cdot \left(1+\tfrac{bm}{1+am}\right)\right).
- \end{equation} 
+  \ldots = \left(x_\alpha((a + b)X^{-1})\cdot g ,\ \left[ h'' \cdot x_\alpha\left(\tfrac{-bX^{-1}}{1+\tfrac{bm}{1+am}}\right) \right],\ u \cdot (1 + am) \cdot \left(1+\tfrac{bm}{1+am}\right)\right).\end{equation}
  Notice that 
- \[ \left[h'' \cdot x_\alpha\left(\tfrac{-b(1+am)X^{-1}}{1+am + bm}\right)\right] = \left[h \cdot x_\alpha\left(\tfrac{-aX^{-1}}{1 + am}\right) \cdot x_\alpha\left(\tfrac{-bX^{-1}}{(1+am)(1+am+bm)}\right)\right] = 
- \left[h \cdot x_\alpha\left(\tfrac{-(a+b)X^{-1}}{1+(a+b)m}\right)\right].\] 
+ \begin{multline} \nonumber \left[h'' \cdot x_\alpha\left(\tfrac{-b(1+am)X^{-1}}{1+am + bm}\right)\right] = \left[h \cdot x_\alpha\left(\tfrac{-aX^{-1}}{1 + am}\right) \cdot x_\alpha\left(\tfrac{-bX^{-1}}{(1+am)(1+am+bm)}\right)\right] = \\ =
+ \left[h \cdot x_\alpha\left(\tfrac{-(a+b)X^{-1}}{1+(a+b)m}\right)\right].\end{multline}
  Thus, the expression in~\eqref{add-computation2} coincides with the expression for $T_\alpha((a+b)X^{-1})\cdot (g, [h], u)$ given by~\eqref{T_1}. \end{proof}
 
 \begin{lemma} \label{R3_leq0_1} The operators $T_\alpha$ satisfy Steinberg relations of type $\mathrm{R3}^\angle_{d, 1}$, $\mathrm{R3}^\bot_{d,1}$ for $d\leq 0$. \end{lemma}
@@ -1011,28 +1011,28 @@ From~\eqref{T_leq0}--\eqref{T_1} we obtain that
 \begin{equation} \label{R3leq0-computation}
   \left[T_\beta(b),\ T_\alpha(aX^{-1}) \right] (g, [h], u) = T_\beta(b) \cdot T_\alpha(aX^{-1}) \left(g', [h'], u(1-am)\right), \end{equation}
 where $g' = x_\beta(-b) \cdot x_\alpha(-aX^{-1}) \cdot g$, $h' = h \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1-am}\right) \cdot x_\beta(b_0)$.
-
 Notice that by~\eqref{eq:conj-h-x} $[h'] = [h'']$, where $h'' = h \cdot x_{\alpha}\left(\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot x_\beta(b_0).$
 From~\cref{P0-conj-invariant} and \cref{SR:additivity} we obtain that
 \begin{multline*} p(g',h'',u(1-am)) = x_{\beta}(-Xf) \cdot \left(S_\alpha(-a, p(g,h,u)) \cdot h_{\alpha}^{-1}(1-am)\right)^{x_\beta(b_0)} \in \\ \in x_{\beta}(-Xf) \cdot P_\alpha(\tfrac{m}{1-am})^{x_\beta(b_0)} \subseteq P_\alpha(\tfrac{m}{1-am}).\end{multline*}
 Thus, we can invoke ~\eqref{T_1}--\eqref{T_leq0} once again and can continue~\eqref{R3leq0-computation} as follows:
 \begin{equation} \label{R3leq0-computation2} \ldots = \left( [x_\beta(b), x_{\alpha}(aX^{-1})] \cdot g, [h'' \cdot x_{\alpha}\left(-a(1-am)X^{-1}\right) \cdot x_{\beta}(-b_0)], u \right) = \left(g, [h], u\right), \end{equation}
 where in the last equality we use the following computation:
-\begin{equation} \nonumber
- h'' \cdot x_{\alpha}\left(-a(1-am)X^{-1}\right) \cdot x_{\beta}(-b_0) = h \cdot h_\alpha^{-1}(1-am) \cdot \left[x_\alpha\left(a(1-am)X^{-1}\right),\ x_\beta(b_0)\right] = h \cdot h_\alpha^{-1}(1-am). \end{equation}
+\begin{multline} \nonumber
+ h'' \cdot x_{\alpha}\left(-a(1-am)X^{-1}\right) \cdot x_{\beta}(-b_0) = \\ = h \cdot h_\alpha^{-1}(1-am) \cdot \left[x_\alpha\left(a(1-am)X^{-1}\right),\ x_\beta(b_0)\right] = h \cdot h_\alpha^{-1}(1-am). \end{multline}
 The assertion of the lemma now follows from~\eqref{R3leq0-computation}--\eqref{R3leq0-computation2}. \end{proof}
 
 \begin{lemma} \label{R3_leqm1_1} The operators $T_\alpha$ satisfy Steinberg relations of type $\mathrm{R2}_{d, 1}$ for $d \leq -1$ . \end{lemma}
 \begin{proof} Let $a \in A$, $f \in M[X]$ and $\alpha$, $\beta$ be a pair of roots forming an obtuse angle. As before, we may assume that $p(g, h, u) \in P_\alpha(m)$ for some $m \in M$.
 From~\eqref{T_1}--\eqref{T_leq0} and the fact that $x_\beta(Xf) \in P_\alpha(0)$ we obtain that
+\newline\scalebox{0.97}{\begin{minipage}{1.03\linewidth}
 \begin{multline} \nonumber [T_\beta(Xf),\ T_\alpha(aX^{-1})] \left(g,\ [h],\ u\right) = \\ 
-= T_\beta(Xf) \cdot T_\alpha(aX^{-1}) \left(x_{\beta}(-Xf) \cdot x_\alpha(-aX^{-1})\cdot g,\ \left[h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 - am}\right) \cdot h^{-1}_\alpha(1-am)\right],\ u(1-am)\right) = \\ = \left([x_\beta(Xf),\ x_\alpha(aX^{-1})] \cdot g,\ \left[h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 + \tfrac{am}{1-am}}\right)\right],\ u \right) = \\ = (x_{\alpha+\beta}(N_{\beta,\alpha} \cdot af) \cdot g,\ [h],\ u) = T_{\alpha+\beta}(N_{\beta, \alpha} \cdot af) (g, [h], u). \end{multline}
+= T_\beta(Xf) \cdot T_\alpha(aX^{-1}) \left(x_{\beta}(-Xf) \cdot x_\alpha(-aX^{-1})\cdot g,\ \left[h \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 - am}\right) \cdot h^{-1}_\alpha(1-am)\right],\ u(1-am)\right) = \\ = \left([x_\beta(Xf),\ x_\alpha(aX^{-1})] \cdot g,\ \left[h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1-am}\right) \cdot h^{-1}_\alpha(1-am) \cdot x_\alpha\left(\tfrac{aX^{-1}}{1 + \tfrac{am}{1-am}}\right)\right],\ u \right) = \\ = (x_{\alpha+\beta}(N_{\beta,\alpha} \cdot af) \cdot g,\ [h],\ u) = T_{\alpha+\beta}(N_{\beta, \alpha} \cdot af) (g, [h], u). \end{multline}\end{minipage}}\vskip \belowdisplayshortskip
 
 As in the proof of Lemmas~\ref{R1_d}--\ref{R3_leq0_1}, in the above computation we had to add the factor $h_\alpha^{-1}(1-am)$ to the second triple, so that we could pass from the second line to the third one (again, we need to invoke \cref{SR:additivity} to check that the value of $p$ on the second triple lies in the coset $P_\alpha(\tfrac{m}{1-am})$). \end{proof}
 
 \begin{lemma} \label{R3_1_1} The operators $T_\alpha(aX^{-1})$ satisfy Steinberg relations $\mathrm{R3}_{1,1}^{\angle}$. \end{lemma}
 \begin{proof}
-Let $a, b \in A$ and $\alpha$, $\beta$ be a pair of roots forming a sharp angle. Set $\epsilon = N_{\alpha,-\beta}$. From~\cref{K-a-b} and the proof of the first part of~\cref{lem:orbit-action} it follows that \[p(g, h, u) \in j_+\left(K(A[X], M[X])\right) \cap P_\alpha(m) \cap P_{\beta}(m')\text{ for some }m,m' \in M.\]
+Let $a, b \in A$ and $\alpha$, $\beta$ be a pair of roots forming an acute angle. Set $\epsilon = N_{\alpha,-\beta}$. From~\cref{K-a-b} and the proof of the first part of~\cref{lem:orbit-action} it follows that \[p(g, h, u) \in j_+\left(K(A[X], M[X])\right) \cap P_\alpha(m) \cap P_{\beta}(m')\text{ for some }m,m' \in M.\]
 From~\eqref{T_1} we obtain that
 \begin{multline} \label{R3_1_1-computation}
  T_\beta(bX^{-1}) \cdot T_\alpha(aX^{-1}) \left(g, [h], u\right) = \\
@@ -1065,16 +1065,15 @@ From~\eqref{T_1}--\eqref{T_leq0} and~\eqref{eq:conj-h-x} we obtain that
 [T_\beta(b),\ T_\alpha(aX^{-1})] \left(g, [h], u \right) = \\
 = T_\beta(b) \cdot T_\alpha(aX^{-1}) \left(x_\beta(-b) \cdot x_\alpha (-a X^{-1})\cdot  g,\ [h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot x_{\beta}(b)],\ u (1 - am) \right) = \\
 = T_\beta(b) \cdot T_\alpha(aX^{-1}) \left(x_\beta(-b) \cdot x_\alpha (-a X^{-1})\cdot  g,\ [h'],\ u (1 - am) \right),
- \end{multline} 
+ \end{multline}
  where $h' = h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \cdot x_{\beta}(bc)$. Applying~\cref{SR:obtuse} to the pair of roots $\alpha, \alpha+\beta$ we obtain that
 \begin{multline*} p\left(x_\beta(-b) \cdot x_\alpha (-a X^{-1})\cdot  g,\ h',\ u (1 - am) \right) = \\ =
  x_\beta(-b) \cdot S_\alpha(-a, p(g,h,u)) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \cdot x_{\beta}(bc) \in P_\alpha\left(\tfrac{m-\epsilon bm'}{1-am}\right). \end{multline*}
 Thus, we can continue~\eqref{R2_0_1-computation} using~\eqref{T_1}--\eqref{T_leq0}:
 \begin{equation} \label{R2_0_1-computation2} \ldots = \left([x_\beta(b),\ x_\alpha(aX^{-1})]\cdot g,\ [h''],\ uc\right) = T_{\alpha+\beta}(-\epsilon abX^{-1})(g,\ [h],\ u), \end{equation} where the last equality is obtained from~\eqref{eq:conj-h-x} as follows:
- \begin{multline} \nonumber
+\begin{multline} \nonumber
  [h''] = \left[ h' \cdot x_\alpha\left(\tfrac{-aX^{-1}}{1+\tfrac{a(m-\epsilon bm')}{1-am}}\right) \cdot x_\beta(-b) \right] = \\ = \left[ h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1})\cdot x_{\alpha + \beta}\left(\epsilon ab(1-am)X^{-1}\right)\cdot x_\alpha\left(-\tfrac{a(1 - am)X^{-1}}{c}\right) \right] = \\
- = \left[ h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot x_{\alpha + \beta}\left(\tfrac{\epsilon \cdot abX^{-1}}{c}\right)\cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 - am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \right]   = \\ = \left[ h\cdot x_{\alpha + \beta}\left(\tfrac{\epsilon   abX^{-1}}{1 - \epsilon a b m'}\right) \right].
-\end{multline}
+ = \left[ h\cdot x_\alpha\left(\tfrac{a X^{-1}}{1-am}\right) \cdot x_{\alpha + \beta}\left(\tfrac{\epsilon \cdot abX^{-1}}{c}\right)\cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 - am}\right) \cdot h_{\alpha}^{-1}(1-am)\cdot h_{\beta}(c^{-1}) \right]   = \\ = \left[ h\cdot x_{\alpha + \beta}\left(\tfrac{\epsilon   abX^{-1}}{1 - \epsilon a b m'}\right) \right].\end{multline}
 The assertion of the lemma now follows from~\eqref{R2_0_1-computation}--\eqref{R2_0_1-computation2}.
 \end{proof}
 \begin{comment}
@@ -1105,19 +1104,19 @@ From the second property of the above proposition we immediately obtain the foll
 \begin{corollary} For $\Phi$ as in the statement of~\cref{lemma33} one has
 \[\E(\Phi, A[X\inv] + M[X]) = \E(\Phi, A[X], M[X]) \cdot \E(\Phi, A[X\inv]).\] \end{corollary}
 
-\subsection{Proof of Horrocks theorem.} \label{sec:P1glueing}
-Before we proceed with the proof of~\cref{thm:P1glueing} let us briefly recall the relevant notation. As before, $A$ denotes an arbitary local ring with maximal ideal $M$ and $I = M[X, X\inv]$ is an ideal of both the ring $R=A[X, X\inv]$ and its subring $B = A[X\inv] + M[X]$.
+\subsection{Proof of Horrocks theorem} \label{sec:P1glueing}
+Before we proceed with the proof of~\cref{thm:P1glueing} let us briefly recall the relevant notation. As before, $A$ denotes an arbitrary local ring with maximal ideal $M$ and $I = M[X, X\inv]$ is an ideal of both the ring $R=A[X, X\inv]$ and its subring $B = A[X\inv] + M[X]$.
 
 Consider the following commutative diagram, in which the map $t$ is obtained from~\cref{lem:lemma32}:
-\begin{equation} \label{big-picture}
- \xymatrix{ & \St(\Phi, A[X], M[X]) \ar[r]_(0.55){\mu_{A[X]}} \ar[d] & \St(\Phi, A[X]) \ar[dd]^{j_+} \\ & \St(\Phi, R, I) \ar[d]^t & \\ \St(\Phi, A[X\inv]) \ar[r]^{j_B^-} & \St(\Phi, B) \ar[r]^{j_R} & \St(\Phi, R). } \end{equation}
+\begin{equation} \label{big-picture} \begin{tikzcd} & \St(\Phi, A[X], M[X]) \arrow{r}[swap]{\mu_{A[X]}} \arrow{d} & \St(\Phi, A[X]) \arrow{dd}{j_+} \\ & \St(\Phi, R, I) \arrow{d}{t} & \\ \St(\Phi, A[X\inv]) \arrow{r}{j_B^-} & \St(\Phi, B) \arrow{r}{j_R} & \St(\Phi, R). \end{tikzcd} \end{equation}
 Notice that the subgroup $\overline{G}_M^{\geq 0}$ (see~\cref{df:GM0_geq0}) coincides with the image of $j_+\mu_{A[X]}$.
 
 Our main goal is to prove that the homomorphism $j_B^-$ is injective. 
-In order to achieve this we need to show that $\St(\Phi, B)$ acts transitively on the first components of the triples from $\overline{V}_T$. These first components are parametrized by cosets $\overline{G}_M^{\geq 0}/G_M^0$ (cf.~\eqref{VT-def}). It is clear from~\eqref{big-picture} that $\overline{G}_M^{\geq 0}$ lies in the image of $j_R$.
+In order to achieve this we need to show that $\St(\Phi, B)$ acts transitively on the first components of the triples from $\overline{V}_T$. These first components are parameterized by cosets $\overline{G}_M^{\geq 0}/G_M^0$ (cf.~\eqref{VT-def}). It is clear from~\eqref{big-picture} that $\overline{G}_M^{\geq 0}$ lies in the image of $j_R$.
 To simplify notation we want to identify $\overline{G}_M^{\geq 0}$ with a subgroup of $\St(\Phi, B)$ by means of $j_R$. Thus, throughout this section we additionally assume that $j_R$ is injective. This assumption is innocent, since we already know from~\cref{thm41} that $j_R$ is injective under the assumptions of~\cref{thm:main}.
 
-\begin{lemma}\label{lem:action} For any $[p, h, u]\in \overline{V}_T$ and any $p_1 \in \overline{G}^{\geq 0}_M$ one has $j_R^{-1}(p_1) \cdot [p, h, u] = [p_1p, h, u]$. \end{lemma}
+\begin{lemma}\label{lem:action} For any $[p, h, u]\in \overline{V}_T$ and any $p_1 \in \overline{G}^{\geq 0}_M$ one has 
+\[j_R^{-1}(p_1) \cdot [p, h, u] = [p_1p, h, u].\] \end{lemma}
 \begin{proof} 
 By our assumption of the injectivity of $j_R$ and the above discussion the preimage $j_R^{-1}(p_1)$ consists of only one element, so the statement of the lemma is unambiguous.
 
@@ -1130,8 +1129,9 @@ Now let us verify the induction step.
 Suppose that the assertion holds for all $p_1 = z_\alpha(f, \xi)$ for which $\xi$ has degree $\leq n$.
 Substituting $s := fX$, $\eta := X^{-1}$, $\xi := X\xi$ into~\cref{Zrels}\ref{Z5} we obtain the following equality in $\St(\Phi, B)$:
 \begin{multline*}
- z_{\alpha+\beta}(f, X\xi) = x_\alpha(\epsilon Xf) \cdot x_{-\beta}(-X^2 f\xi ) \cdot x_{\beta}(\xi f) \cdot x_{\alpha+\beta}(f) \cdot \\ \cdot z_\alpha(-\epsilon Xf, -\epsilon \xi) \cdot x_{-\alpha}(-\epsilon X\xi^2f) \cdot x_{-\alpha-\beta}(- X^2f \xi^2) \cdot z_{-\beta}(X^2f\xi, -X^{-1}),\text{ where $\epsilon = N_{\alpha, \beta}$.}
-\end{multline*}
+ z_{\alpha+\beta}(f, X\xi) = x_\alpha(\epsilon Xf) \cdot x_{-\beta}(-X^2 f\xi ) \cdot x_{\beta}(\xi f) \cdot x_{\alpha+\beta}(f) \cdot \\ \cdot z_\alpha(-\epsilon Xf, -\epsilon \xi) \cdot x_{-\alpha}(-\epsilon X\xi^2f) \cdot x_{-\alpha-\beta}(- X^2f \xi^2) \cdot z_{-\beta}(X^2f\xi, -X^{-1}), \end{multline*}
+where $\epsilon = N_{\alpha, \beta}$.
+
 From the inductive assumption we obtain that the assertion of the lemma holds for all the factors in the right-hand side and, therefore, also holds for $p_1 = z_\alpha(f, X\xi)$. It is easy to deduce from this that the assertion also holds for $p_1 = z_\alpha(f, X\xi + a) = x_\alpha(-a) \cdot z_\alpha(f, X\xi) \cdot x_\alpha(a)$. 
 \end{proof}
 
@@ -1142,9 +1142,7 @@ From the inductive assumption we obtain that the assertion of the lemma holds fo
  Let $\Phi$ be a root system of type $\rA_{\geq 4}, \rD_{\geq 5}$ or $\rE_{6,7,8}$.
  Assume additionally that the homomorphism $j_R \colon \St(\Phi, B) \to \St(\Phi, A[X, X\inv])$ is injective.  
  Then the homomorphism $j_-$ is injective and the following commutative square is pullback
- \begin{equation} \nonumber
-  \xymatrix{ \St(\Phi, A) \ar[r] \ar[d] & \St(\Phi, A[X]) \ar[d]^{j_+} \\ \St(\Phi, A[X\inv]) \ar[r]^{j_-} & \St(\Phi, A[X, X\inv]).}
- \end{equation}
+ \[ \begin{tikzcd} \St(\Phi, A) \arrow{r} \arrow{d} & \St(\Phi, A[X]) \arrow{d}{j_+} \\ \St(\Phi, A[X\inv]) \arrow{r}{j_-} & \St(\Phi, A[X, X\inv]). \end{tikzcd} \] 
 \end{theorem}
 \begin{proof} Since $j_- = j_R j_B^-$, where $j_B^-$ is as in~\cref{prop43}, it suffices to show that $j_B^-$ is injective.
  Set $v_0 = [1, 1, 1] \in \overline{V}_T$ and suppose $g \in \Ker(j_B^-)$.
@@ -1155,9 +1153,11 @@ From the inductive assumption we obtain that the assertion of the lemma holds fo
  By~\cref{field-injectivity} the image of $j_+(g_+) = j_-(g_-)$ in $\St(\Phi, k[X, X\inv])$ belongs to $\St(\Phi, k)$ and therefore coincides with the image in $\St(\Phi, k)$ of some $g_0 \in \St(\Phi, A)$.
  
  Set $h_+ = g_+\cdot g_0^{-1}$ and $h_- = g_- \cdot g_0^{-1}$.
- It is clear that \[ h_+ \in \overline{\St}(\Phi, A[X], M[X]),\ h_- \in \overline{\St}(\Phi, A[X\inv], M[X\inv])\text{ and that }j_-(h_-) = j_+(h_+).\]
+ It is clear that \[ h_+ \in \overline{\St}(\Phi, A[X], M[X]),\ h_- \in \overline{\St}(\Phi, A[X\inv], M[X\inv])\]
+ and that $j_-(h_-) = j_+(h_+).$
+ 
  From~\cref{prop43} and~\cref{lem:action} we obtain that
- \[ [j_+(h_+)^{-1}, h_-, 1] = j_R^{-1}(j_+(h_+)^{-1}) \cdot [1, h_-, 1] = j_R^{-1}(j_+(h_+)^{-1} \cdot j_-(h_-)) \cdot [1, 1, 1] = [1, 1, 1], \] therefore, by the definition of~$\overline{V}_T$, $h_- = i_-(\gamma_1)$, $j_+(h_+) = j_+i_+(\gamma_1)$ for some $\gamma_1 \in G_M^0$. Since $j_+$ is injective we obtain that $h_+ = i_+(\gamma_1)$. Thus, we have shown that $g_+$ and $g_-$ are the images of $\gamma_1 \cdot g_0 \in \St(\Phi, A)$ under $i_+$ and $i_-$, respectively.
+ \begin{multline} \nonumber [j_+(h_+)^{-1}, h_-, 1] = j_R^{-1}(j_+(h_+)^{-1}) \cdot [1, h_-, 1] = \\ = j_R^{-1}(j_+(h_+)^{-1} \cdot j_-(h_-)) \cdot [1, 1, 1] = [1, 1, 1], \end{multline} therefore, by the definition of~$\overline{V}_T$, $h_- = i_-(\gamma_1)$, $j_+(h_+) = j_+i_+(\gamma_1)$ for some $\gamma_1 \in G_M^0$. Since $j_+$ is injective we obtain that $h_+ = i_+(\gamma_1)$. Thus, we have shown that $g_+$ and $g_-$ are the images of $\gamma_1 \cdot g_0 \in \St(\Phi, A)$ under $i_+$ and $i_-$, respectively.
  \end{proof}
   
 \begin{proof}[Proof of~\cref{thm:main}]
