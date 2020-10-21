@@ -206,7 +206,7 @@ in other words, it consists of pairs $[u, x]$ such that $x - \langle \langle u \
 It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\rangle - x)$ defines an isomorphism of $\K_1^\mathrm{MW}(k)$ and $P(k)$. \end{proof}
 
 \begin{rem} It is possible to give a different proof of the above lemma in the case $\Phi = \rC_\ell$ for $\ell \geq 5$ under the additional assumption that the characteristic of $k$ is not $2$. Indeed, we have the following chain of isomorphisms:
-\begin{multline} \K_2(C_\infty, k[X, X^{-1}]) \cong \GW_2^2(k[X,X^{-1}]) \cong \\ \cong \GW_2^2(k) \oplus \GW_1^1(k) \cong \K_2^\mathrm{MW}(k) \oplus \K_1^\mathrm{MW}(k),\end{multline}
+\begin{equation} \K_2(C_\infty, k[X, X^{-1}]) \cong \GW_2^2(k[X,X^{-1}]) \cong \GW_2^2(k) \oplus \GW_1^1(k) \cong \K_2^\mathrm{MW}(k) \oplus \K_1^\mathrm{MW}(k),\end{equation}
 in which the first two isomorphisms are obtained from~\eqref{GW-concrete} and~\cref{bass-ft} and the last one follows from~\cite[Lemma~4.1.1]{AF17} and Matsumoto's theorem.
 It remains to invoke the stability theorem~\cite[Theorem~9.4]{Pa89} to obtain the assertion in the unstable case. \end{rem}
 
@@ -718,7 +718,7 @@ Fix a root $\delta \in \Phi \setminus \Psi$. Define $\widetilde{K}(\alpha, \beta
   \item $x_{\alpha}(Xf)$, $x_\beta(Xf)$;
   \item $x_{\alpha-\beta}(Xf)$, $x_{\beta-\alpha}(Xf)$;
   \item $c_{\delta}(f, X\xi)$. \end{enumerate} \end{df}
-\begin{prop} \label{K-a-b} One has \[K(A[X], M[X]) = \widetilde{K}(\alpha, \beta) \cdot X_{-\alpha}(M \cdot X) \cdot X_{-\beta}(M \cdot X).\] 
+\begin{prop} \label{K-a-b} One has $K(A[X], M[X]) = \widetilde{K}(\alpha, \beta) \cdot X_{-\alpha}(M \cdot X) \cdot X_{-\beta}(M \cdot X).$
 \end{prop} 
 \begin{proof}
 It is clear that $K(A[X], M[X]) \supseteq \widetilde{K}(\alpha, \beta) \cdot X_{-\alpha}(M \cdot X) \cdot X_{-\beta}(M \cdot X)$. Let us prove the reverse inclusion. Fix an element $g\in K(A[X], M[X])$. We need to show that $g$ lies in the specified product of subgroups.
@@ -984,9 +984,9 @@ Thus far we have specified the action of the generators of the "truncated'' Stei
  Let $a$ and $b$ be elements of $A$ and $(g, h, u)$ be an element of $V$.
  By the first part of the proof of~\cref{lem:orbit-action} we may assume that $p(g,h,u)\in P_\alpha(m)$ for some $m \in M$.
  From~\eqref{T_1} we obtain that 
- \begin{multline}\label{add-computation}
-  T_\alpha(bX^{-1}) \cdot T_\alpha(aX^{-1}) (g, [h], u) = \\ = T_\alpha(bX^{-1}) \cdot \left(x_\alpha(aX^{-1})\cdot g ,\ \left[ h' \right],\ u \cdot (1 + am)\right),
- \end{multline}
+ \begin{equation}\label{add-computation}
+  T_\alpha(bX^{-1}) \cdot T_\alpha(aX^{-1}) (g, [h], u) = T_\alpha(bX^{-1}) \cdot \left(x_\alpha(aX^{-1})\cdot g ,\ \left[ h' \right],\ u \cdot (1 + am)\right),
+ \end{equation}
  where $h' = h \cdot x_\alpha\left(-\tfrac{aX^{-1}}{1 + am}\right)$.
  Notice that we can not invoke~\eqref{T_1} for the second time because the value of the function $p$ on the triple $(x_\alpha(aX^{-1})\cdot g ,\ h',\ u \cdot (1 + am))$ does not belong to $P_\alpha(*)$.
  
