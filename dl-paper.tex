@@ -84,7 +84,7 @@
 \section{Introduction}
 Recall that the classical Serre problem on projective modules asks if any projective module over a polynomial ring $R = k[x_1,\ldots, x_n]$ over a field $k$ is free. This problem was positively settled by D.~Quillen~\cite{Qu76} and A.~Suslin~\cite{Su76}, and its solution played an important role in the development of algebraic K-theory. We also refer the reader to the textbook~\cite{Lam10} for a comprehensive account on the problem, its history and the subsequent solution.
 
-After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $\K_1$-analogue of Serre's problem. This result asserts that the functor $\K_1(n, R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_1(n, k[x_1, \ldots x_n]) = \K_1(n, k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on an arbitrary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ over a field (see~\cite[Theorem~1.2]{St-poly}) and also generalized Abe's result to Dedekind domains of arithmetic type (see~\cite[Corollary~1.2]{St-Ded}).
+After the original Serre problem had been solved, numerous analogous questions drew the attention of specialists (see e.\,g.~\cite{Su77, Su82, Abe83, Tu83, Lam10, St-poly, St-Ded}). For example, A.~Suslin formulated and solved the so-called $\K_1$-analogue of Serre's problem. This result asserts that the functor $\K_1(n, R) = \mathrm{GL}_{n}(R)/\E_n(R)$ has the property $\K_1(n, k[x_1, \ldots x_n]) = \K_1(n, k) = k^\times$ for all fields $k$ and $n \geq 3$ see~\cite[Corollary~7.11]{Su77}. Suslin's results were subsequently generalized to $\K_1$-functors modeled on other linear groups (see the definition below). For example, for even-dimensional orthogonal groups the corresponding result was obtained by A.~Suslin and V. Kopeiko in~\cite{Su82}, while for more general types of Chevalley groups of rank $\geq 2$ this is a result of E.~Abe, see~\cite{Abe83}. Recently A.~Stavrova has obtained probably the most general results in this direction: she solved the analogue of Serre problem for the functor $\K_1^G$ modeled on an arbitrary isotropic reductive group scheme $G$ of isotropic rank $\geq 2$ over a field (see~\cite[Theorem~1.2]{St-poly}) and also generalized Abe's result to Dedekind domains (see~\cite[Corollary~1.2]{St-Ded}).
 
 Recall that to every irreducible root system $\Phi$ and a commutative ring $R$ one can associate two groups: the {\it simply-connected Chevalley group} $\GG(\Phi, R)$ (see e.\,g.~\cite[\S~3]{St71} or~\cite{VP}) and the {\it Steinberg group} $\St(\Phi, R)$ (see~\cref{sec:Steinberg-intro} for the definition). There is a well-defined homomorphism $\pi \colon \St(\Phi, R) \to \GG(\Phi, R)$ sending each generator $x_\alpha(\xi)$ to the elementary root unipotent $t_\alpha(\xi)$. The cokernel and the kernel of this homomorphism are denoted $\K_1(\Phi, R)$ and $\K_2(\Phi, R)$, respectively. The latter groups are functorial in $R$. The functors $\K_1(\Phi, -)$ and $\K_2(\Phi, -)$ are called {\it the $\mathrm{K}_1$ and $\mathrm{K_2}$-functors modeled on the Chevalley group $\GG(\Phi, -)$}, see~\cite{St78}.
 
@@ -313,10 +313,9 @@ Thus, we see that $S_n$ is a universal central extension of both $P_n$ and $\wid
 
 We have checked that both triples $(G_n, P_n, S_n)$ and $(\widetilde{G}_n, \widetilde{P}_n, S_n)$ satisfy the requirements~\ref{req:left-exact}--\ref{req:uce} for $n \geq 5$. In the sequel we use the notation $\KO_i(2n, R)$ as a shorthand for $\K_i^{G_n, P_n}(R)$. 
 
-Notice that the groups $\KO_2(2n, R)$ and $\K_2(\rD_n, R)$ are related via the exact sequence
-\[ \begin{tikzcd} 1 \arrow{r} & \K_2(\rD_n, R) \arrow{r} & \KO_2(2n, R) \arrow{r} & \mu_2(R) \arrow{r} & 1, \end{tikzcd} \]
-which is obtained from~\eqref{eq:Bass-ES} and the snake lemma (cf. also with~\cite[Corollary~4.3.5]{Ba74}).
-On the other hand, from~\cref{lem:lowerKgroups} it follows that $\KO_3(2n, R) \cong \mathrm{K}_3^{\widetilde{G}_n, \widetilde{P}_n}$.
+Notice that the groups $\KO_2(2n, R)$ and $\K_2(\rD_n, R)$ are related via the exact sequence of~\cite[Theorem~7.2.12]{HOM}:
+\[ \begin{tikzcd} 1 \arrow{r} & \K_2(\rD_n, R) \arrow{r} & \KO_2(2n, R) \arrow{r} & \mu_2(R) \arrow{r} & 1. \end{tikzcd} \]
+%which is obtained from~\eqref{eq:Bass-ES} and the snake lemma (cf. also with~\cite[Corollary~4.3.5]{Ba74}). On the other hand, from~\cref{lem:lowerKgroups} it follows that $\KO_3(2n, R) \cong \mathrm{K}_3^{\widetilde{G}_n, \widetilde{P}_n}$.
 
 We conclude this subsection with the following stability result (see~\cite[Theorem~9.4]{Pa89}).
 \begin{externaltheorem}[Panin] \label{Panin-stability}
@@ -632,7 +631,7 @@ Clearly, $Z_0(\alpha)$ (resp. $Z_+(\alpha)$) is a symmetric (resp. special) subs
    
 We denote by $Z_\alpha(A, M)$ the subgroup of $\overline{\St}(\Phi, A, M)$ generated by elements
  $x_{\beta}(m),\ \beta \in Z_+(\alpha)$ and $z_{\gamma}(m, \zeta),\ \gamma \in Z_0(\alpha),$ where $m \in M$, $\zeta \in A$ (see the beginning of~\cref{sec:elementary} for the definition of the elements $z_\gamma(m, \zeta)$ and the group $\overline{\St}(\Phi, A, M)$).
-It is not hard to see that \[Z_\alpha(A, M) = \Img\left(\overline{\St}(Z_0(\alpha), A, M) \to \overline{\St}(\Phi, A, M)\right) \rtimes U(Z_+(\alpha), M). \]
+It is not hard to see that \[Z_\alpha(A, M) = \Img\left(\overline{\St}(Z_0(\alpha), A, M) \to \overline{\St}(\Phi, A, M)\right) \ltimes U(Z_+(\alpha), M). \]
 In the above formula $U(Z_+(\alpha), M)$ denotes the subgroup defined before~\cref{thm:Stein}.
 It is clear, that $Z_\alpha(A, M)$ centralizes the root subgroup $X_\alpha(A)$ (cf.~\cite[984]{St71}).
 
