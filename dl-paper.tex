@@ -185,15 +185,16 @@ Recall that the classical Matsumoto theorem (see~\cite[Theorem~5.10]{Ma69}) allo
 Using the modern language of Milnor--Witt K-theory (see~\cite{Mo04}) it can be formulated as follows:
 \begin{equation*} \K_2(\Phi, k) = \left\{\begin{array}{ll} \K_2^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_2^\mathrm{M}(k) & \text{otherwise.}\end{array}\right. \end{equation*}
 In the following lemma we recall the computation of the group $\K_2(\Phi, R)$ in the case $R=k[X, X\inv]$.
-\begin{lemma}[Hurrelbrink--Morita--Rehmann]\label{K2-laurent-field} Let $\Phi$ be a reduced irreducible root system of type $\neq \rG_2$ and $k$ be an arbitrary field. Then there is a split exact sequence of abelian groups
+\begin{lemma}[Hurrelbrink--Morita--Rehmann]\label{K2-laurent-field} Let $\Phi$ be a reduced irreducible root system and $k$ be an arbitrary field. Then there is a split exact sequence of abelian groups
 \[\begin{tikzcd} 0 \arrow{r} & \K_2(\Phi, k) \arrow{r} & \K_2(\Phi, k[X, X^{-1}]) \arrow{r} & H(\Phi, k) \arrow{r} & 0, \end{tikzcd}\text{ in which}\]
-\[ H(\Phi, k) = \left\{\begin{array}{ll} \K_1^\mathrm{MW}(k)& \text{if $\Phi$ is symplectic,}\\ \K_1(k) \cong k^\times & \text{otherwise.}  \end{array}\right. \]  \end{lemma}
+The group $H(\Phi, k)$ admits the following description. One has $H(\Phi, k) \cong \K_1^\mathrm{M}(k) \cong k^\times$ if $\Phi$ is nonsymplectic. If $\Phi$ is symplectic and $\mathrm{char}(k)\neq 2$ then $H(\Phi, k) \cong \K_1^\mathrm{MW}(k)$. \end{lemma}
 \begin{proof} Let us first consider the case of nonsymplectic $\Phi$, in which one can find a long root $\alpha\in \Phi$ in such a way that there is a commutative diagram of abelian groups
 \[\begin{tikzcd}[column sep=5pc] k^\times \arrow{drr}[swap]{\{-, X\}} \arrow{r}{h}  & \K_2(\Phi, k[X, X^{-1}]) \arrow{r} & \K_2(\Phi, k(X)) \arrow{d}{\cong} \\
  & & \K_2^\mathrm{M}(k(X)), \end{tikzcd}\]
 in which $h = \{ -, X \}_{\alpha}$ and the vertical map is an isomorphism by Matsumoto's theorem.
 Notice that the diagonal map is split by the obvious residue homomorphism and therefore is injective. This, in turn, implies that $h$ is also injective.
-The assertion of the lemma now follows from~\cite[Satz~3]{Hur77} which asserts that for a nonsymplectic $\Phi$ one has $\K_2(\Phi, k[X, X\inv]) = \mathrm{Im}(h) \oplus \K_2(\Phi, k)$.
+For $\Phi \neq \rG_2$ the assertion of the lemma follows from~\cite[Satz~3]{Hur77} which asserts that for a nonsymplectic $\Phi\neq\rG_2$ one has $\K_2(\Phi, k[X, X\inv]) = \mathrm{Im}(h) \oplus \K_2(\Phi, k)$.
+To obtain the assertion in the case $\Phi = \rG_2$ repeat the proof of~\cite[Satz~3]{Hur77} using \cite[Corollary~6]{AM88} instead \cite[Korollar~4]{Hur77}.
 
 Consider now the case when $\Phi$ is symplectic. In this case the assertion of the lemma is just a reformulation of~\cite[Theorem~B]{MR91},
 which asserts that for $\ell \geq 1$ one has $\K_2(\rC_\ell, k[X, X\inv]) \cong \K_2(\rC_\ell, k) \oplus P(k)$, where
@@ -210,7 +211,7 @@ It is easy to verify that the map $[u, x] \mapsto (u, \langle\langle u \rangle\r
 in which the first two isomorphisms are obtained from~\eqref{GW-concrete} and~\cref{bass-ft} and the last one follows from~\cite[Lemma~4.1.1]{AF17} and Matsumoto's theorem.
 It remains to invoke the stability theorem~\cite[Theorem~9.4]{Pa89} to obtain the assertion in the unstable case. \end{rem}
 
-\begin{lemma} \label{field-injectivity} For $\Phi\neq\rG_2$ the homomorphism $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of the images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
+\begin{lemma} \label{field-injectivity} The homomorphism $\St(\Phi, k[X]) \to \St(\Phi, k[X, X^{-1}])$ is injective. Moreover, the intersection of the images of $\St(\Phi, k[X])$ and $\St(\Phi, k[X\inv])$ inside $\St(\Phi, k[X, X\inv])$ coincides with the image of $\St(\Phi, k)$. \end{lemma}
 \begin{proof} The first assertion follows from the commutative diagram
 \[\begin{tikzcd}  & \K_2(\Phi, k) \arrow{dl}[swap]{\cong} \arrow[dr, hookrightarrow] & \\ \K_2(\Phi, k[X]) \arrow{rr} & & \K_2(\Phi, k[X, X^{-1}]) \end{tikzcd} \]
 and the injectivity of its diagonal arrows. Indeed, the left arrow is an isomorphism by the Korollar of~\cite[Satz~1]{Re75} and the right arrow is split injective by~\cref{K2-laurent-field}.
